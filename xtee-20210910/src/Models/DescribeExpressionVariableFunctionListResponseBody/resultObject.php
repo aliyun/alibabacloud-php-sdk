@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeExpressionVariableFunctionListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -48,44 +48,52 @@ class resultObject extends Model
      */
     public $value;
     protected $_name = [
-        'description'  => 'description',
-        'key'          => 'key',
+        'description' => 'description',
+        'key' => 'key',
         'maxParamSize' => 'maxParamSize',
         'minParamSize' => 'minParamSize',
-        'paramTypes'   => 'paramTypes',
-        'redirect'     => 'redirect',
-        'returnTypes'  => 'returnTypes',
-        'value'        => 'value',
+        'paramTypes' => 'paramTypes',
+        'redirect' => 'redirect',
+        'returnTypes' => 'returnTypes',
+        'value' => 'value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
+
         if (null !== $this->maxParamSize) {
             $res['maxParamSize'] = $this->maxParamSize;
         }
+
         if (null !== $this->minParamSize) {
             $res['minParamSize'] = $this->minParamSize;
         }
+
         if (null !== $this->paramTypes) {
             $res['paramTypes'] = $this->paramTypes;
         }
+
         if (null !== $this->redirect) {
             $res['redirect'] = $this->redirect;
         }
+
         if (null !== $this->returnTypes) {
             $res['returnTypes'] = $this->returnTypes;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -93,35 +101,42 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
+
         if (isset($map['maxParamSize'])) {
             $model->maxParamSize = $map['maxParamSize'];
         }
+
         if (isset($map['minParamSize'])) {
             $model->minParamSize = $map['minParamSize'];
         }
+
         if (isset($map['paramTypes'])) {
             $model->paramTypes = $map['paramTypes'];
         }
+
         if (isset($map['redirect'])) {
             $model->redirect = $map['redirect'];
         }
+
         if (isset($map['returnTypes'])) {
             $model->returnTypes = $map['returnTypes'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

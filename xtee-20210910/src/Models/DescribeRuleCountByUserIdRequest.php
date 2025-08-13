@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRuleCountByUserIdRequest extends Model
 {
@@ -19,30 +19,31 @@ class DescribeRuleCountByUserIdRequest extends Model
     public $createType;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regId;
     protected $_name = [
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
         'createType' => 'createType',
-        'regId'      => 'regId',
+        'regId' => 'regId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->createType) {
             $res['createType'] = $this->createType;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
@@ -50,20 +51,22 @@ class DescribeRuleCountByUserIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRuleCountByUserIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['createType'])) {
             $model->createType = $map['createType'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }

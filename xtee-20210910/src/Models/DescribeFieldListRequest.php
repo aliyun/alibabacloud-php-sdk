@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeFieldListRequest extends Model
 {
@@ -24,34 +24,36 @@ class DescribeFieldListRequest extends Model
     public $inputs;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regId;
     protected $_name = [
-        'lang'      => 'Lang',
+        'lang' => 'Lang',
         'condition' => 'condition',
-        'inputs'    => 'inputs',
-        'regId'     => 'regId',
+        'inputs' => 'inputs',
+        'regId' => 'regId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->condition) {
             $res['condition'] = $this->condition;
         }
+
         if (null !== $this->inputs) {
             $res['inputs'] = $this->inputs;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
@@ -59,23 +61,26 @@ class DescribeFieldListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeFieldListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['condition'])) {
             $model->condition = $map['condition'];
         }
+
         if (isset($map['inputs'])) {
             $model->inputs = $map['inputs'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }

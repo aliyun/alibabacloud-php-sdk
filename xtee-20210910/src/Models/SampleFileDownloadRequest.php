@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SampleFileDownloadRequest extends Model
 {
@@ -23,24 +23,27 @@ class SampleFileDownloadRequest extends Model
      */
     public $tab;
     protected $_name = [
-        'lang'  => 'Lang',
+        'lang' => 'Lang',
         'regId' => 'RegId',
-        'tab'   => 'Tab',
+        'tab' => 'Tab',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->regId) {
             $res['RegId'] = $this->regId;
         }
+
         if (null !== $this->tab) {
             $res['Tab'] = $this->tab;
         }
@@ -48,20 +51,22 @@ class SampleFileDownloadRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SampleFileDownloadRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['RegId'])) {
             $model->regId = $map['RegId'];
         }
+
         if (isset($map['Tab'])) {
             $model->tab = $map['Tab'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableDetailResponseBody\resultObject\baseInfo;
-use AlibabaCloud\Tea\Model;
 
 class resultObject extends Model
 {
@@ -19,23 +19,27 @@ class resultObject extends Model
 
     public function validate()
     {
+        if (null !== $this->baseInfo) {
+            $this->baseInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseInfo) {
-            $res['baseInfo'] = null !== $this->baseInfo ? $this->baseInfo->toMap() : null;
+            $res['baseInfo'] = null !== $this->baseInfo ? $this->baseInfo->toArray($noStream) : $this->baseInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

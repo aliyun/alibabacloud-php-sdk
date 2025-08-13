@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyCustVariableResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -24,23 +24,26 @@ class resultObject extends Model
     public $success;
     protected $_name = [
         'failType' => 'failType',
-        'message'  => 'message',
-        'success'  => 'success',
+        'message' => 'message',
+        'success' => 'success',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failType) {
             $res['failType'] = $this->failType;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -48,20 +51,22 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['failType'])) {
             $model->failType = $map['failType'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeOperatorListBySceneResponseBody\resultObject\operators;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rightVariables extends Model
 {
@@ -23,24 +23,27 @@ class rightVariables extends Model
      */
     public $fieldValue;
     protected $_name = [
-        'fieldName'  => 'fieldName',
-        'fieldType'  => 'fieldType',
+        'fieldName' => 'fieldName',
+        'fieldType' => 'fieldType',
         'fieldValue' => 'fieldValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldName) {
             $res['fieldName'] = $this->fieldName;
         }
+
         if (null !== $this->fieldType) {
             $res['fieldType'] = $this->fieldType;
         }
+
         if (null !== $this->fieldValue) {
             $res['fieldValue'] = $this->fieldValue;
         }
@@ -48,20 +51,22 @@ class rightVariables extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rightVariables
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fieldName'])) {
             $model->fieldName = $map['fieldName'];
         }
+
         if (isset($map['fieldType'])) {
             $model->fieldType = $map['fieldType'];
         }
+
         if (isset($map['fieldValue'])) {
             $model->fieldValue = $map['fieldValue'];
         }

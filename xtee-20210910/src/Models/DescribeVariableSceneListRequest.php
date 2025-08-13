@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVariableSceneListRequest extends Model
 {
@@ -14,8 +14,6 @@ class DescribeVariableSceneListRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $bizType;
@@ -36,8 +34,6 @@ class DescribeVariableSceneListRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
-     *
      * @var bool
      */
     public $paging;
@@ -47,40 +43,47 @@ class DescribeVariableSceneListRequest extends Model
      */
     public $regId;
     protected $_name = [
-        'lang'        => 'Lang',
-        'bizType'     => 'bizType',
-        'configKey'   => 'configKey',
+        'lang' => 'Lang',
+        'bizType' => 'bizType',
+        'configKey' => 'configKey',
         'currentPage' => 'currentPage',
-        'pageSize'    => 'pageSize',
-        'paging'      => 'paging',
-        'regId'       => 'regId',
+        'pageSize' => 'pageSize',
+        'paging' => 'paging',
+        'regId' => 'regId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->bizType) {
             $res['bizType'] = $this->bizType;
         }
+
         if (null !== $this->configKey) {
             $res['configKey'] = $this->configKey;
         }
+
         if (null !== $this->currentPage) {
             $res['currentPage'] = $this->currentPage;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->paging) {
             $res['paging'] = $this->paging;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
@@ -88,32 +91,38 @@ class DescribeVariableSceneListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVariableSceneListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['bizType'])) {
             $model->bizType = $map['bizType'];
         }
+
         if (isset($map['configKey'])) {
             $model->configKey = $map['configKey'];
         }
+
         if (isset($map['currentPage'])) {
             $model->currentPage = $map['currentPage'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['paging'])) {
             $model->paging = $map['paging'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }

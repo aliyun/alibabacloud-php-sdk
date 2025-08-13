@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSampleBatchRequest extends Model
 {
@@ -33,32 +33,37 @@ class UpdateSampleBatchRequest extends Model
      */
     public $versions;
     protected $_name = [
-        'lang'     => 'Lang',
-        'ids'      => 'ids',
-        'regId'    => 'regId',
-        'tags'     => 'tags',
+        'lang' => 'Lang',
+        'ids' => 'ids',
+        'regId' => 'regId',
+        'tags' => 'tags',
         'versions' => 'versions',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->ids) {
             $res['ids'] = $this->ids;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->tags) {
             $res['tags'] = $this->tags;
         }
+
         if (null !== $this->versions) {
             $res['versions'] = $this->versions;
         }
@@ -66,26 +71,30 @@ class UpdateSampleBatchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSampleBatchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['ids'])) {
             $model->ids = $map['ids'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['tags'])) {
             $model->tags = $map['tags'];
         }
+
         if (isset($map['versions'])) {
             $model->versions = $map['versions'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyRuleStatusResponseBody extends Model
 {
@@ -18,20 +18,22 @@ class ModifyRuleStatusResponseBody extends Model
      */
     public $resultObject;
     protected $_name = [
-        'requestId'    => 'requestId',
+        'requestId' => 'requestId',
         'resultObject' => 'resultObject',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->resultObject) {
             $res['resultObject'] = $this->resultObject;
         }
@@ -39,17 +41,18 @@ class ModifyRuleStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyRuleStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['resultObject'])) {
             $model->resultObject = $map['resultObject'];
         }

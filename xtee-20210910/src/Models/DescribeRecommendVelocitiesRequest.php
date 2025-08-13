@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRecommendVelocitiesRequest extends Model
 {
@@ -28,28 +28,32 @@ class DescribeRecommendVelocitiesRequest extends Model
      */
     public $type;
     protected $_name = [
-        'lang'  => 'Lang',
-        'code'  => 'code',
+        'lang' => 'Lang',
+        'code' => 'code',
         'regId' => 'regId',
-        'type'  => 'type',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -57,23 +61,26 @@ class DescribeRecommendVelocitiesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRecommendVelocitiesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

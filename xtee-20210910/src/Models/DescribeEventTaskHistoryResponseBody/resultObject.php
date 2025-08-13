@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeEventTaskHistoryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -28,28 +28,32 @@ class resultObject extends Model
      */
     public $url;
     protected $_name = [
-        'taskCode'   => 'taskCode',
-        'taskName'   => 'taskName',
+        'taskCode' => 'taskCode',
+        'taskName' => 'taskName',
         'taskStatus' => 'taskStatus',
-        'url'        => 'url',
+        'url' => 'url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskCode) {
             $res['taskCode'] = $this->taskCode;
         }
+
         if (null !== $this->taskName) {
             $res['taskName'] = $this->taskName;
         }
+
         if (null !== $this->taskStatus) {
             $res['taskStatus'] = $this->taskStatus;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -57,23 +61,26 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['taskCode'])) {
             $model->taskCode = $map['taskCode'];
         }
+
         if (isset($map['taskName'])) {
             $model->taskName = $map['taskName'];
         }
+
         if (isset($map['taskStatus'])) {
             $model->taskStatus = $map['taskStatus'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeEventVariableTemplateBindResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeEventVariableTemplateBindResponseBody\resultObject\chargeVariables;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeEventVariableTemplateBindResponseBody\resultObject\freeVariables;
-use AlibabaCloud\Tea\Model;
 
 class resultObject extends Model
 {
@@ -31,39 +31,51 @@ class resultObject extends Model
     public $totalCount;
     protected $_name = [
         'chargeVariables' => 'chargeVariables',
-        'freeVariables'   => 'freeVariables',
-        'templateCode'    => 'templateCode',
-        'totalCount'      => 'totalCount',
+        'freeVariables' => 'freeVariables',
+        'templateCode' => 'templateCode',
+        'totalCount' => 'totalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->chargeVariables)) {
+            Model::validateArray($this->chargeVariables);
+        }
+        if (\is_array($this->freeVariables)) {
+            Model::validateArray($this->freeVariables);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chargeVariables) {
-            $res['chargeVariables'] = [];
-            if (null !== $this->chargeVariables && \is_array($this->chargeVariables)) {
-                $n = 0;
-                foreach ($this->chargeVariables as $item) {
-                    $res['chargeVariables'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->chargeVariables)) {
+                $res['chargeVariables'] = [];
+                $n1 = 0;
+                foreach ($this->chargeVariables as $item1) {
+                    $res['chargeVariables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->freeVariables) {
-            $res['freeVariables'] = [];
-            if (null !== $this->freeVariables && \is_array($this->freeVariables)) {
-                $n = 0;
-                foreach ($this->freeVariables as $item) {
-                    $res['freeVariables'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->freeVariables)) {
+                $res['freeVariables'] = [];
+                $n1 = 0;
+                foreach ($this->freeVariables as $item1) {
+                    $res['freeVariables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->templateCode) {
             $res['templateCode'] = $this->templateCode;
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -71,35 +83,40 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['chargeVariables'])) {
             if (!empty($map['chargeVariables'])) {
                 $model->chargeVariables = [];
-                $n                      = 0;
-                foreach ($map['chargeVariables'] as $item) {
-                    $model->chargeVariables[$n++] = null !== $item ? chargeVariables::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['chargeVariables'] as $item1) {
+                    $model->chargeVariables[$n1] = chargeVariables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['freeVariables'])) {
             if (!empty($map['freeVariables'])) {
                 $model->freeVariables = [];
-                $n                    = 0;
-                foreach ($map['freeVariables'] as $item) {
-                    $model->freeVariables[$n++] = null !== $item ? freeVariables::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['freeVariables'] as $item1) {
+                    $model->freeVariables[$n1] = freeVariables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['templateCode'])) {
             $model->templateCode = $map['templateCode'];
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

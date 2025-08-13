@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeEventResultBarChartResponseBody\resultObject\series;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -18,20 +18,22 @@ class data extends Model
      */
     public $scale;
     protected $_name = [
-        'num'   => 'num',
+        'num' => 'num',
         'scale' => 'scale',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->num) {
             $res['num'] = $this->num;
         }
+
         if (null !== $this->scale) {
             $res['scale'] = $this->scale;
         }
@@ -39,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['num'])) {
             $model->num = $map['num'];
         }
+
         if (isset($map['scale'])) {
             $model->scale = $map['scale'];
         }

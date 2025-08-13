@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartOrStopByPassShuntEventResponseBody extends Model
 {
@@ -38,36 +38,42 @@ class StartOrStopByPassShuntEventResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'code',
+        'code' => 'code',
         'httpStatusCode' => 'httpStatusCode',
-        'message'        => 'message',
-        'requestId'      => 'requestId',
-        'resultObject'   => 'resultObject',
-        'success'        => 'success',
+        'message' => 'message',
+        'requestId' => 'requestId',
+        'resultObject' => 'resultObject',
+        'success' => 'success',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['httpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->resultObject) {
             $res['resultObject'] = $this->resultObject;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -75,29 +81,34 @@ class StartOrStopByPassShuntEventResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartOrStopByPassShuntEventResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['httpStatusCode'])) {
             $model->httpStatusCode = $map['httpStatusCode'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['resultObject'])) {
             $model->resultObject = $map['resultObject'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

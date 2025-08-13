@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyExpressionVariableRequest extends Model
 {
@@ -14,8 +14,6 @@ class ModifyExpressionVariableRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $dataVersion;
@@ -26,22 +24,16 @@ class ModifyExpressionVariableRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $eventCode;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $expression;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $expressionTitle;
@@ -52,94 +44,106 @@ class ModifyExpressionVariableRequest extends Model
     public $expressionVariable;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description This parameter is required.
-     *
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var string
      */
     public $outlier;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $outputs;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $title;
     protected $_name = [
-        'lang'               => 'Lang',
-        'dataVersion'        => 'dataVersion',
-        'description'        => 'description',
-        'eventCode'          => 'eventCode',
-        'expression'         => 'expression',
-        'expressionTitle'    => 'expressionTitle',
+        'lang' => 'Lang',
+        'dataVersion' => 'dataVersion',
+        'description' => 'description',
+        'eventCode' => 'eventCode',
+        'expression' => 'expression',
+        'expressionTitle' => 'expressionTitle',
         'expressionVariable' => 'expressionVariable',
-        'id'                 => 'id',
-        'outlier'            => 'outlier',
-        'outputs'            => 'outputs',
-        'regId'              => 'regId',
-        'title'              => 'title',
+        'id' => 'id',
+        'name' => 'name',
+        'outlier' => 'outlier',
+        'outputs' => 'outputs',
+        'regId' => 'regId',
+        'title' => 'title',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->dataVersion) {
             $res['dataVersion'] = $this->dataVersion;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->eventCode) {
             $res['eventCode'] = $this->eventCode;
         }
+
         if (null !== $this->expression) {
             $res['expression'] = $this->expression;
         }
+
         if (null !== $this->expressionTitle) {
             $res['expressionTitle'] = $this->expressionTitle;
         }
+
         if (null !== $this->expressionVariable) {
             $res['expressionVariable'] = $this->expressionVariable;
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+
         if (null !== $this->outlier) {
             $res['outlier'] = $this->outlier;
         }
+
         if (null !== $this->outputs) {
             $res['outputs'] = $this->outputs;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -147,47 +151,62 @@ class ModifyExpressionVariableRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyExpressionVariableRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['dataVersion'])) {
             $model->dataVersion = $map['dataVersion'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['eventCode'])) {
             $model->eventCode = $map['eventCode'];
         }
+
         if (isset($map['expression'])) {
             $model->expression = $map['expression'];
         }
+
         if (isset($map['expressionTitle'])) {
             $model->expressionTitle = $map['expressionTitle'];
         }
+
         if (isset($map['expressionVariable'])) {
             $model->expressionVariable = $map['expressionVariable'];
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+
         if (isset($map['outlier'])) {
             $model->outlier = $map['outlier'];
         }
+
         if (isset($map['outputs'])) {
             $model->outputs = $map['outputs'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }

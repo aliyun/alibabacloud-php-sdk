@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeBasicSearchPageListResponseBody\resultObject;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class header extends Model
 {
@@ -23,24 +23,27 @@ class header extends Model
      */
     public $isDefault;
     protected $_name = [
-        'fieldName'  => 'fieldName',
+        'fieldName' => 'fieldName',
         'fieldTitle' => 'fieldTitle',
-        'isDefault'  => 'isDefault',
+        'isDefault' => 'isDefault',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldName) {
             $res['fieldName'] = $this->fieldName;
         }
+
         if (null !== $this->fieldTitle) {
             $res['fieldTitle'] = $this->fieldTitle;
         }
+
         if (null !== $this->isDefault) {
             $res['isDefault'] = $this->isDefault;
         }
@@ -48,20 +51,22 @@ class header extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return header
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fieldName'])) {
             $model->fieldName = $map['fieldName'];
         }
+
         if (isset($map['fieldTitle'])) {
             $model->fieldTitle = $map['fieldTitle'];
         }
+
         if (isset($map['isDefault'])) {
             $model->isDefault = $map['isDefault'];
         }

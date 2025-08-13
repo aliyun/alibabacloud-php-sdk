@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCustVariableConfigListRequest extends Model
 {
@@ -14,8 +14,6 @@ class DescribeCustVariableConfigListRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $bizType;
@@ -30,28 +28,32 @@ class DescribeCustVariableConfigListRequest extends Model
      */
     public $timeType;
     protected $_name = [
-        'lang'     => 'Lang',
-        'bizType'  => 'bizType',
-        'regId'    => 'regId',
+        'lang' => 'Lang',
+        'bizType' => 'bizType',
+        'regId' => 'regId',
         'timeType' => 'timeType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->bizType) {
             $res['bizType'] = $this->bizType;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->timeType) {
             $res['timeType'] = $this->timeType;
         }
@@ -59,23 +61,26 @@ class DescribeCustVariableConfigListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCustVariableConfigListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['bizType'])) {
             $model->bizType = $map['bizType'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['timeType'])) {
             $model->timeType = $map['timeType'];
         }

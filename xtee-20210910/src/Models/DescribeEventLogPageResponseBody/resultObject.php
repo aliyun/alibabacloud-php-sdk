@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeEventLogPageResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -64,55 +64,66 @@ class resultObject extends Model
     public $umid;
     protected $_name = [
         'accountId' => 'accountId',
-        'email'     => 'email',
-        'ip'        => 'ip',
-        'mobile'    => 'mobile',
-        'nickName'  => 'nickName',
+        'email' => 'email',
+        'ip' => 'ip',
+        'mobile' => 'mobile',
+        'nickName' => 'nickName',
         'requestId' => 'requestId',
-        'score'     => 'score',
-        'service'   => 'service',
-        'tags'      => 'tags',
+        'score' => 'score',
+        'service' => 'service',
+        'tags' => 'tags',
         'timestamp' => 'timestamp',
-        'umid'      => 'umid',
+        'umid' => 'umid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['accountId'] = $this->accountId;
         }
+
         if (null !== $this->email) {
             $res['email'] = $this->email;
         }
+
         if (null !== $this->ip) {
             $res['ip'] = $this->ip;
         }
+
         if (null !== $this->mobile) {
             $res['mobile'] = $this->mobile;
         }
+
         if (null !== $this->nickName) {
             $res['nickName'] = $this->nickName;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->score) {
             $res['score'] = $this->score;
         }
+
         if (null !== $this->service) {
             $res['service'] = $this->service;
         }
+
         if (null !== $this->tags) {
             $res['tags'] = $this->tags;
         }
+
         if (null !== $this->timestamp) {
             $res['timestamp'] = $this->timestamp;
         }
+
         if (null !== $this->umid) {
             $res['umid'] = $this->umid;
         }
@@ -120,44 +131,54 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
         }
+
         if (isset($map['email'])) {
             $model->email = $map['email'];
         }
+
         if (isset($map['ip'])) {
             $model->ip = $map['ip'];
         }
+
         if (isset($map['mobile'])) {
             $model->mobile = $map['mobile'];
         }
+
         if (isset($map['nickName'])) {
             $model->nickName = $map['nickName'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['score'])) {
             $model->score = $map['score'];
         }
+
         if (isset($map['service'])) {
             $model->service = $map['service'];
         }
+
         if (isset($map['tags'])) {
             $model->tags = $map['tags'];
         }
+
         if (isset($map['timestamp'])) {
             $model->timestamp = $map['timestamp'];
         }
+
         if (isset($map['umid'])) {
             $model->umid = $map['umid'];
         }

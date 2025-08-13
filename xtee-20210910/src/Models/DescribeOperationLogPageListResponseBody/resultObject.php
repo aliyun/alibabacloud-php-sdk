@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeOperationLogPageListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -43,40 +43,47 @@ class resultObject extends Model
      */
     public $userName;
     protected $_name = [
-        'clientIp'         => 'clientIp',
-        'gmtCreate'        => 'gmtCreate',
-        'newContent'       => 'newContent',
-        'oldContent'       => 'oldContent',
+        'clientIp' => 'clientIp',
+        'gmtCreate' => 'gmtCreate',
+        'newContent' => 'newContent',
+        'oldContent' => 'oldContent',
         'operationSummary' => 'operationSummary',
-        'operationType'    => 'operationType',
-        'userName'         => 'userName',
+        'operationType' => 'operationType',
+        'userName' => 'userName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientIp) {
             $res['clientIp'] = $this->clientIp;
         }
+
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->newContent) {
             $res['newContent'] = $this->newContent;
         }
+
         if (null !== $this->oldContent) {
             $res['oldContent'] = $this->oldContent;
         }
+
         if (null !== $this->operationSummary) {
             $res['operationSummary'] = $this->operationSummary;
         }
+
         if (null !== $this->operationType) {
             $res['operationType'] = $this->operationType;
         }
+
         if (null !== $this->userName) {
             $res['userName'] = $this->userName;
         }
@@ -84,32 +91,38 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['clientIp'])) {
             $model->clientIp = $map['clientIp'];
         }
+
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
         }
+
         if (isset($map['newContent'])) {
             $model->newContent = $map['newContent'];
         }
+
         if (isset($map['oldContent'])) {
             $model->oldContent = $map['oldContent'];
         }
+
         if (isset($map['operationSummary'])) {
             $model->operationSummary = $map['operationSummary'];
         }
+
         if (isset($map['operationType'])) {
             $model->operationType = $map['operationType'];
         }
+
         if (isset($map['userName'])) {
             $model->userName = $map['userName'];
         }

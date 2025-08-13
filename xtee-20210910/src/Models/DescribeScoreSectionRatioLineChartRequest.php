@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeScoreSectionRatioLineChartRequest extends Model
 {
@@ -14,8 +14,6 @@ class DescribeScoreSectionRatioLineChartRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $beginTime;
@@ -26,8 +24,6 @@ class DescribeScoreSectionRatioLineChartRequest extends Model
     public $byPassEventCodes;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $endTime;
@@ -47,40 +43,47 @@ class DescribeScoreSectionRatioLineChartRequest extends Model
      */
     public $shuntEventCodes;
     protected $_name = [
-        'lang'             => 'Lang',
-        'beginTime'        => 'beginTime',
+        'lang' => 'Lang',
+        'beginTime' => 'beginTime',
         'byPassEventCodes' => 'byPassEventCodes',
-        'endTime'          => 'endTime',
-        'mainEventCodes'   => 'mainEventCodes',
-        'regId'            => 'regId',
-        'shuntEventCodes'  => 'shuntEventCodes',
+        'endTime' => 'endTime',
+        'mainEventCodes' => 'mainEventCodes',
+        'regId' => 'regId',
+        'shuntEventCodes' => 'shuntEventCodes',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->beginTime) {
             $res['beginTime'] = $this->beginTime;
         }
+
         if (null !== $this->byPassEventCodes) {
             $res['byPassEventCodes'] = $this->byPassEventCodes;
         }
+
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->mainEventCodes) {
             $res['mainEventCodes'] = $this->mainEventCodes;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->shuntEventCodes) {
             $res['shuntEventCodes'] = $this->shuntEventCodes;
         }
@@ -88,32 +91,38 @@ class DescribeScoreSectionRatioLineChartRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeScoreSectionRatioLineChartRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['beginTime'])) {
             $model->beginTime = $map['beginTime'];
         }
+
         if (isset($map['byPassEventCodes'])) {
             $model->byPassEventCodes = $map['byPassEventCodes'];
         }
+
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['mainEventCodes'])) {
             $model->mainEventCodes = $map['mainEventCodes'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['shuntEventCodes'])) {
             $model->shuntEventCodes = $map['shuntEventCodes'];
         }

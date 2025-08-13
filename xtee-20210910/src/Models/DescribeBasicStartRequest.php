@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeBasicStartRequest extends Model
 {
@@ -33,32 +33,37 @@ class DescribeBasicStartRequest extends Model
      */
     public $startDs;
     protected $_name = [
-        'appKey'  => 'appKey',
-        'endDs'   => 'endDs',
-        'regId'   => 'regId',
+        'appKey' => 'appKey',
+        'endDs' => 'endDs',
+        'regId' => 'regId',
         'service' => 'service',
         'startDs' => 'startDs',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKey) {
             $res['appKey'] = $this->appKey;
         }
+
         if (null !== $this->endDs) {
             $res['endDs'] = $this->endDs;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->service) {
             $res['service'] = $this->service;
         }
+
         if (null !== $this->startDs) {
             $res['startDs'] = $this->startDs;
         }
@@ -66,26 +71,30 @@ class DescribeBasicStartRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBasicStartRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appKey'])) {
             $model->appKey = $map['appKey'];
         }
+
         if (isset($map['endDs'])) {
             $model->endDs = $map['endDs'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['service'])) {
             $model->service = $map['service'];
         }
+
         if (isset($map['startDs'])) {
             $model->startDs = $map['startDs'];
         }

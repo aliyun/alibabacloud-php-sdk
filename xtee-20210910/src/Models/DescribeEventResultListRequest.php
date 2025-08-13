@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeEventResultListRequest extends Model
 {
@@ -14,8 +14,6 @@ class DescribeEventResultListRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $beginTime;
@@ -26,8 +24,6 @@ class DescribeEventResultListRequest extends Model
     public $currentPage;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $endTime;
@@ -42,36 +38,42 @@ class DescribeEventResultListRequest extends Model
      */
     public $regId;
     protected $_name = [
-        'lang'        => 'Lang',
-        'beginTime'   => 'beginTime',
+        'lang' => 'Lang',
+        'beginTime' => 'beginTime',
         'currentPage' => 'currentPage',
-        'endTime'     => 'endTime',
-        'pageSize'    => 'pageSize',
-        'regId'       => 'regId',
+        'endTime' => 'endTime',
+        'pageSize' => 'pageSize',
+        'regId' => 'regId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->beginTime) {
             $res['beginTime'] = $this->beginTime;
         }
+
         if (null !== $this->currentPage) {
             $res['currentPage'] = $this->currentPage;
         }
+
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
@@ -79,29 +81,34 @@ class DescribeEventResultListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEventResultListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['beginTime'])) {
             $model->beginTime = $map['beginTime'];
         }
+
         if (isset($map['currentPage'])) {
             $model->currentPage = $map['currentPage'];
         }
+
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }

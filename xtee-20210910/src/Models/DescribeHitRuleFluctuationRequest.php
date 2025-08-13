@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeHitRuleFluctuationRequest extends Model
 {
@@ -28,28 +28,32 @@ class DescribeHitRuleFluctuationRequest extends Model
      */
     public $ruleStatus;
     protected $_name = [
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
         'eventCodes' => 'eventCodes',
-        'regId'      => 'regId',
+        'regId' => 'regId',
         'ruleStatus' => 'ruleStatus',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->eventCodes) {
             $res['eventCodes'] = $this->eventCodes;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->ruleStatus) {
             $res['ruleStatus'] = $this->ruleStatus;
         }
@@ -57,23 +61,26 @@ class DescribeHitRuleFluctuationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHitRuleFluctuationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['eventCodes'])) {
             $model->eventCodes = $map['eventCodes'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['ruleStatus'])) {
             $model->ruleStatus = $map['ruleStatus'];
         }

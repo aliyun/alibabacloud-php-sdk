@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRuleSnapshotRequest extends Model
 {
@@ -28,28 +28,32 @@ class DescribeRuleSnapshotRequest extends Model
      */
     public $snapshotVersion;
     protected $_name = [
-        'lang'            => 'Lang',
-        'regId'           => 'regId',
-        'ruleId'          => 'ruleId',
+        'lang' => 'Lang',
+        'regId' => 'regId',
+        'ruleId' => 'ruleId',
         'snapshotVersion' => 'snapshotVersion',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->ruleId) {
             $res['ruleId'] = $this->ruleId;
         }
+
         if (null !== $this->snapshotVersion) {
             $res['snapshotVersion'] = $this->snapshotVersion;
         }
@@ -57,23 +61,26 @@ class DescribeRuleSnapshotRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRuleSnapshotRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['ruleId'])) {
             $model->ruleId = $map['ruleId'];
         }
+
         if (isset($map['snapshotVersion'])) {
             $model->snapshotVersion = $map['snapshotVersion'];
         }

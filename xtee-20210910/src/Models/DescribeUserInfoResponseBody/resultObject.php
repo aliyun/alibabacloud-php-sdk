@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeUserInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -29,27 +29,31 @@ class resultObject extends Model
     public $userName;
     protected $_name = [
         'clientIp' => 'clientIp',
-        'subId'    => 'subId',
-        'userId'   => 'userId',
+        'subId' => 'subId',
+        'userId' => 'userId',
         'userName' => 'userName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientIp) {
             $res['clientIp'] = $this->clientIp;
         }
+
         if (null !== $this->subId) {
             $res['subId'] = $this->subId;
         }
+
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
+
         if (null !== $this->userName) {
             $res['userName'] = $this->userName;
         }
@@ -57,23 +61,26 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['clientIp'])) {
             $model->clientIp = $map['clientIp'];
         }
+
         if (isset($map['subId'])) {
             $model->subId = $map['subId'];
         }
+
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }
+
         if (isset($map['userName'])) {
             $model->userName = $map['userName'];
         }

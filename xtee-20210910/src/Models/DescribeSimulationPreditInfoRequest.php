@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSimulationPreditInfoRequest extends Model
 {
@@ -14,8 +14,6 @@ class DescribeSimulationPreditInfoRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $eventCode;
@@ -26,34 +24,36 @@ class DescribeSimulationPreditInfoRequest extends Model
     public $regId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $rulesStr;
     protected $_name = [
-        'lang'      => 'Lang',
+        'lang' => 'Lang',
         'eventCode' => 'eventCode',
-        'regId'     => 'regId',
-        'rulesStr'  => 'rulesStr',
+        'regId' => 'regId',
+        'rulesStr' => 'rulesStr',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->eventCode) {
             $res['eventCode'] = $this->eventCode;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->rulesStr) {
             $res['rulesStr'] = $this->rulesStr;
         }
@@ -61,23 +61,26 @@ class DescribeSimulationPreditInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSimulationPreditInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['eventCode'])) {
             $model->eventCode = $map['eventCode'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['rulesStr'])) {
             $model->rulesStr = $map['rulesStr'];
         }

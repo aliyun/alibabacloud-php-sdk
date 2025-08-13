@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeExcuteNumRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $code;
@@ -40,36 +38,42 @@ class DescribeExcuteNumRequest extends Model
      */
     public $startDate;
     protected $_name = [
-        'code'      => 'Code',
-        'degree'    => 'Degree',
-        'endDate'   => 'EndDate',
-        'lang'      => 'Lang',
-        'sourceIp'  => 'SourceIp',
+        'code' => 'Code',
+        'degree' => 'Degree',
+        'endDate' => 'EndDate',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
         'startDate' => 'StartDate',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->degree) {
             $res['Degree'] = $this->degree;
         }
+
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
@@ -77,29 +81,34 @@ class DescribeExcuteNumRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeExcuteNumRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Degree'])) {
             $model->degree = $map['Degree'];
         }
+
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeAuthScenePageListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -35,30 +35,35 @@ class resultObject extends Model
     protected $_name = [
         'commonRuleCount' => 'commonRuleCount',
         'customRuleCount' => 'customRuleCount',
-        'eventCode'       => 'eventCode',
-        'sceneName'       => 'sceneName',
-        'serverName'      => 'serverName',
+        'eventCode' => 'eventCode',
+        'sceneName' => 'sceneName',
+        'serverName' => 'serverName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commonRuleCount) {
             $res['commonRuleCount'] = $this->commonRuleCount;
         }
+
         if (null !== $this->customRuleCount) {
             $res['customRuleCount'] = $this->customRuleCount;
         }
+
         if (null !== $this->eventCode) {
             $res['eventCode'] = $this->eventCode;
         }
+
         if (null !== $this->sceneName) {
             $res['sceneName'] = $this->sceneName;
         }
+
         if (null !== $this->serverName) {
             $res['serverName'] = $this->serverName;
         }
@@ -66,26 +71,30 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['commonRuleCount'])) {
             $model->commonRuleCount = $map['commonRuleCount'];
         }
+
         if (isset($map['customRuleCount'])) {
             $model->customRuleCount = $map['customRuleCount'];
         }
+
         if (isset($map['eventCode'])) {
             $model->eventCode = $map['eventCode'];
         }
+
         if (isset($map['sceneName'])) {
             $model->sceneName = $map['sceneName'];
         }
+
         if (isset($map['serverName'])) {
             $model->serverName = $map['serverName'];
         }

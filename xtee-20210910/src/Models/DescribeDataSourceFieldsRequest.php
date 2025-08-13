@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDataSourceFieldsRequest extends Model
 {
@@ -14,37 +14,36 @@ class DescribeDataSourceFieldsRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $dataSourceCode;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regId;
     protected $_name = [
-        'lang'           => 'Lang',
+        'lang' => 'Lang',
         'dataSourceCode' => 'dataSourceCode',
-        'regId'          => 'regId',
+        'regId' => 'regId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->dataSourceCode) {
             $res['dataSourceCode'] = $this->dataSourceCode;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
@@ -52,20 +51,22 @@ class DescribeDataSourceFieldsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDataSourceFieldsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['dataSourceCode'])) {
             $model->dataSourceCode = $map['dataSourceCode'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }

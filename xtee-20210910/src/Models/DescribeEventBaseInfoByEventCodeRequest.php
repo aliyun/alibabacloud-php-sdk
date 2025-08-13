@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeEventBaseInfoByEventCodeRequest extends Model
 {
@@ -28,28 +28,32 @@ class DescribeEventBaseInfoByEventCodeRequest extends Model
      */
     public $regId;
     protected $_name = [
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
         'createType' => 'createType',
-        'eventCode'  => 'eventCode',
-        'regId'      => 'regId',
+        'eventCode' => 'eventCode',
+        'regId' => 'regId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->createType) {
             $res['createType'] = $this->createType;
         }
+
         if (null !== $this->eventCode) {
             $res['eventCode'] = $this->eventCode;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
@@ -57,23 +61,26 @@ class DescribeEventBaseInfoByEventCodeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEventBaseInfoByEventCodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['createType'])) {
             $model->createType = $map['createType'];
         }
+
         if (isset($map['eventCode'])) {
             $model->eventCode = $map['eventCode'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }

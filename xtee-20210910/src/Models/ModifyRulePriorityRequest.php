@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyRulePriorityRequest extends Model
 {
@@ -33,32 +33,37 @@ class ModifyRulePriorityRequest extends Model
      */
     public $ruleId;
     protected $_name = [
-        'lang'          => 'Lang',
+        'lang' => 'Lang',
         'consoleRuleId' => 'consoleRuleId',
-        'priority'      => 'priority',
-        'regId'         => 'regId',
-        'ruleId'        => 'ruleId',
+        'priority' => 'priority',
+        'regId' => 'regId',
+        'ruleId' => 'ruleId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->consoleRuleId) {
             $res['consoleRuleId'] = $this->consoleRuleId;
         }
+
         if (null !== $this->priority) {
             $res['priority'] = $this->priority;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->ruleId) {
             $res['ruleId'] = $this->ruleId;
         }
@@ -66,26 +71,30 @@ class ModifyRulePriorityRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyRulePriorityRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['consoleRuleId'])) {
             $model->consoleRuleId = $map['consoleRuleId'];
         }
+
         if (isset($map['priority'])) {
             $model->priority = $map['priority'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['ruleId'])) {
             $model->ruleId = $map['ruleId'];
         }

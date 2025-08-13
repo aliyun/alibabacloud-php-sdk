@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RecallRuleAuditRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $id;
@@ -20,20 +18,22 @@ class RecallRuleAuditRequest extends Model
      */
     public $regId;
     protected $_name = [
-        'id'    => 'id',
+        'id' => 'id',
         'regId' => 'regId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
@@ -41,17 +41,18 @@ class RecallRuleAuditRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecallRuleAuditRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }

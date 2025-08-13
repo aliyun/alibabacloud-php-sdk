@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckFieldLimitRequest extends Model
 {
@@ -23,24 +23,27 @@ class CheckFieldLimitRequest extends Model
      */
     public $source;
     protected $_name = [
-        'lang'   => 'Lang',
-        'regId'  => 'regId',
+        'lang' => 'Lang',
+        'regId' => 'regId',
         'source' => 'source',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->source) {
             $res['source'] = $this->source;
         }
@@ -48,20 +51,22 @@ class CheckFieldLimitRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckFieldLimitRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['source'])) {
             $model->source = $map['source'];
         }

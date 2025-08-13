@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeEventCountResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -23,24 +23,27 @@ class resultObject extends Model
      */
     public $totalItem;
     protected $_name = [
-        'limit'        => 'limit',
+        'limit' => 'limit',
         'maxTotalItem' => 'maxTotalItem',
-        'totalItem'    => 'totalItem',
+        'totalItem' => 'totalItem',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->limit) {
             $res['limit'] = $this->limit;
         }
+
         if (null !== $this->maxTotalItem) {
             $res['maxTotalItem'] = $this->maxTotalItem;
         }
+
         if (null !== $this->totalItem) {
             $res['totalItem'] = $this->totalItem;
         }
@@ -48,20 +51,22 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['limit'])) {
             $model->limit = $map['limit'];
         }
+
         if (isset($map['maxTotalItem'])) {
             $model->maxTotalItem = $map['maxTotalItem'];
         }
+
         if (isset($map['totalItem'])) {
             $model->totalItem = $map['totalItem'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeOperatorListBySceneResponseBody\resultObject;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeOperatorListBySceneResponseBody\resultObject\operators\rightVariables;
-use AlibabaCloud\Tea\Model;
 
 class operators extends Model
 {
@@ -34,38 +34,47 @@ class operators extends Model
      */
     public $rightVariables;
     protected $_name = [
-        'code'             => 'code',
+        'code' => 'code',
         'hasRightVariable' => 'hasRightVariable',
-        'memo'             => 'memo',
-        'name'             => 'name',
-        'rightVariables'   => 'rightVariables',
+        'memo' => 'memo',
+        'name' => 'name',
+        'rightVariables' => 'rightVariables',
     ];
 
     public function validate()
     {
+        if (\is_array($this->rightVariables)) {
+            Model::validateArray($this->rightVariables);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->hasRightVariable) {
             $res['hasRightVariable'] = $this->hasRightVariable;
         }
+
         if (null !== $this->memo) {
             $res['memo'] = $this->memo;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->rightVariables) {
-            $res['rightVariables'] = [];
-            if (null !== $this->rightVariables && \is_array($this->rightVariables)) {
-                $n = 0;
-                foreach ($this->rightVariables as $item) {
-                    $res['rightVariables'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rightVariables)) {
+                $res['rightVariables'] = [];
+                $n1 = 0;
+                foreach ($this->rightVariables as $item1) {
+                    $res['rightVariables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,32 +82,37 @@ class operators extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operators
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['hasRightVariable'])) {
             $model->hasRightVariable = $map['hasRightVariable'];
         }
+
         if (isset($map['memo'])) {
             $model->memo = $map['memo'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['rightVariables'])) {
             if (!empty($map['rightVariables'])) {
                 $model->rightVariables = [];
-                $n                     = 0;
-                foreach ($map['rightVariables'] as $item) {
-                    $model->rightVariables[$n++] = null !== $item ? rightVariables::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['rightVariables'] as $item1) {
+                    $model->rightVariables[$n1] = rightVariables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

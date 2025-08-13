@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRuleHitRequest extends Model
 {
@@ -17,6 +17,11 @@ class DescribeRuleHitRequest extends Model
      * @var string
      */
     public $regId;
+
+    /**
+     * @var int
+     */
+    public $requestTime;
 
     /**
      * @var string
@@ -33,32 +38,42 @@ class DescribeRuleHitRequest extends Model
      */
     public $sRequestId;
     protected $_name = [
-        'lang'           => 'Lang',
-        'regId'          => 'regId',
-        'ruleId'         => 'ruleId',
+        'lang' => 'Lang',
+        'regId' => 'regId',
+        'requestTime' => 'requestTime',
+        'ruleId' => 'ruleId',
         'ruleSnapshotId' => 'ruleSnapshotId',
-        'sRequestId'     => 'sRequestId',
+        'sRequestId' => 'sRequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
+        if (null !== $this->requestTime) {
+            $res['requestTime'] = $this->requestTime;
+        }
+
         if (null !== $this->ruleId) {
             $res['ruleId'] = $this->ruleId;
         }
+
         if (null !== $this->ruleSnapshotId) {
             $res['ruleSnapshotId'] = $this->ruleSnapshotId;
         }
+
         if (null !== $this->sRequestId) {
             $res['sRequestId'] = $this->sRequestId;
         }
@@ -66,26 +81,34 @@ class DescribeRuleHitRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRuleHitRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
+        if (isset($map['requestTime'])) {
+            $model->requestTime = $map['requestTime'];
+        }
+
         if (isset($map['ruleId'])) {
             $model->ruleId = $map['ruleId'];
         }
+
         if (isset($map['ruleSnapshotId'])) {
             $model->ruleSnapshotId = $map['ruleSnapshotId'];
         }
+
         if (isset($map['sRequestId'])) {
             $model->sRequestId = $map['sRequestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeTagsFluctuationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -38,36 +38,42 @@ class resultObject extends Model
      */
     public $yesterdayNum;
     protected $_name = [
-        'tableName'          => 'tableName',
-        'todayNum'           => 'todayNum',
-        'withinSevenDayNum'  => 'withinSevenDayNum',
+        'tableName' => 'tableName',
+        'todayNum' => 'todayNum',
+        'withinSevenDayNum' => 'withinSevenDayNum',
         'withinThirtyDayNum' => 'withinThirtyDayNum',
-        'withinThreeDayNum'  => 'withinThreeDayNum',
-        'yesterdayNum'       => 'yesterdayNum',
+        'withinThreeDayNum' => 'withinThreeDayNum',
+        'yesterdayNum' => 'yesterdayNum',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tableName) {
             $res['tableName'] = $this->tableName;
         }
+
         if (null !== $this->todayNum) {
             $res['todayNum'] = $this->todayNum;
         }
+
         if (null !== $this->withinSevenDayNum) {
             $res['withinSevenDayNum'] = $this->withinSevenDayNum;
         }
+
         if (null !== $this->withinThirtyDayNum) {
             $res['withinThirtyDayNum'] = $this->withinThirtyDayNum;
         }
+
         if (null !== $this->withinThreeDayNum) {
             $res['withinThreeDayNum'] = $this->withinThreeDayNum;
         }
+
         if (null !== $this->yesterdayNum) {
             $res['yesterdayNum'] = $this->yesterdayNum;
         }
@@ -75,29 +81,34 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['tableName'])) {
             $model->tableName = $map['tableName'];
         }
+
         if (isset($map['todayNum'])) {
             $model->todayNum = $map['todayNum'];
         }
+
         if (isset($map['withinSevenDayNum'])) {
             $model->withinSevenDayNum = $map['withinSevenDayNum'];
         }
+
         if (isset($map['withinThirtyDayNum'])) {
             $model->withinThirtyDayNum = $map['withinThirtyDayNum'];
         }
+
         if (isset($map['withinThreeDayNum'])) {
             $model->withinThreeDayNum = $map['withinThreeDayNum'];
         }
+
         if (isset($map['yesterdayNum'])) {
             $model->yesterdayNum = $map['yesterdayNum'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeAllDataSourceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -25,22 +25,25 @@ class resultObject extends Model
     protected $_name = [
         'eventCode' => 'eventCode',
         'eventName' => 'eventName',
-        'id'        => 'id',
+        'id' => 'id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventCode) {
             $res['eventCode'] = $this->eventCode;
         }
+
         if (null !== $this->eventName) {
             $res['eventName'] = $this->eventName;
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
@@ -48,20 +51,22 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['eventCode'])) {
             $model->eventCode = $map['eventCode'];
         }
+
         if (isset($map['eventName'])) {
             $model->eventName = $map['eventName'];
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }

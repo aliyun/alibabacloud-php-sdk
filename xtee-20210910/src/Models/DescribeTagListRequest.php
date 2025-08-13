@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeTagListRequest extends Model
 {
@@ -23,24 +23,27 @@ class DescribeTagListRequest extends Model
      */
     public $regId;
     protected $_name = [
-        'id'    => 'Id',
-        'lang'  => 'Lang',
+        'id' => 'Id',
+        'lang' => 'Lang',
         'regId' => 'RegId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->regId) {
             $res['RegId'] = $this->regId;
         }
@@ -48,20 +51,22 @@ class DescribeTagListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTagListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['RegId'])) {
             $model->regId = $map['RegId'];
         }

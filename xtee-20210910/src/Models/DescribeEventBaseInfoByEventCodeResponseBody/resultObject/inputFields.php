@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeEventBaseInfoByEventCodeResponseBody\resultObject;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class inputFields extends Model
 {
@@ -39,35 +39,41 @@ class inputFields extends Model
     public $title;
     protected $_name = [
         'description' => 'description',
-        'fieldCode'   => 'fieldCode',
-        'fieldRank'   => 'fieldRank',
+        'fieldCode' => 'fieldCode',
+        'fieldRank' => 'fieldRank',
         'fieldSource' => 'fieldSource',
-        'fieldType'   => 'fieldType',
-        'title'       => 'title',
+        'fieldType' => 'fieldType',
+        'title' => 'title',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->fieldCode) {
             $res['fieldCode'] = $this->fieldCode;
         }
+
         if (null !== $this->fieldRank) {
             $res['fieldRank'] = $this->fieldRank;
         }
+
         if (null !== $this->fieldSource) {
             $res['fieldSource'] = $this->fieldSource;
         }
+
         if (null !== $this->fieldType) {
             $res['fieldType'] = $this->fieldType;
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -75,29 +81,34 @@ class inputFields extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return inputFields
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['fieldCode'])) {
             $model->fieldCode = $map['fieldCode'];
         }
+
         if (isset($map['fieldRank'])) {
             $model->fieldRank = $map['fieldRank'];
         }
+
         if (isset($map['fieldSource'])) {
             $model->fieldSource = $map['fieldSource'];
         }
+
         if (isset($map['fieldType'])) {
             $model->fieldType = $map['fieldType'];
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }

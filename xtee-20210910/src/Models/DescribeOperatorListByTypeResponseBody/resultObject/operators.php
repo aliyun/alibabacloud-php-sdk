@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeOperatorListByTypeResponseBody\resultObject;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class operators extends Model
 {
@@ -23,24 +23,27 @@ class operators extends Model
      */
     public $name;
     protected $_name = [
-        'code'             => 'code',
+        'code' => 'code',
         'hasRightVariable' => 'hasRightVariable',
-        'name'             => 'name',
+        'name' => 'name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->hasRightVariable) {
             $res['hasRightVariable'] = $this->hasRightVariable;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -48,20 +51,22 @@ class operators extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operators
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['hasRightVariable'])) {
             $model->hasRightVariable = $map['hasRightVariable'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

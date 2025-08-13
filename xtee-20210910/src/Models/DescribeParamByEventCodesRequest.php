@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeParamByEventCodesRequest extends Model
 {
@@ -14,8 +14,6 @@ class DescribeParamByEventCodesRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $eventCodes;
@@ -30,28 +28,32 @@ class DescribeParamByEventCodesRequest extends Model
      */
     public $regId;
     protected $_name = [
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
         'eventCodes' => 'eventCodes',
-        'parma'      => 'parma',
-        'regId'      => 'regId',
+        'parma' => 'parma',
+        'regId' => 'regId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->eventCodes) {
             $res['eventCodes'] = $this->eventCodes;
         }
+
         if (null !== $this->parma) {
             $res['parma'] = $this->parma;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
@@ -59,23 +61,26 @@ class DescribeParamByEventCodesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeParamByEventCodesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['eventCodes'])) {
             $model->eventCodes = $map['eventCodes'];
         }
+
         if (isset($map['parma'])) {
             $model->parma = $map['parma'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }

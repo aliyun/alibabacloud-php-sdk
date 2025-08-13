@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeAnalysisExportTaskDownloadUrlResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -24,23 +24,26 @@ class resultObject extends Model
     public $status;
     protected $_name = [
         'downloadFileUrl' => 'downloadFileUrl',
-        'executeTime'     => 'executeTime',
-        'status'          => 'status',
+        'executeTime' => 'executeTime',
+        'status' => 'status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->downloadFileUrl) {
             $res['downloadFileUrl'] = $this->downloadFileUrl;
         }
+
         if (null !== $this->executeTime) {
             $res['executeTime'] = $this->executeTime;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -48,20 +51,22 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['downloadFileUrl'])) {
             $model->downloadFileUrl = $map['downloadFileUrl'];
         }
+
         if (isset($map['executeTime'])) {
             $model->executeTime = $map['executeTime'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

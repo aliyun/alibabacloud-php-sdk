@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeCustVariableConfigListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -18,20 +18,22 @@ class resultObject extends Model
      */
     public $configValue;
     protected $_name = [
-        'configKey'   => 'configKey',
+        'configKey' => 'configKey',
         'configValue' => 'configValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configKey) {
             $res['configKey'] = $this->configKey;
         }
+
         if (null !== $this->configValue) {
             $res['configValue'] = $this->configValue;
         }
@@ -39,17 +41,18 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['configKey'])) {
             $model->configKey = $map['configKey'];
         }
+
         if (isset($map['configValue'])) {
             $model->configValue = $map['configValue'];
         }

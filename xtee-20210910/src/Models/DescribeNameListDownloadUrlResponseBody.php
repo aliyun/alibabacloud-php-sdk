@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeNameListDownloadUrlResponseBody\resultObject;
-use AlibabaCloud\Tea\Model;
 
 class DescribeNameListDownloadUrlResponseBody extends Model
 {
@@ -19,38 +19,44 @@ class DescribeNameListDownloadUrlResponseBody extends Model
      */
     public $resultObject;
     protected $_name = [
-        'requestId'    => 'requestId',
+        'requestId' => 'requestId',
         'resultObject' => 'resultObject',
     ];
 
     public function validate()
     {
+        if (null !== $this->resultObject) {
+            $this->resultObject->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->resultObject) {
-            $res['resultObject'] = null !== $this->resultObject ? $this->resultObject->toMap() : null;
+            $res['resultObject'] = null !== $this->resultObject ? $this->resultObject->toArray($noStream) : $this->resultObject;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNameListDownloadUrlResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['resultObject'])) {
             $model->resultObject = resultObject::fromMap($map['resultObject']);
         }

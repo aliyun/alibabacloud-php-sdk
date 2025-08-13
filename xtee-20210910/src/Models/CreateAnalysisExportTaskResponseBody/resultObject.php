@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\CreateAnalysisExportTaskResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -63,56 +63,67 @@ class resultObject extends Model
      */
     public $userId;
     protected $_name = [
-        'columns'        => 'columns',
-        'conditions'     => 'conditions',
+        'columns' => 'columns',
+        'conditions' => 'conditions',
         'eventBeginTime' => 'eventBeginTime',
-        'eventCodes'     => 'eventCodes',
-        'eventEndTime'   => 'eventEndTime',
-        'fileFormat'     => 'fileFormat',
-        'ossKey'         => 'ossKey',
-        'scope'          => 'scope',
-        'status'         => 'status',
-        'type'           => 'type',
-        'userId'         => 'userId',
+        'eventCodes' => 'eventCodes',
+        'eventEndTime' => 'eventEndTime',
+        'fileFormat' => 'fileFormat',
+        'ossKey' => 'ossKey',
+        'scope' => 'scope',
+        'status' => 'status',
+        'type' => 'type',
+        'userId' => 'userId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columns) {
             $res['columns'] = $this->columns;
         }
+
         if (null !== $this->conditions) {
             $res['conditions'] = $this->conditions;
         }
+
         if (null !== $this->eventBeginTime) {
             $res['eventBeginTime'] = $this->eventBeginTime;
         }
+
         if (null !== $this->eventCodes) {
             $res['eventCodes'] = $this->eventCodes;
         }
+
         if (null !== $this->eventEndTime) {
             $res['eventEndTime'] = $this->eventEndTime;
         }
+
         if (null !== $this->fileFormat) {
             $res['fileFormat'] = $this->fileFormat;
         }
+
         if (null !== $this->ossKey) {
             $res['ossKey'] = $this->ossKey;
         }
+
         if (null !== $this->scope) {
             $res['scope'] = $this->scope;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
@@ -120,44 +131,54 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['columns'])) {
             $model->columns = $map['columns'];
         }
+
         if (isset($map['conditions'])) {
             $model->conditions = $map['conditions'];
         }
+
         if (isset($map['eventBeginTime'])) {
             $model->eventBeginTime = $map['eventBeginTime'];
         }
+
         if (isset($map['eventCodes'])) {
             $model->eventCodes = $map['eventCodes'];
         }
+
         if (isset($map['eventEndTime'])) {
             $model->eventEndTime = $map['eventEndTime'];
         }
+
         if (isset($map['fileFormat'])) {
             $model->fileFormat = $map['fileFormat'];
         }
+
         if (isset($map['ossKey'])) {
             $model->ossKey = $map['ossKey'];
         }
+
         if (isset($map['scope'])) {
             $model->scope = $map['scope'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }

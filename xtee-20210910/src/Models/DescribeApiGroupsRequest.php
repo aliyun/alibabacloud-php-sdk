@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeApiGroupsRequest extends Model
 {
@@ -14,8 +14,6 @@ class DescribeApiGroupsRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $apiRegionId;
@@ -25,24 +23,27 @@ class DescribeApiGroupsRequest extends Model
      */
     public $regId;
     protected $_name = [
-        'lang'        => 'Lang',
+        'lang' => 'Lang',
         'apiRegionId' => 'apiRegionId',
-        'regId'       => 'regId',
+        'regId' => 'regId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->apiRegionId) {
             $res['apiRegionId'] = $this->apiRegionId;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
@@ -50,20 +51,22 @@ class DescribeApiGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeApiGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['apiRegionId'])) {
             $model->apiRegionId = $map['apiRegionId'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }

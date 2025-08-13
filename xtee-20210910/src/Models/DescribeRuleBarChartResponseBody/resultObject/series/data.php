@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeRuleBarChartResponseBody\resultObject\series;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -29,27 +29,31 @@ class data extends Model
     public $status;
     protected $_name = [
         'eventName' => 'eventName',
-        'num'       => 'num',
-        'ruleName'  => 'ruleName',
-        'status'    => 'status',
+        'num' => 'num',
+        'ruleName' => 'ruleName',
+        'status' => 'status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventName) {
             $res['eventName'] = $this->eventName;
         }
+
         if (null !== $this->num) {
             $res['num'] = $this->num;
         }
+
         if (null !== $this->ruleName) {
             $res['ruleName'] = $this->ruleName;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -57,23 +61,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['eventName'])) {
             $model->eventName = $map['eventName'];
         }
+
         if (isset($map['num'])) {
             $model->num = $map['num'];
         }
+
         if (isset($map['ruleName'])) {
             $model->ruleName = $map['ruleName'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeApiNameListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -18,20 +18,22 @@ class resultObject extends Model
      */
     public $apiName;
     protected $_name = [
-        'apiId'   => 'apiId',
+        'apiId' => 'apiId',
         'apiName' => 'apiName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['apiId'] = $this->apiId;
         }
+
         if (null !== $this->apiName) {
             $res['apiName'] = $this->apiName;
         }
@@ -39,17 +41,18 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['apiId'])) {
             $model->apiId = $map['apiId'];
         }
+
         if (isset($map['apiName'])) {
             $model->apiName = $map['apiName'];
         }

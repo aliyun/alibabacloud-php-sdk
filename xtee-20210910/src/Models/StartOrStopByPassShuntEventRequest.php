@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartOrStopByPassShuntEventRequest extends Model
 {
@@ -28,28 +28,32 @@ class StartOrStopByPassShuntEventRequest extends Model
      */
     public $status;
     protected $_name = [
-        'lang'    => 'Lang',
+        'lang' => 'Lang',
         'eventId' => 'eventId',
-        'regId'   => 'regId',
-        'status'  => 'status',
+        'regId' => 'regId',
+        'status' => 'status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->eventId) {
             $res['eventId'] = $this->eventId;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -57,23 +61,26 @@ class StartOrStopByPassShuntEventRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartOrStopByPassShuntEventRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['eventId'])) {
             $model->eventId = $map['eventId'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

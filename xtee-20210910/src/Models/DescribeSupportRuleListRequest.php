@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSupportRuleListRequest extends Model
 {
@@ -14,8 +14,6 @@ class DescribeSupportRuleListRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $eventCode;
@@ -25,24 +23,27 @@ class DescribeSupportRuleListRequest extends Model
      */
     public $regId;
     protected $_name = [
-        'lang'      => 'Lang',
+        'lang' => 'Lang',
         'eventCode' => 'eventCode',
-        'regId'     => 'regId',
+        'regId' => 'regId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->eventCode) {
             $res['eventCode'] = $this->eventCode;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
@@ -50,20 +51,22 @@ class DescribeSupportRuleListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSupportRuleListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['eventCode'])) {
             $model->eventCode = $map['eventCode'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeEventBaseInfoByEventCodeResponseBody\resultObject;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ruleDetails extends Model
 {
@@ -49,43 +49,51 @@ class ruleDetails extends Model
     public $ruleStatus;
     protected $_name = [
         'logicExpression' => 'logicExpression',
-        'memo'            => 'memo',
-        'ruleActions'     => 'ruleActions',
-        'ruleAuthType'    => 'ruleAuthType',
+        'memo' => 'memo',
+        'ruleActions' => 'ruleActions',
+        'ruleAuthType' => 'ruleAuthType',
         'ruleExpressions' => 'ruleExpressions',
-        'ruleId'          => 'ruleId',
-        'ruleName'        => 'ruleName',
-        'ruleStatus'      => 'ruleStatus',
+        'ruleId' => 'ruleId',
+        'ruleName' => 'ruleName',
+        'ruleStatus' => 'ruleStatus',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logicExpression) {
             $res['logicExpression'] = $this->logicExpression;
         }
+
         if (null !== $this->memo) {
             $res['memo'] = $this->memo;
         }
+
         if (null !== $this->ruleActions) {
             $res['ruleActions'] = $this->ruleActions;
         }
+
         if (null !== $this->ruleAuthType) {
             $res['ruleAuthType'] = $this->ruleAuthType;
         }
+
         if (null !== $this->ruleExpressions) {
             $res['ruleExpressions'] = $this->ruleExpressions;
         }
+
         if (null !== $this->ruleId) {
             $res['ruleId'] = $this->ruleId;
         }
+
         if (null !== $this->ruleName) {
             $res['ruleName'] = $this->ruleName;
         }
+
         if (null !== $this->ruleStatus) {
             $res['ruleStatus'] = $this->ruleStatus;
         }
@@ -93,35 +101,42 @@ class ruleDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['logicExpression'])) {
             $model->logicExpression = $map['logicExpression'];
         }
+
         if (isset($map['memo'])) {
             $model->memo = $map['memo'];
         }
+
         if (isset($map['ruleActions'])) {
             $model->ruleActions = $map['ruleActions'];
         }
+
         if (isset($map['ruleAuthType'])) {
             $model->ruleAuthType = $map['ruleAuthType'];
         }
+
         if (isset($map['ruleExpressions'])) {
             $model->ruleExpressions = $map['ruleExpressions'];
         }
+
         if (isset($map['ruleId'])) {
             $model->ruleId = $map['ruleId'];
         }
+
         if (isset($map['ruleName'])) {
             $model->ruleName = $map['ruleName'];
         }
+
         if (isset($map['ruleStatus'])) {
             $model->ruleStatus = $map['ruleStatus'];
         }

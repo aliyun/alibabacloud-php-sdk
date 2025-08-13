@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyEventStatusRequest extends Model
 {
@@ -38,36 +38,42 @@ class ModifyEventStatusRequest extends Model
      */
     public $toEventSatus;
     protected $_name = [
-        'lang'           => 'Lang',
-        'createType'     => 'createType',
-        'eventCode'      => 'eventCode',
+        'lang' => 'Lang',
+        'createType' => 'createType',
+        'eventCode' => 'eventCode',
         'fromEventSatus' => 'fromEventSatus',
-        'regId'          => 'regId',
-        'toEventSatus'   => 'toEventSatus',
+        'regId' => 'regId',
+        'toEventSatus' => 'toEventSatus',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->createType) {
             $res['createType'] = $this->createType;
         }
+
         if (null !== $this->eventCode) {
             $res['eventCode'] = $this->eventCode;
         }
+
         if (null !== $this->fromEventSatus) {
             $res['fromEventSatus'] = $this->fromEventSatus;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->toEventSatus) {
             $res['toEventSatus'] = $this->toEventSatus;
         }
@@ -75,29 +81,34 @@ class ModifyEventStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyEventStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['createType'])) {
             $model->createType = $map['createType'];
         }
+
         if (isset($map['eventCode'])) {
             $model->eventCode = $map['eventCode'];
         }
+
         if (isset($map['fromEventSatus'])) {
             $model->fromEventSatus = $map['fromEventSatus'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['toEventSatus'])) {
             $model->toEventSatus = $map['toEventSatus'];
         }

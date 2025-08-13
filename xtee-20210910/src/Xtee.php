@@ -4,30 +4,33 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\AddSampleDataByCsvRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\AddSampleDataByCsvResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\AddSampleDataByTextRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\AddSampleDataByTextResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\BatchDeleteSampleDataRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\BatchDeleteSampleDataResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\BindVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\BindVariableResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckCopyRuleVariableRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckCopyRuleVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckCustVariableLimitRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckCustVariableLimitResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckExpressionVariableLimitRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckExpressionVariableLimitResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckFieldLimitRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckFieldLimitResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckPermissionRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckPermissionResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckUsageVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckUsageVariableResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\ClearNameListRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\ClearNameListResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CompareCopyRuleVariableRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CompareCopyRuleVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateAnalysisConditionFavoriteRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateAnalysisConditionFavoriteResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateAnalysisExportTaskRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateAnalysisExportTaskResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateAppKeyRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateAppKeyResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateAuthorizationUserRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateAuthorizationUserResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateCustVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateCustVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateDataSourceRequest;
@@ -38,46 +41,40 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateExpressionVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateExpressionVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateFieldRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateFieldResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateGroupSignRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateGroupSignResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateMonitorTaskRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateMonitorTaskResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateModelRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateModelResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreatePocEvRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreatePocEvResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CreatePocRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CreatePocResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateQueryVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateQueryVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateRecommendEventRuleRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateRecommendEventRuleResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateRecommendTaskRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateRecommendTaskResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateReplenishTaskRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateReplenishTaskResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateRuleRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateRuleResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateSampleApiRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateSampleApiResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateSampleBatchRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateSampleBatchResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateSampleDataRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateSampleDataResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateSampleRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateSampleResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateSimulationTaskRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateSimulationTaskResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateTaskRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateTaskResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateTemplateRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateTemplateResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DeepCopyRuleRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DeepCopyRuleResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteAnalysisConditionFavoriteRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteAnalysisConditionFavoriteResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteAuthUserRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteAuthUserResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteByPassShuntEventRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteByPassShuntEventResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteCustVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteCustVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteDataSourceRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteDataSourceResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteEventFieldRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteEventFieldResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteExpressionVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteExpressionVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteFieldRequest;
@@ -90,12 +87,14 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteQueryVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteQueryVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteRuleRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteRuleResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSampleBatchMetaRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSampleBatchMetaResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSampleBatchRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSampleBatchResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSampleDataRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSampleDataResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteTaskRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteTaskResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSelfBindVariableRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSelfBindVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeAdvanceSearchLeftVariableListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeAdvanceSearchLeftVariableListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeAdvanceSearchPageListRequest;
@@ -240,8 +239,12 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeHitRuleListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeHitRuleListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeHitRuleTrendRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeHitRuleTrendResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeInitDigRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeInitDigResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeInputFeildCountByEventCodeRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeInputFeildCountByEventCodeResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeListModelRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeListModelResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeListPocRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeListPocResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeLoanExecListRequest;
@@ -252,6 +255,10 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeMarkPageRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeMarkPageResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeMenuPermissionRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeMenuPermissionResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeModelDetailsByIdRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeModelDetailsByIdResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeModelOssPolicyRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeModelOssPolicyResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeMonitorTaskLimitRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeMonitorTaskLimitResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeNameListDownloadUrlRequest;
@@ -282,10 +289,6 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeOssTokenRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeOssTokenResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeParamByEventCodesRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeParamByEventCodesResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeParamListRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeParamListResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribePocDetailRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribePocDetailResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribePocOssTokenRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribePocOssTokenResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribePocTaskListRequest;
@@ -316,6 +319,8 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeResultCountRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeResultCountResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeRiskLineChartRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeRiskLineChartResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeRiskTagsLineChartRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeRiskTagsLineChartResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeRuleBarChartRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeRuleBarChartResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeRuleCountByUserIdRequest;
@@ -344,8 +349,16 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSafStartStepsRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSafStartStepsResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSafTagListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSafTagListResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSampleBatchOssPolicyRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSampleBatchOssPolicyResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSamplebatchPageRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSamplebatchPageResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSampleDataByBatchUUidPageRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSampleDataByBatchUUidPageResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSampleDataListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSampleDataListResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSampleDataPageRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSampleDataPageResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSampleDemoDownloadUrlRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSampleDemoDownloadUrlResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSampleDownloadUrlRequest;
@@ -366,6 +379,8 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSceneEventPageListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSceneEventPageListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSceneRulePageListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSceneRulePageListResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeScoreListRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeScoreListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeScoreSectionNumLineChartRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeScoreSectionNumLineChartResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeScoreSectionPieChartRequest;
@@ -378,10 +393,8 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSelectItemRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSelectItemResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeServiceAppKeyRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeServiceAppKeyResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeServiceConsumeDownloadUrlRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeServiceConsumeDownloadUrlResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeServiceConsumeRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeServiceConsumeResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeServiceCodeNameRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeServiceCodeNameResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeServiceListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeServiceListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeSimulationPreditInfoRequest;
@@ -412,8 +425,6 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeTaskListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeTaskListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeTaskLogListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeTaskLogListResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeTemplateBaseInfoByTemplateIdRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeTemplateBaseInfoByTemplateIdResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeTemplateCountRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeTemplateCountResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeTemplateDownloadRequest;
@@ -436,14 +447,30 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableMarketListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableMarketListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableSceneListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableSceneListResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DownloadSmapleBatchRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DownloadSmapleBatchResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ExpressionTestRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ExpressionTestResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\FileUploadRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\FileUploadResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ImportFieldRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ImportFieldResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ImportNameListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ImportNameListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ImportTemplateEventRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ImportTemplateEventResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ListVariableDefineRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ListVariableDefineResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ModelDeleteRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ModelDeleteResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ModelFileUploadRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ModelFileUploadResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ModelIsUsingRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ModelIsUsingResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ModelNameIsDuplicationRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ModelNameIsDuplicationResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ModelSampleDownloadRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ModelSampleDownloadResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyAppKeyRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyAppKeyResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyCustVariableRequest;
@@ -456,36 +483,30 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyExpressionVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyExpressionVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyFieldRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyFieldResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyPocTaskRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyPocTaskResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyRulePriorityRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyRulePriorityResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyRuleStatusRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyRuleStatusResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyTemplateRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyTemplateResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyTemplateStatusRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyTemplateStatusResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyVariableRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\ModifyVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\OpenConsoleSlsRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\OpenConsoleSlsResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\OperateFavoriteVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\OperateFavoriteVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\PermissionCheckRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\PermissionCheckResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\QueryAuthorizationUserListRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\QueryAuthorizationUserListResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\PocCreateTaskRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\PocCreateTaskResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\PocGetDownloadUrlRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\PocGetDownloadUrlResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\PocGetTokenRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\PocGetTokenResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\PocSendDataRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\PocSendDataResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\QueryAuthRuleDetailByRuleIdRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\QueryAuthRuleDetailByRuleIdResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\QueryAuthUserNameRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\QueryAuthUserNameResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\RecallRuleAuditRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\RecallRuleAuditResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\RemoveEventRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\RemoveEventResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\RemoveTemplateRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\RemoveTemplateResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\SampleFileDownloadRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\SampleFileDownloadResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\SaveAnalysisColumnRequest;
@@ -498,8 +519,6 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\StartSimulationTaskRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\StartSimulationTaskResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\StopSimulationTaskRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\StopSimulationTaskResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\SubmitImportTaskRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\SubmitImportTaskResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\SwitchExpressionVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\SwitchExpressionVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\SwitchFieldRequest;
@@ -530,21 +549,19 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\UpdateRuleRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\UpdateRuleResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\UpdateSampleBatchRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\UpdateSampleBatchResponse;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\UploadSampleApiRequest;
-use AlibabaCloud\SDK\Xtee\V20210910\Models\UploadSampleApiResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\UploadFileCheckRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\UploadFileCheckResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Xtee extends OpenApiClient
 {
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = '';
+        $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('xtee', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -562,103 +579,333 @@ class Xtee extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 变量绑定操作
-     *  *
-     * @param BindVariableRequest $request BindVariableRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Add Sample Data via CSV.
      *
-     * @return BindVariableResponse BindVariableResponse
+     * @param request - AddSampleDataByCsvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddSampleDataByCsvResponse
+     *
+     * @param AddSampleDataByCsvRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddSampleDataByCsvResponse
+     */
+    public function addSampleDataByCsvWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->ossFileName) {
+            @$query['ossFileName'] = $request->ossFileName;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        if (null !== $request->sampleBatchUuid) {
+            @$query['sampleBatchUuid'] = $request->sampleBatchUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddSampleDataByCsv',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddSampleDataByCsvResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Add Sample Data via CSV.
+     *
+     * @param request - AddSampleDataByCsvRequest
+     *
+     * @returns AddSampleDataByCsvResponse
+     *
+     * @param AddSampleDataByCsvRequest $request
+     *
+     * @return AddSampleDataByCsvResponse
+     */
+    public function addSampleDataByCsv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addSampleDataByCsvWithOptions($request, $runtime);
+    }
+
+    /**
+     * Add list data through a text box for samples.
+     *
+     * @param request - AddSampleDataByTextRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddSampleDataByTextResponse
+     *
+     * @param AddSampleDataByTextRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddSampleDataByTextResponse
+     */
+    public function addSampleDataByTextWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->dataValue) {
+            @$query['dataValue'] = $request->dataValue;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        if (null !== $request->sampleBatchUuid) {
+            @$query['sampleBatchUuid'] = $request->sampleBatchUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddSampleDataByText',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddSampleDataByTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Add list data through a text box for samples.
+     *
+     * @param request - AddSampleDataByTextRequest
+     *
+     * @returns AddSampleDataByTextResponse
+     *
+     * @param AddSampleDataByTextRequest $request
+     *
+     * @return AddSampleDataByTextResponse
+     */
+    public function addSampleDataByText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addSampleDataByTextWithOptions($request, $runtime);
+    }
+
+    /**
+     * Batch Delete Sample List Data.
+     *
+     * @param request - BatchDeleteSampleDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchDeleteSampleDataResponse
+     *
+     * @param BatchDeleteSampleDataRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return BatchDeleteSampleDataResponse
+     */
+    public function batchDeleteSampleDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        if (null !== $request->uuids) {
+            @$query['uuids'] = $request->uuids;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchDeleteSampleData',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchDeleteSampleDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Batch Delete Sample List Data.
+     *
+     * @param request - BatchDeleteSampleDataRequest
+     *
+     * @returns BatchDeleteSampleDataResponse
+     *
+     * @param BatchDeleteSampleDataRequest $request
+     *
+     * @return BatchDeleteSampleDataResponse
+     */
+    public function batchDeleteSampleData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchDeleteSampleDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * Variable binding operation.
+     *
+     * @param request - BindVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindVariableResponse
+     *
+     * @param BindVariableRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return BindVariableResponse
      */
     public function bindVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->apiRegionId)) {
-            $query['apiRegionId'] = $request->apiRegionId;
+
+        if (null !== $request->apiRegionId) {
+            @$query['apiRegionId'] = $request->apiRegionId;
         }
-        if (!Utils::isUnset($request->apiType)) {
-            $query['apiType'] = $request->apiType;
+
+        if (null !== $request->apiType) {
+            @$query['apiType'] = $request->apiType;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->defineId)) {
-            $query['defineId'] = $request->defineId;
+
+        if (null !== $request->defineId) {
+            @$query['defineId'] = $request->defineId;
         }
-        if (!Utils::isUnset($request->defineIds)) {
-            $query['defineIds'] = $request->defineIds;
+
+        if (null !== $request->defineIds) {
+            @$query['defineIds'] = $request->defineIds;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->exceptionValue)) {
-            $query['exceptionValue'] = $request->exceptionValue;
+
+        if (null !== $request->exceptionValue) {
+            @$query['exceptionValue'] = $request->exceptionValue;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->outputField)) {
-            $query['outputField'] = $request->outputField;
+
+        if (null !== $request->outputField) {
+            @$query['outputField'] = $request->outputField;
         }
-        if (!Utils::isUnset($request->outputType)) {
-            $query['outputType'] = $request->outputType;
+
+        if (null !== $request->outputType) {
+            @$query['outputType'] = $request->outputType;
         }
-        if (!Utils::isUnset($request->params)) {
-            $query['params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$query['params'] = $request->params;
         }
-        if (!Utils::isUnset($request->paramsList)) {
-            $query['paramsList'] = $request->paramsList;
+
+        if (null !== $request->paramsList) {
+            @$query['paramsList'] = $request->paramsList;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['sourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['sourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BindVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 变量绑定操作
-     *  *
-     * @param BindVariableRequest $request BindVariableRequest
+     * Variable binding operation.
      *
-     * @return BindVariableResponse BindVariableResponse
+     * @param request - BindVariableRequest
+     *
+     * @returns BindVariableResponse
+     *
+     * @param BindVariableRequest $request
+     *
+     * @return BindVariableResponse
      */
     public function bindVariable($request)
     {
@@ -668,50 +915,139 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 校验累计变量数目是否超过限定值
-     *  *
-     * @param CheckCustVariableLimitRequest $request CheckCustVariableLimitRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Policy Replication Lineage Check.
      *
-     * @return CheckCustVariableLimitResponse CheckCustVariableLimitResponse
+     * @param request - CheckCopyRuleVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckCopyRuleVariableResponse
+     *
+     * @param CheckCopyRuleVariableRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CheckCopyRuleVariableResponse
+     */
+    public function checkCopyRuleVariableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->createType) {
+            @$query['CreateType'] = $request->createType;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->sourceRuleId) {
+            @$query['SourceRuleId'] = $request->sourceRuleId;
+        }
+
+        if (null !== $request->sourceRuleIds) {
+            @$query['SourceRuleIds'] = $request->sourceRuleIds;
+        }
+
+        if (null !== $request->targetEventCode) {
+            @$query['TargetEventCode'] = $request->targetEventCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckCopyRuleVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckCopyRuleVariableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Policy Replication Lineage Check.
+     *
+     * @param request - CheckCopyRuleVariableRequest
+     *
+     * @returns CheckCopyRuleVariableResponse
+     *
+     * @param CheckCopyRuleVariableRequest $request
+     *
+     * @return CheckCopyRuleVariableResponse
+     */
+    public function checkCopyRuleVariable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkCopyRuleVariableWithOptions($request, $runtime);
+    }
+
+    /**
+     * Check if the cumulative number of variables exceeds the limit.
+     *
+     * @param request - CheckCustVariableLimitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckCustVariableLimitResponse
+     *
+     * @param CheckCustVariableLimitRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CheckCustVariableLimitResponse
      */
     public function checkCustVariableLimitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckCustVariableLimit',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckCustVariableLimit',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckCustVariableLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 校验累计变量数目是否超过限定值
-     *  *
-     * @param CheckCustVariableLimitRequest $request CheckCustVariableLimitRequest
+     * Check if the cumulative number of variables exceeds the limit.
      *
-     * @return CheckCustVariableLimitResponse CheckCustVariableLimitResponse
+     * @param request - CheckCustVariableLimitRequest
+     *
+     * @returns CheckCustVariableLimitResponse
+     *
+     * @param CheckCustVariableLimitRequest $request
+     *
+     * @return CheckCustVariableLimitResponse
      */
     public function checkCustVariableLimit($request)
     {
@@ -721,47 +1057,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 校验创建变量是否超过上限
-     *  *
-     * @param CheckExpressionVariableLimitRequest $request CheckExpressionVariableLimitRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Check if Creating Variables Exceeds the Limit.
      *
-     * @return CheckExpressionVariableLimitResponse CheckExpressionVariableLimitResponse
+     * @param request - CheckExpressionVariableLimitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckExpressionVariableLimitResponse
+     *
+     * @param CheckExpressionVariableLimitRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CheckExpressionVariableLimitResponse
      */
     public function checkExpressionVariableLimitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckExpressionVariableLimit',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckExpressionVariableLimit',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckExpressionVariableLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 校验创建变量是否超过上限
-     *  *
-     * @param CheckExpressionVariableLimitRequest $request CheckExpressionVariableLimitRequest
+     * Check if Creating Variables Exceeds the Limit.
      *
-     * @return CheckExpressionVariableLimitResponse CheckExpressionVariableLimitResponse
+     * @param request - CheckExpressionVariableLimitRequest
+     *
+     * @returns CheckExpressionVariableLimitResponse
+     *
+     * @param CheckExpressionVariableLimitRequest $request
+     *
+     * @return CheckExpressionVariableLimitResponse
      */
     public function checkExpressionVariableLimit($request)
     {
@@ -771,50 +1118,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 校验字段数目是否操过限定值
-     *  *
-     * @param CheckFieldLimitRequest $request CheckFieldLimitRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Check if the number of fields exceeds the limit.
      *
-     * @return CheckFieldLimitResponse CheckFieldLimitResponse
+     * @param request - CheckFieldLimitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckFieldLimitResponse
+     *
+     * @param CheckFieldLimitRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CheckFieldLimitResponse
      */
     public function checkFieldLimitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['source'] = $request->source;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckFieldLimit',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckFieldLimit',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckFieldLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 校验字段数目是否操过限定值
-     *  *
-     * @param CheckFieldLimitRequest $request CheckFieldLimitRequest
+     * Check if the number of fields exceeds the limit.
      *
-     * @return CheckFieldLimitResponse CheckFieldLimitResponse
+     * @param request - CheckFieldLimitRequest
+     *
+     * @returns CheckFieldLimitResponse
+     *
+     * @param CheckFieldLimitRequest $request
+     *
+     * @return CheckFieldLimitResponse
      */
     public function checkFieldLimit($request)
     {
@@ -824,100 +1183,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 运营权限检查
-     *  *
-     * @param CheckPermissionRequest $request CheckPermissionRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Validate Variable Reference.
      *
-     * @return CheckPermissionResponse CheckPermissionResponse
-     */
-    public function checkPermissionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckPermission',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CheckPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 运营权限检查
-     *  *
-     * @param CheckPermissionRequest $request CheckPermissionRequest
+     * @param request - CheckUsageVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CheckPermissionResponse CheckPermissionResponse
-     */
-    public function checkPermission($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkPermissionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 校验变量引用
-     *  *
-     * @param CheckUsageVariableRequest $request CheckUsageVariableRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @returns CheckUsageVariableResponse
      *
-     * @return CheckUsageVariableResponse CheckUsageVariableResponse
+     * @param CheckUsageVariableRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckUsageVariableResponse
      */
     public function checkUsageVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckUsageVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckUsageVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckUsageVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 校验变量引用
-     *  *
-     * @param CheckUsageVariableRequest $request CheckUsageVariableRequest
+     * Validate Variable Reference.
      *
-     * @return CheckUsageVariableResponse CheckUsageVariableResponse
+     * @param request - CheckUsageVariableRequest
+     *
+     * @returns CheckUsageVariableResponse
+     *
+     * @param CheckUsageVariableRequest $request
+     *
+     * @return CheckUsageVariableResponse
      */
     public function checkUsageVariable($request)
     {
@@ -927,124 +1248,167 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 清除名单
-     *  *
-     * @param ClearNameListRequest $request ClearNameListRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Policy Comparison.
      *
-     * @return ClearNameListResponse ClearNameListResponse
+     * @param request - CompareCopyRuleVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CompareCopyRuleVariableResponse
+     *
+     * @param CompareCopyRuleVariableRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CompareCopyRuleVariableResponse
      */
-    public function clearNameListWithOptions($request, $runtime)
+    public function compareCopyRuleVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->createType) {
+            @$query['CreateType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->variableId)) {
-            $query['variableId'] = $request->variableId;
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
         }
+
+        if (null !== $request->sourceRuleId) {
+            @$query['SourceRuleId'] = $request->sourceRuleId;
+        }
+
+        if (null !== $request->sourceRuleIds) {
+            @$query['SourceRuleIds'] = $request->sourceRuleIds;
+        }
+
+        if (null !== $request->targetEventCode) {
+            @$query['TargetEventCode'] = $request->targetEventCode;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ClearNameList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CompareCopyRuleVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
-        return ClearNameListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CompareCopyRuleVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 清除名单
-     *  *
-     * @param ClearNameListRequest $request ClearNameListRequest
+     * Policy Comparison.
      *
-     * @return ClearNameListResponse ClearNameListResponse
+     * @param request - CompareCopyRuleVariableRequest
+     *
+     * @returns CompareCopyRuleVariableResponse
+     *
+     * @param CompareCopyRuleVariableRequest $request
+     *
+     * @return CompareCopyRuleVariableResponse
      */
-    public function clearNameList($request)
+    public function compareCopyRuleVariable($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->clearNameListWithOptions($request, $runtime);
+        return $this->compareCopyRuleVariableWithOptions($request, $runtime);
     }
 
     /**
-     * @summary 新增查询条件
-     *  *
-     * @param CreateAnalysisConditionFavoriteRequest $request CreateAnalysisConditionFavoriteRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Add Query Conditions.
      *
-     * @return CreateAnalysisConditionFavoriteResponse CreateAnalysisConditionFavoriteResponse
+     * @param request - CreateAnalysisConditionFavoriteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAnalysisConditionFavoriteResponse
+     *
+     * @param CreateAnalysisConditionFavoriteRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateAnalysisConditionFavoriteResponse
      */
     public function createAnalysisConditionFavoriteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->condition)) {
-            $query['condition'] = $request->condition;
+
+        if (null !== $request->condition) {
+            @$query['condition'] = $request->condition;
         }
-        if (!Utils::isUnset($request->eventBeginTime)) {
-            $query['eventBeginTime'] = $request->eventBeginTime;
+
+        if (null !== $request->eventBeginTime) {
+            @$query['eventBeginTime'] = $request->eventBeginTime;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->eventEndTime)) {
-            $query['eventEndTime'] = $request->eventEndTime;
+
+        if (null !== $request->eventEndTime) {
+            @$query['eventEndTime'] = $request->eventEndTime;
         }
-        if (!Utils::isUnset($request->fieldName)) {
-            $query['fieldName'] = $request->fieldName;
+
+        if (null !== $request->fieldName) {
+            @$query['fieldName'] = $request->fieldName;
         }
-        if (!Utils::isUnset($request->fieldValue)) {
-            $query['fieldValue'] = $request->fieldValue;
+
+        if (null !== $request->fieldValue) {
+            @$query['fieldValue'] = $request->fieldValue;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAnalysisConditionFavorite',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAnalysisConditionFavorite',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAnalysisConditionFavoriteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新增查询条件
-     *  *
-     * @param CreateAnalysisConditionFavoriteRequest $request CreateAnalysisConditionFavoriteRequest
+     * Add Query Conditions.
      *
-     * @return CreateAnalysisConditionFavoriteResponse CreateAnalysisConditionFavoriteResponse
+     * @param request - CreateAnalysisConditionFavoriteRequest
+     *
+     * @returns CreateAnalysisConditionFavoriteResponse
+     *
+     * @param CreateAnalysisConditionFavoriteRequest $request
+     *
+     * @return CreateAnalysisConditionFavoriteResponse
      */
     public function createAnalysisConditionFavorite($request)
     {
@@ -1054,77 +1418,98 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 新建导出任务
-     *  *
-     * @param CreateAnalysisExportTaskRequest $request CreateAnalysisExportTaskRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Create Export Task.
      *
-     * @return CreateAnalysisExportTaskResponse CreateAnalysisExportTaskResponse
+     * @param request - CreateAnalysisExportTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAnalysisExportTaskResponse
+     *
+     * @param CreateAnalysisExportTaskRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateAnalysisExportTaskResponse
      */
     public function createAnalysisExportTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->columns)) {
-            $query['columns'] = $request->columns;
+
+        if (null !== $request->columns) {
+            @$query['columns'] = $request->columns;
         }
-        if (!Utils::isUnset($request->conditions)) {
-            $query['conditions'] = $request->conditions;
+
+        if (null !== $request->conditions) {
+            @$query['conditions'] = $request->conditions;
         }
-        if (!Utils::isUnset($request->eventBeginTime)) {
-            $query['eventBeginTime'] = $request->eventBeginTime;
+
+        if (null !== $request->eventBeginTime) {
+            @$query['eventBeginTime'] = $request->eventBeginTime;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->eventEndTime)) {
-            $query['eventEndTime'] = $request->eventEndTime;
+
+        if (null !== $request->eventEndTime) {
+            @$query['eventEndTime'] = $request->eventEndTime;
         }
-        if (!Utils::isUnset($request->fieldName)) {
-            $query['fieldName'] = $request->fieldName;
+
+        if (null !== $request->fieldName) {
+            @$query['fieldName'] = $request->fieldName;
         }
-        if (!Utils::isUnset($request->fieldValue)) {
-            $query['fieldValue'] = $request->fieldValue;
+
+        if (null !== $request->fieldValue) {
+            @$query['fieldValue'] = $request->fieldValue;
         }
-        if (!Utils::isUnset($request->fileFormat)) {
-            $query['fileFormat'] = $request->fileFormat;
+
+        if (null !== $request->fileFormat) {
+            @$query['fileFormat'] = $request->fileFormat;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAnalysisExportTask',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAnalysisExportTask',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAnalysisExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新建导出任务
-     *  *
-     * @param CreateAnalysisExportTaskRequest $request CreateAnalysisExportTaskRequest
+     * Create Export Task.
      *
-     * @return CreateAnalysisExportTaskResponse CreateAnalysisExportTaskResponse
+     * @param request - CreateAnalysisExportTaskRequest
+     *
+     * @returns CreateAnalysisExportTaskResponse
+     *
+     * @param CreateAnalysisExportTaskRequest $request
+     *
+     * @return CreateAnalysisExportTaskResponse
      */
     public function createAnalysisExportTask($request)
     {
@@ -1134,47 +1519,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 创建appKey
-     *  *
-     * @param CreateAppKeyRequest $request CreateAppKeyRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Create AppKey.
      *
-     * @return CreateAppKeyResponse CreateAppKeyResponse
+     * @param request - CreateAppKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppKeyResponse
+     *
+     * @param CreateAppKeyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateAppKeyResponse
      */
     public function createAppKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAppKey',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAppKey',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建appKey
-     *  *
-     * @param CreateAppKeyRequest $request CreateAppKeyRequest
+     * Create AppKey.
      *
-     * @return CreateAppKeyResponse CreateAppKeyResponse
+     * @param request - CreateAppKeyRequest
+     *
+     * @returns CreateAppKeyResponse
+     *
+     * @param CreateAppKeyRequest $request
+     *
+     * @return CreateAppKeyResponse
      */
     public function createAppKey($request)
     {
@@ -1184,145 +1580,110 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 新增用户授权
-     *  *
-     * @param CreateAuthorizationUserRequest $request CreateAuthorizationUserRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Create Accumulative Variable.
      *
-     * @return CreateAuthorizationUserResponse CreateAuthorizationUserResponse
-     */
-    public function createAuthorizationUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->bindId)) {
-            $query['bindId'] = $request->bindId;
-        }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
-        }
-        if (!Utils::isUnset($request->eventTemplateId)) {
-            $query['eventTemplateId'] = $request->eventTemplateId;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateAuthorizationUser',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateAuthorizationUserResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 新增用户授权
-     *  *
-     * @param CreateAuthorizationUserRequest $request CreateAuthorizationUserRequest
+     * @param request - CreateCustVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateAuthorizationUserResponse CreateAuthorizationUserResponse
-     */
-    public function createAuthorizationUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createAuthorizationUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 创建累计变量
-     *  *
-     * @param CreateCustVariableRequest $request CreateCustVariableRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @returns CreateCustVariableResponse
      *
-     * @return CreateCustVariableResponse CreateCustVariableResponse
+     * @param CreateCustVariableRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateCustVariableResponse
      */
     public function createCustVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->condition)) {
-            $query['condition'] = $request->condition;
+
+        if (null !== $request->condition) {
+            @$query['condition'] = $request->condition;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->historyValueType)) {
-            $query['historyValueType'] = $request->historyValueType;
+
+        if (null !== $request->historyValueType) {
+            @$query['historyValueType'] = $request->historyValueType;
         }
-        if (!Utils::isUnset($request->object)) {
-            $query['object'] = $request->object;
+
+        if (null !== $request->object) {
+            @$query['object'] = $request->object;
         }
-        if (!Utils::isUnset($request->outputs)) {
-            $query['outputs'] = $request->outputs;
+
+        if (null !== $request->outputs) {
+            @$query['outputs'] = $request->outputs;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->subject)) {
-            $query['subject'] = $request->subject;
+
+        if (null !== $request->subject) {
+            @$query['subject'] = $request->subject;
         }
-        if (!Utils::isUnset($request->timeType)) {
-            $query['timeType'] = $request->timeType;
+
+        if (null !== $request->timeType) {
+            @$query['timeType'] = $request->timeType;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
         }
-        if (!Utils::isUnset($request->twCount)) {
-            $query['twCount'] = $request->twCount;
+
+        if (null !== $request->twCount) {
+            @$query['twCount'] = $request->twCount;
         }
-        if (!Utils::isUnset($request->velocityFC)) {
-            $query['velocityFC'] = $request->velocityFC;
+
+        if (null !== $request->velocityFC) {
+            @$query['velocityFC'] = $request->velocityFC;
         }
-        if (!Utils::isUnset($request->velocityTW)) {
-            $query['velocityTW'] = $request->velocityTW;
+
+        if (null !== $request->velocityTW) {
+            @$query['velocityTW'] = $request->velocityTW;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCustVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCustVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateCustVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建累计变量
-     *  *
-     * @param CreateCustVariableRequest $request CreateCustVariableRequest
+     * Create Accumulative Variable.
      *
-     * @return CreateCustVariableResponse CreateCustVariableResponse
+     * @param request - CreateCustVariableRequest
+     *
+     * @returns CreateCustVariableResponse
+     *
+     * @param CreateCustVariableRequest $request
+     *
+     * @return CreateCustVariableResponse
      */
     public function createCustVariable($request)
     {
@@ -1332,59 +1693,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 新增数据源
-     *  *
-     * @param CreateDataSourceRequest $request CreateDataSourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Add Data Source.
      *
-     * @return CreateDataSourceResponse CreateDataSourceResponse
+     * @param request - CreateDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataSourceResponse
+     *
+     * @param CreateDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDataSourceResponse
      */
     public function createDataSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->ossKey)) {
-            $query['ossKey'] = $request->ossKey;
+
+        if (null !== $request->ossKey) {
+            @$query['ossKey'] = $request->ossKey;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDataSource',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDataSource',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新增数据源
-     *  *
-     * @param CreateDataSourceRequest $request CreateDataSourceRequest
+     * Add Data Source.
      *
-     * @return CreateDataSourceResponse CreateDataSourceResponse
+     * @param request - CreateDataSourceRequest
+     *
+     * @returns CreateDataSourceResponse
+     *
+     * @param CreateDataSourceRequest $request
+     *
+     * @return CreateDataSourceResponse
      */
     public function createDataSource($request)
     {
@@ -1394,68 +1770,86 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 创建事件
-     *  *
-     * @param CreateEventRequest $request CreateEventRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Create Event.
      *
-     * @return CreateEventResponse CreateEventResponse
+     * @param request - CreateEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEventResponse
+     *
+     * @param CreateEventRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateEventResponse
      */
     public function createEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->eventName)) {
-            $query['eventName'] = $request->eventName;
+
+        if (null !== $request->eventName) {
+            @$query['eventName'] = $request->eventName;
         }
-        if (!Utils::isUnset($request->inputFieldsStr)) {
-            $query['inputFieldsStr'] = $request->inputFieldsStr;
+
+        if (null !== $request->inputFieldsStr) {
+            @$query['inputFieldsStr'] = $request->inputFieldsStr;
         }
-        if (!Utils::isUnset($request->memo)) {
-            $query['memo'] = $request->memo;
+
+        if (null !== $request->memo) {
+            @$query['memo'] = $request->memo;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->templateCode)) {
-            $query['templateCode'] = $request->templateCode;
+
+        if (null !== $request->templateCode) {
+            @$query['templateCode'] = $request->templateCode;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['templateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['templateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['templateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['templateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateEvent',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateEvent',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建事件
-     *  *
-     * @param CreateEventRequest $request CreateEventRequest
+     * Create Event.
      *
-     * @return CreateEventResponse CreateEventResponse
+     * @param request - CreateEventRequest
+     *
+     * @returns CreateEventResponse
+     *
+     * @param CreateEventRequest $request
+     *
+     * @return CreateEventResponse
      */
     public function createEvent($request)
     {
@@ -1465,71 +1859,90 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 创建自定义变量
-     *  *
-     * @param CreateExpressionVariableRequest $request CreateExpressionVariableRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Create Custom Variable.
      *
-     * @return CreateExpressionVariableResponse CreateExpressionVariableResponse
+     * @param request - CreateExpressionVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateExpressionVariableResponse
+     *
+     * @param CreateExpressionVariableRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateExpressionVariableResponse
      */
     public function createExpressionVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->expression)) {
-            $query['expression'] = $request->expression;
+
+        if (null !== $request->expression) {
+            @$query['expression'] = $request->expression;
         }
-        if (!Utils::isUnset($request->expressionTitle)) {
-            $query['expressionTitle'] = $request->expressionTitle;
+
+        if (null !== $request->expressionTitle) {
+            @$query['expressionTitle'] = $request->expressionTitle;
         }
-        if (!Utils::isUnset($request->expressionVariable)) {
-            $query['expressionVariable'] = $request->expressionVariable;
+
+        if (null !== $request->expressionVariable) {
+            @$query['expressionVariable'] = $request->expressionVariable;
         }
-        if (!Utils::isUnset($request->outlier)) {
-            $query['outlier'] = $request->outlier;
+
+        if (null !== $request->outlier) {
+            @$query['outlier'] = $request->outlier;
         }
-        if (!Utils::isUnset($request->outputs)) {
-            $query['outputs'] = $request->outputs;
+
+        if (null !== $request->outputs) {
+            @$query['outputs'] = $request->outputs;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateExpressionVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateExpressionVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateExpressionVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建自定义变量
-     *  *
-     * @param CreateExpressionVariableRequest $request CreateExpressionVariableRequest
+     * Create Custom Variable.
      *
-     * @return CreateExpressionVariableResponse CreateExpressionVariableResponse
+     * @param request - CreateExpressionVariableRequest
+     *
+     * @returns CreateExpressionVariableResponse
+     *
+     * @param CreateExpressionVariableRequest $request
+     *
+     * @return CreateExpressionVariableResponse
      */
     public function createExpressionVariable($request)
     {
@@ -1539,68 +1952,86 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 新增字段
-     *  *
-     * @param CreateFieldRequest $request CreateFieldRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Add New Field.
      *
-     * @return CreateFieldResponse CreateFieldResponse
+     * @param request - CreateFieldRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFieldResponse
+     *
+     * @param CreateFieldRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateFieldResponse
      */
     public function createFieldWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->classify)) {
-            $query['classify'] = $request->classify;
+
+        if (null !== $request->classify) {
+            @$query['classify'] = $request->classify;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->enumData)) {
-            $query['enumData'] = $request->enumData;
+
+        if (null !== $request->enumData) {
+            @$query['enumData'] = $request->enumData;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['source'] = $request->source;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateField',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateField',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFieldResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新增字段
-     *  *
-     * @param CreateFieldRequest $request CreateFieldRequest
+     * Add New Field.
      *
-     * @return CreateFieldResponse CreateFieldResponse
+     * @param request - CreateFieldRequest
+     *
+     * @returns CreateFieldResponse
+     *
+     * @param CreateFieldRequest $request
+     *
+     * @return CreateFieldResponse
      */
     public function createField($request)
     {
@@ -1610,266 +2041,183 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 社群打标
-     *  *
-     * @param CreateGroupSignRequest $request CreateGroupSignRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Submit Task.
      *
-     * @return CreateGroupSignResponse CreateGroupSignResponse
+     * @param request - CreateModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateModelResponse
+     *
+     * @param CreateModelRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateModelResponse
      */
-    public function createGroupSignWithOptions($request, $runtime)
+    public function createModelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->bucId) {
+            @$query['BucId'] = $request->bucId;
         }
-        if (!Utils::isUnset($request->signList)) {
-            $query['SignList'] = $request->signList;
+
+        if (null !== $request->counts) {
+            @$query['Counts'] = $request->counts;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->fileMD5) {
+            @$query['FileMD5'] = $request->fileMD5;
         }
+
+        if (null !== $request->filePath) {
+            @$query['FilePath'] = $request->filePath;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->modelScene) {
+            @$query['ModelScene'] = $request->modelScene;
+        }
+
+        if (null !== $request->parameterNum) {
+            @$query['ParameterNum'] = $request->parameterNum;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->userLocalFileName) {
+            @$query['UserLocalFileName'] = $request->userLocalFileName;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateGroupSign',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateModel',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
-        return CreateGroupSignResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 社群打标
-     *  *
-     * @param CreateGroupSignRequest $request CreateGroupSignRequest
+     * Submit Task.
      *
-     * @return CreateGroupSignResponse CreateGroupSignResponse
+     * @param request - CreateModelRequest
+     *
+     * @returns CreateModelResponse
+     *
+     * @param CreateModelRequest $request
+     *
+     * @return CreateModelResponse
      */
-    public function createGroupSign($request)
+    public function createModel($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createGroupSignWithOptions($request, $runtime);
+        return $this->createModelWithOptions($request, $runtime);
     }
 
     /**
-     * @summary 创建监控任务
-     *  *
-     * @param CreateMonitorTaskRequest $request CreateMonitorTaskRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Create POC.
      *
-     * @return CreateMonitorTaskResponse CreateMonitorTaskResponse
-     */
-    public function createMonitorTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['bizType'] = $request->bizType;
-        }
-        if (!Utils::isUnset($request->cycleType)) {
-            $query['cycleType'] = $request->cycleType;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->filePath)) {
-            $query['filePath'] = $request->filePath;
-        }
-        if (!Utils::isUnset($request->listdayStr)) {
-            $query['listdayStr'] = $request->listdayStr;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['startTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateMonitorTask',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateMonitorTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建监控任务
-     *  *
-     * @param CreateMonitorTaskRequest $request CreateMonitorTaskRequest
+     * @param request - CreatePocEvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMonitorTaskResponse CreateMonitorTaskResponse
-     */
-    public function createMonitorTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createMonitorTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 创建poc
-     *  *
-     * @param CreatePocRequest $request CreatePocRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @returns CreatePocEvResponse
      *
-     * @return CreatePocResponse CreatePocResponse
-     */
-    public function createPocWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->configStr)) {
-            $query['configStr'] = $request->configStr;
-        }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
-        }
-        if (!Utils::isUnset($request->fileType)) {
-            $query['fileType'] = $request->fileType;
-        }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['fileUrl'] = $request->fileUrl;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $query['serviceCode'] = $request->serviceCode;
-        }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['serviceName'] = $request->serviceName;
-        }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['taskName'] = $request->taskName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreatePoc',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreatePocResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建poc
-     *  *
-     * @param CreatePocRequest $request CreatePocRequest
+     * @param CreatePocEvRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return CreatePocResponse CreatePocResponse
-     */
-    public function createPoc($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createPocWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 创建poc
-     *  *
-     * @param CreatePocEvRequest $request CreatePocEvRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreatePocEvResponse CreatePocEvResponse
+     * @return CreatePocEvResponse
      */
     public function createPocEvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dateFormat)) {
-            $query['DateFormat'] = $request->dateFormat;
+        if (null !== $request->dateFormat) {
+            @$query['DateFormat'] = $request->dateFormat;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileType)) {
-            $query['FileType'] = $request->fileType;
+
+        if (null !== $request->fileType) {
+            @$query['FileType'] = $request->fileType;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['RegId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $query['ServiceCode'] = $request->serviceCode;
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->tab)) {
-            $query['Tab'] = $request->tab;
+
+        if (null !== $request->tab) {
+            @$query['Tab'] = $request->tab;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePocEv',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePocEv',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreatePocEvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建poc
-     *  *
-     * @param CreatePocEvRequest $request CreatePocEvRequest
+     * Create POC.
      *
-     * @return CreatePocEvResponse CreatePocEvResponse
+     * @param request - CreatePocEvRequest
+     *
+     * @returns CreatePocEvResponse
+     *
+     * @param CreatePocEvRequest $request
+     *
+     * @return CreatePocEvResponse
      */
     public function createPocEv($request)
     {
@@ -1879,74 +2227,94 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 自定义查询变量新增
-     *  *
-     * @param CreateQueryVariableRequest $request CreateQueryVariableRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Add New Custom Query Variable.
      *
-     * @return CreateQueryVariableResponse CreateQueryVariableResponse
+     * @param request - CreateQueryVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateQueryVariableResponse
+     *
+     * @param CreateQueryVariableRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateQueryVariableResponse
      */
     public function createQueryVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->dataSourceCode)) {
-            $query['dataSourceCode'] = $request->dataSourceCode;
+
+        if (null !== $request->dataSourceCode) {
+            @$query['dataSourceCode'] = $request->dataSourceCode;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->expression)) {
-            $query['expression'] = $request->expression;
+
+        if (null !== $request->expression) {
+            @$query['expression'] = $request->expression;
         }
-        if (!Utils::isUnset($request->expressionTitle)) {
-            $query['expressionTitle'] = $request->expressionTitle;
+
+        if (null !== $request->expressionTitle) {
+            @$query['expressionTitle'] = $request->expressionTitle;
         }
-        if (!Utils::isUnset($request->expressionVariable)) {
-            $query['expressionVariable'] = $request->expressionVariable;
+
+        if (null !== $request->expressionVariable) {
+            @$query['expressionVariable'] = $request->expressionVariable;
         }
-        if (!Utils::isUnset($request->outlier)) {
-            $query['outlier'] = $request->outlier;
+
+        if (null !== $request->outlier) {
+            @$query['outlier'] = $request->outlier;
         }
-        if (!Utils::isUnset($request->outputs)) {
-            $query['outputs'] = $request->outputs;
+
+        if (null !== $request->outputs) {
+            @$query['outputs'] = $request->outputs;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateQueryVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateQueryVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateQueryVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 自定义查询变量新增
-     *  *
-     * @param CreateQueryVariableRequest $request CreateQueryVariableRequest
+     * Add New Custom Query Variable.
      *
-     * @return CreateQueryVariableResponse CreateQueryVariableResponse
+     * @param request - CreateQueryVariableRequest
+     *
+     * @returns CreateQueryVariableResponse
+     *
+     * @param CreateQueryVariableRequest $request
+     *
+     * @return CreateQueryVariableResponse
      */
     public function createQueryVariable($request)
     {
@@ -1956,59 +2324,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 创建推荐事件策略
-     *  *
-     * @param CreateRecommendEventRuleRequest $request CreateRecommendEventRuleRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Create Recommended Event Strategy.
      *
-     * @return CreateRecommendEventRuleResponse CreateRecommendEventRuleResponse
+     * @param request - CreateRecommendEventRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRecommendEventRuleResponse
+     *
+     * @param CreateRecommendEventRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateRecommendEventRuleResponse
      */
     public function createRecommendEventRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->eventName)) {
-            $query['eventName'] = $request->eventName;
+
+        if (null !== $request->eventName) {
+            @$query['eventName'] = $request->eventName;
         }
-        if (!Utils::isUnset($request->recommendRuleIdsStr)) {
-            $query['recommendRuleIdsStr'] = $request->recommendRuleIdsStr;
+
+        if (null !== $request->recommendRuleIdsStr) {
+            @$query['recommendRuleIdsStr'] = $request->recommendRuleIdsStr;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['taskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRecommendEventRule',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRecommendEventRule',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateRecommendEventRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建推荐事件策略
-     *  *
-     * @param CreateRecommendEventRuleRequest $request CreateRecommendEventRuleRequest
+     * Create Recommended Event Strategy.
      *
-     * @return CreateRecommendEventRuleResponse CreateRecommendEventRuleResponse
+     * @param request - CreateRecommendEventRuleRequest
+     *
+     * @returns CreateRecommendEventRuleResponse
+     *
+     * @param CreateRecommendEventRuleRequest $request
+     *
+     * @return CreateRecommendEventRuleResponse
      */
     public function createRecommendEventRule($request)
     {
@@ -2018,59 +2401,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 创建推荐任务
-     *  *
-     * @param CreateRecommendTaskRequest $request CreateRecommendTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Create Recommendation Task.
      *
-     * @return CreateRecommendTaskResponse CreateRecommendTaskResponse
+     * @param request - CreateRecommendTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRecommendTaskResponse
+     *
+     * @param CreateRecommendTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateRecommendTaskResponse
      */
     public function createRecommendTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->sampleId)) {
-            $query['sampleId'] = $request->sampleId;
+
+        if (null !== $request->sampleId) {
+            @$query['sampleId'] = $request->sampleId;
         }
-        if (!Utils::isUnset($request->variablesStr)) {
-            $query['variablesStr'] = $request->variablesStr;
+
+        if (null !== $request->variablesStr) {
+            @$query['variablesStr'] = $request->variablesStr;
         }
-        if (!Utils::isUnset($request->velocitiesStr)) {
-            $query['velocitiesStr'] = $request->velocitiesStr;
+
+        if (null !== $request->velocitiesStr) {
+            @$query['velocitiesStr'] = $request->velocitiesStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRecommendTask',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRecommendTask',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateRecommendTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建推荐任务
-     *  *
-     * @param CreateRecommendTaskRequest $request CreateRecommendTaskRequest
+     * Create Recommendation Task.
      *
-     * @return CreateRecommendTaskResponse CreateRecommendTaskResponse
+     * @param request - CreateRecommendTaskRequest
+     *
+     * @returns CreateRecommendTaskResponse
+     *
+     * @param CreateRecommendTaskRequest $request
+     *
+     * @return CreateRecommendTaskResponse
      */
     public function createRecommendTask($request)
     {
@@ -2080,136 +2478,106 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 补充上传
-     *  *
-     * @param CreateReplenishTaskRequest $request CreateReplenishTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Create Policy & Version.
      *
-     * @return CreateReplenishTaskResponse CreateReplenishTaskResponse
-     */
-    public function createReplenishTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clientFileName)) {
-            $query['ClientFileName'] = $request->clientFileName;
-        }
-        if (!Utils::isUnset($request->clientPath)) {
-            $query['ClientPath'] = $request->clientPath;
-        }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateReplenishTask',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateReplenishTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 补充上传
-     *  *
-     * @param CreateReplenishTaskRequest $request CreateReplenishTaskRequest
+     * @param request - CreateRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateReplenishTaskResponse CreateReplenishTaskResponse
-     */
-    public function createReplenishTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createReplenishTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 创建策略&版本
-     *  *
-     * @param CreateRuleRequest $request CreateRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @returns CreateRuleResponse
      *
-     * @return CreateRuleResponse CreateRuleResponse
+     * @param CreateRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateRuleResponse
      */
     public function createRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->consoleRuleId)) {
-            $query['consoleRuleId'] = $request->consoleRuleId;
+
+        if (null !== $request->consoleRuleId) {
+            @$query['consoleRuleId'] = $request->consoleRuleId;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->eventName)) {
-            $query['eventName'] = $request->eventName;
+
+        if (null !== $request->eventName) {
+            @$query['eventName'] = $request->eventName;
         }
-        if (!Utils::isUnset($request->logicExpression)) {
-            $query['logicExpression'] = $request->logicExpression;
+
+        if (null !== $request->logicExpression) {
+            @$query['logicExpression'] = $request->logicExpression;
         }
-        if (!Utils::isUnset($request->memo)) {
-            $query['memo'] = $request->memo;
+
+        if (null !== $request->memo) {
+            @$query['memo'] = $request->memo;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleActions)) {
-            $query['ruleActions'] = $request->ruleActions;
+
+        if (null !== $request->ruleActions) {
+            @$query['ruleActions'] = $request->ruleActions;
         }
-        if (!Utils::isUnset($request->ruleExpressions)) {
-            $query['ruleExpressions'] = $request->ruleExpressions;
+
+        if (null !== $request->ruleBody) {
+            @$query['ruleBody'] = $request->ruleBody;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['ruleName'] = $request->ruleName;
+
+        if (null !== $request->ruleExpressions) {
+            @$query['ruleExpressions'] = $request->ruleExpressions;
         }
-        if (!Utils::isUnset($request->ruleStatus)) {
-            $query['ruleStatus'] = $request->ruleStatus;
+
+        if (null !== $request->ruleName) {
+            @$query['ruleName'] = $request->ruleName;
         }
+
+        if (null !== $request->ruleStatus) {
+            @$query['ruleStatus'] = $request->ruleStatus;
+        }
+
+        if (null !== $request->ruleType) {
+            @$query['ruleType'] = $request->ruleType;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRule',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRule',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建策略&版本
-     *  *
-     * @param CreateRuleRequest $request CreateRuleRequest
+     * Create Policy & Version.
      *
-     * @return CreateRuleResponse CreateRuleResponse
+     * @param request - CreateRuleRequest
+     *
+     * @returns CreateRuleResponse
+     *
+     * @param CreateRuleRequest $request
+     *
+     * @return CreateRuleResponse
      */
     public function createRule($request)
     {
@@ -2219,68 +2587,86 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 添加样本
-     *  *
-     * @param CreateSampleRequest $request CreateSampleRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Add Sample.
      *
-     * @return CreateSampleResponse CreateSampleResponse
+     * @param request - CreateSampleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSampleResponse
+     *
+     * @param CreateSampleRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateSampleResponse
      */
     public function createSampleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->clientFileName)) {
-            $query['clientFileName'] = $request->clientFileName;
+
+        if (null !== $request->clientFileName) {
+            @$query['clientFileName'] = $request->clientFileName;
         }
-        if (!Utils::isUnset($request->clientPath)) {
-            $query['clientPath'] = $request->clientPath;
+
+        if (null !== $request->clientPath) {
+            @$query['clientPath'] = $request->clientPath;
         }
-        if (!Utils::isUnset($request->fileType)) {
-            $query['fileType'] = $request->fileType;
+
+        if (null !== $request->fileType) {
+            @$query['fileType'] = $request->fileType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->sampleTag)) {
-            $query['sampleTag'] = $request->sampleTag;
+
+        if (null !== $request->sampleTag) {
+            @$query['sampleTag'] = $request->sampleTag;
         }
-        if (!Utils::isUnset($request->sampleType)) {
-            $query['sampleType'] = $request->sampleType;
+
+        if (null !== $request->sampleType) {
+            @$query['sampleType'] = $request->sampleType;
         }
-        if (!Utils::isUnset($request->sampleValues)) {
-            $query['sampleValues'] = $request->sampleValues;
+
+        if (null !== $request->sampleValues) {
+            @$query['sampleValues'] = $request->sampleValues;
         }
-        if (!Utils::isUnset($request->uploadType)) {
-            $query['uploadType'] = $request->uploadType;
+
+        if (null !== $request->uploadType) {
+            @$query['uploadType'] = $request->uploadType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSample',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSample',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSampleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加样本
-     *  *
-     * @param CreateSampleRequest $request CreateSampleRequest
+     * Add Sample.
      *
-     * @return CreateSampleResponse CreateSampleResponse
+     * @param request - CreateSampleRequest
+     *
+     * @returns CreateSampleResponse
+     *
+     * @param CreateSampleRequest $request
+     *
+     * @return CreateSampleResponse
      */
     public function createSample($request)
     {
@@ -2290,59 +2676,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 用户级别单API创建样本批
-     *  *
-     * @param CreateSampleApiRequest $request CreateSampleApiRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * User-level Single API to Create Sample Batches.
      *
-     * @return CreateSampleApiResponse CreateSampleApiResponse
+     * @param request - CreateSampleApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSampleApiResponse
+     *
+     * @param CreateSampleApiRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateSampleApiResponse
      */
     public function createSampleApiWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataType)) {
-            $query['DataType'] = $request->dataType;
+        if (null !== $request->dataType) {
+            @$query['DataType'] = $request->dataType;
         }
-        if (!Utils::isUnset($request->dataValue)) {
-            $query['DataValue'] = $request->dataValue;
+
+        if (null !== $request->dataValue) {
+            @$query['DataValue'] = $request->dataValue;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['RegId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->sampleBatchType)) {
-            $query['SampleBatchType'] = $request->sampleBatchType;
+
+        if (null !== $request->sampleBatchType) {
+            @$query['SampleBatchType'] = $request->sampleBatchType;
         }
-        if (!Utils::isUnset($request->serviceList)) {
-            $query['ServiceList'] = $request->serviceList;
+
+        if (null !== $request->serviceList) {
+            @$query['ServiceList'] = $request->serviceList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSampleApi',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSampleApi',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSampleApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 用户级别单API创建样本批
-     *  *
-     * @param CreateSampleApiRequest $request CreateSampleApiRequest
+     * User-level Single API to Create Sample Batches.
      *
-     * @return CreateSampleApiResponse CreateSampleApiResponse
+     * @param request - CreateSampleApiRequest
+     *
+     * @returns CreateSampleApiResponse
+     *
+     * @param CreateSampleApiRequest $request
+     *
+     * @return CreateSampleApiResponse
      */
     public function createSampleApi($request)
     {
@@ -2352,68 +2753,175 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 创建样本数据
-     *  *
-     * @param CreateSampleDataRequest $request CreateSampleDataRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Create Sample Batch.
      *
-     * @return CreateSampleDataResponse CreateSampleDataResponse
+     * @param request - CreateSampleBatchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSampleBatchResponse
+     *
+     * @param CreateSampleBatchRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateSampleBatchResponse
+     */
+    public function createSampleBatchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->batchName) {
+            @$query['batchName'] = $request->batchName;
+        }
+
+        if (null !== $request->dataType) {
+            @$query['dataType'] = $request->dataType;
+        }
+
+        if (null !== $request->dataValue) {
+            @$query['dataValue'] = $request->dataValue;
+        }
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
+        }
+
+        if (null !== $request->ossFileName) {
+            @$query['ossFileName'] = $request->ossFileName;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        if (null !== $request->sampleBatchType) {
+            @$query['sampleBatchType'] = $request->sampleBatchType;
+        }
+
+        if (null !== $request->serviceList) {
+            @$query['serviceList'] = $request->serviceList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSampleBatch',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSampleBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Create Sample Batch.
+     *
+     * @param request - CreateSampleBatchRequest
+     *
+     * @returns CreateSampleBatchResponse
+     *
+     * @param CreateSampleBatchRequest $request
+     *
+     * @return CreateSampleBatchResponse
+     */
+    public function createSampleBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSampleBatchWithOptions($request, $runtime);
+    }
+
+    /**
+     * Create Sample Data.
+     *
+     * @param request - CreateSampleDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSampleDataResponse
+     *
+     * @param CreateSampleDataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateSampleDataResponse
      */
     public function createSampleDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->encryptType)) {
-            $query['encryptType'] = $request->encryptType;
+
+        if (null !== $request->encryptType) {
+            @$query['encryptType'] = $request->encryptType;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->riskValue)) {
-            $query['riskValue'] = $request->riskValue;
+
+        if (null !== $request->riskValue) {
+            @$query['riskValue'] = $request->riskValue;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['scene'] = $request->scene;
         }
-        if (!Utils::isUnset($request->storePath)) {
-            $query['storePath'] = $request->storePath;
+
+        if (null !== $request->storePath) {
+            @$query['storePath'] = $request->storePath;
         }
-        if (!Utils::isUnset($request->storeType)) {
-            $query['storeType'] = $request->storeType;
+
+        if (null !== $request->storeType) {
+            @$query['storeType'] = $request->storeType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSampleData',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSampleData',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSampleDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建样本数据
-     *  *
-     * @param CreateSampleDataRequest $request CreateSampleDataRequest
+     * Create Sample Data.
      *
-     * @return CreateSampleDataResponse CreateSampleDataResponse
+     * @param request - CreateSampleDataRequest
+     *
+     * @returns CreateSampleDataResponse
+     *
+     * @param CreateSampleDataRequest $request
+     *
+     * @return CreateSampleDataResponse
      */
     public function createSampleData($request)
     {
@@ -2423,74 +2931,94 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 创建任务
-     *  *
-     * @param CreateSimulationTaskRequest $request CreateSimulationTaskRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Create Task.
      *
-     * @return CreateSimulationTaskResponse CreateSimulationTaskResponse
+     * @param request - CreateSimulationTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSimulationTaskResponse
+     *
+     * @param CreateSimulationTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateSimulationTaskResponse
      */
     public function createSimulationTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->dataSourceConfig)) {
-            $query['dataSourceConfig'] = $request->dataSourceConfig;
+
+        if (null !== $request->dataSourceConfig) {
+            @$query['dataSourceConfig'] = $request->dataSourceConfig;
         }
-        if (!Utils::isUnset($request->dataSourceType)) {
-            $query['dataSourceType'] = $request->dataSourceType;
+
+        if (null !== $request->dataSourceType) {
+            @$query['dataSourceType'] = $request->dataSourceType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->filtersStr)) {
-            $query['filtersStr'] = $request->filtersStr;
+
+        if (null !== $request->filtersStr) {
+            @$query['filtersStr'] = $request->filtersStr;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->rulesStr)) {
-            $query['rulesStr'] = $request->rulesStr;
+
+        if (null !== $request->rulesStr) {
+            @$query['rulesStr'] = $request->rulesStr;
         }
-        if (!Utils::isUnset($request->runTask)) {
-            $query['runTask'] = $request->runTask;
+
+        if (null !== $request->runTask) {
+            @$query['runTask'] = $request->runTask;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['taskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['taskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSimulationTask',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSimulationTask',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSimulationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建任务
-     *  *
-     * @param CreateSimulationTaskRequest $request CreateSimulationTaskRequest
+     * Create Task.
      *
-     * @return CreateSimulationTaskResponse CreateSimulationTaskResponse
+     * @param request - CreateSimulationTaskRequest
+     *
+     * @returns CreateSimulationTaskResponse
+     *
+     * @param CreateSimulationTaskRequest $request
+     *
+     * @return CreateSimulationTaskResponse
      */
     public function createSimulationTask($request)
     {
@@ -2500,189 +3028,159 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 创建任务
-     *  *
-     * @param CreateTaskRequest $request CreateTaskRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Policy Replication.
      *
-     * @return CreateTaskResponse CreateTaskResponse
+     * @param request - DeepCopyRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeepCopyRuleResponse
+     *
+     * @param DeepCopyRuleRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeepCopyRuleResponse
      */
-    public function createTaskWithOptions($request, $runtime)
+    public function deepCopyRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientFileName)) {
-            $query['ClientFileName'] = $request->clientFileName;
+        if (null !== $request->createType) {
+            @$query['CreateType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->clientPath)) {
-            $query['ClientPath'] = $request->clientPath;
+
+        if (null !== $request->custInsertInfo) {
+            @$query['CustInsertInfo'] = $request->custInsertInfo;
         }
-        if (!Utils::isUnset($request->describe)) {
-            $query['Describe'] = $request->describe;
+
+        if (null !== $request->custWriteInfo) {
+            @$query['CustWriteInfo'] = $request->custWriteInfo;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->expressionVariableInfo) {
+            @$query['ExpressionVariableInfo'] = $request->expressionVariableInfo;
         }
-        if (!Utils::isUnset($request->sceneName)) {
-            $query['SceneName'] = $request->sceneName;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->queryExpressionVariableInfo) {
+            @$query['QueryExpressionVariableInfo'] = $request->queryExpressionVariableInfo;
         }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->sourceRuleId) {
+            @$query['SourceRuleId'] = $request->sourceRuleId;
+        }
+
+        if (null !== $request->sourceRuleIds) {
+            @$query['SourceRuleIds'] = $request->sourceRuleIds;
+        }
+
+        if (null !== $request->targetEventCode) {
+            @$query['TargetEventCode'] = $request->targetEventCode;
+        }
+
+        if (null !== $request->targetEventName) {
+            @$query['TargetEventName'] = $request->targetEventName;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTask',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeepCopyRule',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
-        return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeepCopyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建任务
-     *  *
-     * @param CreateTaskRequest $request CreateTaskRequest
+     * Policy Replication.
      *
-     * @return CreateTaskResponse CreateTaskResponse
+     * @param request - DeepCopyRuleRequest
+     *
+     * @returns DeepCopyRuleResponse
+     *
+     * @param DeepCopyRuleRequest $request
+     *
+     * @return DeepCopyRuleResponse
      */
-    public function createTask($request)
+    public function deepCopyRule($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createTaskWithOptions($request, $runtime);
+        return $this->deepCopyRuleWithOptions($request, $runtime);
     }
 
     /**
-     * @summary 创建模版
-     *  *
-     * @param CreateTemplateRequest $request CreateTemplateRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Delete Query Condition.
      *
-     * @return CreateTemplateResponse CreateTemplateResponse
-     */
-    public function createTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
-        }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
-        }
-        if (!Utils::isUnset($request->eventName)) {
-            $query['eventName'] = $request->eventName;
-        }
-        if (!Utils::isUnset($request->logicExpression)) {
-            $query['logicExpression'] = $request->logicExpression;
-        }
-        if (!Utils::isUnset($request->memo)) {
-            $query['memo'] = $request->memo;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        if (!Utils::isUnset($request->ruleActions)) {
-            $query['ruleActions'] = $request->ruleActions;
-        }
-        if (!Utils::isUnset($request->ruleExpressions)) {
-            $query['ruleExpressions'] = $request->ruleExpressions;
-        }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['ruleName'] = $request->ruleName;
-        }
-        if (!Utils::isUnset($request->ruleStatus)) {
-            $query['ruleStatus'] = $request->ruleStatus;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateTemplate',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建模版
-     *  *
-     * @param CreateTemplateRequest $request CreateTemplateRequest
+     * @param request - DeleteAnalysisConditionFavoriteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateTemplateResponse CreateTemplateResponse
-     */
-    public function createTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 删除查询条件
-     *  *
-     * @param DeleteAnalysisConditionFavoriteRequest $request DeleteAnalysisConditionFavoriteRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * @returns DeleteAnalysisConditionFavoriteResponse
      *
-     * @return DeleteAnalysisConditionFavoriteResponse DeleteAnalysisConditionFavoriteResponse
+     * @param DeleteAnalysisConditionFavoriteRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteAnalysisConditionFavoriteResponse
      */
     public function deleteAnalysisConditionFavoriteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAnalysisConditionFavorite',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAnalysisConditionFavorite',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteAnalysisConditionFavoriteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除查询条件
-     *  *
-     * @param DeleteAnalysisConditionFavoriteRequest $request DeleteAnalysisConditionFavoriteRequest
+     * Delete Query Condition.
      *
-     * @return DeleteAnalysisConditionFavoriteResponse DeleteAnalysisConditionFavoriteResponse
+     * @param request - DeleteAnalysisConditionFavoriteRequest
+     *
+     * @returns DeleteAnalysisConditionFavoriteResponse
+     *
+     * @param DeleteAnalysisConditionFavoriteRequest $request
+     *
+     * @return DeleteAnalysisConditionFavoriteResponse
      */
     public function deleteAnalysisConditionFavorite($request)
     {
@@ -2692,109 +3190,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 删除用户授权
-     *  *
-     * @param DeleteAuthUserRequest $request DeleteAuthUserRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Delete Bypass Event.
      *
-     * @return DeleteAuthUserResponse DeleteAuthUserResponse
-     */
-    public function deleteAuthUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
-        }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
-        }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteAuthUser',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteAuthUserResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 删除用户授权
-     *  *
-     * @param DeleteAuthUserRequest $request DeleteAuthUserRequest
+     * @param request - DeleteByPassShuntEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteAuthUserResponse DeleteAuthUserResponse
-     */
-    public function deleteAuthUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteAuthUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 删除旁路事件
-     *  *
-     * @param DeleteByPassShuntEventRequest $request DeleteByPassShuntEventRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @returns DeleteByPassShuntEventResponse
      *
-     * @return DeleteByPassShuntEventResponse DeleteByPassShuntEventResponse
+     * @param DeleteByPassShuntEventRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteByPassShuntEventResponse
      */
     public function deleteByPassShuntEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['eventId'] = $request->eventId;
+
+        if (null !== $request->eventId) {
+            @$query['eventId'] = $request->eventId;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteByPassShuntEvent',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteByPassShuntEvent',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteByPassShuntEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除旁路事件
-     *  *
-     * @param DeleteByPassShuntEventRequest $request DeleteByPassShuntEventRequest
+     * Delete Bypass Event.
      *
-     * @return DeleteByPassShuntEventResponse DeleteByPassShuntEventResponse
+     * @param request - DeleteByPassShuntEventRequest
+     *
+     * @returns DeleteByPassShuntEventResponse
+     *
+     * @param DeleteByPassShuntEventRequest $request
+     *
+     * @return DeleteByPassShuntEventResponse
      */
     public function deleteByPassShuntEvent($request)
     {
@@ -2804,56 +3255,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 删除累计变量
-     *  *
-     * @param DeleteCustVariableRequest $request DeleteCustVariableRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Delete Accumulated Variable.
      *
-     * @return DeleteCustVariableResponse DeleteCustVariableResponse
+     * @param request - DeleteCustVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustVariableResponse
+     *
+     * @param DeleteCustVariableRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteCustVariableResponse
      */
     public function deleteCustVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->dataVersion)) {
-            $query['dataVersion'] = $request->dataVersion;
+
+        if (null !== $request->dataVersion) {
+            @$query['dataVersion'] = $request->dataVersion;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->variableId)) {
-            $query['variableId'] = $request->variableId;
+
+        if (null !== $request->variableId) {
+            @$query['variableId'] = $request->variableId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCustVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCustVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteCustVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除累计变量
-     *  *
-     * @param DeleteCustVariableRequest $request DeleteCustVariableRequest
+     * Delete Accumulated Variable.
      *
-     * @return DeleteCustVariableResponse DeleteCustVariableResponse
+     * @param request - DeleteCustVariableRequest
+     *
+     * @returns DeleteCustVariableResponse
+     *
+     * @param DeleteCustVariableRequest $request
+     *
+     * @return DeleteCustVariableResponse
      */
     public function deleteCustVariable($request)
     {
@@ -2863,50 +3328,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 删除数据源
-     *  *
-     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Delete Data Source.
      *
-     * @return DeleteDataSourceResponse DeleteDataSourceResponse
+     * @param request - DeleteDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataSourceResponse
+     *
+     * @param DeleteDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDataSourceResponse
      */
     public function deleteDataSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDataSource',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDataSource',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除数据源
-     *  *
-     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
+     * Delete Data Source.
      *
-     * @return DeleteDataSourceResponse DeleteDataSourceResponse
+     * @param request - DeleteDataSourceRequest
+     *
+     * @returns DeleteDataSourceResponse
+     *
+     * @param DeleteDataSourceRequest $request
+     *
+     * @return DeleteDataSourceResponse
      */
     public function deleteDataSource($request)
     {
@@ -2916,53 +3393,135 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 删除自定义变量
-     *  *
-     * @param DeleteExpressionVariableRequest $request DeleteExpressionVariableRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Delete Event Field.
      *
-     * @return DeleteExpressionVariableResponse DeleteExpressionVariableResponse
+     * @param request - DeleteEventFieldRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEventFieldResponse
+     *
+     * @param DeleteEventFieldRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteEventFieldResponse
+     */
+    public function deleteEventFieldWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
+        }
+
+        if (null !== $request->fieldName) {
+            @$query['fieldName'] = $request->fieldName;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEventField',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEventFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete Event Field.
+     *
+     * @param request - DeleteEventFieldRequest
+     *
+     * @returns DeleteEventFieldResponse
+     *
+     * @param DeleteEventFieldRequest $request
+     *
+     * @return DeleteEventFieldResponse
+     */
+    public function deleteEventField($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEventFieldWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete Custom Variable.
+     *
+     * @param request - DeleteExpressionVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteExpressionVariableResponse
+     *
+     * @param DeleteExpressionVariableRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteExpressionVariableResponse
      */
     public function deleteExpressionVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->dataVersion)) {
-            $query['dataVersion'] = $request->dataVersion;
+
+        if (null !== $request->dataVersion) {
+            @$query['dataVersion'] = $request->dataVersion;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteExpressionVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteExpressionVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteExpressionVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除自定义变量
-     *  *
-     * @param DeleteExpressionVariableRequest $request DeleteExpressionVariableRequest
+     * Delete Custom Variable.
      *
-     * @return DeleteExpressionVariableResponse DeleteExpressionVariableResponse
+     * @param request - DeleteExpressionVariableRequest
+     *
+     * @returns DeleteExpressionVariableResponse
+     *
+     * @param DeleteExpressionVariableRequest $request
+     *
+     * @return DeleteExpressionVariableResponse
      */
     public function deleteExpressionVariable($request)
     {
@@ -2972,53 +3531,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 删除字段
-     *  *
-     * @param DeleteFieldRequest $request DeleteFieldRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 删除字段.
      *
-     * @return DeleteFieldResponse DeleteFieldResponse
+     * @param request - DeleteFieldRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFieldResponse
+     *
+     * @param DeleteFieldRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteFieldResponse
      */
     public function deleteFieldWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteField',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteField',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteFieldResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除字段
-     *  *
-     * @param DeleteFieldRequest $request DeleteFieldRequest
+     * 删除字段.
      *
-     * @return DeleteFieldResponse DeleteFieldResponse
+     * @param request - DeleteFieldRequest
+     *
+     * @returns DeleteFieldResponse
+     *
+     * @param DeleteFieldRequest $request
+     *
+     * @return DeleteFieldResponse
      */
     public function deleteField($request)
     {
@@ -3028,50 +3600,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 删除名单
-     *  *
-     * @param DeleteNameListRequest $request DeleteNameListRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Delete Name List.
      *
-     * @return DeleteNameListResponse DeleteNameListResponse
+     * @param request - DeleteNameListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNameListResponse
+     *
+     * @param DeleteNameListRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteNameListResponse
      */
     public function deleteNameListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->ids)) {
-            $query['ids'] = $request->ids;
+
+        if (null !== $request->ids) {
+            @$query['ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNameList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNameList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteNameListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除名单
-     *  *
-     * @param DeleteNameListRequest $request DeleteNameListRequest
+     * Delete Name List.
      *
-     * @return DeleteNameListResponse DeleteNameListResponse
+     * @param request - DeleteNameListRequest
+     *
+     * @returns DeleteNameListResponse
+     *
+     * @param DeleteNameListRequest $request
+     *
+     * @return DeleteNameListResponse
      */
     public function deleteNameList($request)
     {
@@ -3081,50 +3665,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 删除(伪)名单变量数据
-     *  *
-     * @param DeleteNameListDataRequest $request DeleteNameListDataRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Delete (pseudo) name list variable data.
      *
-     * @return DeleteNameListDataResponse DeleteNameListDataResponse
+     * @param request - DeleteNameListDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNameListDataResponse
+     *
+     * @param DeleteNameListDataRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteNameListDataResponse
      */
     public function deleteNameListDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->variableId)) {
-            $query['variableId'] = $request->variableId;
+
+        if (null !== $request->variableId) {
+            @$query['variableId'] = $request->variableId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNameListData',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNameListData',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteNameListDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除(伪)名单变量数据
-     *  *
-     * @param DeleteNameListDataRequest $request DeleteNameListDataRequest
+     * Delete (pseudo) name list variable data.
      *
-     * @return DeleteNameListDataResponse DeleteNameListDataResponse
+     * @param request - DeleteNameListDataRequest
+     *
+     * @returns DeleteNameListDataResponse
+     *
+     * @param DeleteNameListDataRequest $request
+     *
+     * @return DeleteNameListDataResponse
      */
     public function deleteNameListData($request)
     {
@@ -3134,50 +3730,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询变量删除
-     *  *
-     * @param DeleteQueryVariableRequest $request DeleteQueryVariableRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Delete Query Variable.
      *
-     * @return DeleteQueryVariableResponse DeleteQueryVariableResponse
+     * @param request - DeleteQueryVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteQueryVariableResponse
+     *
+     * @param DeleteQueryVariableRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteQueryVariableResponse
      */
     public function deleteQueryVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteQueryVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteQueryVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteQueryVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询变量删除
-     *  *
-     * @param DeleteQueryVariableRequest $request DeleteQueryVariableRequest
+     * Delete Query Variable.
      *
-     * @return DeleteQueryVariableResponse DeleteQueryVariableResponse
+     * @param request - DeleteQueryVariableRequest
+     *
+     * @returns DeleteQueryVariableResponse
+     *
+     * @param DeleteQueryVariableRequest $request
+     *
+     * @return DeleteQueryVariableResponse
      */
     public function deleteQueryVariable($request)
     {
@@ -3187,56 +3795,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 删除策略版本
-     *  *
-     * @param DeleteRuleRequest $request DeleteRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Delete Policy Version.
      *
-     * @return DeleteRuleResponse DeleteRuleResponse
+     * @param request - DeleteRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRuleResponse
+     *
+     * @param DeleteRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteRuleResponse
      */
     public function deleteRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->consoleRuleId)) {
-            $query['consoleRuleId'] = $request->consoleRuleId;
+
+        if (null !== $request->consoleRuleId) {
+            @$query['consoleRuleId'] = $request->consoleRuleId;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['ruleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['ruleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleVersionId)) {
-            $query['ruleVersionId'] = $request->ruleVersionId;
+
+        if (null !== $request->ruleVersionId) {
+            @$query['ruleVersionId'] = $request->ruleVersionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRule',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRule',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除策略版本
-     *  *
-     * @param DeleteRuleRequest $request DeleteRuleRequest
+     * Delete Policy Version.
      *
-     * @return DeleteRuleResponse DeleteRuleResponse
+     * @param request - DeleteRuleRequest
+     *
+     * @returns DeleteRuleResponse
+     *
+     * @param DeleteRuleRequest $request
+     *
+     * @return DeleteRuleResponse
      */
     public function deleteRule($request)
     {
@@ -3246,53 +3868,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除样本
-     *  *
-     * @param DeleteSampleBatchRequest $request DeleteSampleBatchRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Batch Delete Samples.
      *
-     * @return DeleteSampleBatchResponse DeleteSampleBatchResponse
+     * @param request - DeleteSampleBatchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSampleBatchResponse
+     *
+     * @param DeleteSampleBatchRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteSampleBatchResponse
      */
     public function deleteSampleBatchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->ids)) {
-            $query['ids'] = $request->ids;
+
+        if (null !== $request->ids) {
+            @$query['ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->versions)) {
-            $query['versions'] = $request->versions;
+
+        if (null !== $request->versions) {
+            @$query['versions'] = $request->versions;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSampleBatch',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSampleBatch',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteSampleBatchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量删除样本
-     *  *
-     * @param DeleteSampleBatchRequest $request DeleteSampleBatchRequest
+     * Batch Delete Samples.
      *
-     * @return DeleteSampleBatchResponse DeleteSampleBatchResponse
+     * @param request - DeleteSampleBatchRequest
+     *
+     * @returns DeleteSampleBatchResponse
+     *
+     * @param DeleteSampleBatchRequest $request
+     *
+     * @return DeleteSampleBatchResponse
      */
     public function deleteSampleBatch($request)
     {
@@ -3302,50 +3937,127 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 删除样本数据
-     *  *
-     * @param DeleteSampleDataRequest $request DeleteSampleDataRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Sample Deletion.
      *
-     * @return DeleteSampleDataResponse DeleteSampleDataResponse
+     * @param request - DeleteSampleBatchMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSampleBatchMetaResponse
+     *
+     * @param DeleteSampleBatchMetaRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteSampleBatchMetaResponse
+     */
+    public function deleteSampleBatchMetaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->batchUuid) {
+            @$query['batchUuid'] = $request->batchUuid;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSampleBatchMeta',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSampleBatchMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sample Deletion.
+     *
+     * @param request - DeleteSampleBatchMetaRequest
+     *
+     * @returns DeleteSampleBatchMetaResponse
+     *
+     * @param DeleteSampleBatchMetaRequest $request
+     *
+     * @return DeleteSampleBatchMetaResponse
+     */
+    public function deleteSampleBatchMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSampleBatchMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete Sample Data.
+     *
+     * @param request - DeleteSampleDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSampleDataResponse
+     *
+     * @param DeleteSampleDataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteSampleDataResponse
      */
     public function deleteSampleDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSampleData',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSampleData',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteSampleDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除样本数据
-     *  *
-     * @param DeleteSampleDataRequest $request DeleteSampleDataRequest
+     * Delete Sample Data.
      *
-     * @return DeleteSampleDataResponse DeleteSampleDataResponse
+     * @param request - DeleteSampleDataRequest
+     *
+     * @returns DeleteSampleDataResponse
+     *
+     * @param DeleteSampleDataRequest $request
+     *
+     * @return DeleteSampleDataResponse
      */
     public function deleteSampleData($request)
     {
@@ -3355,106 +4067,131 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 删除社群任务
-     *  *
-     * @param DeleteTaskRequest $request DeleteTaskRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Delete Custom System Variable.
      *
-     * @return DeleteTaskResponse DeleteTaskResponse
+     * @param request - DeleteSelfBindVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSelfBindVariableResponse
+     *
+     * @param DeleteSelfBindVariableRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteSelfBindVariableResponse
      */
-    public function deleteTaskWithOptions($request, $runtime)
+    public function deleteSelfBindVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTask',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSelfBindVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
-        return DeleteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSelfBindVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除社群任务
-     *  *
-     * @param DeleteTaskRequest $request DeleteTaskRequest
+     * Delete Custom System Variable.
      *
-     * @return DeleteTaskResponse DeleteTaskResponse
+     * @param request - DeleteSelfBindVariableRequest
+     *
+     * @returns DeleteSelfBindVariableResponse
+     *
+     * @param DeleteSelfBindVariableRequest $request
+     *
+     * @return DeleteSelfBindVariableResponse
      */
-    public function deleteTask($request)
+    public function deleteSelfBindVariable($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteTaskWithOptions($request, $runtime);
+        return $this->deleteSelfBindVariableWithOptions($request, $runtime);
     }
 
     /**
-     * @summary 高级查询获取左变量接口
-     *  *
-     * @param DescribeAdvanceSearchLeftVariableListRequest $request DescribeAdvanceSearchLeftVariableListRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * 高级查询获取左变量接口.
      *
-     * @return DescribeAdvanceSearchLeftVariableListResponse DescribeAdvanceSearchLeftVariableListResponse
+     * @param request - DescribeAdvanceSearchLeftVariableListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAdvanceSearchLeftVariableListResponse
+     *
+     * @param DescribeAdvanceSearchLeftVariableListRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeAdvanceSearchLeftVariableListResponse
      */
     public function describeAdvanceSearchLeftVariableListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['scene'] = $request->scene;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAdvanceSearchLeftVariableList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAdvanceSearchLeftVariableList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAdvanceSearchLeftVariableListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 高级查询获取左变量接口
-     *  *
-     * @param DescribeAdvanceSearchLeftVariableListRequest $request DescribeAdvanceSearchLeftVariableListRequest
+     * 高级查询获取左变量接口.
      *
-     * @return DescribeAdvanceSearchLeftVariableListResponse DescribeAdvanceSearchLeftVariableListResponse
+     * @param request - DescribeAdvanceSearchLeftVariableListRequest
+     *
+     * @returns DescribeAdvanceSearchLeftVariableListResponse
+     *
+     * @param DescribeAdvanceSearchLeftVariableListRequest $request
+     *
+     * @return DescribeAdvanceSearchLeftVariableListResponse
      */
     public function describeAdvanceSearchLeftVariableList($request)
     {
@@ -3464,71 +4201,90 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 高级查询
-     *  *
-     * @param DescribeAdvanceSearchPageListRequest $request DescribeAdvanceSearchPageListRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Advanced Query.
      *
-     * @return DescribeAdvanceSearchPageListResponse DescribeAdvanceSearchPageListResponse
+     * @param request - DescribeAdvanceSearchPageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAdvanceSearchPageListResponse
+     *
+     * @param DescribeAdvanceSearchPageListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeAdvanceSearchPageListResponse
      */
     public function describeAdvanceSearchPageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->condition)) {
-            $query['condition'] = $request->condition;
+
+        if (null !== $request->condition) {
+            @$query['condition'] = $request->condition;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->eventBeginTime)) {
-            $query['eventBeginTime'] = $request->eventBeginTime;
+
+        if (null !== $request->eventBeginTime) {
+            @$query['eventBeginTime'] = $request->eventBeginTime;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->eventEndTime)) {
-            $query['eventEndTime'] = $request->eventEndTime;
+
+        if (null !== $request->eventEndTime) {
+            @$query['eventEndTime'] = $request->eventEndTime;
         }
-        if (!Utils::isUnset($request->fieldName)) {
-            $query['fieldName'] = $request->fieldName;
+
+        if (null !== $request->fieldName) {
+            @$query['fieldName'] = $request->fieldName;
         }
-        if (!Utils::isUnset($request->fieldValue)) {
-            $query['fieldValue'] = $request->fieldValue;
+
+        if (null !== $request->fieldValue) {
+            @$query['fieldValue'] = $request->fieldValue;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAdvanceSearchPageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAdvanceSearchPageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAdvanceSearchPageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 高级查询
-     *  *
-     * @param DescribeAdvanceSearchPageListRequest $request DescribeAdvanceSearchPageListRequest
+     * Advanced Query.
      *
-     * @return DescribeAdvanceSearchPageListResponse DescribeAdvanceSearchPageListResponse
+     * @param request - DescribeAdvanceSearchPageListRequest
+     *
+     * @returns DescribeAdvanceSearchPageListResponse
+     *
+     * @param DescribeAdvanceSearchPageListRequest $request
+     *
+     * @return DescribeAdvanceSearchPageListResponse
      */
     public function describeAdvanceSearchPageList($request)
     {
@@ -3538,47 +4294,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 数据源列表
-     *  *
-     * @param DescribeAllDataSourceRequest $request DescribeAllDataSourceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 数据源列表.
      *
-     * @return DescribeAllDataSourceResponse DescribeAllDataSourceResponse
+     * @param request - DescribeAllDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAllDataSourceResponse
+     *
+     * @param DescribeAllDataSourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAllDataSourceResponse
      */
     public function describeAllDataSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAllDataSource',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAllDataSource',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAllDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 数据源列表
-     *  *
-     * @param DescribeAllDataSourceRequest $request DescribeAllDataSourceRequest
+     * 数据源列表.
      *
-     * @return DescribeAllDataSourceResponse DescribeAllDataSourceResponse
+     * @param request - DescribeAllDataSourceRequest
+     *
+     * @returns DescribeAllDataSourceResponse
+     *
+     * @param DescribeAllDataSourceRequest $request
+     *
+     * @return DescribeAllDataSourceResponse
      */
     public function describeAllDataSource($request)
     {
@@ -3588,50 +4355,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 事件列表查询
-     *  *
-     * @param DescribeAllEventNameAndCodeRequest $request DescribeAllEventNameAndCodeRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Event List Query.
      *
-     * @return DescribeAllEventNameAndCodeResponse DescribeAllEventNameAndCodeResponse
+     * @param request - DescribeAllEventNameAndCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAllEventNameAndCodeResponse
+     *
+     * @param DescribeAllEventNameAndCodeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeAllEventNameAndCodeResponse
      */
     public function describeAllEventNameAndCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAllEventNameAndCode',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAllEventNameAndCode',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAllEventNameAndCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 事件列表查询
-     *  *
-     * @param DescribeAllEventNameAndCodeRequest $request DescribeAllEventNameAndCodeRequest
+     * Event List Query.
      *
-     * @return DescribeAllEventNameAndCodeResponse DescribeAllEventNameAndCodeResponse
+     * @param request - DescribeAllEventNameAndCodeRequest
+     *
+     * @returns DescribeAllEventNameAndCodeResponse
+     *
+     * @param DescribeAllEventNameAndCodeRequest $request
+     *
+     * @return DescribeAllEventNameAndCodeResponse
      */
     public function describeAllEventNameAndCode($request)
     {
@@ -3641,71 +4420,90 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 自定义表达式测试时，展示所有的根变量
-     *  *
-     * @param DescribeAllRootVariableRequest $request DescribeAllRootVariableRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Display all root variables when testing custom expressions.
      *
-     * @return DescribeAllRootVariableResponse DescribeAllRootVariableResponse
+     * @param request - DescribeAllRootVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAllRootVariableResponse
+     *
+     * @param DescribeAllRootVariableRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeAllRootVariableResponse
      */
     public function describeAllRootVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->deviceVariableIds)) {
-            $query['deviceVariableIds'] = $request->deviceVariableIds;
+
+        if (null !== $request->deviceVariableIds) {
+            @$query['deviceVariableIds'] = $request->deviceVariableIds;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->expressionVariableIds)) {
-            $query['expressionVariableIds'] = $request->expressionVariableIds;
+
+        if (null !== $request->expressionVariableIds) {
+            @$query['expressionVariableIds'] = $request->expressionVariableIds;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->nativeVariableIds)) {
-            $query['nativeVariableIds'] = $request->nativeVariableIds;
+
+        if (null !== $request->nativeVariableIds) {
+            @$query['nativeVariableIds'] = $request->nativeVariableIds;
         }
-        if (!Utils::isUnset($request->queryVariableIds)) {
-            $query['queryVariableIds'] = $request->queryVariableIds;
+
+        if (null !== $request->queryVariableIds) {
+            @$query['queryVariableIds'] = $request->queryVariableIds;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->velocityVariableIds)) {
-            $query['velocityVariableIds'] = $request->velocityVariableIds;
+
+        if (null !== $request->velocityVariableIds) {
+            @$query['velocityVariableIds'] = $request->velocityVariableIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAllRootVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAllRootVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAllRootVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 自定义表达式测试时，展示所有的根变量
-     *  *
-     * @param DescribeAllRootVariableRequest $request DescribeAllRootVariableRequest
+     * Display all root variables when testing custom expressions.
      *
-     * @return DescribeAllRootVariableResponse DescribeAllRootVariableResponse
+     * @param request - DescribeAllRootVariableRequest
+     *
+     * @returns DescribeAllRootVariableResponse
+     *
+     * @param DescribeAllRootVariableRequest $request
+     *
+     * @return DescribeAllRootVariableResponse
      */
     public function describeAllRootVariable($request)
     {
@@ -3715,47 +4513,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 展示所有字段
-     *  *
-     * @param DescribeAnalysisColumnFieldListRequest $request DescribeAnalysisColumnFieldListRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Display All Fields.
      *
-     * @return DescribeAnalysisColumnFieldListResponse DescribeAnalysisColumnFieldListResponse
+     * @param request - DescribeAnalysisColumnFieldListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAnalysisColumnFieldListResponse
+     *
+     * @param DescribeAnalysisColumnFieldListRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeAnalysisColumnFieldListResponse
      */
     public function describeAnalysisColumnFieldListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAnalysisColumnFieldList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAnalysisColumnFieldList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAnalysisColumnFieldListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 展示所有字段
-     *  *
-     * @param DescribeAnalysisColumnFieldListRequest $request DescribeAnalysisColumnFieldListRequest
+     * Display All Fields.
      *
-     * @return DescribeAnalysisColumnFieldListResponse DescribeAnalysisColumnFieldListResponse
+     * @param request - DescribeAnalysisColumnFieldListRequest
+     *
+     * @returns DescribeAnalysisColumnFieldListResponse
+     *
+     * @param DescribeAnalysisColumnFieldListRequest $request
+     *
+     * @return DescribeAnalysisColumnFieldListResponse
      */
     public function describeAnalysisColumnFieldList($request)
     {
@@ -3765,47 +4574,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询自定义列
-     *  *
-     * @param DescribeAnalysisColumnListRequest $request DescribeAnalysisColumnListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Query Custom Columns.
      *
-     * @return DescribeAnalysisColumnListResponse DescribeAnalysisColumnListResponse
+     * @param request - DescribeAnalysisColumnListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAnalysisColumnListResponse
+     *
+     * @param DescribeAnalysisColumnListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeAnalysisColumnListResponse
      */
     public function describeAnalysisColumnListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAnalysisColumnList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAnalysisColumnList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAnalysisColumnListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询自定义列
-     *  *
-     * @param DescribeAnalysisColumnListRequest $request DescribeAnalysisColumnListRequest
+     * Query Custom Columns.
      *
-     * @return DescribeAnalysisColumnListResponse DescribeAnalysisColumnListResponse
+     * @param request - DescribeAnalysisColumnListRequest
+     *
+     * @returns DescribeAnalysisColumnListResponse
+     *
+     * @param DescribeAnalysisColumnListRequest $request
+     *
+     * @return DescribeAnalysisColumnListResponse
      */
     public function describeAnalysisColumnList($request)
     {
@@ -3815,47 +4635,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询条件列表
-     *  *
-     * @param DescribeAnalysisConditionFavoriteListRequest $request DescribeAnalysisConditionFavoriteListRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Query Condition List.
      *
-     * @return DescribeAnalysisConditionFavoriteListResponse DescribeAnalysisConditionFavoriteListResponse
+     * @param request - DescribeAnalysisConditionFavoriteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAnalysisConditionFavoriteListResponse
+     *
+     * @param DescribeAnalysisConditionFavoriteListRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeAnalysisConditionFavoriteListResponse
      */
     public function describeAnalysisConditionFavoriteListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAnalysisConditionFavoriteList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAnalysisConditionFavoriteList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAnalysisConditionFavoriteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询条件列表
-     *  *
-     * @param DescribeAnalysisConditionFavoriteListRequest $request DescribeAnalysisConditionFavoriteListRequest
+     * Query Condition List.
      *
-     * @return DescribeAnalysisConditionFavoriteListResponse DescribeAnalysisConditionFavoriteListResponse
+     * @param request - DescribeAnalysisConditionFavoriteListRequest
+     *
+     * @returns DescribeAnalysisConditionFavoriteListResponse
+     *
+     * @param DescribeAnalysisConditionFavoriteListRequest $request
+     *
+     * @return DescribeAnalysisConditionFavoriteListResponse
      */
     public function describeAnalysisConditionFavoriteList($request)
     {
@@ -3865,47 +4696,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 下载查询结果
-     *  *
-     * @param DescribeAnalysisExportTaskDownloadUrlRequest $request DescribeAnalysisExportTaskDownloadUrlRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Download Query Results.
      *
-     * @return DescribeAnalysisExportTaskDownloadUrlResponse DescribeAnalysisExportTaskDownloadUrlResponse
+     * @param request - DescribeAnalysisExportTaskDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAnalysisExportTaskDownloadUrlResponse
+     *
+     * @param DescribeAnalysisExportTaskDownloadUrlRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeAnalysisExportTaskDownloadUrlResponse
      */
     public function describeAnalysisExportTaskDownloadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAnalysisExportTaskDownloadUrl',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAnalysisExportTaskDownloadUrl',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAnalysisExportTaskDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 下载查询结果
-     *  *
-     * @param DescribeAnalysisExportTaskDownloadUrlRequest $request DescribeAnalysisExportTaskDownloadUrlRequest
+     * Download Query Results.
      *
-     * @return DescribeAnalysisExportTaskDownloadUrlResponse DescribeAnalysisExportTaskDownloadUrlResponse
+     * @param request - DescribeAnalysisExportTaskDownloadUrlRequest
+     *
+     * @returns DescribeAnalysisExportTaskDownloadUrlResponse
+     *
+     * @param DescribeAnalysisExportTaskDownloadUrlRequest $request
+     *
+     * @return DescribeAnalysisExportTaskDownloadUrlResponse
      */
     public function describeAnalysisExportTaskDownloadUrl($request)
     {
@@ -3915,56 +4757,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 得到api详情
-     *  *
-     * @param DescribeApiRequest $request DescribeApiRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Get API Details.
      *
-     * @return DescribeApiResponse DescribeApiResponse
+     * @param request - DescribeApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApiResponse
+     *
+     * @param DescribeApiRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DescribeApiResponse
      */
     public function describeApiWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->apiId)) {
-            $query['apiId'] = $request->apiId;
+
+        if (null !== $request->apiId) {
+            @$query['apiId'] = $request->apiId;
         }
-        if (!Utils::isUnset($request->apiRegionId)) {
-            $query['apiRegionId'] = $request->apiRegionId;
+
+        if (null !== $request->apiRegionId) {
+            @$query['apiRegionId'] = $request->apiRegionId;
         }
-        if (!Utils::isUnset($request->apiType)) {
-            $query['apiType'] = $request->apiType;
+
+        if (null !== $request->apiType) {
+            @$query['apiType'] = $request->apiType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApi',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApi',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 得到api详情
-     *  *
-     * @param DescribeApiRequest $request DescribeApiRequest
+     * Get API Details.
      *
-     * @return DescribeApiResponse DescribeApiResponse
+     * @param request - DescribeApiRequest
+     *
+     * @returns DescribeApiResponse
+     *
+     * @param DescribeApiRequest $request
+     *
+     * @return DescribeApiResponse
      */
     public function describeApi($request)
     {
@@ -3974,50 +4830,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 得到api分组包括用户购买的以及自定义的
-     *  *
-     * @param DescribeApiGroupsRequest $request DescribeApiGroupsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Get API groups including those purchased by the user and custom ones.
      *
-     * @return DescribeApiGroupsResponse DescribeApiGroupsResponse
+     * @param request - DescribeApiGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApiGroupsResponse
+     *
+     * @param DescribeApiGroupsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeApiGroupsResponse
      */
     public function describeApiGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->apiRegionId)) {
-            $query['apiRegionId'] = $request->apiRegionId;
+
+        if (null !== $request->apiRegionId) {
+            @$query['apiRegionId'] = $request->apiRegionId;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApiGroups',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApiGroups',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeApiGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 得到api分组包括用户购买的以及自定义的
-     *  *
-     * @param DescribeApiGroupsRequest $request DescribeApiGroupsRequest
+     * Get API groups including those purchased by the user and custom ones.
      *
-     * @return DescribeApiGroupsResponse DescribeApiGroupsResponse
+     * @param request - DescribeApiGroupsRequest
+     *
+     * @returns DescribeApiGroupsResponse
+     *
+     * @param DescribeApiGroupsRequest $request
+     *
+     * @return DescribeApiGroupsResponse
      */
     public function describeApiGroups($request)
     {
@@ -4027,47 +4895,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询创建api任务的limit信息
-     *  *
-     * @param DescribeApiLimitRequest $request DescribeApiLimitRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Query the limit information for creating API tasks.
      *
-     * @return DescribeApiLimitResponse DescribeApiLimitResponse
+     * @param request - DescribeApiLimitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApiLimitResponse
+     *
+     * @param DescribeApiLimitRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeApiLimitResponse
      */
     public function describeApiLimitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApiLimit',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApiLimit',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeApiLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询创建api任务的limit信息
-     *  *
-     * @param DescribeApiLimitRequest $request DescribeApiLimitRequest
+     * Query the limit information for creating API tasks.
      *
-     * @return DescribeApiLimitResponse DescribeApiLimitResponse
+     * @param request - DescribeApiLimitRequest
+     *
+     * @returns DescribeApiLimitResponse
+     *
+     * @param DescribeApiLimitRequest $request
+     *
+     * @return DescribeApiLimitResponse
      */
     public function describeApiLimit($request)
     {
@@ -4077,47 +4956,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取api服务名称
-     *  *
-     * @param DescribeApiNameListRequest $request DescribeApiNameListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Get API Service Name.
      *
-     * @return DescribeApiNameListResponse DescribeApiNameListResponse
+     * @param request - DescribeApiNameListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApiNameListResponse
+     *
+     * @param DescribeApiNameListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeApiNameListResponse
      */
     public function describeApiNameListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApiNameList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApiNameList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeApiNameListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取api服务名称
-     *  *
-     * @param DescribeApiNameListRequest $request DescribeApiNameListRequest
+     * Get API Service Name.
      *
-     * @return DescribeApiNameListResponse DescribeApiNameListResponse
+     * @param request - DescribeApiNameListRequest
+     *
+     * @returns DescribeApiNameListResponse
+     *
+     * @param DescribeApiNameListRequest $request
+     *
+     * @return DescribeApiNameListResponse
      */
     public function describeApiNameList($request)
     {
@@ -4127,50 +5017,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询变量详情
-     *  *
-     * @param DescribeApiVariableRequest $request DescribeApiVariableRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Query Variable Details.
      *
-     * @return DescribeApiVariableResponse DescribeApiVariableResponse
+     * @param request - DescribeApiVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApiVariableResponse
+     *
+     * @param DescribeApiVariableRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeApiVariableResponse
      */
     public function describeApiVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApiVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApiVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeApiVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询变量详情
-     *  *
-     * @param DescribeApiVariableRequest $request DescribeApiVariableRequest
+     * Query Variable Details.
      *
-     * @return DescribeApiVariableResponse DescribeApiVariableResponse
+     * @param request - DescribeApiVariableRequest
+     *
+     * @returns DescribeApiVariableResponse
+     *
+     * @param DescribeApiVariableRequest $request
+     *
+     * @return DescribeApiVariableResponse
      */
     public function describeApiVariable($request)
     {
@@ -4180,56 +5082,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 得到api列表包括用户购买的以及自定义的
-     *  *
-     * @param DescribeApisRequest $request DescribeApisRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Get API list including purchased and customized APIs.
      *
-     * @return DescribeApisResponse DescribeApisResponse
+     * @param request - DescribeApisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApisResponse
+     *
+     * @param DescribeApisRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeApisResponse
      */
     public function describeApisWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->apiGroupId)) {
-            $query['apiGroupId'] = $request->apiGroupId;
+
+        if (null !== $request->apiGroupId) {
+            @$query['apiGroupId'] = $request->apiGroupId;
         }
-        if (!Utils::isUnset($request->apiRegionId)) {
-            $query['apiRegionId'] = $request->apiRegionId;
+
+        if (null !== $request->apiRegionId) {
+            @$query['apiRegionId'] = $request->apiRegionId;
         }
-        if (!Utils::isUnset($request->apiType)) {
-            $query['apiType'] = $request->apiType;
+
+        if (null !== $request->apiType) {
+            @$query['apiType'] = $request->apiType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApis',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApis',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 得到api列表包括用户购买的以及自定义的
-     *  *
-     * @param DescribeApisRequest $request DescribeApisRequest
+     * Get API list including purchased and customized APIs.
      *
-     * @return DescribeApisResponse DescribeApisResponse
+     * @param request - DescribeApisRequest
+     *
+     * @returns DescribeApisResponse
+     *
+     * @param DescribeApisRequest $request
+     *
+     * @return DescribeApisResponse
      */
     public function describeApis($request)
     {
@@ -4239,53 +5155,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询appKey列表
-     *  *
-     * @param DescribeAppKeyPageRequest $request DescribeAppKeyPageRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Query appKey List.
      *
-     * @return DescribeAppKeyPageResponse DescribeAppKeyPageResponse
+     * @param request - DescribeAppKeyPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAppKeyPageResponse
+     *
+     * @param DescribeAppKeyPageRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeAppKeyPageResponse
      */
     public function describeAppKeyPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAppKeyPage',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAppKeyPage',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAppKeyPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询appKey列表
-     *  *
-     * @param DescribeAppKeyPageRequest $request DescribeAppKeyPageRequest
+     * Query appKey List.
      *
-     * @return DescribeAppKeyPageResponse DescribeAppKeyPageResponse
+     * @param request - DescribeAppKeyPageRequest
+     *
+     * @returns DescribeAppKeyPageResponse
+     *
+     * @param DescribeAppKeyPageRequest $request
+     *
+     * @return DescribeAppKeyPageResponse
      */
     public function describeAppKeyPage($request)
     {
@@ -4295,50 +5224,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 审批开关
-     *  *
-     * @param DescribeAuditConfigRequest $request DescribeAuditConfigRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Approval Switch.
      *
-     * @return DescribeAuditConfigResponse DescribeAuditConfigResponse
+     * @param request - DescribeAuditConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAuditConfigResponse
+     *
+     * @param DescribeAuditConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeAuditConfigResponse
      */
     public function describeAuditConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->auditRelationType)) {
-            $query['auditRelationType'] = $request->auditRelationType;
+
+        if (null !== $request->auditRelationType) {
+            @$query['auditRelationType'] = $request->auditRelationType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAuditConfig',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAuditConfig',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAuditConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 审批开关
-     *  *
-     * @param DescribeAuditConfigRequest $request DescribeAuditConfigRequest
+     * Approval Switch.
      *
-     * @return DescribeAuditConfigResponse DescribeAuditConfigResponse
+     * @param request - DescribeAuditConfigRequest
+     *
+     * @returns DescribeAuditConfigResponse
+     *
+     * @param DescribeAuditConfigRequest $request
+     *
+     * @return DescribeAuditConfigResponse
      */
     public function describeAuditConfig($request)
     {
@@ -4348,50 +5289,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 审批详情
-     *  *
-     * @param DescribeAuditDetailsRequest $request DescribeAuditDetailsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Approval Details.
      *
-     * @return DescribeAuditDetailsResponse DescribeAuditDetailsResponse
+     * @param request - DescribeAuditDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAuditDetailsResponse
+     *
+     * @param DescribeAuditDetailsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeAuditDetailsResponse
      */
     public function describeAuditDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAuditDetails',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAuditDetails',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAuditDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 审批详情
-     *  *
-     * @param DescribeAuditDetailsRequest $request DescribeAuditDetailsRequest
+     * Approval Details.
      *
-     * @return DescribeAuditDetailsResponse DescribeAuditDetailsResponse
+     * @param request - DescribeAuditDetailsRequest
+     *
+     * @returns DescribeAuditDetailsResponse
+     *
+     * @param DescribeAuditDetailsRequest $request
+     *
+     * @return DescribeAuditDetailsResponse
      */
     public function describeAuditDetails($request)
     {
@@ -4401,62 +5354,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 审核列表展示、查询
-     *  *
-     * @param DescribeAuditPageListRequest $request DescribeAuditPageListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Display and Query of Audit List.
      *
-     * @return DescribeAuditPageListResponse DescribeAuditPageListResponse
+     * @param request - DescribeAuditPageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAuditPageListResponse
+     *
+     * @param DescribeAuditPageListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAuditPageListResponse
      */
     public function describeAuditPageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->auditStatus)) {
-            $query['auditStatus'] = $request->auditStatus;
+
+        if (null !== $request->auditStatus) {
+            @$query['auditStatus'] = $request->auditStatus;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['ruleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['ruleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAuditPageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAuditPageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAuditPageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 审核列表展示、查询
-     *  *
-     * @param DescribeAuditPageListRequest $request DescribeAuditPageListRequest
+     * Display and Query of Audit List.
      *
-     * @return DescribeAuditPageListResponse DescribeAuditPageListResponse
+     * @param request - DescribeAuditPageListRequest
+     *
+     * @returns DescribeAuditPageListResponse
+     *
+     * @param DescribeAuditPageListRequest $request
+     *
+     * @return DescribeAuditPageListResponse
      */
     public function describeAuditPageList($request)
     {
@@ -4466,47 +5435,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询当前用户的事件名列表
-     *  *
-     * @param DescribeAuthEventNameListRequest $request DescribeAuthEventNameListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Query the list of event names for the current user.
      *
-     * @return DescribeAuthEventNameListResponse DescribeAuthEventNameListResponse
+     * @param request - DescribeAuthEventNameListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAuthEventNameListResponse
+     *
+     * @param DescribeAuthEventNameListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAuthEventNameListResponse
      */
     public function describeAuthEventNameListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAuthEventNameList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAuthEventNameList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAuthEventNameListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询当前用户的事件名列表
-     *  *
-     * @param DescribeAuthEventNameListRequest $request DescribeAuthEventNameListRequest
+     * Query the list of event names for the current user.
      *
-     * @return DescribeAuthEventNameListResponse DescribeAuthEventNameListResponse
+     * @param request - DescribeAuthEventNameListRequest
+     *
+     * @returns DescribeAuthEventNameListResponse
+     *
+     * @param DescribeAuthEventNameListRequest $request
+     *
+     * @return DescribeAuthEventNameListResponse
      */
     public function describeAuthEventNameList($request)
     {
@@ -4516,56 +5496,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 策略列表
-     *  *
-     * @param DescribeAuthRulePageListRequest $request DescribeAuthRulePageListRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 策略列表.
      *
-     * @return DescribeAuthRulePageListResponse DescribeAuthRulePageListResponse
+     * @param request - DescribeAuthRulePageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAuthRulePageListResponse
+     *
+     * @param DescribeAuthRulePageListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeAuthRulePageListResponse
      */
     public function describeAuthRulePageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['ruleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['ruleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAuthRulePageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAuthRulePageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAuthRulePageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 策略列表
-     *  *
-     * @param DescribeAuthRulePageListRequest $request DescribeAuthRulePageListRequest
+     * 策略列表.
      *
-     * @return DescribeAuthRulePageListResponse DescribeAuthRulePageListResponse
+     * @param request - DescribeAuthRulePageListRequest
+     *
+     * @returns DescribeAuthRulePageListResponse
+     *
+     * @param DescribeAuthRulePageListRequest $request
+     *
+     * @return DescribeAuthRulePageListResponse
      */
     public function describeAuthRulePageList($request)
     {
@@ -4575,47 +5569,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 场景列表
-     *  *
-     * @param DescribeAuthSceneListRequest $request DescribeAuthSceneListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 场景列表.
      *
-     * @return DescribeAuthSceneListResponse DescribeAuthSceneListResponse
+     * @param request - DescribeAuthSceneListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAuthSceneListResponse
+     *
+     * @param DescribeAuthSceneListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAuthSceneListResponse
      */
     public function describeAuthSceneListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAuthSceneList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAuthSceneList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAuthSceneListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 场景列表
-     *  *
-     * @param DescribeAuthSceneListRequest $request DescribeAuthSceneListRequest
+     * 场景列表.
      *
-     * @return DescribeAuthSceneListResponse DescribeAuthSceneListResponse
+     * @param request - DescribeAuthSceneListRequest
+     *
+     * @returns DescribeAuthSceneListResponse
+     *
+     * @param DescribeAuthSceneListRequest $request
+     *
+     * @return DescribeAuthSceneListResponse
      */
     public function describeAuthSceneList($request)
     {
@@ -4625,50 +5630,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 场景列表
-     *  *
-     * @param DescribeAuthScenePageListRequest $request DescribeAuthScenePageListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Scene List.
      *
-     * @return DescribeAuthScenePageListResponse DescribeAuthScenePageListResponse
+     * @param request - DescribeAuthScenePageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAuthScenePageListResponse
+     *
+     * @param DescribeAuthScenePageListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAuthScenePageListResponse
      */
     public function describeAuthScenePageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->sceneName)) {
-            $query['sceneName'] = $request->sceneName;
+
+        if (null !== $request->sceneName) {
+            @$query['sceneName'] = $request->sceneName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAuthScenePageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAuthScenePageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAuthScenePageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 场景列表
-     *  *
-     * @param DescribeAuthScenePageListRequest $request DescribeAuthScenePageListRequest
+     * Scene List.
      *
-     * @return DescribeAuthScenePageListResponse DescribeAuthScenePageListResponse
+     * @param request - DescribeAuthScenePageListRequest
+     *
+     * @returns DescribeAuthScenePageListResponse
+     *
+     * @param DescribeAuthScenePageListRequest $request
+     *
+     * @return DescribeAuthScenePageListResponse
      */
     public function describeAuthScenePageList($request)
     {
@@ -4678,47 +5695,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查看是否授权
-     *  *
-     * @param DescribeAuthStatusRequest $request DescribeAuthStatusRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Check Authorization.
      *
-     * @return DescribeAuthStatusResponse DescribeAuthStatusResponse
+     * @param request - DescribeAuthStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAuthStatusResponse
+     *
+     * @param DescribeAuthStatusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeAuthStatusResponse
      */
     public function describeAuthStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAuthStatus',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAuthStatus',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看是否授权
-     *  *
-     * @param DescribeAuthStatusRequest $request DescribeAuthStatusRequest
+     * Check Authorization.
      *
-     * @return DescribeAuthStatusResponse DescribeAuthStatusResponse
+     * @param request - DescribeAuthStatusRequest
+     *
+     * @returns DescribeAuthStatusResponse
+     *
+     * @param DescribeAuthStatusRequest $request
+     *
+     * @return DescribeAuthStatusResponse
      */
     public function describeAuthStatus($request)
     {
@@ -4728,47 +5756,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 平均执行耗时
-     *  *
-     * @param DescribeAvgExecuteCostReportRequest $request DescribeAvgExecuteCostReportRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Average Execution Time.
      *
-     * @return DescribeAvgExecuteCostReportResponse DescribeAvgExecuteCostReportResponse
+     * @param request - DescribeAvgExecuteCostReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAvgExecuteCostReportResponse
+     *
+     * @param DescribeAvgExecuteCostReportRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeAvgExecuteCostReportResponse
      */
     public function describeAvgExecuteCostReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAvgExecuteCostReport',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAvgExecuteCostReport',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAvgExecuteCostReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 平均执行耗时
-     *  *
-     * @param DescribeAvgExecuteCostReportRequest $request DescribeAvgExecuteCostReportRequest
+     * Average Execution Time.
      *
-     * @return DescribeAvgExecuteCostReportResponse DescribeAvgExecuteCostReportResponse
+     * @param request - DescribeAvgExecuteCostReportRequest
+     *
+     * @returns DescribeAvgExecuteCostReportResponse
+     *
+     * @param DescribeAvgExecuteCostReportRequest $request
+     *
+     * @return DescribeAvgExecuteCostReportResponse
      */
     public function describeAvgExecuteCostReport($request)
     {
@@ -4778,68 +5817,86 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 基础查询
-     *  *
-     * @param DescribeBasicSearchPageListRequest $request DescribeBasicSearchPageListRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Basic Query.
      *
-     * @return DescribeBasicSearchPageListResponse DescribeBasicSearchPageListResponse
+     * @param request - DescribeBasicSearchPageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBasicSearchPageListResponse
+     *
+     * @param DescribeBasicSearchPageListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeBasicSearchPageListResponse
      */
     public function describeBasicSearchPageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->eventBeginTime)) {
-            $query['eventBeginTime'] = $request->eventBeginTime;
+
+        if (null !== $request->eventBeginTime) {
+            @$query['eventBeginTime'] = $request->eventBeginTime;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->eventEndTime)) {
-            $query['eventEndTime'] = $request->eventEndTime;
+
+        if (null !== $request->eventEndTime) {
+            @$query['eventEndTime'] = $request->eventEndTime;
         }
-        if (!Utils::isUnset($request->fieldName)) {
-            $query['fieldName'] = $request->fieldName;
+
+        if (null !== $request->fieldName) {
+            @$query['fieldName'] = $request->fieldName;
         }
-        if (!Utils::isUnset($request->fieldValue)) {
-            $query['fieldValue'] = $request->fieldValue;
+
+        if (null !== $request->fieldValue) {
+            @$query['fieldValue'] = $request->fieldValue;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBasicSearchPageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBasicSearchPageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeBasicSearchPageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 基础查询
-     *  *
-     * @param DescribeBasicSearchPageListRequest $request DescribeBasicSearchPageListRequest
+     * Basic Query.
      *
-     * @return DescribeBasicSearchPageListResponse DescribeBasicSearchPageListResponse
+     * @param request - DescribeBasicSearchPageListRequest
+     *
+     * @returns DescribeBasicSearchPageListResponse
+     *
+     * @param DescribeBasicSearchPageListRequest $request
+     *
+     * @return DescribeBasicSearchPageListResponse
      */
     public function describeBasicSearchPageList($request)
     {
@@ -4849,56 +5906,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 基础统计
-     *  *
-     * @param DescribeBasicStartRequest $request DescribeBasicStartRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 基础统计
      *
-     * @return DescribeBasicStartResponse DescribeBasicStartResponse
+     * @param request - DescribeBasicStartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBasicStartResponse
+     *
+     * @param DescribeBasicStartRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeBasicStartResponse
      */
     public function describeBasicStartWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['appKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['appKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->endDs)) {
-            $query['endDs'] = $request->endDs;
+
+        if (null !== $request->endDs) {
+            @$query['endDs'] = $request->endDs;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->service)) {
-            $query['service'] = $request->service;
+
+        if (null !== $request->service) {
+            @$query['service'] = $request->service;
         }
-        if (!Utils::isUnset($request->startDs)) {
-            $query['startDs'] = $request->startDs;
+
+        if (null !== $request->startDs) {
+            @$query['startDs'] = $request->startDs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBasicStart',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBasicStart',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeBasicStartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 基础统计
-     *  *
-     * @param DescribeBasicStartRequest $request DescribeBasicStartRequest
+     * 基础统计
      *
-     * @return DescribeBasicStartResponse DescribeBasicStartResponse
+     * @param request - DescribeBasicStartRequest
+     *
+     * @returns DescribeBasicStartResponse
+     *
+     * @param DescribeBasicStartRequest $request
+     *
+     * @return DescribeBasicStartResponse
      */
     public function describeBasicStart($request)
     {
@@ -4908,50 +5979,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查看旁路事件
-     *  *
-     * @param DescribeByPassShuntEventRequest $request DescribeByPassShuntEventRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * View Bypass Event.
      *
-     * @return DescribeByPassShuntEventResponse DescribeByPassShuntEventResponse
+     * @param request - DescribeByPassShuntEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeByPassShuntEventResponse
+     *
+     * @param DescribeByPassShuntEventRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeByPassShuntEventResponse
      */
     public function describeByPassShuntEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['eventId'] = $request->eventId;
+
+        if (null !== $request->eventId) {
+            @$query['eventId'] = $request->eventId;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeByPassShuntEvent',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeByPassShuntEvent',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeByPassShuntEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看旁路事件
-     *  *
-     * @param DescribeByPassShuntEventRequest $request DescribeByPassShuntEventRequest
+     * View Bypass Event.
      *
-     * @return DescribeByPassShuntEventResponse DescribeByPassShuntEventResponse
+     * @param request - DescribeByPassShuntEventRequest
+     *
+     * @returns DescribeByPassShuntEventResponse
+     *
+     * @param DescribeByPassShuntEventRequest $request
+     *
+     * @return DescribeByPassShuntEventResponse
      */
     public function describeByPassShuntEvent($request)
     {
@@ -4961,53 +6044,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询自定义累计变量的类型配置
-     *  *
-     * @param DescribeCustVariableConfigListRequest $request DescribeCustVariableConfigListRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Query the type configuration of custom accumulated variables.
      *
-     * @return DescribeCustVariableConfigListResponse DescribeCustVariableConfigListResponse
+     * @param request - DescribeCustVariableConfigListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustVariableConfigListResponse
+     *
+     * @param DescribeCustVariableConfigListRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeCustVariableConfigListResponse
      */
     public function describeCustVariableConfigListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['bizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['bizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->timeType)) {
-            $query['timeType'] = $request->timeType;
+
+        if (null !== $request->timeType) {
+            @$query['timeType'] = $request->timeType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustVariableConfigList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustVariableConfigList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCustVariableConfigListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询自定义累计变量的类型配置
-     *  *
-     * @param DescribeCustVariableConfigListRequest $request DescribeCustVariableConfigListRequest
+     * Query the type configuration of custom accumulated variables.
      *
-     * @return DescribeCustVariableConfigListResponse DescribeCustVariableConfigListResponse
+     * @param request - DescribeCustVariableConfigListRequest
+     *
+     * @returns DescribeCustVariableConfigListResponse
+     *
+     * @param DescribeCustVariableConfigListRequest $request
+     *
+     * @return DescribeCustVariableConfigListResponse
      */
     public function describeCustVariableConfigList($request)
     {
@@ -5017,50 +6113,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 累计变量详情
-     *  *
-     * @param DescribeCustVariableDetailRequest $request DescribeCustVariableDetailRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Cumulative Variable Details.
      *
-     * @return DescribeCustVariableDetailResponse DescribeCustVariableDetailResponse
+     * @param request - DescribeCustVariableDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustVariableDetailResponse
+     *
+     * @param DescribeCustVariableDetailRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeCustVariableDetailResponse
      */
     public function describeCustVariableDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustVariableDetail',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustVariableDetail',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCustVariableDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 累计变量详情
-     *  *
-     * @param DescribeCustVariableDetailRequest $request DescribeCustVariableDetailRequest
+     * Cumulative Variable Details.
      *
-     * @return DescribeCustVariableDetailResponse DescribeCustVariableDetailResponse
+     * @param request - DescribeCustVariableDetailRequest
+     *
+     * @returns DescribeCustVariableDetailResponse
+     *
+     * @param DescribeCustVariableDetailRequest $request
+     *
+     * @return DescribeCustVariableDetailResponse
      */
     public function describeCustVariableDetail($request)
     {
@@ -5070,62 +6178,84 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询自定义累计变量列表
-     *  *
-     * @param DescribeCustVariablePageRequest $request DescribeCustVariablePageRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Query Custom Accumulated Variable List.
      *
-     * @return DescribeCustVariablePageResponse DescribeCustVariablePageResponse
+     * @remarks
+     * List Query of Accumulated Variables
+     *
+     * @param request - DescribeCustVariablePageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustVariablePageResponse
+     *
+     * @param DescribeCustVariablePageRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeCustVariablePageResponse
      */
     public function describeCustVariablePageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustVariablePage',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustVariablePage',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCustVariablePageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询自定义累计变量列表
-     *  *
-     * @param DescribeCustVariablePageRequest $request DescribeCustVariablePageRequest
+     * Query Custom Accumulated Variable List.
      *
-     * @return DescribeCustVariablePageResponse DescribeCustVariablePageResponse
+     * @remarks
+     * List Query of Accumulated Variables
+     *
+     * @param request - DescribeCustVariablePageRequest
+     *
+     * @returns DescribeCustVariablePageResponse
+     *
+     * @param DescribeCustVariablePageRequest $request
+     *
+     * @return DescribeCustVariablePageResponse
      */
     public function describeCustVariablePage($request)
     {
@@ -5135,50 +6265,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据源数据下载链接
-     *  *
-     * @param DescribeDataSourceDataDownloadUrlRequest $request DescribeDataSourceDataDownloadUrlRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Get Data Source Data Download Link.
      *
-     * @return DescribeDataSourceDataDownloadUrlResponse DescribeDataSourceDataDownloadUrlResponse
+     * @param request - DescribeDataSourceDataDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataSourceDataDownloadUrlResponse
+     *
+     * @param DescribeDataSourceDataDownloadUrlRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDataSourceDataDownloadUrlResponse
      */
     public function describeDataSourceDataDownloadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['dataSourceId'] = $request->dataSourceId;
+
+        if (null !== $request->dataSourceId) {
+            @$query['dataSourceId'] = $request->dataSourceId;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataSourceDataDownloadUrl',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataSourceDataDownloadUrl',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDataSourceDataDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据源数据下载链接
-     *  *
-     * @param DescribeDataSourceDataDownloadUrlRequest $request DescribeDataSourceDataDownloadUrlRequest
+     * Get Data Source Data Download Link.
      *
-     * @return DescribeDataSourceDataDownloadUrlResponse DescribeDataSourceDataDownloadUrlResponse
+     * @param request - DescribeDataSourceDataDownloadUrlRequest
+     *
+     * @returns DescribeDataSourceDataDownloadUrlResponse
+     *
+     * @param DescribeDataSourceDataDownloadUrlRequest $request
+     *
+     * @return DescribeDataSourceDataDownloadUrlResponse
      */
     public function describeDataSourceDataDownloadUrl($request)
     {
@@ -5188,50 +6330,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据源所有字段
-     *  *
-     * @param DescribeDataSourceFieldsRequest $request DescribeDataSourceFieldsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Retrieve all fields of a data source.
      *
-     * @return DescribeDataSourceFieldsResponse DescribeDataSourceFieldsResponse
+     * @param request - DescribeDataSourceFieldsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataSourceFieldsResponse
+     *
+     * @param DescribeDataSourceFieldsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDataSourceFieldsResponse
      */
     public function describeDataSourceFieldsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->dataSourceCode)) {
-            $query['dataSourceCode'] = $request->dataSourceCode;
+
+        if (null !== $request->dataSourceCode) {
+            @$query['dataSourceCode'] = $request->dataSourceCode;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataSourceFields',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataSourceFields',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDataSourceFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据源所有字段
-     *  *
-     * @param DescribeDataSourceFieldsRequest $request DescribeDataSourceFieldsRequest
+     * Retrieve all fields of a data source.
      *
-     * @return DescribeDataSourceFieldsResponse DescribeDataSourceFieldsResponse
+     * @param request - DescribeDataSourceFieldsRequest
+     *
+     * @returns DescribeDataSourceFieldsResponse
+     *
+     * @param DescribeDataSourceFieldsRequest $request
+     *
+     * @return DescribeDataSourceFieldsResponse
      */
     public function describeDataSourceFields($request)
     {
@@ -5241,62 +6395,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 数据源列表接口
-     *  *
-     * @param DescribeDataSourcePageListRequest $request DescribeDataSourcePageListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Data Source List Interface.
      *
-     * @return DescribeDataSourcePageListResponse DescribeDataSourcePageListResponse
+     * @param request - DescribeDataSourcePageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataSourcePageListResponse
+     *
+     * @param DescribeDataSourcePageListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDataSourcePageListResponse
      */
     public function describeDataSourcePageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataSourcePageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataSourcePageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDataSourcePageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 数据源列表接口
-     *  *
-     * @param DescribeDataSourcePageListRequest $request DescribeDataSourcePageListRequest
+     * Data Source List Interface.
      *
-     * @return DescribeDataSourcePageListResponse DescribeDataSourcePageListResponse
+     * @param request - DescribeDataSourcePageListRequest
+     *
+     * @returns DescribeDataSourcePageListResponse
+     *
+     * @param DescribeDataSourcePageListRequest $request
+     *
+     * @return DescribeDataSourcePageListResponse
      */
     public function describeDataSourcePageList($request)
     {
@@ -5306,50 +6476,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 决策结果波动检测
-     *  *
-     * @param DescribeDecisionResultFluctuationRequest $request DescribeDecisionResultFluctuationRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Decision Result Fluctuation Detection.
      *
-     * @return DescribeDecisionResultFluctuationResponse DescribeDecisionResultFluctuationResponse
+     * @param request - DescribeDecisionResultFluctuationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDecisionResultFluctuationResponse
+     *
+     * @param DescribeDecisionResultFluctuationRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDecisionResultFluctuationResponse
      */
     public function describeDecisionResultFluctuationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDecisionResultFluctuation',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDecisionResultFluctuation',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDecisionResultFluctuationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 决策结果波动检测
-     *  *
-     * @param DescribeDecisionResultFluctuationRequest $request DescribeDecisionResultFluctuationRequest
+     * Decision Result Fluctuation Detection.
      *
-     * @return DescribeDecisionResultFluctuationResponse DescribeDecisionResultFluctuationResponse
+     * @param request - DescribeDecisionResultFluctuationRequest
+     *
+     * @returns DescribeDecisionResultFluctuationResponse
+     *
+     * @param DescribeDecisionResultFluctuationRequest $request
+     *
+     * @return DescribeDecisionResultFluctuationResponse
      */
     public function describeDecisionResultFluctuation($request)
     {
@@ -5359,56 +6541,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 决策结果波动趋势
-     *  *
-     * @param DescribeDecisionResultTrendRequest $request DescribeDecisionResultTrendRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Decision Result Fluctuation Trend.
      *
-     * @return DescribeDecisionResultTrendResponse DescribeDecisionResultTrendResponse
+     * @param request - DescribeDecisionResultTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDecisionResultTrendResponse
+     *
+     * @param DescribeDecisionResultTrendRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDecisionResultTrendResponse
      */
     public function describeDecisionResultTrendWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDecisionResultTrend',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDecisionResultTrend',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDecisionResultTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 决策结果波动趋势
-     *  *
-     * @param DescribeDecisionResultTrendRequest $request DescribeDecisionResultTrendRequest
+     * Decision Result Fluctuation Trend.
      *
-     * @return DescribeDecisionResultTrendResponse DescribeDecisionResultTrendResponse
+     * @param request - DescribeDecisionResultTrendRequest
+     *
+     * @returns DescribeDecisionResultTrendResponse
+     *
+     * @param DescribeDecisionResultTrendRequest $request
+     *
+     * @return DescribeDecisionResultTrendResponse
      */
     public function describeDecisionResultTrend($request)
     {
@@ -5418,56 +6614,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 详细统计
-     *  *
-     * @param DescribeDetailStartRequest $request DescribeDetailStartRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Detailed Statistics.
      *
-     * @return DescribeDetailStartResponse DescribeDetailStartResponse
+     * @param request - DescribeDetailStartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDetailStartResponse
+     *
+     * @param DescribeDetailStartRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDetailStartResponse
      */
     public function describeDetailStartWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['appKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['appKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->endDs)) {
-            $query['endDs'] = $request->endDs;
+
+        if (null !== $request->endDs) {
+            @$query['endDs'] = $request->endDs;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->service)) {
-            $query['service'] = $request->service;
+
+        if (null !== $request->service) {
+            @$query['service'] = $request->service;
         }
-        if (!Utils::isUnset($request->startDs)) {
-            $query['startDs'] = $request->startDs;
+
+        if (null !== $request->startDs) {
+            @$query['startDs'] = $request->startDs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDetailStart',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDetailStart',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDetailStartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 详细统计
-     *  *
-     * @param DescribeDetailStartRequest $request DescribeDetailStartRequest
+     * Detailed Statistics.
      *
-     * @return DescribeDetailStartResponse DescribeDetailStartResponse
+     * @param request - DescribeDetailStartRequest
+     *
+     * @returns DescribeDetailStartResponse
+     *
+     * @param DescribeDetailStartRequest $request
+     *
+     * @return DescribeDetailStartResponse
      */
     public function describeDetailStart($request)
     {
@@ -5477,56 +6687,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 下载
-     *  *
-     * @param DescribeDownloadUrlRequest $request DescribeDownloadUrlRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Download.
      *
-     * @return DescribeDownloadUrlResponse DescribeDownloadUrlResponse
+     * @param request - DescribeDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDownloadUrlResponse
+     *
+     * @param DescribeDownloadUrlRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDownloadUrlResponse
      */
     public function describeDownloadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileType)) {
-            $query['FileType'] = $request->fileType;
+        if (null !== $request->fileType) {
+            @$query['FileType'] = $request->fileType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['RegId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDownloadUrl',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDownloadUrl',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 下载
-     *  *
-     * @param DescribeDownloadUrlRequest $request DescribeDownloadUrlRequest
+     * Download.
      *
-     * @return DescribeDownloadUrlResponse DescribeDownloadUrlResponse
+     * @param request - DescribeDownloadUrlRequest
+     *
+     * @returns DescribeDownloadUrlResponse
+     *
+     * @param DescribeDownloadUrlRequest $request
+     *
+     * @return DescribeDownloadUrlResponse
      */
     public function describeDownloadUrl($request)
     {
@@ -5536,53 +6760,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询事件详情
-     *  *
-     * @param DescribeEventBaseInfoByEventCodeRequest $request DescribeEventBaseInfoByEventCodeRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Query Event Details.
      *
-     * @return DescribeEventBaseInfoByEventCodeResponse DescribeEventBaseInfoByEventCodeResponse
+     * @param request - DescribeEventBaseInfoByEventCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventBaseInfoByEventCodeResponse
+     *
+     * @param DescribeEventBaseInfoByEventCodeRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeEventBaseInfoByEventCodeResponse
      */
     public function describeEventBaseInfoByEventCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventBaseInfoByEventCode',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventBaseInfoByEventCode',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventBaseInfoByEventCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询事件详情
-     *  *
-     * @param DescribeEventBaseInfoByEventCodeRequest $request DescribeEventBaseInfoByEventCodeRequest
+     * Query Event Details.
      *
-     * @return DescribeEventBaseInfoByEventCodeResponse DescribeEventBaseInfoByEventCodeResponse
+     * @param request - DescribeEventBaseInfoByEventCodeRequest
+     *
+     * @returns DescribeEventBaseInfoByEventCodeResponse
+     *
+     * @param DescribeEventBaseInfoByEventCodeRequest $request
+     *
+     * @return DescribeEventBaseInfoByEventCodeResponse
      */
     public function describeEventBaseInfoByEventCode($request)
     {
@@ -5592,50 +6829,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询事件总数量
-     *  *
-     * @param DescribeEventCountRequest $request DescribeEventCountRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Query Total Event Count.
      *
-     * @return DescribeEventCountResponse DescribeEventCountResponse
+     * @param request - DescribeEventCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventCountResponse
+     *
+     * @param DescribeEventCountRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeEventCountResponse
      */
     public function describeEventCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventCount',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventCount',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询事件总数量
-     *  *
-     * @param DescribeEventCountRequest $request DescribeEventCountRequest
+     * Query Total Event Count.
      *
-     * @return DescribeEventCountResponse DescribeEventCountResponse
+     * @param request - DescribeEventCountRequest
+     *
+     * @returns DescribeEventCountResponse
+     *
+     * @param DescribeEventCountRequest $request
+     *
+     * @return DescribeEventCountResponse
      */
     public function describeEventCount($request)
     {
@@ -5645,56 +6894,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 根据requestId查询事件详情
-     *  *
-     * @param DescribeEventDetailByRequestIdRequest $request DescribeEventDetailByRequestIdRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Query event details based on the request ID.
      *
-     * @return DescribeEventDetailByRequestIdResponse DescribeEventDetailByRequestIdResponse
+     * @param request - DescribeEventDetailByRequestIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventDetailByRequestIdResponse
+     *
+     * @param DescribeEventDetailByRequestIdRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeEventDetailByRequestIdResponse
      */
     public function describeEventDetailByRequestIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->eventTime)) {
-            $query['eventTime'] = $request->eventTime;
+
+        if (null !== $request->eventTime) {
+            @$query['eventTime'] = $request->eventTime;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->sRequestId)) {
-            $query['sRequestId'] = $request->sRequestId;
+
+        if (null !== $request->sRequestId) {
+            @$query['sRequestId'] = $request->sRequestId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventDetailByRequestId',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventDetailByRequestId',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventDetailByRequestIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据requestId查询事件详情
-     *  *
-     * @param DescribeEventDetailByRequestIdRequest $request DescribeEventDetailByRequestIdRequest
+     * Query event details based on the request ID.
      *
-     * @return DescribeEventDetailByRequestIdResponse DescribeEventDetailByRequestIdResponse
+     * @param request - DescribeEventDetailByRequestIdRequest
+     *
+     * @returns DescribeEventDetailByRequestIdResponse
+     *
+     * @param DescribeEventDetailByRequestIdRequest $request
+     *
+     * @return DescribeEventDetailByRequestIdResponse
      */
     public function describeEventDetailByRequestId($request)
     {
@@ -5704,50 +6967,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询事件历史详情
-     *  *
-     * @param DescribeEventLogDetailRequest $request DescribeEventLogDetailRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Query Event History Details.
      *
-     * @return DescribeEventLogDetailResponse DescribeEventLogDetailResponse
+     * @param request - DescribeEventLogDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventLogDetailResponse
+     *
+     * @param DescribeEventLogDetailRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeEventLogDetailResponse
      */
     public function describeEventLogDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->reqIdByLog)) {
-            $query['reqIdByLog'] = $request->reqIdByLog;
+
+        if (null !== $request->reqIdByLog) {
+            @$query['reqIdByLog'] = $request->reqIdByLog;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventLogDetail',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventLogDetail',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventLogDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询事件历史详情
-     *  *
-     * @param DescribeEventLogDetailRequest $request DescribeEventLogDetailRequest
+     * Query Event History Details.
      *
-     * @return DescribeEventLogDetailResponse DescribeEventLogDetailResponse
+     * @param request - DescribeEventLogDetailRequest
+     *
+     * @returns DescribeEventLogDetailResponse
+     *
+     * @param DescribeEventLogDetailRequest $request
+     *
+     * @return DescribeEventLogDetailResponse
      */
     public function describeEventLogDetail($request)
     {
@@ -5757,131 +7032,170 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询事件历史列表
-     *  *
-     * @param DescribeEventLogPageRequest $request DescribeEventLogPageRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 查询事件历史列表.
      *
-     * @return DescribeEventLogPageResponse DescribeEventLogPageResponse
+     * @param request - DescribeEventLogPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventLogPageResponse
+     *
+     * @param DescribeEventLogPageRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeEventLogPageResponse
      */
     public function describeEventLogPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->accountIdPRP)) {
-            $query['accountIdPRP'] = $request->accountIdPRP;
+
+        if (null !== $request->accountIdPRP) {
+            @$query['accountIdPRP'] = $request->accountIdPRP;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->condition1AL)) {
-            $query['condition1AL'] = $request->condition1AL;
+
+        if (null !== $request->condition1AL) {
+            @$query['condition1AL'] = $request->condition1AL;
         }
-        if (!Utils::isUnset($request->condition2AL)) {
-            $query['condition2AL'] = $request->condition2AL;
+
+        if (null !== $request->condition2AL) {
+            @$query['condition2AL'] = $request->condition2AL;
         }
-        if (!Utils::isUnset($request->condition3AL)) {
-            $query['condition3AL'] = $request->condition3AL;
+
+        if (null !== $request->condition3AL) {
+            @$query['condition3AL'] = $request->condition3AL;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->deviceTypeLRP)) {
-            $query['deviceTypeLRP'] = $request->deviceTypeLRP;
+
+        if (null !== $request->deviceTypeLRP) {
+            @$query['deviceTypeLRP'] = $request->deviceTypeLRP;
         }
-        if (!Utils::isUnset($request->emailPRP)) {
-            $query['emailPRP'] = $request->emailPRP;
+
+        if (null !== $request->emailPRP) {
+            @$query['emailPRP'] = $request->emailPRP;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->failReasonLRP)) {
-            $query['failReasonLRP'] = $request->failReasonLRP;
+
+        if (null !== $request->failReasonLRP) {
+            @$query['failReasonLRP'] = $request->failReasonLRP;
         }
-        if (!Utils::isUnset($request->ipPRP)) {
-            $query['ipPRP'] = $request->ipPRP;
+
+        if (null !== $request->ipPRP) {
+            @$query['ipPRP'] = $request->ipPRP;
         }
-        if (!Utils::isUnset($request->loginResultARP)) {
-            $query['loginResultARP'] = $request->loginResultARP;
+
+        if (null !== $request->loginResultARP) {
+            @$query['loginResultARP'] = $request->loginResultARP;
         }
-        if (!Utils::isUnset($request->loginTypeLRP)) {
-            $query['loginTypeLRP'] = $request->loginTypeLRP;
+
+        if (null !== $request->loginTypeLRP) {
+            @$query['loginTypeLRP'] = $request->loginTypeLRP;
         }
-        if (!Utils::isUnset($request->macPRP)) {
-            $query['macPRP'] = $request->macPRP;
+
+        if (null !== $request->macPRP) {
+            @$query['macPRP'] = $request->macPRP;
         }
-        if (!Utils::isUnset($request->mobilePRP)) {
-            $query['mobilePRP'] = $request->mobilePRP;
+
+        if (null !== $request->mobilePRP) {
+            @$query['mobilePRP'] = $request->mobilePRP;
         }
-        if (!Utils::isUnset($request->nickNamePRP)) {
-            $query['nickNamePRP'] = $request->nickNamePRP;
+
+        if (null !== $request->nickNamePRP) {
+            @$query['nickNamePRP'] = $request->nickNamePRP;
         }
-        if (!Utils::isUnset($request->operateSourceLRP)) {
-            $query['operateSourceLRP'] = $request->operateSourceLRP;
+
+        if (null !== $request->operateSourceLRP) {
+            @$query['operateSourceLRP'] = $request->operateSourceLRP;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->referPRP)) {
-            $query['referPRP'] = $request->referPRP;
+
+        if (null !== $request->referPRP) {
+            @$query['referPRP'] = $request->referPRP;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->registerIpPRP)) {
-            $query['registerIpPRP'] = $request->registerIpPRP;
+
+        if (null !== $request->registerIpPRP) {
+            @$query['registerIpPRP'] = $request->registerIpPRP;
         }
-        if (!Utils::isUnset($request->reqIdPBS)) {
-            $query['reqIdPBS'] = $request->reqIdPBS;
+
+        if (null !== $request->reqIdPBS) {
+            @$query['reqIdPBS'] = $request->reqIdPBS;
         }
-        if (!Utils::isUnset($request->scoreEBS)) {
-            $query['scoreEBS'] = $request->scoreEBS;
+
+        if (null !== $request->scoreEBS) {
+            @$query['scoreEBS'] = $request->scoreEBS;
         }
-        if (!Utils::isUnset($request->scoreSBS)) {
-            $query['scoreSBS'] = $request->scoreSBS;
+
+        if (null !== $request->scoreSBS) {
+            @$query['scoreSBS'] = $request->scoreSBS;
         }
-        if (!Utils::isUnset($request->serviceABS)) {
-            $query['serviceABS'] = $request->serviceABS;
+
+        if (null !== $request->serviceABS) {
+            @$query['serviceABS'] = $request->serviceABS;
         }
-        if (!Utils::isUnset($request->tagsLBS)) {
-            $query['tagsLBS'] = $request->tagsLBS;
+
+        if (null !== $request->tagsLBS) {
+            @$query['tagsLBS'] = $request->tagsLBS;
         }
-        if (!Utils::isUnset($request->umidPDI)) {
-            $query['umidPDI'] = $request->umidPDI;
+
+        if (null !== $request->umidPDI) {
+            @$query['umidPDI'] = $request->umidPDI;
         }
-        if (!Utils::isUnset($request->userAgentPRP)) {
-            $query['userAgentPRP'] = $request->userAgentPRP;
+
+        if (null !== $request->userAgentPRP) {
+            @$query['userAgentPRP'] = $request->userAgentPRP;
         }
-        if (!Utils::isUnset($request->userNameTypeLRP)) {
-            $query['userNameTypeLRP'] = $request->userNameTypeLRP;
+
+        if (null !== $request->userNameTypeLRP) {
+            @$query['userNameTypeLRP'] = $request->userNameTypeLRP;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventLogPage',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventLogPage',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventLogPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询事件历史列表
-     *  *
-     * @param DescribeEventLogPageRequest $request DescribeEventLogPageRequest
+     * 查询事件历史列表.
      *
-     * @return DescribeEventLogPageResponse DescribeEventLogPageResponse
+     * @param request - DescribeEventLogPageRequest
+     *
+     * @returns DescribeEventLogPageResponse
+     *
+     * @param DescribeEventLogPageRequest $request
+     *
+     * @return DescribeEventLogPageResponse
      */
     public function describeEventLogPage($request)
     {
@@ -5891,65 +7205,82 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 事件分页查询
-     *  *
-     * @param DescribeEventPageListRequest $request DescribeEventPageListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Paged Query for Events.
      *
-     * @return DescribeEventPageListResponse DescribeEventPageListResponse
+     * @param request - DescribeEventPageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventPageListResponse
+     *
+     * @param DescribeEventPageListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeEventPageListResponse
      */
     public function describeEventPageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->eventName)) {
-            $query['eventName'] = $request->eventName;
+
+        if (null !== $request->eventName) {
+            @$query['eventName'] = $request->eventName;
         }
-        if (!Utils::isUnset($request->eventStatus)) {
-            $query['eventStatus'] = $request->eventStatus;
+
+        if (null !== $request->eventStatus) {
+            @$query['eventStatus'] = $request->eventStatus;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventPageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventPageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventPageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 事件分页查询
-     *  *
-     * @param DescribeEventPageListRequest $request DescribeEventPageListRequest
+     * Paged Query for Events.
      *
-     * @return DescribeEventPageListResponse DescribeEventPageListResponse
+     * @param request - DescribeEventPageListRequest
+     *
+     * @returns DescribeEventPageListResponse
+     *
+     * @param DescribeEventPageListRequest $request
+     *
+     * @return DescribeEventPageListResponse
      */
     public function describeEventPageList($request)
     {
@@ -5959,56 +7290,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 风险大盘
-     *  *
-     * @param DescribeEventResultBarChartRequest $request DescribeEventResultBarChartRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Risk Dashboard.
      *
-     * @return DescribeEventResultBarChartResponse DescribeEventResultBarChartResponse
+     * @param request - DescribeEventResultBarChartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventResultBarChartResponse
+     *
+     * @param DescribeEventResultBarChartRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeEventResultBarChartResponse
      */
     public function describeEventResultBarChartWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventResultBarChart',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventResultBarChart',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventResultBarChartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 风险大盘
-     *  *
-     * @param DescribeEventResultBarChartRequest $request DescribeEventResultBarChartRequest
+     * Risk Dashboard.
      *
-     * @return DescribeEventResultBarChartResponse DescribeEventResultBarChartResponse
+     * @param request - DescribeEventResultBarChartRequest
+     *
+     * @returns DescribeEventResultBarChartResponse
+     *
+     * @param DescribeEventResultBarChartRequest $request
+     *
+     * @return DescribeEventResultBarChartResponse
      */
     public function describeEventResultBarChart($request)
     {
@@ -6018,59 +7363,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 事件概览列表
-     *  *
-     * @param DescribeEventResultListRequest $request DescribeEventResultListRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Event Overview List.
      *
-     * @return DescribeEventResultListResponse DescribeEventResultListResponse
+     * @param request - DescribeEventResultListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventResultListResponse
+     *
+     * @param DescribeEventResultListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeEventResultListResponse
      */
     public function describeEventResultListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventResultList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventResultList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventResultListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 事件概览列表
-     *  *
-     * @param DescribeEventResultListRequest $request DescribeEventResultListRequest
+     * Event Overview List.
      *
-     * @return DescribeEventResultListResponse DescribeEventResultListResponse
+     * @param request - DescribeEventResultListRequest
+     *
+     * @returns DescribeEventResultListResponse
+     *
+     * @param DescribeEventResultListRequest $request
+     *
+     * @return DescribeEventResultListResponse
      */
     public function describeEventResultList($request)
     {
@@ -6080,47 +7440,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询策略下载列表
-     *  *
-     * @param DescribeEventTaskHistoryRequest $request DescribeEventTaskHistoryRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Query Policy Download List.
      *
-     * @return DescribeEventTaskHistoryResponse DescribeEventTaskHistoryResponse
+     * @param request - DescribeEventTaskHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventTaskHistoryResponse
+     *
+     * @param DescribeEventTaskHistoryRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeEventTaskHistoryResponse
      */
     public function describeEventTaskHistoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventTaskHistory',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventTaskHistory',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventTaskHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询策略下载列表
-     *  *
-     * @param DescribeEventTaskHistoryRequest $request DescribeEventTaskHistoryRequest
+     * Query Policy Download List.
      *
-     * @return DescribeEventTaskHistoryResponse DescribeEventTaskHistoryResponse
+     * @param request - DescribeEventTaskHistoryRequest
+     *
+     * @returns DescribeEventTaskHistoryResponse
+     *
+     * @param DescribeEventTaskHistoryRequest $request
+     *
+     * @return DescribeEventTaskHistoryResponse
      */
     public function describeEventTaskHistory($request)
     {
@@ -6130,47 +7501,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 调用事件次数
-     *  *
-     * @param DescribeEventTotalCountReportRequest $request DescribeEventTotalCountReportRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Event Invocation Count.
      *
-     * @return DescribeEventTotalCountReportResponse DescribeEventTotalCountReportResponse
+     * @param request - DescribeEventTotalCountReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventTotalCountReportResponse
+     *
+     * @param DescribeEventTotalCountReportRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeEventTotalCountReportResponse
      */
     public function describeEventTotalCountReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventTotalCountReport',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventTotalCountReport',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventTotalCountReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 调用事件次数
-     *  *
-     * @param DescribeEventTotalCountReportRequest $request DescribeEventTotalCountReportRequest
+     * Event Invocation Count.
      *
-     * @return DescribeEventTotalCountReportResponse DescribeEventTotalCountReportResponse
+     * @param request - DescribeEventTotalCountReportRequest
+     *
+     * @returns DescribeEventTotalCountReportResponse
+     *
+     * @param DescribeEventTotalCountReportRequest $request
+     *
+     * @return DescribeEventTotalCountReportResponse
      */
     public function describeEventTotalCountReport($request)
     {
@@ -6180,47 +7562,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 批量导入策略
-     *  *
-     * @param DescribeEventUploadPolicyRequest $request DescribeEventUploadPolicyRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Batch Import Policy.
      *
-     * @return DescribeEventUploadPolicyResponse DescribeEventUploadPolicyResponse
+     * @param request - DescribeEventUploadPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventUploadPolicyResponse
+     *
+     * @param DescribeEventUploadPolicyRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeEventUploadPolicyResponse
      */
     public function describeEventUploadPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventUploadPolicy',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventUploadPolicy',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventUploadPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量导入策略
-     *  *
-     * @param DescribeEventUploadPolicyRequest $request DescribeEventUploadPolicyRequest
+     * Batch Import Policy.
      *
-     * @return DescribeEventUploadPolicyResponse DescribeEventUploadPolicyResponse
+     * @param request - DescribeEventUploadPolicyRequest
+     *
+     * @returns DescribeEventUploadPolicyResponse
+     *
+     * @param DescribeEventUploadPolicyRequest $request
+     *
+     * @return DescribeEventUploadPolicyResponse
      */
     public function describeEventUploadPolicy($request)
     {
@@ -6230,62 +7623,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询事件变量
-     *  *
-     * @param DescribeEventVariableListRequest $request DescribeEventVariableListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 查询事件变量.
      *
-     * @return DescribeEventVariableListResponse DescribeEventVariableListResponse
+     * @param request - DescribeEventVariableListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventVariableListResponse
+     *
+     * @param DescribeEventVariableListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeEventVariableListResponse
      */
     public function describeEventVariableListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->filterDTO)) {
-            $query['filterDTO'] = $request->filterDTO;
+
+        if (null !== $request->filterDTO) {
+            @$query['filterDTO'] = $request->filterDTO;
         }
-        if (!Utils::isUnset($request->refObjId)) {
-            $query['refObjId'] = $request->refObjId;
+
+        if (null !== $request->refObjId) {
+            @$query['refObjId'] = $request->refObjId;
         }
-        if (!Utils::isUnset($request->refObjType)) {
-            $query['refObjType'] = $request->refObjType;
+
+        if (null !== $request->refObjType) {
+            @$query['refObjType'] = $request->refObjType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventVariableList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventVariableList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventVariableListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询事件变量
-     *  *
-     * @param DescribeEventVariableListRequest $request DescribeEventVariableListRequest
+     * 查询事件变量.
      *
-     * @return DescribeEventVariableListResponse DescribeEventVariableListResponse
+     * @param request - DescribeEventVariableListRequest
+     *
+     * @returns DescribeEventVariableListResponse
+     *
+     * @param DescribeEventVariableListRequest $request
+     *
+     * @return DescribeEventVariableListResponse
      */
     public function describeEventVariableList($request)
     {
@@ -6295,56 +7704,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询事件模版
-     *  *
-     * @param DescribeEventVariableTemplateBindRequest $request DescribeEventVariableTemplateBindRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Query Event Template.
      *
-     * @return DescribeEventVariableTemplateBindResponse DescribeEventVariableTemplateBindResponse
+     * @param request - DescribeEventVariableTemplateBindRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventVariableTemplateBindResponse
+     *
+     * @param DescribeEventVariableTemplateBindRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeEventVariableTemplateBindResponse
      */
     public function describeEventVariableTemplateBindWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->inputs)) {
-            $query['inputs'] = $request->inputs;
+
+        if (null !== $request->inputs) {
+            @$query['inputs'] = $request->inputs;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->templateCode)) {
-            $query['templateCode'] = $request->templateCode;
+
+        if (null !== $request->templateCode) {
+            @$query['templateCode'] = $request->templateCode;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventVariableTemplateBind',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventVariableTemplateBind',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventVariableTemplateBindResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询事件模版
-     *  *
-     * @param DescribeEventVariableTemplateBindRequest $request DescribeEventVariableTemplateBindRequest
+     * Query Event Template.
      *
-     * @return DescribeEventVariableTemplateBindResponse DescribeEventVariableTemplateBindResponse
+     * @param request - DescribeEventVariableTemplateBindRequest
+     *
+     * @returns DescribeEventVariableTemplateBindResponse
+     *
+     * @param DescribeEventVariableTemplateBindRequest $request
+     *
+     * @return DescribeEventVariableTemplateBindResponse
      */
     public function describeEventVariableTemplateBind($request)
     {
@@ -6354,56 +7777,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询事件模版
-     *  *
-     * @param DescribeEventVariableTemplateListRequest $request DescribeEventVariableTemplateListRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Query Event Template.
      *
-     * @return DescribeEventVariableTemplateListResponse DescribeEventVariableTemplateListResponse
+     * @param request - DescribeEventVariableTemplateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventVariableTemplateListResponse
+     *
+     * @param DescribeEventVariableTemplateListRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeEventVariableTemplateListResponse
      */
     public function describeEventVariableTemplateListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->inputs)) {
-            $query['inputs'] = $request->inputs;
+
+        if (null !== $request->inputs) {
+            @$query['inputs'] = $request->inputs;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->templateCode)) {
-            $query['templateCode'] = $request->templateCode;
+
+        if (null !== $request->templateCode) {
+            @$query['templateCode'] = $request->templateCode;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventVariableTemplateList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventVariableTemplateList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventVariableTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询事件模版
-     *  *
-     * @param DescribeEventVariableTemplateListRequest $request DescribeEventVariableTemplateListRequest
+     * Query Event Template.
      *
-     * @return DescribeEventVariableTemplateListResponse DescribeEventVariableTemplateListResponse
+     * @param request - DescribeEventVariableTemplateListRequest
+     *
+     * @returns DescribeEventVariableTemplateListResponse
+     *
+     * @param DescribeEventVariableTemplateListRequest $request
+     *
+     * @return DescribeEventVariableTemplateListResponse
      */
     public function describeEventVariableTemplateList($request)
     {
@@ -6413,59 +7850,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询事件变量
-     *  *
-     * @param DescribeEventsVariableListRequest $request DescribeEventsVariableListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Query Event Variables.
      *
-     * @return DescribeEventsVariableListResponse DescribeEventsVariableListResponse
+     * @param request - DescribeEventsVariableListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventsVariableListResponse
+     *
+     * @param DescribeEventsVariableListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeEventsVariableListResponse
      */
     public function describeEventsVariableListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->filterDTO)) {
-            $query['filterDTO'] = $request->filterDTO;
+
+        if (null !== $request->filterDTO) {
+            @$query['filterDTO'] = $request->filterDTO;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['scene'] = $request->scene;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventsVariableList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventsVariableList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventsVariableListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询事件变量
-     *  *
-     * @param DescribeEventsVariableListRequest $request DescribeEventsVariableListRequest
+     * Query Event Variables.
      *
-     * @return DescribeEventsVariableListResponse DescribeEventsVariableListResponse
+     * @param request - DescribeEventsVariableListRequest
+     *
+     * @returns DescribeEventsVariableListResponse
+     *
+     * @param DescribeEventsVariableListRequest $request
+     *
+     * @return DescribeEventsVariableListResponse
      */
     public function describeEventsVariableList($request)
     {
@@ -6475,55 +7927,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @param DescribeExcuteNumRequest $request DescribeExcuteNumRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeExcuteNumRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeExcuteNumResponse DescribeExcuteNumResponse
+     * @returns DescribeExcuteNumResponse
+     *
+     * @param DescribeExcuteNumRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeExcuteNumResponse
      */
     public function describeExcuteNumWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->code)) {
-            $query['Code'] = $request->code;
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->degree)) {
-            $query['Degree'] = $request->degree;
+
+        if (null !== $request->degree) {
+            @$query['Degree'] = $request->degree;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExcuteNum',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExcuteNum',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeExcuteNumResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeExcuteNumRequest $request DescribeExcuteNumRequest
+     * @param request - DescribeExcuteNumRequest
      *
-     * @return DescribeExcuteNumResponse DescribeExcuteNumResponse
+     * @returns DescribeExcuteNumResponse
+     *
+     * @param DescribeExcuteNumRequest $request
+     *
+     * @return DescribeExcuteNumResponse
      */
     public function describeExcuteNum($request)
     {
@@ -6533,50 +8000,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 校验字段名是否重复(基于用户单位)
-     *  *
-     * @param DescribeExistNameRequest $request DescribeExistNameRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Validate if the field name is duplicated (based on user\\"s organization).
      *
-     * @return DescribeExistNameResponse DescribeExistNameResponse
+     * @param request - DescribeExistNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeExistNameResponse
+     *
+     * @param DescribeExistNameRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeExistNameResponse
      */
     public function describeExistNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExistName',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExistName',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeExistNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 校验字段名是否重复(基于用户单位)
-     *  *
-     * @param DescribeExistNameRequest $request DescribeExistNameRequest
+     * Validate if the field name is duplicated (based on user\\"s organization).
      *
-     * @return DescribeExistNameResponse DescribeExistNameResponse
+     * @param request - DescribeExistNameRequest
+     *
+     * @returns DescribeExistNameResponse
+     *
+     * @param DescribeExistNameRequest $request
+     *
+     * @return DescribeExistNameResponse
      */
     public function describeExistName($request)
     {
@@ -6586,50 +8065,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 场景是否存在
-     *  *
-     * @param DescribeExistSceneRequest $request DescribeExistSceneRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Check if Scene Exists.
      *
-     * @return DescribeExistSceneResponse DescribeExistSceneResponse
+     * @param request - DescribeExistSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeExistSceneResponse
+     *
+     * @param DescribeExistSceneRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeExistSceneResponse
      */
     public function describeExistSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->sceneName)) {
-            $query['SceneName'] = $request->sceneName;
+
+        if (null !== $request->sceneName) {
+            @$query['SceneName'] = $request->sceneName;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExistScene',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExistScene',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeExistSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 场景是否存在
-     *  *
-     * @param DescribeExistSceneRequest $request DescribeExistSceneRequest
+     * Check if Scene Exists.
      *
-     * @return DescribeExistSceneResponse DescribeExistSceneResponse
+     * @param request - DescribeExistSceneRequest
+     *
+     * @returns DescribeExistSceneResponse
+     *
+     * @param DescribeExistSceneRequest $request
+     *
+     * @return DescribeExistSceneResponse
      */
     public function describeExistScene($request)
     {
@@ -6639,50 +8130,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 自定义变量详情
-     *  *
-     * @param DescribeExpressionVariableDetailRequest $request DescribeExpressionVariableDetailRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Custom Variable Details.
      *
-     * @return DescribeExpressionVariableDetailResponse DescribeExpressionVariableDetailResponse
+     * @param request - DescribeExpressionVariableDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeExpressionVariableDetailResponse
+     *
+     * @param DescribeExpressionVariableDetailRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeExpressionVariableDetailResponse
      */
     public function describeExpressionVariableDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExpressionVariableDetail',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExpressionVariableDetail',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeExpressionVariableDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 自定义变量详情
-     *  *
-     * @param DescribeExpressionVariableDetailRequest $request DescribeExpressionVariableDetailRequest
+     * Custom Variable Details.
      *
-     * @return DescribeExpressionVariableDetailResponse DescribeExpressionVariableDetailResponse
+     * @param request - DescribeExpressionVariableDetailRequest
+     *
+     * @returns DescribeExpressionVariableDetailResponse
+     *
+     * @param DescribeExpressionVariableDetailRequest $request
+     *
+     * @return DescribeExpressionVariableDetailResponse
      */
     public function describeExpressionVariableDetail($request)
     {
@@ -6692,47 +8195,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 函数列表
-     *  *
-     * @param DescribeExpressionVariableFunctionListRequest $request DescribeExpressionVariableFunctionListRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Function List.
      *
-     * @return DescribeExpressionVariableFunctionListResponse DescribeExpressionVariableFunctionListResponse
+     * @param request - DescribeExpressionVariableFunctionListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeExpressionVariableFunctionListResponse
+     *
+     * @param DescribeExpressionVariableFunctionListRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return DescribeExpressionVariableFunctionListResponse
      */
     public function describeExpressionVariableFunctionListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExpressionVariableFunctionList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExpressionVariableFunctionList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeExpressionVariableFunctionListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 函数列表
-     *  *
-     * @param DescribeExpressionVariableFunctionListRequest $request DescribeExpressionVariableFunctionListRequest
+     * Function List.
      *
-     * @return DescribeExpressionVariableFunctionListResponse DescribeExpressionVariableFunctionListResponse
+     * @param request - DescribeExpressionVariableFunctionListRequest
+     *
+     * @returns DescribeExpressionVariableFunctionListResponse
+     *
+     * @param DescribeExpressionVariableFunctionListRequest $request
+     *
+     * @return DescribeExpressionVariableFunctionListResponse
      */
     public function describeExpressionVariableFunctionList($request)
     {
@@ -6742,65 +8256,82 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 自定义变量分页查询
-     *  *
-     * @param DescribeExpressionVariablePageRequest $request DescribeExpressionVariablePageRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Paged Query for Custom Variables.
      *
-     * @return DescribeExpressionVariablePageResponse DescribeExpressionVariablePageResponse
+     * @param request - DescribeExpressionVariablePageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeExpressionVariablePageResponse
+     *
+     * @param DescribeExpressionVariablePageRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeExpressionVariablePageResponse
      */
     public function describeExpressionVariablePageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->outputs)) {
-            $query['outputs'] = $request->outputs;
+
+        if (null !== $request->outputs) {
+            @$query['outputs'] = $request->outputs;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExpressionVariablePage',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExpressionVariablePage',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeExpressionVariablePageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 自定义变量分页查询
-     *  *
-     * @param DescribeExpressionVariablePageRequest $request DescribeExpressionVariablePageRequest
+     * Paged Query for Custom Variables.
      *
-     * @return DescribeExpressionVariablePageResponse DescribeExpressionVariablePageResponse
+     * @param request - DescribeExpressionVariablePageRequest
+     *
+     * @returns DescribeExpressionVariablePageResponse
+     *
+     * @param DescribeExpressionVariablePageRequest $request
+     *
+     * @return DescribeExpressionVariablePageResponse
      */
     public function describeExpressionVariablePage($request)
     {
@@ -6810,50 +8341,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取字段详情
-     *  *
-     * @param DescribeFieldByIdRequest $request DescribeFieldByIdRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Get Field Details.
      *
-     * @return DescribeFieldByIdResponse DescribeFieldByIdResponse
+     * @param request - DescribeFieldByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFieldByIdResponse
+     *
+     * @param DescribeFieldByIdRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeFieldByIdResponse
      */
     public function describeFieldByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFieldById',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFieldById',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeFieldByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取字段详情
-     *  *
-     * @param DescribeFieldByIdRequest $request DescribeFieldByIdRequest
+     * Get Field Details.
      *
-     * @return DescribeFieldByIdResponse DescribeFieldByIdResponse
+     * @param request - DescribeFieldByIdRequest
+     *
+     * @returns DescribeFieldByIdResponse
+     *
+     * @param DescribeFieldByIdRequest $request
+     *
+     * @return DescribeFieldByIdResponse
      */
     public function describeFieldById($request)
     {
@@ -6863,53 +8406,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询字段列表
-     *  *
-     * @param DescribeFieldListRequest $request DescribeFieldListRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Query Field List.
      *
-     * @return DescribeFieldListResponse DescribeFieldListResponse
+     * @param request - DescribeFieldListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFieldListResponse
+     *
+     * @param DescribeFieldListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeFieldListResponse
      */
     public function describeFieldListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->condition)) {
-            $query['condition'] = $request->condition;
+
+        if (null !== $request->condition) {
+            @$query['condition'] = $request->condition;
         }
-        if (!Utils::isUnset($request->inputs)) {
-            $query['inputs'] = $request->inputs;
+
+        if (null !== $request->inputs) {
+            @$query['inputs'] = $request->inputs;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFieldList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFieldList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeFieldListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询字段列表
-     *  *
-     * @param DescribeFieldListRequest $request DescribeFieldListRequest
+     * Query Field List.
      *
-     * @return DescribeFieldListResponse DescribeFieldListResponse
+     * @param request - DescribeFieldListRequest
+     *
+     * @returns DescribeFieldListResponse
+     *
+     * @param DescribeFieldListRequest $request
+     *
+     * @return DescribeFieldListResponse
      */
     public function describeFieldList($request)
     {
@@ -6919,74 +8475,94 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询字段分页列表
-     *  *
-     * @param DescribeFieldPageRequest $request DescribeFieldPageRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Query paged list of fields.
      *
-     * @return DescribeFieldPageResponse DescribeFieldPageResponse
+     * @param request - DescribeFieldPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFieldPageResponse
+     *
+     * @param DescribeFieldPageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeFieldPageResponse
      */
     public function describeFieldPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->classify)) {
-            $query['classify'] = $request->classify;
+
+        if (null !== $request->classify) {
+            @$query['classify'] = $request->classify;
         }
-        if (!Utils::isUnset($request->condition)) {
-            $query['condition'] = $request->condition;
+
+        if (null !== $request->condition) {
+            @$query['condition'] = $request->condition;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['source'] = $request->source;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFieldPage',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFieldPage',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeFieldPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询字段分页列表
-     *  *
-     * @param DescribeFieldPageRequest $request DescribeFieldPageRequest
+     * Query paged list of fields.
      *
-     * @return DescribeFieldPageResponse DescribeFieldPageResponse
+     * @param request - DescribeFieldPageRequest
+     *
+     * @returns DescribeFieldPageResponse
+     *
+     * @param DescribeFieldPageRequest $request
+     *
+     * @return DescribeFieldPageResponse
      */
     public function describeFieldPage($request)
     {
@@ -6996,74 +8572,94 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 社群账户列表
-     *  *
-     * @param DescribeGroupAccountPageRequest $request DescribeGroupAccountPageRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Community Account List.
      *
-     * @return DescribeGroupAccountPageResponse DescribeGroupAccountPageResponse
+     * @param request - DescribeGroupAccountPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGroupAccountPageResponse
+     *
+     * @param DescribeGroupAccountPageRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeGroupAccountPageResponse
      */
     public function describeGroupAccountPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->communityNo)) {
-            $query['communityNo'] = $request->communityNo;
+
+        if (null !== $request->communityNo) {
+            @$query['communityNo'] = $request->communityNo;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->direction)) {
-            $query['direction'] = $request->direction;
+
+        if (null !== $request->direction) {
+            @$query['direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->fieldKey)) {
-            $query['fieldKey'] = $request->fieldKey;
+
+        if (null !== $request->fieldKey) {
+            @$query['fieldKey'] = $request->fieldKey;
         }
-        if (!Utils::isUnset($request->fieldVal)) {
-            $query['fieldVal'] = $request->fieldVal;
+
+        if (null !== $request->fieldVal) {
+            @$query['fieldVal'] = $request->fieldVal;
         }
-        if (!Utils::isUnset($request->isPage)) {
-            $query['isPage'] = $request->isPage;
+
+        if (null !== $request->isPage) {
+            @$query['isPage'] = $request->isPage;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['taskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGroupAccountPage',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGroupAccountPage',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeGroupAccountPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 社群账户列表
-     *  *
-     * @param DescribeGroupAccountPageRequest $request DescribeGroupAccountPageRequest
+     * Community Account List.
      *
-     * @return DescribeGroupAccountPageResponse DescribeGroupAccountPageResponse
+     * @param request - DescribeGroupAccountPageRequest
+     *
+     * @returns DescribeGroupAccountPageResponse
+     *
+     * @param DescribeGroupAccountPageRequest $request
+     *
+     * @return DescribeGroupAccountPageResponse
      */
     public function describeGroupAccountPage($request)
     {
@@ -7073,47 +8669,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 社群列表查询条件
-     *  *
-     * @param DescribeGroupConditionListRequest $request DescribeGroupConditionListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Community List Query Conditions.
      *
-     * @return DescribeGroupConditionListResponse DescribeGroupConditionListResponse
+     * @param request - DescribeGroupConditionListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGroupConditionListResponse
+     *
+     * @param DescribeGroupConditionListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeGroupConditionListResponse
      */
     public function describeGroupConditionListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGroupConditionList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGroupConditionList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeGroupConditionListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 社群列表查询条件
-     *  *
-     * @param DescribeGroupConditionListRequest $request DescribeGroupConditionListRequest
+     * Community List Query Conditions.
      *
-     * @return DescribeGroupConditionListResponse DescribeGroupConditionListResponse
+     * @param request - DescribeGroupConditionListRequest
+     *
+     * @returns DescribeGroupConditionListResponse
+     *
+     * @param DescribeGroupConditionListRequest $request
+     *
+     * @return DescribeGroupConditionListResponse
      */
     public function describeGroupConditionList($request)
     {
@@ -7123,65 +8730,82 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 社群列表
-     *  *
-     * @param DescribeGroupPageRequest $request DescribeGroupPageRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Community List.
      *
-     * @return DescribeGroupPageResponse DescribeGroupPageResponse
+     * @param request - DescribeGroupPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGroupPageResponse
+     *
+     * @param DescribeGroupPageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeGroupPageResponse
      */
     public function describeGroupPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->direction)) {
-            $query['direction'] = $request->direction;
+
+        if (null !== $request->direction) {
+            @$query['direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['taskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->timeType)) {
-            $query['timeType'] = $request->timeType;
+
+        if (null !== $request->timeType) {
+            @$query['timeType'] = $request->timeType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGroupPage',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGroupPage',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeGroupPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 社群列表
-     *  *
-     * @param DescribeGroupPageRequest $request DescribeGroupPageRequest
+     * Community List.
      *
-     * @return DescribeGroupPageResponse DescribeGroupPageResponse
+     * @param request - DescribeGroupPageRequest
+     *
+     * @returns DescribeGroupPageResponse
+     *
+     * @param DescribeGroupPageRequest $request
+     *
+     * @return DescribeGroupPageResponse
      */
     public function describeGroupPage($request)
     {
@@ -7191,47 +8815,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 当日发现的风险社群
-     *  *
-     * @param DescribeGroupStatisticsByTodayRequest $request DescribeGroupStatisticsByTodayRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Risk Communities Discovered Today.
      *
-     * @return DescribeGroupStatisticsByTodayResponse DescribeGroupStatisticsByTodayResponse
+     * @param request - DescribeGroupStatisticsByTodayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGroupStatisticsByTodayResponse
+     *
+     * @param DescribeGroupStatisticsByTodayRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeGroupStatisticsByTodayResponse
      */
     public function describeGroupStatisticsByTodayWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGroupStatisticsByToday',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGroupStatisticsByToday',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeGroupStatisticsByTodayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 当日发现的风险社群
-     *  *
-     * @param DescribeGroupStatisticsByTodayRequest $request DescribeGroupStatisticsByTodayRequest
+     * Risk Communities Discovered Today.
      *
-     * @return DescribeGroupStatisticsByTodayResponse DescribeGroupStatisticsByTodayResponse
+     * @param request - DescribeGroupStatisticsByTodayRequest
+     *
+     * @returns DescribeGroupStatisticsByTodayResponse
+     *
+     * @param DescribeGroupStatisticsByTodayRequest $request
+     *
+     * @return DescribeGroupStatisticsByTodayResponse
      */
     public function describeGroupStatisticsByToday($request)
     {
@@ -7241,50 +8876,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 风险社群的近期趋势
-     *  *
-     * @param DescribeGroupTrendRequest $request DescribeGroupTrendRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Recent Trends in Risk Communities.
      *
-     * @return DescribeGroupTrendResponse DescribeGroupTrendResponse
+     * @param request - DescribeGroupTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGroupTrendResponse
+     *
+     * @param DescribeGroupTrendRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeGroupTrendResponse
      */
     public function describeGroupTrendWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->day)) {
-            $query['day'] = $request->day;
+
+        if (null !== $request->day) {
+            @$query['day'] = $request->day;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGroupTrend',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGroupTrend',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeGroupTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 风险社群的近期趋势
-     *  *
-     * @param DescribeGroupTrendRequest $request DescribeGroupTrendRequest
+     * Recent Trends in Risk Communities.
      *
-     * @return DescribeGroupTrendResponse DescribeGroupTrendResponse
+     * @param request - DescribeGroupTrendRequest
+     *
+     * @returns DescribeGroupTrendResponse
+     *
+     * @param DescribeGroupTrendRequest $request
+     *
+     * @return DescribeGroupTrendResponse
      */
     public function describeGroupTrend($request)
     {
@@ -7294,56 +8941,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询事件名下的策略名是否存在
-     *  *
-     * @param DescribeHasRuleNameByEventCodeRequest $request DescribeHasRuleNameByEventCodeRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Check if the policy name under the event name exists.
      *
-     * @return DescribeHasRuleNameByEventCodeResponse DescribeHasRuleNameByEventCodeResponse
+     * @param request - DescribeHasRuleNameByEventCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHasRuleNameByEventCodeResponse
+     *
+     * @param DescribeHasRuleNameByEventCodeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeHasRuleNameByEventCodeResponse
      */
     public function describeHasRuleNameByEventCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->excludeRuleId)) {
-            $query['excludeRuleId'] = $request->excludeRuleId;
+
+        if (null !== $request->excludeRuleId) {
+            @$query['excludeRuleId'] = $request->excludeRuleId;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['ruleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['ruleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHasRuleNameByEventCode',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHasRuleNameByEventCode',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeHasRuleNameByEventCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询事件名下的策略名是否存在
-     *  *
-     * @param DescribeHasRuleNameByEventCodeRequest $request DescribeHasRuleNameByEventCodeRequest
+     * Check if the policy name under the event name exists.
      *
-     * @return DescribeHasRuleNameByEventCodeResponse DescribeHasRuleNameByEventCodeResponse
+     * @param request - DescribeHasRuleNameByEventCodeRequest
+     *
+     * @returns DescribeHasRuleNameByEventCodeResponse
+     *
+     * @param DescribeHasRuleNameByEventCodeRequest $request
+     *
+     * @return DescribeHasRuleNameByEventCodeResponse
      */
     public function describeHasRuleNameByEventCode($request)
     {
@@ -7353,56 +9014,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 风险地图概览图表(饼图)
-     *  *
-     * @param DescribeHighRiskPieChartRequest $request DescribeHighRiskPieChartRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Risk Map Overview Chart (Pie Chart).
      *
-     * @return DescribeHighRiskPieChartResponse DescribeHighRiskPieChartResponse
+     * @param request - DescribeHighRiskPieChartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHighRiskPieChartResponse
+     *
+     * @param DescribeHighRiskPieChartRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeHighRiskPieChartResponse
      */
     public function describeHighRiskPieChartWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHighRiskPieChart',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHighRiskPieChart',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeHighRiskPieChartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 风险地图概览图表(饼图)
-     *  *
-     * @param DescribeHighRiskPieChartRequest $request DescribeHighRiskPieChartRequest
+     * Risk Map Overview Chart (Pie Chart).
      *
-     * @return DescribeHighRiskPieChartResponse DescribeHighRiskPieChartResponse
+     * @param request - DescribeHighRiskPieChartRequest
+     *
+     * @returns DescribeHighRiskPieChartResponse
+     *
+     * @param DescribeHighRiskPieChartRequest $request
+     *
+     * @return DescribeHighRiskPieChartResponse
      */
     public function describeHighRiskPieChart($request)
     {
@@ -7412,53 +9087,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 策略命中波动检测
-     *  *
-     * @param DescribeHitRuleFluctuationRequest $request DescribeHitRuleFluctuationRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Policy Hit Fluctuation Detection.
      *
-     * @return DescribeHitRuleFluctuationResponse DescribeHitRuleFluctuationResponse
+     * @param request - DescribeHitRuleFluctuationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHitRuleFluctuationResponse
+     *
+     * @param DescribeHitRuleFluctuationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeHitRuleFluctuationResponse
      */
     public function describeHitRuleFluctuationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleStatus)) {
-            $query['ruleStatus'] = $request->ruleStatus;
+
+        if (null !== $request->ruleStatus) {
+            @$query['ruleStatus'] = $request->ruleStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHitRuleFluctuation',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHitRuleFluctuation',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeHitRuleFluctuationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 策略命中波动检测
-     *  *
-     * @param DescribeHitRuleFluctuationRequest $request DescribeHitRuleFluctuationRequest
+     * Policy Hit Fluctuation Detection.
      *
-     * @return DescribeHitRuleFluctuationResponse DescribeHitRuleFluctuationResponse
+     * @param request - DescribeHitRuleFluctuationRequest
+     *
+     * @returns DescribeHitRuleFluctuationResponse
+     *
+     * @param DescribeHitRuleFluctuationRequest $request
+     *
+     * @return DescribeHitRuleFluctuationResponse
      */
     public function describeHitRuleFluctuation($request)
     {
@@ -7468,59 +9156,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 主事件/旁路/分流策略命中TOP20
-     *  *
-     * @param DescribeHitRuleListRequest $request DescribeHitRuleListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Top 20 Hits for Main Events/Bypass/Diversion Strategies.
      *
-     * @return DescribeHitRuleListResponse DescribeHitRuleListResponse
+     * @param request - DescribeHitRuleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHitRuleListResponse
+     *
+     * @param DescribeHitRuleListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeHitRuleListResponse
      */
     public function describeHitRuleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['eventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['eventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHitRuleList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHitRuleList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeHitRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 主事件/旁路/分流策略命中TOP20
-     *  *
-     * @param DescribeHitRuleListRequest $request DescribeHitRuleListRequest
+     * Top 20 Hits for Main Events/Bypass/Diversion Strategies.
      *
-     * @return DescribeHitRuleListResponse DescribeHitRuleListResponse
+     * @param request - DescribeHitRuleListRequest
+     *
+     * @returns DescribeHitRuleListResponse
+     *
+     * @param DescribeHitRuleListRequest $request
+     *
+     * @return DescribeHitRuleListResponse
      */
     public function describeHitRuleList($request)
     {
@@ -7530,59 +9233,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 策略命中趋势
-     *  *
-     * @param DescribeHitRuleTrendRequest $request DescribeHitRuleTrendRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Hit Rule Trend.
      *
-     * @return DescribeHitRuleTrendResponse DescribeHitRuleTrendResponse
+     * @param request - DescribeHitRuleTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHitRuleTrendResponse
+     *
+     * @param DescribeHitRuleTrendRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeHitRuleTrendResponse
      */
     public function describeHitRuleTrendWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleStatus)) {
-            $query['ruleStatus'] = $request->ruleStatus;
+
+        if (null !== $request->ruleStatus) {
+            @$query['ruleStatus'] = $request->ruleStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHitRuleTrend',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHitRuleTrend',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeHitRuleTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 策略命中趋势
-     *  *
-     * @param DescribeHitRuleTrendRequest $request DescribeHitRuleTrendRequest
+     * Hit Rule Trend.
      *
-     * @return DescribeHitRuleTrendResponse DescribeHitRuleTrendResponse
+     * @param request - DescribeHitRuleTrendRequest
+     *
+     * @returns DescribeHitRuleTrendResponse
+     *
+     * @param DescribeHitRuleTrendRequest $request
+     *
+     * @return DescribeHitRuleTrendResponse
      */
     public function describeHitRuleTrend($request)
     {
@@ -7592,53 +9310,137 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询事件总数量
-     *  *
-     * @param DescribeInputFeildCountByEventCodeRequest $request DescribeInputFeildCountByEventCodeRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Initialization Popup Information.
      *
-     * @return DescribeInputFeildCountByEventCodeResponse DescribeInputFeildCountByEventCodeResponse
+     * @remarks
+     * Add prompt information in BOPS, POC new page initialization popup prompts this information
+     *
+     * @param request - DescribeInitDigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInitDigResponse
+     *
+     * @param DescribeInitDigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeInitDigResponse
+     */
+    public function describeInitDigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInitDig',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInitDigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initialization Popup Information.
+     *
+     * @remarks
+     * Add prompt information in BOPS, POC new page initialization popup prompts this information
+     *
+     * @param request - DescribeInitDigRequest
+     *
+     * @returns DescribeInitDigResponse
+     *
+     * @param DescribeInitDigRequest $request
+     *
+     * @return DescribeInitDigResponse
+     */
+    public function describeInitDig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInitDigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Total Number of Events.
+     *
+     * @param request - DescribeInputFeildCountByEventCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInputFeildCountByEventCodeResponse
+     *
+     * @param DescribeInputFeildCountByEventCodeRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeInputFeildCountByEventCodeResponse
      */
     public function describeInputFeildCountByEventCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInputFeildCountByEventCode',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInputFeildCountByEventCode',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInputFeildCountByEventCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询事件总数量
-     *  *
-     * @param DescribeInputFeildCountByEventCodeRequest $request DescribeInputFeildCountByEventCodeRequest
+     * Query Total Number of Events.
      *
-     * @return DescribeInputFeildCountByEventCodeResponse DescribeInputFeildCountByEventCodeResponse
+     * @param request - DescribeInputFeildCountByEventCodeRequest
+     *
+     * @returns DescribeInputFeildCountByEventCodeResponse
+     *
+     * @param DescribeInputFeildCountByEventCodeRequest $request
+     *
+     * @return DescribeInputFeildCountByEventCodeResponse
      */
     public function describeInputFeildCountByEventCode($request)
     {
@@ -7648,56 +9450,135 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 任务列表
-     *  *
-     * @param DescribeListPocRequest $request DescribeListPocRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Display of Model List.
      *
-     * @return DescribeListPocResponse DescribeListPocResponse
+     * @param request - DescribeListModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeListModelResponse
+     *
+     * @param DescribeListModelRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeListModelResponse
+     */
+    public function describeListModelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeListModel',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeListModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Display of Model List.
+     *
+     * @param request - DescribeListModelRequest
+     *
+     * @returns DescribeListModelResponse
+     *
+     * @param DescribeListModelRequest $request
+     *
+     * @return DescribeListModelResponse
+     */
+    public function describeListModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeListModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * Task List.
+     *
+     * @param request - DescribeListPocRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeListPocResponse
+     *
+     * @param DescribeListPocRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeListPocResponse
      */
     public function describeListPocWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['RegId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeListPoc',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeListPoc',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeListPocResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 任务列表
-     *  *
-     * @param DescribeListPocRequest $request DescribeListPocRequest
+     * Task List.
      *
-     * @return DescribeListPocResponse DescribeListPocResponse
+     * @param request - DescribeListPocRequest
+     *
+     * @returns DescribeListPocResponse
+     *
+     * @param DescribeListPocRequest $request
+     *
+     * @return DescribeListPocResponse
      */
     public function describeListPoc($request)
     {
@@ -7707,62 +9588,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取监控对象列表
-     *  *
-     * @param DescribeLoanExecListRequest $request DescribeLoanExecListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Get Monitoring Object List.
      *
-     * @return DescribeLoanExecListResponse DescribeLoanExecListResponse
+     * @param request - DescribeLoanExecListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLoanExecListResponse
+     *
+     * @param DescribeLoanExecListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeLoanExecListResponse
      */
     public function describeLoanExecListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->batchNo)) {
-            $query['batchNo'] = $request->batchNo;
+
+        if (null !== $request->batchNo) {
+            @$query['batchNo'] = $request->batchNo;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->monitorObj)) {
-            $query['monitorObj'] = $request->monitorObj;
+
+        if (null !== $request->monitorObj) {
+            @$query['monitorObj'] = $request->monitorObj;
         }
-        if (!Utils::isUnset($request->monitorStatus)) {
-            $query['monitorStatus'] = $request->monitorStatus;
+
+        if (null !== $request->monitorStatus) {
+            @$query['monitorStatus'] = $request->monitorStatus;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLoanExecList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLoanExecList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeLoanExecListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取监控对象列表
-     *  *
-     * @param DescribeLoanExecListRequest $request DescribeLoanExecListRequest
+     * Get Monitoring Object List.
      *
-     * @return DescribeLoanExecListResponse DescribeLoanExecListResponse
+     * @param request - DescribeLoanExecListRequest
+     *
+     * @returns DescribeLoanExecListResponse
+     *
+     * @param DescribeLoanExecListRequest $request
+     *
+     * @return DescribeLoanExecListResponse
      */
     public function describeLoanExecList($request)
     {
@@ -7772,59 +9669,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取贷中监控任务列表
-     *  *
-     * @param DescribeLoanTaskListRequest $request DescribeLoanTaskListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Get Loan Monitoring Task List.
      *
-     * @return DescribeLoanTaskListResponse DescribeLoanTaskListResponse
+     * @param request - DescribeLoanTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLoanTaskListResponse
+     *
+     * @param DescribeLoanTaskListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeLoanTaskListResponse
      */
     public function describeLoanTaskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->batchNo)) {
-            $query['batchNo'] = $request->batchNo;
+
+        if (null !== $request->batchNo) {
+            @$query['batchNo'] = $request->batchNo;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->monitorStatus)) {
-            $query['monitorStatus'] = $request->monitorStatus;
+
+        if (null !== $request->monitorStatus) {
+            @$query['monitorStatus'] = $request->monitorStatus;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLoanTaskList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLoanTaskList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeLoanTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取贷中监控任务列表
-     *  *
-     * @param DescribeLoanTaskListRequest $request DescribeLoanTaskListRequest
+     * Get Loan Monitoring Task List.
      *
-     * @return DescribeLoanTaskListResponse DescribeLoanTaskListResponse
+     * @param request - DescribeLoanTaskListRequest
+     *
+     * @returns DescribeLoanTaskListResponse
+     *
+     * @param DescribeLoanTaskListRequest $request
+     *
+     * @return DescribeLoanTaskListResponse
      */
     public function describeLoanTaskList($request)
     {
@@ -7834,65 +9746,82 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 打标列表
-     *  *
-     * @param DescribeMarkPageRequest $request DescribeMarkPageRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Mark List.
      *
-     * @return DescribeMarkPageResponse DescribeMarkPageResponse
+     * @param request - DescribeMarkPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMarkPageResponse
+     *
+     * @param DescribeMarkPageRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeMarkPageResponse
      */
     public function describeMarkPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->direction)) {
-            $query['direction'] = $request->direction;
+
+        if (null !== $request->direction) {
+            @$query['direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->isPage)) {
-            $query['isPage'] = $request->isPage;
+
+        if (null !== $request->isPage) {
+            @$query['isPage'] = $request->isPage;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->taskLogId)) {
-            $query['taskLogId'] = $request->taskLogId;
+
+        if (null !== $request->taskLogId) {
+            @$query['taskLogId'] = $request->taskLogId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMarkPage',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMarkPage',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMarkPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 打标列表
-     *  *
-     * @param DescribeMarkPageRequest $request DescribeMarkPageRequest
+     * Mark List.
      *
-     * @return DescribeMarkPageResponse DescribeMarkPageResponse
+     * @param request - DescribeMarkPageRequest
+     *
+     * @returns DescribeMarkPageResponse
+     *
+     * @param DescribeMarkPageRequest $request
+     *
+     * @return DescribeMarkPageResponse
      */
     public function describeMarkPage($request)
     {
@@ -7902,50 +9831,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询是否有权限
-     *  *
-     * @param DescribeMenuPermissionRequest $request DescribeMenuPermissionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Check Permission.
      *
-     * @return DescribeMenuPermissionResponse DescribeMenuPermissionResponse
+     * @param request - DescribeMenuPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMenuPermissionResponse
+     *
+     * @param DescribeMenuPermissionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeMenuPermissionResponse
      */
     public function describeMenuPermissionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->permissionType)) {
-            $query['permissionType'] = $request->permissionType;
+
+        if (null !== $request->permissionType) {
+            @$query['permissionType'] = $request->permissionType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMenuPermission',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMenuPermission',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMenuPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询是否有权限
-     *  *
-     * @param DescribeMenuPermissionRequest $request DescribeMenuPermissionRequest
+     * Check Permission.
      *
-     * @return DescribeMenuPermissionResponse DescribeMenuPermissionResponse
+     * @param request - DescribeMenuPermissionRequest
+     *
+     * @returns DescribeMenuPermissionResponse
+     *
+     * @param DescribeMenuPermissionRequest $request
+     *
+     * @return DescribeMenuPermissionResponse
      */
     public function describeMenuPermission($request)
     {
@@ -7955,47 +9896,180 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务的限制
-     *  *
-     * @param DescribeMonitorTaskLimitRequest $request DescribeMonitorTaskLimitRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * View Result.
      *
-     * @return DescribeMonitorTaskLimitResponse DescribeMonitorTaskLimitResponse
+     * @param request - DescribeModelDetailsByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeModelDetailsByIdResponse
+     *
+     * @param DescribeModelDetailsByIdRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeModelDetailsByIdResponse
+     */
+    public function describeModelDetailsByIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->modelId) {
+            @$query['ModelId'] = $request->modelId;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeModelDetailsById',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeModelDetailsByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * View Result.
+     *
+     * @param request - DescribeModelDetailsByIdRequest
+     *
+     * @returns DescribeModelDetailsByIdResponse
+     *
+     * @param DescribeModelDetailsByIdRequest $request
+     *
+     * @return DescribeModelDetailsByIdResponse
+     */
+    public function describeModelDetailsById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeModelDetailsByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get File Upload Credentials.
+     *
+     * @param request - DescribeModelOssPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeModelOssPolicyResponse
+     *
+     * @param DescribeModelOssPolicyRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeModelOssPolicyResponse
+     */
+    public function describeModelOssPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeModelOssPolicy',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeModelOssPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get File Upload Credentials.
+     *
+     * @param request - DescribeModelOssPolicyRequest
+     *
+     * @returns DescribeModelOssPolicyResponse
+     *
+     * @param DescribeModelOssPolicyRequest $request
+     *
+     * @return DescribeModelOssPolicyResponse
+     */
+    public function describeModelOssPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeModelOssPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Task Limit.
+     *
+     * @param request - DescribeMonitorTaskLimitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitorTaskLimitResponse
+     *
+     * @param DescribeMonitorTaskLimitRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeMonitorTaskLimitResponse
      */
     public function describeMonitorTaskLimitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMonitorTaskLimit',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMonitorTaskLimit',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMonitorTaskLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询任务的限制
-     *  *
-     * @param DescribeMonitorTaskLimitRequest $request DescribeMonitorTaskLimitRequest
+     * Query Task Limit.
      *
-     * @return DescribeMonitorTaskLimitResponse DescribeMonitorTaskLimitResponse
+     * @param request - DescribeMonitorTaskLimitRequest
+     *
+     * @returns DescribeMonitorTaskLimitResponse
+     *
+     * @param DescribeMonitorTaskLimitRequest $request
+     *
+     * @return DescribeMonitorTaskLimitResponse
      */
     public function describeMonitorTaskLimit($request)
     {
@@ -8005,62 +10079,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询名单分页
-     *  *
-     * @param DescribeNameListRequest $request DescribeNameListRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Query Name List Pagination.
      *
-     * @return DescribeNameListResponse DescribeNameListResponse
+     * @param request - DescribeNameListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNameListResponse
+     *
+     * @param DescribeNameListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeNameListResponse
      */
     public function describeNameListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['value'] = $request->value;
         }
-        if (!Utils::isUnset($request->variableId)) {
-            $query['variableId'] = $request->variableId;
+
+        if (null !== $request->variableId) {
+            @$query['variableId'] = $request->variableId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNameList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNameList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeNameListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询名单分页
-     *  *
-     * @param DescribeNameListRequest $request DescribeNameListRequest
+     * Query Name List Pagination.
      *
-     * @return DescribeNameListResponse DescribeNameListResponse
+     * @param request - DescribeNameListRequest
+     *
+     * @returns DescribeNameListResponse
+     *
+     * @param DescribeNameListRequest $request
+     *
+     * @return DescribeNameListResponse
      */
     public function describeNameList($request)
     {
@@ -8070,50 +10160,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 下载名单列表
-     *  *
-     * @param DescribeNameListDownloadUrlRequest $request DescribeNameListDownloadUrlRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Download Name List.
      *
-     * @return DescribeNameListDownloadUrlResponse DescribeNameListDownloadUrlResponse
+     * @param request - DescribeNameListDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNameListDownloadUrlResponse
+     *
+     * @param DescribeNameListDownloadUrlRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeNameListDownloadUrlResponse
      */
     public function describeNameListDownloadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->variableId)) {
-            $query['variableId'] = $request->variableId;
+
+        if (null !== $request->variableId) {
+            @$query['variableId'] = $request->variableId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNameListDownloadUrl',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNameListDownloadUrl',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeNameListDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 下载名单列表
-     *  *
-     * @param DescribeNameListDownloadUrlRequest $request DescribeNameListDownloadUrlRequest
+     * Download Name List.
      *
-     * @return DescribeNameListDownloadUrlResponse DescribeNameListDownloadUrlResponse
+     * @param request - DescribeNameListDownloadUrlRequest
+     *
+     * @returns DescribeNameListDownloadUrlResponse
+     *
+     * @param DescribeNameListDownloadUrlRequest $request
+     *
+     * @return DescribeNameListDownloadUrlResponse
      */
     public function describeNameListDownloadUrl($request)
     {
@@ -8123,50 +10225,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询名单限制数
-     *  *
-     * @param DescribeNameListLimitRequest $request DescribeNameListLimitRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Query Name List Limit.
      *
-     * @return DescribeNameListLimitResponse DescribeNameListLimitResponse
+     * @param request - DescribeNameListLimitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNameListLimitResponse
+     *
+     * @param DescribeNameListLimitRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeNameListLimitResponse
      */
     public function describeNameListLimitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNameListLimit',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNameListLimit',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeNameListLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询名单限制数
-     *  *
-     * @param DescribeNameListLimitRequest $request DescribeNameListLimitRequest
+     * Query Name List Limit.
      *
-     * @return DescribeNameListLimitResponse DescribeNameListLimitResponse
+     * @param request - DescribeNameListLimitRequest
+     *
+     * @returns DescribeNameListLimitResponse
+     *
+     * @param DescribeNameListLimitRequest $request
+     *
+     * @return DescribeNameListLimitResponse
      */
     public function describeNameListLimit($request)
     {
@@ -8176,65 +10290,82 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 名单内容查询
-     *  *
-     * @param DescribeNameListPageListRequest $request DescribeNameListPageListRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Query the content of the list.
      *
-     * @return DescribeNameListPageListResponse DescribeNameListPageListResponse
+     * @param request - DescribeNameListPageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNameListPageListResponse
+     *
+     * @param DescribeNameListPageListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeNameListPageListResponse
      */
     public function describeNameListPageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->updateBeginTime)) {
-            $query['updateBeginTime'] = $request->updateBeginTime;
+
+        if (null !== $request->updateBeginTime) {
+            @$query['updateBeginTime'] = $request->updateBeginTime;
         }
-        if (!Utils::isUnset($request->updateEndTime)) {
-            $query['updateEndTime'] = $request->updateEndTime;
+
+        if (null !== $request->updateEndTime) {
+            @$query['updateEndTime'] = $request->updateEndTime;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['value'] = $request->value;
         }
-        if (!Utils::isUnset($request->variableId)) {
-            $query['variableId'] = $request->variableId;
+
+        if (null !== $request->variableId) {
+            @$query['variableId'] = $request->variableId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNameListPageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNameListPageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeNameListPageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 名单内容查询
-     *  *
-     * @param DescribeNameListPageListRequest $request DescribeNameListPageListRequest
+     * Query the content of the list.
      *
-     * @return DescribeNameListPageListResponse DescribeNameListPageListResponse
+     * @param request - DescribeNameListPageListRequest
+     *
+     * @returns DescribeNameListPageListResponse
+     *
+     * @param DescribeNameListPageListRequest $request
+     *
+     * @return DescribeNameListPageListResponse
      */
     public function describeNameListPageList($request)
     {
@@ -8244,47 +10375,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 名单类型列表
-     *  *
-     * @param DescribeNameListTypeListRequest $request DescribeNameListTypeListRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * List of Name Types.
      *
-     * @return DescribeNameListTypeListResponse DescribeNameListTypeListResponse
+     * @param request - DescribeNameListTypeListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNameListTypeListResponse
+     *
+     * @param DescribeNameListTypeListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeNameListTypeListResponse
      */
     public function describeNameListTypeListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNameListTypeList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNameListTypeList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeNameListTypeListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 名单类型列表
-     *  *
-     * @param DescribeNameListTypeListRequest $request DescribeNameListTypeListRequest
+     * List of Name Types.
      *
-     * @return DescribeNameListTypeListResponse DescribeNameListTypeListResponse
+     * @param request - DescribeNameListTypeListRequest
+     *
+     * @returns DescribeNameListTypeListResponse
+     *
+     * @param DescribeNameListTypeListRequest $request
+     *
+     * @return DescribeNameListTypeListResponse
      */
     public function describeNameListTypeList($request)
     {
@@ -8294,62 +10436,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 名单列表
-     *  *
-     * @param DescribeNameListVariablePageListRequest $request DescribeNameListVariablePageListRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Name List.
      *
-     * @return DescribeNameListVariablePageListResponse DescribeNameListVariablePageListResponse
+     * @param request - DescribeNameListVariablePageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNameListVariablePageListResponse
+     *
+     * @param DescribeNameListVariablePageListRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeNameListVariablePageListResponse
      */
     public function describeNameListVariablePageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->nameListType)) {
-            $query['nameListType'] = $request->nameListType;
+
+        if (null !== $request->nameListType) {
+            @$query['nameListType'] = $request->nameListType;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNameListVariablePageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNameListVariablePageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeNameListVariablePageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 名单列表
-     *  *
-     * @param DescribeNameListVariablePageListRequest $request DescribeNameListVariablePageListRequest
+     * Name List.
      *
-     * @return DescribeNameListVariablePageListResponse DescribeNameListVariablePageListResponse
+     * @param request - DescribeNameListVariablePageListRequest
+     *
+     * @returns DescribeNameListVariablePageListResponse
+     *
+     * @param DescribeNameListVariablePageListRequest $request
+     *
+     * @return DescribeNameListVariablePageListResponse
      */
     public function describeNameListVariablePageList($request)
     {
@@ -8359,59 +10517,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 根据事件名称查询事件列表
-     *  *
-     * @param DescribeOperationLogPageListRequest $request DescribeOperationLogPageListRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Query event list by event name.
      *
-     * @return DescribeOperationLogPageListResponse DescribeOperationLogPageListResponse
+     * @param request - DescribeOperationLogPageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOperationLogPageListResponse
+     *
+     * @param DescribeOperationLogPageListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeOperationLogPageListResponse
      */
     public function describeOperationLogPageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['endDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['endDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['startDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['startDate'] = $request->startDate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOperationLogPageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOperationLogPageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeOperationLogPageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据事件名称查询事件列表
-     *  *
-     * @param DescribeOperationLogPageListRequest $request DescribeOperationLogPageListRequest
+     * Query event list by event name.
      *
-     * @return DescribeOperationLogPageListResponse DescribeOperationLogPageListResponse
+     * @param request - DescribeOperationLogPageListRequest
+     *
+     * @returns DescribeOperationLogPageListResponse
+     *
+     * @param DescribeOperationLogPageListRequest $request
+     *
+     * @return DescribeOperationLogPageListResponse
      */
     public function describeOperationLogPageList($request)
     {
@@ -8421,47 +10594,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 根据客户ID查询操作符映射列表
-     *  *
-     * @param DescribeOperatorListRequest $request DescribeOperatorListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Query the operator mapping list based on customer ID.
      *
-     * @return DescribeOperatorListResponse DescribeOperatorListResponse
+     * @param request - DescribeOperatorListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOperatorListResponse
+     *
+     * @param DescribeOperatorListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeOperatorListResponse
      */
     public function describeOperatorListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOperatorList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOperatorList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeOperatorListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据客户ID查询操作符映射列表
-     *  *
-     * @param DescribeOperatorListRequest $request DescribeOperatorListRequest
+     * Query the operator mapping list based on customer ID.
      *
-     * @return DescribeOperatorListResponse DescribeOperatorListResponse
+     * @param request - DescribeOperatorListRequest
+     *
+     * @returns DescribeOperatorListResponse
+     *
+     * @param DescribeOperatorListRequest $request
+     *
+     * @return DescribeOperatorListResponse
      */
     public function describeOperatorList($request)
     {
@@ -8471,50 +10655,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询操作符映射列表
-     *  *
-     * @param DescribeOperatorListBySceneRequest $request DescribeOperatorListBySceneRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Query Operator Mapping List.
      *
-     * @return DescribeOperatorListBySceneResponse DescribeOperatorListBySceneResponse
+     * @param request - DescribeOperatorListBySceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOperatorListBySceneResponse
+     *
+     * @param DescribeOperatorListBySceneRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeOperatorListBySceneResponse
      */
     public function describeOperatorListBySceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['scene'] = $request->scene;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOperatorListByScene',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOperatorListByScene',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeOperatorListBySceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询操作符映射列表
-     *  *
-     * @param DescribeOperatorListBySceneRequest $request DescribeOperatorListBySceneRequest
+     * Query Operator Mapping List.
      *
-     * @return DescribeOperatorListBySceneResponse DescribeOperatorListBySceneResponse
+     * @param request - DescribeOperatorListBySceneRequest
+     *
+     * @returns DescribeOperatorListBySceneResponse
+     *
+     * @param DescribeOperatorListBySceneRequest $request
+     *
+     * @return DescribeOperatorListBySceneResponse
      */
     public function describeOperatorListByScene($request)
     {
@@ -8524,47 +10720,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询操作符映射列表
-     *  *
-     * @param DescribeOperatorListByTypeRequest $request DescribeOperatorListByTypeRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Query Operator Mapping List.
      *
-     * @return DescribeOperatorListByTypeResponse DescribeOperatorListByTypeResponse
+     * @param request - DescribeOperatorListByTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOperatorListByTypeResponse
+     *
+     * @param DescribeOperatorListByTypeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeOperatorListByTypeResponse
      */
     public function describeOperatorListByTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOperatorListByType',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOperatorListByType',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeOperatorListByTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询操作符映射列表
-     *  *
-     * @param DescribeOperatorListByTypeRequest $request DescribeOperatorListByTypeRequest
+     * Query Operator Mapping List.
      *
-     * @return DescribeOperatorListByTypeResponse DescribeOperatorListByTypeResponse
+     * @param request - DescribeOperatorListByTypeRequest
+     *
+     * @returns DescribeOperatorListByTypeResponse
+     *
+     * @param DescribeOperatorListByTypeRequest $request
+     *
+     * @return DescribeOperatorListByTypeResponse
      */
     public function describeOperatorListByType($request)
     {
@@ -8574,47 +10781,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查看是否授权Oss
-     *  *
-     * @param DescribeOssAuthStatusRequest $request DescribeOssAuthStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Check Oss Authorization.
      *
-     * @return DescribeOssAuthStatusResponse DescribeOssAuthStatusResponse
+     * @param request - DescribeOssAuthStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOssAuthStatusResponse
+     *
+     * @param DescribeOssAuthStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeOssAuthStatusResponse
      */
     public function describeOssAuthStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOssAuthStatus',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOssAuthStatus',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeOssAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看是否授权Oss
-     *  *
-     * @param DescribeOssAuthStatusRequest $request DescribeOssAuthStatusRequest
+     * Check Oss Authorization.
      *
-     * @return DescribeOssAuthStatusResponse DescribeOssAuthStatusResponse
+     * @param request - DescribeOssAuthStatusRequest
+     *
+     * @returns DescribeOssAuthStatusResponse
+     *
+     * @param DescribeOssAuthStatusRequest $request
+     *
+     * @return DescribeOssAuthStatusResponse
      */
     public function describeOssAuthStatus($request)
     {
@@ -8624,50 +10842,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取OSS Policy
-     *  *
-     * @param DescribeOssPolicyRequest $request DescribeOssPolicyRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Get OSS Policy.
      *
-     * @return DescribeOssPolicyResponse DescribeOssPolicyResponse
+     * @param request - DescribeOssPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOssPolicyResponse
+     *
+     * @param DescribeOssPolicyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeOssPolicyResponse
      */
     public function describeOssPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['scene'] = $request->scene;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOssPolicy',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOssPolicy',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeOssPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取OSS Policy
-     *  *
-     * @param DescribeOssPolicyRequest $request DescribeOssPolicyRequest
+     * Get OSS Policy.
      *
-     * @return DescribeOssPolicyResponse DescribeOssPolicyResponse
+     * @param request - DescribeOssPolicyRequest
+     *
+     * @returns DescribeOssPolicyResponse
+     *
+     * @param DescribeOssPolicyRequest $request
+     *
+     * @return DescribeOssPolicyResponse
      */
     public function describeOssPolicy($request)
     {
@@ -8677,53 +10907,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取文件上传凭证
-     *  *
-     * @param DescribeOssTokenRequest $request DescribeOssTokenRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Get File Upload Credentials.
      *
-     * @return DescribeOssTokenResponse DescribeOssTokenResponse
+     * @param request - DescribeOssTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOssTokenResponse
+     *
+     * @param DescribeOssTokenRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeOssTokenResponse
      */
     public function describeOssTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->uploadType)) {
-            $query['uploadType'] = $request->uploadType;
+
+        if (null !== $request->uploadType) {
+            @$query['uploadType'] = $request->uploadType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOssToken',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOssToken',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeOssTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取文件上传凭证
-     *  *
-     * @param DescribeOssTokenRequest $request DescribeOssTokenRequest
+     * Get File Upload Credentials.
      *
-     * @return DescribeOssTokenResponse DescribeOssTokenResponse
+     * @param request - DescribeOssTokenRequest
+     *
+     * @returns DescribeOssTokenResponse
+     *
+     * @param DescribeOssTokenRequest $request
+     *
+     * @return DescribeOssTokenResponse
      */
     public function describeOssToken($request)
     {
@@ -8733,53 +10976,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询事件属性列表
-     *  *
-     * @param DescribeParamByEventCodesRequest $request DescribeParamByEventCodesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Query Event Property List.
      *
-     * @return DescribeParamByEventCodesResponse DescribeParamByEventCodesResponse
+     * @param request - DescribeParamByEventCodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeParamByEventCodesResponse
+     *
+     * @param DescribeParamByEventCodesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeParamByEventCodesResponse
      */
     public function describeParamByEventCodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->parma)) {
-            $query['parma'] = $request->parma;
+
+        if (null !== $request->parma) {
+            @$query['parma'] = $request->parma;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeParamByEventCodes',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeParamByEventCodes',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeParamByEventCodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询事件属性列表
-     *  *
-     * @param DescribeParamByEventCodesRequest $request DescribeParamByEventCodesRequest
+     * Query Event Property List.
      *
-     * @return DescribeParamByEventCodesResponse DescribeParamByEventCodesResponse
+     * @param request - DescribeParamByEventCodesRequest
+     *
+     * @returns DescribeParamByEventCodesResponse
+     *
+     * @param DescribeParamByEventCodesRequest $request
+     *
+     * @return DescribeParamByEventCodesResponse
      */
     public function describeParamByEventCodes($request)
     {
@@ -8789,159 +11045,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取映射关系
-     *  *
-     * @param DescribeParamListRequest $request DescribeParamListRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Get File Upload Credentials.
      *
-     * @return DescribeParamListResponse DescribeParamListResponse
-     */
-    public function describeParamListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['fileUrl'] = $request->fileUrl;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $query['serviceCode'] = $request->serviceCode;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeParamList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeParamListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 获取映射关系
-     *  *
-     * @param DescribeParamListRequest $request DescribeParamListRequest
+     * @param request - DescribePocOssTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeParamListResponse DescribeParamListResponse
-     */
-    public function describeParamList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeParamListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 获取任务详情
-     *  *
-     * @param DescribePocDetailRequest $request DescribePocDetailRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @returns DescribePocOssTokenResponse
      *
-     * @return DescribePocDetailResponse DescribePocDetailResponse
-     */
-    public function describePocDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['taskId'] = $request->taskId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePocDetail',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribePocDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 获取任务详情
-     *  *
-     * @param DescribePocDetailRequest $request DescribePocDetailRequest
+     * @param DescribePocOssTokenRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return DescribePocDetailResponse DescribePocDetailResponse
-     */
-    public function describePocDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePocDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 获取文件上传凭证
-     *  *
-     * @param DescribePocOssTokenRequest $request DescribePocOssTokenRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribePocOssTokenResponse DescribePocOssTokenResponse
+     * @return DescribePocOssTokenResponse
      */
     public function describePocOssTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePocOssToken',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePocOssToken',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePocOssTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取文件上传凭证
-     *  *
-     * @param DescribePocOssTokenRequest $request DescribePocOssTokenRequest
+     * Get File Upload Credentials.
      *
-     * @return DescribePocOssTokenResponse DescribePocOssTokenResponse
+     * @param request - DescribePocOssTokenRequest
+     *
+     * @returns DescribePocOssTokenResponse
+     *
+     * @param DescribePocOssTokenRequest $request
+     *
+     * @return DescribePocOssTokenResponse
      */
     public function describePocOssToken($request)
     {
@@ -8951,56 +11106,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取poc任务列表
-     *  *
-     * @param DescribePocTaskListRequest $request DescribePocTaskListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Get POC Task List.
      *
-     * @return DescribePocTaskListResponse DescribePocTaskListResponse
+     * @param request - DescribePocTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePocTaskListResponse
+     *
+     * @param DescribePocTaskListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribePocTaskListResponse
      */
     public function describePocTaskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePocTaskList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePocTaskList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePocTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取poc任务列表
-     *  *
-     * @param DescribePocTaskListRequest $request DescribePocTaskListRequest
+     * Get POC Task List.
      *
-     * @return DescribePocTaskListResponse DescribePocTaskListResponse
+     * @param request - DescribePocTaskListRequest
+     *
+     * @returns DescribePocTaskListResponse
+     *
+     * @param DescribePocTaskListRequest $request
+     *
+     * @return DescribePocTaskListResponse
      */
     public function describePocTaskList($request)
     {
@@ -9010,44 +11179,54 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 判断是否开通Stack私域模式
-     *  *
-     * @param DescribePrivateStackRequest $request DescribePrivateStackRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Determine if Stack Private Domain Mode is Enabled.
      *
-     * @return DescribePrivateStackResponse DescribePrivateStackResponse
+     * @param request - DescribePrivateStackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePrivateStackResponse
+     *
+     * @param DescribePrivateStackRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribePrivateStackResponse
      */
     public function describePrivateStackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePrivateStack',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePrivateStack',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePrivateStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 判断是否开通Stack私域模式
-     *  *
-     * @param DescribePrivateStackRequest $request DescribePrivateStackRequest
+     * Determine if Stack Private Domain Mode is Enabled.
      *
-     * @return DescribePrivateStackResponse DescribePrivateStackResponse
+     * @param request - DescribePrivateStackRequest
+     *
+     * @returns DescribePrivateStackResponse
+     *
+     * @param DescribePrivateStackRequest $request
+     *
+     * @return DescribePrivateStackResponse
      */
     public function describePrivateStack($request)
     {
@@ -9057,50 +11236,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询变量详情查询
-     *  *
-     * @param DescribeQueryVariableDetailRequest $request DescribeQueryVariableDetailRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Query Variable Detail Query.
      *
-     * @return DescribeQueryVariableDetailResponse DescribeQueryVariableDetailResponse
+     * @param request - DescribeQueryVariableDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeQueryVariableDetailResponse
+     *
+     * @param DescribeQueryVariableDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeQueryVariableDetailResponse
      */
     public function describeQueryVariableDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeQueryVariableDetail',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeQueryVariableDetail',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeQueryVariableDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询变量详情查询
-     *  *
-     * @param DescribeQueryVariableDetailRequest $request DescribeQueryVariableDetailRequest
+     * Query Variable Detail Query.
      *
-     * @return DescribeQueryVariableDetailResponse DescribeQueryVariableDetailResponse
+     * @param request - DescribeQueryVariableDetailRequest
+     *
+     * @returns DescribeQueryVariableDetailResponse
+     *
+     * @param DescribeQueryVariableDetailRequest $request
+     *
+     * @return DescribeQueryVariableDetailResponse
      */
     public function describeQueryVariableDetail($request)
     {
@@ -9110,62 +11301,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询变量列表查询
-     *  *
-     * @param DescribeQueryVariablePageListRequest $request DescribeQueryVariablePageListRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 查询变量列表查询.
      *
-     * @return DescribeQueryVariablePageListResponse DescribeQueryVariablePageListResponse
+     * @param request - DescribeQueryVariablePageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeQueryVariablePageListResponse
+     *
+     * @param DescribeQueryVariablePageListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeQueryVariablePageListResponse
      */
     public function describeQueryVariablePageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->dataSourceCode)) {
-            $query['dataSourceCode'] = $request->dataSourceCode;
+
+        if (null !== $request->dataSourceCode) {
+            @$query['dataSourceCode'] = $request->dataSourceCode;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeQueryVariablePageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeQueryVariablePageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeQueryVariablePageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询变量列表查询
-     *  *
-     * @param DescribeQueryVariablePageListRequest $request DescribeQueryVariablePageListRequest
+     * 查询变量列表查询.
      *
-     * @return DescribeQueryVariablePageListResponse DescribeQueryVariablePageListResponse
+     * @param request - DescribeQueryVariablePageListRequest
+     *
+     * @returns DescribeQueryVariablePageListResponse
+     *
+     * @param DescribeQueryVariablePageListRequest $request
+     *
+     * @return DescribeQueryVariablePageListResponse
      */
     public function describeQueryVariablePageList($request)
     {
@@ -9175,50 +11382,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询样本&场景下的变量列表
-     *  *
-     * @param DescribeRecommendSceneVariablesRequest $request DescribeRecommendSceneVariablesRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Query Variable List under Sample & Scenario.
      *
-     * @return DescribeRecommendSceneVariablesResponse DescribeRecommendSceneVariablesResponse
+     * @param request - DescribeRecommendSceneVariablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRecommendSceneVariablesResponse
+     *
+     * @param DescribeRecommendSceneVariablesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeRecommendSceneVariablesResponse
      */
     public function describeRecommendSceneVariablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->sampleId)) {
-            $query['sampleId'] = $request->sampleId;
+
+        if (null !== $request->sampleId) {
+            @$query['sampleId'] = $request->sampleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRecommendSceneVariables',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRecommendSceneVariables',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRecommendSceneVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询样本&场景下的变量列表
-     *  *
-     * @param DescribeRecommendSceneVariablesRequest $request DescribeRecommendSceneVariablesRequest
+     * Query Variable List under Sample & Scenario.
      *
-     * @return DescribeRecommendSceneVariablesResponse DescribeRecommendSceneVariablesResponse
+     * @param request - DescribeRecommendSceneVariablesRequest
+     *
+     * @returns DescribeRecommendSceneVariablesResponse
+     *
+     * @param DescribeRecommendSceneVariablesRequest $request
+     *
+     * @return DescribeRecommendSceneVariablesResponse
      */
     public function describeRecommendSceneVariables($request)
     {
@@ -9228,50 +11447,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 变量推荐详情查询接口
-     *  *
-     * @param DescribeRecommendTaskDetailRequest $request DescribeRecommendTaskDetailRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Variable Recommendation Details Query Interface.
      *
-     * @return DescribeRecommendTaskDetailResponse DescribeRecommendTaskDetailResponse
+     * @param request - DescribeRecommendTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRecommendTaskDetailResponse
+     *
+     * @param DescribeRecommendTaskDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRecommendTaskDetailResponse
      */
     public function describeRecommendTaskDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['taskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRecommendTaskDetail',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRecommendTaskDetail',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRecommendTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 变量推荐详情查询接口
-     *  *
-     * @param DescribeRecommendTaskDetailRequest $request DescribeRecommendTaskDetailRequest
+     * Variable Recommendation Details Query Interface.
      *
-     * @return DescribeRecommendTaskDetailResponse DescribeRecommendTaskDetailResponse
+     * @param request - DescribeRecommendTaskDetailRequest
+     *
+     * @returns DescribeRecommendTaskDetailResponse
+     *
+     * @param DescribeRecommendTaskDetailRequest $request
+     *
+     * @return DescribeRecommendTaskDetailResponse
      */
     public function describeRecommendTaskDetail($request)
     {
@@ -9281,56 +11512,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 变量推荐列表查询接口
-     *  *
-     * @param DescribeRecommendTaskPageListRequest $request DescribeRecommendTaskPageListRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Variable Recommendation List Query Interface.
      *
-     * @return DescribeRecommendTaskPageListResponse DescribeRecommendTaskPageListResponse
+     * @param request - DescribeRecommendTaskPageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRecommendTaskPageListResponse
+     *
+     * @param DescribeRecommendTaskPageListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeRecommendTaskPageListResponse
      */
     public function describeRecommendTaskPageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['taskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['taskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRecommendTaskPageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRecommendTaskPageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRecommendTaskPageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 变量推荐列表查询接口
-     *  *
-     * @param DescribeRecommendTaskPageListRequest $request DescribeRecommendTaskPageListRequest
+     * Variable Recommendation List Query Interface.
      *
-     * @return DescribeRecommendTaskPageListResponse DescribeRecommendTaskPageListResponse
+     * @param request - DescribeRecommendTaskPageListRequest
+     *
+     * @returns DescribeRecommendTaskPageListResponse
+     *
+     * @param DescribeRecommendTaskPageListRequest $request
+     *
+     * @return DescribeRecommendTaskPageListResponse
      */
     public function describeRecommendTaskPageList($request)
     {
@@ -9340,53 +11585,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询变量下的指标信息
-     *  *
-     * @param DescribeRecommendVariablesVelocityRequest $request DescribeRecommendVariablesVelocityRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Query Indicators Information under Variables.
      *
-     * @return DescribeRecommendVariablesVelocityResponse DescribeRecommendVariablesVelocityResponse
+     * @param request - DescribeRecommendVariablesVelocityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRecommendVariablesVelocityResponse
+     *
+     * @param DescribeRecommendVariablesVelocityRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeRecommendVariablesVelocityResponse
      */
     public function describeRecommendVariablesVelocityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['taskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->variableIdsStr)) {
-            $query['variableIdsStr'] = $request->variableIdsStr;
+
+        if (null !== $request->variableIdsStr) {
+            @$query['variableIdsStr'] = $request->variableIdsStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRecommendVariablesVelocity',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRecommendVariablesVelocity',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRecommendVariablesVelocityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询变量下的指标信息
-     *  *
-     * @param DescribeRecommendVariablesVelocityRequest $request DescribeRecommendVariablesVelocityRequest
+     * Query Indicators Information under Variables.
      *
-     * @return DescribeRecommendVariablesVelocityResponse DescribeRecommendVariablesVelocityResponse
+     * @param request - DescribeRecommendVariablesVelocityRequest
+     *
+     * @returns DescribeRecommendVariablesVelocityResponse
+     *
+     * @param DescribeRecommendVariablesVelocityRequest $request
+     *
+     * @return DescribeRecommendVariablesVelocityResponse
      */
     public function describeRecommendVariablesVelocity($request)
     {
@@ -9396,53 +11654,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询支持的指标列表
-     *  *
-     * @param DescribeRecommendVelocitiesRequest $request DescribeRecommendVelocitiesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Query Supported Metrics List.
      *
-     * @return DescribeRecommendVelocitiesResponse DescribeRecommendVelocitiesResponse
+     * @param request - DescribeRecommendVelocitiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRecommendVelocitiesResponse
+     *
+     * @param DescribeRecommendVelocitiesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRecommendVelocitiesResponse
      */
     public function describeRecommendVelocitiesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->code)) {
-            $query['code'] = $request->code;
+
+        if (null !== $request->code) {
+            @$query['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRecommendVelocities',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRecommendVelocities',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRecommendVelocitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询支持的指标列表
-     *  *
-     * @param DescribeRecommendVelocitiesRequest $request DescribeRecommendVelocitiesRequest
+     * Query Supported Metrics List.
      *
-     * @return DescribeRecommendVelocitiesResponse DescribeRecommendVelocitiesResponse
+     * @param request - DescribeRecommendVelocitiesRequest
+     *
+     * @returns DescribeRecommendVelocitiesResponse
+     *
+     * @param DescribeRecommendVelocitiesRequest $request
+     *
+     * @return DescribeRecommendVelocitiesResponse
      */
     public function describeRecommendVelocities($request)
     {
@@ -9452,47 +11723,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询ApiGateway支持的region列表
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Query the list of regions supported by ApiGateway.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询ApiGateway支持的region列表
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Query the list of regions supported by ApiGateway.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -9502,50 +11784,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询请求命中详情
-     *  *
-     * @param DescribeRequestHitRequest $request DescribeRequestHitRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Query Request Hit Details.
      *
-     * @return DescribeRequestHitResponse DescribeRequestHitResponse
+     * @param request - DescribeRequestHitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRequestHitResponse
+     *
+     * @param DescribeRequestHitRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeRequestHitResponse
      */
     public function describeRequestHitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->sRequestId)) {
-            $query['sRequestId'] = $request->sRequestId;
+
+        if (null !== $request->sRequestId) {
+            @$query['sRequestId'] = $request->sRequestId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRequestHit',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRequestHit',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRequestHitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询请求命中详情
-     *  *
-     * @param DescribeRequestHitRequest $request DescribeRequestHitRequest
+     * Query Request Hit Details.
      *
-     * @return DescribeRequestHitResponse DescribeRequestHitResponse
+     * @param request - DescribeRequestHitRequest
+     *
+     * @returns DescribeRequestHitResponse
+     *
+     * @param DescribeRequestHitRequest $request
+     *
+     * @return DescribeRequestHitResponse
      */
     public function describeRequestHit($request)
     {
@@ -9555,47 +11849,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 请求峰值
-     *  *
-     * @param DescribeRequestPeakReportRequest $request DescribeRequestPeakReportRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Request Peak.
      *
-     * @return DescribeRequestPeakReportResponse DescribeRequestPeakReportResponse
+     * @param request - DescribeRequestPeakReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRequestPeakReportResponse
+     *
+     * @param DescribeRequestPeakReportRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeRequestPeakReportResponse
      */
     public function describeRequestPeakReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRequestPeakReport',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRequestPeakReport',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRequestPeakReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 请求峰值
-     *  *
-     * @param DescribeRequestPeakReportRequest $request DescribeRequestPeakReportRequest
+     * Request Peak.
      *
-     * @return DescribeRequestPeakReportResponse DescribeRequestPeakReportResponse
+     * @param request - DescribeRequestPeakReportRequest
+     *
+     * @returns DescribeRequestPeakReportResponse
+     *
+     * @param DescribeRequestPeakReportRequest $request
+     *
+     * @return DescribeRequestPeakReportResponse
      */
     public function describeRequestPeakReport($request)
     {
@@ -9605,53 +11910,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 下钻分析
-     *  *
-     * @param DescribeResultCountRequest $request DescribeResultCountRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Drill-down Analysis.
      *
-     * @return DescribeResultCountResponse DescribeResultCountResponse
+     * @param request - DescribeResultCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResultCountResponse
+     *
+     * @param DescribeResultCountRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeResultCountResponse
      */
     public function describeResultCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResultCount',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResultCount',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeResultCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 下钻分析
-     *  *
-     * @param DescribeResultCountRequest $request DescribeResultCountRequest
+     * Drill-down Analysis.
      *
-     * @return DescribeResultCountResponse DescribeResultCountResponse
+     * @param request - DescribeResultCountRequest
+     *
+     * @returns DescribeResultCountResponse
+     *
+     * @param DescribeResultCountRequest $request
+     *
+     * @return DescribeResultCountResponse
      */
     public function describeResultCount($request)
     {
@@ -9661,56 +11979,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 风险地图概览图表(折线图)
-     *  *
-     * @param DescribeRiskLineChartRequest $request DescribeRiskLineChartRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Risk map overview chart (line chart).
      *
-     * @return DescribeRiskLineChartResponse DescribeRiskLineChartResponse
+     * @param request - DescribeRiskLineChartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRiskLineChartResponse
+     *
+     * @param DescribeRiskLineChartRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeRiskLineChartResponse
      */
     public function describeRiskLineChartWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRiskLineChart',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRiskLineChart',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRiskLineChartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 风险地图概览图表(折线图)
-     *  *
-     * @param DescribeRiskLineChartRequest $request DescribeRiskLineChartRequest
+     * Risk map overview chart (line chart).
      *
-     * @return DescribeRiskLineChartResponse DescribeRiskLineChartResponse
+     * @param request - DescribeRiskLineChartRequest
+     *
+     * @returns DescribeRiskLineChartResponse
+     *
+     * @param DescribeRiskLineChartRequest $request
+     *
+     * @return DescribeRiskLineChartResponse
      */
     public function describeRiskLineChart($request)
     {
@@ -9720,56 +12052,143 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 策略概览列表
-     *  *
-     * @param DescribeRuleBarChartRequest $request DescribeRuleBarChartRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Tag Hit Rate Tag Hit Dimension.
      *
-     * @return DescribeRuleBarChartResponse DescribeRuleBarChartResponse
+     * @param request - DescribeRiskTagsLineChartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRiskTagsLineChartResponse
+     *
+     * @param DescribeRiskTagsLineChartRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeRiskTagsLineChartResponse
+     */
+    public function describeRiskTagsLineChartWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->eventCodes) {
+            @$query['EventCodes'] = $request->eventCodes;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRiskTagsLineChart',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRiskTagsLineChartResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Tag Hit Rate Tag Hit Dimension.
+     *
+     * @param request - DescribeRiskTagsLineChartRequest
+     *
+     * @returns DescribeRiskTagsLineChartResponse
+     *
+     * @param DescribeRiskTagsLineChartRequest $request
+     *
+     * @return DescribeRiskTagsLineChartResponse
+     */
+    public function describeRiskTagsLineChart($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRiskTagsLineChartWithOptions($request, $runtime);
+    }
+
+    /**
+     * Policy Overview List.
+     *
+     * @param request - DescribeRuleBarChartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRuleBarChartResponse
+     *
+     * @param DescribeRuleBarChartRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRuleBarChartResponse
      */
     public function describeRuleBarChartWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRuleBarChart',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRuleBarChart',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRuleBarChartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 策略概览列表
-     *  *
-     * @param DescribeRuleBarChartRequest $request DescribeRuleBarChartRequest
+     * Policy Overview List.
      *
-     * @return DescribeRuleBarChartResponse DescribeRuleBarChartResponse
+     * @param request - DescribeRuleBarChartRequest
+     *
+     * @returns DescribeRuleBarChartResponse
+     *
+     * @param DescribeRuleBarChartRequest $request
+     *
+     * @return DescribeRuleBarChartResponse
      */
     public function describeRuleBarChart($request)
     {
@@ -9779,50 +12198,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 根据用户Id查询策略数
-     *  *
-     * @param DescribeRuleCountByUserIdRequest $request DescribeRuleCountByUserIdRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Query Policy Count by User ID.
      *
-     * @return DescribeRuleCountByUserIdResponse DescribeRuleCountByUserIdResponse
+     * @param request - DescribeRuleCountByUserIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRuleCountByUserIdResponse
+     *
+     * @param DescribeRuleCountByUserIdRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeRuleCountByUserIdResponse
      */
     public function describeRuleCountByUserIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRuleCountByUserId',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRuleCountByUserId',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRuleCountByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据用户Id查询策略数
-     *  *
-     * @param DescribeRuleCountByUserIdRequest $request DescribeRuleCountByUserIdRequest
+     * Query Policy Count by User ID.
      *
-     * @return DescribeRuleCountByUserIdResponse DescribeRuleCountByUserIdResponse
+     * @param request - DescribeRuleCountByUserIdRequest
+     *
+     * @returns DescribeRuleCountByUserIdResponse
+     *
+     * @param DescribeRuleCountByUserIdRequest $request
+     *
+     * @return DescribeRuleCountByUserIdResponse
      */
     public function describeRuleCountByUserId($request)
     {
@@ -9832,56 +12263,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询策略/版本详情
-     *  *
-     * @param DescribeRuleDetailByRuleIdRequest $request DescribeRuleDetailByRuleIdRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Query policy/version details.
      *
-     * @return DescribeRuleDetailByRuleIdResponse DescribeRuleDetailByRuleIdResponse
+     * @param request - DescribeRuleDetailByRuleIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRuleDetailByRuleIdResponse
+     *
+     * @param DescribeRuleDetailByRuleIdRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeRuleDetailByRuleIdResponse
      */
     public function describeRuleDetailByRuleIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->consoleRuleId)) {
-            $query['consoleRuleId'] = $request->consoleRuleId;
+
+        if (null !== $request->consoleRuleId) {
+            @$query['consoleRuleId'] = $request->consoleRuleId;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['ruleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['ruleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleVersionId)) {
-            $query['ruleVersionId'] = $request->ruleVersionId;
+
+        if (null !== $request->ruleVersionId) {
+            @$query['ruleVersionId'] = $request->ruleVersionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRuleDetailByRuleId',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRuleDetailByRuleId',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRuleDetailByRuleIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询策略/版本详情
-     *  *
-     * @param DescribeRuleDetailByRuleIdRequest $request DescribeRuleDetailByRuleIdRequest
+     * Query policy/version details.
      *
-     * @return DescribeRuleDetailByRuleIdResponse DescribeRuleDetailByRuleIdResponse
+     * @param request - DescribeRuleDetailByRuleIdRequest
+     *
+     * @returns DescribeRuleDetailByRuleIdResponse
+     *
+     * @param DescribeRuleDetailByRuleIdRequest $request
+     *
+     * @return DescribeRuleDetailByRuleIdResponse
      */
     public function describeRuleDetailByRuleId($request)
     {
@@ -9891,56 +12336,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询策略命中详情
-     *  *
-     * @param DescribeRuleHitRequest $request DescribeRuleHitRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Query rule hit details.
      *
-     * @return DescribeRuleHitResponse DescribeRuleHitResponse
+     * @param request - DescribeRuleHitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRuleHitResponse
+     *
+     * @param DescribeRuleHitRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRuleHitResponse
      */
     public function describeRuleHitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['ruleId'] = $request->ruleId;
+
+        if (null !== $request->requestTime) {
+            @$query['requestTime'] = $request->requestTime;
         }
-        if (!Utils::isUnset($request->ruleSnapshotId)) {
-            $query['ruleSnapshotId'] = $request->ruleSnapshotId;
+
+        if (null !== $request->ruleId) {
+            @$query['ruleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->sRequestId)) {
-            $query['sRequestId'] = $request->sRequestId;
+
+        if (null !== $request->ruleSnapshotId) {
+            @$query['ruleSnapshotId'] = $request->ruleSnapshotId;
         }
+
+        if (null !== $request->sRequestId) {
+            @$query['sRequestId'] = $request->sRequestId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRuleHit',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRuleHit',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRuleHitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询策略命中详情
-     *  *
-     * @param DescribeRuleHitRequest $request DescribeRuleHitRequest
+     * Query rule hit details.
      *
-     * @return DescribeRuleHitResponse DescribeRuleHitResponse
+     * @param request - DescribeRuleHitRequest
+     *
+     * @returns DescribeRuleHitResponse
+     *
+     * @param DescribeRuleHitRequest $request
+     *
+     * @return DescribeRuleHitResponse
      */
     public function describeRuleHit($request)
     {
@@ -9950,50 +12413,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询策略列表
-     *  *
-     * @param DescribeRuleListByEventCodesListRequest $request DescribeRuleListByEventCodesListRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Query policy list.
      *
-     * @return DescribeRuleListByEventCodesListResponse DescribeRuleListByEventCodesListResponse
+     * @param request - DescribeRuleListByEventCodesListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRuleListByEventCodesListResponse
+     *
+     * @param DescribeRuleListByEventCodesListRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeRuleListByEventCodesListResponse
      */
     public function describeRuleListByEventCodesListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRuleListByEventCodesList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRuleListByEventCodesList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRuleListByEventCodesListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询策略列表
-     *  *
-     * @param DescribeRuleListByEventCodesListRequest $request DescribeRuleListByEventCodesListRequest
+     * Query policy list.
      *
-     * @return DescribeRuleListByEventCodesListResponse DescribeRuleListByEventCodesListResponse
+     * @param request - DescribeRuleListByEventCodesListRequest
+     *
+     * @returns DescribeRuleListByEventCodesListResponse
+     *
+     * @param DescribeRuleListByEventCodesListRequest $request
+     *
+     * @return DescribeRuleListByEventCodesListResponse
      */
     public function describeRuleListByEventCodesList($request)
     {
@@ -10003,68 +12478,90 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询策略列表
-     *  *
-     * @param DescribeRulePageListRequest $request DescribeRulePageListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Query the list of policies.
      *
-     * @return DescribeRulePageListResponse DescribeRulePageListResponse
+     * @param request - DescribeRulePageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRulePageListResponse
+     *
+     * @param DescribeRulePageListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRulePageListResponse
      */
     public function describeRulePageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleAuthType)) {
-            $query['ruleAuthType'] = $request->ruleAuthType;
+
+        if (null !== $request->ruleAuthType) {
+            @$query['ruleAuthType'] = $request->ruleAuthType;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['ruleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['ruleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->ruleStatus)) {
-            $query['ruleStatus'] = $request->ruleStatus;
+
+        if (null !== $request->ruleStatus) {
+            @$query['ruleStatus'] = $request->ruleStatus;
         }
+
+        if (null !== $request->sort) {
+            @$query['sort'] = $request->sort;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRulePageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRulePageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRulePageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询策略列表
-     *  *
-     * @param DescribeRulePageListRequest $request DescribeRulePageListRequest
+     * Query the list of policies.
      *
-     * @return DescribeRulePageListResponse DescribeRulePageListResponse
+     * @param request - DescribeRulePageListRequest
+     *
+     * @returns DescribeRulePageListResponse
+     *
+     * @param DescribeRulePageListRequest $request
+     *
+     * @return DescribeRulePageListResponse
      */
     public function describeRulePageList($request)
     {
@@ -10074,53 +12571,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 根据ruleId+version查询历史快照
-     *  *
-     * @param DescribeRuleSnapshotRequest $request DescribeRuleSnapshotRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Query historical snapshots based on ruleId and version.
      *
-     * @return DescribeRuleSnapshotResponse DescribeRuleSnapshotResponse
+     * @param request - DescribeRuleSnapshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRuleSnapshotResponse
+     *
+     * @param DescribeRuleSnapshotRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRuleSnapshotResponse
      */
     public function describeRuleSnapshotWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['ruleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['ruleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->snapshotVersion)) {
-            $query['snapshotVersion'] = $request->snapshotVersion;
+
+        if (null !== $request->snapshotVersion) {
+            @$query['snapshotVersion'] = $request->snapshotVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRuleSnapshot',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRuleSnapshot',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRuleSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据ruleId+version查询历史快照
-     *  *
-     * @param DescribeRuleSnapshotRequest $request DescribeRuleSnapshotRequest
+     * Query historical snapshots based on ruleId and version.
      *
-     * @return DescribeRuleSnapshotResponse DescribeRuleSnapshotResponse
+     * @param request - DescribeRuleSnapshotRequest
+     *
+     * @returns DescribeRuleSnapshotResponse
+     *
+     * @param DescribeRuleSnapshotRequest $request
+     *
+     * @return DescribeRuleSnapshotResponse
      */
     public function describeRuleSnapshot($request)
     {
@@ -10130,53 +12640,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询策略版本列表
-     *  *
-     * @param DescribeRuleVersionListRequest $request DescribeRuleVersionListRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Query Policy Version List.
      *
-     * @return DescribeRuleVersionListResponse DescribeRuleVersionListResponse
+     * @param request - DescribeRuleVersionListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRuleVersionListResponse
+     *
+     * @param DescribeRuleVersionListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeRuleVersionListResponse
      */
     public function describeRuleVersionListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->consoleRuleId)) {
-            $query['consoleRuleId'] = $request->consoleRuleId;
+
+        if (null !== $request->consoleRuleId) {
+            @$query['consoleRuleId'] = $request->consoleRuleId;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['ruleId'] = $request->ruleId;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['ruleId'] = $request->ruleId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRuleVersionList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRuleVersionList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRuleVersionListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询策略版本列表
-     *  *
-     * @param DescribeRuleVersionListRequest $request DescribeRuleVersionListRequest
+     * Query Policy Version List.
      *
-     * @return DescribeRuleVersionListResponse DescribeRuleVersionListResponse
+     * @param request - DescribeRuleVersionListRequest
+     *
+     * @returns DescribeRuleVersionListResponse
+     *
+     * @param DescribeRuleVersionListRequest $request
+     *
+     * @return DescribeRuleVersionListResponse
      */
     public function describeRuleVersionList($request)
     {
@@ -10186,53 +12717,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取老旧版本sdk下载列表
-     *  *
-     * @param DescribeSDKDownloadListRequest $request DescribeSDKDownloadListRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * SDK Download List.
      *
-     * @return DescribeSDKDownloadListResponse DescribeSDKDownloadListResponse
+     * @param request - DescribeSDKDownloadListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSDKDownloadListResponse
+     *
+     * @param DescribeSDKDownloadListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSDKDownloadListResponse
      */
     public function describeSDKDownloadListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->deviceType)) {
-            $query['deviceType'] = $request->deviceType;
+
+        if (null !== $request->deviceType) {
+            @$query['deviceType'] = $request->deviceType;
         }
-        if (!Utils::isUnset($request->listType)) {
-            $query['listType'] = $request->listType;
+
+        if (null !== $request->listType) {
+            @$query['listType'] = $request->listType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSDKDownloadList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSDKDownloadList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSDKDownloadListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取老旧版本sdk下载列表
-     *  *
-     * @param DescribeSDKDownloadListRequest $request DescribeSDKDownloadListRequest
+     * SDK Download List.
      *
-     * @return DescribeSDKDownloadListResponse DescribeSDKDownloadListResponse
+     * @param request - DescribeSDKDownloadListRequest
+     *
+     * @returns DescribeSDKDownloadListResponse
+     *
+     * @param DescribeSDKDownloadListRequest $request
+     *
+     * @return DescribeSDKDownloadListResponse
      */
     public function describeSDKDownloadList($request)
     {
@@ -10242,46 +12786,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @param DescribeSafConsoleRequest $request DescribeSafConsoleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeSafConsoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeSafConsoleResponse DescribeSafConsoleResponse
+     * @returns DescribeSafConsoleResponse
+     *
+     * @param DescribeSafConsoleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeSafConsoleResponse
      */
     public function describeSafConsoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->service)) {
-            $query['service'] = $request->service;
+
+        if (null !== $request->service) {
+            @$query['service'] = $request->service;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSafConsole',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSafConsole',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSafConsoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeSafConsoleRequest $request DescribeSafConsoleRequest
+     * @param request - DescribeSafConsoleRequest
      *
-     * @return DescribeSafConsoleResponse DescribeSafConsoleResponse
+     * @returns DescribeSafConsoleResponse
+     *
+     * @param DescribeSafConsoleRequest $request
+     *
+     * @return DescribeSafConsoleResponse
      */
     public function describeSafConsole($request)
     {
@@ -10291,59 +12847,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询saf_de订单
-     *  *
-     * @param DescribeSafDeOrderRequest $request DescribeSafDeOrderRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Query saf_de Order.
      *
-     * @return DescribeSafDeOrderResponse DescribeSafDeOrderResponse
+     * @param request - DescribeSafDeOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSafDeOrderResponse
+     *
+     * @param DescribeSafDeOrderRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeSafDeOrderResponse
      */
     public function describeSafDeOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['endDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['endDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['startDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['startDate'] = $request->startDate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSafDeOrder',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSafDeOrder',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSafDeOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询saf_de订单
-     *  *
-     * @param DescribeSafDeOrderRequest $request DescribeSafDeOrderRequest
+     * Query saf_de Order.
      *
-     * @return DescribeSafDeOrderResponse DescribeSafDeOrderResponse
+     * @param request - DescribeSafDeOrderRequest
+     *
+     * @returns DescribeSafDeOrderResponse
+     *
+     * @param DescribeSafDeOrderRequest $request
+     *
+     * @return DescribeSafDeOrderResponse
      */
     public function describeSafDeOrder($request)
     {
@@ -10353,62 +12924,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询订单信息
-     *  *
-     * @param DescribeSafOrderRequest $request DescribeSafOrderRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Query Order Information.
      *
-     * @return DescribeSafOrderResponse DescribeSafOrderResponse
+     * @param request - DescribeSafOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSafOrderResponse
+     *
+     * @param DescribeSafOrderRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeSafOrderResponse
      */
     public function describeSafOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['endDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['endDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->exactProductCode)) {
-            $query['exactProductCode'] = $request->exactProductCode;
+
+        if (null !== $request->exactProductCode) {
+            @$query['exactProductCode'] = $request->exactProductCode;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['startDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['startDate'] = $request->startDate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSafOrder',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSafOrder',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSafOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询订单信息
-     *  *
-     * @param DescribeSafOrderRequest $request DescribeSafOrderRequest
+     * Query Order Information.
      *
-     * @return DescribeSafOrderResponse DescribeSafOrderResponse
+     * @param request - DescribeSafOrderRequest
+     *
+     * @returns DescribeSafOrderResponse
+     *
+     * @param DescribeSafOrderRequest $request
+     *
+     * @return DescribeSafOrderResponse
      */
     public function describeSafOrder($request)
     {
@@ -10418,47 +13005,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询接入配置
-     *  *
-     * @param DescribeSafStartConfigRequest $request DescribeSafStartConfigRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Query Access Configuration.
      *
-     * @return DescribeSafStartConfigResponse DescribeSafStartConfigResponse
+     * @param request - DescribeSafStartConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSafStartConfigResponse
+     *
+     * @param DescribeSafStartConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSafStartConfigResponse
      */
     public function describeSafStartConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSafStartConfig',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSafStartConfig',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSafStartConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询接入配置
-     *  *
-     * @param DescribeSafStartConfigRequest $request DescribeSafStartConfigRequest
+     * Query Access Configuration.
      *
-     * @return DescribeSafStartConfigResponse DescribeSafStartConfigResponse
+     * @param request - DescribeSafStartConfigRequest
+     *
+     * @returns DescribeSafStartConfigResponse
+     *
+     * @param DescribeSafStartConfigRequest $request
+     *
+     * @return DescribeSafStartConfigResponse
      */
     public function describeSafStartConfig($request)
     {
@@ -10468,62 +13066,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询接入配置
-     *  *
-     * @param DescribeSafStartStepsRequest $request DescribeSafStartStepsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Query Access Configuration.
      *
-     * @return DescribeSafStartStepsResponse DescribeSafStartStepsResponse
+     * @param request - DescribeSafStartStepsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSafStartStepsResponse
+     *
+     * @param DescribeSafStartStepsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSafStartStepsResponse
      */
     public function describeSafStartStepsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->aliyunServer)) {
-            $query['aliyunServer'] = $request->aliyunServer;
+
+        if (null !== $request->aliyunServer) {
+            @$query['aliyunServer'] = $request->aliyunServer;
         }
-        if (!Utils::isUnset($request->deviceTypesStr)) {
-            $query['deviceTypesStr'] = $request->deviceTypesStr;
+
+        if (null !== $request->deviceTypesStr) {
+            @$query['deviceTypesStr'] = $request->deviceTypesStr;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->serverRegion)) {
-            $query['serverRegion'] = $request->serverRegion;
+
+        if (null !== $request->serverRegion) {
+            @$query['serverRegion'] = $request->serverRegion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSafStartSteps',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSafStartSteps',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSafStartStepsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询接入配置
-     *  *
-     * @param DescribeSafStartStepsRequest $request DescribeSafStartStepsRequest
+     * Query Access Configuration.
      *
-     * @return DescribeSafStartStepsResponse DescribeSafStartStepsResponse
+     * @param request - DescribeSafStartStepsRequest
+     *
+     * @returns DescribeSafStartStepsResponse
+     *
+     * @param DescribeSafStartStepsRequest $request
+     *
+     * @return DescribeSafStartStepsResponse
      */
     public function describeSafStartSteps($request)
     {
@@ -10533,56 +13147,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取风险标签列表
-     *  *
-     * @param DescribeSafTagListRequest $request DescribeSafTagListRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Get Risk Tag List.
      *
-     * @return DescribeSafTagListResponse DescribeSafTagListResponse
+     * @param request - DescribeSafTagListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSafTagListResponse
+     *
+     * @param DescribeSafTagListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeSafTagListResponse
      */
     public function describeSafTagListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->apiId)) {
-            $query['apiId'] = $request->apiId;
+
+        if (null !== $request->tagName) {
+            @$query['TagName'] = $request->tagName;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->apiId) {
+            @$query['apiId'] = $request->apiId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSafTagList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSafTagList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSafTagListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取风险标签列表
-     *  *
-     * @param DescribeSafTagListRequest $request DescribeSafTagListRequest
+     * Get Risk Tag List.
      *
-     * @return DescribeSafTagListResponse DescribeSafTagListResponse
+     * @param request - DescribeSafTagListRequest
+     *
+     * @returns DescribeSafTagListResponse
+     *
+     * @param DescribeSafTagListRequest $request
+     *
+     * @return DescribeSafTagListResponse
      */
     public function describeSafTagList($request)
     {
@@ -10592,68 +13224,236 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 样本列表分页查询
-     *  *
-     * @param DescribeSampleDataListRequest $request DescribeSampleDataListRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Get File Upload Credentials.
      *
-     * @return DescribeSampleDataListResponse DescribeSampleDataListResponse
+     * @param request - DescribeSampleBatchOssPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSampleBatchOssPolicyResponse
+     *
+     * @param DescribeSampleBatchOssPolicyRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeSampleBatchOssPolicyResponse
+     */
+    public function describeSampleBatchOssPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->batchName) {
+            @$query['batchName'] = $request->batchName;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSampleBatchOssPolicy',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSampleBatchOssPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get File Upload Credentials.
+     *
+     * @param request - DescribeSampleBatchOssPolicyRequest
+     *
+     * @returns DescribeSampleBatchOssPolicyResponse
+     *
+     * @param DescribeSampleBatchOssPolicyRequest $request
+     *
+     * @return DescribeSampleBatchOssPolicyResponse
+     */
+    public function describeSampleBatchOssPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSampleBatchOssPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Sample List.
+     *
+     * @param request - DescribeSampleDataByBatchUUidPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSampleDataByBatchUUidPageResponse
+     *
+     * @param DescribeSampleDataByBatchUUidPageRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeSampleDataByBatchUUidPageResponse
+     */
+    public function describeSampleDataByBatchUUidPageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->batchUuid) {
+            @$query['batchUuid'] = $request->batchUuid;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->dataValue) {
+            @$query['dataValue'] = $request->dataValue;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        if (null !== $request->updateBeginTime) {
+            @$query['updateBeginTime'] = $request->updateBeginTime;
+        }
+
+        if (null !== $request->updateEndTime) {
+            @$query['updateEndTime'] = $request->updateEndTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSampleDataByBatchUUidPage',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSampleDataByBatchUUidPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sample List.
+     *
+     * @param request - DescribeSampleDataByBatchUUidPageRequest
+     *
+     * @returns DescribeSampleDataByBatchUUidPageResponse
+     *
+     * @param DescribeSampleDataByBatchUUidPageRequest $request
+     *
+     * @return DescribeSampleDataByBatchUUidPageResponse
+     */
+    public function describeSampleDataByBatchUUidPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSampleDataByBatchUUidPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Paged Query of Sample List.
+     *
+     * @param request - DescribeSampleDataListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSampleDataListResponse
+     *
+     * @param DescribeSampleDataListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSampleDataListResponse
      */
     public function describeSampleDataListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->deleteTag)) {
-            $query['deleteTag'] = $request->deleteTag;
+
+        if (null !== $request->deleteTag) {
+            @$query['deleteTag'] = $request->deleteTag;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryContent)) {
-            $query['queryContent'] = $request->queryContent;
+
+        if (null !== $request->queryContent) {
+            @$query['queryContent'] = $request->queryContent;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->sampleId)) {
-            $query['sampleId'] = $request->sampleId;
+
+        if (null !== $request->sampleId) {
+            @$query['sampleId'] = $request->sampleId;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['scene'] = $request->scene;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSampleDataList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSampleDataList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSampleDataListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 样本列表分页查询
-     *  *
-     * @param DescribeSampleDataListRequest $request DescribeSampleDataListRequest
+     * Paged Query of Sample List.
      *
-     * @return DescribeSampleDataListResponse DescribeSampleDataListResponse
+     * @param request - DescribeSampleDataListRequest
+     *
+     * @returns DescribeSampleDataListResponse
+     *
+     * @param DescribeSampleDataListRequest $request
+     *
+     * @return DescribeSampleDataListResponse
      */
     public function describeSampleDataList($request)
     {
@@ -10663,50 +13463,143 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询样本示例授权
-     *  *
-     * @param DescribeSampleDemoDownloadUrlRequest $request DescribeSampleDemoDownloadUrlRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Sample List.
      *
-     * @return DescribeSampleDemoDownloadUrlResponse DescribeSampleDemoDownloadUrlResponse
+     * @param request - DescribeSampleDataPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSampleDataPageResponse
+     *
+     * @param DescribeSampleDataPageRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSampleDataPageResponse
+     */
+    public function describeSampleDataPageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->dataValue) {
+            @$query['dataValue'] = $request->dataValue;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        if (null !== $request->updateBeginTime) {
+            @$query['updateBeginTime'] = $request->updateBeginTime;
+        }
+
+        if (null !== $request->updateEndTime) {
+            @$query['updateEndTime'] = $request->updateEndTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSampleDataPage',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSampleDataPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sample List.
+     *
+     * @param request - DescribeSampleDataPageRequest
+     *
+     * @returns DescribeSampleDataPageResponse
+     *
+     * @param DescribeSampleDataPageRequest $request
+     *
+     * @return DescribeSampleDataPageResponse
+     */
+    public function describeSampleDataPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSampleDataPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Sample Example Authorization.
+     *
+     * @param request - DescribeSampleDemoDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSampleDemoDownloadUrlResponse
+     *
+     * @param DescribeSampleDemoDownloadUrlRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeSampleDemoDownloadUrlResponse
      */
     public function describeSampleDemoDownloadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['scene'] = $request->scene;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSampleDemoDownloadUrl',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSampleDemoDownloadUrl',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSampleDemoDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询样本示例授权
-     *  *
-     * @param DescribeSampleDemoDownloadUrlRequest $request DescribeSampleDemoDownloadUrlRequest
+     * Query Sample Example Authorization.
      *
-     * @return DescribeSampleDemoDownloadUrlResponse DescribeSampleDemoDownloadUrlResponse
+     * @param request - DescribeSampleDemoDownloadUrlRequest
+     *
+     * @returns DescribeSampleDemoDownloadUrlResponse
+     *
+     * @param DescribeSampleDemoDownloadUrlRequest $request
+     *
+     * @return DescribeSampleDemoDownloadUrlResponse
      */
     public function describeSampleDemoDownloadUrl($request)
     {
@@ -10716,50 +13609,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询样本下载授权信息
-     *  *
-     * @param DescribeSampleDownloadUrlRequest $request DescribeSampleDownloadUrlRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Query Sample Download Authorization Information.
      *
-     * @return DescribeSampleDownloadUrlResponse DescribeSampleDownloadUrlResponse
+     * @param request - DescribeSampleDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSampleDownloadUrlResponse
+     *
+     * @param DescribeSampleDownloadUrlRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeSampleDownloadUrlResponse
      */
     public function describeSampleDownloadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->sampleId)) {
-            $query['sampleId'] = $request->sampleId;
+
+        if (null !== $request->sampleId) {
+            @$query['sampleId'] = $request->sampleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSampleDownloadUrl',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSampleDownloadUrl',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSampleDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询样本下载授权信息
-     *  *
-     * @param DescribeSampleDownloadUrlRequest $request DescribeSampleDownloadUrlRequest
+     * Query Sample Download Authorization Information.
      *
-     * @return DescribeSampleDownloadUrlResponse DescribeSampleDownloadUrlResponse
+     * @param request - DescribeSampleDownloadUrlRequest
+     *
+     * @returns DescribeSampleDownloadUrlResponse
+     *
+     * @param DescribeSampleDownloadUrlRequest $request
+     *
+     * @return DescribeSampleDownloadUrlResponse
      */
     public function describeSampleDownloadUrl($request)
     {
@@ -10769,53 +13674,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询样本详情
-     *  *
-     * @param DescribeSampleInfoRequest $request DescribeSampleInfoRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Query Sample Details.
      *
-     * @return DescribeSampleInfoResponse DescribeSampleInfoResponse
+     * @param request - DescribeSampleInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSampleInfoResponse
+     *
+     * @param DescribeSampleInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeSampleInfoResponse
      */
     public function describeSampleInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->versions)) {
-            $query['versions'] = $request->versions;
+
+        if (null !== $request->versions) {
+            @$query['versions'] = $request->versions;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSampleInfo',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSampleInfo',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSampleInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询样本详情
-     *  *
-     * @param DescribeSampleInfoRequest $request DescribeSampleInfoRequest
+     * Query Sample Details.
      *
-     * @return DescribeSampleInfoResponse DescribeSampleInfoResponse
+     * @param request - DescribeSampleInfoRequest
+     *
+     * @returns DescribeSampleInfoResponse
+     *
+     * @param DescribeSampleInfoRequest $request
+     *
+     * @return DescribeSampleInfoResponse
      */
     public function describeSampleInfo($request)
     {
@@ -10825,59 +13743,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询样本列表
-     *  *
-     * @param DescribeSampleListRequest $request DescribeSampleListRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Query Sample List.
      *
-     * @return DescribeSampleListResponse DescribeSampleListResponse
+     * @param request - DescribeSampleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSampleListResponse
+     *
+     * @param DescribeSampleListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeSampleListResponse
      */
     public function describeSampleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->sampleType)) {
-            $query['sampleType'] = $request->sampleType;
+
+        if (null !== $request->sampleType) {
+            @$query['sampleType'] = $request->sampleType;
         }
-        if (!Utils::isUnset($request->sampleValue)) {
-            $query['sampleValue'] = $request->sampleValue;
+
+        if (null !== $request->sampleValue) {
+            @$query['sampleValue'] = $request->sampleValue;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSampleList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSampleList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSampleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询样本列表
-     *  *
-     * @param DescribeSampleListRequest $request DescribeSampleListRequest
+     * Query Sample List.
      *
-     * @return DescribeSampleListResponse DescribeSampleListResponse
+     * @param request - DescribeSampleListRequest
+     *
+     * @returns DescribeSampleListResponse
+     *
+     * @param DescribeSampleListRequest $request
+     *
+     * @return DescribeSampleListResponse
      */
     public function describeSampleList($request)
     {
@@ -10887,47 +13820,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询场景列表
-     *  *
-     * @param DescribeSampleSceneListRequest $request DescribeSampleSceneListRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Query Scene List.
      *
-     * @return DescribeSampleSceneListResponse DescribeSampleSceneListResponse
+     * @param request - DescribeSampleSceneListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSampleSceneListResponse
+     *
+     * @param DescribeSampleSceneListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSampleSceneListResponse
      */
     public function describeSampleSceneListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSampleSceneList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSampleSceneList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSampleSceneListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询场景列表
-     *  *
-     * @param DescribeSampleSceneListRequest $request DescribeSampleSceneListRequest
+     * Query Scene List.
      *
-     * @return DescribeSampleSceneListResponse DescribeSampleSceneListResponse
+     * @param request - DescribeSampleSceneListRequest
+     *
+     * @returns DescribeSampleSceneListResponse
+     *
+     * @param DescribeSampleSceneListRequest $request
+     *
+     * @return DescribeSampleSceneListResponse
      */
     public function describeSampleSceneList($request)
     {
@@ -10937,47 +13881,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取标签列表
-     *  *
-     * @param DescribeSampleTagListRequest $request DescribeSampleTagListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Get Tag List.
      *
-     * @return DescribeSampleTagListResponse DescribeSampleTagListResponse
+     * @param request - DescribeSampleTagListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSampleTagListResponse
+     *
+     * @param DescribeSampleTagListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSampleTagListResponse
      */
     public function describeSampleTagListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSampleTagList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSampleTagList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSampleTagListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取标签列表
-     *  *
-     * @param DescribeSampleTagListRequest $request DescribeSampleTagListRequest
+     * Get Tag List.
      *
-     * @return DescribeSampleTagListResponse DescribeSampleTagListResponse
+     * @param request - DescribeSampleTagListRequest
+     *
+     * @returns DescribeSampleTagListResponse
+     *
+     * @param DescribeSampleTagListRequest $request
+     *
+     * @return DescribeSampleTagListResponse
      */
     public function describeSampleTagList($request)
     {
@@ -10987,47 +13942,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询样本上传授权信息
-     *  *
-     * @param DescribeSampleUploadPolicyRequest $request DescribeSampleUploadPolicyRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Query Sample Upload Authorization Information.
      *
-     * @return DescribeSampleUploadPolicyResponse DescribeSampleUploadPolicyResponse
+     * @param request - DescribeSampleUploadPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSampleUploadPolicyResponse
+     *
+     * @param DescribeSampleUploadPolicyRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeSampleUploadPolicyResponse
      */
     public function describeSampleUploadPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSampleUploadPolicy',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSampleUploadPolicy',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSampleUploadPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询样本上传授权信息
-     *  *
-     * @param DescribeSampleUploadPolicyRequest $request DescribeSampleUploadPolicyRequest
+     * Query Sample Upload Authorization Information.
      *
-     * @return DescribeSampleUploadPolicyResponse DescribeSampleUploadPolicyResponse
+     * @param request - DescribeSampleUploadPolicyRequest
+     *
+     * @returns DescribeSampleUploadPolicyResponse
+     *
+     * @param DescribeSampleUploadPolicyRequest $request
+     *
+     * @return DescribeSampleUploadPolicyResponse
      */
     public function describeSampleUploadPolicy($request)
     {
@@ -11037,50 +14003,141 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 场景化服务事件下拉列表
-     *  *
-     * @param DescribeSceneAllEventNameCodeListRequest $request DescribeSceneAllEventNameCodeListRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Sample Batch List.
      *
-     * @return DescribeSceneAllEventNameCodeListResponse DescribeSceneAllEventNameCodeListResponse
+     * @param request - DescribeSamplebatchPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSamplebatchPageResponse
+     *
+     * @param DescribeSamplebatchPageRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSamplebatchPageResponse
+     */
+    public function describeSamplebatchPageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->dataValue) {
+            @$query['dataValue'] = $request->dataValue;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSamplebatchPage',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSamplebatchPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sample Batch List.
+     *
+     * @param request - DescribeSamplebatchPageRequest
+     *
+     * @returns DescribeSamplebatchPageResponse
+     *
+     * @param DescribeSamplebatchPageRequest $request
+     *
+     * @return DescribeSamplebatchPageResponse
+     */
+    public function describeSamplebatchPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSamplebatchPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Dropdown list for scenario-based service events.
+     *
+     * @remarks
+     * Dropdown list for scenario-based risk control events
+     *
+     * @param request - DescribeSceneAllEventNameCodeListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSceneAllEventNameCodeListResponse
+     *
+     * @param DescribeSceneAllEventNameCodeListRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeSceneAllEventNameCodeListResponse
      */
     public function describeSceneAllEventNameCodeListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSceneAllEventNameCodeList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSceneAllEventNameCodeList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSceneAllEventNameCodeListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 场景化服务事件下拉列表
-     *  *
-     * @param DescribeSceneAllEventNameCodeListRequest $request DescribeSceneAllEventNameCodeListRequest
+     * Dropdown list for scenario-based service events.
      *
-     * @return DescribeSceneAllEventNameCodeListResponse DescribeSceneAllEventNameCodeListResponse
+     * @remarks
+     * Dropdown list for scenario-based risk control events
+     *
+     * @param request - DescribeSceneAllEventNameCodeListRequest
+     *
+     * @returns DescribeSceneAllEventNameCodeListResponse
+     *
+     * @param DescribeSceneAllEventNameCodeListRequest $request
+     *
+     * @return DescribeSceneAllEventNameCodeListResponse
      */
     public function describeSceneAllEventNameCodeList($request)
     {
@@ -11090,56 +14147,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 场景化风控事件列表
-     *  *
-     * @param DescribeSceneEventPageListRequest $request DescribeSceneEventPageListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * List of Scenario-based Risk Control Events.
      *
-     * @return DescribeSceneEventPageListResponse DescribeSceneEventPageListResponse
+     * @param request - DescribeSceneEventPageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSceneEventPageListResponse
+     *
+     * @param DescribeSceneEventPageListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeSceneEventPageListResponse
      */
     public function describeSceneEventPageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->nameOrCode)) {
-            $query['nameOrCode'] = $request->nameOrCode;
+
+        if (null !== $request->nameOrCode) {
+            @$query['nameOrCode'] = $request->nameOrCode;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSceneEventPageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSceneEventPageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSceneEventPageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 场景化风控事件列表
-     *  *
-     * @param DescribeSceneEventPageListRequest $request DescribeSceneEventPageListRequest
+     * List of Scenario-based Risk Control Events.
      *
-     * @return DescribeSceneEventPageListResponse DescribeSceneEventPageListResponse
+     * @param request - DescribeSceneEventPageListRequest
+     *
+     * @returns DescribeSceneEventPageListResponse
+     *
+     * @param DescribeSceneEventPageListRequest $request
+     *
+     * @return DescribeSceneEventPageListResponse
      */
     public function describeSceneEventPageList($request)
     {
@@ -11149,68 +14220,92 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 风控服务白盒化策略列表
-     *  *
-     * @param DescribeSceneRulePageListRequest $request DescribeSceneRulePageListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * White-boxed strategy list for risk control services.
      *
-     * @return DescribeSceneRulePageListResponse DescribeSceneRulePageListResponse
+     * @remarks
+     * Query the list of scenarized risk control event strategies
+     *
+     * @param request - DescribeSceneRulePageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSceneRulePageListResponse
+     *
+     * @param DescribeSceneRulePageListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeSceneRulePageListResponse
      */
     public function describeSceneRulePageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleAuthType)) {
-            $query['ruleAuthType'] = $request->ruleAuthType;
+
+        if (null !== $request->ruleAuthType) {
+            @$query['ruleAuthType'] = $request->ruleAuthType;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['ruleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['ruleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->ruleStatus)) {
-            $query['ruleStatus'] = $request->ruleStatus;
+
+        if (null !== $request->ruleStatus) {
+            @$query['ruleStatus'] = $request->ruleStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSceneRulePageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSceneRulePageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSceneRulePageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 风控服务白盒化策略列表
-     *  *
-     * @param DescribeSceneRulePageListRequest $request DescribeSceneRulePageListRequest
+     * White-boxed strategy list for risk control services.
      *
-     * @return DescribeSceneRulePageListResponse DescribeSceneRulePageListResponse
+     * @remarks
+     * Query the list of scenarized risk control event strategies
+     *
+     * @param request - DescribeSceneRulePageListRequest
+     *
+     * @returns DescribeSceneRulePageListResponse
+     *
+     * @param DescribeSceneRulePageListRequest $request
+     *
+     * @return DescribeSceneRulePageListResponse
      */
     public function describeSceneRulePageList($request)
     {
@@ -11220,62 +14315,139 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 分值区间数量分析
-     *  *
-     * @param DescribeScoreSectionNumLineChartRequest $request DescribeScoreSectionNumLineChartRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Score Distribution.
      *
-     * @return DescribeScoreSectionNumLineChartResponse DescribeScoreSectionNumLineChartResponse
+     * @param request - DescribeScoreListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScoreListResponse
+     *
+     * @param DescribeScoreListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeScoreListResponse
+     */
+    public function describeScoreListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeScoreList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeScoreListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Score Distribution.
+     *
+     * @param request - DescribeScoreListRequest
+     *
+     * @returns DescribeScoreListResponse
+     *
+     * @param DescribeScoreListRequest $request
+     *
+     * @return DescribeScoreListResponse
+     */
+    public function describeScoreList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeScoreListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Score Range Quantity Analysis.
+     *
+     * @param request - DescribeScoreSectionNumLineChartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScoreSectionNumLineChartResponse
+     *
+     * @param DescribeScoreSectionNumLineChartRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeScoreSectionNumLineChartResponse
      */
     public function describeScoreSectionNumLineChartWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->byPassEventCodes)) {
-            $query['byPassEventCodes'] = $request->byPassEventCodes;
+
+        if (null !== $request->byPassEventCodes) {
+            @$query['byPassEventCodes'] = $request->byPassEventCodes;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->mainEventCodes)) {
-            $query['mainEventCodes'] = $request->mainEventCodes;
+
+        if (null !== $request->mainEventCodes) {
+            @$query['mainEventCodes'] = $request->mainEventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->shuntEventCodes)) {
-            $query['shuntEventCodes'] = $request->shuntEventCodes;
+
+        if (null !== $request->shuntEventCodes) {
+            @$query['shuntEventCodes'] = $request->shuntEventCodes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScoreSectionNumLineChart',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScoreSectionNumLineChart',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeScoreSectionNumLineChartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 分值区间数量分析
-     *  *
-     * @param DescribeScoreSectionNumLineChartRequest $request DescribeScoreSectionNumLineChartRequest
+     * Score Range Quantity Analysis.
      *
-     * @return DescribeScoreSectionNumLineChartResponse DescribeScoreSectionNumLineChartResponse
+     * @param request - DescribeScoreSectionNumLineChartRequest
+     *
+     * @returns DescribeScoreSectionNumLineChartResponse
+     *
+     * @param DescribeScoreSectionNumLineChartRequest $request
+     *
+     * @return DescribeScoreSectionNumLineChartResponse
      */
     public function describeScoreSectionNumLineChart($request)
     {
@@ -11285,59 +14457,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 主事件/旁路事件/分流事件分值区间占比
-     *  *
-     * @param DescribeScoreSectionPieChartRequest $request DescribeScoreSectionPieChartRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Proportion of Score Ranges for Main Events/Bypass Events/Diversion Events.
      *
-     * @return DescribeScoreSectionPieChartResponse DescribeScoreSectionPieChartResponse
+     * @param request - DescribeScoreSectionPieChartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScoreSectionPieChartResponse
+     *
+     * @param DescribeScoreSectionPieChartRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeScoreSectionPieChartResponse
      */
     public function describeScoreSectionPieChartWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['eventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['eventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScoreSectionPieChart',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScoreSectionPieChart',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeScoreSectionPieChartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 主事件/旁路事件/分流事件分值区间占比
-     *  *
-     * @param DescribeScoreSectionPieChartRequest $request DescribeScoreSectionPieChartRequest
+     * Proportion of Score Ranges for Main Events/Bypass Events/Diversion Events.
      *
-     * @return DescribeScoreSectionPieChartResponse DescribeScoreSectionPieChartResponse
+     * @param request - DescribeScoreSectionPieChartRequest
+     *
+     * @returns DescribeScoreSectionPieChartResponse
+     *
+     * @param DescribeScoreSectionPieChartRequest $request
+     *
+     * @return DescribeScoreSectionPieChartResponse
      */
     public function describeScoreSectionPieChart($request)
     {
@@ -11347,62 +14534,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 分值区间占比分析
-     *  *
-     * @param DescribeScoreSectionRatioLineChartRequest $request DescribeScoreSectionRatioLineChartRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Score Section Ratio Analysis.
      *
-     * @return DescribeScoreSectionRatioLineChartResponse DescribeScoreSectionRatioLineChartResponse
+     * @param request - DescribeScoreSectionRatioLineChartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScoreSectionRatioLineChartResponse
+     *
+     * @param DescribeScoreSectionRatioLineChartRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeScoreSectionRatioLineChartResponse
      */
     public function describeScoreSectionRatioLineChartWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->byPassEventCodes)) {
-            $query['byPassEventCodes'] = $request->byPassEventCodes;
+
+        if (null !== $request->byPassEventCodes) {
+            @$query['byPassEventCodes'] = $request->byPassEventCodes;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->mainEventCodes)) {
-            $query['mainEventCodes'] = $request->mainEventCodes;
+
+        if (null !== $request->mainEventCodes) {
+            @$query['mainEventCodes'] = $request->mainEventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->shuntEventCodes)) {
-            $query['shuntEventCodes'] = $request->shuntEventCodes;
+
+        if (null !== $request->shuntEventCodes) {
+            @$query['shuntEventCodes'] = $request->shuntEventCodes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScoreSectionRatioLineChart',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScoreSectionRatioLineChart',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeScoreSectionRatioLineChartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 分值区间占比分析
-     *  *
-     * @param DescribeScoreSectionRatioLineChartRequest $request DescribeScoreSectionRatioLineChartRequest
+     * Score Section Ratio Analysis.
      *
-     * @return DescribeScoreSectionRatioLineChartResponse DescribeScoreSectionRatioLineChartResponse
+     * @param request - DescribeScoreSectionRatioLineChartRequest
+     *
+     * @returns DescribeScoreSectionRatioLineChartResponse
+     *
+     * @param DescribeScoreSectionRatioLineChartRequest $request
+     *
+     * @return DescribeScoreSectionRatioLineChartResponse
      */
     public function describeScoreSectionRatioLineChart($request)
     {
@@ -11412,47 +14615,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务ID列表
-     *  *
-     * @param DescribeSelectItemRequest $request DescribeSelectItemRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Query Task ID List.
      *
-     * @return DescribeSelectItemResponse DescribeSelectItemResponse
+     * @param request - DescribeSelectItemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSelectItemResponse
+     *
+     * @param DescribeSelectItemRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeSelectItemResponse
      */
     public function describeSelectItemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSelectItem',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSelectItem',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSelectItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询任务ID列表
-     *  *
-     * @param DescribeSelectItemRequest $request DescribeSelectItemRequest
+     * Query Task ID List.
      *
-     * @return DescribeSelectItemResponse DescribeSelectItemResponse
+     * @param request - DescribeSelectItemRequest
+     *
+     * @returns DescribeSelectItemResponse
+     *
+     * @param DescribeSelectItemRequest $request
+     *
+     * @return DescribeSelectItemResponse
      */
     public function describeSelectItem($request)
     {
@@ -11462,44 +14676,54 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary ServiceAppkey下拉
-     *  *
-     * @param DescribeServiceAppKeyRequest $request DescribeServiceAppKeyRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * ServiceAppkey dropdown.
      *
-     * @return DescribeServiceAppKeyResponse DescribeServiceAppKeyResponse
+     * @param request - DescribeServiceAppKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceAppKeyResponse
+     *
+     * @param DescribeServiceAppKeyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeServiceAppKeyResponse
      */
     public function describeServiceAppKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeServiceAppKey',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeServiceAppKey',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeServiceAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary ServiceAppkey下拉
-     *  *
-     * @param DescribeServiceAppKeyRequest $request DescribeServiceAppKeyRequest
+     * ServiceAppkey dropdown.
      *
-     * @return DescribeServiceAppKeyResponse DescribeServiceAppKeyResponse
+     * @param request - DescribeServiceAppKeyRequest
+     *
+     * @returns DescribeServiceAppKeyResponse
+     *
+     * @param DescribeServiceAppKeyRequest $request
+     *
+     * @return DescribeServiceAppKeyResponse
      */
     public function describeServiceAppKey($request)
     {
@@ -11509,171 +14733,119 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取服务调用量
-     *  *
-     * @param DescribeServiceConsumeRequest $request DescribeServiceConsumeRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * ServiceCodeName Information.
      *
-     * @return DescribeServiceConsumeResponse DescribeServiceConsumeResponse
+     * @param request - DescribeServiceCodeNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceCodeNameResponse
+     *
+     * @param DescribeServiceCodeNameRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeServiceCodeNameResponse
      */
-    public function describeServiceConsumeWithOptions($request, $runtime)
+    public function describeServiceCodeNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->tab) {
+            @$query['Tab'] = $request->tab;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['endDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $query['serviceCode'] = $request->serviceCode;
-        }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['startDate'] = $request->startDate;
-        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeServiceConsume',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeServiceCodeName',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
-        return DescribeServiceConsumeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeServiceCodeNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取服务调用量
-     *  *
-     * @param DescribeServiceConsumeRequest $request DescribeServiceConsumeRequest
+     * ServiceCodeName Information.
      *
-     * @return DescribeServiceConsumeResponse DescribeServiceConsumeResponse
+     * @param request - DescribeServiceCodeNameRequest
+     *
+     * @returns DescribeServiceCodeNameResponse
+     *
+     * @param DescribeServiceCodeNameRequest $request
+     *
+     * @return DescribeServiceCodeNameResponse
      */
-    public function describeServiceConsume($request)
+    public function describeServiceCodeName($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeServiceConsumeWithOptions($request, $runtime);
+        return $this->describeServiceCodeNameWithOptions($request, $runtime);
     }
 
     /**
-     * @summary 下载服务调用量数据文件URL
-     *  *
-     * @param DescribeServiceConsumeDownloadUrlRequest $request DescribeServiceConsumeDownloadUrlRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Get Service List.
      *
-     * @return DescribeServiceConsumeDownloadUrlResponse DescribeServiceConsumeDownloadUrlResponse
-     */
-    public function describeServiceConsumeDownloadUrlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['endDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $query['serviceCode'] = $request->serviceCode;
-        }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['startDate'] = $request->startDate;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeServiceConsumeDownloadUrl',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeServiceConsumeDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 下载服务调用量数据文件URL
-     *  *
-     * @param DescribeServiceConsumeDownloadUrlRequest $request DescribeServiceConsumeDownloadUrlRequest
+     * @param request - DescribeServiceListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeServiceConsumeDownloadUrlResponse DescribeServiceConsumeDownloadUrlResponse
-     */
-    public function describeServiceConsumeDownloadUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeServiceConsumeDownloadUrlWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 获取服务列表
-     *  *
-     * @param DescribeServiceListRequest $request DescribeServiceListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @returns DescribeServiceListResponse
      *
-     * @return DescribeServiceListResponse DescribeServiceListResponse
+     * @param DescribeServiceListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeServiceListResponse
      */
     public function describeServiceListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeServiceList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeServiceList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeServiceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取服务列表
-     *  *
-     * @param DescribeServiceListRequest $request DescribeServiceListRequest
+     * Get Service List.
      *
-     * @return DescribeServiceListResponse DescribeServiceListResponse
+     * @param request - DescribeServiceListRequest
+     *
+     * @returns DescribeServiceListResponse
+     *
+     * @param DescribeServiceListRequest $request
+     *
+     * @return DescribeServiceListResponse
      */
     public function describeServiceList($request)
     {
@@ -11683,53 +14855,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 预估调用信息
-     *  *
-     * @param DescribeSimulationPreditInfoRequest $request DescribeSimulationPreditInfoRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Estimate Call Information.
      *
-     * @return DescribeSimulationPreditInfoResponse DescribeSimulationPreditInfoResponse
+     * @param request - DescribeSimulationPreditInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSimulationPreditInfoResponse
+     *
+     * @param DescribeSimulationPreditInfoRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeSimulationPreditInfoResponse
      */
     public function describeSimulationPreditInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->rulesStr)) {
-            $query['rulesStr'] = $request->rulesStr;
+
+        if (null !== $request->rulesStr) {
+            @$query['rulesStr'] = $request->rulesStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSimulationPreditInfo',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSimulationPreditInfo',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSimulationPreditInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 预估调用信息
-     *  *
-     * @param DescribeSimulationPreditInfoRequest $request DescribeSimulationPreditInfoRequest
+     * Estimate Call Information.
      *
-     * @return DescribeSimulationPreditInfoResponse DescribeSimulationPreditInfoResponse
+     * @param request - DescribeSimulationPreditInfoRequest
+     *
+     * @returns DescribeSimulationPreditInfoResponse
+     *
+     * @param DescribeSimulationPreditInfoRequest $request
+     *
+     * @return DescribeSimulationPreditInfoResponse
      */
     public function describeSimulationPreditInfo($request)
     {
@@ -11739,65 +14924,82 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务记录数
-     *  *
-     * @param DescribeSimulationTaskCountRequest $request DescribeSimulationTaskCountRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Query Task Record Count.
      *
-     * @return DescribeSimulationTaskCountResponse DescribeSimulationTaskCountResponse
+     * @param request - DescribeSimulationTaskCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSimulationTaskCountResponse
+     *
+     * @param DescribeSimulationTaskCountRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeSimulationTaskCountResponse
      */
     public function describeSimulationTaskCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->dataSourceConfig)) {
-            $query['dataSourceConfig'] = $request->dataSourceConfig;
+
+        if (null !== $request->dataSourceConfig) {
+            @$query['dataSourceConfig'] = $request->dataSourceConfig;
         }
-        if (!Utils::isUnset($request->dataSourceType)) {
-            $query['dataSourceType'] = $request->dataSourceType;
+
+        if (null !== $request->dataSourceType) {
+            @$query['dataSourceType'] = $request->dataSourceType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->filtersStr)) {
-            $query['filtersStr'] = $request->filtersStr;
+
+        if (null !== $request->filtersStr) {
+            @$query['filtersStr'] = $request->filtersStr;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSimulationTaskCount',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSimulationTaskCount',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSimulationTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询任务记录数
-     *  *
-     * @param DescribeSimulationTaskCountRequest $request DescribeSimulationTaskCountRequest
+     * Query Task Record Count.
      *
-     * @return DescribeSimulationTaskCountResponse DescribeSimulationTaskCountResponse
+     * @param request - DescribeSimulationTaskCountRequest
+     *
+     * @returns DescribeSimulationTaskCountResponse
+     *
+     * @param DescribeSimulationTaskCountRequest $request
+     *
+     * @return DescribeSimulationTaskCountResponse
      */
     public function describeSimulationTaskCount($request)
     {
@@ -11807,62 +15009,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 任务列表
-     *  *
-     * @param DescribeSimulationTaskListRequest $request DescribeSimulationTaskListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Task List.
      *
-     * @return DescribeSimulationTaskListResponse DescribeSimulationTaskListResponse
+     * @param request - DescribeSimulationTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSimulationTaskListResponse
+     *
+     * @param DescribeSimulationTaskListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeSimulationTaskListResponse
      */
     public function describeSimulationTaskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSimulationTaskList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSimulationTaskList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSimulationTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 任务列表
-     *  *
-     * @param DescribeSimulationTaskListRequest $request DescribeSimulationTaskListRequest
+     * Task List.
      *
-     * @return DescribeSimulationTaskListResponse DescribeSimulationTaskListResponse
+     * @param request - DescribeSimulationTaskListRequest
+     *
+     * @returns DescribeSimulationTaskListResponse
+     *
+     * @param DescribeSimulationTaskListRequest $request
+     *
+     * @return DescribeSimulationTaskListResponse
      */
     public function describeSimulationTaskList($request)
     {
@@ -11872,47 +15090,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取project配置
-     *  *
-     * @param DescribeSlsUrlConfigRequest $request DescribeSlsUrlConfigRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Get Project Configuration.
      *
-     * @return DescribeSlsUrlConfigResponse DescribeSlsUrlConfigResponse
+     * @param request - DescribeSlsUrlConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSlsUrlConfigResponse
+     *
+     * @param DescribeSlsUrlConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeSlsUrlConfigResponse
      */
     public function describeSlsUrlConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlsUrlConfig',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlsUrlConfig',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSlsUrlConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取project配置
-     *  *
-     * @param DescribeSlsUrlConfigRequest $request DescribeSlsUrlConfigRequest
+     * Get Project Configuration.
      *
-     * @return DescribeSlsUrlConfigResponse DescribeSlsUrlConfigResponse
+     * @param request - DescribeSlsUrlConfigRequest
+     *
+     * @returns DescribeSlsUrlConfigResponse
+     *
+     * @param DescribeSlsUrlConfigRequest $request
+     *
+     * @return DescribeSlsUrlConfigResponse
      */
     public function describeSlsUrlConfig($request)
     {
@@ -11922,50 +15151,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询支持仿真的策略列表
-     *  *
-     * @param DescribeSupportRuleListRequest $request DescribeSupportRuleListRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Query List of Policies Supporting Simulation.
      *
-     * @return DescribeSupportRuleListResponse DescribeSupportRuleListResponse
+     * @param request - DescribeSupportRuleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSupportRuleListResponse
+     *
+     * @param DescribeSupportRuleListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSupportRuleListResponse
      */
     public function describeSupportRuleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSupportRuleList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSupportRuleList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSupportRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询支持仿真的策略列表
-     *  *
-     * @param DescribeSupportRuleListRequest $request DescribeSupportRuleListRequest
+     * Query List of Policies Supporting Simulation.
      *
-     * @return DescribeSupportRuleListResponse DescribeSupportRuleListResponse
+     * @param request - DescribeSupportRuleListRequest
+     *
+     * @returns DescribeSupportRuleListResponse
+     *
+     * @param DescribeSupportRuleListRequest $request
+     *
+     * @return DescribeSupportRuleListResponse
      */
     public function describeSupportRuleList($request)
     {
@@ -11975,50 +15216,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 标签列表
-     *  *
-     * @param DescribeTagListRequest $request DescribeTagListRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Tag List.
      *
-     * @return DescribeTagListResponse DescribeTagListResponse
+     * @param request - DescribeTagListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagListResponse
+     *
+     * @param DescribeTagListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeTagListResponse
      */
     public function describeTagListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['RegId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTagListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 标签列表
-     *  *
-     * @param DescribeTagListRequest $request DescribeTagListRequest
+     * Tag List.
      *
-     * @return DescribeTagListResponse DescribeTagListResponse
+     * @param request - DescribeTagListRequest
+     *
+     * @returns DescribeTagListResponse
+     *
+     * @param DescribeTagListRequest $request
+     *
+     * @return DescribeTagListResponse
      */
     public function describeTagList($request)
     {
@@ -12028,59 +15281,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 标签概览列表
-     *  *
-     * @param DescribeTagsBarChartRequest $request DescribeTagsBarChartRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Tag Overview List.
      *
-     * @return DescribeTagsBarChartResponse DescribeTagsBarChartResponse
+     * @param request - DescribeTagsBarChartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagsBarChartResponse
+     *
+     * @param DescribeTagsBarChartRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeTagsBarChartResponse
      */
     public function describeTagsBarChartWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->result)) {
-            $query['result'] = $request->result;
+
+        if (null !== $request->result) {
+            @$query['result'] = $request->result;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagsBarChart',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagsBarChart',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTagsBarChartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 标签概览列表
-     *  *
-     * @param DescribeTagsBarChartRequest $request DescribeTagsBarChartRequest
+     * Tag Overview List.
      *
-     * @return DescribeTagsBarChartResponse DescribeTagsBarChartResponse
+     * @param request - DescribeTagsBarChartRequest
+     *
+     * @returns DescribeTagsBarChartResponse
+     *
+     * @param DescribeTagsBarChartRequest $request
+     *
+     * @return DescribeTagsBarChartResponse
      */
     public function describeTagsBarChart($request)
     {
@@ -12090,50 +15358,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 标签波动检测
-     *  *
-     * @param DescribeTagsFluctuationRequest $request DescribeTagsFluctuationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Tag Fluctuation Detection.
      *
-     * @return DescribeTagsFluctuationResponse DescribeTagsFluctuationResponse
+     * @param request - DescribeTagsFluctuationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagsFluctuationResponse
+     *
+     * @param DescribeTagsFluctuationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeTagsFluctuationResponse
      */
     public function describeTagsFluctuationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagsFluctuation',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagsFluctuation',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTagsFluctuationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 标签波动检测
-     *  *
-     * @param DescribeTagsFluctuationRequest $request DescribeTagsFluctuationRequest
+     * Tag Fluctuation Detection.
      *
-     * @return DescribeTagsFluctuationResponse DescribeTagsFluctuationResponse
+     * @param request - DescribeTagsFluctuationRequest
+     *
+     * @returns DescribeTagsFluctuationResponse
+     *
+     * @param DescribeTagsFluctuationRequest $request
+     *
+     * @return DescribeTagsFluctuationResponse
      */
     public function describeTagsFluctuation($request)
     {
@@ -12143,47 +15423,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取标签列表
-     *  *
-     * @param DescribeTagsListRequest $request DescribeTagsListRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Get Tag List.
      *
-     * @return DescribeTagsListResponse DescribeTagsListResponse
+     * @param request - DescribeTagsListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagsListResponse
+     *
+     * @param DescribeTagsListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeTagsListResponse
      */
     public function describeTagsListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagsList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagsList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTagsListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取标签列表
-     *  *
-     * @param DescribeTagsListRequest $request DescribeTagsListRequest
+     * Get Tag List.
      *
-     * @return DescribeTagsListResponse DescribeTagsListResponse
+     * @param request - DescribeTagsListRequest
+     *
+     * @returns DescribeTagsListResponse
+     *
+     * @param DescribeTagsListRequest $request
+     *
+     * @return DescribeTagsListResponse
      */
     public function describeTagsList($request)
     {
@@ -12193,62 +15484,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 标签命中数量分析
-     *  *
-     * @param DescribeTagsNumLineChartRequest $request DescribeTagsNumLineChartRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Tag Hit Count Analysis.
      *
-     * @return DescribeTagsNumLineChartResponse DescribeTagsNumLineChartResponse
+     * @param request - DescribeTagsNumLineChartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagsNumLineChartResponse
+     *
+     * @param DescribeTagsNumLineChartRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeTagsNumLineChartResponse
      */
     public function describeTagsNumLineChartWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->byPassEventCodes)) {
-            $query['byPassEventCodes'] = $request->byPassEventCodes;
+
+        if (null !== $request->byPassEventCodes) {
+            @$query['byPassEventCodes'] = $request->byPassEventCodes;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->mainEventCodes)) {
-            $query['mainEventCodes'] = $request->mainEventCodes;
+
+        if (null !== $request->mainEventCodes) {
+            @$query['mainEventCodes'] = $request->mainEventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->shuntEventCodes)) {
-            $query['shuntEventCodes'] = $request->shuntEventCodes;
+
+        if (null !== $request->shuntEventCodes) {
+            @$query['shuntEventCodes'] = $request->shuntEventCodes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagsNumLineChart',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagsNumLineChart',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTagsNumLineChartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 标签命中数量分析
-     *  *
-     * @param DescribeTagsNumLineChartRequest $request DescribeTagsNumLineChartRequest
+     * Tag Hit Count Analysis.
      *
-     * @return DescribeTagsNumLineChartResponse DescribeTagsNumLineChartResponse
+     * @param request - DescribeTagsNumLineChartRequest
+     *
+     * @returns DescribeTagsNumLineChartResponse
+     *
+     * @param DescribeTagsNumLineChartRequest $request
+     *
+     * @return DescribeTagsNumLineChartResponse
      */
     public function describeTagsNumLineChart($request)
     {
@@ -12258,62 +15565,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 标签命中占比分析
-     *  *
-     * @param DescribeTagsRatioLineChartRequest $request DescribeTagsRatioLineChartRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Tag Hit Ratio Analysis.
      *
-     * @return DescribeTagsRatioLineChartResponse DescribeTagsRatioLineChartResponse
+     * @param request - DescribeTagsRatioLineChartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagsRatioLineChartResponse
+     *
+     * @param DescribeTagsRatioLineChartRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeTagsRatioLineChartResponse
      */
     public function describeTagsRatioLineChartWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->byPassEventCodes)) {
-            $query['byPassEventCodes'] = $request->byPassEventCodes;
+
+        if (null !== $request->byPassEventCodes) {
+            @$query['byPassEventCodes'] = $request->byPassEventCodes;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->mainEventCodes)) {
-            $query['mainEventCodes'] = $request->mainEventCodes;
+
+        if (null !== $request->mainEventCodes) {
+            @$query['mainEventCodes'] = $request->mainEventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->shuntEventCodes)) {
-            $query['shuntEventCodes'] = $request->shuntEventCodes;
+
+        if (null !== $request->shuntEventCodes) {
+            @$query['shuntEventCodes'] = $request->shuntEventCodes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagsRatioLineChart',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagsRatioLineChart',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTagsRatioLineChartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 标签命中占比分析
-     *  *
-     * @param DescribeTagsRatioLineChartRequest $request DescribeTagsRatioLineChartRequest
+     * Tag Hit Ratio Analysis.
      *
-     * @return DescribeTagsRatioLineChartResponse DescribeTagsRatioLineChartResponse
+     * @param request - DescribeTagsRatioLineChartRequest
+     *
+     * @returns DescribeTagsRatioLineChartResponse
+     *
+     * @param DescribeTagsRatioLineChartRequest $request
+     *
+     * @return DescribeTagsRatioLineChartResponse
      */
     public function describeTagsRatioLineChart($request)
     {
@@ -12323,59 +15646,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 标签命中趋势
-     *  *
-     * @param DescribeTagsTrendRequest $request DescribeTagsTrendRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Tag Hit Trend.
      *
-     * @return DescribeTagsTrendResponse DescribeTagsTrendResponse
+     * @param request - DescribeTagsTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagsTrendResponse
+     *
+     * @param DescribeTagsTrendRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeTagsTrendResponse
      */
     public function describeTagsTrendWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['beginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->result)) {
-            $query['result'] = $request->result;
+
+        if (null !== $request->result) {
+            @$query['result'] = $request->result;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagsTrend',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagsTrend',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTagsTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 标签命中趋势
-     *  *
-     * @param DescribeTagsTrendRequest $request DescribeTagsTrendRequest
+     * Tag Hit Trend.
      *
-     * @return DescribeTagsTrendResponse DescribeTagsTrendResponse
+     * @param request - DescribeTagsTrendRequest
+     *
+     * @returns DescribeTagsTrendResponse
+     *
+     * @param DescribeTagsTrendRequest $request
+     *
+     * @return DescribeTagsTrendResponse
      */
     public function describeTagsTrend($request)
     {
@@ -12385,56 +15723,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 任务列表
-     *  *
-     * @param DescribeTaskListRequest $request DescribeTaskListRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Task List.
      *
-     * @return DescribeTaskListResponse DescribeTaskListResponse
+     * @param request - DescribeTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTaskListResponse
+     *
+     * @param DescribeTaskListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeTaskListResponse
      */
     public function describeTaskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->isPage)) {
-            $query['IsPage'] = $request->isPage;
+
+        if (null !== $request->isPage) {
+            @$query['IsPage'] = $request->isPage;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTaskList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTaskList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 任务列表
-     *  *
-     * @param DescribeTaskListRequest $request DescribeTaskListRequest
+     * Task List.
      *
-     * @return DescribeTaskListResponse DescribeTaskListResponse
+     * @param request - DescribeTaskListRequest
+     *
+     * @returns DescribeTaskListResponse
+     *
+     * @param DescribeTaskListRequest $request
+     *
+     * @return DescribeTaskListResponse
      */
     public function describeTaskList($request)
     {
@@ -12444,62 +15796,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 任务日志列表
-     *  *
-     * @param DescribeTaskLogListRequest $request DescribeTaskLogListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Task Log List.
      *
-     * @return DescribeTaskLogListResponse DescribeTaskLogListResponse
+     * @param request - DescribeTaskLogListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTaskLogListResponse
+     *
+     * @param DescribeTaskLogListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeTaskLogListResponse
      */
     public function describeTaskLogListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->isPage)) {
-            $query['IsPage'] = $request->isPage;
+
+        if (null !== $request->isPage) {
+            @$query['IsPage'] = $request->isPage;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskLogId)) {
-            $query['TaskLogId'] = $request->taskLogId;
+
+        if (null !== $request->taskLogId) {
+            @$query['TaskLogId'] = $request->taskLogId;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTaskLogList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTaskLogList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTaskLogListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 任务日志列表
-     *  *
-     * @param DescribeTaskLogListRequest $request DescribeTaskLogListRequest
+     * Task Log List.
      *
-     * @return DescribeTaskLogListResponse DescribeTaskLogListResponse
+     * @param request - DescribeTaskLogListRequest
+     *
+     * @returns DescribeTaskLogListResponse
+     *
+     * @param DescribeTaskLogListRequest $request
+     *
+     * @return DescribeTaskLogListResponse
      */
     public function describeTaskLogList($request)
     {
@@ -12509,100 +15877,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询事件模版详情
-     *  *
-     * @param DescribeTemplateBaseInfoByTemplateIdRequest $request DescribeTemplateBaseInfoByTemplateIdRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Query Total Event Count.
      *
-     * @return DescribeTemplateBaseInfoByTemplateIdResponse DescribeTemplateBaseInfoByTemplateIdResponse
-     */
-    public function describeTemplateBaseInfoByTemplateIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['templateId'] = $request->templateId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeTemplateBaseInfoByTemplateId',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeTemplateBaseInfoByTemplateIdResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 查询事件模版详情
-     *  *
-     * @param DescribeTemplateBaseInfoByTemplateIdRequest $request DescribeTemplateBaseInfoByTemplateIdRequest
+     * @param request - DescribeTemplateCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeTemplateBaseInfoByTemplateIdResponse DescribeTemplateBaseInfoByTemplateIdResponse
-     */
-    public function describeTemplateBaseInfoByTemplateId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeTemplateBaseInfoByTemplateIdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 查询事件总数量
-     *  *
-     * @param DescribeTemplateCountRequest $request DescribeTemplateCountRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @returns DescribeTemplateCountResponse
      *
-     * @return DescribeTemplateCountResponse DescribeTemplateCountResponse
+     * @param DescribeTemplateCountRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeTemplateCountResponse
      */
     public function describeTemplateCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTemplateCount',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTemplateCount',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTemplateCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询事件总数量
-     *  *
-     * @param DescribeTemplateCountRequest $request DescribeTemplateCountRequest
+     * Query Total Event Count.
      *
-     * @return DescribeTemplateCountResponse DescribeTemplateCountResponse
+     * @param request - DescribeTemplateCountRequest
+     *
+     * @returns DescribeTemplateCountResponse
+     *
+     * @param DescribeTemplateCountRequest $request
+     *
+     * @return DescribeTemplateCountResponse
      */
     public function describeTemplateCount($request)
     {
@@ -12612,47 +15938,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 模版下载
-     *  *
-     * @param DescribeTemplateDownloadRequest $request DescribeTemplateDownloadRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Template Download.
      *
-     * @return DescribeTemplateDownloadResponse DescribeTemplateDownloadResponse
+     * @param request - DescribeTemplateDownloadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTemplateDownloadResponse
+     *
+     * @param DescribeTemplateDownloadRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeTemplateDownloadResponse
      */
     public function describeTemplateDownloadWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTemplateDownload',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTemplateDownload',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTemplateDownloadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 模版下载
-     *  *
-     * @param DescribeTemplateDownloadRequest $request DescribeTemplateDownloadRequest
+     * Template Download.
      *
-     * @return DescribeTemplateDownloadResponse DescribeTemplateDownloadResponse
+     * @param request - DescribeTemplateDownloadRequest
+     *
+     * @returns DescribeTemplateDownloadResponse
+     *
+     * @param DescribeTemplateDownloadRequest $request
+     *
+     * @return DescribeTemplateDownloadResponse
      */
     public function describeTemplateDownload($request)
     {
@@ -12662,68 +15999,86 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 根据事件名称查询事件列表
-     *  *
-     * @param DescribeTemplatePageListRequest $request DescribeTemplatePageListRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Query Event List by Event Name.
      *
-     * @return DescribeTemplatePageListResponse DescribeTemplatePageListResponse
+     * @param request - DescribeTemplatePageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTemplatePageListResponse
+     *
+     * @param DescribeTemplatePageListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeTemplatePageListResponse
      */
     public function describeTemplatePageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['templateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['templateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->templateSearchItem)) {
-            $query['templateSearchItem'] = $request->templateSearchItem;
+
+        if (null !== $request->templateSearchItem) {
+            @$query['templateSearchItem'] = $request->templateSearchItem;
         }
-        if (!Utils::isUnset($request->templateStatus)) {
-            $query['templateStatus'] = $request->templateStatus;
+
+        if (null !== $request->templateStatus) {
+            @$query['templateStatus'] = $request->templateStatus;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['templateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['templateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTemplatePageList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTemplatePageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTemplatePageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据事件名称查询事件列表
-     *  *
-     * @param DescribeTemplatePageListRequest $request DescribeTemplatePageListRequest
+     * Query Event List by Event Name.
      *
-     * @return DescribeTemplatePageListResponse DescribeTemplatePageListResponse
+     * @param request - DescribeTemplatePageListRequest
+     *
+     * @returns DescribeTemplatePageListResponse
+     *
+     * @param DescribeTemplatePageListRequest $request
+     *
+     * @return DescribeTemplatePageListResponse
      */
     public function describeTemplatePageList($request)
     {
@@ -12733,47 +16088,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户使用过服务列表
-     *  *
-     * @param DescribeUsedServiceRequest $request DescribeUsedServiceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Get List of Services Used by User.
      *
-     * @return DescribeUsedServiceResponse DescribeUsedServiceResponse
+     * @param request - DescribeUsedServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUsedServiceResponse
+     *
+     * @param DescribeUsedServiceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeUsedServiceResponse
      */
     public function describeUsedServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUsedService',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUsedService',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeUsedServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取用户使用过服务列表
-     *  *
-     * @param DescribeUsedServiceRequest $request DescribeUsedServiceRequest
+     * Get List of Services Used by User.
      *
-     * @return DescribeUsedServiceResponse DescribeUsedServiceResponse
+     * @param request - DescribeUsedServiceRequest
+     *
+     * @returns DescribeUsedServiceResponse
+     *
+     * @param DescribeUsedServiceRequest $request
+     *
+     * @return DescribeUsedServiceResponse
      */
     public function describeUsedService($request)
     {
@@ -12783,47 +16149,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取当前登录用户信息
-     *  *
-     * @param DescribeUserInfoRequest $request DescribeUserInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Get Current Logged-in User Information.
      *
-     * @return DescribeUserInfoResponse DescribeUserInfoResponse
+     * @param request - DescribeUserInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserInfoResponse
+     *
+     * @param DescribeUserInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeUserInfoResponse
      */
     public function describeUserInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserInfo',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserInfo',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取当前登录用户信息
-     *  *
-     * @param DescribeUserInfoRequest $request DescribeUserInfoRequest
+     * Get Current Logged-in User Information.
      *
-     * @return DescribeUserInfoResponse DescribeUserInfoResponse
+     * @param request - DescribeUserInfoRequest
+     *
+     * @returns DescribeUserInfoResponse
+     *
+     * @param DescribeUserInfoRequest $request
+     *
+     * @return DescribeUserInfoResponse
      */
     public function describeUserInfo($request)
     {
@@ -12833,53 +16210,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询变量绑定信息
-     *  *
-     * @param DescribeVariableBindDetailRequest $request DescribeVariableBindDetailRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Query Variable Binding Information.
      *
-     * @return DescribeVariableBindDetailResponse DescribeVariableBindDetailResponse
+     * @param request - DescribeVariableBindDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVariableBindDetailResponse
+     *
+     * @param DescribeVariableBindDetailRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeVariableBindDetailResponse
      */
     public function describeVariableBindDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->defineId)) {
-            $query['defineId'] = $request->defineId;
+
+        if (null !== $request->defineId) {
+            @$query['defineId'] = $request->defineId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVariableBindDetail',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVariableBindDetail',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeVariableBindDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询变量绑定信息
-     *  *
-     * @param DescribeVariableBindDetailRequest $request DescribeVariableBindDetailRequest
+     * Query Variable Binding Information.
      *
-     * @return DescribeVariableBindDetailResponse DescribeVariableBindDetailResponse
+     * @param request - DescribeVariableBindDetailRequest
+     *
+     * @returns DescribeVariableBindDetailResponse
+     *
+     * @param DescribeVariableBindDetailRequest $request
+     *
+     * @return DescribeVariableBindDetailResponse
      */
     public function describeVariableBindDetail($request)
     {
@@ -12889,50 +16279,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询变量详情
-     *  *
-     * @param DescribeVariableDetailRequest $request DescribeVariableDetailRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Query variable details.
      *
-     * @return DescribeVariableDetailResponse DescribeVariableDetailResponse
+     * @param request - DescribeVariableDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVariableDetailResponse
+     *
+     * @param DescribeVariableDetailRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeVariableDetailResponse
      */
     public function describeVariableDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVariableDetail',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVariableDetail',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeVariableDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询变量详情
-     *  *
-     * @param DescribeVariableDetailRequest $request DescribeVariableDetailRequest
+     * Query variable details.
      *
-     * @return DescribeVariableDetailResponse DescribeVariableDetailResponse
+     * @param request - DescribeVariableDetailRequest
+     *
+     * @returns DescribeVariableDetailResponse
+     *
+     * @param DescribeVariableDetailRequest $request
+     *
+     * @return DescribeVariableDetailResponse
      */
     public function describeVariableDetail($request)
     {
@@ -12942,50 +16344,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询变量收费信息
-     *  *
-     * @param DescribeVariableFeeRequest $request DescribeVariableFeeRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Query Variable Fee Information.
      *
-     * @return DescribeVariableFeeResponse DescribeVariableFeeResponse
+     * @param request - DescribeVariableFeeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVariableFeeResponse
+     *
+     * @param DescribeVariableFeeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeVariableFeeResponse
      */
     public function describeVariableFeeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->ids)) {
-            $query['ids'] = $request->ids;
+
+        if (null !== $request->ids) {
+            @$query['ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVariableFee',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVariableFee',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeVariableFeeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询变量收费信息
-     *  *
-     * @param DescribeVariableFeeRequest $request DescribeVariableFeeRequest
+     * Query Variable Fee Information.
      *
-     * @return DescribeVariableFeeResponse DescribeVariableFeeResponse
+     * @param request - DescribeVariableFeeRequest
+     *
+     * @returns DescribeVariableFeeResponse
+     *
+     * @param DescribeVariableFeeRequest $request
+     *
+     * @return DescribeVariableFeeResponse
      */
     public function describeVariableFee($request)
     {
@@ -12995,71 +16409,90 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询变量详情
-     *  *
-     * @param DescribeVariableListRequest $request DescribeVariableListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Query Variable Details.
      *
-     * @return DescribeVariableListResponse DescribeVariableListResponse
+     * @param request - DescribeVariableListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVariableListResponse
+     *
+     * @param DescribeVariableListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeVariableListResponse
      */
     public function describeVariableListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->refObjId)) {
-            $query['refObjId'] = $request->refObjId;
+
+        if (null !== $request->refObjId) {
+            @$query['refObjId'] = $request->refObjId;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['sourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['sourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
-        if (!Utils::isUnset($request->typesStr)) {
-            $query['typesStr'] = $request->typesStr;
+
+        if (null !== $request->typesStr) {
+            @$query['typesStr'] = $request->typesStr;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVariableList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVariableList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeVariableListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询变量详情
-     *  *
-     * @param DescribeVariableListRequest $request DescribeVariableListRequest
+     * Query Variable Details.
      *
-     * @return DescribeVariableListResponse DescribeVariableListResponse
+     * @param request - DescribeVariableListRequest
+     *
+     * @returns DescribeVariableListResponse
+     *
+     * @param DescribeVariableListRequest $request
+     *
+     * @return DescribeVariableListResponse
      */
     public function describeVariableList($request)
     {
@@ -13069,71 +16502,90 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询变量定义
-     *  *
-     * @param DescribeVariableMarketListRequest $request DescribeVariableMarketListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Query Variable Definitions.
      *
-     * @return DescribeVariableMarketListResponse DescribeVariableMarketListResponse
+     * @param request - DescribeVariableMarketListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVariableMarketListResponse
+     *
+     * @param DescribeVariableMarketListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeVariableMarketListResponse
      */
     public function describeVariableMarketListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->chargingMode)) {
-            $query['chargingMode'] = $request->chargingMode;
+
+        if (null !== $request->chargingMode) {
+            @$query['chargingMode'] = $request->chargingMode;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->paging)) {
-            $query['paging'] = $request->paging;
+
+        if (null !== $request->paging) {
+            @$query['paging'] = $request->paging;
         }
-        if (!Utils::isUnset($request->queryContent)) {
-            $query['queryContent'] = $request->queryContent;
+
+        if (null !== $request->queryContent) {
+            @$query['queryContent'] = $request->queryContent;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->scenesStr)) {
-            $query['scenesStr'] = $request->scenesStr;
+
+        if (null !== $request->scenesStr) {
+            @$query['scenesStr'] = $request->scenesStr;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['source'] = $request->source;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVariableMarketList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVariableMarketList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeVariableMarketListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询变量定义
-     *  *
-     * @param DescribeVariableMarketListRequest $request DescribeVariableMarketListRequest
+     * Query Variable Definitions.
      *
-     * @return DescribeVariableMarketListResponse DescribeVariableMarketListResponse
+     * @param request - DescribeVariableMarketListRequest
+     *
+     * @returns DescribeVariableMarketListResponse
+     *
+     * @param DescribeVariableMarketListRequest $request
+     *
+     * @return DescribeVariableMarketListResponse
      */
     public function describeVariableMarketList($request)
     {
@@ -13143,62 +16595,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询配置信息
-     *  *
-     * @param DescribeVariableSceneListRequest $request DescribeVariableSceneListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Query Configuration Information.
      *
-     * @return DescribeVariableSceneListResponse DescribeVariableSceneListResponse
+     * @param request - DescribeVariableSceneListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVariableSceneListResponse
+     *
+     * @param DescribeVariableSceneListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeVariableSceneListResponse
      */
     public function describeVariableSceneListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['bizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['bizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->configKey)) {
-            $query['configKey'] = $request->configKey;
+
+        if (null !== $request->configKey) {
+            @$query['configKey'] = $request->configKey;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->paging)) {
-            $query['paging'] = $request->paging;
+
+        if (null !== $request->paging) {
+            @$query['paging'] = $request->paging;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVariableSceneList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVariableSceneList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeVariableSceneListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询配置信息
-     *  *
-     * @param DescribeVariableSceneListRequest $request DescribeVariableSceneListRequest
+     * Query Configuration Information.
      *
-     * @return DescribeVariableSceneListResponse DescribeVariableSceneListResponse
+     * @param request - DescribeVariableSceneListRequest
+     *
+     * @returns DescribeVariableSceneListResponse
+     *
+     * @param DescribeVariableSceneListRequest $request
+     *
+     * @return DescribeVariableSceneListResponse
      */
     public function describeVariableSceneList($request)
     {
@@ -13208,62 +16676,143 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 自定义变量测试
-     *  *
-     * @param ExpressionTestRequest $request ExpressionTestRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Sample List Data Download.
      *
-     * @return ExpressionTestResponse ExpressionTestResponse
+     * @param request - DownloadSmapleBatchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DownloadSmapleBatchResponse
+     *
+     * @param DownloadSmapleBatchRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DownloadSmapleBatchResponse
+     */
+    public function downloadSmapleBatchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->batchUuid) {
+            @$query['batchUuid'] = $request->batchUuid;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DownloadSmapleBatch',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DownloadSmapleBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sample List Data Download.
+     *
+     * @param request - DownloadSmapleBatchRequest
+     *
+     * @returns DownloadSmapleBatchResponse
+     *
+     * @param DownloadSmapleBatchRequest $request
+     *
+     * @return DownloadSmapleBatchResponse
+     */
+    public function downloadSmapleBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadSmapleBatchWithOptions($request, $runtime);
+    }
+
+    /**
+     * Custom Variable Test.
+     *
+     * @param request - ExpressionTestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExpressionTestResponse
+     *
+     * @param ExpressionTestRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ExpressionTestResponse
      */
     public function expressionTestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->expression)) {
-            $query['expression'] = $request->expression;
+
+        if (null !== $request->expression) {
+            @$query['expression'] = $request->expression;
         }
-        if (!Utils::isUnset($request->expressionVariable)) {
-            $query['expressionVariable'] = $request->expressionVariable;
+
+        if (null !== $request->expressionVariable) {
+            @$query['expressionVariable'] = $request->expressionVariable;
         }
-        if (!Utils::isUnset($request->expressionVariableIds)) {
-            $query['expressionVariableIds'] = $request->expressionVariableIds;
+
+        if (null !== $request->expressionVariableIds) {
+            @$query['expressionVariableIds'] = $request->expressionVariableIds;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['scene'] = $request->scene;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExpressionTest',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExpressionTest',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ExpressionTestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 自定义变量测试
-     *  *
-     * @param ExpressionTestRequest $request ExpressionTestRequest
+     * Custom Variable Test.
      *
-     * @return ExpressionTestResponse ExpressionTestResponse
+     * @param request - ExpressionTestRequest
+     *
+     * @returns ExpressionTestResponse
+     *
+     * @param ExpressionTestRequest $request
+     *
+     * @return ExpressionTestResponse
      */
     public function expressionTest($request)
     {
@@ -13273,53 +16822,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 文件上传
-     *  *
-     * @param FileUploadRequest $request FileUploadRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * File Upload.
      *
-     * @return FileUploadResponse FileUploadResponse
+     * @param request - FileUploadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FileUploadResponse
+     *
+     * @param FileUploadRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return FileUploadResponse
      */
     public function fileUploadWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->tab)) {
-            $query['Tab'] = $request->tab;
+
+        if (null !== $request->tab) {
+            @$query['Tab'] = $request->tab;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FileUpload',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FileUpload',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FileUploadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 文件上传
-     *  *
-     * @param FileUploadRequest $request FileUploadRequest
+     * File Upload.
      *
-     * @return FileUploadResponse FileUploadResponse
+     * @param request - FileUploadRequest
+     *
+     * @returns FileUploadResponse
+     *
+     * @param FileUploadRequest $request
+     *
+     * @return FileUploadResponse
      */
     public function fileUpload($request)
     {
@@ -13329,68 +16891,155 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 创建或导入名单
-     *  *
-     * @param ImportNameListRequest $request ImportNameListRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Batch Import.
      *
-     * @return ImportNameListResponse ImportNameListResponse
+     * @param request - ImportFieldRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportFieldResponse
+     *
+     * @param ImportFieldRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ImportFieldResponse
+     */
+    public function importFieldWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ImportField',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Batch Import.
+     *
+     * @param request - ImportFieldRequest
+     *
+     * @returns ImportFieldResponse
+     *
+     * @param ImportFieldRequest $request
+     *
+     * @return ImportFieldResponse
+     */
+    public function importField($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importFieldWithOptions($request, $runtime);
+    }
+
+    /**
+     * Create or Import Name List.
+     *
+     * @param request - ImportNameListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportNameListResponse
+     *
+     * @param ImportNameListRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ImportNameListResponse
      */
     public function importNameListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->data)) {
-            $query['data'] = $request->data;
+
+        if (null !== $request->data) {
+            @$query['data'] = $request->data;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->importType)) {
-            $query['importType'] = $request->importType;
+
+        if (null !== $request->importType) {
+            @$query['importType'] = $request->importType;
         }
-        if (!Utils::isUnset($request->nameListType)) {
-            $query['nameListType'] = $request->nameListType;
+
+        if (null !== $request->memo) {
+            @$query['memo'] = $request->memo;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->nameListType) {
+            @$query['nameListType'] = $request->nameListType;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->variableId)) {
-            $query['variableId'] = $request->variableId;
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
         }
+
+        if (null !== $request->variableId) {
+            @$query['variableId'] = $request->variableId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ImportNameList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImportNameList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ImportNameListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建或导入名单
-     *  *
-     * @param ImportNameListRequest $request ImportNameListRequest
+     * Create or Import Name List.
      *
-     * @return ImportNameListResponse ImportNameListResponse
+     * @param request - ImportNameListRequest
+     *
+     * @returns ImportNameListResponse
+     *
+     * @param ImportNameListRequest $request
+     *
+     * @return ImportNameListResponse
      */
     public function importNameList($request)
     {
@@ -13400,50 +17049,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 导入模板事件
-     *  *
-     * @param ImportTemplateEventRequest $request ImportTemplateEventRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Import Template Event.
      *
-     * @return ImportTemplateEventResponse ImportTemplateEventResponse
+     * @param request - ImportTemplateEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportTemplateEventResponse
+     *
+     * @param ImportTemplateEventRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ImportTemplateEventResponse
      */
     public function importTemplateEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventTemplateIds)) {
-            $query['eventTemplateIds'] = $request->eventTemplateIds;
+
+        if (null !== $request->eventTemplateIds) {
+            @$query['eventTemplateIds'] = $request->eventTemplateIds;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ImportTemplateEvent',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImportTemplateEvent',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ImportTemplateEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 导入模板事件
-     *  *
-     * @param ImportTemplateEventRequest $request ImportTemplateEventRequest
+     * Import Template Event.
      *
-     * @return ImportTemplateEventResponse ImportTemplateEventResponse
+     * @param request - ImportTemplateEventRequest
+     *
+     * @returns ImportTemplateEventResponse
+     *
+     * @param ImportTemplateEventRequest $request
+     *
+     * @return ImportTemplateEventResponse
      */
     public function importTemplateEvent($request)
     {
@@ -13453,53 +17114,488 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 更新备注
-     *  *
-     * @param ModifyAppKeyRequest $request ModifyAppKeyRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Query Variable Definition.
      *
-     * @return ModifyAppKeyResponse ModifyAppKeyResponse
+     * @param request - ListVariableDefineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVariableDefineResponse
+     *
+     * @param ListVariableDefineRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListVariableDefineResponse
+     */
+    public function listVariableDefineWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->allowBind) {
+            @$query['allowBind'] = $request->allowBind;
+        }
+
+        if (null !== $request->chargingMode) {
+            @$query['chargingMode'] = $request->chargingMode;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->paging) {
+            @$query['paging'] = $request->paging;
+        }
+
+        if (null !== $request->queryContent) {
+            @$query['queryContent'] = $request->queryContent;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        if (null !== $request->roleType) {
+            @$query['roleType'] = $request->roleType;
+        }
+
+        if (null !== $request->scenesStr) {
+            @$query['scenesStr'] = $request->scenesStr;
+        }
+
+        if (null !== $request->source) {
+            @$query['source'] = $request->source;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
+        }
+
+        if (null !== $request->typesStr) {
+            @$query['typesStr'] = $request->typesStr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVariableDefine',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVariableDefineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Variable Definition.
+     *
+     * @param request - ListVariableDefineRequest
+     *
+     * @returns ListVariableDefineResponse
+     *
+     * @param ListVariableDefineRequest $request
+     *
+     * @return ListVariableDefineResponse
+     */
+    public function listVariableDefine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVariableDefineWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete.
+     *
+     * @param request - ModelDeleteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelDeleteResponse
+     *
+     * @param ModelDeleteRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ModelDeleteResponse
+     */
+    public function modelDeleteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelDelete',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete.
+     *
+     * @param request - ModelDeleteRequest
+     *
+     * @returns ModelDeleteResponse
+     *
+     * @param ModelDeleteRequest $request
+     *
+     * @return ModelDeleteResponse
+     */
+    public function modelDelete($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modelDeleteWithOptions($request, $runtime);
+    }
+
+    /**
+     * File Upload.
+     *
+     * @param request - ModelFileUploadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelFileUploadResponse
+     *
+     * @param ModelFileUploadRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModelFileUploadResponse
+     */
+    public function modelFileUploadWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->objectName) {
+            @$query['ObjectName'] = $request->objectName;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelFileUpload',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelFileUploadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * File Upload.
+     *
+     * @param request - ModelFileUploadRequest
+     *
+     * @returns ModelFileUploadResponse
+     *
+     * @param ModelFileUploadRequest $request
+     *
+     * @return ModelFileUploadResponse
+     */
+    public function modelFileUpload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modelFileUploadWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enable, Disable.
+     *
+     * @param request - ModelIsUsingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelIsUsingResponse
+     *
+     * @param ModelIsUsingRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ModelIsUsingResponse
+     */
+    public function modelIsUsingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->modelCode) {
+            @$query['ModelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->modelId) {
+            @$query['ModelId'] = $request->modelId;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelIsUsing',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelIsUsingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enable, Disable.
+     *
+     * @param request - ModelIsUsingRequest
+     *
+     * @returns ModelIsUsingResponse
+     *
+     * @param ModelIsUsingRequest $request
+     *
+     * @return ModelIsUsingResponse
+     */
+    public function modelIsUsing($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modelIsUsingWithOptions($request, $runtime);
+    }
+
+    /**
+     * Is Model Name Duplicated.
+     *
+     * @param request - ModelNameIsDuplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelNameIsDuplicationResponse
+     *
+     * @param ModelNameIsDuplicationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModelNameIsDuplicationResponse
+     */
+    public function modelNameIsDuplicationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelNameIsDuplication',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelNameIsDuplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Is Model Name Duplicated.
+     *
+     * @param request - ModelNameIsDuplicationRequest
+     *
+     * @returns ModelNameIsDuplicationResponse
+     *
+     * @param ModelNameIsDuplicationRequest $request
+     *
+     * @return ModelNameIsDuplicationResponse
+     */
+    public function modelNameIsDuplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modelNameIsDuplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Template Download.
+     *
+     * @param request - ModelSampleDownloadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelSampleDownloadResponse
+     *
+     * @param ModelSampleDownloadRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModelSampleDownloadResponse
+     */
+    public function modelSampleDownloadWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelSampleDownload',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelSampleDownloadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Template Download.
+     *
+     * @param request - ModelSampleDownloadRequest
+     *
+     * @returns ModelSampleDownloadResponse
+     *
+     * @param ModelSampleDownloadRequest $request
+     *
+     * @return ModelSampleDownloadResponse
+     */
+    public function modelSampleDownload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modelSampleDownloadWithOptions($request, $runtime);
+    }
+
+    /**
+     * Update Memo.
+     *
+     * @param request - ModifyAppKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAppKeyResponse
+     *
+     * @param ModifyAppKeyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ModifyAppKeyResponse
      */
     public function modifyAppKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->appKey)) {
-            $query['appKey'] = $request->appKey;
+
+        if (null !== $request->appKey) {
+            @$query['appKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->memo)) {
-            $query['memo'] = $request->memo;
+
+        if (null !== $request->memo) {
+            @$query['memo'] = $request->memo;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAppKey',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAppKey',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新备注
-     *  *
-     * @param ModifyAppKeyRequest $request ModifyAppKeyRequest
+     * Update Memo.
      *
-     * @return ModifyAppKeyResponse ModifyAppKeyResponse
+     * @param request - ModifyAppKeyRequest
+     *
+     * @returns ModifyAppKeyResponse
+     *
+     * @param ModifyAppKeyRequest $request
+     *
+     * @return ModifyAppKeyResponse
      */
     public function modifyAppKey($request)
     {
@@ -13509,68 +17605,86 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 编辑累计变量
-     *  *
-     * @param ModifyCustVariableRequest $request ModifyCustVariableRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Edit Accumulated Variable.
      *
-     * @return ModifyCustVariableResponse ModifyCustVariableResponse
+     * @param request - ModifyCustVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCustVariableResponse
+     *
+     * @param ModifyCustVariableRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyCustVariableResponse
      */
     public function modifyCustVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->condition)) {
-            $query['condition'] = $request->condition;
+
+        if (null !== $request->condition) {
+            @$query['condition'] = $request->condition;
         }
-        if (!Utils::isUnset($request->dataVersion)) {
-            $query['dataVersion'] = $request->dataVersion;
+
+        if (null !== $request->dataVersion) {
+            @$query['dataVersion'] = $request->dataVersion;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventCodes)) {
-            $query['eventCodes'] = $request->eventCodes;
+
+        if (null !== $request->eventCodes) {
+            @$query['eventCodes'] = $request->eventCodes;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->outputs)) {
-            $query['outputs'] = $request->outputs;
+
+        if (null !== $request->outputs) {
+            @$query['outputs'] = $request->outputs;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCustVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCustVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyCustVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑累计变量
-     *  *
-     * @param ModifyCustVariableRequest $request ModifyCustVariableRequest
+     * Edit Accumulated Variable.
      *
-     * @return ModifyCustVariableResponse ModifyCustVariableResponse
+     * @param request - ModifyCustVariableRequest
+     *
+     * @returns ModifyCustVariableResponse
+     *
+     * @param ModifyCustVariableRequest $request
+     *
+     * @return ModifyCustVariableResponse
      */
     public function modifyCustVariable($request)
     {
@@ -13580,65 +17694,86 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 编辑事件
-     *  *
-     * @param ModifyEventRequest $request ModifyEventRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Edit Event.
      *
-     * @return ModifyEventResponse ModifyEventResponse
+     * @param request - ModifyEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyEventResponse
+     *
+     * @param ModifyEventRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ModifyEventResponse
      */
     public function modifyEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->bizVersion)) {
-            $query['bizVersion'] = $request->bizVersion;
+
+        if (null !== $request->bizVersion) {
+            @$query['bizVersion'] = $request->bizVersion;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->inputFieldsStr)) {
-            $query['inputFieldsStr'] = $request->inputFieldsStr;
+
+        if (null !== $request->eventName) {
+            @$query['eventName'] = $request->eventName;
         }
-        if (!Utils::isUnset($request->memo)) {
-            $query['memo'] = $request->memo;
+
+        if (null !== $request->inputFieldsStr) {
+            @$query['inputFieldsStr'] = $request->inputFieldsStr;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->memo) {
+            @$query['memo'] = $request->memo;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['templateType'] = $request->templateType;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
+        if (null !== $request->templateType) {
+            @$query['templateType'] = $request->templateType;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyEvent',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyEvent',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑事件
-     *  *
-     * @param ModifyEventRequest $request ModifyEventRequest
+     * Edit Event.
      *
-     * @return ModifyEventResponse ModifyEventResponse
+     * @param request - ModifyEventRequest
+     *
+     * @returns ModifyEventResponse
+     *
+     * @param ModifyEventRequest $request
+     *
+     * @return ModifyEventResponse
      */
     public function modifyEvent($request)
     {
@@ -13648,59 +17783,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 修改事件状态
-     *  *
-     * @param ModifyEventStatusRequest $request ModifyEventStatusRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modify Event Status.
      *
-     * @return ModifyEventStatusResponse ModifyEventStatusResponse
+     * @param request - ModifyEventStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyEventStatusResponse
+     *
+     * @param ModifyEventStatusRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyEventStatusResponse
      */
     public function modifyEventStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->fromEventSatus)) {
-            $query['fromEventSatus'] = $request->fromEventSatus;
+
+        if (null !== $request->fromEventSatus) {
+            @$query['fromEventSatus'] = $request->fromEventSatus;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->toEventSatus)) {
-            $query['toEventSatus'] = $request->toEventSatus;
+
+        if (null !== $request->toEventSatus) {
+            @$query['toEventSatus'] = $request->toEventSatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyEventStatus',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyEventStatus',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyEventStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改事件状态
-     *  *
-     * @param ModifyEventStatusRequest $request ModifyEventStatusRequest
+     * Modify Event Status.
      *
-     * @return ModifyEventStatusResponse ModifyEventStatusResponse
+     * @param request - ModifyEventStatusRequest
+     *
+     * @returns ModifyEventStatusResponse
+     *
+     * @param ModifyEventStatusRequest $request
+     *
+     * @return ModifyEventStatusResponse
      */
     public function modifyEventStatus($request)
     {
@@ -13710,77 +17860,102 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 编辑自定义变量
-     *  *
-     * @param ModifyExpressionVariableRequest $request ModifyExpressionVariableRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Edit Custom Variable.
      *
-     * @return ModifyExpressionVariableResponse ModifyExpressionVariableResponse
+     * @param request - ModifyExpressionVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyExpressionVariableResponse
+     *
+     * @param ModifyExpressionVariableRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyExpressionVariableResponse
      */
     public function modifyExpressionVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->dataVersion)) {
-            $query['dataVersion'] = $request->dataVersion;
+
+        if (null !== $request->dataVersion) {
+            @$query['dataVersion'] = $request->dataVersion;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->expression)) {
-            $query['expression'] = $request->expression;
+
+        if (null !== $request->expression) {
+            @$query['expression'] = $request->expression;
         }
-        if (!Utils::isUnset($request->expressionTitle)) {
-            $query['expressionTitle'] = $request->expressionTitle;
+
+        if (null !== $request->expressionTitle) {
+            @$query['expressionTitle'] = $request->expressionTitle;
         }
-        if (!Utils::isUnset($request->expressionVariable)) {
-            $query['expressionVariable'] = $request->expressionVariable;
+
+        if (null !== $request->expressionVariable) {
+            @$query['expressionVariable'] = $request->expressionVariable;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->outlier)) {
-            $query['outlier'] = $request->outlier;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->outputs)) {
-            $query['outputs'] = $request->outputs;
+
+        if (null !== $request->outlier) {
+            @$query['outlier'] = $request->outlier;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->outputs) {
+            @$query['outputs'] = $request->outputs;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyExpressionVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyExpressionVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyExpressionVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑自定义变量
-     *  *
-     * @param ModifyExpressionVariableRequest $request ModifyExpressionVariableRequest
+     * Edit Custom Variable.
      *
-     * @return ModifyExpressionVariableResponse ModifyExpressionVariableResponse
+     * @param request - ModifyExpressionVariableRequest
+     *
+     * @returns ModifyExpressionVariableResponse
+     *
+     * @param ModifyExpressionVariableRequest $request
+     *
+     * @return ModifyExpressionVariableResponse
      */
     public function modifyExpressionVariable($request)
     {
@@ -13790,65 +17965,82 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 修改字段
-     *  *
-     * @param ModifyFieldRequest $request ModifyFieldRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Modify Field.
      *
-     * @return ModifyFieldResponse ModifyFieldResponse
+     * @param request - ModifyFieldRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyFieldResponse
+     *
+     * @param ModifyFieldRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ModifyFieldResponse
      */
     public function modifyFieldWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->classify)) {
-            $query['classify'] = $request->classify;
+
+        if (null !== $request->classify) {
+            @$query['classify'] = $request->classify;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->enumData)) {
-            $query['enumData'] = $request->enumData;
+
+        if (null !== $request->enumData) {
+            @$query['enumData'] = $request->enumData;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyField',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyField',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyFieldResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改字段
-     *  *
-     * @param ModifyFieldRequest $request ModifyFieldRequest
+     * Modify Field.
      *
-     * @return ModifyFieldResponse ModifyFieldResponse
+     * @param request - ModifyFieldRequest
+     *
+     * @returns ModifyFieldResponse
+     *
+     * @param ModifyFieldRequest $request
+     *
+     * @return ModifyFieldResponse
      */
     public function modifyField($request)
     {
@@ -13858,139 +18050,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 修改poc任务
-     *  *
-     * @param ModifyPocTaskRequest $request ModifyPocTaskRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Modify Policy Priority.
      *
-     * @return ModifyPocTaskResponse ModifyPocTaskResponse
-     */
-    public function modifyPocTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->accessType)) {
-            $query['accessType'] = $request->accessType;
-        }
-        if (!Utils::isUnset($request->config)) {
-            $query['config'] = $request->config;
-        }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
-        }
-        if (!Utils::isUnset($request->fileType)) {
-            $query['fileType'] = $request->fileType;
-        }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['fileUrl'] = $request->fileUrl;
-        }
-        if (!Utils::isUnset($request->reason)) {
-            $query['reason'] = $request->reason;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $query['serviceCode'] = $request->serviceCode;
-        }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['serviceName'] = $request->serviceName;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['taskId'] = $request->taskId;
-        }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['taskName'] = $request->taskName;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyPocTask',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyPocTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 修改poc任务
-     *  *
-     * @param ModifyPocTaskRequest $request ModifyPocTaskRequest
+     * @param request - ModifyRulePriorityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyPocTaskResponse ModifyPocTaskResponse
-     */
-    public function modifyPocTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyPocTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 策略修改优先级
-     *  *
-     * @param ModifyRulePriorityRequest $request ModifyRulePriorityRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @returns ModifyRulePriorityResponse
      *
-     * @return ModifyRulePriorityResponse ModifyRulePriorityResponse
+     * @param ModifyRulePriorityRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyRulePriorityResponse
      */
     public function modifyRulePriorityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->consoleRuleId)) {
-            $query['consoleRuleId'] = $request->consoleRuleId;
+
+        if (null !== $request->consoleRuleId) {
+            @$query['consoleRuleId'] = $request->consoleRuleId;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['ruleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['ruleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyRulePriority',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyRulePriority',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyRulePriorityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 策略修改优先级
-     *  *
-     * @param ModifyRulePriorityRequest $request ModifyRulePriorityRequest
+     * Modify Policy Priority.
      *
-     * @return ModifyRulePriorityResponse ModifyRulePriorityResponse
+     * @param request - ModifyRulePriorityRequest
+     *
+     * @returns ModifyRulePriorityResponse
+     *
+     * @param ModifyRulePriorityRequest $request
+     *
+     * @return ModifyRulePriorityResponse
      */
     public function modifyRulePriority($request)
     {
@@ -14000,77 +18123,98 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 策略版本申请状态变更
-     *  *
-     * @param ModifyRuleStatusRequest $request ModifyRuleStatusRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Change the status of a policy version application.
      *
-     * @return ModifyRuleStatusResponse ModifyRuleStatusResponse
+     * @param request - ModifyRuleStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyRuleStatusResponse
+     *
+     * @param ModifyRuleStatusRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyRuleStatusResponse
      */
     public function modifyRuleStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->applyUserId)) {
-            $query['applyUserId'] = $request->applyUserId;
+
+        if (null !== $request->applyUserId) {
+            @$query['applyUserId'] = $request->applyUserId;
         }
-        if (!Utils::isUnset($request->applyUserName)) {
-            $query['applyUserName'] = $request->applyUserName;
+
+        if (null !== $request->applyUserName) {
+            @$query['applyUserName'] = $request->applyUserName;
         }
-        if (!Utils::isUnset($request->auditRemark)) {
-            $query['auditRemark'] = $request->auditRemark;
+
+        if (null !== $request->auditRemark) {
+            @$query['auditRemark'] = $request->auditRemark;
         }
-        if (!Utils::isUnset($request->auditUserId)) {
-            $query['auditUserId'] = $request->auditUserId;
+
+        if (null !== $request->auditUserId) {
+            @$query['auditUserId'] = $request->auditUserId;
         }
-        if (!Utils::isUnset($request->auditUserName)) {
-            $query['auditUserName'] = $request->auditUserName;
+
+        if (null !== $request->auditUserName) {
+            @$query['auditUserName'] = $request->auditUserName;
         }
-        if (!Utils::isUnset($request->consoleRuleId)) {
-            $query['consoleRuleId'] = $request->consoleRuleId;
+
+        if (null !== $request->consoleRuleId) {
+            @$query['consoleRuleId'] = $request->consoleRuleId;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['eventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['eventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleAuditType)) {
-            $query['ruleAuditType'] = $request->ruleAuditType;
+
+        if (null !== $request->ruleAuditType) {
+            @$query['ruleAuditType'] = $request->ruleAuditType;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['ruleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['ruleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleVersionId)) {
-            $query['ruleVersionId'] = $request->ruleVersionId;
+
+        if (null !== $request->ruleVersionId) {
+            @$query['ruleVersionId'] = $request->ruleVersionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyRuleStatus',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyRuleStatus',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 策略版本申请状态变更
-     *  *
-     * @param ModifyRuleStatusRequest $request ModifyRuleStatusRequest
+     * Change the status of a policy version application.
      *
-     * @return ModifyRuleStatusResponse ModifyRuleStatusResponse
+     * @param request - ModifyRuleStatusRequest
+     *
+     * @returns ModifyRuleStatusResponse
+     *
+     * @param ModifyRuleStatusRequest $request
+     *
+     * @return ModifyRuleStatusResponse
      */
     public function modifyRuleStatus($request)
     {
@@ -14080,236 +18224,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 修改模版
-     *  *
-     * @param ModifyTemplateRequest $request ModifyTemplateRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Activate Service.
      *
-     * @return ModifyTemplateResponse ModifyTemplateResponse
-     */
-    public function modifyTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
-        }
-        if (!Utils::isUnset($request->inputFields)) {
-            $query['inputFields'] = $request->inputFields;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['templateId'] = $request->templateId;
-        }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['templateType'] = $request->templateType;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['version'] = $request->version;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyTemplate',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 修改模版
-     *  *
-     * @param ModifyTemplateRequest $request ModifyTemplateRequest
+     * @param request - OpenConsoleSlsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyTemplateResponse ModifyTemplateResponse
-     */
-    public function modifyTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 更新模版状态
-     *  *
-     * @param ModifyTemplateStatusRequest $request ModifyTemplateStatusRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @returns OpenConsoleSlsResponse
      *
-     * @return ModifyTemplateStatusResponse ModifyTemplateStatusResponse
-     */
-    public function modifyTemplateStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->fromTemplateSatus)) {
-            $query['fromTemplateSatus'] = $request->fromTemplateSatus;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['templateId'] = $request->templateId;
-        }
-        if (!Utils::isUnset($request->toTemplateSatus)) {
-            $query['toTemplateSatus'] = $request->toTemplateSatus;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyTemplateStatus',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyTemplateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 更新模版状态
-     *  *
-     * @param ModifyTemplateStatusRequest $request ModifyTemplateStatusRequest
+     * @param OpenConsoleSlsRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return ModifyTemplateStatusResponse ModifyTemplateStatusResponse
-     */
-    public function modifyTemplateStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyTemplateStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 修改变量信息
-     *  *
-     * @param ModifyVariableRequest $request ModifyVariableRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ModifyVariableResponse ModifyVariableResponse
-     */
-    public function modifyVariableWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyVariableResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 修改变量信息
-     *  *
-     * @param ModifyVariableRequest $request ModifyVariableRequest
-     *
-     * @return ModifyVariableResponse ModifyVariableResponse
-     */
-    public function modifyVariable($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyVariableWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 开通服务
-     *  *
-     * @param OpenConsoleSlsRequest $request OpenConsoleSlsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
-     *
-     * @return OpenConsoleSlsResponse OpenConsoleSlsResponse
+     * @return OpenConsoleSlsResponse
      */
     public function openConsoleSlsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['scene'] = $request->scene;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenConsoleSls',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenConsoleSls',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return OpenConsoleSlsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 开通服务
-     *  *
-     * @param OpenConsoleSlsRequest $request OpenConsoleSlsRequest
+     * Activate Service.
      *
-     * @return OpenConsoleSlsResponse OpenConsoleSlsResponse
+     * @param request - OpenConsoleSlsRequest
+     *
+     * @returns OpenConsoleSlsResponse
+     *
+     * @param OpenConsoleSlsRequest $request
+     *
+     * @return OpenConsoleSlsResponse
      */
     public function openConsoleSls($request)
     {
@@ -14319,53 +18289,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 操作收藏
-     *  *
-     * @param OperateFavoriteVariableRequest $request OperateFavoriteVariableRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Operate Favorites.
      *
-     * @return OperateFavoriteVariableResponse OperateFavoriteVariableResponse
+     * @param request - OperateFavoriteVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateFavoriteVariableResponse
+     *
+     * @param OperateFavoriteVariableRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return OperateFavoriteVariableResponse
      */
     public function operateFavoriteVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->operate)) {
-            $query['operate'] = $request->operate;
+
+        if (null !== $request->operate) {
+            @$query['operate'] = $request->operate;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OperateFavoriteVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OperateFavoriteVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return OperateFavoriteVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 操作收藏
-     *  *
-     * @param OperateFavoriteVariableRequest $request OperateFavoriteVariableRequest
+     * Operate Favorites.
      *
-     * @return OperateFavoriteVariableResponse OperateFavoriteVariableResponse
+     * @param request - OperateFavoriteVariableRequest
+     *
+     * @returns OperateFavoriteVariableResponse
+     *
+     * @param OperateFavoriteVariableRequest $request
+     *
+     * @return OperateFavoriteVariableResponse
      */
     public function operateFavoriteVariable($request)
     {
@@ -14375,47 +18358,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 企业认证
-     *  *
-     * @param PermissionCheckRequest $request PermissionCheckRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Enterprise Verification.
      *
-     * @return PermissionCheckResponse PermissionCheckResponse
+     * @param request - PermissionCheckRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PermissionCheckResponse
+     *
+     * @param PermissionCheckRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return PermissionCheckResponse
      */
     public function permissionCheckWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['RegId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PermissionCheck',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PermissionCheck',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PermissionCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 企业认证
-     *  *
-     * @param PermissionCheckRequest $request PermissionCheckRequest
+     * Enterprise Verification.
      *
-     * @return PermissionCheckResponse PermissionCheckResponse
+     * @param request - PermissionCheckRequest
+     *
+     * @returns PermissionCheckResponse
+     *
+     * @param PermissionCheckRequest $request
+     *
+     * @return PermissionCheckResponse
      */
     public function permissionCheck($request)
     {
@@ -14425,56 +18419,342 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 白盒化策略详情查询
-     *  *
-     * @param QueryAuthRuleDetailByRuleIdRequest $request QueryAuthRuleDetailByRuleIdRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * createTask.
      *
-     * @return QueryAuthRuleDetailByRuleIdResponse QueryAuthRuleDetailByRuleIdResponse
+     * @param request - PocCreateTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PocCreateTaskResponse
+     *
+     * @param PocCreateTaskRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PocCreateTaskResponse
+     */
+    public function pocCreateTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dateFormat) {
+            @$query['DateFormat'] = $request->dateFormat;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PocCreateTask',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PocCreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * createTask.
+     *
+     * @param request - PocCreateTaskRequest
+     *
+     * @returns PocCreateTaskResponse
+     *
+     * @param PocCreateTaskRequest $request
+     *
+     * @return PocCreateTaskResponse
+     */
+    public function pocCreateTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pocCreateTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * PocGetDownloadUrl.
+     *
+     * @param request - PocGetDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PocGetDownloadUrlResponse
+     *
+     * @param PocGetDownloadUrlRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PocGetDownloadUrlResponse
+     */
+    public function pocGetDownloadUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PocGetDownloadUrl',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PocGetDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * PocGetDownloadUrl.
+     *
+     * @param request - PocGetDownloadUrlRequest
+     *
+     * @returns PocGetDownloadUrlResponse
+     *
+     * @param PocGetDownloadUrlRequest $request
+     *
+     * @return PocGetDownloadUrlResponse
+     */
+    public function pocGetDownloadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pocGetDownloadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * getToken.
+     *
+     * @param request - PocGetTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PocGetTokenResponse
+     *
+     * @param PocGetTokenRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return PocGetTokenResponse
+     */
+    public function pocGetTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PocGetToken',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PocGetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * getToken.
+     *
+     * @param request - PocGetTokenRequest
+     *
+     * @returns PocGetTokenResponse
+     *
+     * @param PocGetTokenRequest $request
+     *
+     * @return PocGetTokenResponse
+     */
+    public function pocGetToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pocGetTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * sendData.
+     *
+     * @param request - PocSendDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PocSendDataResponse
+     *
+     * @param PocSendDataRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return PocSendDataResponse
+     */
+    public function pocSendDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->batchNo) {
+            @$query['BatchNo'] = $request->batchNo;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->paramsList) {
+            @$query['ParamsList'] = $request->paramsList;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PocSendData',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PocSendDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * sendData.
+     *
+     * @param request - PocSendDataRequest
+     *
+     * @returns PocSendDataResponse
+     *
+     * @param PocSendDataRequest $request
+     *
+     * @return PocSendDataResponse
+     */
+    public function pocSendData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pocSendDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query White-box Strategy Details.
+     *
+     * @param request - QueryAuthRuleDetailByRuleIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAuthRuleDetailByRuleIdResponse
+     *
+     * @param QueryAuthRuleDetailByRuleIdRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryAuthRuleDetailByRuleIdResponse
      */
     public function queryAuthRuleDetailByRuleIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->consoleRuleId)) {
-            $query['consoleRuleId'] = $request->consoleRuleId;
+
+        if (null !== $request->consoleRuleId) {
+            @$query['consoleRuleId'] = $request->consoleRuleId;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['ruleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['ruleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleVersionId)) {
-            $query['ruleVersionId'] = $request->ruleVersionId;
+
+        if (null !== $request->ruleVersionId) {
+            @$query['ruleVersionId'] = $request->ruleVersionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryAuthRuleDetailByRuleId',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAuthRuleDetailByRuleId',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryAuthRuleDetailByRuleIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 白盒化策略详情查询
-     *  *
-     * @param QueryAuthRuleDetailByRuleIdRequest $request QueryAuthRuleDetailByRuleIdRequest
+     * Query White-box Strategy Details.
      *
-     * @return QueryAuthRuleDetailByRuleIdResponse QueryAuthRuleDetailByRuleIdResponse
+     * @param request - QueryAuthRuleDetailByRuleIdRequest
+     *
+     * @returns QueryAuthRuleDetailByRuleIdResponse
+     *
+     * @param QueryAuthRuleDetailByRuleIdRequest $request
+     *
+     * @return QueryAuthRuleDetailByRuleIdResponse
      */
     public function queryAuthRuleDetailByRuleId($request)
     {
@@ -14484,159 +18764,58 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 获取授权用户名
-     *  *
-     * @param QueryAuthUserNameRequest $request QueryAuthUserNameRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Recall.
      *
-     * @return QueryAuthUserNameResponse QueryAuthUserNameResponse
-     */
-    public function queryAuthUserNameWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->bindId)) {
-            $query['bindId'] = $request->bindId;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryAuthUserName',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryAuthUserNameResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 获取授权用户名
-     *  *
-     * @param QueryAuthUserNameRequest $request QueryAuthUserNameRequest
+     * @param request - RecallRuleAuditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryAuthUserNameResponse QueryAuthUserNameResponse
-     */
-    public function queryAuthUserName($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryAuthUserNameWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 事件模版授权用户列表
-     *  *
-     * @param QueryAuthorizationUserListRequest $request QueryAuthorizationUserListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @returns RecallRuleAuditResponse
      *
-     * @return QueryAuthorizationUserListResponse QueryAuthorizationUserListResponse
-     */
-    public function queryAuthorizationUserListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
-        }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
-        }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryAuthorizationUserList',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryAuthorizationUserListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 事件模版授权用户列表
-     *  *
-     * @param QueryAuthorizationUserListRequest $request QueryAuthorizationUserListRequest
+     * @param RecallRuleAuditRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return QueryAuthorizationUserListResponse QueryAuthorizationUserListResponse
-     */
-    public function queryAuthorizationUserList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryAuthorizationUserListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 撤回
-     *  *
-     * @param RecallRuleAuditRequest $request RecallRuleAuditRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
-     *
-     * @return RecallRuleAuditResponse RecallRuleAuditResponse
+     * @return RecallRuleAuditResponse
      */
     public function recallRuleAuditWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RecallRuleAudit',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecallRuleAudit',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecallRuleAuditResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 撤回
-     *  *
-     * @param RecallRuleAuditRequest $request RecallRuleAuditRequest
+     * Recall.
      *
-     * @return RecallRuleAuditResponse RecallRuleAuditResponse
+     * @param request - RecallRuleAuditRequest
+     *
+     * @returns RecallRuleAuditResponse
+     *
+     * @param RecallRuleAuditRequest $request
+     *
+     * @return RecallRuleAuditResponse
      */
     public function recallRuleAudit($request)
     {
@@ -14646,59 +18825,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 删除事件
-     *  *
-     * @param RemoveEventRequest $request RemoveEventRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Delete Event.
      *
-     * @return RemoveEventResponse RemoveEventResponse
+     * @param request - RemoveEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveEventResponse
+     *
+     * @param RemoveEventRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RemoveEventResponse
      */
     public function removeEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->createType)) {
-            $query['createType'] = $request->createType;
+
+        if (null !== $request->createType) {
+            @$query['createType'] = $request->createType;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->templateCode)) {
-            $query['templateCode'] = $request->templateCode;
+
+        if (null !== $request->templateCode) {
+            @$query['templateCode'] = $request->templateCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveEvent',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveEvent',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除事件
-     *  *
-     * @param RemoveEventRequest $request RemoveEventRequest
+     * Delete Event.
      *
-     * @return RemoveEventResponse RemoveEventResponse
+     * @param request - RemoveEventRequest
+     *
+     * @returns RemoveEventResponse
+     *
+     * @param RemoveEventRequest $request
+     *
+     * @return RemoveEventResponse
      */
     public function removeEvent($request)
     {
@@ -14708,109 +18902,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 删除模版事件
-     *  *
-     * @param RemoveTemplateRequest $request RemoveTemplateRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Template Download.
      *
-     * @return RemoveTemplateResponse RemoveTemplateResponse
-     */
-    public function removeTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['templateId'] = $request->templateId;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['version'] = $request->version;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RemoveTemplate',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RemoveTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 删除模版事件
-     *  *
-     * @param RemoveTemplateRequest $request RemoveTemplateRequest
+     * @param request - SampleFileDownloadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RemoveTemplateResponse RemoveTemplateResponse
-     */
-    public function removeTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 模板下载
-     *  *
-     * @param SampleFileDownloadRequest $request SampleFileDownloadRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @returns SampleFileDownloadResponse
      *
-     * @return SampleFileDownloadResponse SampleFileDownloadResponse
+     * @param SampleFileDownloadRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SampleFileDownloadResponse
      */
     public function sampleFileDownloadWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['RegId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->tab)) {
-            $query['Tab'] = $request->tab;
+
+        if (null !== $request->tab) {
+            @$query['Tab'] = $request->tab;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SampleFileDownload',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SampleFileDownload',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SampleFileDownloadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 模板下载
-     *  *
-     * @param SampleFileDownloadRequest $request SampleFileDownloadRequest
+     * Template Download.
      *
-     * @return SampleFileDownloadResponse SampleFileDownloadResponse
+     * @param request - SampleFileDownloadRequest
+     *
+     * @returns SampleFileDownloadResponse
+     *
+     * @param SampleFileDownloadRequest $request
+     *
+     * @return SampleFileDownloadResponse
      */
     public function sampleFileDownload($request)
     {
@@ -14820,50 +18967,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 保存自定义列
-     *  *
-     * @param SaveAnalysisColumnRequest $request SaveAnalysisColumnRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Save Custom Columns.
      *
-     * @return SaveAnalysisColumnResponse SaveAnalysisColumnResponse
+     * @param request - SaveAnalysisColumnRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveAnalysisColumnResponse
+     *
+     * @param SaveAnalysisColumnRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SaveAnalysisColumnResponse
      */
     public function saveAnalysisColumnWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->columns)) {
-            $query['columns'] = $request->columns;
+
+        if (null !== $request->columns) {
+            @$query['columns'] = $request->columns;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveAnalysisColumn',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveAnalysisColumn',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveAnalysisColumnResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存自定义列
-     *  *
-     * @param SaveAnalysisColumnRequest $request SaveAnalysisColumnRequest
+     * Save Custom Columns.
      *
-     * @return SaveAnalysisColumnResponse SaveAnalysisColumnResponse
+     * @param request - SaveAnalysisColumnRequest
+     *
+     * @returns SaveAnalysisColumnResponse
+     *
+     * @param SaveAnalysisColumnRequest $request
+     *
+     * @return SaveAnalysisColumnResponse
      */
     public function saveAnalysisColumn($request)
     {
@@ -14873,56 +19032,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 旁路/分流配置
-     *  *
-     * @param SaveByPassOrShuntEventRequest $request SaveByPassOrShuntEventRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Bypass/Shunt Configuration.
      *
-     * @return SaveByPassOrShuntEventResponse SaveByPassOrShuntEventResponse
+     * @param request - SaveByPassOrShuntEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveByPassOrShuntEventResponse
+     *
+     * @param SaveByPassOrShuntEventRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SaveByPassOrShuntEventResponse
      */
     public function saveByPassOrShuntEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['eventId'] = $request->eventId;
+
+        if (null !== $request->eventId) {
+            @$query['eventId'] = $request->eventId;
         }
-        if (!Utils::isUnset($request->eventName)) {
-            $query['eventName'] = $request->eventName;
+
+        if (null !== $request->eventName) {
+            @$query['eventName'] = $request->eventName;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['eventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['eventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveByPassOrShuntEvent',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveByPassOrShuntEvent',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveByPassOrShuntEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 旁路/分流配置
-     *  *
-     * @param SaveByPassOrShuntEventRequest $request SaveByPassOrShuntEventRequest
+     * Bypass/Shunt Configuration.
      *
-     * @return SaveByPassOrShuntEventResponse SaveByPassOrShuntEventResponse
+     * @param request - SaveByPassOrShuntEventRequest
+     *
+     * @returns SaveByPassOrShuntEventResponse
+     *
+     * @param SaveByPassOrShuntEventRequest $request
+     *
+     * @return SaveByPassOrShuntEventResponse
      */
     public function saveByPassOrShuntEvent($request)
     {
@@ -14932,53 +19105,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 开启/停止旁路事件
-     *  *
-     * @param StartOrStopByPassShuntEventRequest $request StartOrStopByPassShuntEventRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Start/Stop Bypass Event.
      *
-     * @return StartOrStopByPassShuntEventResponse StartOrStopByPassShuntEventResponse
+     * @param request - StartOrStopByPassShuntEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartOrStopByPassShuntEventResponse
+     *
+     * @param StartOrStopByPassShuntEventRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return StartOrStopByPassShuntEventResponse
      */
     public function startOrStopByPassShuntEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['eventId'] = $request->eventId;
+
+        if (null !== $request->eventId) {
+            @$query['eventId'] = $request->eventId;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartOrStopByPassShuntEvent',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartOrStopByPassShuntEvent',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartOrStopByPassShuntEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 开启/停止旁路事件
-     *  *
-     * @param StartOrStopByPassShuntEventRequest $request StartOrStopByPassShuntEventRequest
+     * Start/Stop Bypass Event.
      *
-     * @return StartOrStopByPassShuntEventResponse StartOrStopByPassShuntEventResponse
+     * @param request - StartOrStopByPassShuntEventRequest
+     *
+     * @returns StartOrStopByPassShuntEventResponse
+     *
+     * @param StartOrStopByPassShuntEventRequest $request
+     *
+     * @return StartOrStopByPassShuntEventResponse
      */
     public function startOrStopByPassShuntEvent($request)
     {
@@ -14988,50 +19174,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 开始执行任务
-     *  *
-     * @param StartSimulationTaskRequest $request StartSimulationTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Start Task Execution.
      *
-     * @return StartSimulationTaskResponse StartSimulationTaskResponse
+     * @param request - StartSimulationTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartSimulationTaskResponse
+     *
+     * @param StartSimulationTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StartSimulationTaskResponse
      */
     public function startSimulationTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartSimulationTask',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartSimulationTask',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartSimulationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 开始执行任务
-     *  *
-     * @param StartSimulationTaskRequest $request StartSimulationTaskRequest
+     * Start Task Execution.
      *
-     * @return StartSimulationTaskResponse StartSimulationTaskResponse
+     * @param request - StartSimulationTaskRequest
+     *
+     * @returns StartSimulationTaskResponse
+     *
+     * @param StartSimulationTaskRequest $request
+     *
+     * @return StartSimulationTaskResponse
      */
     public function startSimulationTask($request)
     {
@@ -15041,50 +19239,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 停止任务
-     *  *
-     * @param StopSimulationTaskRequest $request StopSimulationTaskRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Stop Task.
      *
-     * @return StopSimulationTaskResponse StopSimulationTaskResponse
+     * @param request - StopSimulationTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopSimulationTaskResponse
+     *
+     * @param StopSimulationTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StopSimulationTaskResponse
      */
     public function stopSimulationTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopSimulationTask',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopSimulationTask',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopSimulationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 停止任务
-     *  *
-     * @param StopSimulationTaskRequest $request StopSimulationTaskRequest
+     * Stop Task.
      *
-     * @return StopSimulationTaskResponse StopSimulationTaskResponse
+     * @param request - StopSimulationTaskRequest
+     *
+     * @returns StopSimulationTaskResponse
+     *
+     * @param StopSimulationTaskRequest $request
+     *
+     * @return StopSimulationTaskResponse
      */
     public function stopSimulationTask($request)
     {
@@ -15094,112 +19304,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 批量创建策略
-     *  *
-     * @param SubmitImportTaskRequest $request SubmitImportTaskRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Custom Variable Switch.
      *
-     * @return SubmitImportTaskResponse SubmitImportTaskResponse
-     */
-    public function submitImportTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
-        }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
-        }
-        if (!Utils::isUnset($request->url)) {
-            $query['url'] = $request->url;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitImportTask',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SubmitImportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 批量创建策略
-     *  *
-     * @param SubmitImportTaskRequest $request SubmitImportTaskRequest
+     * @param request - SwitchExpressionVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SubmitImportTaskResponse SubmitImportTaskResponse
-     */
-    public function submitImportTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitImportTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 自定义变量开关
-     *  *
-     * @param SwitchExpressionVariableRequest $request SwitchExpressionVariableRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @returns SwitchExpressionVariableResponse
      *
-     * @return SwitchExpressionVariableResponse SwitchExpressionVariableResponse
+     * @param SwitchExpressionVariableRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SwitchExpressionVariableResponse
      */
     public function switchExpressionVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->dataVersion)) {
-            $query['dataVersion'] = $request->dataVersion;
+
+        if (null !== $request->dataVersion) {
+            @$query['dataVersion'] = $request->dataVersion;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchExpressionVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchExpressionVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SwitchExpressionVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 自定义变量开关
-     *  *
-     * @param SwitchExpressionVariableRequest $request SwitchExpressionVariableRequest
+     * Custom Variable Switch.
      *
-     * @return SwitchExpressionVariableResponse SwitchExpressionVariableResponse
+     * @param request - SwitchExpressionVariableRequest
+     *
+     * @returns SwitchExpressionVariableResponse
+     *
+     * @param SwitchExpressionVariableRequest $request
+     *
+     * @return SwitchExpressionVariableResponse
      */
     public function switchExpressionVariable($request)
     {
@@ -15209,59 +19377,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 字段开关
-     *  *
-     * @param SwitchFieldRequest $request SwitchFieldRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Field Switch.
      *
-     * @return SwitchFieldResponse SwitchFieldResponse
+     * @param request - SwitchFieldRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SwitchFieldResponse
+     *
+     * @param SwitchFieldRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SwitchFieldResponse
      */
     public function switchFieldWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['source'] = $request->source;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchField',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchField',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SwitchFieldResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 字段开关
-     *  *
-     * @param SwitchFieldRequest $request SwitchFieldRequest
+     * Field Switch.
      *
-     * @return SwitchFieldResponse SwitchFieldResponse
+     * @param request - SwitchFieldRequest
+     *
+     * @returns SwitchFieldResponse
+     *
+     * @param SwitchFieldRequest $request
+     *
+     * @return SwitchFieldResponse
      */
     public function switchField($request)
     {
@@ -15271,53 +19454,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 查询变量启用/禁用
-     *  *
-     * @param SwitchQueryVariableRequest $request SwitchQueryVariableRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Query Variable Enable/Disable.
      *
-     * @return SwitchQueryVariableResponse SwitchQueryVariableResponse
+     * @param request - SwitchQueryVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SwitchQueryVariableResponse
+     *
+     * @param SwitchQueryVariableRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SwitchQueryVariableResponse
      */
     public function switchQueryVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchQueryVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchQueryVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SwitchQueryVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询变量启用/禁用
-     *  *
-     * @param SwitchQueryVariableRequest $request SwitchQueryVariableRequest
+     * Query Variable Enable/Disable.
      *
-     * @return SwitchQueryVariableResponse SwitchQueryVariableResponse
+     * @param request - SwitchQueryVariableRequest
+     *
+     * @returns SwitchQueryVariableResponse
+     *
+     * @param SwitchQueryVariableRequest $request
+     *
+     * @return SwitchQueryVariableResponse
      */
     public function switchQueryVariable($request)
     {
@@ -15327,50 +19523,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 一键切换上线
-     *  *
-     * @param SwitchToOnlineRequest $request SwitchToOnlineRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * One-click switch online.
      *
-     * @return SwitchToOnlineResponse SwitchToOnlineResponse
+     * @param request - SwitchToOnlineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SwitchToOnlineResponse
+     *
+     * @param SwitchToOnlineRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SwitchToOnlineResponse
      */
     public function switchToOnlineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['eventId'] = $request->eventId;
+
+        if (null !== $request->eventId) {
+            @$query['eventId'] = $request->eventId;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchToOnline',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchToOnline',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SwitchToOnlineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 一键切换上线
-     *  *
-     * @param SwitchToOnlineRequest $request SwitchToOnlineRequest
+     * One-click switch online.
      *
-     * @return SwitchToOnlineResponse SwitchToOnlineResponse
+     * @param request - SwitchToOnlineRequest
+     *
+     * @returns SwitchToOnlineResponse
+     *
+     * @param SwitchToOnlineRequest $request
+     *
+     * @return SwitchToOnlineResponse
      */
     public function switchToOnline($request)
     {
@@ -15380,59 +19588,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 累计变量开关
-     *  *
-     * @param SwitchVariableRequest $request SwitchVariableRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Cumulative Variable Switch.
      *
-     * @return SwitchVariableResponse SwitchVariableResponse
+     * @param request - SwitchVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SwitchVariableResponse
+     *
+     * @param SwitchVariableRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SwitchVariableResponse
      */
     public function switchVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->dataVersion)) {
-            $query['dataVersion'] = $request->dataVersion;
+
+        if (null !== $request->dataVersion) {
+            @$query['dataVersion'] = $request->dataVersion;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SwitchVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 累计变量开关
-     *  *
-     * @param SwitchVariableRequest $request SwitchVariableRequest
+     * Cumulative Variable Switch.
      *
-     * @return SwitchVariableResponse SwitchVariableResponse
+     * @param request - SwitchVariableRequest
+     *
+     * @returns SwitchVariableResponse
+     *
+     * @param SwitchVariableRequest $request
+     *
+     * @return SwitchVariableResponse
      */
     public function switchVariable($request)
     {
@@ -15442,50 +19665,62 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 判断任务名是否重复
-     *  *
-     * @param TaskNameByUserIdRequest $request TaskNameByUserIdRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Determine if the task name is duplicated.
      *
-     * @return TaskNameByUserIdResponse TaskNameByUserIdResponse
+     * @param request - TaskNameByUserIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TaskNameByUserIdResponse
+     *
+     * @param TaskNameByUserIdRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return TaskNameByUserIdResponse
      */
     public function taskNameByUserIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['RegId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TaskNameByUserId',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TaskNameByUserId',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TaskNameByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 判断任务名是否重复
-     *  *
-     * @param TaskNameByUserIdRequest $request TaskNameByUserIdRequest
+     * Determine if the task name is duplicated.
      *
-     * @return TaskNameByUserIdResponse TaskNameByUserIdResponse
+     * @param request - TaskNameByUserIdRequest
+     *
+     * @returns TaskNameByUserIdResponse
+     *
+     * @param TaskNameByUserIdRequest $request
+     *
+     * @return TaskNameByUserIdResponse
      */
     public function taskNameByUserId($request)
     {
@@ -15495,74 +19730,94 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 修改查询条件
-     *  *
-     * @param UpdateAnalysisConditionFavoriteRequest $request UpdateAnalysisConditionFavoriteRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Modify Query Conditions.
      *
-     * @return UpdateAnalysisConditionFavoriteResponse UpdateAnalysisConditionFavoriteResponse
+     * @param request - UpdateAnalysisConditionFavoriteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAnalysisConditionFavoriteResponse
+     *
+     * @param UpdateAnalysisConditionFavoriteRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateAnalysisConditionFavoriteResponse
      */
     public function updateAnalysisConditionFavoriteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->condition)) {
-            $query['condition'] = $request->condition;
+
+        if (null !== $request->condition) {
+            @$query['condition'] = $request->condition;
         }
-        if (!Utils::isUnset($request->eventBeginTime)) {
-            $query['eventBeginTime'] = $request->eventBeginTime;
+
+        if (null !== $request->eventBeginTime) {
+            @$query['eventBeginTime'] = $request->eventBeginTime;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->eventEndTime)) {
-            $query['eventEndTime'] = $request->eventEndTime;
+
+        if (null !== $request->eventEndTime) {
+            @$query['eventEndTime'] = $request->eventEndTime;
         }
-        if (!Utils::isUnset($request->fieldName)) {
-            $query['fieldName'] = $request->fieldName;
+
+        if (null !== $request->fieldName) {
+            @$query['fieldName'] = $request->fieldName;
         }
-        if (!Utils::isUnset($request->fieldValue)) {
-            $query['fieldValue'] = $request->fieldValue;
+
+        if (null !== $request->fieldValue) {
+            @$query['fieldValue'] = $request->fieldValue;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAnalysisConditionFavorite',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAnalysisConditionFavorite',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateAnalysisConditionFavoriteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改查询条件
-     *  *
-     * @param UpdateAnalysisConditionFavoriteRequest $request UpdateAnalysisConditionFavoriteRequest
+     * Modify Query Conditions.
      *
-     * @return UpdateAnalysisConditionFavoriteResponse UpdateAnalysisConditionFavoriteResponse
+     * @param request - UpdateAnalysisConditionFavoriteRequest
+     *
+     * @returns UpdateAnalysisConditionFavoriteResponse
+     *
+     * @param UpdateAnalysisConditionFavoriteRequest $request
+     *
+     * @return UpdateAnalysisConditionFavoriteResponse
      */
     public function updateAnalysisConditionFavorite($request)
     {
@@ -15572,59 +19827,74 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 审批
-     *  *
-     * @param UpdateAuditRequest $request UpdateAuditRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Approval.
      *
-     * @return UpdateAuditResponse UpdateAuditResponse
+     * @param request - UpdateAuditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAuditResponse
+     *
+     * @param UpdateAuditRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateAuditResponse
      */
     public function updateAuditWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->auditMsg)) {
-            $query['auditMsg'] = $request->auditMsg;
+
+        if (null !== $request->auditMsg) {
+            @$query['auditMsg'] = $request->auditMsg;
         }
-        if (!Utils::isUnset($request->auditRelationType)) {
-            $query['auditRelationType'] = $request->auditRelationType;
+
+        if (null !== $request->auditRelationType) {
+            @$query['auditRelationType'] = $request->auditRelationType;
         }
-        if (!Utils::isUnset($request->auditStatus)) {
-            $query['auditStatus'] = $request->auditStatus;
+
+        if (null !== $request->auditStatus) {
+            @$query['auditStatus'] = $request->auditStatus;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAudit',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAudit',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateAuditResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 审批
-     *  *
-     * @param UpdateAuditRequest $request UpdateAuditRequest
+     * Approval.
      *
-     * @return UpdateAuditResponse UpdateAuditResponse
+     * @param request - UpdateAuditRequest
+     *
+     * @returns UpdateAuditResponse
+     *
+     * @param UpdateAuditRequest $request
+     *
+     * @return UpdateAuditResponse
      */
     public function updateAudit($request)
     {
@@ -15634,65 +19904,82 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 修改授权策略
-     *  *
-     * @param UpdateAuthRuleRequest $request UpdateAuthRuleRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Modify Authorization Policy.
      *
-     * @return UpdateAuthRuleResponse UpdateAuthRuleResponse
+     * @param request - UpdateAuthRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAuthRuleResponse
+     *
+     * @param UpdateAuthRuleRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateAuthRuleResponse
      */
     public function updateAuthRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->consoleRuleId)) {
-            $query['consoleRuleId'] = $request->consoleRuleId;
+
+        if (null !== $request->consoleRuleId) {
+            @$query['consoleRuleId'] = $request->consoleRuleId;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleActions)) {
-            $query['ruleActions'] = $request->ruleActions;
+
+        if (null !== $request->ruleActions) {
+            @$query['ruleActions'] = $request->ruleActions;
         }
-        if (!Utils::isUnset($request->ruleExpressions)) {
-            $query['ruleExpressions'] = $request->ruleExpressions;
+
+        if (null !== $request->ruleExpressions) {
+            @$query['ruleExpressions'] = $request->ruleExpressions;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['ruleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['ruleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleVersionId)) {
-            $query['ruleVersionId'] = $request->ruleVersionId;
+
+        if (null !== $request->ruleVersionId) {
+            @$query['ruleVersionId'] = $request->ruleVersionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAuthRule',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAuthRule',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateAuthRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改授权策略
-     *  *
-     * @param UpdateAuthRuleRequest $request UpdateAuthRuleRequest
+     * Modify Authorization Policy.
      *
-     * @return UpdateAuthRuleResponse UpdateAuthRuleResponse
+     * @param request - UpdateAuthRuleRequest
+     *
+     * @returns UpdateAuthRuleResponse
+     *
+     * @param UpdateAuthRuleRequest $request
+     *
+     * @return UpdateAuthRuleResponse
      */
     public function updateAuthRule($request)
     {
@@ -15702,53 +19989,66 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 编辑旁路事件
-     *  *
-     * @param UpdateByPassShuntEventRequest $request UpdateByPassShuntEventRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Edit Bypass Event.
      *
-     * @return UpdateByPassShuntEventResponse UpdateByPassShuntEventResponse
+     * @param request - UpdateByPassShuntEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateByPassShuntEventResponse
+     *
+     * @param UpdateByPassShuntEventRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateByPassShuntEventResponse
      */
     public function updateByPassShuntEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['eventId'] = $request->eventId;
+
+        if (null !== $request->eventId) {
+            @$query['eventId'] = $request->eventId;
         }
-        if (!Utils::isUnset($request->eventName)) {
-            $query['eventName'] = $request->eventName;
+
+        if (null !== $request->eventName) {
+            @$query['eventName'] = $request->eventName;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateByPassShuntEvent',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateByPassShuntEvent',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateByPassShuntEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑旁路事件
-     *  *
-     * @param UpdateByPassShuntEventRequest $request UpdateByPassShuntEventRequest
+     * Edit Bypass Event.
      *
-     * @return UpdateByPassShuntEventResponse UpdateByPassShuntEventResponse
+     * @param request - UpdateByPassShuntEventRequest
+     *
+     * @returns UpdateByPassShuntEventResponse
+     *
+     * @param UpdateByPassShuntEventRequest $request
+     *
+     * @return UpdateByPassShuntEventResponse
      */
     public function updateByPassShuntEvent($request)
     {
@@ -15758,62 +20058,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 修改数据源
-     *  *
-     * @param UpdateDataSourceRequest $request UpdateDataSourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modify Data Source.
      *
-     * @return UpdateDataSourceResponse UpdateDataSourceResponse
+     * @param request - UpdateDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataSourceResponse
+     *
+     * @param UpdateDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDataSourceResponse
      */
     public function updateDataSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->ossKey)) {
-            $query['ossKey'] = $request->ossKey;
+
+        if (null !== $request->ossKey) {
+            @$query['ossKey'] = $request->ossKey;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDataSource',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDataSource',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改数据源
-     *  *
-     * @param UpdateDataSourceRequest $request UpdateDataSourceRequest
+     * Modify Data Source.
      *
-     * @return UpdateDataSourceResponse UpdateDataSourceResponse
+     * @param request - UpdateDataSourceRequest
+     *
+     * @returns UpdateDataSourceResponse
+     *
+     * @param UpdateDataSourceRequest $request
+     *
+     * @return UpdateDataSourceResponse
      */
     public function updateDataSource($request)
     {
@@ -15823,77 +20139,98 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 自定义查询变量修改
-     *  *
-     * @param UpdateQueryVariableRequest $request UpdateQueryVariableRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Modify Custom Query Variable.
      *
-     * @return UpdateQueryVariableResponse UpdateQueryVariableResponse
+     * @param request - UpdateQueryVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateQueryVariableResponse
+     *
+     * @param UpdateQueryVariableRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateQueryVariableResponse
      */
     public function updateQueryVariableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->dataSourceCode)) {
-            $query['dataSourceCode'] = $request->dataSourceCode;
+
+        if (null !== $request->dataSourceCode) {
+            @$query['dataSourceCode'] = $request->dataSourceCode;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->expression)) {
-            $query['expression'] = $request->expression;
+
+        if (null !== $request->expression) {
+            @$query['expression'] = $request->expression;
         }
-        if (!Utils::isUnset($request->expressionTitle)) {
-            $query['expressionTitle'] = $request->expressionTitle;
+
+        if (null !== $request->expressionTitle) {
+            @$query['expressionTitle'] = $request->expressionTitle;
         }
-        if (!Utils::isUnset($request->expressionVariable)) {
-            $query['expressionVariable'] = $request->expressionVariable;
+
+        if (null !== $request->expressionVariable) {
+            @$query['expressionVariable'] = $request->expressionVariable;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->outlier)) {
-            $query['outlier'] = $request->outlier;
+
+        if (null !== $request->outlier) {
+            @$query['outlier'] = $request->outlier;
         }
-        if (!Utils::isUnset($request->outputs)) {
-            $query['outputs'] = $request->outputs;
+
+        if (null !== $request->outputs) {
+            @$query['outputs'] = $request->outputs;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateQueryVariable',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateQueryVariable',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateQueryVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 自定义查询变量修改
-     *  *
-     * @param UpdateQueryVariableRequest $request UpdateQueryVariableRequest
+     * Modify Custom Query Variable.
      *
-     * @return UpdateQueryVariableResponse UpdateQueryVariableResponse
+     * @param request - UpdateQueryVariableRequest
+     *
+     * @returns UpdateQueryVariableResponse
+     *
+     * @param UpdateQueryVariableRequest $request
+     *
+     * @return UpdateQueryVariableResponse
      */
     public function updateQueryVariable($request)
     {
@@ -15903,77 +20240,106 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 更新策略
-     *  *
-     * @param UpdateRuleRequest $request UpdateRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Update Policy.
      *
-     * @return UpdateRuleResponse UpdateRuleResponse
+     * @param request - UpdateRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRuleResponse
+     *
+     * @param UpdateRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateRuleResponse
      */
     public function updateRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->consoleRuleId)) {
-            $query['consoleRuleId'] = $request->consoleRuleId;
+
+        if (null !== $request->consoleRuleId) {
+            @$query['consoleRuleId'] = $request->consoleRuleId;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->logicExpression)) {
-            $query['logicExpression'] = $request->logicExpression;
+
+        if (null !== $request->logicExpression) {
+            @$query['logicExpression'] = $request->logicExpression;
         }
-        if (!Utils::isUnset($request->memo)) {
-            $query['memo'] = $request->memo;
+
+        if (null !== $request->memo) {
+            @$query['memo'] = $request->memo;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleActions)) {
-            $query['ruleActions'] = $request->ruleActions;
+
+        if (null !== $request->ruleActions) {
+            @$query['ruleActions'] = $request->ruleActions;
         }
-        if (!Utils::isUnset($request->ruleExpressions)) {
-            $query['ruleExpressions'] = $request->ruleExpressions;
+
+        if (null !== $request->ruleBody) {
+            @$query['ruleBody'] = $request->ruleBody;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['ruleId'] = $request->ruleId;
+
+        if (null !== $request->ruleExpressions) {
+            @$query['ruleExpressions'] = $request->ruleExpressions;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['ruleName'] = $request->ruleName;
+
+        if (null !== $request->ruleId) {
+            @$query['ruleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleStatus)) {
-            $query['ruleStatus'] = $request->ruleStatus;
+
+        if (null !== $request->ruleName) {
+            @$query['ruleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->ruleVersionId)) {
-            $query['ruleVersionId'] = $request->ruleVersionId;
+
+        if (null !== $request->ruleStatus) {
+            @$query['ruleStatus'] = $request->ruleStatus;
         }
+
+        if (null !== $request->ruleType) {
+            @$query['ruleType'] = $request->ruleType;
+        }
+
+        if (null !== $request->ruleVersionId) {
+            @$query['ruleVersionId'] = $request->ruleVersionId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRule',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRule',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新策略
-     *  *
-     * @param UpdateRuleRequest $request UpdateRuleRequest
+     * Update Policy.
      *
-     * @return UpdateRuleResponse UpdateRuleResponse
+     * @param request - UpdateRuleRequest
+     *
+     * @returns UpdateRuleResponse
+     *
+     * @param UpdateRuleRequest $request
+     *
+     * @return UpdateRuleResponse
      */
     public function updateRule($request)
     {
@@ -15983,62 +20349,78 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 更新策略基础信息
-     *  *
-     * @param UpdateRuleBaseRequest $request UpdateRuleBaseRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Update Basic Policy Information.
      *
-     * @return UpdateRuleBaseResponse UpdateRuleBaseResponse
+     * @param request - UpdateRuleBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRuleBaseResponse
+     *
+     * @param UpdateRuleBaseRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateRuleBaseResponse
      */
     public function updateRuleBaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->consoleRuleId)) {
-            $query['consoleRuleId'] = $request->consoleRuleId;
+
+        if (null !== $request->consoleRuleId) {
+            @$query['consoleRuleId'] = $request->consoleRuleId;
         }
-        if (!Utils::isUnset($request->eventCode)) {
-            $query['eventCode'] = $request->eventCode;
+
+        if (null !== $request->eventCode) {
+            @$query['eventCode'] = $request->eventCode;
         }
-        if (!Utils::isUnset($request->memo)) {
-            $query['memo'] = $request->memo;
+
+        if (null !== $request->memo) {
+            @$query['memo'] = $request->memo;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['ruleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['ruleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['ruleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['ruleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRuleBase',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRuleBase',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateRuleBaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新策略基础信息
-     *  *
-     * @param UpdateRuleBaseRequest $request UpdateRuleBaseRequest
+     * Update Basic Policy Information.
      *
-     * @return UpdateRuleBaseResponse UpdateRuleBaseResponse
+     * @param request - UpdateRuleBaseRequest
+     *
+     * @returns UpdateRuleBaseResponse
+     *
+     * @param UpdateRuleBaseRequest $request
+     *
+     * @return UpdateRuleBaseResponse
      */
     public function updateRuleBase($request)
     {
@@ -16048,56 +20430,70 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 批量修改样本
-     *  *
-     * @param UpdateSampleBatchRequest $request UpdateSampleBatchRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Batch Update Samples.
      *
-     * @return UpdateSampleBatchResponse UpdateSampleBatchResponse
+     * @param request - UpdateSampleBatchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSampleBatchResponse
+     *
+     * @param UpdateSampleBatchRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateSampleBatchResponse
      */
     public function updateSampleBatchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->ids)) {
-            $query['ids'] = $request->ids;
+
+        if (null !== $request->ids) {
+            @$query['ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->regId)) {
-            $query['regId'] = $request->regId;
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->versions)) {
-            $query['versions'] = $request->versions;
+
+        if (null !== $request->versions) {
+            @$query['versions'] = $request->versions;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSampleBatch',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSampleBatch',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateSampleBatchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量修改样本
-     *  *
-     * @param UpdateSampleBatchRequest $request UpdateSampleBatchRequest
+     * Batch Update Samples.
      *
-     * @return UpdateSampleBatchResponse UpdateSampleBatchResponse
+     * @param request - UpdateSampleBatchRequest
+     *
+     * @returns UpdateSampleBatchResponse
+     *
+     * @param UpdateSampleBatchRequest $request
+     *
+     * @return UpdateSampleBatchResponse
      */
     public function updateSampleBatch($request)
     {
@@ -16107,58 +20503,83 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * @summary 单用户API创建样本
-     *  *
-     * @param UploadSampleApiRequest $request UploadSampleApiRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Sample Inspection.
      *
-     * @return UploadSampleApiResponse UploadSampleApiResponse
+     * @param request - UploadFileCheckRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadFileCheckResponse
+     *
+     * @param UploadFileCheckRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UploadFileCheckResponse
      */
-    public function uploadSampleApiWithOptions($request, $runtime)
+    public function uploadFileCheckWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataType)) {
-            $query['DataType'] = $request->dataType;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->dataValue)) {
-            $query['DataValue'] = $request->dataValue;
+
+        if (null !== $request->batchName) {
+            @$query['batchName'] = $request->batchName;
         }
-        if (!Utils::isUnset($request->sampleType)) {
-            $query['SampleType'] = $request->sampleType;
+
+        if (null !== $request->dataType) {
+            @$query['dataType'] = $request->dataType;
         }
-        if (!Utils::isUnset($request->service)) {
-            $query['Service'] = $request->service;
+
+        if (null !== $request->ossFileName) {
+            @$query['ossFileName'] = $request->ossFileName;
         }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        if (null !== $request->sampleTagType) {
+            @$query['sampleTagType'] = $request->sampleTagType;
+        }
+
+        if (null !== $request->serviceList) {
+            @$query['serviceList'] = $request->serviceList;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UploadSampleApi',
-            'version'     => '2021-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadFileCheck',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
-        return UploadSampleApiResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UploadFileCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 单用户API创建样本
-     *  *
-     * @param UploadSampleApiRequest $request UploadSampleApiRequest
+     * Sample Inspection.
      *
-     * @return UploadSampleApiResponse UploadSampleApiResponse
+     * @param request - UploadFileCheckRequest
+     *
+     * @returns UploadFileCheckResponse
+     *
+     * @param UploadFileCheckRequest $request
+     *
+     * @return UploadFileCheckResponse
      */
-    public function uploadSampleApi($request)
+    public function uploadFileCheck($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->uploadSampleApiWithOptions($request, $runtime);
+        return $this->uploadFileCheckWithOptions($request, $runtime);
     }
 }

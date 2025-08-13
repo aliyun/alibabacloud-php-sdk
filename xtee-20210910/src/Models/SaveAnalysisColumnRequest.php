@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveAnalysisColumnRequest extends Model
 {
@@ -14,37 +14,36 @@ class SaveAnalysisColumnRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $columns;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regId;
     protected $_name = [
-        'lang'    => 'Lang',
+        'lang' => 'Lang',
         'columns' => 'columns',
-        'regId'   => 'regId',
+        'regId' => 'regId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->columns) {
             $res['columns'] = $this->columns;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
@@ -52,20 +51,22 @@ class SaveAnalysisColumnRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveAnalysisColumnRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['columns'])) {
             $model->columns = $map['columns'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }

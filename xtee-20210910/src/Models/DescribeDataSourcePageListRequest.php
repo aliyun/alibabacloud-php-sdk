@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDataSourcePageListRequest extends Model
 {
@@ -43,40 +43,47 @@ class DescribeDataSourcePageListRequest extends Model
      */
     public $type;
     protected $_name = [
-        'lang'        => 'Lang',
-        'sourceIp'    => 'SourceIp',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
         'currentPage' => 'currentPage',
-        'name'        => 'name',
-        'pageSize'    => 'pageSize',
-        'regId'       => 'regId',
-        'type'        => 'type',
+        'name' => 'name',
+        'pageSize' => 'pageSize',
+        'regId' => 'regId',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
+
         if (null !== $this->currentPage) {
             $res['currentPage'] = $this->currentPage;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -84,32 +91,38 @@ class DescribeDataSourcePageListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDataSourcePageListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
+
         if (isset($map['currentPage'])) {
             $model->currentPage = $map['currentPage'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

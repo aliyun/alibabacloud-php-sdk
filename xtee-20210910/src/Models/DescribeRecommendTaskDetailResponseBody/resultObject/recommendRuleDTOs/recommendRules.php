@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeRecommendTaskDetailResponseBody\resultObject\recommendRuleDTOs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class recommendRules extends Model
 {
@@ -23,24 +23,27 @@ class recommendRules extends Model
      */
     public $right;
     protected $_name = [
-        'left'     => 'left',
+        'left' => 'left',
         'operator' => 'operator',
-        'right'    => 'right',
+        'right' => 'right',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->left) {
             $res['left'] = $this->left;
         }
+
         if (null !== $this->operator) {
             $res['operator'] = $this->operator;
         }
+
         if (null !== $this->right) {
             $res['right'] = $this->right;
         }
@@ -48,20 +51,22 @@ class recommendRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recommendRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['left'])) {
             $model->left = $map['left'];
         }
+
         if (isset($map['operator'])) {
             $model->operator = $map['operator'];
         }
+
         if (isset($map['right'])) {
             $model->right = $map['right'];
         }

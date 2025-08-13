@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeTemplatePageListRequest extends Model
 {
@@ -53,48 +53,57 @@ class DescribeTemplatePageListRequest extends Model
      */
     public $templateType;
     protected $_name = [
-        'lang'               => 'Lang',
-        'currentPage'        => 'currentPage',
-        'eventCodes'         => 'eventCodes',
-        'pageSize'           => 'pageSize',
-        'regId'              => 'regId',
-        'templateName'       => 'templateName',
+        'lang' => 'Lang',
+        'currentPage' => 'currentPage',
+        'eventCodes' => 'eventCodes',
+        'pageSize' => 'pageSize',
+        'regId' => 'regId',
+        'templateName' => 'templateName',
         'templateSearchItem' => 'templateSearchItem',
-        'templateStatus'     => 'templateStatus',
-        'templateType'       => 'templateType',
+        'templateStatus' => 'templateStatus',
+        'templateType' => 'templateType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->currentPage) {
             $res['currentPage'] = $this->currentPage;
         }
+
         if (null !== $this->eventCodes) {
             $res['eventCodes'] = $this->eventCodes;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->templateName) {
             $res['templateName'] = $this->templateName;
         }
+
         if (null !== $this->templateSearchItem) {
             $res['templateSearchItem'] = $this->templateSearchItem;
         }
+
         if (null !== $this->templateStatus) {
             $res['templateStatus'] = $this->templateStatus;
         }
+
         if (null !== $this->templateType) {
             $res['templateType'] = $this->templateType;
         }
@@ -102,38 +111,46 @@ class DescribeTemplatePageListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTemplatePageListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['currentPage'])) {
             $model->currentPage = $map['currentPage'];
         }
+
         if (isset($map['eventCodes'])) {
             $model->eventCodes = $map['eventCodes'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['templateName'])) {
             $model->templateName = $map['templateName'];
         }
+
         if (isset($map['templateSearchItem'])) {
             $model->templateSearchItem = $map['templateSearchItem'];
         }
+
         if (isset($map['templateStatus'])) {
             $model->templateStatus = $map['templateStatus'];
         }
+
         if (isset($map['templateType'])) {
             $model->templateType = $map['templateType'];
         }

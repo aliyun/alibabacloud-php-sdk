@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryAuthRuleDetailByRuleIdRequest extends Model
 {
@@ -19,8 +19,6 @@ class QueryAuthRuleDetailByRuleIdRequest extends Model
     public $consoleRuleId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regId;
@@ -35,32 +33,37 @@ class QueryAuthRuleDetailByRuleIdRequest extends Model
      */
     public $ruleVersionId;
     protected $_name = [
-        'lang'          => 'Lang',
+        'lang' => 'Lang',
         'consoleRuleId' => 'consoleRuleId',
-        'regId'         => 'regId',
-        'ruleId'        => 'ruleId',
+        'regId' => 'regId',
+        'ruleId' => 'ruleId',
         'ruleVersionId' => 'ruleVersionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->consoleRuleId) {
             $res['consoleRuleId'] = $this->consoleRuleId;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->ruleId) {
             $res['ruleId'] = $this->ruleId;
         }
+
         if (null !== $this->ruleVersionId) {
             $res['ruleVersionId'] = $this->ruleVersionId;
         }
@@ -68,26 +71,30 @@ class QueryAuthRuleDetailByRuleIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryAuthRuleDetailByRuleIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['consoleRuleId'])) {
             $model->consoleRuleId = $map['consoleRuleId'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['ruleId'])) {
             $model->ruleId = $map['ruleId'];
         }
+
         if (isset($map['ruleVersionId'])) {
             $model->ruleVersionId = $map['ruleVersionId'];
         }

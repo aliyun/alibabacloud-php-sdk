@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateRuleBaseRequest extends Model
 {
@@ -43,40 +43,47 @@ class UpdateRuleBaseRequest extends Model
      */
     public $ruleName;
     protected $_name = [
-        'lang'          => 'Lang',
+        'lang' => 'Lang',
         'consoleRuleId' => 'consoleRuleId',
-        'eventCode'     => 'eventCode',
-        'memo'          => 'memo',
-        'regId'         => 'regId',
-        'ruleId'        => 'ruleId',
-        'ruleName'      => 'ruleName',
+        'eventCode' => 'eventCode',
+        'memo' => 'memo',
+        'regId' => 'regId',
+        'ruleId' => 'ruleId',
+        'ruleName' => 'ruleName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->consoleRuleId) {
             $res['consoleRuleId'] = $this->consoleRuleId;
         }
+
         if (null !== $this->eventCode) {
             $res['eventCode'] = $this->eventCode;
         }
+
         if (null !== $this->memo) {
             $res['memo'] = $this->memo;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->ruleId) {
             $res['ruleId'] = $this->ruleId;
         }
+
         if (null !== $this->ruleName) {
             $res['ruleName'] = $this->ruleName;
         }
@@ -84,32 +91,38 @@ class UpdateRuleBaseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateRuleBaseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['consoleRuleId'])) {
             $model->consoleRuleId = $map['consoleRuleId'];
         }
+
         if (isset($map['eventCode'])) {
             $model->eventCode = $map['eventCode'];
         }
+
         if (isset($map['memo'])) {
             $model->memo = $map['memo'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['ruleId'])) {
             $model->ruleId = $map['ruleId'];
         }
+
         if (isset($map['ruleName'])) {
             $model->ruleName = $map['ruleName'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAuditConfigRequest extends Model
 {
@@ -23,24 +23,27 @@ class DescribeAuditConfigRequest extends Model
      */
     public $regId;
     protected $_name = [
-        'lang'              => 'Lang',
+        'lang' => 'Lang',
         'auditRelationType' => 'auditRelationType',
-        'regId'             => 'regId',
+        'regId' => 'regId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->auditRelationType) {
             $res['auditRelationType'] = $this->auditRelationType;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
@@ -48,20 +51,22 @@ class DescribeAuditConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAuditConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['auditRelationType'])) {
             $model->auditRelationType = $map['auditRelationType'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }

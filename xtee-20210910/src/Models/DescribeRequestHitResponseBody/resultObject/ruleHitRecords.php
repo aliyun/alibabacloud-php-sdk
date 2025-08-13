@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeRequestHitResponseBody\resultObject;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ruleHitRecords extends Model
 {
@@ -48,44 +48,52 @@ class ruleHitRecords extends Model
      */
     public $ruleStatus;
     protected $_name = [
-        'cost'           => 'cost',
-        'hitSuccessful'  => 'hitSuccessful',
-        'isShowDetail'   => 'isShowDetail',
-        'order'          => 'order',
-        'ruleId'         => 'ruleId',
-        'ruleName'       => 'ruleName',
+        'cost' => 'cost',
+        'hitSuccessful' => 'hitSuccessful',
+        'isShowDetail' => 'isShowDetail',
+        'order' => 'order',
+        'ruleId' => 'ruleId',
+        'ruleName' => 'ruleName',
         'ruleSnapshotId' => 'ruleSnapshotId',
-        'ruleStatus'     => 'ruleStatus',
+        'ruleStatus' => 'ruleStatus',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cost) {
             $res['cost'] = $this->cost;
         }
+
         if (null !== $this->hitSuccessful) {
             $res['hitSuccessful'] = $this->hitSuccessful;
         }
+
         if (null !== $this->isShowDetail) {
             $res['isShowDetail'] = $this->isShowDetail;
         }
+
         if (null !== $this->order) {
             $res['order'] = $this->order;
         }
+
         if (null !== $this->ruleId) {
             $res['ruleId'] = $this->ruleId;
         }
+
         if (null !== $this->ruleName) {
             $res['ruleName'] = $this->ruleName;
         }
+
         if (null !== $this->ruleSnapshotId) {
             $res['ruleSnapshotId'] = $this->ruleSnapshotId;
         }
+
         if (null !== $this->ruleStatus) {
             $res['ruleStatus'] = $this->ruleStatus;
         }
@@ -93,35 +101,42 @@ class ruleHitRecords extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleHitRecords
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cost'])) {
             $model->cost = $map['cost'];
         }
+
         if (isset($map['hitSuccessful'])) {
             $model->hitSuccessful = $map['hitSuccessful'];
         }
+
         if (isset($map['isShowDetail'])) {
             $model->isShowDetail = $map['isShowDetail'];
         }
+
         if (isset($map['order'])) {
             $model->order = $map['order'];
         }
+
         if (isset($map['ruleId'])) {
             $model->ruleId = $map['ruleId'];
         }
+
         if (isset($map['ruleName'])) {
             $model->ruleName = $map['ruleName'];
         }
+
         if (isset($map['ruleSnapshotId'])) {
             $model->ruleSnapshotId = $map['ruleSnapshotId'];
         }
+
         if (isset($map['ruleStatus'])) {
             $model->ruleStatus = $map['ruleStatus'];
         }

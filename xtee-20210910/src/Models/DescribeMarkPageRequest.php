@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeMarkPageRequest extends Model
 {
@@ -48,44 +48,52 @@ class DescribeMarkPageRequest extends Model
      */
     public $taskLogId;
     protected $_name = [
-        'lang'        => 'Lang',
+        'lang' => 'Lang',
         'currentPage' => 'currentPage',
-        'direction'   => 'direction',
-        'isPage'      => 'isPage',
-        'order'       => 'order',
-        'pageSize'    => 'pageSize',
-        'regId'       => 'regId',
-        'taskLogId'   => 'taskLogId',
+        'direction' => 'direction',
+        'isPage' => 'isPage',
+        'order' => 'order',
+        'pageSize' => 'pageSize',
+        'regId' => 'regId',
+        'taskLogId' => 'taskLogId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->currentPage) {
             $res['currentPage'] = $this->currentPage;
         }
+
         if (null !== $this->direction) {
             $res['direction'] = $this->direction;
         }
+
         if (null !== $this->isPage) {
             $res['isPage'] = $this->isPage;
         }
+
         if (null !== $this->order) {
             $res['order'] = $this->order;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->taskLogId) {
             $res['taskLogId'] = $this->taskLogId;
         }
@@ -93,35 +101,42 @@ class DescribeMarkPageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMarkPageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['currentPage'])) {
             $model->currentPage = $map['currentPage'];
         }
+
         if (isset($map['direction'])) {
             $model->direction = $map['direction'];
         }
+
         if (isset($map['isPage'])) {
             $model->isPage = $map['isPage'];
         }
+
         if (isset($map['order'])) {
             $model->order = $map['order'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['taskLogId'])) {
             $model->taskLogId = $map['taskLogId'];
         }

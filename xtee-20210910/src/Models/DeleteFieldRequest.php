@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteFieldRequest extends Model
 {
@@ -24,34 +24,36 @@ class DeleteFieldRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regId;
     protected $_name = [
-        'lang'  => 'Lang',
-        'id'    => 'id',
-        'name'  => 'name',
+        'lang' => 'Lang',
+        'id' => 'id',
+        'name' => 'name',
         'regId' => 'regId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
@@ -59,23 +61,26 @@ class DeleteFieldRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteFieldRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }

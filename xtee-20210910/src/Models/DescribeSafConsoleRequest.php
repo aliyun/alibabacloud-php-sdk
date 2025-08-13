@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSafConsoleRequest extends Model
 {
@@ -19,30 +19,31 @@ class DescribeSafConsoleRequest extends Model
     public $content;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $service;
     protected $_name = [
-        'lang'    => 'Lang',
+        'lang' => 'Lang',
         'content' => 'content',
         'service' => 'service',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->service) {
             $res['service'] = $this->service;
         }
@@ -50,20 +51,22 @@ class DescribeSafConsoleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSafConsoleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['service'])) {
             $model->service = $map['service'];
         }

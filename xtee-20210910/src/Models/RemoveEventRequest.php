@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveEventRequest extends Model
 {
@@ -38,36 +38,42 @@ class RemoveEventRequest extends Model
      */
     public $templateCode;
     protected $_name = [
-        'lang'         => 'Lang',
-        'createType'   => 'createType',
-        'eventCode'    => 'eventCode',
-        'id'           => 'id',
-        'regId'        => 'regId',
+        'lang' => 'Lang',
+        'createType' => 'createType',
+        'eventCode' => 'eventCode',
+        'id' => 'id',
+        'regId' => 'regId',
         'templateCode' => 'templateCode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->createType) {
             $res['createType'] = $this->createType;
         }
+
         if (null !== $this->eventCode) {
             $res['eventCode'] = $this->eventCode;
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
+
         if (null !== $this->templateCode) {
             $res['templateCode'] = $this->templateCode;
         }
@@ -75,29 +81,34 @@ class RemoveEventRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveEventRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['createType'])) {
             $model->createType = $map['createType'];
         }
+
         if (isset($map['eventCode'])) {
             $model->eventCode = $map['eventCode'];
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
+
         if (isset($map['templateCode'])) {
             $model->templateCode = $map['templateCode'];
         }

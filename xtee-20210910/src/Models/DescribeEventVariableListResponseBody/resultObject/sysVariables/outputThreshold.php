@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeEventVariableListResponseBody\resultObject\sysVariables;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class outputThreshold extends Model
 {
@@ -24,14 +24,16 @@ class outputThreshold extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxValue) {
             $res['maxValue'] = $this->maxValue;
         }
+
         if (null !== $this->minValue) {
             $res['minValue'] = $this->minValue;
         }
@@ -39,17 +41,18 @@ class outputThreshold extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return outputThreshold
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxValue'])) {
             $model->maxValue = $map['maxValue'];
         }
+
         if (isset($map['minValue'])) {
             $model->minValue = $map['minValue'];
         }

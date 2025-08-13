@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLoanExecListRequest extends Model
 {
@@ -43,40 +43,47 @@ class DescribeLoanExecListRequest extends Model
      */
     public $regId;
     protected $_name = [
-        'lang'          => 'Lang',
-        'batchNo'       => 'batchNo',
-        'currentPage'   => 'currentPage',
-        'monitorObj'    => 'monitorObj',
+        'lang' => 'Lang',
+        'batchNo' => 'batchNo',
+        'currentPage' => 'currentPage',
+        'monitorObj' => 'monitorObj',
         'monitorStatus' => 'monitorStatus',
-        'pageSize'      => 'pageSize',
-        'regId'         => 'regId',
+        'pageSize' => 'pageSize',
+        'regId' => 'regId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->batchNo) {
             $res['batchNo'] = $this->batchNo;
         }
+
         if (null !== $this->currentPage) {
             $res['currentPage'] = $this->currentPage;
         }
+
         if (null !== $this->monitorObj) {
             $res['monitorObj'] = $this->monitorObj;
         }
+
         if (null !== $this->monitorStatus) {
             $res['monitorStatus'] = $this->monitorStatus;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
@@ -84,32 +91,38 @@ class DescribeLoanExecListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLoanExecListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['batchNo'])) {
             $model->batchNo = $map['batchNo'];
         }
+
         if (isset($map['currentPage'])) {
             $model->currentPage = $map['currentPage'];
         }
+
         if (isset($map['monitorObj'])) {
             $model->monitorObj = $map['monitorObj'];
         }
+
         if (isset($map['monitorStatus'])) {
             $model->monitorStatus = $map['monitorStatus'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
