@@ -63,7 +63,8 @@ class SubmitConvertImageToWordJobRequest extends Model
                 $res['ImageNames'] = [];
                 $n1 = 0;
                 foreach ($this->imageNames as $item1) {
-                    $res['ImageNames'][$n1++] = $item1;
+                    $res['ImageNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class SubmitConvertImageToWordJobRequest extends Model
                 $res['ImageUrls'] = [];
                 $n1 = 0;
                 foreach ($this->imageUrls as $item1) {
-                    $res['ImageUrls'][$n1++] = $item1;
+                    $res['ImageUrls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +108,8 @@ class SubmitConvertImageToWordJobRequest extends Model
                 $model->imageNames = [];
                 $n1 = 0;
                 foreach ($map['ImageNames'] as $item1) {
-                    $model->imageNames[$n1++] = $item1;
+                    $model->imageNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +119,8 @@ class SubmitConvertImageToWordJobRequest extends Model
                 $model->imageUrls = [];
                 $n1 = 0;
                 foreach ($map['ImageUrls'] as $item1) {
-                    $model->imageUrls[$n1++] = $item1;
+                    $model->imageUrls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

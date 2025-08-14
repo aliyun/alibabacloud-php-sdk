@@ -49,6 +49,11 @@ class SubmitDocParserJobRequest extends Model
     public $ossEndpoint;
 
     /**
+     * @var bool
+     */
+    public $outputHtmlTable;
+
+    /**
      * @var string
      */
     public $pageIndex;
@@ -61,6 +66,7 @@ class SubmitDocParserJobRequest extends Model
         'option' => 'Option',
         'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
+        'outputHtmlTable' => 'OutputHtmlTable',
         'pageIndex' => 'PageIndex',
     ];
 
@@ -102,6 +108,10 @@ class SubmitDocParserJobRequest extends Model
 
         if (null !== $this->ossEndpoint) {
             $res['OssEndpoint'] = $this->ossEndpoint;
+        }
+
+        if (null !== $this->outputHtmlTable) {
+            $res['OutputHtmlTable'] = $this->outputHtmlTable;
         }
 
         if (null !== $this->pageIndex) {
@@ -149,6 +159,10 @@ class SubmitDocParserJobRequest extends Model
 
         if (isset($map['OssEndpoint'])) {
             $model->ossEndpoint = $map['OssEndpoint'];
+        }
+
+        if (isset($map['OutputHtmlTable'])) {
+            $model->outputHtmlTable = $map['OutputHtmlTable'];
         }
 
         if (isset($map['PageIndex'])) {

@@ -56,7 +56,8 @@ class AyncTradeDocumentPackageExtractSmartAppRequest extends Model
                 $res['CustomExtractionRange'] = [];
                 $n1 = 0;
                 foreach ($this->customExtractionRange as $item1) {
-                    $res['CustomExtractionRange'][$n1++] = $item1;
+                    $res['CustomExtractionRange'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class AyncTradeDocumentPackageExtractSmartAppRequest extends Model
                 $model->customExtractionRange = [];
                 $n1 = 0;
                 foreach ($map['CustomExtractionRange'] as $item1) {
-                    $model->customExtractionRange[$n1++] = $item1;
+                    $model->customExtractionRange[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
