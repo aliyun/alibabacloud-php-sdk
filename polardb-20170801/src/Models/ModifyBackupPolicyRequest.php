@@ -5,13 +5,24 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyBackupPolicyRequest\advancedDataPolicies;
 
 class ModifyBackupPolicyRequest extends Model
 {
     /**
+     * @var advancedDataPolicies[]
+     */
+    public $advancedDataPolicies;
+
+    /**
      * @var string
      */
     public $backupFrequency;
+
+    /**
+     * @var string
+     */
+    public $backupPolicyLevel;
 
     /**
      * @var string
@@ -93,7 +104,9 @@ class ModifyBackupPolicyRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'advancedDataPolicies' => 'AdvancedDataPolicies',
         'backupFrequency' => 'BackupFrequency',
+        'backupPolicyLevel' => 'BackupPolicyLevel',
         'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
         'DBClusterId' => 'DBClusterId',
         'dataLevel1BackupFrequency' => 'DataLevel1BackupFrequency',
@@ -114,14 +127,32 @@ class ModifyBackupPolicyRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->advancedDataPolicies)) {
+            Model::validateArray($this->advancedDataPolicies);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->advancedDataPolicies) {
+            if (\is_array($this->advancedDataPolicies)) {
+                $res['AdvancedDataPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->advancedDataPolicies as $item1) {
+                    $res['AdvancedDataPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->backupFrequency) {
             $res['BackupFrequency'] = $this->backupFrequency;
+        }
+
+        if (null !== $this->backupPolicyLevel) {
+            $res['BackupPolicyLevel'] = $this->backupPolicyLevel;
         }
 
         if (null !== $this->backupRetentionPolicyOnClusterDeletion) {
@@ -199,8 +230,23 @@ class ModifyBackupPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdvancedDataPolicies'])) {
+            if (!empty($map['AdvancedDataPolicies'])) {
+                $model->advancedDataPolicies = [];
+                $n1 = 0;
+                foreach ($map['AdvancedDataPolicies'] as $item1) {
+                    $model->advancedDataPolicies[$n1] = advancedDataPolicies::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['BackupFrequency'])) {
             $model->backupFrequency = $map['BackupFrequency'];
+        }
+
+        if (isset($map['BackupPolicyLevel'])) {
+            $model->backupPolicyLevel = $map['BackupPolicyLevel'];
         }
 
         if (isset($map['BackupRetentionPolicyOnClusterDeletion'])) {

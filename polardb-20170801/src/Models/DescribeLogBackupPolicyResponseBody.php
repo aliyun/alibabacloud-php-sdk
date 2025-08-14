@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLogBackupPolicyResponseBody\advancedLogPolicies;
 
 class DescribeLogBackupPolicyResponseBody extends Model
 {
+    /**
+     * @var advancedLogPolicies
+     */
+    public $advancedLogPolicies;
+
     /**
      * @var int
      */
@@ -33,6 +39,7 @@ class DescribeLogBackupPolicyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'advancedLogPolicies' => 'AdvancedLogPolicies',
         'enableBackupLog' => 'EnableBackupLog',
         'logBackupAnotherRegionRegion' => 'LogBackupAnotherRegionRegion',
         'logBackupAnotherRegionRetentionPeriod' => 'LogBackupAnotherRegionRetentionPeriod',
@@ -42,12 +49,19 @@ class DescribeLogBackupPolicyResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->advancedLogPolicies) {
+            $this->advancedLogPolicies->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->advancedLogPolicies) {
+            $res['AdvancedLogPolicies'] = null !== $this->advancedLogPolicies ? $this->advancedLogPolicies->toArray($noStream) : $this->advancedLogPolicies;
+        }
+
         if (null !== $this->enableBackupLog) {
             $res['EnableBackupLog'] = $this->enableBackupLog;
         }
@@ -79,6 +93,10 @@ class DescribeLogBackupPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdvancedLogPolicies'])) {
+            $model->advancedLogPolicies = advancedLogPolicies::fromMap($map['AdvancedLogPolicies']);
+        }
+
         if (isset($map['EnableBackupLog'])) {
             $model->enableBackupLog = $map['EnableBackupLog'];
         }

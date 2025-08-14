@@ -233,6 +233,7 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAutoRenewAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyBackupPolicyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyBackupPolicyShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterAccessWhitelistRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterAccessWhitelistResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterAndNodesParametersRequest;
@@ -10429,22 +10430,36 @@ class Polardb extends OpenApiClient
      * @remarks
      * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
      *
-     * @param request - ModifyBackupPolicyRequest
+     * @param tmpReq - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyBackupPolicyResponse
      *
-     * @param ModifyBackupPolicyRequest $request
+     * @param ModifyBackupPolicyRequest $tmpReq
      * @param RuntimeOptions            $runtime
      *
      * @return ModifyBackupPolicyResponse
      */
-    public function modifyBackupPolicyWithOptions($request, $runtime)
+    public function modifyBackupPolicyWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ModifyBackupPolicyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->advancedDataPolicies) {
+            $request->advancedDataPoliciesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->advancedDataPolicies, 'AdvancedDataPolicies', 'json');
+        }
+
         $query = [];
+        if (null !== $request->advancedDataPoliciesShrink) {
+            @$query['AdvancedDataPolicies'] = $request->advancedDataPoliciesShrink;
+        }
+
         if (null !== $request->backupFrequency) {
             @$query['BackupFrequency'] = $request->backupFrequency;
+        }
+
+        if (null !== $request->backupPolicyLevel) {
+            @$query['BackupPolicyLevel'] = $request->backupPolicyLevel;
         }
 
         if (null !== $request->backupRetentionPolicyOnClusterDeletion) {

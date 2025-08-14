@@ -5,19 +5,13 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupPolicyResponseBody\advancedDataPolicies;
 
-class DescribeBackupPolicyResponseBody extends Model
+class ModifyBackupPolicyShrinkRequest extends Model
 {
-    /**
-     * @var advancedDataPolicies
-     */
-    public $advancedDataPolicies;
-
     /**
      * @var string
      */
-    public $advancedPolicyOption;
+    public $advancedDataPoliciesShrink;
 
     /**
      * @var string
@@ -33,6 +27,11 @@ class DescribeBackupPolicyResponseBody extends Model
      * @var string
      */
     public $backupRetentionPolicyOnClusterDeletion;
+
+    /**
+     * @var string
+     */
+    public $DBClusterId;
 
     /**
      * @var string
@@ -77,6 +76,16 @@ class DescribeBackupPolicyResponseBody extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
     public $preferredBackupPeriod;
 
     /**
@@ -87,18 +96,18 @@ class DescribeBackupPolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $preferredNextBackupTime;
+    public $resourceOwnerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $resourceOwnerId;
     protected $_name = [
-        'advancedDataPolicies' => 'AdvancedDataPolicies',
-        'advancedPolicyOption' => 'AdvancedPolicyOption',
+        'advancedDataPoliciesShrink' => 'AdvancedDataPolicies',
         'backupFrequency' => 'BackupFrequency',
         'backupPolicyLevel' => 'BackupPolicyLevel',
         'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
+        'DBClusterId' => 'DBClusterId',
         'dataLevel1BackupFrequency' => 'DataLevel1BackupFrequency',
         'dataLevel1BackupPeriod' => 'DataLevel1BackupPeriod',
         'dataLevel1BackupRetentionPeriod' => 'DataLevel1BackupRetentionPeriod',
@@ -107,29 +116,24 @@ class DescribeBackupPolicyResponseBody extends Model
         'dataLevel2BackupAnotherRegionRetentionPeriod' => 'DataLevel2BackupAnotherRegionRetentionPeriod',
         'dataLevel2BackupPeriod' => 'DataLevel2BackupPeriod',
         'dataLevel2BackupRetentionPeriod' => 'DataLevel2BackupRetentionPeriod',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'preferredBackupPeriod' => 'PreferredBackupPeriod',
         'preferredBackupTime' => 'PreferredBackupTime',
-        'preferredNextBackupTime' => 'PreferredNextBackupTime',
-        'requestId' => 'RequestId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
-        if (null !== $this->advancedDataPolicies) {
-            $this->advancedDataPolicies->validate();
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->advancedDataPolicies) {
-            $res['AdvancedDataPolicies'] = null !== $this->advancedDataPolicies ? $this->advancedDataPolicies->toArray($noStream) : $this->advancedDataPolicies;
-        }
-
-        if (null !== $this->advancedPolicyOption) {
-            $res['AdvancedPolicyOption'] = $this->advancedPolicyOption;
+        if (null !== $this->advancedDataPoliciesShrink) {
+            $res['AdvancedDataPolicies'] = $this->advancedDataPoliciesShrink;
         }
 
         if (null !== $this->backupFrequency) {
@@ -142,6 +146,10 @@ class DescribeBackupPolicyResponseBody extends Model
 
         if (null !== $this->backupRetentionPolicyOnClusterDeletion) {
             $res['BackupRetentionPolicyOnClusterDeletion'] = $this->backupRetentionPolicyOnClusterDeletion;
+        }
+
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
         }
 
         if (null !== $this->dataLevel1BackupFrequency) {
@@ -176,6 +184,14 @@ class DescribeBackupPolicyResponseBody extends Model
             $res['DataLevel2BackupRetentionPeriod'] = $this->dataLevel2BackupRetentionPeriod;
         }
 
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
         if (null !== $this->preferredBackupPeriod) {
             $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
         }
@@ -184,12 +200,12 @@ class DescribeBackupPolicyResponseBody extends Model
             $res['PreferredBackupTime'] = $this->preferredBackupTime;
         }
 
-        if (null !== $this->preferredNextBackupTime) {
-            $res['PreferredNextBackupTime'] = $this->preferredNextBackupTime;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
 
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -204,11 +220,7 @@ class DescribeBackupPolicyResponseBody extends Model
     {
         $model = new self();
         if (isset($map['AdvancedDataPolicies'])) {
-            $model->advancedDataPolicies = advancedDataPolicies::fromMap($map['AdvancedDataPolicies']);
-        }
-
-        if (isset($map['AdvancedPolicyOption'])) {
-            $model->advancedPolicyOption = $map['AdvancedPolicyOption'];
+            $model->advancedDataPoliciesShrink = $map['AdvancedDataPolicies'];
         }
 
         if (isset($map['BackupFrequency'])) {
@@ -221,6 +233,10 @@ class DescribeBackupPolicyResponseBody extends Model
 
         if (isset($map['BackupRetentionPolicyOnClusterDeletion'])) {
             $model->backupRetentionPolicyOnClusterDeletion = $map['BackupRetentionPolicyOnClusterDeletion'];
+        }
+
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
         }
 
         if (isset($map['DataLevel1BackupFrequency'])) {
@@ -255,6 +271,14 @@ class DescribeBackupPolicyResponseBody extends Model
             $model->dataLevel2BackupRetentionPeriod = $map['DataLevel2BackupRetentionPeriod'];
         }
 
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
         if (isset($map['PreferredBackupPeriod'])) {
             $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];
         }
@@ -263,12 +287,12 @@ class DescribeBackupPolicyResponseBody extends Model
             $model->preferredBackupTime = $map['PreferredBackupTime'];
         }
 
-        if (isset($map['PreferredNextBackupTime'])) {
-            $model->preferredNextBackupTime = $map['PreferredNextBackupTime'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
 
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;
