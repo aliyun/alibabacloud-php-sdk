@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallListResponseBody\natFirewallList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeNatFirewallListResponseBody extends Model
 {
     /**
-     * @description The NAT firewalls.
-     *
      * @var natFirewallList[]
      */
     public $natFirewallList;
 
     /**
-     * @description The request ID.
-     *
-     * @example 15FCCC52-1E23-57AE-B5EF-3E00A3******
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of NAT firewalls.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -39,23 +29,32 @@ class DescribeNatFirewallListResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->natFirewallList)) {
+            Model::validateArray($this->natFirewallList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->natFirewallList) {
-            $res['NatFirewallList'] = [];
-            if (null !== $this->natFirewallList && \is_array($this->natFirewallList)) {
-                $n = 0;
-                foreach ($this->natFirewallList as $item) {
-                    $res['NatFirewallList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->natFirewallList)) {
+                $res['NatFirewallList'] = [];
+                $n1 = 0;
+                foreach ($this->natFirewallList as $item1) {
+                    $res['NatFirewallList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -63,26 +62,29 @@ class DescribeNatFirewallListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNatFirewallListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NatFirewallList'])) {
             if (!empty($map['NatFirewallList'])) {
                 $model->natFirewallList = [];
-                $n = 0;
-                foreach ($map['NatFirewallList'] as $item) {
-                    $model->natFirewallList[$n++] = null !== $item ? natFirewallList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NatFirewallList'] as $item1) {
+                    $model->natFirewallList[$n1] = natFirewallList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

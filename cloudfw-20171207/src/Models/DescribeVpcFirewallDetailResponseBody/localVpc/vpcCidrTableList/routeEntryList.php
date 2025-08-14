@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDetailResponseBody\localVpc\vpcCidrTableList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class routeEntryList extends Model
 {
     /**
-     * @description The destination CIDR block of the local VPC.
-     *
-     * @example 192.168.XX.XX/24
-     *
      * @var string
      */
     public $destinationCidr;
 
     /**
-     * @description The instance ID of the next hop for the local VPC.
-     *
-     * @example vrt-m5eb5me6c3l5sezae****
-     *
      * @var string
      */
     public $nextHopInstanceId;
@@ -30,14 +22,18 @@ class routeEntryList extends Model
         'nextHopInstanceId' => 'NextHopInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationCidr) {
             $res['DestinationCidr'] = $this->destinationCidr;
         }
+
         if (null !== $this->nextHopInstanceId) {
             $res['NextHopInstanceId'] = $this->nextHopInstanceId;
         }
@@ -45,17 +41,18 @@ class routeEntryList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routeEntryList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationCidr'])) {
             $model->destinationCidr = $map['DestinationCidr'];
         }
+
         if (isset($map['NextHopInstanceId'])) {
             $model->nextHopInstanceId = $map['NextHopInstanceId'];
         }

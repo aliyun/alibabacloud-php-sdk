@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteInstanceMembersRequest extends Model
 {
     /**
-     * @description The UIDs of the members.
-     *
-     * This parameter is required.
-     *
-     * @example 1234123412341234
-     *
      * @var int[]
      */
     public $memberUids;
@@ -22,29 +16,47 @@ class DeleteInstanceMembersRequest extends Model
         'memberUids' => 'MemberUids',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->memberUids)) {
+            Model::validateArray($this->memberUids);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->memberUids) {
-            $res['MemberUids'] = $this->memberUids;
+            if (\is_array($this->memberUids)) {
+                $res['MemberUids'] = [];
+                $n1 = 0;
+                foreach ($this->memberUids as $item1) {
+                    $res['MemberUids'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteInstanceMembersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MemberUids'])) {
             if (!empty($map['MemberUids'])) {
-                $model->memberUids = $map['MemberUids'];
+                $model->memberUids = [];
+                $n1 = 0;
+                foreach ($map['MemberUids'] as $item1) {
+                    $model->memberUids[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

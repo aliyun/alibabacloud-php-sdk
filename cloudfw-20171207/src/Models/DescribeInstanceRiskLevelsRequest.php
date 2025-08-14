@@ -4,26 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceRiskLevelsRequest\instances;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceRiskLevelsRequest extends Model
 {
     /**
-     * @description The information about the instances.
-     *
      * @var instances[]
      */
     public $instances;
 
     /**
-     * @description The language of the content within the response. Valid values:
-     *
-     *   **zh** (default): Chinese
-     *   **en**: English
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
@@ -32,20 +23,28 @@ class DescribeInstanceRiskLevelsRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instances)) {
+            Model::validateArray($this->instances);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instances) {
-            $res['Instances'] = [];
-            if (null !== $this->instances && \is_array($this->instances)) {
-                $n = 0;
-                foreach ($this->instances as $item) {
-                    $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instances)) {
+                $res['Instances'] = [];
+                $n1 = 0;
+                foreach ($this->instances as $item1) {
+                    $res['Instances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -53,23 +52,25 @@ class DescribeInstanceRiskLevelsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceRiskLevelsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n = 0;
-                foreach ($map['Instances'] as $item) {
-                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Instances'] as $item1) {
+                    $model->instances[$n1] = instances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeNatFirewallPolicyPriorUsedResponseBody extends Model
 {
     /**
-     * @description The lowest priority for the access control policy.
-     *
-     * @example 28
-     *
      * @var int
      */
     public $end;
 
     /**
-     * @description The request ID.
-     *
-     * @example BCDF3907-1011-5504-B015-CC7603C0E6B6
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The highest priority for the access control policy.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $start;
@@ -40,17 +28,22 @@ class DescribeNatFirewallPolicyPriorUsedResponseBody extends Model
         'start' => 'Start',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->end) {
             $res['End'] = $this->end;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->start) {
             $res['Start'] = $this->start;
         }
@@ -58,20 +51,22 @@ class DescribeNatFirewallPolicyPriorUsedResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNatFirewallPolicyPriorUsedResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['End'])) {
             $model->end = $map['End'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
         }

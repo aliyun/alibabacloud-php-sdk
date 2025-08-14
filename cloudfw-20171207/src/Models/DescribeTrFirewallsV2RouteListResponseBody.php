@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallsV2RouteListResponseBody\firewallRouteDetailList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeTrFirewallsV2RouteListResponseBody extends Model
 {
     /**
-     * @description The route tables of Cloud Firewall.
-     *
      * @var firewallRouteDetailList[]
      */
     public $firewallRouteDetailList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example ABF190A2-B4D0-53F6-995A-5690A721F91C
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeTrFirewallsV2RouteListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->firewallRouteDetailList)) {
+            Model::validateArray($this->firewallRouteDetailList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->firewallRouteDetailList) {
-            $res['FirewallRouteDetailList'] = [];
-            if (null !== $this->firewallRouteDetailList && \is_array($this->firewallRouteDetailList)) {
-                $n = 0;
-                foreach ($this->firewallRouteDetailList as $item) {
-                    $res['FirewallRouteDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->firewallRouteDetailList)) {
+                $res['FirewallRouteDetailList'] = [];
+                $n1 = 0;
+                foreach ($this->firewallRouteDetailList as $item1) {
+                    $res['FirewallRouteDetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeTrFirewallsV2RouteListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTrFirewallsV2RouteListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FirewallRouteDetailList'])) {
             if (!empty($map['FirewallRouteDetailList'])) {
                 $model->firewallRouteDetailList = [];
-                $n = 0;
-                foreach ($map['FirewallRouteDetailList'] as $item) {
-                    $model->firewallRouteDetailList[$n++] = null !== $item ? firewallRouteDetailList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FirewallRouteDetailList'] as $item1) {
+                    $model->firewallRouteDetailList[$n1] = firewallRouteDetailList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

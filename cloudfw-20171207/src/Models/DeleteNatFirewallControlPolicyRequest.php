@@ -4,57 +4,26 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteNatFirewallControlPolicyRequest extends Model
 {
     /**
-     * @description The UUID of the access control policy.
-     *
-     * To delete an access control policy, you must provide the ID of the policy. You can call the DescribeNatFirewallControlPolicy operation to query the UUIDs of access control policies.
-     *
-     * This parameter is required.
-     *
-     * @example b6c8f905-2eb6-442a-ba35-9416e9dbb2c5
-     *
      * @var string
      */
     public $aclUuid;
 
     /**
-     * @description The direction of the traffic to which the access control policy applies.
-     *
-     * Valid values:
-     *
-     *   **out**: outbound traffic
-     *
-     * This parameter is required.
-     *
-     * @example out
-     *
      * @var string
      */
     public $direction;
 
     /**
-     * @description The language of the content within the response. Valid values:
-     *
-     *   **zh**: Chinese (default)
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The ID of the NAT gateway.
-     *
-     * This parameter is required.
-     *
-     * @example ngw-xxxxxx
-     *
      * @var string
      */
     public $natGatewayId;
@@ -65,20 +34,26 @@ class DeleteNatFirewallControlPolicyRequest extends Model
         'natGatewayId' => 'NatGatewayId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclUuid) {
             $res['AclUuid'] = $this->aclUuid;
         }
+
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
@@ -86,23 +61,26 @@ class DeleteNatFirewallControlPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteNatFirewallControlPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclUuid'])) {
             $model->aclUuid = $map['AclUuid'];
         }
+
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddPrivateDnsDomainNameResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example F0F82705-CFC7-5F83-86C8-A063892F****
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class AddPrivateDnsDomainNameResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class AddPrivateDnsDomainNameResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddPrivateDnsDomainNameResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

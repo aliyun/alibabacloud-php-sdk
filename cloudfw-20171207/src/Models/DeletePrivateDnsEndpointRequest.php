@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePrivateDnsEndpointRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example pd-12345
-     *
      * @var string
      */
     public $accessInstanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionNo;
@@ -30,14 +22,18 @@ class DeletePrivateDnsEndpointRequest extends Model
         'regionNo' => 'RegionNo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessInstanceId) {
             $res['AccessInstanceId'] = $this->accessInstanceId;
         }
+
         if (null !== $this->regionNo) {
             $res['RegionNo'] = $this->regionNo;
         }
@@ -45,17 +41,18 @@ class DeletePrivateDnsEndpointRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePrivateDnsEndpointRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessInstanceId'])) {
             $model->accessInstanceId = $map['AccessInstanceId'];
         }
+
         if (isset($map['RegionNo'])) {
             $model->regionNo = $map['RegionNo'];
         }

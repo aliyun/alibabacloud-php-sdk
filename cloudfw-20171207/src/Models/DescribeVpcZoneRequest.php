@@ -4,50 +4,26 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVpcZoneRequest extends Model
 {
     /**
-     * @description The environment. Valid values:
-     *
-     *   **VPC**
-     *   **TransitRouter**
-     *
-     * @example VPC
-     *
      * @var string
      */
     public $environment;
 
     /**
-     * @description The language of the content within the request and response. Valid values:
-     *
-     *   **zh** (default): Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The UID of the member in Cloud Firewall.
-     *
-     * @example 1415189284827022
-     *
      * @var string
      */
     public $memberUid;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionNo;
@@ -58,20 +34,26 @@ class DescribeVpcZoneRequest extends Model
         'regionNo' => 'RegionNo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->environment) {
             $res['Environment'] = $this->environment;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->memberUid) {
             $res['MemberUid'] = $this->memberUid;
         }
+
         if (null !== $this->regionNo) {
             $res['RegionNo'] = $this->regionNo;
         }
@@ -79,23 +61,26 @@ class DescribeVpcZoneRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVpcZoneRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Environment'])) {
             $model->environment = $map['Environment'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['MemberUid'])) {
             $model->memberUid = $map['MemberUid'];
         }
+
         if (isset($map['RegionNo'])) {
             $model->regionNo = $map['RegionNo'];
         }

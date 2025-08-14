@@ -4,103 +4,51 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePostpayTrafficDetailRequest extends Model
 {
     /**
-     * @description The page number. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The end of the time range to query. Specify a value in the YYYYMMDD format.
-     *
-     * This parameter is required.
-     *
-     * @example 20230130
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The language of the content within the request and response. Valid values:
-     *
-     *   **zh** (default): Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The field based on which you want to sort the query results. Valid values:
-     *
-     *   **resourceId**
-     *   **trafficDay**
-     *
-     * @example resourceId
-     *
      * @var string
      */
     public $order;
 
     /**
-     * @description The number of entries per page. Default value: 10. Maximum value: 50.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionNo;
 
     /**
-     * @description The instance ID or the IP address of the asset.
-     *
-     * @example 192.0.XX.XX
-     *
      * @var string
      */
     public $searchItem;
 
     /**
-     * @description The beginning of the time range to query. Specify a value in the YYYYMMDD format.
-     *
-     * This parameter is required.
-     *
-     * @example 20230101
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The traffic type. This parameter is required. Valid values:
-     *
-     *   **EIP_TRAFFIC**: traffic for the Internet firewall.
-     *   **NatGateway_TRAFFIC**: traffic for NAT firewalls.
-     *   **VPC_TRAFFIC**: traffic for virtual private cloud (VPC) firewalls.
-     *
-     * This parameter is required.
-     *
-     * @example EIP_TRAFFIC
-     *
      * @var string
      */
     public $trafficType;
@@ -116,35 +64,46 @@ class DescribePostpayTrafficDetailRequest extends Model
         'trafficType' => 'TrafficType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionNo) {
             $res['RegionNo'] = $this->regionNo;
         }
+
         if (null !== $this->searchItem) {
             $res['SearchItem'] = $this->searchItem;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->trafficType) {
             $res['TrafficType'] = $this->trafficType;
         }
@@ -152,38 +111,46 @@ class DescribePostpayTrafficDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePostpayTrafficDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionNo'])) {
             $model->regionNo = $map['RegionNo'];
         }
+
         if (isset($map['SearchItem'])) {
             $model->searchItem = $map['SearchItem'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TrafficType'])) {
             $model->trafficType = $map['TrafficType'];
         }

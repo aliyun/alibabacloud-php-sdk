@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddPrivateDnsDomainNameRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example cfw-xxx
-     *
      * @var string
      */
     public $accessInstanceId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $domainNameList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-shenzhen
-     *
      * @var string
      */
     public $regionNo;
@@ -38,17 +28,32 @@ class AddPrivateDnsDomainNameRequest extends Model
         'regionNo' => 'RegionNo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->domainNameList)) {
+            Model::validateArray($this->domainNameList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessInstanceId) {
             $res['AccessInstanceId'] = $this->accessInstanceId;
         }
+
         if (null !== $this->domainNameList) {
-            $res['DomainNameList'] = $this->domainNameList;
+            if (\is_array($this->domainNameList)) {
+                $res['DomainNameList'] = [];
+                $n1 = 0;
+                foreach ($this->domainNameList as $item1) {
+                    $res['DomainNameList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->regionNo) {
             $res['RegionNo'] = $this->regionNo;
         }
@@ -56,22 +61,29 @@ class AddPrivateDnsDomainNameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddPrivateDnsDomainNameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessInstanceId'])) {
             $model->accessInstanceId = $map['AccessInstanceId'];
         }
+
         if (isset($map['DomainNameList'])) {
             if (!empty($map['DomainNameList'])) {
-                $model->domainNameList = $map['DomainNameList'];
+                $model->domainNameList = [];
+                $n1 = 0;
+                foreach ($map['DomainNameList'] as $item1) {
+                    $model->domainNameList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RegionNo'])) {
             $model->regionNo = $map['RegionNo'];
         }

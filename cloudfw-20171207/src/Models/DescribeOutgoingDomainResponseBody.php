@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDomainResponseBody\domainList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeOutgoingDomainResponseBody extends Model
 {
     /**
-     * @description The domain names in outbound connections.
-     *
      * @var domainList[]
      */
     public $domainList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example F0F82705-CFC7-5F83-86C8-A063892F****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of the domain names in outbound connections.
-     *
-     * @example 132
-     *
      * @var int
      */
     public $totalCount;
@@ -39,23 +29,32 @@ class DescribeOutgoingDomainResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->domainList)) {
+            Model::validateArray($this->domainList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainList) {
-            $res['DomainList'] = [];
-            if (null !== $this->domainList && \is_array($this->domainList)) {
-                $n = 0;
-                foreach ($this->domainList as $item) {
-                    $res['DomainList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainList)) {
+                $res['DomainList'] = [];
+                $n1 = 0;
+                foreach ($this->domainList as $item1) {
+                    $res['DomainList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -63,26 +62,29 @@ class DescribeOutgoingDomainResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeOutgoingDomainResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainList'])) {
             if (!empty($map['DomainList'])) {
                 $model->domainList = [];
-                $n = 0;
-                foreach ($map['DomainList'] as $item) {
-                    $model->domainList[$n++] = null !== $item ? domainList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DomainList'] as $item1) {
+                    $model->domainList[$n1] = domainList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,66 +4,31 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyNatFirewallControlPolicyPositionRequest extends Model
 {
     /**
-     * @description The UUID of the access control policy.
-     *
-     * This parameter is required.
-     *
-     * @example 66961eea-e659-4225-84c9-9b6da76ec401
-     *
      * @var string
      */
     public $aclUuid;
 
     /**
-     * @description The direction of the traffic to which the access control policy applies.
-     *
-     *   Set the value to **out**.
-     *
-     * @example out
-     *
      * @var string
      */
     public $direction;
 
     /**
-     * @description The language of the content within the response. Valid values:
-     *
-     *   **zh**: Chinese (default)
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The ID of the NAT gateway.
-     *
-     * This parameter is required.
-     *
-     * @example ngw-xxxxxx
-     *
      * @var string
      */
     public $natGatewayId;
 
     /**
-     * @description The new priority of the IPv4 access control policy. You must specify a numeric value for this parameter. The value 1 indicates the highest priority. A larger value indicates a lower priority.
-     *
-     * > Make sure that the value of this parameter is within the priority range of existing IPv4 access control policies. Otherwise, an error occurs when you call this operation.
-     *
-     * Before you call this operation, we recommend that you call the DescribeNatFirewallPolicyPriorUsed operation to query the priority range of the IPv4 access control policies in the specified traffic direction.
-     *
-     * This parameter is required.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $newOrder;
@@ -75,23 +40,30 @@ class ModifyNatFirewallControlPolicyPositionRequest extends Model
         'newOrder' => 'NewOrder',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclUuid) {
             $res['AclUuid'] = $this->aclUuid;
         }
+
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
+
         if (null !== $this->newOrder) {
             $res['NewOrder'] = $this->newOrder;
         }
@@ -99,26 +71,30 @@ class ModifyNatFirewallControlPolicyPositionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyNatFirewallControlPolicyPositionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclUuid'])) {
             $model->aclUuid = $map['AclUuid'];
         }
+
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }
+
         if (isset($map['NewOrder'])) {
             $model->newOrder = $map['NewOrder'];
         }

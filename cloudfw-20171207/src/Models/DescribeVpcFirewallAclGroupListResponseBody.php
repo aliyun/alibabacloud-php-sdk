@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallAclGroupListResponseBody\aclGroupList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVpcFirewallAclGroupListResponseBody extends Model
 {
     /**
-     * @description The information about the access control policy groups.
-     *
      * @var aclGroupList[]
      */
     public $aclGroupList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of the policy groups that are returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -39,23 +29,32 @@ class DescribeVpcFirewallAclGroupListResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->aclGroupList)) {
+            Model::validateArray($this->aclGroupList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclGroupList) {
-            $res['AclGroupList'] = [];
-            if (null !== $this->aclGroupList && \is_array($this->aclGroupList)) {
-                $n = 0;
-                foreach ($this->aclGroupList as $item) {
-                    $res['AclGroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->aclGroupList)) {
+                $res['AclGroupList'] = [];
+                $n1 = 0;
+                foreach ($this->aclGroupList as $item1) {
+                    $res['AclGroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -63,26 +62,29 @@ class DescribeVpcFirewallAclGroupListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVpcFirewallAclGroupListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclGroupList'])) {
             if (!empty($map['AclGroupList'])) {
                 $model->aclGroupList = [];
-                $n = 0;
-                foreach ($map['AclGroupList'] as $item) {
-                    $model->aclGroupList[$n++] = null !== $item ? aclGroupList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AclGroupList'] as $item1) {
+                    $model->aclGroupList[$n1] = aclGroupList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,51 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteVpcFirewallControlPolicyRequest extends Model
 {
     /**
-     * @description The ID of the access control policy.
-     *
-     * To delete an access control policy, you must provide the ID of the policy. You can call the **DescribeVpcFirewallControlPolicy** operation to query the ID.
-     *
-     * This parameter is required.
-     *
-     * @example 00281255-d220-4db1-8f4f-c4df2214****
-     *
      * @var string
      */
     public $aclUuid;
 
     /**
-     * @description The natural language of the request and response. Valid values:
-     *
-     * - **zh**: Chinese
-     * - **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The ID of the group to which the access control policy belongs. You can call the **DescribeVpcFirewallAclGroupList** operation to query the ID.
-     *
-     * Valid values:
-     *
-     * - If the VPC firewall is used to protect a CEN instance, the value of this parameter is the ID of the CEN instance.
-     *
-     * Example: cen-ervw0g12b5jbw****
-     * - If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the ID of the VPC firewall.
-     *
-     * Example: vfw-a42bbb7b887148c9****
-     *
-     * This parameter is required.
-     *
-     * @example vfw-a42bbb7b887148c91****
-     *
      * @var string
      */
     public $vpcFirewallId;
@@ -58,17 +28,22 @@ class DeleteVpcFirewallControlPolicyRequest extends Model
         'vpcFirewallId' => 'VpcFirewallId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclUuid) {
             $res['AclUuid'] = $this->aclUuid;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->vpcFirewallId) {
             $res['VpcFirewallId'] = $this->vpcFirewallId;
         }
@@ -76,20 +51,22 @@ class DeleteVpcFirewallControlPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteVpcFirewallControlPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclUuid'])) {
             $model->aclUuid = $map['AclUuid'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['VpcFirewallId'])) {
             $model->vpcFirewallId = $map['VpcFirewallId'];
         }

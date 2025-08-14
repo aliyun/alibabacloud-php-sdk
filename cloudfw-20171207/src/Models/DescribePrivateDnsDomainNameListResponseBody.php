@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePrivateDnsDomainNameListResponseBody extends Model
 {
@@ -14,29 +14,21 @@ class DescribePrivateDnsDomainNameListResponseBody extends Model
     public $domainNameList;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 822B9125-6E1A-551C-8EAF-6E7AE74****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 132
-     *
      * @var int
      */
     public $totalCount;
@@ -48,23 +40,40 @@ class DescribePrivateDnsDomainNameListResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->domainNameList)) {
+            Model::validateArray($this->domainNameList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainNameList) {
-            $res['DomainNameList'] = $this->domainNameList;
+            if (\is_array($this->domainNameList)) {
+                $res['DomainNameList'] = [];
+                $n1 = 0;
+                foreach ($this->domainNameList as $item1) {
+                    $res['DomainNameList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -72,28 +81,37 @@ class DescribePrivateDnsDomainNameListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePrivateDnsDomainNameListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainNameList'])) {
             if (!empty($map['DomainNameList'])) {
-                $model->domainNameList = $map['DomainNameList'];
+                $model->domainNameList = [];
+                $n1 = 0;
+                foreach ($map['DomainNameList'] as $item1) {
+                    $model->domainNameList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

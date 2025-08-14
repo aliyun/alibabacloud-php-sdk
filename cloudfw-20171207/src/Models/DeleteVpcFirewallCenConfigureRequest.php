@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteVpcFirewallCenConfigureRequest extends Model
 {
     /**
-     * @description The language of the content within the request and response. Valid values:
-     *
-     *   **zh**: Chinese (default)
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The UID of the member that is managed by your Alibaba Cloud account.
-     *
-     * @example 258039427902****
-     *
      * @var string
      */
     public $memberUid;
 
     /**
-     * @description The instance IDs of VPC firewalls.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $vpcFirewallIdList;
@@ -43,41 +28,63 @@ class DeleteVpcFirewallCenConfigureRequest extends Model
         'vpcFirewallIdList' => 'VpcFirewallIdList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->vpcFirewallIdList)) {
+            Model::validateArray($this->vpcFirewallIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->memberUid) {
             $res['MemberUid'] = $this->memberUid;
         }
+
         if (null !== $this->vpcFirewallIdList) {
-            $res['VpcFirewallIdList'] = $this->vpcFirewallIdList;
+            if (\is_array($this->vpcFirewallIdList)) {
+                $res['VpcFirewallIdList'] = [];
+                $n1 = 0;
+                foreach ($this->vpcFirewallIdList as $item1) {
+                    $res['VpcFirewallIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteVpcFirewallCenConfigureRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['MemberUid'])) {
             $model->memberUid = $map['MemberUid'];
         }
+
         if (isset($map['VpcFirewallIdList'])) {
             if (!empty($map['VpcFirewallIdList'])) {
-                $model->vpcFirewallIdList = $map['VpcFirewallIdList'];
+                $model->vpcFirewallIdList = [];
+                $n1 = 0;
+                foreach ($map['VpcFirewallIdList'] as $item1) {
+                    $model->vpcFirewallIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

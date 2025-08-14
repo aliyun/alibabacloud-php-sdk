@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTrFirewallV2RoutePolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example C91D68BA-A0BE-51BF-A0F1-1CB5C57FE58D
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the routing policy.
-     *
-     * @example policy-8ebed27e13e14ce2****
-     *
      * @var string
      */
     public $trFirewallRoutePolicyId;
@@ -30,14 +22,18 @@ class CreateTrFirewallV2RoutePolicyResponseBody extends Model
         'trFirewallRoutePolicyId' => 'TrFirewallRoutePolicyId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->trFirewallRoutePolicyId) {
             $res['TrFirewallRoutePolicyId'] = $this->trFirewallRoutePolicyId;
         }
@@ -45,17 +41,18 @@ class CreateTrFirewallV2RoutePolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTrFirewallV2RoutePolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TrFirewallRoutePolicyId'])) {
             $model->trFirewallRoutePolicyId = $map['TrFirewallRoutePolicyId'];
         }

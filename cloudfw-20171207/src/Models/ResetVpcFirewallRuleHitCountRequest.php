@@ -4,31 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResetVpcFirewallRuleHitCountRequest extends Model
 {
     /**
-     * @description The ID of the access control policy.
-     *
-     * This parameter is required.
-     *
-     * @example 00281255-d220-4db1-8f4f-c4df221a****
-     *
      * @var string
      */
     public $aclUuid;
 
     /**
-     * @description The natural language of the request and response.
-     *
-     * Valid values:
-     *
-     * - **zh**: Chinese (default)
-     * - **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
@@ -37,14 +22,18 @@ class ResetVpcFirewallRuleHitCountRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclUuid) {
             $res['AclUuid'] = $this->aclUuid;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -52,17 +41,18 @@ class ResetVpcFirewallRuleHitCountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResetVpcFirewallRuleHitCountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclUuid'])) {
             $model->aclUuid = $map['AclUuid'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

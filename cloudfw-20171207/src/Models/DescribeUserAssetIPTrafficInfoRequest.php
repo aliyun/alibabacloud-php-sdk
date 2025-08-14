@@ -4,40 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUserAssetIPTrafficInfoRequest extends Model
 {
     /**
-     * @description The IP address of the asset.
-     *
-     * This parameter is required.
-     *
-     * @example 192.0.XX.XX
-     *
      * @var string
      */
     public $assetIP;
 
     /**
-     * @description The language of the content within the response. Valid values:
-     *
-     *   **zh** (default): Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The time range to query. The value is a UNIX timestamp. Unit: seconds.
-     *
-     * This parameter is required.
-     *
-     * @example 1656923760
-     *
      * @var string
      */
     public $trafficTime;
@@ -47,17 +28,22 @@ class DescribeUserAssetIPTrafficInfoRequest extends Model
         'trafficTime' => 'TrafficTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetIP) {
             $res['AssetIP'] = $this->assetIP;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->trafficTime) {
             $res['TrafficTime'] = $this->trafficTime;
         }
@@ -65,20 +51,22 @@ class DescribeUserAssetIPTrafficInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUserAssetIPTrafficInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetIP'])) {
             $model->assetIP = $map['AssetIP'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['TrafficTime'])) {
             $model->trafficTime = $map['TrafficTime'];
         }

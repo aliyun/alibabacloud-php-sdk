@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePolicyPriorUsedResponseBody extends Model
 {
     /**
-     * @description The lowest priority of existing access control policies.
-     *
-     * >  The value -1 indicates the lowest priority.
-     *
-     * @example 150
-     *
      * @var int
      */
     public $end;
 
     /**
-     * @description The request ID.
-     *
-     * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The highest priority of existing access control policies.
-     *
-     * >  The value 0 indicates the highest priority.
-     *
-     * @example -1
-     *
      * @var int
      */
     public $start;
@@ -44,17 +28,22 @@ class DescribePolicyPriorUsedResponseBody extends Model
         'start' => 'Start',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->end) {
             $res['End'] = $this->end;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->start) {
             $res['Start'] = $this->start;
         }
@@ -62,20 +51,22 @@ class DescribePolicyPriorUsedResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePolicyPriorUsedResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['End'])) {
             $model->end = $map['End'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
         }

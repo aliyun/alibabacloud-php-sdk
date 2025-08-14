@@ -4,175 +4,71 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeControlPolicyRequest extends Model
 {
     /**
-     * @description The action that Cloud Firewall performs on the traffic. Valid values:
-     *
-     *   **accept**: allows the traffic.
-     *   **drop**: denies the traffic.
-     *   **log**: monitors the traffic.
-     *
-     * >  If you do not specify this parameter, access control policies of all action types are queried.
-     *
-     * @example accept
-     *
      * @var string
      */
     public $aclAction;
 
     /**
-     * @description The unique ID of the access control policy.
-     *
-     * @example 00281255-d220-4db1-8f4f-c4df221a****
-     *
      * @var string
      */
     public $aclUuid;
 
     /**
-     * @description The number of the page to return.
-     *
-     * Default value: 1.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $currentPage;
 
     /**
-     * @description The description of the access control policy. Fuzzy match is supported.
-     *
-     * >  If you do not specify this parameter, access control policies that have descriptions are queried.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The destination address in the access control policy. Fuzzy match is supported. The value of this parameter varies based on the value of the DestinationType parameter.
-     *
-     *   If you set DestinationType to `net`, the value of Destination is a CIDR block. Example: 10.0.3.0/24.
-     *   If you set DestinationType to `domain`, the value of Destination is a domain name. Example: aliyun.
-     *   If you set DestinationType to `group`, the value of Destination is the name of an address book. Example: db_group.
-     *   If you set DestinationType to `location`, the value of Destination is the name of a location. For more information about location codes, see AddControlPolicy. Example: ["BJ11", "ZB"].
-     *
-     * >  If you do not specify this parameter, access control policies of all destination address types are queried.
-     *
-     * @example 192.0.XX.XX
-     *
      * @var string
      */
     public $destination;
 
     /**
-     * @description The direction of the traffic to which the access control policies apply. Valid values:
-     *
-     *   **in**: inbound.
-     *   **out**: outbound.
-     *
-     * @example in
-     *
      * @var string
      */
     public $direction;
 
     /**
-     * @description The IP version of the address in the access control policy. Valid values:
-     *
-     *   **4**: IPv4 (default)
-     *   **6**: IPv6
-     *
-     * @example 6
-     *
      * @var string
      */
     public $ipVersion;
 
     /**
-     * @description The language of the content within the response. Valid values:
-     *
-     *   **zh**: Chinese (default)
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * This parameter is required.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @description The type of the protocol in the access control policy. Valid values:
-     *
-     * **TCP**
-     * **UDP**
-     * **ICMP**
-     * **ANY**: all types of protocols
-     *
-     * >  If you do not specify this parameter, access control policies of all protocol types are queried.
-     *
-     * @example TCP
-     *
      * @var string
      */
     public $proto;
 
     /**
-     * @description Specifies whether the access control policy is enabled. By default, an access control policy is enabled after it is created. Valid values:
-     *
-     *   **true**: The access control policy is enabled.
-     *   **false**: The access control policy is disabled.
-     *
-     * @example true
-     *
      * @var string
      */
     public $release;
 
     /**
-     * @description The recurrence type for the access control policy to take effect. Valid values:
-     *
-     *   **Permanent** (default): The policy always takes effect.
-     *   **None**: The policy takes effect for only once.
-     *   **Daily**: The policy takes effect on a daily basis.
-     *   **Weekly**: The policy takes effect on a weekly basis.
-     *   **Monthly**: The policy takes effect on a monthly basis.
-     *
-     * @example Permanent
-     *
      * @var string
      */
     public $repeatType;
 
     /**
-     * @description The source address in the access control policy. Fuzzy match is supported. The value of this parameter depends on the value of the SourceType parameter.
-     *
-     *   If SourceType is set to `net`, the value of Source must be a CIDR block. Example: 192.0.XX.XX/24.
-     *   If SourceType is set to `group`, the value of Source must be the name of an address book. Example: db_group. If the db_group address book does not contain addresses, all source addresses are queried.
-     *   If SourceType is set to `location`, the value of Source must be a location. Example: beijing.
-     *
-     * >  If you do not specify this parameter, access control policies of all source address types are queried.
-     *
-     * @example 192.0.XX.XX
-     *
      * @var string
      */
     public $source;
@@ -192,47 +88,62 @@ class DescribeControlPolicyRequest extends Model
         'source' => 'Source',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclAction) {
             $res['AclAction'] = $this->aclAction;
         }
+
         if (null !== $this->aclUuid) {
             $res['AclUuid'] = $this->aclUuid;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
         }
+
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
+
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->proto) {
             $res['Proto'] = $this->proto;
         }
+
         if (null !== $this->release) {
             $res['Release'] = $this->release;
         }
+
         if (null !== $this->repeatType) {
             $res['RepeatType'] = $this->repeatType;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -240,50 +151,62 @@ class DescribeControlPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeControlPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclAction'])) {
             $model->aclAction = $map['AclAction'];
         }
+
         if (isset($map['AclUuid'])) {
             $model->aclUuid = $map['AclUuid'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];
         }
+
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
+
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Proto'])) {
             $model->proto = $map['Proto'];
         }
+
         if (isset($map['Release'])) {
             $model->release = $map['Release'];
         }
+
         if (isset($map['RepeatType'])) {
             $model->repeatType = $map['RepeatType'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

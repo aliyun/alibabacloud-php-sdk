@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyControlPolicyPriorityResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 586F34E8-3F16-4C08-9FFC-8FFDC64B9D0D
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class ModifyControlPolicyPriorityResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class ModifyControlPolicyPriorityResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyControlPolicyPriorityResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

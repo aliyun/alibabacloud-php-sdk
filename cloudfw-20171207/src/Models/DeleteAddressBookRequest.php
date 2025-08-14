@@ -4,42 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAddressBookRequest extends Model
 {
     /**
-     * @description The ID of the address book.
-     *
-     * To delete the address book, you must provide the ID of the address book. You can call the DescribeAddressBook operation to query the ID.
-     *
-     * This parameter is required.
-     *
-     * @example 0657ab9d-fe8b-4174-b2a6-6baf358e****
-     *
      * @var string
      */
     public $groupUuid;
 
     /**
-     * @description The natural language of the request and response. Valid values:
-     *
-     *   **zh**: Chinese (default)
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 192.0.XX.XX
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $sourceIp;
@@ -49,17 +28,22 @@ class DeleteAddressBookRequest extends Model
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupUuid) {
             $res['GroupUuid'] = $this->groupUuid;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -67,20 +51,22 @@ class DeleteAddressBookRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAddressBookRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupUuid'])) {
             $model->groupUuid = $map['GroupUuid'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

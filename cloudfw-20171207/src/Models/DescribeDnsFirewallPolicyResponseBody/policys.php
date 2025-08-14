@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDnsFirewallPolicyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class policys extends Model
 {
     /**
-     * @example accept
-     *
      * @var string
      */
     public $aclAction;
 
     /**
-     * @example 01281255-d220-4db1-8f4f-c4df221a****
-     *
      * @var string
      */
     public $aclUuid;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example x.x.x.x/32
-     *
      * @var string
      */
     public $destination;
@@ -42,64 +34,46 @@ class policys extends Model
     public $destinationAddrs;
 
     /**
-     * @example ip
-     *
      * @var string
      */
     public $destinationGroupType;
 
     /**
-     * @example net
-     *
      * @var string
      */
     public $destinationType;
 
     /**
-     * @example in
-     *
      * @var string
      */
     public $direction;
 
     /**
-     * @example 1579261141
-     *
      * @var int
      */
     public $hitLastTime;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $hitTimes;
 
     /**
-     * @example 6
-     *
      * @var int
      */
     public $ipVersion;
 
     /**
-     * @example 110
-     *
      * @var int
      */
     public $priority;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $release;
 
     /**
-     * @example 192.0.XX.XX/24
-     *
      * @var string
      */
     public $source;
@@ -110,15 +84,11 @@ class policys extends Model
     public $sourceAddrs;
 
     /**
-     * @example ip
-     *
      * @var string
      */
     public $sourceGroupType;
 
     /**
-     * @example net
-     *
      * @var string
      */
     public $sourceType;
@@ -142,59 +112,98 @@ class policys extends Model
         'sourceType' => 'SourceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->destinationAddrs)) {
+            Model::validateArray($this->destinationAddrs);
+        }
+        if (\is_array($this->sourceAddrs)) {
+            Model::validateArray($this->sourceAddrs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclAction) {
             $res['AclAction'] = $this->aclAction;
         }
+
         if (null !== $this->aclUuid) {
             $res['AclUuid'] = $this->aclUuid;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
         }
+
         if (null !== $this->destinationAddrs) {
-            $res['DestinationAddrs'] = $this->destinationAddrs;
+            if (\is_array($this->destinationAddrs)) {
+                $res['DestinationAddrs'] = [];
+                $n1 = 0;
+                foreach ($this->destinationAddrs as $item1) {
+                    $res['DestinationAddrs'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->destinationGroupType) {
             $res['DestinationGroupType'] = $this->destinationGroupType;
         }
+
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
         }
+
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
+
         if (null !== $this->hitLastTime) {
             $res['HitLastTime'] = $this->hitLastTime;
         }
+
         if (null !== $this->hitTimes) {
             $res['HitTimes'] = $this->hitTimes;
         }
+
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
+
         if (null !== $this->release) {
             $res['Release'] = $this->release;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->sourceAddrs) {
-            $res['SourceAddrs'] = $this->sourceAddrs;
+            if (\is_array($this->sourceAddrs)) {
+                $res['SourceAddrs'] = [];
+                $n1 = 0;
+                foreach ($this->sourceAddrs as $item1) {
+                    $res['SourceAddrs'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->sourceGroupType) {
             $res['SourceGroupType'] = $this->sourceGroupType;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
@@ -202,66 +211,92 @@ class policys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return policys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclAction'])) {
             $model->aclAction = $map['AclAction'];
         }
+
         if (isset($map['AclUuid'])) {
             $model->aclUuid = $map['AclUuid'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];
         }
+
         if (isset($map['DestinationAddrs'])) {
             if (!empty($map['DestinationAddrs'])) {
-                $model->destinationAddrs = $map['DestinationAddrs'];
+                $model->destinationAddrs = [];
+                $n1 = 0;
+                foreach ($map['DestinationAddrs'] as $item1) {
+                    $model->destinationAddrs[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['DestinationGroupType'])) {
             $model->destinationGroupType = $map['DestinationGroupType'];
         }
+
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];
         }
+
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
+
         if (isset($map['HitLastTime'])) {
             $model->hitLastTime = $map['HitLastTime'];
         }
+
         if (isset($map['HitTimes'])) {
             $model->hitTimes = $map['HitTimes'];
         }
+
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }
+
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
+
         if (isset($map['Release'])) {
             $model->release = $map['Release'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['SourceAddrs'])) {
             if (!empty($map['SourceAddrs'])) {
-                $model->sourceAddrs = $map['SourceAddrs'];
+                $model->sourceAddrs = [];
+                $n1 = 0;
+                foreach ($map['SourceAddrs'] as $item1) {
+                    $model->sourceAddrs[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SourceGroupType'])) {
             $model->sourceGroupType = $map['SourceGroupType'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }

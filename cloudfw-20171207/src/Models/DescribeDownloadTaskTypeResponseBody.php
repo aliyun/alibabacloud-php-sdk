@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDownloadTaskTypeResponseBody\taskTypeArray;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDownloadTaskTypeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example B835494C-D093-5524-BBDE-BD272077B40E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The task types.
-     *
      * @var taskTypeArray[]
      */
     public $taskTypeArray;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $totalCount;
@@ -39,23 +29,32 @@ class DescribeDownloadTaskTypeResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->taskTypeArray)) {
+            Model::validateArray($this->taskTypeArray);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskTypeArray) {
-            $res['TaskTypeArray'] = [];
-            if (null !== $this->taskTypeArray && \is_array($this->taskTypeArray)) {
-                $n = 0;
-                foreach ($this->taskTypeArray as $item) {
-                    $res['TaskTypeArray'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskTypeArray)) {
+                $res['TaskTypeArray'] = [];
+                $n1 = 0;
+                foreach ($this->taskTypeArray as $item1) {
+                    $res['TaskTypeArray'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -63,26 +62,29 @@ class DescribeDownloadTaskTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDownloadTaskTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskTypeArray'])) {
             if (!empty($map['TaskTypeArray'])) {
                 $model->taskTypeArray = [];
-                $n = 0;
-                foreach ($map['TaskTypeArray'] as $item) {
-                    $model->taskTypeArray[$n++] = null !== $item ? taskTypeArray::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TaskTypeArray'] as $item1) {
+                    $model->taskTypeArray[$n1] = taskTypeArray::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
