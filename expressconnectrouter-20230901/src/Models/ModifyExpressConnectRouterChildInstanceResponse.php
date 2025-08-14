@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeInstanceGrantedToExpressConnectRouterResponse extends Model
+class ModifyExpressConnectRouterChildInstanceResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeInstanceGrantedToExpressConnectRouterResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeInstanceGrantedToExpressConnectRouterResponseBody
+     * @var ModifyExpressConnectRouterChildInstanceResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class DescribeInstanceGrantedToExpressConnectRouterResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = DescribeInstanceGrantedToExpressConnectRouterResponseBody::fromMap($map['body']);
+            $model->body = ModifyExpressConnectRouterChildInstanceResponseBody::fromMap($map['body']);
         }
 
         return $model;

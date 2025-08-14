@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class RevokeInstanceFromExpressConnectRouterResponseBody extends Model
+class ModifyExpressConnectRouterAssociationResponseBody extends Model
 {
     /**
      * @var string

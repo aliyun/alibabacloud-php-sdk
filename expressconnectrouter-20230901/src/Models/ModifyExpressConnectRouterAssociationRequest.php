@@ -6,12 +6,22 @@ namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeactivateFlowLogRequest extends Model
+class ModifyExpressConnectRouterAssociationRequest extends Model
 {
     /**
      * @var string
      */
+    public $associationId;
+
+    /**
+     * @var string
+     */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var bool
@@ -22,16 +32,12 @@ class DeactivateFlowLogRequest extends Model
      * @var string
      */
     public $ecrId;
-
-    /**
-     * @var string
-     */
-    public $flowLogId;
     protected $_name = [
+        'associationId' => 'AssociationId',
         'clientToken' => 'ClientToken',
+        'description' => 'Description',
         'dryRun' => 'DryRun',
         'ecrId' => 'EcrId',
-        'flowLogId' => 'FlowLogId',
     ];
 
     public function validate()
@@ -42,8 +48,16 @@ class DeactivateFlowLogRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->associationId) {
+            $res['AssociationId'] = $this->associationId;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->dryRun) {
@@ -52,10 +66,6 @@ class DeactivateFlowLogRequest extends Model
 
         if (null !== $this->ecrId) {
             $res['EcrId'] = $this->ecrId;
-        }
-
-        if (null !== $this->flowLogId) {
-            $res['FlowLogId'] = $this->flowLogId;
         }
 
         return $res;
@@ -69,8 +79,16 @@ class DeactivateFlowLogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssociationId'])) {
+            $model->associationId = $map['AssociationId'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['DryRun'])) {
@@ -79,10 +97,6 @@ class DeactivateFlowLogRequest extends Model
 
         if (isset($map['EcrId'])) {
             $model->ecrId = $map['EcrId'];
-        }
-
-        if (isset($map['FlowLogId'])) {
-            $model->flowLogId = $map['FlowLogId'];
         }
 
         return $model;

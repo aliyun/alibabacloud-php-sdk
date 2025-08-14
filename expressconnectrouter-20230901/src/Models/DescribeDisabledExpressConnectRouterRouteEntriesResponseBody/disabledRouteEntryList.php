@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DescribeDisabledExpressConnectRouterRouteEntriesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class disabledRouteEntryList extends Model
 {
     /**
-     * @description The destination CIDR block of the route.
-     *
-     * @example 192.168.100.110/32
-     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
-     * @description The ECR ID.
-     *
-     * @example ecr-mezk2idmsd0vx2****
-     *
      * @var string
      */
     public $ecrId;
 
     /**
-     * @description The time when the route entry was created.
-     *
-     * @example 1682317345
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @description The ID of the next-hop instance.
-     *
-     * @example br-hp3u4u5f03tfuljis****
-     *
      * @var string
      */
     public $nexthopInstanceId;
 
     /**
-     * @description The region ID of the next-hop instance.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $nexthopInstanceRegionId;
@@ -60,23 +40,30 @@ class disabledRouteEntryList extends Model
         'nexthopInstanceRegionId' => 'NexthopInstanceRegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
+
         if (null !== $this->ecrId) {
             $res['EcrId'] = $this->ecrId;
         }
+
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->nexthopInstanceId) {
             $res['NexthopInstanceId'] = $this->nexthopInstanceId;
         }
+
         if (null !== $this->nexthopInstanceRegionId) {
             $res['NexthopInstanceRegionId'] = $this->nexthopInstanceRegionId;
         }
@@ -84,26 +71,30 @@ class disabledRouteEntryList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return disabledRouteEntryList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
+
         if (isset($map['EcrId'])) {
             $model->ecrId = $map['EcrId'];
         }
+
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+
         if (isset($map['NexthopInstanceId'])) {
             $model->nexthopInstanceId = $map['NexthopInstanceId'];
         }
+
         if (isset($map['NexthopInstanceRegionId'])) {
             $model->nexthopInstanceRegionId = $map['NexthopInstanceRegionId'];
         }

@@ -6,12 +6,27 @@ namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeactivateFlowLogRequest extends Model
+class ModifyExpressConnectRouterChildInstanceRequest extends Model
 {
     /**
      * @var string
      */
+    public $childInstanceId;
+
+    /**
+     * @var string
+     */
+    public $childInstanceType;
+
+    /**
+     * @var string
+     */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var bool
@@ -22,16 +37,13 @@ class DeactivateFlowLogRequest extends Model
      * @var string
      */
     public $ecrId;
-
-    /**
-     * @var string
-     */
-    public $flowLogId;
     protected $_name = [
+        'childInstanceId' => 'ChildInstanceId',
+        'childInstanceType' => 'ChildInstanceType',
         'clientToken' => 'ClientToken',
+        'description' => 'Description',
         'dryRun' => 'DryRun',
         'ecrId' => 'EcrId',
-        'flowLogId' => 'FlowLogId',
     ];
 
     public function validate()
@@ -42,8 +54,20 @@ class DeactivateFlowLogRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->childInstanceId) {
+            $res['ChildInstanceId'] = $this->childInstanceId;
+        }
+
+        if (null !== $this->childInstanceType) {
+            $res['ChildInstanceType'] = $this->childInstanceType;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->dryRun) {
@@ -52,10 +76,6 @@ class DeactivateFlowLogRequest extends Model
 
         if (null !== $this->ecrId) {
             $res['EcrId'] = $this->ecrId;
-        }
-
-        if (null !== $this->flowLogId) {
-            $res['FlowLogId'] = $this->flowLogId;
         }
 
         return $res;
@@ -69,8 +89,20 @@ class DeactivateFlowLogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChildInstanceId'])) {
+            $model->childInstanceId = $map['ChildInstanceId'];
+        }
+
+        if (isset($map['ChildInstanceType'])) {
+            $model->childInstanceType = $map['ChildInstanceType'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['DryRun'])) {
@@ -79,10 +111,6 @@ class DeactivateFlowLogRequest extends Model
 
         if (isset($map['EcrId'])) {
             $model->ecrId = $map['EcrId'];
-        }
-
-        if (isset($map['FlowLogId'])) {
-            $model->flowLogId = $map['FlowLogId'];
         }
 
         return $model;
