@@ -33,7 +33,8 @@ class conflicts extends Model
                 $res['Conflict'] = [];
                 $n1 = 0;
                 foreach ($this->conflict as $item1) {
-                    $res['Conflict'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Conflict'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class conflicts extends Model
                 $model->conflict = [];
                 $n1 = 0;
                 foreach ($map['Conflict'] as $item1) {
-                    $model->conflict[$n1++] = conflict::fromMap($item1);
+                    $model->conflict[$n1] = conflict::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

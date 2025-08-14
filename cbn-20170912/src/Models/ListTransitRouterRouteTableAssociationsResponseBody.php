@@ -73,7 +73,8 @@ class ListTransitRouterRouteTableAssociationsResponseBody extends Model
                 $res['TransitRouterAssociations'] = [];
                 $n1 = 0;
                 foreach ($this->transitRouterAssociations as $item1) {
-                    $res['TransitRouterAssociations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TransitRouterAssociations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class ListTransitRouterRouteTableAssociationsResponseBody extends Model
                 $model->transitRouterAssociations = [];
                 $n1 = 0;
                 foreach ($map['TransitRouterAssociations'] as $item1) {
-                    $model->transitRouterAssociations[$n1++] = transitRouterAssociations::fromMap($item1);
+                    $model->transitRouterAssociations[$n1] = transitRouterAssociations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class cenBandwidthPackages extends Model
                 $res['CenBandwidthPackage'] = [];
                 $n1 = 0;
                 foreach ($this->cenBandwidthPackage as $item1) {
-                    $res['CenBandwidthPackage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CenBandwidthPackage'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class cenBandwidthPackages extends Model
                 $model->cenBandwidthPackage = [];
                 $n1 = 0;
                 foreach ($map['CenBandwidthPackage'] as $item1) {
-                    $model->cenBandwidthPackage[$n1++] = cenBandwidthPackage::fromMap($item1);
+                    $model->cenBandwidthPackage[$n1] = cenBandwidthPackage::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

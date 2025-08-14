@@ -138,7 +138,8 @@ class ModifyTransitRouteTableAggregationRequest extends Model
                 $res['TransitRouteTableAggregationScopeList'] = [];
                 $n1 = 0;
                 foreach ($this->transitRouteTableAggregationScopeList as $item1) {
-                    $res['TransitRouteTableAggregationScopeList'][$n1++] = $item1;
+                    $res['TransitRouteTableAggregationScopeList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +204,8 @@ class ModifyTransitRouteTableAggregationRequest extends Model
                 $model->transitRouteTableAggregationScopeList = [];
                 $n1 = 0;
                 foreach ($map['TransitRouteTableAggregationScopeList'] as $item1) {
-                    $model->transitRouteTableAggregationScopeList[$n1++] = $item1;
+                    $model->transitRouteTableAggregationScopeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

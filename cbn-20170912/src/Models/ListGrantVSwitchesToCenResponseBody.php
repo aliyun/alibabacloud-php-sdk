@@ -73,7 +73,8 @@ class ListGrantVSwitchesToCenResponseBody extends Model
                 $res['VSwitches'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitches as $item1) {
-                    $res['VSwitches'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VSwitches'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class ListGrantVSwitchesToCenResponseBody extends Model
                 $model->vSwitches = [];
                 $n1 = 0;
                 foreach ($map['VSwitches'] as $item1) {
-                    $model->vSwitches[$n1++] = vSwitches::fromMap($item1);
+                    $model->vSwitches[$n1] = vSwitches::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

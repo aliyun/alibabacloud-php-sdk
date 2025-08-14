@@ -103,7 +103,8 @@ class AddTrafficMatchRuleToTrafficMarkingPolicyRequest extends Model
                 $res['TrafficMatchRules'] = [];
                 $n1 = 0;
                 foreach ($this->trafficMatchRules as $item1) {
-                    $res['TrafficMatchRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TrafficMatchRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +153,8 @@ class AddTrafficMatchRuleToTrafficMarkingPolicyRequest extends Model
                 $model->trafficMatchRules = [];
                 $n1 = 0;
                 foreach ($map['TrafficMatchRules'] as $item1) {
-                    $model->trafficMatchRules[$n1++] = trafficMatchRules::fromMap($item1);
+                    $model->trafficMatchRules[$n1] = trafficMatchRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -32,7 +32,8 @@ class secondaryCidrBlocks extends Model
                 $res['secondaryCidrBlock'] = [];
                 $n1 = 0;
                 foreach ($this->secondaryCidrBlock as $item1) {
-                    $res['secondaryCidrBlock'][$n1++] = $item1;
+                    $res['secondaryCidrBlock'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class secondaryCidrBlocks extends Model
                 $model->secondaryCidrBlock = [];
                 $n1 = 0;
                 foreach ($map['secondaryCidrBlock'] as $item1) {
-                    $model->secondaryCidrBlock[$n1++] = $item1;
+                    $model->secondaryCidrBlock[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

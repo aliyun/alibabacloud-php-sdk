@@ -85,7 +85,8 @@ class UpdateTransitRouterVpcAttachmentZonesRequest extends Model
                 $res['AddZoneMappings'] = [];
                 $n1 = 0;
                 foreach ($this->addZoneMappings as $item1) {
-                    $res['AddZoneMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AddZoneMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class UpdateTransitRouterVpcAttachmentZonesRequest extends Model
                 $res['RemoveZoneMappings'] = [];
                 $n1 = 0;
                 foreach ($this->removeZoneMappings as $item1) {
-                    $res['RemoveZoneMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RemoveZoneMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +146,8 @@ class UpdateTransitRouterVpcAttachmentZonesRequest extends Model
                 $model->addZoneMappings = [];
                 $n1 = 0;
                 foreach ($map['AddZoneMappings'] as $item1) {
-                    $model->addZoneMappings[$n1++] = addZoneMappings::fromMap($item1);
+                    $model->addZoneMappings[$n1] = addZoneMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +173,8 @@ class UpdateTransitRouterVpcAttachmentZonesRequest extends Model
                 $model->removeZoneMappings = [];
                 $n1 = 0;
                 foreach ($map['RemoveZoneMappings'] as $item1) {
-                    $model->removeZoneMappings[$n1++] = removeZoneMappings::fromMap($item1);
+                    $model->removeZoneMappings[$n1] = removeZoneMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

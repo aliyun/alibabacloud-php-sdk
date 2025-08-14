@@ -62,7 +62,8 @@ class ListTransitRouterAvailableResourceResponseBody extends Model
                 $res['AvailableZones'] = [];
                 $n1 = 0;
                 foreach ($this->availableZones as $item1) {
-                    $res['AvailableZones'][$n1++] = $item1;
+                    $res['AvailableZones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class ListTransitRouterAvailableResourceResponseBody extends Model
                 $res['MasterZones'] = [];
                 $n1 = 0;
                 foreach ($this->masterZones as $item1) {
-                    $res['MasterZones'][$n1++] = $item1;
+                    $res['MasterZones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,7 +88,8 @@ class ListTransitRouterAvailableResourceResponseBody extends Model
                 $res['SlaveZones'] = [];
                 $n1 = 0;
                 foreach ($this->slaveZones as $item1) {
-                    $res['SlaveZones'][$n1++] = $item1;
+                    $res['SlaveZones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +114,8 @@ class ListTransitRouterAvailableResourceResponseBody extends Model
                 $model->availableZones = [];
                 $n1 = 0;
                 foreach ($map['AvailableZones'] as $item1) {
-                    $model->availableZones[$n1++] = $item1;
+                    $model->availableZones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +125,8 @@ class ListTransitRouterAvailableResourceResponseBody extends Model
                 $model->masterZones = [];
                 $n1 = 0;
                 foreach ($map['MasterZones'] as $item1) {
-                    $model->masterZones[$n1++] = $item1;
+                    $model->masterZones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,7 +140,8 @@ class ListTransitRouterAvailableResourceResponseBody extends Model
                 $model->slaveZones = [];
                 $n1 = 0;
                 foreach ($map['SlaveZones'] as $item1) {
-                    $model->slaveZones[$n1++] = $item1;
+                    $model->slaveZones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

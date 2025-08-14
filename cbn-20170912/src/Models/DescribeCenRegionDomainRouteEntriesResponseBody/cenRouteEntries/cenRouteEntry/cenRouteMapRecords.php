@@ -33,7 +33,8 @@ class cenRouteMapRecords extends Model
                 $res['CenRouteMapRecord'] = [];
                 $n1 = 0;
                 foreach ($this->cenRouteMapRecord as $item1) {
-                    $res['CenRouteMapRecord'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CenRouteMapRecord'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class cenRouteMapRecords extends Model
                 $model->cenRouteMapRecord = [];
                 $n1 = 0;
                 foreach ($map['CenRouteMapRecord'] as $item1) {
-                    $model->cenRouteMapRecord[$n1++] = cenRouteMapRecord::fromMap($item1);
+                    $model->cenRouteMapRecord[$n1] = cenRouteMapRecord::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

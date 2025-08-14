@@ -91,7 +91,8 @@ class deleteTrafficMatchRules extends Model
                 $res['DstPortRange'] = [];
                 $n1 = 0;
                 foreach ($this->dstPortRange as $item1) {
-                    $res['DstPortRange'][$n1++] = $item1;
+                    $res['DstPortRange'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +114,8 @@ class deleteTrafficMatchRules extends Model
                 $res['SrcPortRange'] = [];
                 $n1 = 0;
                 foreach ($this->srcPortRange as $item1) {
-                    $res['SrcPortRange'][$n1++] = $item1;
+                    $res['SrcPortRange'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +152,8 @@ class deleteTrafficMatchRules extends Model
                 $model->dstPortRange = [];
                 $n1 = 0;
                 foreach ($map['DstPortRange'] as $item1) {
-                    $model->dstPortRange[$n1++] = $item1;
+                    $model->dstPortRange[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +175,8 @@ class deleteTrafficMatchRules extends Model
                 $model->srcPortRange = [];
                 $n1 = 0;
                 foreach ($map['SrcPortRange'] as $item1) {
-                    $model->srcPortRange[$n1++] = $item1;
+                    $model->srcPortRange[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

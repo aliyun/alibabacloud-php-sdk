@@ -32,7 +32,8 @@ class cidrs extends Model
                 $res['Cidr'] = [];
                 $n1 = 0;
                 foreach ($this->cidr as $item1) {
-                    $res['Cidr'][$n1++] = $item1;
+                    $res['Cidr'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class cidrs extends Model
                 $model->cidr = [];
                 $n1 = 0;
                 foreach ($map['Cidr'] as $item1) {
-                    $model->cidr[$n1++] = $item1;
+                    $model->cidr[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

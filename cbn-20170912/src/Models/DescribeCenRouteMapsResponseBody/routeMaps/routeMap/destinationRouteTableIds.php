@@ -32,7 +32,8 @@ class destinationRouteTableIds extends Model
                 $res['DestinationRouteTableId'] = [];
                 $n1 = 0;
                 foreach ($this->destinationRouteTableId as $item1) {
-                    $res['DestinationRouteTableId'][$n1++] = $item1;
+                    $res['DestinationRouteTableId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class destinationRouteTableIds extends Model
                 $model->destinationRouteTableId = [];
                 $n1 = 0;
                 foreach ($map['DestinationRouteTableId'] as $item1) {
-                    $model->destinationRouteTableId[$n1++] = $item1;
+                    $model->destinationRouteTableId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

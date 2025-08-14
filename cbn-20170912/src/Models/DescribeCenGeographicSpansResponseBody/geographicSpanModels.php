@@ -33,7 +33,8 @@ class geographicSpanModels extends Model
                 $res['GeographicSpanModel'] = [];
                 $n1 = 0;
                 foreach ($this->geographicSpanModel as $item1) {
-                    $res['GeographicSpanModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GeographicSpanModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class geographicSpanModels extends Model
                 $model->geographicSpanModel = [];
                 $n1 = 0;
                 foreach ($map['GeographicSpanModel'] as $item1) {
-                    $model->geographicSpanModel[$n1++] = geographicSpanModel::fromMap($item1);
+                    $model->geographicSpanModel[$n1] = geographicSpanModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

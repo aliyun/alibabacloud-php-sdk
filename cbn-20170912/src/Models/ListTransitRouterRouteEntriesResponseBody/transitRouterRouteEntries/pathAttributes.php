@@ -65,7 +65,8 @@ class pathAttributes extends Model
                 $res['AsPaths'] = [];
                 $n1 = 0;
                 foreach ($this->asPaths as $item1) {
-                    $res['AsPaths'][$n1++] = $item1;
+                    $res['AsPaths'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -75,7 +76,8 @@ class pathAttributes extends Model
                 $res['Communities'] = [];
                 $n1 = 0;
                 foreach ($this->communities as $item1) {
-                    $res['Communities'][$n1++] = $item1;
+                    $res['Communities'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +114,8 @@ class pathAttributes extends Model
                 $model->asPaths = [];
                 $n1 = 0;
                 foreach ($map['AsPaths'] as $item1) {
-                    $model->asPaths[$n1++] = $item1;
+                    $model->asPaths[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +125,8 @@ class pathAttributes extends Model
                 $model->communities = [];
                 $n1 = 0;
                 foreach ($map['Communities'] as $item1) {
-                    $model->communities[$n1++] = $item1;
+                    $model->communities[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

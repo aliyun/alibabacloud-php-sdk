@@ -57,7 +57,8 @@ class ListGrantVSwitchEnisResponseBody extends Model
                 $res['GrantVSwitchEnis'] = [];
                 $n1 = 0;
                 foreach ($this->grantVSwitchEnis as $item1) {
-                    $res['GrantVSwitchEnis'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GrantVSwitchEnis'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListGrantVSwitchEnisResponseBody extends Model
                 $model->grantVSwitchEnis = [];
                 $n1 = 0;
                 foreach ($map['GrantVSwitchEnis'] as $item1) {
-                    $model->grantVSwitchEnis[$n1++] = grantVSwitchEnis::fromMap($item1);
+                    $model->grantVSwitchEnis[$n1] = grantVSwitchEnis::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

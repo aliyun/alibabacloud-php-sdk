@@ -33,7 +33,8 @@ class regionIds extends Model
                 $res['RegionId'] = [];
                 $n1 = 0;
                 foreach ($this->regionId as $item1) {
-                    $res['RegionId'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RegionId'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class regionIds extends Model
                 $model->regionId = [];
                 $n1 = 0;
                 foreach ($map['RegionId'] as $item1) {
-                    $model->regionId[$n1++] = regionId::fromMap($item1);
+                    $model->regionId[$n1] = regionId::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

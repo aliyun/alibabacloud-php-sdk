@@ -539,7 +539,6 @@ class Cbn extends OpenApiClient
         return $this->addTrafficMatchRuleToTrafficMarkingPolicyWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Adds a traffic classification rule to a traffic marking policy.
      *
@@ -13538,7 +13537,6 @@ class Cbn extends OpenApiClient
         return $this->removeTrafficMatchRuleFromTrafficMarkingPolicyWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Removes a traffic classification rule from a traffic marking policy.
      *
@@ -14446,6 +14444,8 @@ class Cbn extends OpenApiClient
     }
 
     /**
+     * 删除PrivateZone.
+     *
      * @param request - UnroutePrivateZoneInCenToVpcRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14503,6 +14503,8 @@ class Cbn extends OpenApiClient
     }
 
     /**
+     * 删除PrivateZone.
+     *
      * @param request - UnroutePrivateZoneInCenToVpcRequest
      *
      * @returns UnroutePrivateZoneInCenToVpcResponse

@@ -33,7 +33,8 @@ class vbrHealthChecks extends Model
                 $res['VbrHealthCheck'] = [];
                 $n1 = 0;
                 foreach ($this->vbrHealthCheck as $item1) {
-                    $res['VbrHealthCheck'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VbrHealthCheck'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class vbrHealthChecks extends Model
                 $model->vbrHealthCheck = [];
                 $n1 = 0;
                 foreach ($map['VbrHealthCheck'] as $item1) {
-                    $model->vbrHealthCheck[$n1++] = vbrHealthCheck::fromMap($item1);
+                    $model->vbrHealthCheck[$n1] = vbrHealthCheck::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

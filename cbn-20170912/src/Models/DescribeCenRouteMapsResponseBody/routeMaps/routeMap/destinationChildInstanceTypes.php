@@ -32,7 +32,8 @@ class destinationChildInstanceTypes extends Model
                 $res['DestinationChildInstanceType'] = [];
                 $n1 = 0;
                 foreach ($this->destinationChildInstanceType as $item1) {
-                    $res['DestinationChildInstanceType'][$n1++] = $item1;
+                    $res['DestinationChildInstanceType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class destinationChildInstanceTypes extends Model
                 $model->destinationChildInstanceType = [];
                 $n1 = 0;
                 foreach ($map['DestinationChildInstanceType'] as $item1) {
-                    $model->destinationChildInstanceType[$n1++] = $item1;
+                    $model->destinationChildInstanceType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

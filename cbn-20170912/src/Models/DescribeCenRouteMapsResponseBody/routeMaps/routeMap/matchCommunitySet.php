@@ -32,7 +32,8 @@ class matchCommunitySet extends Model
                 $res['MatchCommunity'] = [];
                 $n1 = 0;
                 foreach ($this->matchCommunity as $item1) {
-                    $res['MatchCommunity'][$n1++] = $item1;
+                    $res['MatchCommunity'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class matchCommunitySet extends Model
                 $model->matchCommunity = [];
                 $n1 = 0;
                 foreach ($map['MatchCommunity'] as $item1) {
-                    $model->matchCommunity[$n1++] = $item1;
+                    $model->matchCommunity[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

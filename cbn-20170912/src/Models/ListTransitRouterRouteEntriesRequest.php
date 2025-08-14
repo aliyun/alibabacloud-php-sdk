@@ -181,7 +181,8 @@ class ListTransitRouterRouteEntriesRequest extends Model
                 $res['RouteFilter'] = [];
                 $n1 = 0;
                 foreach ($this->routeFilter as $item1) {
-                    $res['RouteFilter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RouteFilter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +196,8 @@ class ListTransitRouterRouteEntriesRequest extends Model
                 $res['TransitRouterRouteEntryIds'] = [];
                 $n1 = 0;
                 foreach ($this->transitRouterRouteEntryIds as $item1) {
-                    $res['TransitRouterRouteEntryIds'][$n1++] = $item1;
+                    $res['TransitRouterRouteEntryIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +207,8 @@ class ListTransitRouterRouteEntriesRequest extends Model
                 $res['TransitRouterRouteEntryNames'] = [];
                 $n1 = 0;
                 foreach ($this->transitRouterRouteEntryNames as $item1) {
-                    $res['TransitRouterRouteEntryNames'][$n1++] = $item1;
+                    $res['TransitRouterRouteEntryNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -290,7 +293,8 @@ class ListTransitRouterRouteEntriesRequest extends Model
                 $model->routeFilter = [];
                 $n1 = 0;
                 foreach ($map['RouteFilter'] as $item1) {
-                    $model->routeFilter[$n1++] = routeFilter::fromMap($item1);
+                    $model->routeFilter[$n1] = routeFilter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -304,7 +308,8 @@ class ListTransitRouterRouteEntriesRequest extends Model
                 $model->transitRouterRouteEntryIds = [];
                 $n1 = 0;
                 foreach ($map['TransitRouterRouteEntryIds'] as $item1) {
-                    $model->transitRouterRouteEntryIds[$n1++] = $item1;
+                    $model->transitRouterRouteEntryIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -314,7 +319,8 @@ class ListTransitRouterRouteEntriesRequest extends Model
                 $model->transitRouterRouteEntryNames = [];
                 $n1 = 0;
                 foreach ($map['TransitRouterRouteEntryNames'] as $item1) {
-                    $model->transitRouterRouteEntryNames[$n1++] = $item1;
+                    $model->transitRouterRouteEntryNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -32,7 +32,8 @@ class destinationRegionIds extends Model
                 $res['DestinationRegionId'] = [];
                 $n1 = 0;
                 foreach ($this->destinationRegionId as $item1) {
-                    $res['DestinationRegionId'][$n1++] = $item1;
+                    $res['DestinationRegionId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class destinationRegionIds extends Model
                 $model->destinationRegionId = [];
                 $n1 = 0;
                 foreach ($map['DestinationRegionId'] as $item1) {
-                    $model->destinationRegionId[$n1++] = $item1;
+                    $model->destinationRegionId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

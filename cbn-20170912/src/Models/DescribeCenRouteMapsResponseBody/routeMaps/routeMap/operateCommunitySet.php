@@ -32,7 +32,8 @@ class operateCommunitySet extends Model
                 $res['OperateCommunity'] = [];
                 $n1 = 0;
                 foreach ($this->operateCommunity as $item1) {
-                    $res['OperateCommunity'][$n1++] = $item1;
+                    $res['OperateCommunity'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class operateCommunitySet extends Model
                 $model->operateCommunity = [];
                 $n1 = 0;
                 foreach ($map['OperateCommunity'] as $item1) {
-                    $model->operateCommunity[$n1++] = $item1;
+                    $model->operateCommunity[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

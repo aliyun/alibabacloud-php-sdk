@@ -107,7 +107,8 @@ class RegisterTransitRouterMulticastGroupMembersRequest extends Model
                 $res['NetworkInterfaceIds'] = [];
                 $n1 = 0;
                 foreach ($this->networkInterfaceIds as $item1) {
-                    $res['NetworkInterfaceIds'][$n1++] = $item1;
+                    $res['NetworkInterfaceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +126,8 @@ class RegisterTransitRouterMulticastGroupMembersRequest extends Model
                 $res['PeerTransitRouterMulticastDomains'] = [];
                 $n1 = 0;
                 foreach ($this->peerTransitRouterMulticastDomains as $item1) {
-                    $res['PeerTransitRouterMulticastDomains'][$n1++] = $item1;
+                    $res['PeerTransitRouterMulticastDomains'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +176,8 @@ class RegisterTransitRouterMulticastGroupMembersRequest extends Model
                 $model->networkInterfaceIds = [];
                 $n1 = 0;
                 foreach ($map['NetworkInterfaceIds'] as $item1) {
-                    $model->networkInterfaceIds[$n1++] = $item1;
+                    $model->networkInterfaceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +195,8 @@ class RegisterTransitRouterMulticastGroupMembersRequest extends Model
                 $model->peerTransitRouterMulticastDomains = [];
                 $n1 = 0;
                 foreach ($map['PeerTransitRouterMulticastDomains'] as $item1) {
-                    $model->peerTransitRouterMulticastDomains[$n1++] = $item1;
+                    $model->peerTransitRouterMulticastDomains[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

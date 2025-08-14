@@ -73,7 +73,8 @@ class ListTransitRouterMulticastDomainsResponseBody extends Model
                 $res['TransitRouterMulticastDomains'] = [];
                 $n1 = 0;
                 foreach ($this->transitRouterMulticastDomains as $item1) {
-                    $res['TransitRouterMulticastDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TransitRouterMulticastDomains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class ListTransitRouterMulticastDomainsResponseBody extends Model
                 $model->transitRouterMulticastDomains = [];
                 $n1 = 0;
                 foreach ($map['TransitRouterMulticastDomains'] as $item1) {
-                    $model->transitRouterMulticastDomains[$n1++] = transitRouterMulticastDomains::fromMap($item1);
+                    $model->transitRouterMulticastDomains[$n1] = transitRouterMulticastDomains::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class cens extends Model
                 $res['Cen'] = [];
                 $n1 = 0;
                 foreach ($this->cen as $item1) {
-                    $res['Cen'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Cen'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class cens extends Model
                 $model->cen = [];
                 $n1 = 0;
                 foreach ($map['Cen'] as $item1) {
-                    $model->cen[$n1++] = cen::fromMap($item1);
+                    $model->cen[$n1] = cen::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

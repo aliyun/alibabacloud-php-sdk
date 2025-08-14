@@ -33,7 +33,8 @@ class privateZoneInfos extends Model
                 $res['PrivateZoneInfo'] = [];
                 $n1 = 0;
                 foreach ($this->privateZoneInfo as $item1) {
-                    $res['PrivateZoneInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PrivateZoneInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class privateZoneInfos extends Model
                 $model->privateZoneInfo = [];
                 $n1 = 0;
                 foreach ($map['PrivateZoneInfo'] as $item1) {
-                    $model->privateZoneInfo[$n1++] = privateZoneInfo::fromMap($item1);
+                    $model->privateZoneInfo[$n1] = privateZoneInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

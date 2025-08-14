@@ -32,7 +32,8 @@ class sourceRegionIds extends Model
                 $res['SourceRegionId'] = [];
                 $n1 = 0;
                 foreach ($this->sourceRegionId as $item1) {
-                    $res['SourceRegionId'][$n1++] = $item1;
+                    $res['SourceRegionId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class sourceRegionIds extends Model
                 $model->sourceRegionId = [];
                 $n1 = 0;
                 foreach ($map['SourceRegionId'] as $item1) {
-                    $model->sourceRegionId[$n1++] = $item1;
+                    $model->sourceRegionId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

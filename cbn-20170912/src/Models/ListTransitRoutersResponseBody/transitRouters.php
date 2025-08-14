@@ -127,7 +127,8 @@ class transitRouters extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class transitRouters extends Model
                 $res['TransitRouterCidrList'] = [];
                 $n1 = 0;
                 foreach ($this->transitRouterCidrList as $item1) {
-                    $res['TransitRouterCidrList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TransitRouterCidrList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +200,8 @@ class transitRouters extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +211,8 @@ class transitRouters extends Model
                 $model->transitRouterCidrList = [];
                 $n1 = 0;
                 foreach ($map['TransitRouterCidrList'] as $item1) {
-                    $model->transitRouterCidrList[$n1++] = transitRouterCidrList::fromMap($item1);
+                    $model->transitRouterCidrList[$n1] = transitRouterCidrList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

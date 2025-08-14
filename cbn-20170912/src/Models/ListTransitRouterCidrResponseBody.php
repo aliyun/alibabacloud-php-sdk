@@ -39,7 +39,8 @@ class ListTransitRouterCidrResponseBody extends Model
                 $res['CidrLists'] = [];
                 $n1 = 0;
                 foreach ($this->cidrLists as $item1) {
-                    $res['CidrLists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CidrLists'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListTransitRouterCidrResponseBody extends Model
                 $model->cidrLists = [];
                 $n1 = 0;
                 foreach ($map['CidrLists'] as $item1) {
-                    $model->cidrLists[$n1++] = cidrLists::fromMap($item1);
+                    $model->cidrLists[$n1] = cidrLists::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

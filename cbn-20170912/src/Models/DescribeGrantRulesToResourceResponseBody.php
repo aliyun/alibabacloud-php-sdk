@@ -57,7 +57,8 @@ class DescribeGrantRulesToResourceResponseBody extends Model
                 $res['GrantRules'] = [];
                 $n1 = 0;
                 foreach ($this->grantRules as $item1) {
-                    $res['GrantRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GrantRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class DescribeGrantRulesToResourceResponseBody extends Model
                 $model->grantRules = [];
                 $n1 = 0;
                 foreach ($map['GrantRules'] as $item1) {
-                    $model->grantRules[$n1++] = grantRules::fromMap($item1);
+                    $model->grantRules[$n1] = grantRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

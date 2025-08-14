@@ -119,7 +119,8 @@ class ListTransitRoutersRequest extends Model
                 $res['FeatureFilter'] = [];
                 $n1 = 0;
                 foreach ($this->featureFilter as $item1) {
-                    $res['FeatureFilter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FeatureFilter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +162,8 @@ class ListTransitRoutersRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +200,8 @@ class ListTransitRoutersRequest extends Model
                 $model->featureFilter = [];
                 $n1 = 0;
                 foreach ($map['FeatureFilter'] as $item1) {
-                    $model->featureFilter[$n1++] = featureFilter::fromMap($item1);
+                    $model->featureFilter[$n1] = featureFilter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -240,7 +243,8 @@ class ListTransitRoutersRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

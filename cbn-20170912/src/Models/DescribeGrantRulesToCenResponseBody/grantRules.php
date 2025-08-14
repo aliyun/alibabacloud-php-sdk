@@ -33,7 +33,8 @@ class grantRules extends Model
                 $res['GrantRule'] = [];
                 $n1 = 0;
                 foreach ($this->grantRule as $item1) {
-                    $res['GrantRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GrantRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class grantRules extends Model
                 $model->grantRule = [];
                 $n1 = 0;
                 foreach ($map['GrantRule'] as $item1) {
-                    $model->grantRule[$n1++] = grantRule::fromMap($item1);
+                    $model->grantRule[$n1] = grantRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

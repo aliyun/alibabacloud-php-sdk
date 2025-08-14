@@ -73,7 +73,8 @@ class ListTransitRouterCidrAllocationResponseBody extends Model
                 $res['TransitRouterCidrAllocations'] = [];
                 $n1 = 0;
                 foreach ($this->transitRouterCidrAllocations as $item1) {
-                    $res['TransitRouterCidrAllocations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TransitRouterCidrAllocations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class ListTransitRouterCidrAllocationResponseBody extends Model
                 $model->transitRouterCidrAllocations = [];
                 $n1 = 0;
                 foreach ($map['TransitRouterCidrAllocations'] as $item1) {
-                    $model->transitRouterCidrAllocations[$n1++] = transitRouterCidrAllocations::fromMap($item1);
+                    $model->transitRouterCidrAllocations[$n1] = transitRouterCidrAllocations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

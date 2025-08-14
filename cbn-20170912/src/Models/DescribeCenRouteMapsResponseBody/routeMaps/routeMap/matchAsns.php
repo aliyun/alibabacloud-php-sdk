@@ -32,7 +32,8 @@ class matchAsns extends Model
                 $res['MatchAsn'] = [];
                 $n1 = 0;
                 foreach ($this->matchAsn as $item1) {
-                    $res['MatchAsn'][$n1++] = $item1;
+                    $res['MatchAsn'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class matchAsns extends Model
                 $model->matchAsn = [];
                 $n1 = 0;
                 foreach ($map['MatchAsn'] as $item1) {
-                    $model->matchAsn[$n1++] = $item1;
+                    $model->matchAsn[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

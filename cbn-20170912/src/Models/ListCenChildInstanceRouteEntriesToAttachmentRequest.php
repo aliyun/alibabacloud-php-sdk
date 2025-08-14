@@ -125,7 +125,8 @@ class ListCenChildInstanceRouteEntriesToAttachmentRequest extends Model
                 $res['RouteFilter'] = [];
                 $n1 = 0;
                 foreach ($this->routeFilter as $item1) {
-                    $res['RouteFilter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RouteFilter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +187,8 @@ class ListCenChildInstanceRouteEntriesToAttachmentRequest extends Model
                 $model->routeFilter = [];
                 $n1 = 0;
                 foreach ($map['RouteFilter'] as $item1) {
-                    $model->routeFilter[$n1++] = routeFilter::fromMap($item1);
+                    $model->routeFilter[$n1] = routeFilter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

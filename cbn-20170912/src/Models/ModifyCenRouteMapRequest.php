@@ -291,7 +291,8 @@ class ModifyCenRouteMapRequest extends Model
                 $res['DestinationChildInstanceTypes'] = [];
                 $n1 = 0;
                 foreach ($this->destinationChildInstanceTypes as $item1) {
-                    $res['DestinationChildInstanceTypes'][$n1++] = $item1;
+                    $res['DestinationChildInstanceTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -301,7 +302,8 @@ class ModifyCenRouteMapRequest extends Model
                 $res['DestinationCidrBlocks'] = [];
                 $n1 = 0;
                 foreach ($this->destinationCidrBlocks as $item1) {
-                    $res['DestinationCidrBlocks'][$n1++] = $item1;
+                    $res['DestinationCidrBlocks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -311,7 +313,8 @@ class ModifyCenRouteMapRequest extends Model
                 $res['DestinationInstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->destinationInstanceIds as $item1) {
-                    $res['DestinationInstanceIds'][$n1++] = $item1;
+                    $res['DestinationInstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -325,7 +328,8 @@ class ModifyCenRouteMapRequest extends Model
                 $res['DestinationRegionIds'] = [];
                 $n1 = 0;
                 foreach ($this->destinationRegionIds as $item1) {
-                    $res['DestinationRegionIds'][$n1++] = $item1;
+                    $res['DestinationRegionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -335,7 +339,8 @@ class ModifyCenRouteMapRequest extends Model
                 $res['DestinationRouteTableIds'] = [];
                 $n1 = 0;
                 foreach ($this->destinationRouteTableIds as $item1) {
-                    $res['DestinationRouteTableIds'][$n1++] = $item1;
+                    $res['DestinationRouteTableIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -353,7 +358,8 @@ class ModifyCenRouteMapRequest extends Model
                 $res['MatchAsns'] = [];
                 $n1 = 0;
                 foreach ($this->matchAsns as $item1) {
-                    $res['MatchAsns'][$n1++] = $item1;
+                    $res['MatchAsns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -363,7 +369,8 @@ class ModifyCenRouteMapRequest extends Model
                 $res['MatchCommunitySet'] = [];
                 $n1 = 0;
                 foreach ($this->matchCommunitySet as $item1) {
-                    $res['MatchCommunitySet'][$n1++] = $item1;
+                    $res['MatchCommunitySet'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -377,7 +384,8 @@ class ModifyCenRouteMapRequest extends Model
                 $res['OperateCommunitySet'] = [];
                 $n1 = 0;
                 foreach ($this->operateCommunitySet as $item1) {
-                    $res['OperateCommunitySet'][$n1++] = $item1;
+                    $res['OperateCommunitySet'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -399,7 +407,8 @@ class ModifyCenRouteMapRequest extends Model
                 $res['PrependAsPath'] = [];
                 $n1 = 0;
                 foreach ($this->prependAsPath as $item1) {
-                    $res['PrependAsPath'][$n1++] = $item1;
+                    $res['PrependAsPath'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -425,7 +434,8 @@ class ModifyCenRouteMapRequest extends Model
                 $res['RouteTypes'] = [];
                 $n1 = 0;
                 foreach ($this->routeTypes as $item1) {
-                    $res['RouteTypes'][$n1++] = $item1;
+                    $res['RouteTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -435,7 +445,8 @@ class ModifyCenRouteMapRequest extends Model
                 $res['SourceChildInstanceTypes'] = [];
                 $n1 = 0;
                 foreach ($this->sourceChildInstanceTypes as $item1) {
-                    $res['SourceChildInstanceTypes'][$n1++] = $item1;
+                    $res['SourceChildInstanceTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -445,7 +456,8 @@ class ModifyCenRouteMapRequest extends Model
                 $res['SourceInstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->sourceInstanceIds as $item1) {
-                    $res['SourceInstanceIds'][$n1++] = $item1;
+                    $res['SourceInstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -459,7 +471,8 @@ class ModifyCenRouteMapRequest extends Model
                 $res['SourceRegionIds'] = [];
                 $n1 = 0;
                 foreach ($this->sourceRegionIds as $item1) {
-                    $res['SourceRegionIds'][$n1++] = $item1;
+                    $res['SourceRegionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -469,7 +482,8 @@ class ModifyCenRouteMapRequest extends Model
                 $res['SourceRouteTableIds'] = [];
                 $n1 = 0;
                 foreach ($this->sourceRouteTableIds as $item1) {
-                    $res['SourceRouteTableIds'][$n1++] = $item1;
+                    $res['SourceRouteTableIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -518,7 +532,8 @@ class ModifyCenRouteMapRequest extends Model
                 $model->destinationChildInstanceTypes = [];
                 $n1 = 0;
                 foreach ($map['DestinationChildInstanceTypes'] as $item1) {
-                    $model->destinationChildInstanceTypes[$n1++] = $item1;
+                    $model->destinationChildInstanceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -528,7 +543,8 @@ class ModifyCenRouteMapRequest extends Model
                 $model->destinationCidrBlocks = [];
                 $n1 = 0;
                 foreach ($map['DestinationCidrBlocks'] as $item1) {
-                    $model->destinationCidrBlocks[$n1++] = $item1;
+                    $model->destinationCidrBlocks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -538,7 +554,8 @@ class ModifyCenRouteMapRequest extends Model
                 $model->destinationInstanceIds = [];
                 $n1 = 0;
                 foreach ($map['DestinationInstanceIds'] as $item1) {
-                    $model->destinationInstanceIds[$n1++] = $item1;
+                    $model->destinationInstanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -552,7 +569,8 @@ class ModifyCenRouteMapRequest extends Model
                 $model->destinationRegionIds = [];
                 $n1 = 0;
                 foreach ($map['DestinationRegionIds'] as $item1) {
-                    $model->destinationRegionIds[$n1++] = $item1;
+                    $model->destinationRegionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -562,7 +580,8 @@ class ModifyCenRouteMapRequest extends Model
                 $model->destinationRouteTableIds = [];
                 $n1 = 0;
                 foreach ($map['DestinationRouteTableIds'] as $item1) {
-                    $model->destinationRouteTableIds[$n1++] = $item1;
+                    $model->destinationRouteTableIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -580,7 +599,8 @@ class ModifyCenRouteMapRequest extends Model
                 $model->matchAsns = [];
                 $n1 = 0;
                 foreach ($map['MatchAsns'] as $item1) {
-                    $model->matchAsns[$n1++] = $item1;
+                    $model->matchAsns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -590,7 +610,8 @@ class ModifyCenRouteMapRequest extends Model
                 $model->matchCommunitySet = [];
                 $n1 = 0;
                 foreach ($map['MatchCommunitySet'] as $item1) {
-                    $model->matchCommunitySet[$n1++] = $item1;
+                    $model->matchCommunitySet[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -604,7 +625,8 @@ class ModifyCenRouteMapRequest extends Model
                 $model->operateCommunitySet = [];
                 $n1 = 0;
                 foreach ($map['OperateCommunitySet'] as $item1) {
-                    $model->operateCommunitySet[$n1++] = $item1;
+                    $model->operateCommunitySet[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -626,7 +648,8 @@ class ModifyCenRouteMapRequest extends Model
                 $model->prependAsPath = [];
                 $n1 = 0;
                 foreach ($map['PrependAsPath'] as $item1) {
-                    $model->prependAsPath[$n1++] = $item1;
+                    $model->prependAsPath[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -652,7 +675,8 @@ class ModifyCenRouteMapRequest extends Model
                 $model->routeTypes = [];
                 $n1 = 0;
                 foreach ($map['RouteTypes'] as $item1) {
-                    $model->routeTypes[$n1++] = $item1;
+                    $model->routeTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -662,7 +686,8 @@ class ModifyCenRouteMapRequest extends Model
                 $model->sourceChildInstanceTypes = [];
                 $n1 = 0;
                 foreach ($map['SourceChildInstanceTypes'] as $item1) {
-                    $model->sourceChildInstanceTypes[$n1++] = $item1;
+                    $model->sourceChildInstanceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -672,7 +697,8 @@ class ModifyCenRouteMapRequest extends Model
                 $model->sourceInstanceIds = [];
                 $n1 = 0;
                 foreach ($map['SourceInstanceIds'] as $item1) {
-                    $model->sourceInstanceIds[$n1++] = $item1;
+                    $model->sourceInstanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -686,7 +712,8 @@ class ModifyCenRouteMapRequest extends Model
                 $model->sourceRegionIds = [];
                 $n1 = 0;
                 foreach ($map['SourceRegionIds'] as $item1) {
-                    $model->sourceRegionIds[$n1++] = $item1;
+                    $model->sourceRegionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -696,7 +723,8 @@ class ModifyCenRouteMapRequest extends Model
                 $model->sourceRouteTableIds = [];
                 $n1 = 0;
                 foreach ($map['SourceRouteTableIds'] as $item1) {
-                    $model->sourceRouteTableIds[$n1++] = $item1;
+                    $model->sourceRouteTableIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

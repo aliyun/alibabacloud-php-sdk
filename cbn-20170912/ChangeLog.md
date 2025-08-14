@@ -1,3 +1,6 @@
+2025-08-14 Version: 1.2.7
+- Generated php 2017-09-12 for Cbn.
+
 2025-05-29 Version: 1.2.6
 - Update API DescribeCenAttachedChildInstanceAttribute: add response parameters Body.ManagedService.
 - Update API DescribeCenAttachedChildInstances: add response parameters Body.ChildInstances.$.ManagedService.

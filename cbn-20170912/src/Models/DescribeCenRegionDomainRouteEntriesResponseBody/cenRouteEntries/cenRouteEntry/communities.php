@@ -32,7 +32,8 @@ class communities extends Model
                 $res['Community'] = [];
                 $n1 = 0;
                 foreach ($this->community as $item1) {
-                    $res['Community'][$n1++] = $item1;
+                    $res['Community'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class communities extends Model
                 $model->community = [];
                 $n1 = 0;
                 foreach ($map['Community'] as $item1) {
-                    $model->community[$n1++] = $item1;
+                    $model->community[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -32,7 +32,8 @@ class routeTypes extends Model
                 $res['RouteType'] = [];
                 $n1 = 0;
                 foreach ($this->routeType as $item1) {
-                    $res['RouteType'][$n1++] = $item1;
+                    $res['RouteType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class routeTypes extends Model
                 $model->routeType = [];
                 $n1 = 0;
                 foreach ($map['RouteType'] as $item1) {
-                    $model->routeType[$n1++] = $item1;
+                    $model->routeType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

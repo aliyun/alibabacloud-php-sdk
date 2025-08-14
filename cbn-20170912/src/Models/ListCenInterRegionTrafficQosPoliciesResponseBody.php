@@ -73,7 +73,8 @@ class ListCenInterRegionTrafficQosPoliciesResponseBody extends Model
                 $res['TrafficQosPolicies'] = [];
                 $n1 = 0;
                 foreach ($this->trafficQosPolicies as $item1) {
-                    $res['TrafficQosPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TrafficQosPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class ListCenInterRegionTrafficQosPoliciesResponseBody extends Model
                 $model->trafficQosPolicies = [];
                 $n1 = 0;
                 foreach ($map['TrafficQosPolicies'] as $item1) {
-                    $model->trafficQosPolicies[$n1++] = trafficQosPolicies::fromMap($item1);
+                    $model->trafficQosPolicies[$n1] = trafficQosPolicies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

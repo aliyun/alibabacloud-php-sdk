@@ -33,7 +33,8 @@ class flowLogs extends Model
                 $res['FlowLog'] = [];
                 $n1 = 0;
                 foreach ($this->flowLog as $item1) {
-                    $res['FlowLog'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FlowLog'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class flowLogs extends Model
                 $model->flowLog = [];
                 $n1 = 0;
                 foreach ($map['FlowLog'] as $item1) {
-                    $model->flowLog[$n1++] = flowLog::fromMap($item1);
+                    $model->flowLog[$n1] = flowLog::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

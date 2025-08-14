@@ -32,7 +32,8 @@ class prependAsPath extends Model
                 $res['AsPath'] = [];
                 $n1 = 0;
                 foreach ($this->asPath as $item1) {
-                    $res['AsPath'][$n1++] = $item1;
+                    $res['AsPath'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class prependAsPath extends Model
                 $model->asPath = [];
                 $n1 = 0;
                 foreach ($map['AsPath'] as $item1) {
-                    $model->asPath[$n1++] = $item1;
+                    $model->asPath[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

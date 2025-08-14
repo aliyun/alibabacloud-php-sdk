@@ -135,7 +135,8 @@ class CreateCenInterRegionTrafficQosPolicyRequest extends Model
                 $res['TrafficQosQueues'] = [];
                 $n1 = 0;
                 foreach ($this->trafficQosQueues as $item1) {
-                    $res['TrafficQosQueues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TrafficQosQueues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +201,8 @@ class CreateCenInterRegionTrafficQosPolicyRequest extends Model
                 $model->trafficQosQueues = [];
                 $n1 = 0;
                 foreach ($map['TrafficQosQueues'] as $item1) {
-                    $model->trafficQosQueues[$n1++] = trafficQosQueues::fromMap($item1);
+                    $model->trafficQosQueues[$n1] = trafficQosQueues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

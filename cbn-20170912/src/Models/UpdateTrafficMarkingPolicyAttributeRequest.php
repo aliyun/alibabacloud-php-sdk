@@ -97,7 +97,8 @@ class UpdateTrafficMarkingPolicyAttributeRequest extends Model
                 $res['AddTrafficMatchRules'] = [];
                 $n1 = 0;
                 foreach ($this->addTrafficMatchRules as $item1) {
-                    $res['AddTrafficMatchRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AddTrafficMatchRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class UpdateTrafficMarkingPolicyAttributeRequest extends Model
                 $res['DeleteTrafficMatchRules'] = [];
                 $n1 = 0;
                 foreach ($this->deleteTrafficMatchRules as $item1) {
-                    $res['DeleteTrafficMatchRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeleteTrafficMatchRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +166,8 @@ class UpdateTrafficMarkingPolicyAttributeRequest extends Model
                 $model->addTrafficMatchRules = [];
                 $n1 = 0;
                 foreach ($map['AddTrafficMatchRules'] as $item1) {
-                    $model->addTrafficMatchRules[$n1++] = addTrafficMatchRules::fromMap($item1);
+                    $model->addTrafficMatchRules[$n1] = addTrafficMatchRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +181,8 @@ class UpdateTrafficMarkingPolicyAttributeRequest extends Model
                 $model->deleteTrafficMatchRules = [];
                 $n1 = 0;
                 foreach ($map['DeleteTrafficMatchRules'] as $item1) {
-                    $model->deleteTrafficMatchRules[$n1++] = deleteTrafficMatchRules::fromMap($item1);
+                    $model->deleteTrafficMatchRules[$n1] = deleteTrafficMatchRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

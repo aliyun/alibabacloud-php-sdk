@@ -32,7 +32,8 @@ class cenIds extends Model
                 $res['CenId'] = [];
                 $n1 = 0;
                 foreach ($this->cenId as $item1) {
-                    $res['CenId'][$n1++] = $item1;
+                    $res['CenId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class cenIds extends Model
                 $model->cenId = [];
                 $n1 = 0;
                 foreach ($map['CenId'] as $item1) {
-                    $model->cenId[$n1++] = $item1;
+                    $model->cenId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

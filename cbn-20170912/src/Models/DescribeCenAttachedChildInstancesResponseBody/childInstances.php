@@ -33,7 +33,8 @@ class childInstances extends Model
                 $res['ChildInstance'] = [];
                 $n1 = 0;
                 foreach ($this->childInstance as $item1) {
-                    $res['ChildInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ChildInstance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class childInstances extends Model
                 $model->childInstance = [];
                 $n1 = 0;
                 foreach ($map['ChildInstance'] as $item1) {
-                    $model->childInstance[$n1++] = childInstance::fromMap($item1);
+                    $model->childInstance[$n1] = childInstance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

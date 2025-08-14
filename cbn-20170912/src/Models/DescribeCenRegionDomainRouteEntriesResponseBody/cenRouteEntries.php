@@ -33,7 +33,8 @@ class cenRouteEntries extends Model
                 $res['CenRouteEntry'] = [];
                 $n1 = 0;
                 foreach ($this->cenRouteEntry as $item1) {
-                    $res['CenRouteEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CenRouteEntry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class cenRouteEntries extends Model
                 $model->cenRouteEntry = [];
                 $n1 = 0;
                 foreach ($map['CenRouteEntry'] as $item1) {
-                    $model->cenRouteEntry[$n1++] = cenRouteEntry::fromMap($item1);
+                    $model->cenRouteEntry[$n1] = cenRouteEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

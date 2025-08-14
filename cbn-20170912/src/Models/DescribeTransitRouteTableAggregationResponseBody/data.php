@@ -90,7 +90,8 @@ class data extends Model
                 $res['ScopeList'] = [];
                 $n1 = 0;
                 foreach ($this->scopeList as $item1) {
-                    $res['ScopeList'][$n1++] = $item1;
+                    $res['ScopeList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,7 +140,8 @@ class data extends Model
                 $model->scopeList = [];
                 $n1 = 0;
                 foreach ($map['ScopeList'] as $item1) {
-                    $model->scopeList[$n1++] = $item1;
+                    $model->scopeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

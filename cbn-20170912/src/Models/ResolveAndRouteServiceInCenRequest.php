@@ -92,7 +92,8 @@ class ResolveAndRouteServiceInCenRequest extends Model
                 $res['AccessRegionIds'] = [];
                 $n1 = 0;
                 foreach ($this->accessRegionIds as $item1) {
-                    $res['AccessRegionIds'][$n1++] = $item1;
+                    $res['AccessRegionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +154,8 @@ class ResolveAndRouteServiceInCenRequest extends Model
                 $model->accessRegionIds = [];
                 $n1 = 0;
                 foreach ($map['AccessRegionIds'] as $item1) {
-                    $model->accessRegionIds[$n1++] = $item1;
+                    $model->accessRegionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

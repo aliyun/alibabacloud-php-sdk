@@ -98,7 +98,8 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
                 $res['NetworkInterfaceIds'] = [];
                 $n1 = 0;
                 foreach ($this->networkInterfaceIds as $item1) {
-                    $res['NetworkInterfaceIds'][$n1++] = $item1;
+                    $res['NetworkInterfaceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +156,8 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
                 $model->networkInterfaceIds = [];
                 $n1 = 0;
                 foreach ($map['NetworkInterfaceIds'] as $item1) {
-                    $model->networkInterfaceIds[$n1++] = $item1;
+                    $model->networkInterfaceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

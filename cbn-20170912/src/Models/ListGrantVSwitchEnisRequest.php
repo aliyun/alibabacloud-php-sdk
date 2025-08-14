@@ -106,7 +106,8 @@ class ListGrantVSwitchEnisRequest extends Model
                 $res['NetworkInterfaceId'] = [];
                 $n1 = 0;
                 foreach ($this->networkInterfaceId as $item1) {
-                    $res['NetworkInterfaceId'][$n1++] = $item1;
+                    $res['NetworkInterfaceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -171,7 +172,8 @@ class ListGrantVSwitchEnisRequest extends Model
                 $model->networkInterfaceId = [];
                 $n1 = 0;
                 foreach ($map['NetworkInterfaceId'] as $item1) {
-                    $model->networkInterfaceId[$n1++] = $item1;
+                    $model->networkInterfaceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -96,7 +96,8 @@ class trafficQosQueues extends Model
                 $res['Dscps'] = [];
                 $n1 = 0;
                 foreach ($this->dscps as $item1) {
-                    $res['Dscps'][$n1++] = $item1;
+                    $res['Dscps'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,7 +158,8 @@ class trafficQosQueues extends Model
                 $model->dscps = [];
                 $n1 = 0;
                 foreach ($map['Dscps'] as $item1) {
-                    $model->dscps[$n1++] = $item1;
+                    $model->dscps[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

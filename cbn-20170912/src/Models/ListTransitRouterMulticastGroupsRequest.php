@@ -154,7 +154,8 @@ class ListTransitRouterMulticastGroupsRequest extends Model
                 $res['NetworkInterfaceIds'] = [];
                 $n1 = 0;
                 foreach ($this->networkInterfaceIds as $item1) {
-                    $res['NetworkInterfaceIds'][$n1++] = $item1;
+                    $res['NetworkInterfaceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +177,8 @@ class ListTransitRouterMulticastGroupsRequest extends Model
                 $res['PeerTransitRouterMulticastDomains'] = [];
                 $n1 = 0;
                 foreach ($this->peerTransitRouterMulticastDomains as $item1) {
-                    $res['PeerTransitRouterMulticastDomains'][$n1++] = $item1;
+                    $res['PeerTransitRouterMulticastDomains'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -210,7 +212,8 @@ class ListTransitRouterMulticastGroupsRequest extends Model
                 $res['VSwitchIds'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
-                    $res['VSwitchIds'][$n1++] = $item1;
+                    $res['VSwitchIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -251,7 +254,8 @@ class ListTransitRouterMulticastGroupsRequest extends Model
                 $model->networkInterfaceIds = [];
                 $n1 = 0;
                 foreach ($map['NetworkInterfaceIds'] as $item1) {
-                    $model->networkInterfaceIds[$n1++] = $item1;
+                    $model->networkInterfaceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -273,7 +277,8 @@ class ListTransitRouterMulticastGroupsRequest extends Model
                 $model->peerTransitRouterMulticastDomains = [];
                 $n1 = 0;
                 foreach ($map['PeerTransitRouterMulticastDomains'] as $item1) {
-                    $model->peerTransitRouterMulticastDomains[$n1++] = $item1;
+                    $model->peerTransitRouterMulticastDomains[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -307,7 +312,8 @@ class ListTransitRouterMulticastGroupsRequest extends Model
                 $model->vSwitchIds = [];
                 $n1 = 0;
                 foreach ($map['VSwitchIds'] as $item1) {
-                    $model->vSwitchIds[$n1++] = $item1;
+                    $model->vSwitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

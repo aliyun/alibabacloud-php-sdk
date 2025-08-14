@@ -98,7 +98,8 @@ class RemoveTrafficMatchRuleFromTrafficMarkingPolicyRequest extends Model
                 $res['TrafficMarkRuleIds'] = [];
                 $n1 = 0;
                 foreach ($this->trafficMarkRuleIds as $item1) {
-                    $res['TrafficMarkRuleIds'][$n1++] = $item1;
+                    $res['TrafficMarkRuleIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +148,8 @@ class RemoveTrafficMatchRuleFromTrafficMarkingPolicyRequest extends Model
                 $model->trafficMarkRuleIds = [];
                 $n1 = 0;
                 foreach ($map['TrafficMarkRuleIds'] as $item1) {
-                    $model->trafficMarkRuleIds[$n1++] = $item1;
+                    $model->trafficMarkRuleIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

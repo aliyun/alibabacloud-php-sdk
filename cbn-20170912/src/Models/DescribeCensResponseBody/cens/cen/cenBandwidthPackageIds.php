@@ -32,7 +32,8 @@ class cenBandwidthPackageIds extends Model
                 $res['CenBandwidthPackageId'] = [];
                 $n1 = 0;
                 foreach ($this->cenBandwidthPackageId as $item1) {
-                    $res['CenBandwidthPackageId'][$n1++] = $item1;
+                    $res['CenBandwidthPackageId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class cenBandwidthPackageIds extends Model
                 $model->cenBandwidthPackageId = [];
                 $n1 = 0;
                 foreach ($map['CenBandwidthPackageId'] as $item1) {
-                    $model->cenBandwidthPackageId[$n1++] = $item1;
+                    $model->cenBandwidthPackageId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

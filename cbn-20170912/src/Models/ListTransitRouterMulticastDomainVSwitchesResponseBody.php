@@ -72,7 +72,8 @@ class ListTransitRouterMulticastDomainVSwitchesResponseBody extends Model
                 $res['VSwitchIds'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
-                    $res['VSwitchIds'][$n1++] = $item1;
+                    $res['VSwitchIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class ListTransitRouterMulticastDomainVSwitchesResponseBody extends Model
                 $model->vSwitchIds = [];
                 $n1 = 0;
                 foreach ($map['VSwitchIds'] as $item1) {
-                    $model->vSwitchIds[$n1++] = $item1;
+                    $model->vSwitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

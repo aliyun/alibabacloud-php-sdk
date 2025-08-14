@@ -73,7 +73,8 @@ class ListTrafficMarkingPoliciesResponseBody extends Model
                 $res['TrafficMarkingPolicies'] = [];
                 $n1 = 0;
                 foreach ($this->trafficMarkingPolicies as $item1) {
-                    $res['TrafficMarkingPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TrafficMarkingPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class ListTrafficMarkingPoliciesResponseBody extends Model
                 $model->trafficMarkingPolicies = [];
                 $n1 = 0;
                 foreach ($map['TrafficMarkingPolicies'] as $item1) {
-                    $model->trafficMarkingPolicies[$n1++] = trafficMarkingPolicies::fromMap($item1);
+                    $model->trafficMarkingPolicies[$n1] = trafficMarkingPolicies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

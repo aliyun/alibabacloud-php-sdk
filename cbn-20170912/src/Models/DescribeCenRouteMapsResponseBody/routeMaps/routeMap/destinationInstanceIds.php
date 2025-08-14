@@ -32,7 +32,8 @@ class destinationInstanceIds extends Model
                 $res['DestinationInstanceId'] = [];
                 $n1 = 0;
                 foreach ($this->destinationInstanceId as $item1) {
-                    $res['DestinationInstanceId'][$n1++] = $item1;
+                    $res['DestinationInstanceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class destinationInstanceIds extends Model
                 $model->destinationInstanceId = [];
                 $n1 = 0;
                 foreach ($map['DestinationInstanceId'] as $item1) {
-                    $model->destinationInstanceId[$n1++] = $item1;
+                    $model->destinationInstanceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
