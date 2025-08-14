@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainRequest\redirect\backendPorts;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainRequest\redirect\requestHeaders;
 
 class redirect extends Model
 {
+    /**
+     * @var backendPorts[]
+     */
+    public $backendPorts;
+
     /**
      * @var string[]
      */
@@ -94,6 +100,7 @@ class redirect extends Model
      */
     public $xffProto;
     protected $_name = [
+        'backendPorts' => 'BackendPorts',
         'backends' => 'Backends',
         'backupBackends' => 'BackupBackends',
         'cnameEnabled' => 'CnameEnabled',
@@ -115,6 +122,9 @@ class redirect extends Model
 
     public function validate()
     {
+        if (\is_array($this->backendPorts)) {
+            Model::validateArray($this->backendPorts);
+        }
         if (\is_array($this->backends)) {
             Model::validateArray($this->backends);
         }
@@ -130,6 +140,17 @@ class redirect extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->backendPorts) {
+            if (\is_array($this->backendPorts)) {
+                $res['BackendPorts'] = [];
+                $n1 = 0;
+                foreach ($this->backendPorts as $item1) {
+                    $res['BackendPorts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->backends) {
             if (\is_array($this->backends)) {
                 $res['Backends'] = [];
@@ -230,6 +251,17 @@ class redirect extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendPorts'])) {
+            if (!empty($map['BackendPorts'])) {
+                $model->backendPorts = [];
+                $n1 = 0;
+                foreach ($map['BackendPorts'] as $item1) {
+                    $model->backendPorts[$n1] = backendPorts::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Backends'])) {
             if (!empty($map['Backends'])) {
                 $model->backends = [];
