@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteReportDefinitionRequest extends Model
 {
     /**
-     * @example 2684201000001
-     *
      * @var string
      */
     public $nbid;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 123123
-     *
      * @var int
      */
     public $reportTaskId;
@@ -28,14 +22,18 @@ class DeleteReportDefinitionRequest extends Model
         'reportTaskId' => 'ReportTaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
+
         if (null !== $this->reportTaskId) {
             $res['ReportTaskId'] = $this->reportTaskId;
         }
@@ -43,17 +41,18 @@ class DeleteReportDefinitionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteReportDefinitionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }
+
         if (isset($map['ReportTaskId'])) {
             $model->reportTaskId = $map['ReportTaskId'];
         }

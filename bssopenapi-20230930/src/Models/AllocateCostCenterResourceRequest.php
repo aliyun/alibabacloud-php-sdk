@@ -4,42 +4,32 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AllocateCostCenterResourceRequest\resourceInstanceList;
-use AlibabaCloud\Tea\Model;
 
 class AllocateCostCenterResourceRequest extends Model
 {
     /**
-     * @example 637180
-     *
      * @var int
      */
     public $fromCostCenterId;
 
     /**
-     * @example 1529600453335198
-     *
      * @var int
      */
     public $fromOwnerAccountId;
 
     /**
-     * @example 2684201000001
-     *
      * @var string
      */
     public $nbid;
 
     /**
-     * @description This parameter is required.
-     *
      * @var resourceInstanceList[]
      */
     public $resourceInstanceList;
 
     /**
-     * @example 638288
-     *
      * @var int
      */
     public $toCostCenterId;
@@ -51,29 +41,40 @@ class AllocateCostCenterResourceRequest extends Model
         'toCostCenterId' => 'ToCostCenterId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resourceInstanceList)) {
+            Model::validateArray($this->resourceInstanceList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fromCostCenterId) {
             $res['FromCostCenterId'] = $this->fromCostCenterId;
         }
+
         if (null !== $this->fromOwnerAccountId) {
             $res['FromOwnerAccountId'] = $this->fromOwnerAccountId;
         }
+
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
+
         if (null !== $this->resourceInstanceList) {
-            $res['ResourceInstanceList'] = [];
-            if (null !== $this->resourceInstanceList && \is_array($this->resourceInstanceList)) {
-                $n = 0;
-                foreach ($this->resourceInstanceList as $item) {
-                    $res['ResourceInstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceInstanceList)) {
+                $res['ResourceInstanceList'] = [];
+                $n1 = 0;
+                foreach ($this->resourceInstanceList as $item1) {
+                    $res['ResourceInstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->toCostCenterId) {
             $res['ToCostCenterId'] = $this->toCostCenterId;
         }
@@ -81,32 +82,37 @@ class AllocateCostCenterResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AllocateCostCenterResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FromCostCenterId'])) {
             $model->fromCostCenterId = $map['FromCostCenterId'];
         }
+
         if (isset($map['FromOwnerAccountId'])) {
             $model->fromOwnerAccountId = $map['FromOwnerAccountId'];
         }
+
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }
+
         if (isset($map['ResourceInstanceList'])) {
             if (!empty($map['ResourceInstanceList'])) {
                 $model->resourceInstanceList = [];
-                $n = 0;
-                foreach ($map['ResourceInstanceList'] as $item) {
-                    $model->resourceInstanceList[$n++] = null !== $item ? resourceInstanceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourceInstanceList'] as $item1) {
+                    $model->resourceInstanceList[$n1] = resourceInstanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ToCostCenterId'])) {
             $model->toCostCenterId = $map['ToCostCenterId'];
         }

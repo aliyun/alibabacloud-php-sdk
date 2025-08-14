@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryCostCenterShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
@@ -23,35 +19,21 @@ class QueryCostCenterShrinkRequest extends Model
     public $ecIdAccountIdsShrink;
 
     /**
-     * @example 2684201000001
-     *
      * @var string
      */
     public $nbid;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1314839403940987
-     *
      * @var int
      */
     public $ownerAccountId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example -1
-     *
      * @var int
      */
     public $parentCostCenterId;
@@ -64,26 +46,34 @@ class QueryCostCenterShrinkRequest extends Model
         'parentCostCenterId' => 'ParentCostCenterId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->ecIdAccountIdsShrink) {
             $res['EcIdAccountIds'] = $this->ecIdAccountIdsShrink;
         }
+
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
+
         if (null !== $this->ownerAccountId) {
             $res['OwnerAccountId'] = $this->ownerAccountId;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->parentCostCenterId) {
             $res['ParentCostCenterId'] = $this->parentCostCenterId;
         }
@@ -91,29 +81,34 @@ class QueryCostCenterShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryCostCenterShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['EcIdAccountIds'])) {
             $model->ecIdAccountIdsShrink = $map['EcIdAccountIds'];
         }
+
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }
+
         if (isset($map['OwnerAccountId'])) {
             $model->ownerAccountId = $map['OwnerAccountId'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ParentCostCenterId'])) {
             $model->parentCostCenterId = $map['ParentCostCenterId'];
         }

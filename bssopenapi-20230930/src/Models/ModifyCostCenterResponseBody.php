@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterResponseBody\costCenterOperateDto;
-use AlibabaCloud\Tea\Model;
 
 class ModifyCostCenterResponseBody extends Model
 {
@@ -15,15 +15,11 @@ class ModifyCostCenterResponseBody extends Model
     public $costCenterOperateDto;
 
     /**
-     * @example {}
-     *
      * @var mixed
      */
     public $metadata;
 
     /**
-     * @example 6000EE23-274B-4E07-A697-FF2E999520A4
-     *
      * @var string
      */
     public $requestId;
@@ -33,23 +29,32 @@ class ModifyCostCenterResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->costCenterOperateDto)) {
+            Model::validateArray($this->costCenterOperateDto);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->costCenterOperateDto) {
-            $res['CostCenterOperateDto'] = [];
-            if (null !== $this->costCenterOperateDto && \is_array($this->costCenterOperateDto)) {
-                $n = 0;
-                foreach ($this->costCenterOperateDto as $item) {
-                    $res['CostCenterOperateDto'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->costCenterOperateDto)) {
+                $res['CostCenterOperateDto'] = [];
+                $n1 = 0;
+                foreach ($this->costCenterOperateDto as $item1) {
+                    $res['CostCenterOperateDto'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -57,26 +62,29 @@ class ModifyCostCenterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyCostCenterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostCenterOperateDto'])) {
             if (!empty($map['CostCenterOperateDto'])) {
                 $model->costCenterOperateDto = [];
-                $n = 0;
-                foreach ($map['CostCenterOperateDto'] as $item) {
-                    $model->costCenterOperateDto[$n++] = null !== $item ? costCenterOperateDto::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CostCenterOperateDto'] as $item1) {
+                    $model->costCenterOperateDto[$n1] = costCenterOperateDto::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

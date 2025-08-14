@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListReportDefinitionsResponseBody\reportDefinitions;
-use AlibabaCloud\Tea\Model;
 
 class ListReportDefinitionsResponseBody extends Model
 {
@@ -20,8 +20,6 @@ class ListReportDefinitionsResponseBody extends Model
     public $reportDefinitions;
 
     /**
-     * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
-     *
      * @var string
      */
     public $requestId;
@@ -31,23 +29,32 @@ class ListReportDefinitionsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->reportDefinitions)) {
+            Model::validateArray($this->reportDefinitions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
         }
+
         if (null !== $this->reportDefinitions) {
-            $res['ReportDefinitions'] = [];
-            if (null !== $this->reportDefinitions && \is_array($this->reportDefinitions)) {
-                $n = 0;
-                foreach ($this->reportDefinitions as $item) {
-                    $res['ReportDefinitions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->reportDefinitions)) {
+                $res['ReportDefinitions'] = [];
+                $n1 = 0;
+                foreach ($this->reportDefinitions as $item1) {
+                    $res['ReportDefinitions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -55,26 +62,29 @@ class ListReportDefinitionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListReportDefinitionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
         }
+
         if (isset($map['ReportDefinitions'])) {
             if (!empty($map['ReportDefinitions'])) {
                 $model->reportDefinitions = [];
-                $n = 0;
-                foreach ($map['ReportDefinitions'] as $item) {
-                    $model->reportDefinitions[$n++] = null !== $item ? reportDefinitions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ReportDefinitions'] as $item1) {
+                    $model->reportDefinitions[$n1] = reportDefinitions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

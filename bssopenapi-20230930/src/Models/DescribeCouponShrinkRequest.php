@@ -4,36 +4,26 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCouponShrinkRequest extends Model
 {
     /**
-     * @example 351430260343
-     *
      * @var int
      */
     public $couponId;
 
     /**
-     * @example 554863270150
-     *
      * @var string
      */
     public $couponNo;
 
     /**
-     * @example CERTAIN
-     *
      * @var string
      */
     public $couponType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
@@ -44,52 +34,36 @@ class DescribeCouponShrinkRequest extends Model
     public $ecIdAccountIdsShrink;
 
     /**
-     * @example 1708423156000
-     *
      * @var int
      */
     public $effectiveEndTime;
 
     /**
-     * @example 1684750028000
-     *
      * @var int
      */
     public $effectiveStartTime;
 
     /**
-     * @example 1708423156000
-     *
      * @var int
      */
     public $expireEndDate;
 
     /**
-     * @example 1684750028000
-     *
      * @var int
      */
     public $expireStartDate;
 
     /**
-     * @example 2684201000001
-     *
      * @var string
      */
     public $nbid;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example AVAILABLE
-     *
      * @var string
      */
     public $status;
@@ -108,44 +82,58 @@ class DescribeCouponShrinkRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->couponId) {
             $res['CouponId'] = $this->couponId;
         }
+
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
         }
+
         if (null !== $this->couponType) {
             $res['CouponType'] = $this->couponType;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->ecIdAccountIdsShrink) {
             $res['EcIdAccountIds'] = $this->ecIdAccountIdsShrink;
         }
+
         if (null !== $this->effectiveEndTime) {
             $res['EffectiveEndTime'] = $this->effectiveEndTime;
         }
+
         if (null !== $this->effectiveStartTime) {
             $res['EffectiveStartTime'] = $this->effectiveStartTime;
         }
+
         if (null !== $this->expireEndDate) {
             $res['ExpireEndDate'] = $this->expireEndDate;
         }
+
         if (null !== $this->expireStartDate) {
             $res['ExpireStartDate'] = $this->expireStartDate;
         }
+
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -153,47 +141,58 @@ class DescribeCouponShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCouponShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CouponId'])) {
             $model->couponId = $map['CouponId'];
         }
+
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
         }
+
         if (isset($map['CouponType'])) {
             $model->couponType = $map['CouponType'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['EcIdAccountIds'])) {
             $model->ecIdAccountIdsShrink = $map['EcIdAccountIds'];
         }
+
         if (isset($map['EffectiveEndTime'])) {
             $model->effectiveEndTime = $map['EffectiveEndTime'];
         }
+
         if (isset($map['EffectiveStartTime'])) {
             $model->effectiveStartTime = $map['EffectiveStartTime'];
         }
+
         if (isset($map['ExpireEndDate'])) {
             $model->expireEndDate = $map['ExpireEndDate'];
         }
+
         if (isset($map['ExpireStartDate'])) {
             $model->expireStartDate = $map['ExpireStartDate'];
         }
+
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

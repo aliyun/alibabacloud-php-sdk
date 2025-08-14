@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userDeductRules extends Model
 {
@@ -28,17 +28,22 @@ class userDeductRules extends Model
         'skipDeduct' => 'SkipDeduct',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->moduleCode) {
             $res['ModuleCode'] = $this->moduleCode;
         }
+
         if (null !== $this->skipDeduct) {
             $res['SkipDeduct'] = $this->skipDeduct;
         }
@@ -46,20 +51,22 @@ class userDeductRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userDeductRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['ModuleCode'])) {
             $model->moduleCode = $map['ModuleCode'];
         }
+
         if (isset($map['SkipDeduct'])) {
             $model->skipDeduct = $map['SkipDeduct'];
         }

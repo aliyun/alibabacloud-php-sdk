@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterRuleRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterRuleRequest\filterExpression\filterValues;
-use AlibabaCloud\Tea\Model;
 
 class filterExpression extends Model
 {
     /**
-     * @example NARY
-     *
      * @var string
      */
     public $expressionType;
@@ -32,8 +30,6 @@ class filterExpression extends Model
     public $operands;
 
     /**
-     * @example AND
-     *
      * @var string
      */
     public $operatorType;
@@ -45,23 +41,43 @@ class filterExpression extends Model
         'operatorType' => 'OperatorType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->filterValues) {
+            $this->filterValues->validate();
+        }
+        if (\is_array($this->operands)) {
+            Model::validateArray($this->operands);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expressionType) {
             $res['ExpressionType'] = $this->expressionType;
         }
+
         if (null !== $this->filterValues) {
-            $res['FilterValues'] = null !== $this->filterValues ? $this->filterValues->toMap() : null;
+            $res['FilterValues'] = null !== $this->filterValues ? $this->filterValues->toArray($noStream) : $this->filterValues;
         }
+
         if (null !== $this->operand) {
             $res['Operand'] = $this->operand;
         }
+
         if (null !== $this->operands) {
-            $res['Operands'] = $this->operands;
+            if (\is_array($this->operands)) {
+                $res['Operands'] = [];
+                $n1 = 0;
+                foreach ($this->operands as $item1) {
+                    $res['Operands'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->operatorType) {
             $res['OperatorType'] = $this->operatorType;
         }
@@ -69,28 +85,37 @@ class filterExpression extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filterExpression
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpressionType'])) {
             $model->expressionType = $map['ExpressionType'];
         }
+
         if (isset($map['FilterValues'])) {
             $model->filterValues = filterValues::fromMap($map['FilterValues']);
         }
+
         if (isset($map['Operand'])) {
             $model->operand = $map['Operand'];
         }
+
         if (isset($map['Operands'])) {
             if (!empty($map['Operands'])) {
-                $model->operands = $map['Operands'];
+                $model->operands = [];
+                $n1 = 0;
+                foreach ($map['Operands'] as $item1) {
+                    $model->operands[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['OperatorType'])) {
             $model->operatorType = $map['OperatorType'];
         }

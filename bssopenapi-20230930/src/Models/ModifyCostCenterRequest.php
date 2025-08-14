@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterRequest\costCenterEntityList;
-use AlibabaCloud\Tea\Model;
 
 class ModifyCostCenterRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var costCenterEntityList[]
      */
     public $costCenterEntityList;
 
     /**
-     * @example 2684201000001
-     *
      * @var string
      */
     public $nbid;
@@ -27,20 +23,28 @@ class ModifyCostCenterRequest extends Model
         'nbid' => 'Nbid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->costCenterEntityList)) {
+            Model::validateArray($this->costCenterEntityList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->costCenterEntityList) {
-            $res['CostCenterEntityList'] = [];
-            if (null !== $this->costCenterEntityList && \is_array($this->costCenterEntityList)) {
-                $n = 0;
-                foreach ($this->costCenterEntityList as $item) {
-                    $res['CostCenterEntityList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->costCenterEntityList)) {
+                $res['CostCenterEntityList'] = [];
+                $n1 = 0;
+                foreach ($this->costCenterEntityList as $item1) {
+                    $res['CostCenterEntityList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
@@ -48,23 +52,25 @@ class ModifyCostCenterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyCostCenterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostCenterEntityList'])) {
             if (!empty($map['CostCenterEntityList'])) {
                 $model->costCenterEntityList = [];
-                $n = 0;
-                foreach ($map['CostCenterEntityList'] as $item) {
-                    $model->costCenterEntityList[$n++] = null !== $item ? costCenterEntityList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CostCenterEntityList'] as $item1) {
+                    $model->costCenterEntityList[$n1] = costCenterEntityList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }

@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetOrderDetailResponseBody\data\orderList\order\billModuleConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetOrderDetailResponseBody\data\orderList\order\billModuleConfig\billModuleConfig\billModuleProperties;
-use AlibabaCloud\Tea\Model;
 
 class billModuleConfig extends Model
 {
     /**
-     * @description apiCode
-     *
-     * @example datadisk
-     *
      * @var string
      */
     public $apiCode;
@@ -24,8 +20,6 @@ class billModuleConfig extends Model
     public $billModuleProperties;
 
     /**
-     * @example datadisk
-     *
      * @var string
      */
     public $code;
@@ -41,20 +35,29 @@ class billModuleConfig extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->billModuleProperties) {
+            $this->billModuleProperties->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiCode) {
             $res['ApiCode'] = $this->apiCode;
         }
+
         if (null !== $this->billModuleProperties) {
-            $res['BillModuleProperties'] = null !== $this->billModuleProperties ? $this->billModuleProperties->toMap() : null;
+            $res['BillModuleProperties'] = null !== $this->billModuleProperties ? $this->billModuleProperties->toArray($noStream) : $this->billModuleProperties;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -62,23 +65,26 @@ class billModuleConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return billModuleConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiCode'])) {
             $model->apiCode = $map['ApiCode'];
         }
+
         if (isset($map['BillModuleProperties'])) {
             $model->billModuleProperties = billModuleProperties::fromMap($map['BillModuleProperties']);
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

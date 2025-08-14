@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetOrderDetailResponseBody\data\orderList\order\billModuleConfig\billModuleConfig\billModuleProperties;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class billModuleProperties extends Model
 {
     /**
-     * @example cloud_ssd
-     *
      * @var string
      */
     public $attrApiCode;
 
     /**
-     * @example cloud_ssd
-     *
      * @var string
      */
     public $moduleApiCode;
 
     /**
-     * @example cloud_ssd
-     *
      * @var string
      */
     public $value;
@@ -34,17 +28,22 @@ class billModuleProperties extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attrApiCode) {
             $res['AttrApiCode'] = $this->attrApiCode;
         }
+
         if (null !== $this->moduleApiCode) {
             $res['ModuleApiCode'] = $this->moduleApiCode;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -52,20 +51,22 @@ class billModuleProperties extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return billModuleProperties
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttrApiCode'])) {
             $model->attrApiCode = $map['AttrApiCode'];
         }
+
         if (isset($map['ModuleApiCode'])) {
             $model->moduleApiCode = $map['ModuleApiCode'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

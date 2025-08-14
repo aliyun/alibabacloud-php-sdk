@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterRuleRequest\filterExpression;
-use AlibabaCloud\Tea\Model;
 
 class CreateCostCenterRuleRequest extends Model
 {
     /**
-     * @example 485938
-     *
      * @var int
      */
     public $costCenterId;
@@ -22,8 +20,6 @@ class CreateCostCenterRuleRequest extends Model
     public $filterExpression;
 
     /**
-     * @example 2084210001
-     *
      * @var string
      */
     public $nbid;
@@ -33,17 +29,25 @@ class CreateCostCenterRuleRequest extends Model
         'nbid' => 'Nbid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->filterExpression) {
+            $this->filterExpression->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->costCenterId) {
             $res['CostCenterId'] = $this->costCenterId;
         }
+
         if (null !== $this->filterExpression) {
-            $res['FilterExpression'] = null !== $this->filterExpression ? $this->filterExpression->toMap() : null;
+            $res['FilterExpression'] = null !== $this->filterExpression ? $this->filterExpression->toArray($noStream) : $this->filterExpression;
         }
+
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
@@ -51,20 +55,22 @@ class CreateCostCenterRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCostCenterRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostCenterId'])) {
             $model->costCenterId = $map['CostCenterId'];
         }
+
         if (isset($map['FilterExpression'])) {
             $model->filterExpression = filterExpression::fromMap($map['FilterExpression']);
         }
+
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCostCenterRuleShrinkRequest extends Model
 {
     /**
-     * @example 637127
-     *
      * @var int
      */
     public $costCenterId;
@@ -21,8 +19,6 @@ class DeleteCostCenterRuleShrinkRequest extends Model
     public $filterExpressionShrink;
 
     /**
-     * @example 2684201000001
-     *
      * @var string
      */
     public $nbid;
@@ -32,17 +28,22 @@ class DeleteCostCenterRuleShrinkRequest extends Model
         'nbid' => 'Nbid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->costCenterId) {
             $res['CostCenterId'] = $this->costCenterId;
         }
+
         if (null !== $this->filterExpressionShrink) {
             $res['FilterExpression'] = $this->filterExpressionShrink;
         }
+
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
@@ -50,20 +51,22 @@ class DeleteCostCenterRuleShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCostCenterRuleShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostCenterId'])) {
             $model->costCenterId = $map['CostCenterId'];
         }
+
         if (isset($map['FilterExpression'])) {
             $model->filterExpressionShrink = $map['FilterExpression'];
         }
+
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }

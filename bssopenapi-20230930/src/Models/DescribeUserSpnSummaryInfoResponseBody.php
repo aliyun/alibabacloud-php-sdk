@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeUserSpnSummaryInfoResponseBody\regionList;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeUserSpnSummaryInfoResponseBody\spnCodeAndTypeList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeUserSpnSummaryInfoResponseBody extends Model
 {
@@ -36,32 +36,56 @@ class DescribeUserSpnSummaryInfoResponseBody extends Model
         'spnCodeAndTypeList' => 'SpnCodeAndTypeList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceFamilyList)) {
+            Model::validateArray($this->instanceFamilyList);
+        }
+        if (\is_array($this->regionList)) {
+            Model::validateArray($this->regionList);
+        }
+        if (\is_array($this->spnCodeAndTypeList)) {
+            Model::validateArray($this->spnCodeAndTypeList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceFamilyList) {
-            $res['InstanceFamilyList'] = $this->instanceFamilyList;
-        }
-        if (null !== $this->regionList) {
-            $res['RegionList'] = [];
-            if (null !== $this->regionList && \is_array($this->regionList)) {
-                $n = 0;
-                foreach ($this->regionList as $item) {
-                    $res['RegionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceFamilyList)) {
+                $res['InstanceFamilyList'] = [];
+                $n1 = 0;
+                foreach ($this->instanceFamilyList as $item1) {
+                    $res['InstanceFamilyList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->regionList) {
+            if (\is_array($this->regionList)) {
+                $res['RegionList'] = [];
+                $n1 = 0;
+                foreach ($this->regionList as $item1) {
+                    $res['RegionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->spnCodeAndTypeList) {
-            $res['SpnCodeAndTypeList'] = [];
-            if (null !== $this->spnCodeAndTypeList && \is_array($this->spnCodeAndTypeList)) {
-                $n = 0;
-                foreach ($this->spnCodeAndTypeList as $item) {
-                    $res['SpnCodeAndTypeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->spnCodeAndTypeList)) {
+                $res['SpnCodeAndTypeList'] = [];
+                $n1 = 0;
+                foreach ($this->spnCodeAndTypeList as $item1) {
+                    $res['SpnCodeAndTypeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,37 +93,47 @@ class DescribeUserSpnSummaryInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUserSpnSummaryInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceFamilyList'])) {
             if (!empty($map['InstanceFamilyList'])) {
-                $model->instanceFamilyList = $map['InstanceFamilyList'];
-            }
-        }
-        if (isset($map['RegionList'])) {
-            if (!empty($map['RegionList'])) {
-                $model->regionList = [];
-                $n = 0;
-                foreach ($map['RegionList'] as $item) {
-                    $model->regionList[$n++] = null !== $item ? regionList::fromMap($item) : $item;
+                $model->instanceFamilyList = [];
+                $n1 = 0;
+                foreach ($map['InstanceFamilyList'] as $item1) {
+                    $model->instanceFamilyList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['RegionList'])) {
+            if (!empty($map['RegionList'])) {
+                $model->regionList = [];
+                $n1 = 0;
+                foreach ($map['RegionList'] as $item1) {
+                    $model->regionList[$n1] = regionList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SpnCodeAndTypeList'])) {
             if (!empty($map['SpnCodeAndTypeList'])) {
                 $model->spnCodeAndTypeList = [];
-                $n = 0;
-                foreach ($map['SpnCodeAndTypeList'] as $item) {
-                    $model->spnCodeAndTypeList[$n++] = null !== $item ? spnCodeAndTypeList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SpnCodeAndTypeList'] as $item1) {
+                    $model->spnCodeAndTypeList[$n1] = spnCodeAndTypeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

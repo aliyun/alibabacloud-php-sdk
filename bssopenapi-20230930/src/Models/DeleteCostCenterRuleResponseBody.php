@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCostCenterRuleResponseBody extends Model
 {
     /**
-     * @example 37404
-     *
      * @var int
      */
     public $data;
 
     /**
-     * @example {}
-     *
      * @var mixed
      */
     public $metadata;
 
     /**
-     * @example UUID
-     *
      * @var string
      */
     public $requestId;
@@ -34,17 +28,22 @@ class DeleteCostCenterRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,20 +51,22 @@ class DeleteCostCenterRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCostCenterRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

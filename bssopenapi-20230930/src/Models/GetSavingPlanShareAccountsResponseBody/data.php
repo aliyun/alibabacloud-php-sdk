@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanShareAccountsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanShareAccountsResponseBody\data\shareTimeList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -29,23 +29,32 @@ class data extends Model
         'shareTimeList' => 'ShareTimeList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->shareTimeList)) {
+            Model::validateArray($this->shareTimeList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
+
         if (null !== $this->shareTimeList) {
-            $res['ShareTimeList'] = [];
-            if (null !== $this->shareTimeList && \is_array($this->shareTimeList)) {
-                $n = 0;
-                foreach ($this->shareTimeList as $item) {
-                    $res['ShareTimeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->shareTimeList)) {
+                $res['ShareTimeList'] = [];
+                $n1 = 0;
+                foreach ($this->shareTimeList as $item1) {
+                    $res['ShareTimeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,26 +62,29 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
+
         if (isset($map['ShareTimeList'])) {
             if (!empty($map['ShareTimeList'])) {
                 $model->shareTimeList = [];
-                $n = 0;
-                foreach ($map['ShareTimeList'] as $item) {
-                    $model->shareTimeList[$n++] = null !== $item ? shareTimeList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ShareTimeList'] as $item1) {
+                    $model->shareTimeList[$n1] = shareTimeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

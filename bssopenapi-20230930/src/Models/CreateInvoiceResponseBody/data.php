@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateInvoiceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 1990699401005016
-     *
      * @var int
      */
     public $accountId;
 
     /**
-     * @example 0.01
-     *
      * @var string
      */
     public $amount;
 
     /**
-     * @example 1001
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example ALIYUN_SERVICE
-     *
      * @var string
      */
     public $invoiceIssuer;
@@ -48,23 +40,30 @@ class data extends Model
         'message' => 'Message',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->invoiceIssuer) {
             $res['InvoiceIssuer'] = $this->invoiceIssuer;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -72,26 +71,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['InvoiceIssuer'])) {
             $model->invoiceIssuer = $map['InvoiceIssuer'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

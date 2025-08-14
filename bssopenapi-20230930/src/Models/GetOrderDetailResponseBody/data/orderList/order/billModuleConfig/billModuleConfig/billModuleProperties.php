@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetOrderDetailResponseBody\data\orderList\order\billModuleConfig\billModuleConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetOrderDetailResponseBody\data\orderList\order\billModuleConfig\billModuleConfig\billModuleProperties\billModuleProperties;
 
 class billModuleProperties extends Model
 {
     /**
-     * @var billModuleProperties\billModuleProperties[]
+     * @var billModuleProperties[]
      */
     public $billModuleProperties;
     protected $_name = [
         'billModuleProperties' => 'billModuleProperties',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->billModuleProperties)) {
+            Model::validateArray($this->billModuleProperties);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->billModuleProperties) {
-            $res['billModuleProperties'] = [];
-            if (null !== $this->billModuleProperties && \is_array($this->billModuleProperties)) {
-                $n = 0;
-                foreach ($this->billModuleProperties as $item) {
-                    $res['billModuleProperties'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->billModuleProperties)) {
+                $res['billModuleProperties'] = [];
+                $n1 = 0;
+                foreach ($this->billModuleProperties as $item1) {
+                    $res['billModuleProperties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class billModuleProperties extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return billModuleProperties
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['billModuleProperties'])) {
             if (!empty($map['billModuleProperties'])) {
                 $model->billModuleProperties = [];
-                $n = 0;
-                foreach ($map['billModuleProperties'] as $item) {
-                    $model->billModuleProperties[$n++] = null !== $item ? billModuleProperties\billModuleProperties::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['billModuleProperties'] as $item1) {
+                    $model->billModuleProperties[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

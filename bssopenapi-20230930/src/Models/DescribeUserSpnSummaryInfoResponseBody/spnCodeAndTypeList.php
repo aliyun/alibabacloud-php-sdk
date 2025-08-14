@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeUserSpnSummaryInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class spnCodeAndTypeList extends Model
 {
@@ -34,20 +34,26 @@ class spnCodeAndTypeList extends Model
         'spnTypeName' => 'SpnTypeName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->spnCommodityCode) {
             $res['SpnCommodityCode'] = $this->spnCommodityCode;
         }
+
         if (null !== $this->spnType) {
             $res['SpnType'] = $this->spnType;
         }
+
         if (null !== $this->spnTypeName) {
             $res['SpnTypeName'] = $this->spnTypeName;
         }
@@ -55,23 +61,26 @@ class spnCodeAndTypeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return spnCodeAndTypeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['SpnCommodityCode'])) {
             $model->spnCommodityCode = $map['SpnCommodityCode'];
         }
+
         if (isset($map['SpnType'])) {
             $model->spnType = $map['SpnType'];
         }
+
         if (isset($map['SpnTypeName'])) {
             $model->spnTypeName = $map['SpnTypeName'];
         }

@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class costCenterEntityList extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 485938
-     *
      * @var int
      */
     public $costCenterId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $costCenterName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1314839403940987
-     *
      * @var int
      */
     public $ownerAccountId;
@@ -38,17 +28,22 @@ class costCenterEntityList extends Model
         'ownerAccountId' => 'OwnerAccountId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->costCenterId) {
             $res['CostCenterId'] = $this->costCenterId;
         }
+
         if (null !== $this->costCenterName) {
             $res['CostCenterName'] = $this->costCenterName;
         }
+
         if (null !== $this->ownerAccountId) {
             $res['OwnerAccountId'] = $this->ownerAccountId;
         }
@@ -56,20 +51,22 @@ class costCenterEntityList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return costCenterEntityList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostCenterId'])) {
             $model->costCenterId = $map['CostCenterId'];
         }
+
         if (isset($map['CostCenterName'])) {
             $model->costCenterName = $map['CostCenterName'];
         }
+
         if (isset($map['OwnerAccountId'])) {
             $model->ownerAccountId = $map['OwnerAccountId'];
         }

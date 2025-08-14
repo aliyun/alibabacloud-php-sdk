@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterRuleRequest\filterExpression;
-use AlibabaCloud\Tea\Model;
 
 class ModifyCostCenterRuleRequest extends Model
 {
     /**
-     * @example 485938
-     *
      * @var int
      */
     public $costCenterId;
@@ -22,15 +20,11 @@ class ModifyCostCenterRuleRequest extends Model
     public $filterExpression;
 
     /**
-     * @example 2684201000001
-     *
      * @var string
      */
     public $nbid;
 
     /**
-     * @example 1234567812345678
-     *
      * @var int
      */
     public $ownerAccountId;
@@ -41,20 +35,29 @@ class ModifyCostCenterRuleRequest extends Model
         'ownerAccountId' => 'OwnerAccountId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->filterExpression) {
+            $this->filterExpression->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->costCenterId) {
             $res['CostCenterId'] = $this->costCenterId;
         }
+
         if (null !== $this->filterExpression) {
-            $res['FilterExpression'] = null !== $this->filterExpression ? $this->filterExpression->toMap() : null;
+            $res['FilterExpression'] = null !== $this->filterExpression ? $this->filterExpression->toArray($noStream) : $this->filterExpression;
         }
+
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
+
         if (null !== $this->ownerAccountId) {
             $res['OwnerAccountId'] = $this->ownerAccountId;
         }
@@ -62,23 +65,26 @@ class ModifyCostCenterRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyCostCenterRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostCenterId'])) {
             $model->costCenterId = $map['CostCenterId'];
         }
+
         if (isset($map['FilterExpression'])) {
             $model->filterExpression = filterExpression::fromMap($map['FilterExpression']);
         }
+
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }
+
         if (isset($map['OwnerAccountId'])) {
             $model->ownerAccountId = $map['OwnerAccountId'];
         }

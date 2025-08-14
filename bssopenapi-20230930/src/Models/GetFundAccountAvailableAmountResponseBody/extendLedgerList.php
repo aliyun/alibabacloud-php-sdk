@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountAvailableAmountResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class extendLedgerList extends Model
 {
     /**
-     * @example CNY
-     *
      * @var string
      */
     public $currency;
 
     /**
-     * @example 应付对冲账本
-     *
      * @var string
      */
     public $ledgerName;
 
     /**
-     * @example 50
-     *
      * @var string
      */
     public $originalAmount;
@@ -34,17 +28,22 @@ class extendLedgerList extends Model
         'originalAmount' => 'OriginalAmount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
+
         if (null !== $this->ledgerName) {
             $res['LedgerName'] = $this->ledgerName;
         }
+
         if (null !== $this->originalAmount) {
             $res['OriginalAmount'] = $this->originalAmount;
         }
@@ -52,20 +51,22 @@ class extendLedgerList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return extendLedgerList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
+
         if (isset($map['LedgerName'])) {
             $model->ledgerName = $map['LedgerName'];
         }
+
         if (isset($map['OriginalAmount'])) {
             $model->originalAmount = $map['OriginalAmount'];
         }

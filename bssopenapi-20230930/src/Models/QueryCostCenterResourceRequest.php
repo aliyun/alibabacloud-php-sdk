@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterResourceRequest\ecIdAccountIds;
-use AlibabaCloud\Tea\Model;
 
 class QueryCostCenterResourceRequest extends Model
 {
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $costCenterId;
@@ -22,29 +20,21 @@ class QueryCostCenterResourceRequest extends Model
     public $ecIdAccountIds;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example 2684201000001
-     *
      * @var string
      */
     public $nbid;
 
     /**
-     * @example CAESEgoQCg4KCmd
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 1234567812345678
-     *
      * @var int
      */
     public $ownerAccountId;
@@ -57,32 +47,44 @@ class QueryCostCenterResourceRequest extends Model
         'ownerAccountId' => 'OwnerAccountId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ecIdAccountIds)) {
+            Model::validateArray($this->ecIdAccountIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->costCenterId) {
             $res['CostCenterId'] = $this->costCenterId;
         }
+
         if (null !== $this->ecIdAccountIds) {
-            $res['EcIdAccountIds'] = [];
-            if (null !== $this->ecIdAccountIds && \is_array($this->ecIdAccountIds)) {
-                $n = 0;
-                foreach ($this->ecIdAccountIds as $item) {
-                    $res['EcIdAccountIds'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ecIdAccountIds)) {
+                $res['EcIdAccountIds'] = [];
+                $n1 = 0;
+                foreach ($this->ecIdAccountIds as $item1) {
+                    $res['EcIdAccountIds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->ownerAccountId) {
             $res['OwnerAccountId'] = $this->ownerAccountId;
         }
@@ -90,35 +92,41 @@ class QueryCostCenterResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryCostCenterResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostCenterId'])) {
             $model->costCenterId = $map['CostCenterId'];
         }
+
         if (isset($map['EcIdAccountIds'])) {
             if (!empty($map['EcIdAccountIds'])) {
                 $model->ecIdAccountIds = [];
-                $n = 0;
-                foreach ($map['EcIdAccountIds'] as $item) {
-                    $model->ecIdAccountIds[$n++] = null !== $item ? ecIdAccountIds::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EcIdAccountIds'] as $item1) {
+                    $model->ecIdAccountIds[$n1] = ecIdAccountIds::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['OwnerAccountId'])) {
             $model->ownerAccountId = $map['OwnerAccountId'];
         }

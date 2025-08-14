@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCouponDeductTagRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCouponDeductTagResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCouponDeductTagShrinkRequest;
@@ -102,7 +101,12 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterResourceResponse
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterRuleRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterRuleResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterShareRuleRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterShareRuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SaveCostCenterShareRuleRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SaveCostCenterShareRuleResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SaveCostCenterShareRuleShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetFundAccountCreditAmountRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetFundAccountCreditAmountResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetFundAccountLowAvailableAmountAlarmRequest;
@@ -110,11 +114,10 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetFundAccountLowAvailableAmoun
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class BssOpenApi extends OpenApiClient
 {
@@ -199,50 +202,62 @@ class BssOpenApi extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 添加优惠券抵扣标签
-     *  *
-     * @param AddCouponDeductTagRequest $tmpReq  AddCouponDeductTagRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 添加优惠券抵扣标签.
      *
-     * @return AddCouponDeductTagResponse AddCouponDeductTagResponse
+     * @param tmpReq - AddCouponDeductTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddCouponDeductTagResponse
+     *
+     * @param AddCouponDeductTagRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddCouponDeductTagResponse
      */
     public function addCouponDeductTagWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddCouponDeductTagShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->couponId)) {
-            $query['CouponId'] = $request->couponId;
+        if (null !== $request->couponId) {
+            @$query['CouponId'] = $request->couponId;
         }
-        if (!Utils::isUnset($request->ecIdAccountIdsShrink)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AddCouponDeductTag',
@@ -260,11 +275,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 添加优惠券抵扣标签
-     *  *
-     * @param AddCouponDeductTagRequest $request AddCouponDeductTagRequest
+     * 添加优惠券抵扣标签.
      *
-     * @return AddCouponDeductTagResponse AddCouponDeductTagResponse
+     * @param request - AddCouponDeductTagRequest
+     *
+     * @returns AddCouponDeductTagResponse
+     *
+     * @param AddCouponDeductTagRequest $request
+     *
+     * @return AddCouponDeductTagResponse
      */
     public function addCouponDeductTag($request)
     {
@@ -274,41 +293,52 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 财务单元实例重分配
-     *  *
-     * @param AllocateCostCenterResourceRequest $tmpReq  AllocateCostCenterResourceRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 财务单元实例重分配.
      *
-     * @return AllocateCostCenterResourceResponse AllocateCostCenterResourceResponse
+     * @param tmpReq - AllocateCostCenterResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AllocateCostCenterResourceResponse
+     *
+     * @param AllocateCostCenterResourceRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AllocateCostCenterResourceResponse
      */
     public function allocateCostCenterResourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AllocateCostCenterResourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceInstanceList)) {
-            $request->resourceInstanceListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceInstanceList, 'ResourceInstanceList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceInstanceList) {
+            $request->resourceInstanceListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceInstanceList, 'ResourceInstanceList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->fromCostCenterId)) {
-            $body['FromCostCenterId'] = $request->fromCostCenterId;
+        if (null !== $request->fromCostCenterId) {
+            @$body['FromCostCenterId'] = $request->fromCostCenterId;
         }
-        if (!Utils::isUnset($request->fromOwnerAccountId)) {
-            $body['FromOwnerAccountId'] = $request->fromOwnerAccountId;
+
+        if (null !== $request->fromOwnerAccountId) {
+            @$body['FromOwnerAccountId'] = $request->fromOwnerAccountId;
         }
-        if (!Utils::isUnset($request->resourceInstanceListShrink)) {
-            $body['ResourceInstanceList'] = $request->resourceInstanceListShrink;
+
+        if (null !== $request->resourceInstanceListShrink) {
+            @$body['ResourceInstanceList'] = $request->resourceInstanceListShrink;
         }
-        if (!Utils::isUnset($request->toCostCenterId)) {
-            $body['ToCostCenterId'] = $request->toCostCenterId;
+
+        if (null !== $request->toCostCenterId) {
+            @$body['ToCostCenterId'] = $request->toCostCenterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AllocateCostCenterResource',
@@ -326,11 +356,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 财务单元实例重分配
-     *  *
-     * @param AllocateCostCenterResourceRequest $request AllocateCostCenterResourceRequest
+     * 财务单元实例重分配.
      *
-     * @return AllocateCostCenterResourceResponse AllocateCostCenterResourceResponse
+     * @param request - AllocateCostCenterResourceRequest
+     *
+     * @returns AllocateCostCenterResourceResponse
+     *
+     * @param AllocateCostCenterResourceRequest $request
+     *
+     * @return AllocateCostCenterResourceResponse
      */
     public function allocateCostCenterResource($request)
     {
@@ -340,22 +374,28 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 取消资金账户低额预警
-     *  *
-     * @param CancelFundAccountLowAvailableAmountAlarmRequest $request CancelFundAccountLowAvailableAmountAlarmRequest
-     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     * 取消资金账户低额预警.
      *
-     * @return CancelFundAccountLowAvailableAmountAlarmResponse CancelFundAccountLowAvailableAmountAlarmResponse
+     * @param request - CancelFundAccountLowAvailableAmountAlarmRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelFundAccountLowAvailableAmountAlarmResponse
+     *
+     * @param CancelFundAccountLowAvailableAmountAlarmRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return CancelFundAccountLowAvailableAmountAlarmResponse
      */
     public function cancelFundAccountLowAvailableAmountAlarmWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fundAccountId)) {
-            $body['FundAccountId'] = $request->fundAccountId;
+        if (null !== $request->fundAccountId) {
+            @$body['FundAccountId'] = $request->fundAccountId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CancelFundAccountLowAvailableAmountAlarm',
@@ -373,11 +413,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 取消资金账户低额预警
-     *  *
-     * @param CancelFundAccountLowAvailableAmountAlarmRequest $request CancelFundAccountLowAvailableAmountAlarmRequest
+     * 取消资金账户低额预警.
      *
-     * @return CancelFundAccountLowAvailableAmountAlarmResponse CancelFundAccountLowAvailableAmountAlarmResponse
+     * @param request - CancelFundAccountLowAvailableAmountAlarmRequest
+     *
+     * @returns CancelFundAccountLowAvailableAmountAlarmResponse
+     *
+     * @param CancelFundAccountLowAvailableAmountAlarmRequest $request
+     *
+     * @return CancelFundAccountLowAvailableAmountAlarmResponse
      */
     public function cancelFundAccountLowAvailableAmountAlarm($request)
     {
@@ -387,30 +431,38 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 创建财务单元
-     *  *
-     * @param CreateCostCenterRequest $tmpReq  CreateCostCenterRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 创建财务单元.
      *
-     * @return CreateCostCenterResponse CreateCostCenterResponse
+     * @param tmpReq - CreateCostCenterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCostCenterResponse
+     *
+     * @param CreateCostCenterRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateCostCenterResponse
      */
     public function createCostCenterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateCostCenterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->costCenterEntityList)) {
-            $request->costCenterEntityListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->costCenterEntityList, 'CostCenterEntityList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->costCenterEntityList) {
+            $request->costCenterEntityListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->costCenterEntityList, 'CostCenterEntityList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->costCenterEntityListShrink)) {
-            $query['CostCenterEntityList'] = $request->costCenterEntityListShrink;
+        if (null !== $request->costCenterEntityListShrink) {
+            @$query['CostCenterEntityList'] = $request->costCenterEntityListShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateCostCenter',
@@ -428,11 +480,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 创建财务单元
-     *  *
-     * @param CreateCostCenterRequest $request CreateCostCenterRequest
+     * 创建财务单元.
      *
-     * @return CreateCostCenterResponse CreateCostCenterResponse
+     * @param request - CreateCostCenterRequest
+     *
+     * @returns CreateCostCenterResponse
+     *
+     * @param CreateCostCenterRequest $request
+     *
+     * @return CreateCostCenterResponse
      */
     public function createCostCenter($request)
     {
@@ -442,35 +498,44 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 新建财务单元规则
-     *  *
-     * @param CreateCostCenterRuleRequest $tmpReq  CreateCostCenterRuleRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 新建财务单元规则.
      *
-     * @return CreateCostCenterRuleResponse CreateCostCenterRuleResponse
+     * @param tmpReq - CreateCostCenterRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCostCenterRuleResponse
+     *
+     * @param CreateCostCenterRuleRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateCostCenterRuleResponse
      */
     public function createCostCenterRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateCostCenterRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filterExpression)) {
-            $request->filterExpressionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterExpression, 'FilterExpression', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterExpression) {
+            $request->filterExpressionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterExpression, 'FilterExpression', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->filterExpressionShrink)) {
-            $query['FilterExpression'] = $request->filterExpressionShrink;
+        if (null !== $request->filterExpressionShrink) {
+            @$query['FilterExpression'] = $request->filterExpressionShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->costCenterId)) {
-            $body['CostCenterId'] = $request->costCenterId;
+        if (null !== $request->costCenterId) {
+            @$body['CostCenterId'] = $request->costCenterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateCostCenterRule',
@@ -488,11 +553,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 新建财务单元规则
-     *  *
-     * @param CreateCostCenterRuleRequest $request CreateCostCenterRuleRequest
+     * 新建财务单元规则.
      *
-     * @return CreateCostCenterRuleResponse CreateCostCenterRuleResponse
+     * @param request - CreateCostCenterRuleRequest
+     *
+     * @returns CreateCostCenterRuleResponse
+     *
+     * @param CreateCostCenterRuleRequest $request
+     *
+     * @return CreateCostCenterRuleResponse
      */
     public function createCostCenterRule($request)
     {
@@ -502,35 +571,44 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 创建资金账户付款关系
-     *  *
-     * @param CreateFundAccountPayRelationRequest $tmpReq  CreateFundAccountPayRelationRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 创建资金账户付款关系.
      *
-     * @return CreateFundAccountPayRelationResponse CreateFundAccountPayRelationResponse
+     * @param tmpReq - CreateFundAccountPayRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFundAccountPayRelationResponse
+     *
+     * @param CreateFundAccountPayRelationRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateFundAccountPayRelationResponse
      */
     public function createFundAccountPayRelationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateFundAccountPayRelationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->ecIdAccountIdsShrink)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->fundAccountId)) {
-            $body['FundAccountId'] = $request->fundAccountId;
+        if (null !== $request->fundAccountId) {
+            @$body['FundAccountId'] = $request->fundAccountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateFundAccountPayRelation',
@@ -548,11 +626,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 创建资金账户付款关系
-     *  *
-     * @param CreateFundAccountPayRelationRequest $request CreateFundAccountPayRelationRequest
+     * 创建资金账户付款关系.
      *
-     * @return CreateFundAccountPayRelationResponse CreateFundAccountPayRelationResponse
+     * @param request - CreateFundAccountPayRelationRequest
+     *
+     * @returns CreateFundAccountPayRelationResponse
+     *
+     * @param CreateFundAccountPayRelationRequest $request
+     *
+     * @return CreateFundAccountPayRelationResponse
      */
     public function createFundAccountPayRelation($request)
     {
@@ -562,40 +644,52 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 创建资金账户划拨/回收
-     *  *
-     * @param CreateFundAccountTransferRequest $request CreateFundAccountTransferRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 创建资金账户划拨/回收.
      *
-     * @return CreateFundAccountTransferResponse CreateFundAccountTransferResponse
+     * @param request - CreateFundAccountTransferRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFundAccountTransferResponse
+     *
+     * @param CreateFundAccountTransferRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateFundAccountTransferResponse
      */
     public function createFundAccountTransferWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->amount)) {
-            $body['Amount'] = $request->amount;
+        if (null !== $request->amount) {
+            @$body['Amount'] = $request->amount;
         }
-        if (!Utils::isUnset($request->currency)) {
-            $body['Currency'] = $request->currency;
+
+        if (null !== $request->currency) {
+            @$body['Currency'] = $request->currency;
         }
-        if (!Utils::isUnset($request->financeType)) {
-            $body['FinanceType'] = $request->financeType;
+
+        if (null !== $request->financeType) {
+            @$body['FinanceType'] = $request->financeType;
         }
-        if (!Utils::isUnset($request->fromFundAccountId)) {
-            $body['FromFundAccountId'] = $request->fromFundAccountId;
+
+        if (null !== $request->fromFundAccountId) {
+            @$body['FromFundAccountId'] = $request->fromFundAccountId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $body['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$body['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->toFundAccountId)) {
-            $body['ToFundAccountId'] = $request->toFundAccountId;
+
+        if (null !== $request->toFundAccountId) {
+            @$body['ToFundAccountId'] = $request->toFundAccountId;
         }
-        if (!Utils::isUnset($request->transferType)) {
-            $body['TransferType'] = $request->transferType;
+
+        if (null !== $request->transferType) {
+            @$body['TransferType'] = $request->transferType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateFundAccountTransfer',
@@ -613,11 +707,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 创建资金账户划拨/回收
-     *  *
-     * @param CreateFundAccountTransferRequest $request CreateFundAccountTransferRequest
+     * 创建资金账户划拨/回收.
      *
-     * @return CreateFundAccountTransferResponse CreateFundAccountTransferResponse
+     * @param request - CreateFundAccountTransferRequest
+     *
+     * @returns CreateFundAccountTransferResponse
+     *
+     * @param CreateFundAccountTransferRequest $request
+     *
+     * @return CreateFundAccountTransferResponse
      */
     public function createFundAccountTransfer($request)
     {
@@ -627,57 +725,74 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 申请发票
-     *  *
-     * @param CreateInvoiceRequest $tmpReq  CreateInvoiceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 申请发票.
      *
-     * @return CreateInvoiceResponse CreateInvoiceResponse
+     * @param tmpReq - CreateInvoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInvoiceResponse
+     *
+     * @param CreateInvoiceRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateInvoiceResponse
      */
     public function createInvoiceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateInvoiceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->invoiceCandidateIds)) {
-            $request->invoiceCandidateIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->invoiceCandidateIds, 'InvoiceCandidateIds', 'json');
+
+        if (null !== $tmpReq->invoiceCandidateIds) {
+            $request->invoiceCandidateIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->invoiceCandidateIds, 'InvoiceCandidateIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->recipientEmails)) {
-            $request->recipientEmailsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->recipientEmails, 'RecipientEmails', 'json');
+
+        if (null !== $tmpReq->recipientEmails) {
+            $request->recipientEmailsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recipientEmails, 'RecipientEmails', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->amount)) {
-            $query['Amount'] = $request->amount;
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
         }
-        if (!Utils::isUnset($request->ecIdAccountIdsShrink)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
         }
-        if (!Utils::isUnset($request->invoiceCandidateIdsShrink)) {
-            $query['InvoiceCandidateIds'] = $request->invoiceCandidateIdsShrink;
+
+        if (null !== $request->invoiceCandidateIdsShrink) {
+            @$query['InvoiceCandidateIds'] = $request->invoiceCandidateIdsShrink;
         }
-        if (!Utils::isUnset($request->invoiceMode)) {
-            $query['InvoiceMode'] = $request->invoiceMode;
+
+        if (null !== $request->invoiceMode) {
+            @$query['InvoiceMode'] = $request->invoiceMode;
         }
-        if (!Utils::isUnset($request->invoiceRemark)) {
-            $query['InvoiceRemark'] = $request->invoiceRemark;
+
+        if (null !== $request->invoiceRemark) {
+            @$query['InvoiceRemark'] = $request->invoiceRemark;
         }
-        if (!Utils::isUnset($request->invoiceTitleId)) {
-            $query['InvoiceTitleId'] = $request->invoiceTitleId;
+
+        if (null !== $request->invoiceTitleId) {
+            @$query['InvoiceTitleId'] = $request->invoiceTitleId;
         }
-        if (!Utils::isUnset($request->invoiceType)) {
-            $query['InvoiceType'] = $request->invoiceType;
+
+        if (null !== $request->invoiceType) {
+            @$query['InvoiceType'] = $request->invoiceType;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
-        if (!Utils::isUnset($request->recipientEmailsShrink)) {
-            $query['RecipientEmails'] = $request->recipientEmailsShrink;
+
+        if (null !== $request->recipientEmailsShrink) {
+            @$query['RecipientEmails'] = $request->recipientEmailsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateInvoice',
@@ -695,11 +810,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 申请发票
-     *  *
-     * @param CreateInvoiceRequest $request CreateInvoiceRequest
+     * 申请发票.
      *
-     * @return CreateInvoiceResponse CreateInvoiceResponse
+     * @param request - CreateInvoiceRequest
+     *
+     * @returns CreateInvoiceResponse
+     *
+     * @param CreateInvoiceRequest $request
+     *
+     * @return CreateInvoiceResponse
      */
     public function createInvoice($request)
     {
@@ -709,48 +828,62 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 创建账单订阅
-     *  *
-     * @param CreateReportDefinitionRequest $request CreateReportDefinitionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 创建账单订阅.
      *
-     * @return CreateReportDefinitionResponse CreateReportDefinitionResponse
+     * @param request - CreateReportDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateReportDefinitionResponse
+     *
+     * @param CreateReportDefinitionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateReportDefinitionResponse
      */
     public function createReportDefinitionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginBillingCycle)) {
-            $query['BeginBillingCycle'] = $request->beginBillingCycle;
+        if (null !== $request->beginBillingCycle) {
+            @$query['BeginBillingCycle'] = $request->beginBillingCycle;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
-        if (!Utils::isUnset($request->ossBucketName)) {
-            $query['OssBucketName'] = $request->ossBucketName;
+
+        if (null !== $request->ossBucketName) {
+            @$query['OssBucketName'] = $request->ossBucketName;
         }
-        if (!Utils::isUnset($request->ossBucketOwnerAccountId)) {
-            $query['OssBucketOwnerAccountId'] = $request->ossBucketOwnerAccountId;
+
+        if (null !== $request->ossBucketOwnerAccountId) {
+            @$query['OssBucketOwnerAccountId'] = $request->ossBucketOwnerAccountId;
         }
-        if (!Utils::isUnset($request->ossBucketPath)) {
-            $query['OssBucketPath'] = $request->ossBucketPath;
+
+        if (null !== $request->ossBucketPath) {
+            @$query['OssBucketPath'] = $request->ossBucketPath;
         }
-        if (!Utils::isUnset($request->reportType)) {
-            $query['ReportType'] = $request->reportType;
+
+        if (null !== $request->reportType) {
+            @$query['ReportType'] = $request->reportType;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->mcProject)) {
-            $body['McProject'] = $request->mcProject;
+        if (null !== $request->mcProject) {
+            @$body['McProject'] = $request->mcProject;
         }
-        if (!Utils::isUnset($request->mcTableName)) {
-            $body['McTableName'] = $request->mcTableName;
+
+        if (null !== $request->mcTableName) {
+            @$body['McTableName'] = $request->mcTableName;
         }
-        if (!Utils::isUnset($request->reportSourceType)) {
-            $body['ReportSourceType'] = $request->reportSourceType;
+
+        if (null !== $request->reportSourceType) {
+            @$body['ReportSourceType'] = $request->reportSourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateReportDefinition',
@@ -768,11 +901,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 创建账单订阅
-     *  *
-     * @param CreateReportDefinitionRequest $request CreateReportDefinitionRequest
+     * 创建账单订阅.
      *
-     * @return CreateReportDefinitionResponse CreateReportDefinitionResponse
+     * @param request - CreateReportDefinitionRequest
+     *
+     * @returns CreateReportDefinitionResponse
+     *
+     * @param CreateReportDefinitionRequest $request
+     *
+     * @return CreateReportDefinitionResponse
      */
     public function createReportDefinition($request)
     {
@@ -782,28 +919,36 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 删除财务单元
-     *  *
-     * @param DeleteCostCenterRequest $request DeleteCostCenterRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除财务单元.
      *
-     * @return DeleteCostCenterResponse DeleteCostCenterResponse
+     * @param request - DeleteCostCenterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCostCenterResponse
+     *
+     * @param DeleteCostCenterRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteCostCenterResponse
      */
     public function deleteCostCenterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->costCenterId)) {
-            $query['CostCenterId'] = $request->costCenterId;
+        if (null !== $request->costCenterId) {
+            @$query['CostCenterId'] = $request->costCenterId;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
-        if (!Utils::isUnset($request->ownerAccountId)) {
-            $query['OwnerAccountId'] = $request->ownerAccountId;
+
+        if (null !== $request->ownerAccountId) {
+            @$query['OwnerAccountId'] = $request->ownerAccountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCostCenter',
@@ -821,11 +966,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 删除财务单元
-     *  *
-     * @param DeleteCostCenterRequest $request DeleteCostCenterRequest
+     * 删除财务单元.
      *
-     * @return DeleteCostCenterResponse DeleteCostCenterResponse
+     * @param request - DeleteCostCenterRequest
+     *
+     * @returns DeleteCostCenterResponse
+     *
+     * @param DeleteCostCenterRequest $request
+     *
+     * @return DeleteCostCenterResponse
      */
     public function deleteCostCenter($request)
     {
@@ -835,35 +984,44 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 删除财务单元规则
-     *  *
-     * @param DeleteCostCenterRuleRequest $tmpReq  DeleteCostCenterRuleRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 删除财务单元规则.
      *
-     * @return DeleteCostCenterRuleResponse DeleteCostCenterRuleResponse
+     * @param tmpReq - DeleteCostCenterRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCostCenterRuleResponse
+     *
+     * @param DeleteCostCenterRuleRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteCostCenterRuleResponse
      */
     public function deleteCostCenterRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteCostCenterRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filterExpression)) {
-            $request->filterExpressionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterExpression, 'FilterExpression', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterExpression) {
+            $request->filterExpressionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterExpression, 'FilterExpression', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->filterExpressionShrink)) {
-            $query['FilterExpression'] = $request->filterExpressionShrink;
+        if (null !== $request->filterExpressionShrink) {
+            @$query['FilterExpression'] = $request->filterExpressionShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->costCenterId)) {
-            $body['CostCenterId'] = $request->costCenterId;
+        if (null !== $request->costCenterId) {
+            @$body['CostCenterId'] = $request->costCenterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteCostCenterRule',
@@ -881,11 +1039,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 删除财务单元规则
-     *  *
-     * @param DeleteCostCenterRuleRequest $request DeleteCostCenterRuleRequest
+     * 删除财务单元规则.
      *
-     * @return DeleteCostCenterRuleResponse DeleteCostCenterRuleResponse
+     * @param request - DeleteCostCenterRuleRequest
+     *
+     * @returns DeleteCostCenterRuleResponse
+     *
+     * @param DeleteCostCenterRuleRequest $request
+     *
+     * @return DeleteCostCenterRuleResponse
      */
     public function deleteCostCenterRule($request)
     {
@@ -895,39 +1057,50 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 删除优惠券的抵扣标签
-     *  *
-     * @param DeleteCouponDeductTagRequest $tmpReq  DeleteCouponDeductTagRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 删除优惠券的抵扣标签.
      *
-     * @return DeleteCouponDeductTagResponse DeleteCouponDeductTagResponse
+     * @param tmpReq - DeleteCouponDeductTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCouponDeductTagResponse
+     *
+     * @param DeleteCouponDeductTagRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteCouponDeductTagResponse
      */
     public function deleteCouponDeductTagWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteCouponDeductTagShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tagKeys)) {
-            $request->tagKeysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagKeys, 'TagKeys', 'json');
+
+        if (null !== $tmpReq->tagKeys) {
+            $request->tagKeysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagKeys, 'TagKeys', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->couponId)) {
-            $query['CouponId'] = $request->couponId;
+        if (null !== $request->couponId) {
+            @$query['CouponId'] = $request->couponId;
         }
-        if (!Utils::isUnset($request->ecIdAccountIdsShrink)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
-        if (!Utils::isUnset($request->tagKeysShrink)) {
-            $query['TagKeys'] = $request->tagKeysShrink;
+
+        if (null !== $request->tagKeysShrink) {
+            @$query['TagKeys'] = $request->tagKeysShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCouponDeductTag',
@@ -945,11 +1118,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 删除优惠券的抵扣标签
-     *  *
-     * @param DeleteCouponDeductTagRequest $request DeleteCouponDeductTagRequest
+     * 删除优惠券的抵扣标签.
      *
-     * @return DeleteCouponDeductTagResponse DeleteCouponDeductTagResponse
+     * @param request - DeleteCouponDeductTagRequest
+     *
+     * @returns DeleteCouponDeductTagResponse
+     *
+     * @param DeleteCouponDeductTagRequest $request
+     *
+     * @return DeleteCouponDeductTagResponse
      */
     public function deleteCouponDeductTag($request)
     {
@@ -959,25 +1136,32 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 取消账单订阅
-     *  *
-     * @param DeleteReportDefinitionRequest $request DeleteReportDefinitionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 取消账单订阅.
      *
-     * @return DeleteReportDefinitionResponse DeleteReportDefinitionResponse
+     * @param request - DeleteReportDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteReportDefinitionResponse
+     *
+     * @param DeleteReportDefinitionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteReportDefinitionResponse
      */
     public function deleteReportDefinitionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
-        if (!Utils::isUnset($request->reportTaskId)) {
-            $query['ReportTaskId'] = $request->reportTaskId;
+
+        if (null !== $request->reportTaskId) {
+            @$query['ReportTaskId'] = $request->reportTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteReportDefinition',
@@ -995,11 +1179,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 取消账单订阅
-     *  *
-     * @param DeleteReportDefinitionRequest $request DeleteReportDefinitionRequest
+     * 取消账单订阅.
      *
-     * @return DeleteReportDefinitionResponse DeleteReportDefinitionResponse
+     * @param request - DeleteReportDefinitionRequest
+     *
+     * @returns DeleteReportDefinitionResponse
+     *
+     * @param DeleteReportDefinitionRequest $request
+     *
+     * @return DeleteReportDefinitionResponse
      */
     public function deleteReportDefinition($request)
     {
@@ -1009,24 +1197,30 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询优惠券列表
-     *  *
-     * @param DescribeCouponRequest $tmpReq  DescribeCouponRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 查询优惠券列表.
      *
-     * @return DescribeCouponResponse DescribeCouponResponse
+     * @param tmpReq - DescribeCouponRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCouponResponse
+     *
+     * @param DescribeCouponRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeCouponResponse
      */
     public function describeCouponWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeCouponShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCoupon',
@@ -1044,11 +1238,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询优惠券列表
-     *  *
-     * @param DescribeCouponRequest $request DescribeCouponRequest
+     * 查询优惠券列表.
      *
-     * @return DescribeCouponResponse DescribeCouponResponse
+     * @param request - DescribeCouponRequest
+     *
+     * @returns DescribeCouponResponse
+     *
+     * @param DescribeCouponRequest $request
+     *
+     * @return DescribeCouponResponse
      */
     public function describeCoupon($request)
     {
@@ -1058,24 +1256,30 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询优惠券可用商品列表
-     *  *
-     * @param DescribeCouponItemListRequest $tmpReq  DescribeCouponItemListRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询优惠券可用商品列表.
      *
-     * @return DescribeCouponItemListResponse DescribeCouponItemListResponse
+     * @param tmpReq - DescribeCouponItemListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCouponItemListResponse
+     *
+     * @param DescribeCouponItemListRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeCouponItemListResponse
      */
     public function describeCouponItemListWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeCouponItemListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCouponItemList',
@@ -1093,11 +1297,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询优惠券可用商品列表
-     *  *
-     * @param DescribeCouponItemListRequest $request DescribeCouponItemListRequest
+     * 查询优惠券可用商品列表.
      *
-     * @return DescribeCouponItemListResponse DescribeCouponItemListResponse
+     * @param request - DescribeCouponItemListRequest
+     *
+     * @returns DescribeCouponItemListResponse
+     *
+     * @param DescribeCouponItemListRequest $request
+     *
+     * @return DescribeCouponItemListResponse
      */
     public function describeCouponItemList($request)
     {
@@ -1107,30 +1315,38 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 获取客户使用SPN的概述信息
-     *  *
-     * @param DescribeUserSpnSummaryInfoRequest $tmpReq  DescribeUserSpnSummaryInfoRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 获取客户使用SPN的概述信息.
      *
-     * @return DescribeUserSpnSummaryInfoResponse DescribeUserSpnSummaryInfoResponse
+     * @param tmpReq - DescribeUserSpnSummaryInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserSpnSummaryInfoResponse
+     *
+     * @param DescribeUserSpnSummaryInfoRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeUserSpnSummaryInfoResponse
      */
     public function describeUserSpnSummaryInfoWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeUserSpnSummaryInfoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->ecIdAccountIdsShrink)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeUserSpnSummaryInfo',
@@ -1148,11 +1364,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 获取客户使用SPN的概述信息
-     *  *
-     * @param DescribeUserSpnSummaryInfoRequest $request DescribeUserSpnSummaryInfoRequest
+     * 获取客户使用SPN的概述信息.
      *
-     * @return DescribeUserSpnSummaryInfoResponse DescribeUserSpnSummaryInfoResponse
+     * @param request - DescribeUserSpnSummaryInfoRequest
+     *
+     * @returns DescribeUserSpnSummaryInfoResponse
+     *
+     * @param DescribeUserSpnSummaryInfoRequest $request
+     *
+     * @return DescribeUserSpnSummaryInfoResponse
      */
     public function describeUserSpnSummaryInfo($request)
     {
@@ -1162,22 +1382,28 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户可用金
-     *  *
-     * @param GetFundAccountAvailableAmountRequest $request GetFundAccountAvailableAmountRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 查询资金账户可用金.
      *
-     * @return GetFundAccountAvailableAmountResponse GetFundAccountAvailableAmountResponse
+     * @param request - GetFundAccountAvailableAmountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFundAccountAvailableAmountResponse
+     *
+     * @param GetFundAccountAvailableAmountRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetFundAccountAvailableAmountResponse
      */
     public function getFundAccountAvailableAmountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fundAccountId)) {
-            $body['FundAccountId'] = $request->fundAccountId;
+        if (null !== $request->fundAccountId) {
+            @$body['FundAccountId'] = $request->fundAccountId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetFundAccountAvailableAmount',
@@ -1195,11 +1421,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户可用金
-     *  *
-     * @param GetFundAccountAvailableAmountRequest $request GetFundAccountAvailableAmountRequest
+     * 查询资金账户可用金.
      *
-     * @return GetFundAccountAvailableAmountResponse GetFundAccountAvailableAmountResponse
+     * @param request - GetFundAccountAvailableAmountRequest
+     *
+     * @returns GetFundAccountAvailableAmountResponse
+     *
+     * @param GetFundAccountAvailableAmountRequest $request
+     *
+     * @return GetFundAccountAvailableAmountResponse
      */
     public function getFundAccountAvailableAmount($request)
     {
@@ -1209,22 +1439,28 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户可分配信控额度
-     *  *
-     * @param GetFundAccountCanAllocateCreditAmountRequest $request GetFundAccountCanAllocateCreditAmountRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * 查询资金账户可分配信控额度.
      *
-     * @return GetFundAccountCanAllocateCreditAmountResponse GetFundAccountCanAllocateCreditAmountResponse
+     * @param request - GetFundAccountCanAllocateCreditAmountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFundAccountCanAllocateCreditAmountResponse
+     *
+     * @param GetFundAccountCanAllocateCreditAmountRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return GetFundAccountCanAllocateCreditAmountResponse
      */
     public function getFundAccountCanAllocateCreditAmountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fundAccountId)) {
-            $body['FundAccountId'] = $request->fundAccountId;
+        if (null !== $request->fundAccountId) {
+            @$body['FundAccountId'] = $request->fundAccountId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetFundAccountCanAllocateCreditAmount',
@@ -1242,11 +1478,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户可分配信控额度
-     *  *
-     * @param GetFundAccountCanAllocateCreditAmountRequest $request GetFundAccountCanAllocateCreditAmountRequest
+     * 查询资金账户可分配信控额度.
      *
-     * @return GetFundAccountCanAllocateCreditAmountResponse GetFundAccountCanAllocateCreditAmountResponse
+     * @param request - GetFundAccountCanAllocateCreditAmountRequest
+     *
+     * @returns GetFundAccountCanAllocateCreditAmountResponse
+     *
+     * @param GetFundAccountCanAllocateCreditAmountRequest $request
+     *
+     * @return GetFundAccountCanAllocateCreditAmountResponse
      */
     public function getFundAccountCanAllocateCreditAmount($request)
     {
@@ -1256,25 +1496,32 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户可回收金额
-     *  *
-     * @param GetFundAccountCanRecycleAmountRequest $request GetFundAccountCanRecycleAmountRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 查询资金账户可回收金额.
      *
-     * @return GetFundAccountCanRecycleAmountResponse GetFundAccountCanRecycleAmountResponse
+     * @param request - GetFundAccountCanRecycleAmountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFundAccountCanRecycleAmountResponse
+     *
+     * @param GetFundAccountCanRecycleAmountRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetFundAccountCanRecycleAmountResponse
      */
     public function getFundAccountCanRecycleAmountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->currency)) {
-            $body['Currency'] = $request->currency;
+        if (null !== $request->currency) {
+            @$body['Currency'] = $request->currency;
         }
-        if (!Utils::isUnset($request->recycleFromFundAccountId)) {
-            $body['RecycleFromFundAccountId'] = $request->recycleFromFundAccountId;
+
+        if (null !== $request->recycleFromFundAccountId) {
+            @$body['RecycleFromFundAccountId'] = $request->recycleFromFundAccountId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetFundAccountCanRecycleAmount',
@@ -1292,11 +1539,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户可回收金额
-     *  *
-     * @param GetFundAccountCanRecycleAmountRequest $request GetFundAccountCanRecycleAmountRequest
+     * 查询资金账户可回收金额.
      *
-     * @return GetFundAccountCanRecycleAmountResponse GetFundAccountCanRecycleAmountResponse
+     * @param request - GetFundAccountCanRecycleAmountRequest
+     *
+     * @returns GetFundAccountCanRecycleAmountResponse
+     *
+     * @param GetFundAccountCanRecycleAmountRequest $request
+     *
+     * @return GetFundAccountCanRecycleAmountResponse
      */
     public function getFundAccountCanRecycleAmount($request)
     {
@@ -1306,25 +1557,32 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户的可转出金额
-     *  *
-     * @param GetFundAccountCanTransferAmountRequest $request GetFundAccountCanTransferAmountRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 查询资金账户的可转出金额.
      *
-     * @return GetFundAccountCanTransferAmountResponse GetFundAccountCanTransferAmountResponse
+     * @param request - GetFundAccountCanTransferAmountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFundAccountCanTransferAmountResponse
+     *
+     * @param GetFundAccountCanTransferAmountRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetFundAccountCanTransferAmountResponse
      */
     public function getFundAccountCanTransferAmountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->currency)) {
-            $body['Currency'] = $request->currency;
+        if (null !== $request->currency) {
+            @$body['Currency'] = $request->currency;
         }
-        if (!Utils::isUnset($request->fundAccountId)) {
-            $body['FundAccountId'] = $request->fundAccountId;
+
+        if (null !== $request->fundAccountId) {
+            @$body['FundAccountId'] = $request->fundAccountId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetFundAccountCanTransferAmount',
@@ -1342,11 +1600,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户的可转出金额
-     *  *
-     * @param GetFundAccountCanTransferAmountRequest $request GetFundAccountCanTransferAmountRequest
+     * 查询资金账户的可转出金额.
      *
-     * @return GetFundAccountCanTransferAmountResponse GetFundAccountCanTransferAmountResponse
+     * @param request - GetFundAccountCanTransferAmountRequest
+     *
+     * @returns GetFundAccountCanTransferAmountResponse
+     *
+     * @param GetFundAccountCanTransferAmountRequest $request
+     *
+     * @return GetFundAccountCanTransferAmountResponse
      */
     public function getFundAccountCanTransferAmount($request)
     {
@@ -1356,22 +1618,28 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户可提现金额
-     *  *
-     * @param GetFundAccountCanWithdrawAmountRequest $request GetFundAccountCanWithdrawAmountRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 查询资金账户可提现金额.
      *
-     * @return GetFundAccountCanWithdrawAmountResponse GetFundAccountCanWithdrawAmountResponse
+     * @param request - GetFundAccountCanWithdrawAmountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFundAccountCanWithdrawAmountResponse
+     *
+     * @param GetFundAccountCanWithdrawAmountRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetFundAccountCanWithdrawAmountResponse
      */
     public function getFundAccountCanWithdrawAmountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fundAccountId)) {
-            $body['FundAccountId'] = $request->fundAccountId;
+        if (null !== $request->fundAccountId) {
+            @$body['FundAccountId'] = $request->fundAccountId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetFundAccountCanWithdrawAmount',
@@ -1389,11 +1657,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户可提现金额
-     *  *
-     * @param GetFundAccountCanWithdrawAmountRequest $request GetFundAccountCanWithdrawAmountRequest
+     * 查询资金账户可提现金额.
      *
-     * @return GetFundAccountCanWithdrawAmountResponse GetFundAccountCanWithdrawAmountResponse
+     * @param request - GetFundAccountCanWithdrawAmountRequest
+     *
+     * @returns GetFundAccountCanWithdrawAmountResponse
+     *
+     * @param GetFundAccountCanWithdrawAmountRequest $request
+     *
+     * @return GetFundAccountCanWithdrawAmountResponse
      */
     public function getFundAccountCanWithdrawAmount($request)
     {
@@ -1403,22 +1675,28 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户低额预警
-     *  *
-     * @param GetFundAccountLowAvailableAmountAlarmRequest $request GetFundAccountLowAvailableAmountAlarmRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * 查询资金账户低额预警.
      *
-     * @return GetFundAccountLowAvailableAmountAlarmResponse GetFundAccountLowAvailableAmountAlarmResponse
+     * @param request - GetFundAccountLowAvailableAmountAlarmRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFundAccountLowAvailableAmountAlarmResponse
+     *
+     * @param GetFundAccountLowAvailableAmountAlarmRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return GetFundAccountLowAvailableAmountAlarmResponse
      */
     public function getFundAccountLowAvailableAmountAlarmWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fundAccountId)) {
-            $body['FundAccountId'] = $request->fundAccountId;
+        if (null !== $request->fundAccountId) {
+            @$body['FundAccountId'] = $request->fundAccountId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetFundAccountLowAvailableAmountAlarm',
@@ -1436,11 +1714,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户低额预警
-     *  *
-     * @param GetFundAccountLowAvailableAmountAlarmRequest $request GetFundAccountLowAvailableAmountAlarmRequest
+     * 查询资金账户低额预警.
      *
-     * @return GetFundAccountLowAvailableAmountAlarmResponse GetFundAccountLowAvailableAmountAlarmResponse
+     * @param request - GetFundAccountLowAvailableAmountAlarmRequest
+     *
+     * @returns GetFundAccountLowAvailableAmountAlarmResponse
+     *
+     * @param GetFundAccountLowAvailableAmountAlarmRequest $request
+     *
+     * @return GetFundAccountLowAvailableAmountAlarmResponse
      */
     public function getFundAccountLowAvailableAmountAlarm($request)
     {
@@ -1450,65 +1732,84 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户收支明细
-     *  *
-     * @param GetFundAccountTransactionDetailsRequest $tmpReq  GetFundAccountTransactionDetailsRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 查询资金账户收支明细.
      *
-     * @return GetFundAccountTransactionDetailsResponse GetFundAccountTransactionDetailsResponse
+     * @param tmpReq - GetFundAccountTransactionDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFundAccountTransactionDetailsResponse
+     *
+     * @param GetFundAccountTransactionDetailsRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetFundAccountTransactionDetailsResponse
      */
     public function getFundAccountTransactionDetailsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetFundAccountTransactionDetailsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->transactionChannelList)) {
-            $request->transactionChannelListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transactionChannelList, 'TransactionChannelList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->transactionChannelList) {
+            $request->transactionChannelListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transactionChannelList, 'TransactionChannelList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->transactionTypeList)) {
-            $request->transactionTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transactionTypeList, 'TransactionTypeList', 'json');
+
+        if (null !== $tmpReq->transactionTypeList) {
+            $request->transactionTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transactionTypeList, 'TransactionTypeList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->billNumber)) {
-            $body['BillNumber'] = $request->billNumber;
+        if (null !== $request->billNumber) {
+            @$body['BillNumber'] = $request->billNumber;
         }
-        if (!Utils::isUnset($request->channelTransactionNumber)) {
-            $body['ChannelTransactionNumber'] = $request->channelTransactionNumber;
+
+        if (null !== $request->channelTransactionNumber) {
+            @$body['ChannelTransactionNumber'] = $request->channelTransactionNumber;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->fundAccountId)) {
-            $body['FundAccountId'] = $request->fundAccountId;
+
+        if (null !== $request->fundAccountId) {
+            @$body['FundAccountId'] = $request->fundAccountId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->transactionChannelListShrink)) {
-            $body['TransactionChannelList'] = $request->transactionChannelListShrink;
+
+        if (null !== $request->transactionChannelListShrink) {
+            @$body['TransactionChannelList'] = $request->transactionChannelListShrink;
         }
-        if (!Utils::isUnset($request->transactionDirection)) {
-            $body['TransactionDirection'] = $request->transactionDirection;
+
+        if (null !== $request->transactionDirection) {
+            @$body['TransactionDirection'] = $request->transactionDirection;
         }
-        if (!Utils::isUnset($request->transactionNumber)) {
-            $body['TransactionNumber'] = $request->transactionNumber;
+
+        if (null !== $request->transactionNumber) {
+            @$body['TransactionNumber'] = $request->transactionNumber;
         }
-        if (!Utils::isUnset($request->transactionType)) {
-            $body['TransactionType'] = $request->transactionType;
+
+        if (null !== $request->transactionType) {
+            @$body['TransactionType'] = $request->transactionType;
         }
-        if (!Utils::isUnset($request->transactionTypeListShrink)) {
-            $body['TransactionTypeList'] = $request->transactionTypeListShrink;
+
+        if (null !== $request->transactionTypeListShrink) {
+            @$body['TransactionTypeList'] = $request->transactionTypeListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetFundAccountTransactionDetails',
@@ -1526,11 +1827,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户收支明细
-     *  *
-     * @param GetFundAccountTransactionDetailsRequest $request GetFundAccountTransactionDetailsRequest
+     * 查询资金账户收支明细.
      *
-     * @return GetFundAccountTransactionDetailsResponse GetFundAccountTransactionDetailsResponse
+     * @param request - GetFundAccountTransactionDetailsRequest
+     *
+     * @returns GetFundAccountTransactionDetailsResponse
+     *
+     * @param GetFundAccountTransactionDetailsRequest $request
+     *
+     * @return GetFundAccountTransactionDetailsResponse
      */
     public function getFundAccountTransactionDetails($request)
     {
@@ -1540,28 +1845,36 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 订单详情查询
-     *  *
-     * @param GetOrderDetailRequest $request GetOrderDetailRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 订单详情查询.
      *
-     * @return GetOrderDetailResponse GetOrderDetailResponse
+     * @param request - GetOrderDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOrderDetailResponse
+     *
+     * @param GetOrderDetailRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetOrderDetailResponse
      */
     public function getOrderDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->memberUid)) {
-            $query['MemberUid'] = $request->memberUid;
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetOrderDetail',
@@ -1579,11 +1892,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 订单详情查询
-     *  *
-     * @param GetOrderDetailRequest $request GetOrderDetailRequest
+     * 订单详情查询.
      *
-     * @return GetOrderDetailResponse GetOrderDetailResponse
+     * @param request - GetOrderDetailRequest
+     *
+     * @returns GetOrderDetailResponse
+     *
+     * @param GetOrderDetailRequest $request
+     *
+     * @return GetOrderDetailResponse
      */
     public function getOrderDetail($request)
     {
@@ -1593,52 +1910,68 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 订单列表查询
-     *  *
-     * @param GetOrdersRequest $request GetOrdersRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 订单列表查询.
      *
-     * @return GetOrdersResponse GetOrdersResponse
+     * @param request - GetOrdersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOrdersResponse
+     *
+     * @param GetOrdersRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetOrdersResponse
      */
     public function getOrdersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        if (null !== $request->createTimeEnd) {
+            @$query['CreateTimeEnd'] = $request->createTimeEnd;
         }
-        if (!Utils::isUnset($request->createTimeStart)) {
-            $query['CreateTimeStart'] = $request->createTimeStart;
+
+        if (null !== $request->createTimeStart) {
+            @$query['CreateTimeStart'] = $request->createTimeStart;
         }
-        if (!Utils::isUnset($request->memberUid)) {
-            $query['MemberUid'] = $request->memberUid;
+
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->paymentStatus)) {
-            $query['PaymentStatus'] = $request->paymentStatus;
+
+        if (null !== $request->paymentStatus) {
+            @$query['PaymentStatus'] = $request->paymentStatus;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetOrders',
@@ -1656,11 +1989,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 订单列表查询
-     *  *
-     * @param GetOrdersRequest $request GetOrdersRequest
+     * 订单列表查询.
      *
-     * @return GetOrdersResponse GetOrdersResponse
+     * @param request - GetOrdersRequest
+     *
+     * @returns GetOrdersResponse
+     *
+     * @param GetOrdersRequest $request
+     *
+     * @return GetOrdersResponse
      */
     public function getOrders($request)
     {
@@ -1670,30 +2007,38 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 获取节省计划及可抵扣商品信息
-     *  *
-     * @param GetSavingPlanDeductableCommodityRequest $tmpReq  GetSavingPlanDeductableCommodityRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 获取节省计划及可抵扣商品信息.
      *
-     * @return GetSavingPlanDeductableCommodityResponse GetSavingPlanDeductableCommodityResponse
+     * @param tmpReq - GetSavingPlanDeductableCommodityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSavingPlanDeductableCommodityResponse
+     *
+     * @param GetSavingPlanDeductableCommodityRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetSavingPlanDeductableCommodityResponse
      */
     public function getSavingPlanDeductableCommodityWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetSavingPlanDeductableCommodityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->ecIdAccountIdsShrink)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSavingPlanDeductableCommodity',
@@ -1711,11 +2056,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 获取节省计划及可抵扣商品信息
-     *  *
-     * @param GetSavingPlanDeductableCommodityRequest $request GetSavingPlanDeductableCommodityRequest
+     * 获取节省计划及可抵扣商品信息.
      *
-     * @return GetSavingPlanDeductableCommodityResponse GetSavingPlanDeductableCommodityResponse
+     * @param request - GetSavingPlanDeductableCommodityRequest
+     *
+     * @returns GetSavingPlanDeductableCommodityResponse
+     *
+     * @param GetSavingPlanDeductableCommodityRequest $request
+     *
+     * @return GetSavingPlanDeductableCommodityResponse
      */
     public function getSavingPlanDeductableCommodity($request)
     {
@@ -1725,39 +2074,50 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 获取节省计划实例共享账号信息
-     *  *
-     * @param GetSavingPlanShareAccountsRequest $tmpReq  GetSavingPlanShareAccountsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 获取节省计划实例共享账号信息.
      *
-     * @return GetSavingPlanShareAccountsResponse GetSavingPlanShareAccountsResponse
+     * @param tmpReq - GetSavingPlanShareAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSavingPlanShareAccountsResponse
+     *
+     * @param GetSavingPlanShareAccountsRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetSavingPlanShareAccountsResponse
      */
     public function getSavingPlanShareAccountsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetSavingPlanShareAccountsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->ecIdAccountIdsShrink)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->spnInstanceCode)) {
-            $query['SpnInstanceCode'] = $request->spnInstanceCode;
+
+        if (null !== $request->spnInstanceCode) {
+            @$query['SpnInstanceCode'] = $request->spnInstanceCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSavingPlanShareAccounts',
@@ -1775,11 +2135,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 获取节省计划实例共享账号信息
-     *  *
-     * @param GetSavingPlanShareAccountsRequest $request GetSavingPlanShareAccountsRequest
+     * 获取节省计划实例共享账号信息.
      *
-     * @return GetSavingPlanShareAccountsResponse GetSavingPlanShareAccountsResponse
+     * @param request - GetSavingPlanShareAccountsRequest
+     *
+     * @returns GetSavingPlanShareAccountsResponse
+     *
+     * @param GetSavingPlanShareAccountsRequest $request
+     *
+     * @return GetSavingPlanShareAccountsResponse
      */
     public function getSavingPlanShareAccounts($request)
     {
@@ -1789,39 +2153,50 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 获取节省计划实例客户自定义规则
-     *  *
-     * @param GetSavingPlanUserDeductRuleRequest $tmpReq  GetSavingPlanUserDeductRuleRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 获取节省计划实例客户自定义规则.
      *
-     * @return GetSavingPlanUserDeductRuleResponse GetSavingPlanUserDeductRuleResponse
+     * @param tmpReq - GetSavingPlanUserDeductRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSavingPlanUserDeductRuleResponse
+     *
+     * @param GetSavingPlanUserDeductRuleRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetSavingPlanUserDeductRuleResponse
      */
     public function getSavingPlanUserDeductRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetSavingPlanUserDeductRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->ecIdAccountIdsShrink)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->spnInstanceCode)) {
-            $query['SpnInstanceCode'] = $request->spnInstanceCode;
+
+        if (null !== $request->spnInstanceCode) {
+            @$query['SpnInstanceCode'] = $request->spnInstanceCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSavingPlanUserDeductRule',
@@ -1839,11 +2214,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 获取节省计划实例客户自定义规则
-     *  *
-     * @param GetSavingPlanUserDeductRuleRequest $request GetSavingPlanUserDeductRuleRequest
+     * 获取节省计划实例客户自定义规则.
      *
-     * @return GetSavingPlanUserDeductRuleResponse GetSavingPlanUserDeductRuleResponse
+     * @param request - GetSavingPlanUserDeductRuleRequest
+     *
+     * @returns GetSavingPlanUserDeductRuleResponse
+     *
+     * @param GetSavingPlanUserDeductRuleRequest $request
+     *
+     * @return GetSavingPlanUserDeductRuleResponse
      */
     public function getSavingPlanUserDeductRule($request)
     {
@@ -1853,33 +2232,42 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询优惠券设置的抵扣标签
-     *  *
-     * @param ListCouponDeductTagRequest $tmpReq  ListCouponDeductTagRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询优惠券设置的抵扣标签.
      *
-     * @return ListCouponDeductTagResponse ListCouponDeductTagResponse
+     * @param tmpReq - ListCouponDeductTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCouponDeductTagResponse
+     *
+     * @param ListCouponDeductTagRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListCouponDeductTagResponse
      */
     public function listCouponDeductTagWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListCouponDeductTagShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->couponId)) {
-            $query['CouponId'] = $request->couponId;
+        if (null !== $request->couponId) {
+            @$query['CouponId'] = $request->couponId;
         }
-        if (!Utils::isUnset($request->ecIdAccountIdsShrink)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCouponDeductTag',
@@ -1897,11 +2285,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询优惠券设置的抵扣标签
-     *  *
-     * @param ListCouponDeductTagRequest $request ListCouponDeductTagRequest
+     * 查询优惠券设置的抵扣标签.
      *
-     * @return ListCouponDeductTagResponse ListCouponDeductTagResponse
+     * @param request - ListCouponDeductTagRequest
+     *
+     * @returns ListCouponDeductTagResponse
+     *
+     * @param ListCouponDeductTagRequest $request
+     *
+     * @return ListCouponDeductTagResponse
      */
     public function listCouponDeductTag($request)
     {
@@ -1911,30 +2303,38 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户列表
-     *  *
-     * @param ListFundAccountRequest $request ListFundAccountRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询资金账户列表.
      *
-     * @return ListFundAccountResponse ListFundAccountResponse
+     * @param request - ListFundAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFundAccountResponse
+     *
+     * @param ListFundAccountRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListFundAccountResponse
      */
     public function listFundAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->queryOnlyInUse)) {
-            $body['QueryOnlyInUse'] = $request->queryOnlyInUse;
+        if (null !== $request->queryOnlyInUse) {
+            @$body['QueryOnlyInUse'] = $request->queryOnlyInUse;
         }
-        if (!Utils::isUnset($request->queryOnlyManage)) {
-            $body['QueryOnlyManage'] = $request->queryOnlyManage;
+
+        if (null !== $request->queryOnlyManage) {
+            @$body['QueryOnlyManage'] = $request->queryOnlyManage;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListFundAccount',
@@ -1952,11 +2352,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户列表
-     *  *
-     * @param ListFundAccountRequest $request ListFundAccountRequest
+     * 查询资金账户列表.
      *
-     * @return ListFundAccountResponse ListFundAccountResponse
+     * @param request - ListFundAccountRequest
+     *
+     * @returns ListFundAccountResponse
+     *
+     * @param ListFundAccountRequest $request
+     *
+     * @return ListFundAccountResponse
      */
     public function listFundAccount($request)
     {
@@ -1966,36 +2370,46 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户的付款关系
-     *  *
-     * @param ListFundAccountPayRelationRequest $request ListFundAccountPayRelationRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 查询资金账户的付款关系.
      *
-     * @return ListFundAccountPayRelationResponse ListFundAccountPayRelationResponse
+     * @param request - ListFundAccountPayRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFundAccountPayRelationResponse
+     *
+     * @param ListFundAccountPayRelationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListFundAccountPayRelationResponse
      */
     public function listFundAccountPayRelationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->fundAccountId)) {
-            $body['FundAccountId'] = $request->fundAccountId;
+        if (null !== $request->fundAccountId) {
+            @$body['FundAccountId'] = $request->fundAccountId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListFundAccountPayRelation',
@@ -2013,11 +2427,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询资金账户的付款关系
-     *  *
-     * @param ListFundAccountPayRelationRequest $request ListFundAccountPayRelationRequest
+     * 查询资金账户的付款关系.
      *
-     * @return ListFundAccountPayRelationResponse ListFundAccountPayRelationResponse
+     * @param request - ListFundAccountPayRelationRequest
+     *
+     * @returns ListFundAccountPayRelationResponse
+     *
+     * @param ListFundAccountPayRelationRequest $request
+     *
+     * @return ListFundAccountPayRelationResponse
      */
     public function listFundAccountPayRelation($request)
     {
@@ -2027,72 +2445,94 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 对客OpenAPI开票对象查询
-     *  *
-     * @param ListInvoiceCandidateRequest $tmpReq  ListInvoiceCandidateRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 对客OpenAPI开票对象查询.
      *
-     * @return ListInvoiceCandidateResponse ListInvoiceCandidateResponse
+     * @param tmpReq - ListInvoiceCandidateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInvoiceCandidateResponse
+     *
+     * @param ListInvoiceCandidateRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListInvoiceCandidateResponse
      */
     public function listInvoiceCandidateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListInvoiceCandidateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->billingCycles)) {
-            $request->billingCyclesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->billingCycles, 'BillingCycles', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->billingCycles) {
+            $request->billingCyclesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->billingCycles, 'BillingCycles', 'json');
         }
-        if (!Utils::isUnset($tmpReq->businessIds)) {
-            $request->businessIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->businessIds, 'BusinessIds', 'json');
+
+        if (null !== $tmpReq->businessIds) {
+            $request->businessIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->businessIds, 'BusinessIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->invoiceIssuers)) {
-            $request->invoiceIssuersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->invoiceIssuers, 'InvoiceIssuers', 'json');
+
+        if (null !== $tmpReq->invoiceIssuers) {
+            $request->invoiceIssuersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->invoiceIssuers, 'InvoiceIssuers', 'json');
         }
-        if (!Utils::isUnset($tmpReq->status)) {
-            $request->statusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->status, 'Status', 'json');
+
+        if (null !== $tmpReq->status) {
+            $request->statusShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->status, 'Status', 'json');
         }
-        if (!Utils::isUnset($tmpReq->types)) {
-            $request->typesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'json');
+
+        if (null !== $tmpReq->types) {
+            $request->typesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->billingCyclesShrink)) {
-            $query['BillingCycles'] = $request->billingCyclesShrink;
+        if (null !== $request->billingCyclesShrink) {
+            @$query['BillingCycles'] = $request->billingCyclesShrink;
         }
-        if (!Utils::isUnset($request->businessIdsShrink)) {
-            $query['BusinessIds'] = $request->businessIdsShrink;
+
+        if (null !== $request->businessIdsShrink) {
+            @$query['BusinessIds'] = $request->businessIdsShrink;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->ecIdAccountIdsShrink)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->invoiceIssuersShrink)) {
-            $query['InvoiceIssuers'] = $request->invoiceIssuersShrink;
+
+        if (null !== $request->invoiceIssuersShrink) {
+            @$query['InvoiceIssuers'] = $request->invoiceIssuersShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->statusShrink)) {
-            $query['Status'] = $request->statusShrink;
+
+        if (null !== $request->statusShrink) {
+            @$query['Status'] = $request->statusShrink;
         }
-        if (!Utils::isUnset($request->typesShrink)) {
-            $query['Types'] = $request->typesShrink;
+
+        if (null !== $request->typesShrink) {
+            @$query['Types'] = $request->typesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListInvoiceCandidate',
@@ -2110,11 +2550,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 对客OpenAPI开票对象查询
-     *  *
-     * @param ListInvoiceCandidateRequest $request ListInvoiceCandidateRequest
+     * 对客OpenAPI开票对象查询.
      *
-     * @return ListInvoiceCandidateResponse ListInvoiceCandidateResponse
+     * @param request - ListInvoiceCandidateRequest
+     *
+     * @returns ListInvoiceCandidateResponse
+     *
+     * @param ListInvoiceCandidateRequest $request
+     *
+     * @return ListInvoiceCandidateResponse
      */
     public function listInvoiceCandidate($request)
     {
@@ -2124,11 +2568,16 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 发票抬头查询服务
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 发票抬头查询服务
      *
-     * @return ListInvoiceTitleResponse ListInvoiceTitleResponse
+     * @param request - ListInvoiceTitleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInvoiceTitleResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListInvoiceTitleResponse
      */
     public function listInvoiceTitleWithOptions($runtime)
     {
@@ -2149,9 +2598,11 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 发票抬头查询服务
-     *  *
-     * @return ListInvoiceTitleResponse ListInvoiceTitleResponse
+     * 发票抬头查询服务
+     *
+     * @returns ListInvoiceTitleResponse
+     *
+     * @return ListInvoiceTitleResponse
      */
     public function listInvoiceTitle()
     {
@@ -2161,22 +2612,28 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查看已订阅的报告列表
-     *  *
-     * @param ListReportDefinitionsRequest $request ListReportDefinitionsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查看已订阅的报告列表.
      *
-     * @return ListReportDefinitionsResponse ListReportDefinitionsResponse
+     * @param request - ListReportDefinitionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListReportDefinitionsResponse
+     *
+     * @param ListReportDefinitionsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListReportDefinitionsResponse
      */
     public function listReportDefinitionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListReportDefinitions',
@@ -2194,11 +2651,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查看已订阅的报告列表
-     *  *
-     * @param ListReportDefinitionsRequest $request ListReportDefinitionsRequest
+     * 查看已订阅的报告列表.
      *
-     * @return ListReportDefinitionsResponse ListReportDefinitionsResponse
+     * @param request - ListReportDefinitionsRequest
+     *
+     * @returns ListReportDefinitionsResponse
+     *
+     * @param ListReportDefinitionsRequest $request
+     *
+     * @return ListReportDefinitionsResponse
      */
     public function listReportDefinitions($request)
     {
@@ -2208,30 +2669,38 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 修改财务单元
-     *  *
-     * @param ModifyCostCenterRequest $tmpReq  ModifyCostCenterRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 修改财务单元.
      *
-     * @return ModifyCostCenterResponse ModifyCostCenterResponse
+     * @param tmpReq - ModifyCostCenterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCostCenterResponse
+     *
+     * @param ModifyCostCenterRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyCostCenterResponse
      */
     public function modifyCostCenterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyCostCenterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->costCenterEntityList)) {
-            $request->costCenterEntityListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->costCenterEntityList, 'CostCenterEntityList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->costCenterEntityList) {
+            $request->costCenterEntityListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->costCenterEntityList, 'CostCenterEntityList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->costCenterEntityListShrink)) {
-            $query['CostCenterEntityList'] = $request->costCenterEntityListShrink;
+        if (null !== $request->costCenterEntityListShrink) {
+            @$query['CostCenterEntityList'] = $request->costCenterEntityListShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyCostCenter',
@@ -2249,11 +2718,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 修改财务单元
-     *  *
-     * @param ModifyCostCenterRequest $request ModifyCostCenterRequest
+     * 修改财务单元.
      *
-     * @return ModifyCostCenterResponse ModifyCostCenterResponse
+     * @param request - ModifyCostCenterRequest
+     *
+     * @returns ModifyCostCenterResponse
+     *
+     * @param ModifyCostCenterRequest $request
+     *
+     * @return ModifyCostCenterResponse
      */
     public function modifyCostCenter($request)
     {
@@ -2263,38 +2736,48 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 修改财务单元规则
-     *  *
-     * @param ModifyCostCenterRuleRequest $tmpReq  ModifyCostCenterRuleRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 修改财务单元规则.
      *
-     * @return ModifyCostCenterRuleResponse ModifyCostCenterRuleResponse
+     * @param tmpReq - ModifyCostCenterRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCostCenterRuleResponse
+     *
+     * @param ModifyCostCenterRuleRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyCostCenterRuleResponse
      */
     public function modifyCostCenterRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyCostCenterRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filterExpression)) {
-            $request->filterExpressionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterExpression, 'FilterExpression', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterExpression) {
+            $request->filterExpressionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterExpression, 'FilterExpression', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->filterExpressionShrink)) {
-            $query['FilterExpression'] = $request->filterExpressionShrink;
+        if (null !== $request->filterExpressionShrink) {
+            @$query['FilterExpression'] = $request->filterExpressionShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->costCenterId)) {
-            $body['CostCenterId'] = $request->costCenterId;
+        if (null !== $request->costCenterId) {
+            @$body['CostCenterId'] = $request->costCenterId;
         }
-        if (!Utils::isUnset($request->ownerAccountId)) {
-            $body['OwnerAccountId'] = $request->ownerAccountId;
+
+        if (null !== $request->ownerAccountId) {
+            @$body['OwnerAccountId'] = $request->ownerAccountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyCostCenterRule',
@@ -2312,11 +2795,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 修改财务单元规则
-     *  *
-     * @param ModifyCostCenterRuleRequest $request ModifyCostCenterRuleRequest
+     * 修改财务单元规则.
      *
-     * @return ModifyCostCenterRuleResponse ModifyCostCenterRuleResponse
+     * @param request - ModifyCostCenterRuleRequest
+     *
+     * @returns ModifyCostCenterRuleResponse
+     *
+     * @param ModifyCostCenterRuleRequest $request
+     *
+     * @return ModifyCostCenterRuleResponse
      */
     public function modifyCostCenterRule($request)
     {
@@ -2326,42 +2813,54 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询财务单元
-     *  *
-     * @param QueryCostCenterRequest $tmpReq  QueryCostCenterRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询财务单元.
      *
-     * @return QueryCostCenterResponse QueryCostCenterResponse
+     * @param tmpReq - QueryCostCenterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCostCenterResponse
+     *
+     * @param QueryCostCenterRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryCostCenterResponse
      */
     public function queryCostCenterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QueryCostCenterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->ecIdAccountIdsShrink)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
-        if (!Utils::isUnset($request->ownerAccountId)) {
-            $query['OwnerAccountId'] = $request->ownerAccountId;
+
+        if (null !== $request->ownerAccountId) {
+            @$query['OwnerAccountId'] = $request->ownerAccountId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->parentCostCenterId)) {
-            $query['ParentCostCenterId'] = $request->parentCostCenterId;
+
+        if (null !== $request->parentCostCenterId) {
+            @$query['ParentCostCenterId'] = $request->parentCostCenterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryCostCenter',
@@ -2379,11 +2878,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询财务单元
-     *  *
-     * @param QueryCostCenterRequest $request QueryCostCenterRequest
+     * 查询财务单元.
      *
-     * @return QueryCostCenterResponse QueryCostCenterResponse
+     * @param request - QueryCostCenterRequest
+     *
+     * @returns QueryCostCenterResponse
+     *
+     * @param QueryCostCenterRequest $request
+     *
+     * @return QueryCostCenterResponse
      */
     public function queryCostCenter($request)
     {
@@ -2393,39 +2896,50 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询财务单元下资源信息
-     *  *
-     * @param QueryCostCenterResourceRequest $request QueryCostCenterResourceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查询财务单元下资源信息.
      *
-     * @return QueryCostCenterResourceResponse QueryCostCenterResourceResponse
+     * @param request - QueryCostCenterResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCostCenterResourceResponse
+     *
+     * @param QueryCostCenterResourceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryCostCenterResourceResponse
      */
     public function queryCostCenterResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ecIdAccountIds)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIds;
+        if (null !== $request->ecIdAccountIds) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIds;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->costCenterId)) {
-            $body['CostCenterId'] = $request->costCenterId;
+        if (null !== $request->costCenterId) {
+            @$body['CostCenterId'] = $request->costCenterId;
         }
-        if (!Utils::isUnset($request->ownerAccountId)) {
-            $body['OwnerAccountId'] = $request->ownerAccountId;
+
+        if (null !== $request->ownerAccountId) {
+            @$body['OwnerAccountId'] = $request->ownerAccountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'QueryCostCenterResource',
@@ -2443,11 +2957,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询财务单元下资源信息
-     *  *
-     * @param QueryCostCenterResourceRequest $request QueryCostCenterResourceRequest
+     * 查询财务单元下资源信息.
      *
-     * @return QueryCostCenterResourceResponse QueryCostCenterResourceResponse
+     * @param request - QueryCostCenterResourceRequest
+     *
+     * @returns QueryCostCenterResourceResponse
+     *
+     * @param QueryCostCenterResourceRequest $request
+     *
+     * @return QueryCostCenterResourceResponse
      */
     public function queryCostCenterResource($request)
     {
@@ -2457,30 +2975,38 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询财务单元规则
-     *  *
-     * @param QueryCostCenterRuleRequest $request QueryCostCenterRuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询财务单元规则.
      *
-     * @return QueryCostCenterRuleResponse QueryCostCenterRuleResponse
+     * @param request - QueryCostCenterRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCostCenterRuleResponse
+     *
+     * @param QueryCostCenterRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryCostCenterRuleResponse
      */
     public function queryCostCenterRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ecIdAccountIds)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIds;
+        if (null !== $request->ecIdAccountIds) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIds;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->costCenterId)) {
-            $body['CostCenterId'] = $request->costCenterId;
+        if (null !== $request->costCenterId) {
+            @$body['CostCenterId'] = $request->costCenterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'QueryCostCenterRule',
@@ -2498,11 +3024,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询财务单元规则
-     *  *
-     * @param QueryCostCenterRuleRequest $request QueryCostCenterRuleRequest
+     * 查询财务单元规则.
      *
-     * @return QueryCostCenterRuleResponse QueryCostCenterRuleResponse
+     * @param request - QueryCostCenterRuleRequest
+     *
+     * @returns QueryCostCenterRuleResponse
+     *
+     * @param QueryCostCenterRuleRequest $request
+     *
+     * @return QueryCostCenterRuleResponse
      */
     public function queryCostCenterRule($request)
     {
@@ -2512,28 +3042,196 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 设置资金账户的信控限额
-     *  *
-     * @param SetFundAccountCreditAmountRequest $request SetFundAccountCreditAmountRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 查询财务单元分摊规则.
      *
-     * @return SetFundAccountCreditAmountResponse SetFundAccountCreditAmountResponse
+     * @param request - QueryCostCenterShareRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCostCenterShareRuleResponse
+     *
+     * @param QueryCostCenterShareRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryCostCenterShareRuleResponse
+     */
+    public function queryCostCenterShareRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ecIdAccountIds) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIds;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerAccountId) {
+            @$query['OwnerAccountId'] = $request->ownerAccountId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryCostCenterShareRule',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryCostCenterShareRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询财务单元分摊规则.
+     *
+     * @param request - QueryCostCenterShareRuleRequest
+     *
+     * @returns QueryCostCenterShareRuleResponse
+     *
+     * @param QueryCostCenterShareRuleRequest $request
+     *
+     * @return QueryCostCenterShareRuleResponse
+     */
+    public function queryCostCenterShareRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCostCenterShareRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改财务单元分摊规则.
+     *
+     * @param tmpReq - SaveCostCenterShareRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveCostCenterShareRuleResponse
+     *
+     * @param SaveCostCenterShareRuleRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SaveCostCenterShareRuleResponse
+     */
+    public function saveCostCenterShareRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SaveCostCenterShareRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createShareRuleList) {
+            $request->createShareRuleListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createShareRuleList, 'CreateShareRuleList', 'json');
+        }
+
+        if (null !== $tmpReq->modifyShareRuleList) {
+            $request->modifyShareRuleListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modifyShareRuleList, 'ModifyShareRuleList', 'json');
+        }
+
+        if (null !== $tmpReq->removeShareRuleList) {
+            $request->removeShareRuleListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->removeShareRuleList, 'RemoveShareRuleList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->createShareRuleListShrink) {
+            @$query['CreateShareRuleList'] = $request->createShareRuleListShrink;
+        }
+
+        if (null !== $request->modifyShareRuleListShrink) {
+            @$query['ModifyShareRuleList'] = $request->modifyShareRuleListShrink;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->ownerAccountId) {
+            @$query['OwnerAccountId'] = $request->ownerAccountId;
+        }
+
+        if (null !== $request->removeShareRuleListShrink) {
+            @$query['RemoveShareRuleList'] = $request->removeShareRuleListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SaveCostCenterShareRule',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SaveCostCenterShareRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改财务单元分摊规则.
+     *
+     * @param request - SaveCostCenterShareRuleRequest
+     *
+     * @returns SaveCostCenterShareRuleResponse
+     *
+     * @param SaveCostCenterShareRuleRequest $request
+     *
+     * @return SaveCostCenterShareRuleResponse
+     */
+    public function saveCostCenterShareRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveCostCenterShareRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置资金账户的信控限额.
+     *
+     * @param request - SetFundAccountCreditAmountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetFundAccountCreditAmountResponse
+     *
+     * @param SetFundAccountCreditAmountRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SetFundAccountCreditAmountResponse
      */
     public function setFundAccountCreditAmountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->creditAmount)) {
-            $body['CreditAmount'] = $request->creditAmount;
+        if (null !== $request->creditAmount) {
+            @$body['CreditAmount'] = $request->creditAmount;
         }
-        if (!Utils::isUnset($request->currency)) {
-            $body['Currency'] = $request->currency;
+
+        if (null !== $request->currency) {
+            @$body['Currency'] = $request->currency;
         }
-        if (!Utils::isUnset($request->fundAccountId)) {
-            $body['FundAccountId'] = $request->fundAccountId;
+
+        if (null !== $request->fundAccountId) {
+            @$body['FundAccountId'] = $request->fundAccountId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SetFundAccountCreditAmount',
@@ -2551,11 +3249,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 设置资金账户的信控限额
-     *  *
-     * @param SetFundAccountCreditAmountRequest $request SetFundAccountCreditAmountRequest
+     * 设置资金账户的信控限额.
      *
-     * @return SetFundAccountCreditAmountResponse SetFundAccountCreditAmountResponse
+     * @param request - SetFundAccountCreditAmountRequest
+     *
+     * @returns SetFundAccountCreditAmountResponse
+     *
+     * @param SetFundAccountCreditAmountRequest $request
+     *
+     * @return SetFundAccountCreditAmountResponse
      */
     public function setFundAccountCreditAmount($request)
     {
@@ -2565,25 +3267,32 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 设置资金账户低额预警
-     *  *
-     * @param SetFundAccountLowAvailableAmountAlarmRequest $request SetFundAccountLowAvailableAmountAlarmRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * 设置资金账户低额预警.
      *
-     * @return SetFundAccountLowAvailableAmountAlarmResponse SetFundAccountLowAvailableAmountAlarmResponse
+     * @param request - SetFundAccountLowAvailableAmountAlarmRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetFundAccountLowAvailableAmountAlarmResponse
+     *
+     * @param SetFundAccountLowAvailableAmountAlarmRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return SetFundAccountLowAvailableAmountAlarmResponse
      */
     public function setFundAccountLowAvailableAmountAlarmWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fundAccountId)) {
-            $body['FundAccountId'] = $request->fundAccountId;
+        if (null !== $request->fundAccountId) {
+            @$body['FundAccountId'] = $request->fundAccountId;
         }
-        if (!Utils::isUnset($request->thresholdAmount)) {
-            $body['ThresholdAmount'] = $request->thresholdAmount;
+
+        if (null !== $request->thresholdAmount) {
+            @$body['ThresholdAmount'] = $request->thresholdAmount;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SetFundAccountLowAvailableAmountAlarm',
@@ -2601,11 +3310,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 设置资金账户低额预警
-     *  *
-     * @param SetFundAccountLowAvailableAmountAlarmRequest $request SetFundAccountLowAvailableAmountAlarmRequest
+     * 设置资金账户低额预警.
      *
-     * @return SetFundAccountLowAvailableAmountAlarmResponse SetFundAccountLowAvailableAmountAlarmResponse
+     * @param request - SetFundAccountLowAvailableAmountAlarmRequest
+     *
+     * @returns SetFundAccountLowAvailableAmountAlarmResponse
+     *
+     * @param SetFundAccountLowAvailableAmountAlarmRequest $request
+     *
+     * @return SetFundAccountLowAvailableAmountAlarmResponse
      */
     public function setFundAccountLowAvailableAmountAlarm($request)
     {
@@ -2615,41 +3328,52 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 设置节省计划用户级抵扣规则
-     *  *
-     * @param SetSavingPlanUserDeductRuleRequest $tmpReq  SetSavingPlanUserDeductRuleRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 设置节省计划用户级抵扣规则.
      *
-     * @return SetSavingPlanUserDeductRuleResponse SetSavingPlanUserDeductRuleResponse
+     * @param tmpReq - SetSavingPlanUserDeductRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetSavingPlanUserDeductRuleResponse
+     *
+     * @param SetSavingPlanUserDeductRuleRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetSavingPlanUserDeductRuleResponse
      */
     public function setSavingPlanUserDeductRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SetSavingPlanUserDeductRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userDeductRules)) {
-            $request->userDeductRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userDeductRules, 'UserDeductRules', 'json');
+
+        if (null !== $tmpReq->userDeductRules) {
+            $request->userDeductRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userDeductRules, 'UserDeductRules', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->ecIdAccountIdsShrink)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->spnInstanceCode)) {
-            $body['SpnInstanceCode'] = $request->spnInstanceCode;
+        if (null !== $request->spnInstanceCode) {
+            @$body['SpnInstanceCode'] = $request->spnInstanceCode;
         }
-        if (!Utils::isUnset($request->userDeductRulesShrink)) {
-            $body['UserDeductRules'] = $request->userDeductRulesShrink;
+
+        if (null !== $request->userDeductRulesShrink) {
+            @$body['UserDeductRules'] = $request->userDeductRulesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SetSavingPlanUserDeductRule',
@@ -2667,11 +3391,15 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 设置节省计划用户级抵扣规则
-     *  *
-     * @param SetSavingPlanUserDeductRuleRequest $request SetSavingPlanUserDeductRuleRequest
+     * 设置节省计划用户级抵扣规则.
      *
-     * @return SetSavingPlanUserDeductRuleResponse SetSavingPlanUserDeductRuleResponse
+     * @param request - SetSavingPlanUserDeductRuleRequest
+     *
+     * @returns SetSavingPlanUserDeductRuleResponse
+     *
+     * @param SetSavingPlanUserDeductRuleRequest $request
+     *
+     * @return SetSavingPlanUserDeductRuleResponse
      */
     public function setSavingPlanUserDeductRule($request)
     {
