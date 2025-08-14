@@ -20,6 +20,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $checkNotice;
+
+    /**
+     * @var string
+     */
     public $createTimeStr;
 
     /**
@@ -86,8 +91,14 @@ class result extends Model
      * @var userAddressDto
      */
     public $userAddressDto;
+
+    /**
+     * @var string
+     */
+    public $userNotice;
     protected $_name = [
         'aliyunPk' => 'AliyunPk',
+        'checkNotice' => 'CheckNotice',
         'createTimeStr' => 'CreateTimeStr',
         'evaluateList' => 'EvaluateList',
         'id' => 'Id',
@@ -102,6 +113,7 @@ class result extends Model
         'title' => 'Title',
         'type' => 'Type',
         'userAddressDto' => 'UserAddressDto',
+        'userNotice' => 'UserNotice',
     ];
 
     public function validate()
@@ -126,6 +138,10 @@ class result extends Model
         $res = [];
         if (null !== $this->aliyunPk) {
             $res['AliyunPk'] = $this->aliyunPk;
+        }
+
+        if (null !== $this->checkNotice) {
+            $res['CheckNotice'] = $this->checkNotice;
         }
 
         if (null !== $this->createTimeStr) {
@@ -198,6 +214,10 @@ class result extends Model
             $res['UserAddressDto'] = null !== $this->userAddressDto ? $this->userAddressDto->toArray($noStream) : $this->userAddressDto;
         }
 
+        if (null !== $this->userNotice) {
+            $res['UserNotice'] = $this->userNotice;
+        }
+
         return $res;
     }
 
@@ -211,6 +231,10 @@ class result extends Model
         $model = new self();
         if (isset($map['AliyunPk'])) {
             $model->aliyunPk = $map['AliyunPk'];
+        }
+
+        if (isset($map['CheckNotice'])) {
+            $model->checkNotice = $map['CheckNotice'];
         }
 
         if (isset($map['CreateTimeStr'])) {
@@ -281,6 +305,10 @@ class result extends Model
 
         if (isset($map['UserAddressDto'])) {
             $model->userAddressDto = userAddressDto::fromMap($map['UserAddressDto']);
+        }
+
+        if (isset($map['UserNotice'])) {
+            $model->userNotice = $map['UserNotice'];
         }
 
         return $model;

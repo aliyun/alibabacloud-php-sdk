@@ -41,6 +41,21 @@ class evaluateList extends Model
     /**
      * @var string
      */
+    public $productCode;
+
+    /**
+     * @var string
+     */
+    public $productName;
+
+    /**
+     * @var string
+     */
+    public $realAliyunId;
+
+    /**
+     * @var string
+     */
     public $realAliyunPk;
     protected $_name = [
         'agent' => 'Agent',
@@ -49,6 +64,9 @@ class evaluateList extends Model
         'id' => 'Id',
         'orderType' => 'OrderType',
         'outBizId' => 'OutBizId',
+        'productCode' => 'ProductCode',
+        'productName' => 'ProductName',
+        'realAliyunId' => 'RealAliyunId',
         'realAliyunPk' => 'RealAliyunPk',
     ];
 
@@ -82,6 +100,18 @@ class evaluateList extends Model
 
         if (null !== $this->outBizId) {
             $res['OutBizId'] = $this->outBizId;
+        }
+
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
+        }
+
+        if (null !== $this->productName) {
+            $res['ProductName'] = $this->productName;
+        }
+
+        if (null !== $this->realAliyunId) {
+            $res['RealAliyunId'] = $this->realAliyunId;
         }
 
         if (null !== $this->realAliyunPk) {
@@ -121,6 +151,18 @@ class evaluateList extends Model
 
         if (isset($map['OutBizId'])) {
             $model->outBizId = $map['OutBizId'];
+        }
+
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
+        }
+
+        if (isset($map['ProductName'])) {
+            $model->productName = $map['ProductName'];
+        }
+
+        if (isset($map['RealAliyunId'])) {
+            $model->realAliyunId = $map['RealAliyunId'];
         }
 
         if (isset($map['RealAliyunPk'])) {
