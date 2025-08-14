@@ -80,6 +80,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosInstanceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosInstanceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosMcpServerRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosMcpServerResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosServiceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosServiceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNamespaceRequest;
@@ -145,6 +147,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosConfigsRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosConfigsResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosInstanceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosInstanceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosMcpServerRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosMcpServerResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosServiceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosServiceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNamespaceRequest;
@@ -223,6 +227,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\GetNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetNacosHistoryConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetNacosHistoryConfigResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetNacosMcpServerRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetNacosMcpServerResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetOverviewRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetOverviewResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetPluginConfigRequest;
@@ -331,6 +337,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosConfigsRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosConfigsResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosHistoryConfigsRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosHistoryConfigsResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosMcpServersRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosMcpServersResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamespacesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamespacesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamespacesShrinkRequest;
@@ -3867,6 +3875,93 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * 创建一个MCP Server.
+     *
+     * @param request - CreateNacosMcpServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNacosMcpServerResponse
+     *
+     * @param CreateNacosMcpServerRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateNacosMcpServerResponse
+     */
+    public function createNacosMcpServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        if (null !== $request->serverName) {
+            @$query['ServerName'] = $request->serverName;
+        }
+
+        $body = [];
+        if (null !== $request->endpointSpecification) {
+            @$body['EndpointSpecification'] = $request->endpointSpecification;
+        }
+
+        if (null !== $request->serverSpecification) {
+            @$body['ServerSpecification'] = $request->serverSpecification;
+        }
+
+        if (null !== $request->toolSpecification) {
+            @$body['ToolSpecification'] = $request->toolSpecification;
+        }
+
+        if (null !== $request->yamlConfig) {
+            @$body['YamlConfig'] = $request->yamlConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNacosMcpServer',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNacosMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一个MCP Server.
+     *
+     * @param request - CreateNacosMcpServerRequest
+     *
+     * @returns CreateNacosMcpServerResponse
+     *
+     * @param CreateNacosMcpServerRequest $request
+     *
+     * @return CreateNacosMcpServerResponse
+     */
+    public function createNacosMcpServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNacosMcpServerWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a Nacos service.
      *
      * @remarks
@@ -6127,6 +6222,75 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNacosInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除一个MCP Server.
+     *
+     * @param request - DeleteNacosMcpServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNacosMcpServerResponse
+     *
+     * @param DeleteNacosMcpServerRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteNacosMcpServerResponse
+     */
+    public function deleteNacosMcpServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->mcpServerId) {
+            @$query['McpServerId'] = $request->mcpServerId;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteNacosMcpServer',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteNacosMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除一个MCP Server.
+     *
+     * @param request - DeleteNacosMcpServerRequest
+     *
+     * @returns DeleteNacosMcpServerResponse
+     *
+     * @param DeleteNacosMcpServerRequest $request
+     *
+     * @return DeleteNacosMcpServerResponse
+     */
+    public function deleteNacosMcpServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNacosMcpServerWithOptions($request, $runtime);
     }
 
     /**
@@ -8862,6 +9026,79 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getNacosHistoryConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取MCP Server的详情.
+     *
+     * @param request - GetNacosMcpServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNacosMcpServerResponse
+     *
+     * @param GetNacosMcpServerRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetNacosMcpServerResponse
+     */
+    public function getNacosMcpServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->mcpServerId) {
+            @$query['McpServerId'] = $request->mcpServerId;
+        }
+
+        if (null !== $request->mcpServerVersion) {
+            @$query['McpServerVersion'] = $request->mcpServerVersion;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetNacosMcpServer',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNacosMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取MCP Server的详情.
+     *
+     * @param request - GetNacosMcpServerRequest
+     *
+     * @returns GetNacosMcpServerResponse
+     *
+     * @param GetNacosMcpServerRequest $request
+     *
+     * @return GetNacosMcpServerResponse
+     */
+    public function getNacosMcpServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNacosMcpServerWithOptions($request, $runtime);
     }
 
     /**
@@ -12814,6 +13051,87 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listNacosHistoryConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取McpServer列表.
+     *
+     * @param request - ListNacosMcpServersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNacosMcpServersResponse
+     *
+     * @param ListNacosMcpServersRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListNacosMcpServersResponse
+     */
+    public function listNacosMcpServersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->search) {
+            @$query['Search'] = $request->search;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListNacosMcpServers',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNacosMcpServersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取McpServer列表.
+     *
+     * @param request - ListNacosMcpServersRequest
+     *
+     * @returns ListNacosMcpServersResponse
+     *
+     * @param ListNacosMcpServersRequest $request
+     *
+     * @return ListNacosMcpServersResponse
+     */
+    public function listNacosMcpServers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNacosMcpServersWithOptions($request, $runtime);
     }
 
     /**
