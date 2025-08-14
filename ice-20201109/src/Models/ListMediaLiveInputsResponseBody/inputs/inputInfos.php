@@ -34,6 +34,26 @@ class inputInfos extends Model
     public $sourceUrl;
 
     /**
+     * @var int
+     */
+    public $srtLatency;
+
+    /**
+     * @var int
+     */
+    public $srtMaxBitrate;
+
+    /**
+     * @var string
+     */
+    public $srtPassphrase;
+
+    /**
+     * @var int
+     */
+    public $srtPbKeyLen;
+
+    /**
      * @var string
      */
     public $streamName;
@@ -43,6 +63,10 @@ class inputInfos extends Model
         'flowOutputName' => 'FlowOutputName',
         'monitorUrl' => 'MonitorUrl',
         'sourceUrl' => 'SourceUrl',
+        'srtLatency' => 'SrtLatency',
+        'srtMaxBitrate' => 'SrtMaxBitrate',
+        'srtPassphrase' => 'SrtPassphrase',
+        'srtPbKeyLen' => 'SrtPbKeyLen',
         'streamName' => 'StreamName',
     ];
 
@@ -72,6 +96,22 @@ class inputInfos extends Model
 
         if (null !== $this->sourceUrl) {
             $res['SourceUrl'] = $this->sourceUrl;
+        }
+
+        if (null !== $this->srtLatency) {
+            $res['SrtLatency'] = $this->srtLatency;
+        }
+
+        if (null !== $this->srtMaxBitrate) {
+            $res['SrtMaxBitrate'] = $this->srtMaxBitrate;
+        }
+
+        if (null !== $this->srtPassphrase) {
+            $res['SrtPassphrase'] = $this->srtPassphrase;
+        }
+
+        if (null !== $this->srtPbKeyLen) {
+            $res['SrtPbKeyLen'] = $this->srtPbKeyLen;
         }
 
         if (null !== $this->streamName) {
@@ -107,6 +147,22 @@ class inputInfos extends Model
 
         if (isset($map['SourceUrl'])) {
             $model->sourceUrl = $map['SourceUrl'];
+        }
+
+        if (isset($map['SrtLatency'])) {
+            $model->srtLatency = $map['SrtLatency'];
+        }
+
+        if (isset($map['SrtMaxBitrate'])) {
+            $model->srtMaxBitrate = $map['SrtMaxBitrate'];
+        }
+
+        if (isset($map['SrtPassphrase'])) {
+            $model->srtPassphrase = $map['SrtPassphrase'];
+        }
+
+        if (isset($map['SrtPbKeyLen'])) {
+            $model->srtPbKeyLen = $map['SrtPbKeyLen'];
         }
 
         if (isset($map['StreamName'])) {

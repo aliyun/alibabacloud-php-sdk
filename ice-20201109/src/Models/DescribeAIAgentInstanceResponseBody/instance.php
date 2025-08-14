@@ -22,6 +22,16 @@ class instance extends Model
     public $callLogUrl;
 
     /**
+     * @var string
+     */
+    public $gmtCreate;
+
+    /**
+     * @var string
+     */
+    public $gmtModified;
+
+    /**
      * @var AIAgentRuntimeConfig
      */
     public $runtimeConfig;
@@ -48,6 +58,8 @@ class instance extends Model
     protected $_name = [
         'agentConfig' => 'AgentConfig',
         'callLogUrl' => 'CallLogUrl',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
         'runtimeConfig' => 'RuntimeConfig',
         'sessionId' => 'SessionId',
         'status' => 'Status',
@@ -78,6 +90,14 @@ class instance extends Model
 
         if (null !== $this->callLogUrl) {
             $res['CallLogUrl'] = $this->callLogUrl;
+        }
+
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
         }
 
         if (null !== $this->runtimeConfig) {
@@ -117,6 +137,14 @@ class instance extends Model
 
         if (isset($map['CallLogUrl'])) {
             $model->callLogUrl = $map['CallLogUrl'];
+        }
+
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
         }
 
         if (isset($map['RuntimeConfig'])) {

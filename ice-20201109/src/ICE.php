@@ -32,6 +32,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CancelDNAJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CancelDNAJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CancelFavoritePublicMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CancelFavoritePublicMediaResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CancelIProductionJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CancelIProductionJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ClearAIAgentVoiceprintRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ClearAIAgentVoiceprintResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CloseMediaConnectFlowFailoverRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CloseMediaConnectFlowFailoverResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAuditRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAuditResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAvatarTrainingJobRequest;
@@ -218,6 +224,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DropSearchIndexRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DropSearchIndexResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DropSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DropSearchLibResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ForbidMediaConnectFlowOutputRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ForbidMediaConnectFlowOutputResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ForwardAIAgentCallRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ForwardAIAgentCallResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateAIAgentCallRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateAIAgentCallResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateAIAgentCallShrinkRequest;
@@ -277,6 +287,9 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectAvailableRegionResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectFlowAllOutputNameRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectFlowAllOutputNameResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectFlowInputRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectFlowInputResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectFlowOutputRequest;
@@ -355,6 +368,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentPhoneNumberRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentPhoneNumberResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentVoiceprintsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentVoiceprintsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAlertsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAlertsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsRequest;
@@ -465,6 +480,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListVodPackagingConfigurationsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListVodPackagingConfigurationsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListVodPackagingGroupsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListVodPackagingGroupsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListWorkflowTasksRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListWorkflowTasksResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\OpenMediaConnectFlowFailoverRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\OpenMediaConnectFlowFailoverResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightExtractJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightExtractJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightJobListRequest;
@@ -491,12 +510,17 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\QueryTraceExtractJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryTraceExtractJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryTraceM3u8JobListRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryTraceM3u8JobListResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryVideoCognitionJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryVideoCognitionJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryVideoCognitionJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RefreshUploadMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RefreshUploadMediaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaStreamRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaStreamResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ResumeMediaConnectFlowOutputRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ResumeMediaConnectFlowOutputResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchIndexJobRerunRequest;
@@ -527,6 +551,9 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SendLiveTranscodeJobCommandRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendLiveTranscodeJobCommandResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendMessageChatTextRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendMessageChatTextResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SetAIAgentVoiceprintRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SetAIAgentVoiceprintResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SetAIAgentVoiceprintShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetContentAnalyzeConfigRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetContentAnalyzeConfigResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetDefaultCustomTemplateRequest;
@@ -653,6 +680,9 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTraceM3u8JobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoCognitionJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoCognitionJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoCognitionJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoTranslationJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoTranslationJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\TakeoverAIAgentCallRequest;
@@ -1848,6 +1878,181 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelFavoritePublicMediaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消智能生产任务
+     *
+     * @param request - CancelIProductionJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelIProductionJobResponse
+     *
+     * @param CancelIProductionJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CancelIProductionJobResponse
+     */
+    public function cancelIProductionJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelIProductionJob',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelIProductionJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消智能生产任务
+     *
+     * @param request - CancelIProductionJobRequest
+     *
+     * @returns CancelIProductionJobResponse
+     *
+     * @param CancelIProductionJobRequest $request
+     *
+     * @return CancelIProductionJobResponse
+     */
+    public function cancelIProductionJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelIProductionJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 清除声纹ID对应的声纹.
+     *
+     * @param request - ClearAIAgentVoiceprintRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ClearAIAgentVoiceprintResponse
+     *
+     * @param ClearAIAgentVoiceprintRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ClearAIAgentVoiceprintResponse
+     */
+    public function clearAIAgentVoiceprintWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->voiceprintId) {
+            @$query['VoiceprintId'] = $request->voiceprintId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ClearAIAgentVoiceprint',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ClearAIAgentVoiceprintResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 清除声纹ID对应的声纹.
+     *
+     * @param request - ClearAIAgentVoiceprintRequest
+     *
+     * @returns ClearAIAgentVoiceprintResponse
+     *
+     * @param ClearAIAgentVoiceprintRequest $request
+     *
+     * @return ClearAIAgentVoiceprintResponse
+     */
+    public function clearAIAgentVoiceprint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->clearAIAgentVoiceprintWithOptions($request, $runtime);
+    }
+
+    /**
+     * 关闭MediaConnect实例的双流灾备功能.
+     *
+     * @param request - CloseMediaConnectFlowFailoverRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloseMediaConnectFlowFailoverResponse
+     *
+     * @param CloseMediaConnectFlowFailoverRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CloseMediaConnectFlowFailoverResponse
+     */
+    public function closeMediaConnectFlowFailoverWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloseMediaConnectFlowFailover',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloseMediaConnectFlowFailoverResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭MediaConnect实例的双流灾备功能.
+     *
+     * @param request - CloseMediaConnectFlowFailoverRequest
+     *
+     * @returns CloseMediaConnectFlowFailoverResponse
+     *
+     * @param CloseMediaConnectFlowFailoverRequest $request
+     *
+     * @return CloseMediaConnectFlowFailoverResponse
+     */
+    public function closeMediaConnectFlowFailover($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->closeMediaConnectFlowFailoverWithOptions($request, $runtime);
     }
 
     /**
@@ -8003,6 +8208,128 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * 禁用某个MediaConnect实例的某个输出.
+     *
+     * @param request - ForbidMediaConnectFlowOutputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ForbidMediaConnectFlowOutputResponse
+     *
+     * @param ForbidMediaConnectFlowOutputRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ForbidMediaConnectFlowOutputResponse
+     */
+    public function forbidMediaConnectFlowOutputWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->outputName) {
+            @$query['OutputName'] = $request->outputName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ForbidMediaConnectFlowOutput',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ForbidMediaConnectFlowOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用某个MediaConnect实例的某个输出.
+     *
+     * @param request - ForbidMediaConnectFlowOutputRequest
+     *
+     * @returns ForbidMediaConnectFlowOutputResponse
+     *
+     * @param ForbidMediaConnectFlowOutputRequest $request
+     *
+     * @return ForbidMediaConnectFlowOutputResponse
+     */
+    public function forbidMediaConnectFlowOutput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->forbidMediaConnectFlowOutputWithOptions($request, $runtime);
+    }
+
+    /**
+     * 转呼通话到目标电话.
+     *
+     * @param request - ForwardAIAgentCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ForwardAIAgentCallResponse
+     *
+     * @param ForwardAIAgentCallRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ForwardAIAgentCallResponse
+     */
+    public function forwardAIAgentCallWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ForwardAIAgentCall',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ForwardAIAgentCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 转呼通话到目标电话.
+     *
+     * @param request - ForwardAIAgentCallRequest
+     *
+     * @returns ForwardAIAgentCallResponse
+     *
+     * @param ForwardAIAgentCallRequest $request
+     *
+     * @return ForwardAIAgentCallResponse
+     */
+    public function forwardAIAgentCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->forwardAIAgentCallWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an AI agent. This operation returns the channel in which the AI agent resides, the username of the AI agent in the channel, and the token that you can use to join the channel.
      *
      * @remarks
@@ -9906,6 +10233,50 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * 获取MediaConnect可用的区域
+     *
+     * @param request - GetMediaConnectAvailableRegionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMediaConnectAvailableRegionResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetMediaConnectAvailableRegionResponse
+     */
+    public function getMediaConnectAvailableRegionWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetMediaConnectAvailableRegion',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMediaConnectAvailableRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取MediaConnect可用的区域
+     *
+     * @returns GetMediaConnectAvailableRegionResponse
+     *
+     * @return GetMediaConnectAvailableRegionResponse
+     */
+    public function getMediaConnectAvailableRegion()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaConnectAvailableRegionWithOptions($runtime);
+    }
+
+    /**
      * Obtains information about a specific MediaConnect flow.
      *
      * @remarks
@@ -9968,6 +10339,63 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMediaConnectFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取某个MediaConnect实例下的所有output的名字.
+     *
+     * @param request - GetMediaConnectFlowAllOutputNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMediaConnectFlowAllOutputNameResponse
+     *
+     * @param GetMediaConnectFlowAllOutputNameRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetMediaConnectFlowAllOutputNameResponse
+     */
+    public function getMediaConnectFlowAllOutputNameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMediaConnectFlowAllOutputName',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMediaConnectFlowAllOutputNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取某个MediaConnect实例下的所有output的名字.
+     *
+     * @param request - GetMediaConnectFlowAllOutputNameRequest
+     *
+     * @returns GetMediaConnectFlowAllOutputNameResponse
+     *
+     * @param GetMediaConnectFlowAllOutputNameRequest $request
+     *
+     * @return GetMediaConnectFlowAllOutputNameResponse
+     */
+    public function getMediaConnectFlowAllOutputName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaConnectFlowAllOutputNameWithOptions($request, $runtime);
     }
 
     /**
@@ -12333,6 +12761,71 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAIAgentPhoneNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新回调配置.
+     *
+     * @param request - ListAIAgentVoiceprintsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAIAgentVoiceprintsResponse
+     *
+     * @param ListAIAgentVoiceprintsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAIAgentVoiceprintsResponse
+     */
+    public function listAIAgentVoiceprintsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->voiceprintId) {
+            @$query['VoiceprintId'] = $request->voiceprintId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAIAgentVoiceprints',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAIAgentVoiceprintsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新回调配置.
+     *
+     * @param request - ListAIAgentVoiceprintsRequest
+     *
+     * @returns ListAIAgentVoiceprintsResponse
+     *
+     * @param ListAIAgentVoiceprintsRequest $request
+     *
+     * @return ListAIAgentVoiceprintsResponse
+     */
+    public function listAIAgentVoiceprints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAIAgentVoiceprintsWithOptions($request, $runtime);
     }
 
     /**
@@ -16596,6 +17089,144 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * 工作流任务实例列表.
+     *
+     * @param request - ListWorkflowTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkflowTasksResponse
+     *
+     * @param ListWorkflowTasksRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListWorkflowTasksResponse
+     */
+    public function listWorkflowTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endOfCreateTime) {
+            @$query['EndOfCreateTime'] = $request->endOfCreateTime;
+        }
+
+        if (null !== $request->keyText) {
+            @$query['KeyText'] = $request->keyText;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->startOfCreateTime) {
+            @$query['StartOfCreateTime'] = $request->startOfCreateTime;
+        }
+
+        if (null !== $request->workflowId) {
+            @$query['WorkflowId'] = $request->workflowId;
+        }
+
+        if (null !== $request->workflowName) {
+            @$query['WorkflowName'] = $request->workflowName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkflowTasks',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkflowTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 工作流任务实例列表.
+     *
+     * @param request - ListWorkflowTasksRequest
+     *
+     * @returns ListWorkflowTasksResponse
+     *
+     * @param ListWorkflowTasksRequest $request
+     *
+     * @return ListWorkflowTasksResponse
+     */
+    public function listWorkflowTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWorkflowTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 开启MediaConnect双流灾备.
+     *
+     * @param request - OpenMediaConnectFlowFailoverRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OpenMediaConnectFlowFailoverResponse
+     *
+     * @param OpenMediaConnectFlowFailoverRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return OpenMediaConnectFlowFailoverResponse
+     */
+    public function openMediaConnectFlowFailoverWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OpenMediaConnectFlowFailover',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OpenMediaConnectFlowFailoverResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启MediaConnect双流灾备.
+     *
+     * @param request - OpenMediaConnectFlowFailoverRequest
+     *
+     * @returns OpenMediaConnectFlowFailoverResponse
+     *
+     * @param OpenMediaConnectFlowFailoverRequest $request
+     *
+     * @return OpenMediaConnectFlowFailoverResponse
+     */
+    public function openMediaConnectFlowFailover($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openMediaConnectFlowFailoverWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询版权水印提取任务
      *
      * @param request - QueryCopyrightExtractJobRequest
@@ -17501,6 +18132,77 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * 查询视频理解任务结果.
+     *
+     * @param tmpReq - QueryVideoCognitionJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryVideoCognitionJobResponse
+     *
+     * @param QueryVideoCognitionJobRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryVideoCognitionJobResponse
+     */
+    public function queryVideoCognitionJobWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryVideoCognitionJobShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->includeResults) {
+            $request->includeResultsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->includeResults, 'IncludeResults', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->includeResultsShrink) {
+            @$query['IncludeResults'] = $request->includeResultsShrink;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->params) {
+            @$query['Params'] = $request->params;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryVideoCognitionJob',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryVideoCognitionJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询视频理解任务结果.
+     *
+     * @param request - QueryVideoCognitionJobRequest
+     *
+     * @returns QueryVideoCognitionJobResponse
+     *
+     * @param QueryVideoCognitionJobRequest $request
+     *
+     * @return QueryVideoCognitionJobResponse
+     */
+    public function queryVideoCognitionJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVideoCognitionJobWithOptions($request, $runtime);
+    }
+
+    /**
      * Obtain a new upload credential for a media asset after its upload credential expires.
      *
      * @remarks
@@ -17751,6 +18453,67 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->registerMediaStreamWithOptions($request, $runtime);
+    }
+
+    /**
+     * 恢复某个MediaConnect实例的某个输出.
+     *
+     * @param request - ResumeMediaConnectFlowOutputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeMediaConnectFlowOutputResponse
+     *
+     * @param ResumeMediaConnectFlowOutputRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ResumeMediaConnectFlowOutputResponse
+     */
+    public function resumeMediaConnectFlowOutputWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->outputName) {
+            @$query['OutputName'] = $request->outputName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResumeMediaConnectFlowOutput',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResumeMediaConnectFlowOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 恢复某个MediaConnect实例的某个输出.
+     *
+     * @param request - ResumeMediaConnectFlowOutputRequest
+     *
+     * @returns ResumeMediaConnectFlowOutputResponse
+     *
+     * @param ResumeMediaConnectFlowOutputRequest $request
+     *
+     * @return ResumeMediaConnectFlowOutputResponse
+     */
+    public function resumeMediaConnectFlowOutput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeMediaConnectFlowOutputWithOptions($request, $runtime);
     }
 
     /**
@@ -18926,6 +19689,73 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendMessageChatTextWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置声纹.
+     *
+     * @param tmpReq - SetAIAgentVoiceprintRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetAIAgentVoiceprintResponse
+     *
+     * @param SetAIAgentVoiceprintRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SetAIAgentVoiceprintResponse
+     */
+    public function setAIAgentVoiceprintWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SetAIAgentVoiceprintShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
+        }
+
+        if (null !== $request->voiceprintId) {
+            @$query['VoiceprintId'] = $request->voiceprintId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetAIAgentVoiceprint',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetAIAgentVoiceprintResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置声纹.
+     *
+     * @param request - SetAIAgentVoiceprintRequest
+     *
+     * @returns SetAIAgentVoiceprintResponse
+     *
+     * @param SetAIAgentVoiceprintRequest $request
+     *
+     * @return SetAIAgentVoiceprintResponse
+     */
+    public function setAIAgentVoiceprint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAIAgentVoiceprintWithOptions($request, $runtime);
     }
 
     /**
@@ -23186,6 +24016,85 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitTranscodeJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交视频理解任务
+     *
+     * @param tmpReq - SubmitVideoCognitionJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitVideoCognitionJobResponse
+     *
+     * @param SubmitVideoCognitionJobRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SubmitVideoCognitionJobResponse
+     */
+    public function submitVideoCognitionJobWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitVideoCognitionJobShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
+        }
+
+        if (null !== $request->params) {
+            @$query['Params'] = $request->params;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitVideoCognitionJob',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitVideoCognitionJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交视频理解任务
+     *
+     * @param request - SubmitVideoCognitionJobRequest
+     *
+     * @returns SubmitVideoCognitionJobResponse
+     *
+     * @param SubmitVideoCognitionJobRequest $request
+     *
+     * @return SubmitVideoCognitionJobResponse
+     */
+    public function submitVideoCognitionJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitVideoCognitionJobWithOptions($request, $runtime);
     }
 
     /**

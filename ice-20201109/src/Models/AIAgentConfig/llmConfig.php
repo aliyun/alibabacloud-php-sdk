@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\llmConfig\functionMap;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\llmConfig\llmHistory;
 
 class llmConfig extends Model
@@ -13,6 +14,16 @@ class llmConfig extends Model
      * @var string
      */
     public $bailianAppParams;
+
+    /**
+     * @var functionMap[]
+     */
+    public $functionMap;
+
+    /**
+     * @var bool
+     */
+    public $llmCompleteReply;
 
     /**
      * @var llmHistory[]
@@ -28,15 +39,38 @@ class llmConfig extends Model
      * @var string
      */
     public $llmSystemPrompt;
+
+    /**
+     * @var string
+     */
+    public $openAIExtraQuery;
+
+    /**
+     * @var int
+     */
+    public $outputMaxDelay;
+
+    /**
+     * @var int
+     */
+    public $outputMinLength;
     protected $_name = [
         'bailianAppParams' => 'BailianAppParams',
+        'functionMap' => 'FunctionMap',
+        'llmCompleteReply' => 'LlmCompleteReply',
         'llmHistory' => 'LlmHistory',
         'llmHistoryLimit' => 'LlmHistoryLimit',
         'llmSystemPrompt' => 'LlmSystemPrompt',
+        'openAIExtraQuery' => 'OpenAIExtraQuery',
+        'outputMaxDelay' => 'OutputMaxDelay',
+        'outputMinLength' => 'OutputMinLength',
     ];
 
     public function validate()
     {
+        if (\is_array($this->functionMap)) {
+            Model::validateArray($this->functionMap);
+        }
         if (\is_array($this->llmHistory)) {
             Model::validateArray($this->llmHistory);
         }
@@ -48,6 +82,21 @@ class llmConfig extends Model
         $res = [];
         if (null !== $this->bailianAppParams) {
             $res['BailianAppParams'] = $this->bailianAppParams;
+        }
+
+        if (null !== $this->functionMap) {
+            if (\is_array($this->functionMap)) {
+                $res['FunctionMap'] = [];
+                $n1 = 0;
+                foreach ($this->functionMap as $item1) {
+                    $res['FunctionMap'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->llmCompleteReply) {
+            $res['LlmCompleteReply'] = $this->llmCompleteReply;
         }
 
         if (null !== $this->llmHistory) {
@@ -69,6 +118,18 @@ class llmConfig extends Model
             $res['LlmSystemPrompt'] = $this->llmSystemPrompt;
         }
 
+        if (null !== $this->openAIExtraQuery) {
+            $res['OpenAIExtraQuery'] = $this->openAIExtraQuery;
+        }
+
+        if (null !== $this->outputMaxDelay) {
+            $res['OutputMaxDelay'] = $this->outputMaxDelay;
+        }
+
+        if (null !== $this->outputMinLength) {
+            $res['OutputMinLength'] = $this->outputMinLength;
+        }
+
         return $res;
     }
 
@@ -82,6 +143,21 @@ class llmConfig extends Model
         $model = new self();
         if (isset($map['BailianAppParams'])) {
             $model->bailianAppParams = $map['BailianAppParams'];
+        }
+
+        if (isset($map['FunctionMap'])) {
+            if (!empty($map['FunctionMap'])) {
+                $model->functionMap = [];
+                $n1 = 0;
+                foreach ($map['FunctionMap'] as $item1) {
+                    $model->functionMap[$n1] = functionMap::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['LlmCompleteReply'])) {
+            $model->llmCompleteReply = $map['LlmCompleteReply'];
         }
 
         if (isset($map['LlmHistory'])) {
@@ -101,6 +177,18 @@ class llmConfig extends Model
 
         if (isset($map['LlmSystemPrompt'])) {
             $model->llmSystemPrompt = $map['LlmSystemPrompt'];
+        }
+
+        if (isset($map['OpenAIExtraQuery'])) {
+            $model->openAIExtraQuery = $map['OpenAIExtraQuery'];
+        }
+
+        if (isset($map['OutputMaxDelay'])) {
+            $model->outputMaxDelay = $map['OutputMaxDelay'];
+        }
+
+        if (isset($map['OutputMinLength'])) {
+            $model->outputMinLength = $map['OutputMinLength'];
         }
 
         return $model;

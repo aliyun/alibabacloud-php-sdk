@@ -31,6 +31,11 @@ class content extends Model
     /**
      * @var string
      */
+    public $flowRegion;
+
+    /**
+     * @var string
+     */
     public $flowStatus;
 
     /**
@@ -42,6 +47,7 @@ class content extends Model
         'flowFailover' => 'FlowFailover',
         'flowId' => 'FlowId',
         'flowName' => 'FlowName',
+        'flowRegion' => 'FlowRegion',
         'flowStatus' => 'FlowStatus',
         'startTime' => 'StartTime',
     ];
@@ -68,6 +74,10 @@ class content extends Model
 
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
+        }
+
+        if (null !== $this->flowRegion) {
+            $res['FlowRegion'] = $this->flowRegion;
         }
 
         if (null !== $this->flowStatus) {
@@ -103,6 +113,10 @@ class content extends Model
 
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
+        }
+
+        if (isset($map['FlowRegion'])) {
+            $model->flowRegion = $map['FlowRegion'];
         }
 
         if (isset($map['FlowStatus'])) {

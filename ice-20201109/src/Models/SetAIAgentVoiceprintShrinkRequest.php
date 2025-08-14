@@ -1,0 +1,62 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\ICE\V20201109\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class SetAIAgentVoiceprintShrinkRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $inputShrink;
+
+    /**
+     * @var string
+     */
+    public $voiceprintId;
+    protected $_name = [
+        'inputShrink' => 'Input',
+        'voiceprintId' => 'VoiceprintId',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->inputShrink) {
+            $res['Input'] = $this->inputShrink;
+        }
+
+        if (null !== $this->voiceprintId) {
+            $res['VoiceprintId'] = $this->voiceprintId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Input'])) {
+            $model->inputShrink = $map['Input'];
+        }
+
+        if (isset($map['VoiceprintId'])) {
+            $model->voiceprintId = $map['VoiceprintId'];
+        }
+
+        return $model;
+    }
+}

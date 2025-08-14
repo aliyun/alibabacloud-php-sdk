@@ -10,9 +10,29 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\ttsConfig\pr
 class ttsConfig extends Model
 {
     /**
+     * @var string
+     */
+    public $emotion;
+
+    /**
+     * @var string
+     */
+    public $languageId;
+
+    /**
+     * @var string
+     */
+    public $modelId;
+
+    /**
      * @var pronunciationRules[]
      */
     public $pronunciationRules;
+
+    /**
+     * @var float
+     */
+    public $speechRate;
 
     /**
      * @var string
@@ -24,7 +44,11 @@ class ttsConfig extends Model
      */
     public $voiceIdList;
     protected $_name = [
+        'emotion' => 'Emotion',
+        'languageId' => 'LanguageId',
+        'modelId' => 'ModelId',
         'pronunciationRules' => 'PronunciationRules',
+        'speechRate' => 'SpeechRate',
         'voiceId' => 'VoiceId',
         'voiceIdList' => 'VoiceIdList',
     ];
@@ -43,6 +67,18 @@ class ttsConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->emotion) {
+            $res['Emotion'] = $this->emotion;
+        }
+
+        if (null !== $this->languageId) {
+            $res['LanguageId'] = $this->languageId;
+        }
+
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
+        }
+
         if (null !== $this->pronunciationRules) {
             if (\is_array($this->pronunciationRules)) {
                 $res['PronunciationRules'] = [];
@@ -52,6 +88,10 @@ class ttsConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->speechRate) {
+            $res['SpeechRate'] = $this->speechRate;
         }
 
         if (null !== $this->voiceId) {
@@ -80,6 +120,18 @@ class ttsConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Emotion'])) {
+            $model->emotion = $map['Emotion'];
+        }
+
+        if (isset($map['LanguageId'])) {
+            $model->languageId = $map['LanguageId'];
+        }
+
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
+        }
+
         if (isset($map['PronunciationRules'])) {
             if (!empty($map['PronunciationRules'])) {
                 $model->pronunciationRules = [];
@@ -89,6 +141,10 @@ class ttsConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SpeechRate'])) {
+            $model->speechRate = $map['SpeechRate'];
         }
 
         if (isset($map['VoiceId'])) {

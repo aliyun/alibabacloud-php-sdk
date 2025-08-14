@@ -31,12 +31,18 @@ class asrConfig extends Model
     /**
      * @var int
      */
+    public $vadDuration;
+
+    /**
+     * @var int
+     */
     public $vadLevel;
     protected $_name = [
         'asrHotWords' => 'AsrHotWords',
         'asrLanguageId' => 'AsrLanguageId',
         'asrMaxSilence' => 'AsrMaxSilence',
         'customParams' => 'CustomParams',
+        'vadDuration' => 'VadDuration',
         'vadLevel' => 'VadLevel',
     ];
 
@@ -72,6 +78,10 @@ class asrConfig extends Model
 
         if (null !== $this->customParams) {
             $res['CustomParams'] = $this->customParams;
+        }
+
+        if (null !== $this->vadDuration) {
+            $res['VadDuration'] = $this->vadDuration;
         }
 
         if (null !== $this->vadLevel) {
@@ -110,6 +120,10 @@ class asrConfig extends Model
 
         if (isset($map['CustomParams'])) {
             $model->customParams = $map['CustomParams'];
+        }
+
+        if (isset($map['VadDuration'])) {
+            $model->vadDuration = $map['VadDuration'];
         }
 
         if (isset($map['VadLevel'])) {
