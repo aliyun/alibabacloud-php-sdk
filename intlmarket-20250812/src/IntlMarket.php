@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\IntlMarket\V20250812;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\IntlMarket\V20250812\Models\CreateOrderRequest;
+use AlibabaCloud\SDK\IntlMarket\V20250812\Models\CreateOrderResponse;
 use AlibabaCloud\SDK\IntlMarket\V20250812\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\IntlMarket\V20250812\Models\DescribePriceResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -44,6 +46,83 @@ class IntlMarket extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 创建云市场订单.
+     *
+     * @param request - CreateOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOrderResponse
+     *
+     * @param CreateOrderRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateOrderResponse
+     */
+    public function createOrderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->commodity) {
+            @$query['Commodity'] = $request->commodity;
+        }
+
+        if (null !== $request->orderSouce) {
+            @$query['OrderSouce'] = $request->orderSouce;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOrder',
+            'version' => '2025-08-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建云市场订单.
+     *
+     * @param request - CreateOrderRequest
+     *
+     * @returns CreateOrderResponse
+     *
+     * @param CreateOrderRequest $request
+     *
+     * @return CreateOrderResponse
+     */
+    public function createOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOrderWithOptions($request, $runtime);
     }
 
     /**
