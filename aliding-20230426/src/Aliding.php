@@ -5594,6 +5594,93 @@ class Aliding extends OpenApiClient
      *
      * @return CreateRunResponse
      */
+    public function createRunWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->allowStructViewContent) {
+            @$body['allowStructViewContent'] = $request->allowStructViewContent;
+        }
+
+        if (null !== $request->assistantId) {
+            @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->originalAssistantId) {
+            @$body['originalAssistantId'] = $request->originalAssistantId;
+        }
+
+        if (null !== $request->sourceIdOfOriginalAssistantId) {
+            @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfOriginalAssistantId) {
+            @$body['sourceTypeOfOriginalAssistantId'] = $request->sourceTypeOfOriginalAssistantId;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        if (null !== $request->threadId) {
+            @$body['threadId'] = $request->threadId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountId) {
+            @$realHeaders['accountId'] = '' . $headers->accountId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRun',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/assistant/createRun',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield CreateRunResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 创建运行.
+     *
+     * @param request - CreateRunRequest
+     * @param headers - CreateRunHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRunResponse
+     *
+     * @param CreateRunRequest $request
+     * @param CreateRunHeaders $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateRunResponse
+     */
     public function createRunWithOptions($request, $headers, $runtime)
     {
         $request->validate();
@@ -16220,6 +16307,93 @@ class Aliding extends OpenApiClient
      *
      * @return InvokeAssistantResponse
      */
+    public function invokeAssistantWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->assistantId) {
+            @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
+        }
+
+        if (null !== $request->originalAssistantId) {
+            @$body['originalAssistantId'] = $request->originalAssistantId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->sourceIdOfOriginalAssistantId) {
+            @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfOriginalAssistantId) {
+            @$body['sourceTypeOfOriginalAssistantId'] = $request->sourceTypeOfOriginalAssistantId;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountId) {
+            @$realHeaders['accountId'] = '' . $headers->accountId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InvokeAssistant',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/assistant/invokeAssistant',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield InvokeAssistantResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 调用助理.
+     *
+     * @param request - InvokeAssistantRequest
+     * @param headers - InvokeAssistantHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvokeAssistantResponse
+     *
+     * @param InvokeAssistantRequest $request
+     * @param InvokeAssistantHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return InvokeAssistantResponse
+     */
     public function invokeAssistantWithOptions($request, $headers, $runtime)
     {
         $request->validate();
@@ -16297,6 +16471,89 @@ class Aliding extends OpenApiClient
         $headers = new InvokeAssistantHeaders([]);
 
         return $this->invokeAssistantWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 调用AI技能.
+     *
+     * @param tmpReq - InvokeSkillRequest
+     * @param tmpHeader - InvokeSkillHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvokeSkillResponse
+     *
+     * @param InvokeSkillRequest $tmpReq
+     * @param InvokeSkillHeaders $tmpHeader
+     * @param RuntimeOptions     $runtime
+     *
+     * @return InvokeSkillResponse
+     */
+    public function invokeSkillWithSSE($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new InvokeSkillShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new InvokeSkillShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        if (null !== $request->skillId) {
+            @$body['SkillId'] = $request->skillId;
+        }
+
+        if (null !== $request->stream) {
+            @$body['Stream'] = $request->stream;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InvokeSkill',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/skill/invoke',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield InvokeSkillResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
     }
 
     /**
