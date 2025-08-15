@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CredentialVerifyIntlRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 0101
-     *
      * @var string
      */
     public $credName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 01
-     *
      * @var string
      */
     public $credType;
@@ -32,15 +24,11 @@ class CredentialVerifyIntlRequest extends Model
     public $imageFile;
 
     /**
-     * @example https://oss-bj01.avic.com/eavic-prod-commodity/pic/commodity/94677ee6-1067-4287-8ff4-6e030ef3a5a8.jpg
-     *
      * @var string
      */
     public $imageUrl;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $productCode;
@@ -52,23 +40,30 @@ class CredentialVerifyIntlRequest extends Model
         'productCode' => 'ProductCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->credName) {
             $res['CredName'] = $this->credName;
         }
+
         if (null !== $this->credType) {
             $res['CredType'] = $this->credType;
         }
+
         if (null !== $this->imageFile) {
             $res['ImageFile'] = $this->imageFile;
         }
+
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
@@ -76,26 +71,30 @@ class CredentialVerifyIntlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CredentialVerifyIntlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CredName'])) {
             $model->credName = $map['CredName'];
         }
+
         if (isset($map['CredType'])) {
             $model->credType = $map['CredType'];
         }
+
         if (isset($map['ImageFile'])) {
             $model->imageFile = $map['ImageFile'];
         }
+
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }

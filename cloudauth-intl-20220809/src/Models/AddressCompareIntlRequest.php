@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class Mobile2MetaVerifyIntlRequest extends Model
+class AddressCompareIntlRequest extends Model
 {
     /**
      * @var string
      */
-    public $mobile;
-
-    /**
-     * @var string
-     */
-    public $paramType;
+    public $defaultCountry;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class Mobile2MetaVerifyIntlRequest extends Model
     /**
      * @var string
      */
-    public $userName;
+    public $text1;
+
+    /**
+     * @var string
+     */
+    public $text2;
     protected $_name = [
-        'mobile' => 'Mobile',
-        'paramType' => 'ParamType',
+        'defaultCountry' => 'DefaultCountry',
         'productCode' => 'ProductCode',
-        'userName' => 'UserName',
+        'text1' => 'Text1',
+        'text2' => 'Text2',
     ];
 
     public function validate()
@@ -42,20 +42,20 @@ class Mobile2MetaVerifyIntlRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->mobile) {
-            $res['Mobile'] = $this->mobile;
-        }
-
-        if (null !== $this->paramType) {
-            $res['ParamType'] = $this->paramType;
+        if (null !== $this->defaultCountry) {
+            $res['DefaultCountry'] = $this->defaultCountry;
         }
 
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
 
-        if (null !== $this->userName) {
-            $res['UserName'] = $this->userName;
+        if (null !== $this->text1) {
+            $res['Text1'] = $this->text1;
+        }
+
+        if (null !== $this->text2) {
+            $res['Text2'] = $this->text2;
         }
 
         return $res;
@@ -69,20 +69,20 @@ class Mobile2MetaVerifyIntlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Mobile'])) {
-            $model->mobile = $map['Mobile'];
-        }
-
-        if (isset($map['ParamType'])) {
-            $model->paramType = $map['ParamType'];
+        if (isset($map['DefaultCountry'])) {
+            $model->defaultCountry = $map['DefaultCountry'];
         }
 
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
 
-        if (isset($map['UserName'])) {
-            $model->userName = $map['UserName'];
+        if (isset($map['Text1'])) {
+            $model->text1 = $map['Text1'];
+        }
+
+        if (isset($map['Text2'])) {
+            $model->text2 = $map['Text2'];
         }
 
         return $model;

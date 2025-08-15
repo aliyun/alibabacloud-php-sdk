@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeepfakeDetectIntlResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $result;
@@ -21,8 +19,6 @@ class resultObject extends Model
     public $riskScore;
 
     /**
-     * @example SuspectDeepForgery,SuspectWarterMark
-     *
      * @var string
      */
     public $riskTag;
@@ -32,17 +28,30 @@ class resultObject extends Model
         'riskTag' => 'RiskTag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->riskScore)) {
+            Model::validateArray($this->riskScore);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
+
         if (null !== $this->riskScore) {
-            $res['RiskScore'] = $this->riskScore;
+            if (\is_array($this->riskScore)) {
+                $res['RiskScore'] = [];
+                foreach ($this->riskScore as $key1 => $value1) {
+                    $res['RiskScore'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->riskTag) {
             $res['RiskTag'] = $this->riskTag;
         }
@@ -50,20 +59,27 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
+
         if (isset($map['RiskScore'])) {
-            $model->riskScore = $map['RiskScore'];
+            if (!empty($map['RiskScore'])) {
+                $model->riskScore = [];
+                foreach ($map['RiskScore'] as $key1 => $value1) {
+                    $model->riskScore[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RiskTag'])) {
             $model->riskTag = $map['RiskTag'];
         }

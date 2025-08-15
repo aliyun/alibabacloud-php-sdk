@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DocOcrResponse extends Model
+class AddressVerifyV2IntlResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DocOcrResponse extends Model
     public $statusCode;
 
     /**
-     * @var DocOcrResponseBody
+     * @var AddressVerifyV2IntlResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class DocOcrResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = DocOcrResponseBody::fromMap($map['body']);
+            $model->body = AddressVerifyV2IntlResponseBody::fromMap($map['body']);
         }
 
         return $model;

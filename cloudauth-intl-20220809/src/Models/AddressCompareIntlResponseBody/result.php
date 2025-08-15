@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\KeepaliveIntlResponseBody;
+namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\AddressCompareIntlResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
@@ -11,9 +11,9 @@ class result extends Model
     /**
      * @var string
      */
-    public $result;
+    public $data;
     protected $_name = [
-        'result' => 'Result',
+        'data' => 'Data',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class result extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->result) {
-            $res['Result'] = $this->result;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Result'])) {
-            $model->result = $map['Result'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
 
         return $model;

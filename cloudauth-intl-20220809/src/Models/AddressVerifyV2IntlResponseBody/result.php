@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrResponseBody;
+namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\AddressVerifyV2IntlResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
@@ -11,26 +11,20 @@ class result extends Model
     /**
      * @var string
      */
-    public $extIdInfo;
+    public $bizCode;
 
     /**
      * @var string
      */
-    public $passed;
-
-    /**
-     * @var string
-     */
-    public $subCode;
+    public $detail;
 
     /**
      * @var string
      */
     public $transactionId;
     protected $_name = [
-        'extIdInfo' => 'ExtIdInfo',
-        'passed' => 'Passed',
-        'subCode' => 'SubCode',
+        'bizCode' => 'BizCode',
+        'detail' => 'Detail',
         'transactionId' => 'TransactionId',
     ];
 
@@ -42,16 +36,12 @@ class result extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->extIdInfo) {
-            $res['ExtIdInfo'] = $this->extIdInfo;
+        if (null !== $this->bizCode) {
+            $res['BizCode'] = $this->bizCode;
         }
 
-        if (null !== $this->passed) {
-            $res['Passed'] = $this->passed;
-        }
-
-        if (null !== $this->subCode) {
-            $res['SubCode'] = $this->subCode;
+        if (null !== $this->detail) {
+            $res['Detail'] = $this->detail;
         }
 
         if (null !== $this->transactionId) {
@@ -69,16 +59,12 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ExtIdInfo'])) {
-            $model->extIdInfo = $map['ExtIdInfo'];
+        if (isset($map['BizCode'])) {
+            $model->bizCode = $map['BizCode'];
         }
 
-        if (isset($map['Passed'])) {
-            $model->passed = $map['Passed'];
-        }
-
-        if (isset($map['SubCode'])) {
-            $model->subCode = $map['SubCode'];
+        if (isset($map['Detail'])) {
+            $model->detail = $map['Detail'];
         }
 
         if (isset($map['TransactionId'])) {

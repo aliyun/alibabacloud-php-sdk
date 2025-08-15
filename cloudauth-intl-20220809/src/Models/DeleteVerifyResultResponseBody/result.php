@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example Y/N
-     *
      * @var string
      */
     public $deleteResult;
 
     /**
-     * @example 4ab0b***cbde97
-     *
      * @var string
      */
     public $transactionId;
@@ -26,14 +22,18 @@ class result extends Model
         'transactionId' => 'TransactionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deleteResult) {
             $res['DeleteResult'] = $this->deleteResult;
         }
+
         if (null !== $this->transactionId) {
             $res['TransactionId'] = $this->transactionId;
         }
@@ -41,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteResult'])) {
             $model->deleteResult = $map['DeleteResult'];
         }
+
         if (isset($map['TransactionId'])) {
             $model->transactionId = $map['TransactionId'];
         }
