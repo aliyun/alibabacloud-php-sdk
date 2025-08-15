@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Actiontrail\V20200706\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAccessKeyLastUsedInfoRequest extends Model
 {
     /**
-     * @description The AccessKey secret.
-     *
-     * @example LTAI4Fz1ykT4qxgNMvN6****
-     *
      * @var string
      */
     public $accessKey;
@@ -22,9 +18,10 @@ class GetAccessKeyLastUsedInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessKey) {
@@ -34,11 +31,11 @@ class GetAccessKeyLastUsedInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccessKeyLastUsedInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

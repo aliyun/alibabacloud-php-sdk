@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Actiontrail\V20200706\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EnableInsightRequest extends Model
 {
     /**
-     * @example IpInsight
-     *
      * @var string
      */
     public $insightType;
@@ -20,9 +18,10 @@ class EnableInsightRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->insightType) {
@@ -32,11 +31,11 @@ class EnableInsightRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EnableInsightRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

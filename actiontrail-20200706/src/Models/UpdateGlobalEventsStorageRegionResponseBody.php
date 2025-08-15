@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Actiontrail\V20200706\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateGlobalEventsStorageRegionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example D7A0694E-C8FE-574E-92E3-63C5B5D23BD4
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateGlobalEventsStorageRegionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateGlobalEventsStorageRegionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateGlobalEventsStorageRegionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

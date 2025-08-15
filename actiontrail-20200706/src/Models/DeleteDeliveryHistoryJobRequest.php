@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Actiontrail\V20200706\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDeliveryHistoryJobRequest extends Model
 {
     /**
-     * @description The ID of the historical event delivery task to be deleted.
-     *
-     * You can call the [ListDeliveryHistoryJobs](~~188101~~) operation to query task IDs.
-     * @example 16602
-     *
      * @var int
      */
     public $jobId;
@@ -23,9 +18,10 @@ class DeleteDeliveryHistoryJobRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -35,11 +31,11 @@ class DeleteDeliveryHistoryJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDeliveryHistoryJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

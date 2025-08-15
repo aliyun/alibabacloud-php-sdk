@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Actiontrail\V20200706\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDeliveryHistoryJobResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example D74DD20B-6598-429C-873B-B9B449B656B6
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteDeliveryHistoryJobResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteDeliveryHistoryJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDeliveryHistoryJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

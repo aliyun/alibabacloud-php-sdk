@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Actiontrail\V20200706\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedProductsResponseBody\products;
-use AlibabaCloud\Tea\Model;
 
 class GetAccessKeyLastUsedProductsResponseBody extends Model
 {
     /**
-     * @description The list of returned Alibaba Cloud services.
-     *
      * @var products[]
      */
     public $products;
 
     /**
-     * @description The request ID.
-     *
-     * @example 145318BE-DEE1-4C57-AA7C-5BE7D34A6AE0
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'products'  => 'Products',
+        'products' => 'Products',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->products)) {
+            Model::validateArray($this->products);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->products) {
-            $res['Products'] = [];
-            if (null !== $this->products && \is_array($this->products)) {
-                $n = 0;
-                foreach ($this->products as $item) {
-                    $res['Products'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->products)) {
+                $res['Products'] = [];
+                $n1 = 0;
+                foreach ($this->products as $item1) {
+                    $res['Products'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +52,25 @@ class GetAccessKeyLastUsedProductsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccessKeyLastUsedProductsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Products'])) {
             if (!empty($map['Products'])) {
                 $model->products = [];
-                $n               = 0;
-                foreach ($map['Products'] as $item) {
-                    $model->products[$n++] = null !== $item ? products::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Products'] as $item1) {
+                    $model->products[$n1] = products::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,24 +4,11 @@
 
 namespace AlibabaCloud\SDK\Actiontrail\V20200706\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateGlobalEventsStorageRegionRequest extends Model
 {
     /**
-     * @description The region where you want to store global events.
-     *
-     * Valid values:
-     *
-     *   ap-southeast-1
-     *
-     * <!-- -->
-     *
-     *   cn-hangzhou
-     *
-     * <!-- -->
-     * @example ap-southeast-1
-     *
      * @var string
      */
     public $storageRegion;
@@ -31,9 +18,10 @@ class UpdateGlobalEventsStorageRegionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->storageRegion) {
@@ -43,11 +31,11 @@ class UpdateGlobalEventsStorageRegionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateGlobalEventsStorageRegionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

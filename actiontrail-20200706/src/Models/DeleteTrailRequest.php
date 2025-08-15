@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Actiontrail\V20200706\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTrailRequest extends Model
 {
     /**
-     * @description The name of the trail that you want to delete.
-     *
-     * > The name must be unique within your Alibaba Cloud account.
-     * @example my-test
-     *
      * @var string
      */
     public $name;
@@ -23,9 +18,10 @@ class DeleteTrailRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -35,11 +31,11 @@ class DeleteTrailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTrailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

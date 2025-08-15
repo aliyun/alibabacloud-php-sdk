@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Actiontrail\V20200706\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopLoggingRequest extends Model
 {
     /**
-     * @description The name of the trail that you want to disable.
-     *
-     * > The name must be unique within your Alibaba Cloud account.
-     * @example trail-test
-     *
      * @var string
      */
     public $name;
@@ -23,9 +18,10 @@ class StopLoggingRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -35,11 +31,11 @@ class StopLoggingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopLoggingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
