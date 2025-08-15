@@ -2822,10 +2822,6 @@ class Cloudfw extends OpenApiClient
             @$query['ProxyId'] = $request->proxyId;
         }
 
-        if (null !== $request->trimSql) {
-            @$query['trimSql'] = $request->trimSql;
-        }
-
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);

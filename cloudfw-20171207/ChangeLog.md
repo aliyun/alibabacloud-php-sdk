@@ -1,3 +1,6 @@
+2025-08-15 Version: 5.2.2
+- Generated php 2017-12-07 for Cloudfw.
+
 2025-08-14 Version: 5.2.1
 - Update API DeleteSecurityProxy: add request parameters trimSql.
 

@@ -17,15 +17,9 @@ class DeleteSecurityProxyRequest extends Model
      * @var string
      */
     public $proxyId;
-
-    /**
-     * @var string
-     */
-    public $trimSql;
     protected $_name = [
         'lang' => 'Lang',
         'proxyId' => 'ProxyId',
-        'trimSql' => 'trimSql',
     ];
 
     public function validate()
@@ -42,10 +36,6 @@ class DeleteSecurityProxyRequest extends Model
 
         if (null !== $this->proxyId) {
             $res['ProxyId'] = $this->proxyId;
-        }
-
-        if (null !== $this->trimSql) {
-            $res['trimSql'] = $this->trimSql;
         }
 
         return $res;
@@ -65,10 +55,6 @@ class DeleteSecurityProxyRequest extends Model
 
         if (isset($map['ProxyId'])) {
             $model->proxyId = $map['ProxyId'];
-        }
-
-        if (isset($map['trimSql'])) {
-            $model->trimSql = $map['trimSql'];
         }
 
         return $model;
