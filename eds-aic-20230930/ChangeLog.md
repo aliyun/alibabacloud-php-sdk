@@ -1,3 +1,7 @@
+2025-08-15 Version: 4.10.8
+- Update API CreateCloudPhoneNode: add request parameters NetworkInfo.PayType.
+
+
 2025-08-15 Version: 4.10.7
 - Generated php 2023-09-30 for eds-aic.
 

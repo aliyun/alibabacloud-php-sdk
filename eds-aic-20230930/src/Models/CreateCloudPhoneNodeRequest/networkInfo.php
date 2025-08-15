@@ -37,6 +37,11 @@ class networkInfo extends Model
      * @var int
      */
     public $limitedBandwidth;
+
+    /**
+     * @var string
+     */
+    public $payType;
     protected $_name = [
         'bandwidthPackageName' => 'BandwidthPackageName',
         'cidrBlock' => 'CidrBlock',
@@ -44,6 +49,7 @@ class networkInfo extends Model
         'ipRatio' => 'IpRatio',
         'isp' => 'Isp',
         'limitedBandwidth' => 'LimitedBandwidth',
+        'payType' => 'PayType',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class networkInfo extends Model
 
         if (null !== $this->limitedBandwidth) {
             $res['LimitedBandwidth'] = $this->limitedBandwidth;
+        }
+
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class networkInfo extends Model
 
         if (isset($map['LimitedBandwidth'])) {
             $model->limitedBandwidth = $map['LimitedBandwidth'];
+        }
+
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
         }
 
         return $model;
