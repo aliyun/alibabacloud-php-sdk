@@ -55,6 +55,7 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceIpWhitelistShrinkReque
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetMessageDetailResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTopicResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListAvailableZonesResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerConnectionsResponse;
@@ -1728,7 +1729,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 查询容灾计划详情.
+     * Queries the details of a Global Replicator task.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1762,7 +1763,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 查询容灾计划详情.
+     * Queries the details of a Global Replicator task.
      *
      * @returns GetDisasterRecoveryPlanResponse
      *
@@ -2147,23 +2148,36 @@ class RocketMQ extends OpenApiClient
     /**
      * Queries the trace of a specific message in a specific topic.
      *
+     * @param request - GetTraceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetTraceResponse
      *
-     * @param string         $instanceId
-     * @param string         $topicName
-     * @param string         $messageId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string          $instanceId
+     * @param string          $topicName
+     * @param string          $messageId
+     * @param GetTraceRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
      *
      * @return GetTraceResponse
      */
-    public function getTraceWithOptions($instanceId, $topicName, $messageId, $headers, $runtime)
+    public function getTraceWithOptions($instanceId, $topicName, $messageId, $request, $headers, $runtime)
     {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTrace',
@@ -2183,20 +2197,23 @@ class RocketMQ extends OpenApiClient
     /**
      * Queries the trace of a specific message in a specific topic.
      *
+     * @param request - GetTraceRequest
+     *
      * @returns GetTraceResponse
      *
-     * @param string $instanceId
-     * @param string $topicName
-     * @param string $messageId
+     * @param string          $instanceId
+     * @param string          $topicName
+     * @param string          $messageId
+     * @param GetTraceRequest $request
      *
      * @return GetTraceResponse
      */
-    public function getTrace($instanceId, $topicName, $messageId)
+    public function getTrace($instanceId, $topicName, $messageId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getTraceWithOptions($instanceId, $topicName, $messageId, $headers, $runtime);
+        return $this->getTraceWithOptions($instanceId, $topicName, $messageId, $request, $headers, $runtime);
     }
 
     /**
@@ -2520,7 +2537,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Query Disaster Recovery Plan Entry List.
+     * Queries the Global Replicator tasks of an instance.
      *
      * @param request - ListDisasterRecoveryItemsRequest
      * @param headers - map
@@ -2575,7 +2592,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Query Disaster Recovery Plan Entry List.
+     * Queries the Global Replicator tasks of an instance.
      *
      * @param request - ListDisasterRecoveryItemsRequest
      *
@@ -2595,7 +2612,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Query Disaster Recovery Plan List.
+     * Queries Global Replicator tasks.
      *
      * @param request - ListDisasterRecoveryPlansRequest
      * @param headers - map
@@ -2649,7 +2666,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Query Disaster Recovery Plan List.
+     * Queries Global Replicator tasks.
      *
      * @param request - ListDisasterRecoveryPlansRequest
      *
