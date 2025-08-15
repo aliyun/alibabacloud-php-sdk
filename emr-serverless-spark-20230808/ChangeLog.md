@@ -1,3 +1,9 @@
+2025-08-15 Version: 1.14.0
+- Support API ListSqlStatementContents.
+- Update API ListKyuubiSparkApplications: add response parameters Body.applications.$.latestSqlStatementStatus.
+- Update API ListSessionClusters: add response parameters Body.sessionClusters.$.connectionToken.
+
+
 2025-07-07 Version: 1.13.0
 - Support API CreateLivyCompute.
 - Support API CreateLivyComputeToken.

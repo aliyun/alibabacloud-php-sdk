@@ -66,6 +66,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsRequ
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSessionClustersRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSessionClustersResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSqlStatementContentsRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSqlStatementContentsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspaceQueuesRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspaceQueuesResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesRequest;
@@ -2488,6 +2490,77 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->listSessionClustersWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取sql statement内容.
+     *
+     * @param request - ListSqlStatementContentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSqlStatementContentsResponse
+     *
+     * @param string                          $workspaceId
+     * @param ListSqlStatementContentsRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListSqlStatementContentsResponse
+     */
+    public function listSqlStatementContentsWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSqlStatementContents',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/action/listSqlStatementContents',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSqlStatementContentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取sql statement内容.
+     *
+     * @param request - ListSqlStatementContentsRequest
+     *
+     * @returns ListSqlStatementContentsResponse
+     *
+     * @param string                          $workspaceId
+     * @param ListSqlStatementContentsRequest $request
+     *
+     * @return ListSqlStatementContentsResponse
+     */
+    public function listSqlStatementContents($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSqlStatementContentsWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**

@@ -30,6 +30,11 @@ class sessionClusters extends Model
     /**
      * @var string
      */
+    public $connectionToken;
+
+    /**
+     * @var string
+     */
     public $displayReleaseVersion;
 
     /**
@@ -130,6 +135,7 @@ class sessionClusters extends Model
         'applicationConfigs' => 'applicationConfigs',
         'autoStartConfiguration' => 'autoStartConfiguration',
         'autoStopConfiguration' => 'autoStopConfiguration',
+        'connectionToken' => 'connectionToken',
         'displayReleaseVersion' => 'displayReleaseVersion',
         'domain' => 'domain',
         'domainInner' => 'domainInner',
@@ -189,6 +195,10 @@ class sessionClusters extends Model
 
         if (null !== $this->autoStopConfiguration) {
             $res['autoStopConfiguration'] = null !== $this->autoStopConfiguration ? $this->autoStopConfiguration->toArray($noStream) : $this->autoStopConfiguration;
+        }
+
+        if (null !== $this->connectionToken) {
+            $res['connectionToken'] = $this->connectionToken;
         }
 
         if (null !== $this->displayReleaseVersion) {
@@ -299,6 +309,10 @@ class sessionClusters extends Model
 
         if (isset($map['autoStopConfiguration'])) {
             $model->autoStopConfiguration = autoStopConfiguration::fromMap($map['autoStopConfiguration']);
+        }
+
+        if (isset($map['connectionToken'])) {
+            $model->connectionToken = $map['connectionToken'];
         }
 
         if (isset($map['displayReleaseVersion'])) {
