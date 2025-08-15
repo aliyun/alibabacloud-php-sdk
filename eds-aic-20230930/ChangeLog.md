@@ -1,3 +1,6 @@
+2025-08-15 Version: 4.10.7
+- Generated php 2023-09-30 for eds-aic.
+
 2025-08-08 Version: 4.11.0
 - Support API ListTagResources.
 - Support API TagResources.
