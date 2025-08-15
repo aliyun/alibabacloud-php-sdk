@@ -109,6 +109,7 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListUserRolesRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListUserRolesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListUsersRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListUsersResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\RefreshUserSyncResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\RevokeRoleFromUsersRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\RevokeRoleFromUsersResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\RollbackTableRequest;
@@ -3983,6 +3984,54 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->listUsersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 刷新用户同步.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshUserSyncResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return RefreshUserSyncResponse
+     */
+    public function refreshUserSyncWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'RefreshUserSync',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/auth/usersync',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return RefreshUserSyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 刷新用户同步.
+     *
+     * @returns RefreshUserSyncResponse
+     *
+     * @return RefreshUserSyncResponse
+     */
+    public function refreshUserSync()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->refreshUserSyncWithOptions($headers, $runtime);
     }
 
     /**
