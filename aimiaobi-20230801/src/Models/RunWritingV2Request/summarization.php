@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingV2Request;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class summarization extends Model
 {
@@ -22,14 +22,18 @@ class summarization extends Model
         'message' => 'Message',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->event) {
             $res['Event'] = $this->event;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -37,17 +41,18 @@ class summarization extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return summarization
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

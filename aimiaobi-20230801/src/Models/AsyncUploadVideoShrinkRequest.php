@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AsyncUploadVideoShrinkRequest extends Model
 {
@@ -19,8 +19,6 @@ class AsyncUploadVideoShrinkRequest extends Model
     public $referenceVideoShrink;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $sourceVideosShrink;
@@ -31,10 +29,6 @@ class AsyncUploadVideoShrinkRequest extends Model
     public $splitInterval;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-xxxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -46,23 +40,30 @@ class AsyncUploadVideoShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->anlysisPrompt) {
             $res['AnlysisPrompt'] = $this->anlysisPrompt;
         }
+
         if (null !== $this->referenceVideoShrink) {
             $res['ReferenceVideo'] = $this->referenceVideoShrink;
         }
+
         if (null !== $this->sourceVideosShrink) {
             $res['SourceVideos'] = $this->sourceVideosShrink;
         }
+
         if (null !== $this->splitInterval) {
             $res['SplitInterval'] = $this->splitInterval;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -70,26 +71,30 @@ class AsyncUploadVideoShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AsyncUploadVideoShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnlysisPrompt'])) {
             $model->anlysisPrompt = $map['AnlysisPrompt'];
         }
+
         if (isset($map['ReferenceVideo'])) {
             $model->referenceVideoShrink = $map['ReferenceVideo'];
         }
+
         if (isset($map['SourceVideos'])) {
             $model->sourceVideosShrink = $map['SourceVideos'];
         }
+
         if (isset($map['SplitInterval'])) {
             $model->splitInterval = $map['SplitInterval'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

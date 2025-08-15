@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncEditTimelineRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncEditTimelineRequest\timelines\clips;
-use AlibabaCloud\Tea\Model;
 
 class timelines extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var clips[]
      */
     public $clips;
@@ -25,20 +23,28 @@ class timelines extends Model
         'timelineId' => 'TimelineId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clips)) {
+            Model::validateArray($this->clips);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clips) {
-            $res['Clips'] = [];
-            if (null !== $this->clips && \is_array($this->clips)) {
-                $n = 0;
-                foreach ($this->clips as $item) {
-                    $res['Clips'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clips)) {
+                $res['Clips'] = [];
+                $n1 = 0;
+                foreach ($this->clips as $item1) {
+                    $res['Clips'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->timelineId) {
             $res['TimelineId'] = $this->timelineId;
         }
@@ -46,23 +52,25 @@ class timelines extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return timelines
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Clips'])) {
             if (!empty($map['Clips'])) {
                 $model->clips = [];
-                $n = 0;
-                foreach ($map['Clips'] as $item) {
-                    $model->clips[$n++] = null !== $item ? clips::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Clips'] as $item1) {
+                    $model->clips[$n1] = clips::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TimelineId'])) {
             $model->timelineId = $map['TimelineId'];
         }

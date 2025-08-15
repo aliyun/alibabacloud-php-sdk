@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationRequest\agentContext;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationRequest\chatConfig;
-use AlibabaCloud\Tea\Model;
 
 class RunSearchGenerationRequest extends Model
 {
@@ -16,45 +16,31 @@ class RunSearchGenerationRequest extends Model
     public $agentContext;
 
     /**
-     * @example xxx
-     *
      * @var chatConfig
      */
     public $chatConfig;
 
     /**
-     * @example qwen-max-latest
-     *
      * @var string
      */
     public $modelId;
 
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $originalSessionId;
 
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $prompt;
 
     /**
-     * @example 7AA2AE16-D873-5C5F-9708-15396C382EB1
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-xxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -68,29 +54,44 @@ class RunSearchGenerationRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->agentContext) {
+            $this->agentContext->validate();
+        }
+        if (null !== $this->chatConfig) {
+            $this->chatConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentContext) {
-            $res['AgentContext'] = null !== $this->agentContext ? $this->agentContext->toMap() : null;
+            $res['AgentContext'] = null !== $this->agentContext ? $this->agentContext->toArray($noStream) : $this->agentContext;
         }
+
         if (null !== $this->chatConfig) {
-            $res['ChatConfig'] = null !== $this->chatConfig ? $this->chatConfig->toMap() : null;
+            $res['ChatConfig'] = null !== $this->chatConfig ? $this->chatConfig->toArray($noStream) : $this->chatConfig;
         }
+
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
         }
+
         if (null !== $this->originalSessionId) {
             $res['OriginalSessionId'] = $this->originalSessionId;
         }
+
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -98,32 +99,38 @@ class RunSearchGenerationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunSearchGenerationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentContext'])) {
             $model->agentContext = agentContext::fromMap($map['AgentContext']);
         }
+
         if (isset($map['ChatConfig'])) {
             $model->chatConfig = chatConfig::fromMap($map['ChatConfig']);
         }
+
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
         }
+
         if (isset($map['OriginalSessionId'])) {
             $model->originalSessionId = $map['OriginalSessionId'];
         }
+
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

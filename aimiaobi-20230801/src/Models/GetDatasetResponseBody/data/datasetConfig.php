@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetResponseBody\data\datasetConfig\searchSourceConfigs;
-use AlibabaCloud\Tea\Model;
 
 class datasetConfig extends Model
 {
@@ -17,17 +17,24 @@ class datasetConfig extends Model
         'searchSourceConfigs' => 'SearchSourceConfigs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->searchSourceConfigs)) {
+            Model::validateArray($this->searchSourceConfigs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->searchSourceConfigs) {
-            $res['SearchSourceConfigs'] = [];
-            if (null !== $this->searchSourceConfigs && \is_array($this->searchSourceConfigs)) {
-                $n = 0;
-                foreach ($this->searchSourceConfigs as $item) {
-                    $res['SearchSourceConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->searchSourceConfigs)) {
+                $res['SearchSourceConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->searchSourceConfigs as $item1) {
+                    $res['SearchSourceConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class datasetConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return datasetConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SearchSourceConfigs'])) {
             if (!empty($map['SearchSourceConfigs'])) {
                 $model->searchSourceConfigs = [];
-                $n = 0;
-                foreach ($map['SearchSourceConfigs'] as $item) {
-                    $model->searchSourceConfigs[$n++] = null !== $item ? searchSourceConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SearchSourceConfigs'] as $item1) {
+                    $model->searchSourceConfigs[$n1] = searchSourceConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

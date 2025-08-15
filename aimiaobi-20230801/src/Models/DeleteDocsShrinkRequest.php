@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDocsShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $docIdsShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-2setzb9x4ewsd
-     *
      * @var string
      */
     public $workspaceId;
@@ -28,14 +22,18 @@ class DeleteDocsShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->docIdsShrink) {
             $res['DocIds'] = $this->docIdsShrink;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -43,17 +41,18 @@ class DeleteDocsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDocsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocIds'])) {
             $model->docIdsShrink = $map['DocIds'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

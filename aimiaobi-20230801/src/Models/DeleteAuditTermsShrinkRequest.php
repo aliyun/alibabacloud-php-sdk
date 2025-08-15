@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAuditTermsShrinkRequest extends Model
 {
@@ -14,10 +14,6 @@ class DeleteAuditTermsShrinkRequest extends Model
     public $idListShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-xx
-     *
      * @var string
      */
     public $workspaceId;
@@ -26,14 +22,18 @@ class DeleteAuditTermsShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->idListShrink) {
             $res['IdList'] = $this->idListShrink;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -41,17 +41,18 @@ class DeleteAuditTermsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAuditTermsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IdList'])) {
             $model->idListShrink = $map['IdList'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

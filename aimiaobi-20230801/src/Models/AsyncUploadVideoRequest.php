@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoRequest\referenceVideo;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoRequest\sourceVideos;
-use AlibabaCloud\Tea\Model;
 
 class AsyncUploadVideoRequest extends Model
 {
@@ -21,8 +21,6 @@ class AsyncUploadVideoRequest extends Model
     public $referenceVideo;
 
     /**
-     * @description This parameter is required.
-     *
      * @var sourceVideos[]
      */
     public $sourceVideos;
@@ -33,10 +31,6 @@ class AsyncUploadVideoRequest extends Model
     public $splitInterval;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-xxxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -48,29 +42,43 @@ class AsyncUploadVideoRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->referenceVideo) {
+            $this->referenceVideo->validate();
+        }
+        if (\is_array($this->sourceVideos)) {
+            Model::validateArray($this->sourceVideos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->anlysisPrompt) {
             $res['AnlysisPrompt'] = $this->anlysisPrompt;
         }
+
         if (null !== $this->referenceVideo) {
-            $res['ReferenceVideo'] = null !== $this->referenceVideo ? $this->referenceVideo->toMap() : null;
+            $res['ReferenceVideo'] = null !== $this->referenceVideo ? $this->referenceVideo->toArray($noStream) : $this->referenceVideo;
         }
+
         if (null !== $this->sourceVideos) {
-            $res['SourceVideos'] = [];
-            if (null !== $this->sourceVideos && \is_array($this->sourceVideos)) {
-                $n = 0;
-                foreach ($this->sourceVideos as $item) {
-                    $res['SourceVideos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sourceVideos)) {
+                $res['SourceVideos'] = [];
+                $n1 = 0;
+                foreach ($this->sourceVideos as $item1) {
+                    $res['SourceVideos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->splitInterval) {
             $res['SplitInterval'] = $this->splitInterval;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -78,32 +86,37 @@ class AsyncUploadVideoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AsyncUploadVideoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnlysisPrompt'])) {
             $model->anlysisPrompt = $map['AnlysisPrompt'];
         }
+
         if (isset($map['ReferenceVideo'])) {
             $model->referenceVideo = referenceVideo::fromMap($map['ReferenceVideo']);
         }
+
         if (isset($map['SourceVideos'])) {
             if (!empty($map['SourceVideos'])) {
                 $model->sourceVideos = [];
-                $n = 0;
-                foreach ($map['SourceVideos'] as $item) {
-                    $model->sourceVideos[$n++] = null !== $item ? sourceVideos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SourceVideos'] as $item1) {
+                    $model->sourceVideos[$n1] = sourceVideos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SplitInterval'])) {
             $model->splitInterval = $map['SplitInterval'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

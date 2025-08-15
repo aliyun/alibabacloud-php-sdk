@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\timelineResult;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\timelineResult\generateTraceability\coordinates;
-use AlibabaCloud\Tea\Model;
 
 class generateTraceability extends Model
 {
@@ -15,8 +15,6 @@ class generateTraceability extends Model
     public $coordinates;
 
     /**
-     * @example 0.9
-     *
      * @var float
      */
     public $duplicate;
@@ -25,20 +23,28 @@ class generateTraceability extends Model
         'duplicate' => 'Duplicate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->coordinates)) {
+            Model::validateArray($this->coordinates);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coordinates) {
-            $res['Coordinates'] = [];
-            if (null !== $this->coordinates && \is_array($this->coordinates)) {
-                $n = 0;
-                foreach ($this->coordinates as $item) {
-                    $res['Coordinates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->coordinates)) {
+                $res['Coordinates'] = [];
+                $n1 = 0;
+                foreach ($this->coordinates as $item1) {
+                    $res['Coordinates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->duplicate) {
             $res['Duplicate'] = $this->duplicate;
         }
@@ -46,23 +52,25 @@ class generateTraceability extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return generateTraceability
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Coordinates'])) {
             if (!empty($map['Coordinates'])) {
                 $model->coordinates = [];
-                $n = 0;
-                foreach ($map['Coordinates'] as $item) {
-                    $model->coordinates[$n++] = null !== $item ? coordinates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Coordinates'] as $item1) {
+                    $model->coordinates[$n1] = coordinates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Duplicate'])) {
             $model->duplicate = $map['Duplicate'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialoguesResponseBody\data\chatConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialoguesResponseBody\data\chatConfig\searchParam\searchSources;
-use AlibabaCloud\Tea\Model;
 
 class searchParam extends Model
 {
@@ -35,26 +35,46 @@ class searchParam extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->multimodalSearchTypes)) {
+            Model::validateArray($this->multimodalSearchTypes);
+        }
+        if (\is_array($this->searchSources)) {
+            Model::validateArray($this->searchSources);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->multimodalSearchTypes) {
-            $res['MultimodalSearchTypes'] = $this->multimodalSearchTypes;
-        }
-        if (null !== $this->searchSources) {
-            $res['SearchSources'] = [];
-            if (null !== $this->searchSources && \is_array($this->searchSources)) {
-                $n = 0;
-                foreach ($this->searchSources as $item) {
-                    $res['SearchSources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->multimodalSearchTypes)) {
+                $res['MultimodalSearchTypes'] = [];
+                $n1 = 0;
+                foreach ($this->multimodalSearchTypes as $item1) {
+                    $res['MultimodalSearchTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->searchSources) {
+            if (\is_array($this->searchSources)) {
+                $res['SearchSources'] = [];
+                $n1 = 0;
+                foreach ($this->searchSources as $item1) {
+                    $res['SearchSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -62,31 +82,40 @@ class searchParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return searchParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['MultimodalSearchTypes'])) {
             if (!empty($map['MultimodalSearchTypes'])) {
-                $model->multimodalSearchTypes = $map['MultimodalSearchTypes'];
-            }
-        }
-        if (isset($map['SearchSources'])) {
-            if (!empty($map['SearchSources'])) {
-                $model->searchSources = [];
-                $n = 0;
-                foreach ($map['SearchSources'] as $item) {
-                    $model->searchSources[$n++] = null !== $item ? searchSources::fromMap($item) : $item;
+                $model->multimodalSearchTypes = [];
+                $n1 = 0;
+                foreach ($map['MultimodalSearchTypes'] as $item1) {
+                    $model->multimodalSearchTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['SearchSources'])) {
+            if (!empty($map['SearchSources'])) {
+                $model->searchSources = [];
+                $n1 = 0;
+                foreach ($map['SearchSources'] as $item1) {
+                    $model->searchSources[$n1] = searchSources::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

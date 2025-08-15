@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAnalysisTagDetailByTaskIdResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAnalysisTagDetailByTaskIdResponseBody\data\contentTags;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $content;
@@ -22,22 +20,16 @@ class data extends Model
     public $contentTags;
 
     /**
-     * @example 112
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example summaryAndOverview
-     *
      * @var string
      */
     public $tagTaskType;
 
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $taskId;
@@ -49,29 +41,40 @@ class data extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->contentTags)) {
+            Model::validateArray($this->contentTags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->contentTags) {
-            $res['ContentTags'] = [];
-            if (null !== $this->contentTags && \is_array($this->contentTags)) {
-                $n = 0;
-                foreach ($this->contentTags as $item) {
-                    $res['ContentTags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contentTags)) {
+                $res['ContentTags'] = [];
+                $n1 = 0;
+                foreach ($this->contentTags as $item1) {
+                    $res['ContentTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->tagTaskType) {
             $res['TagTaskType'] = $this->tagTaskType;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -79,32 +82,37 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['ContentTags'])) {
             if (!empty($map['ContentTags'])) {
                 $model->contentTags = [];
-                $n = 0;
-                foreach ($map['ContentTags'] as $item) {
-                    $model->contentTags[$n++] = null !== $item ? contentTags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ContentTags'] as $item1) {
+                    $model->contentTags[$n1] = contentTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['TagTaskType'])) {
             $model->tagTaskType = $map['TagTaskType'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

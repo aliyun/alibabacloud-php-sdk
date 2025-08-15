@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneImportTaskInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneImportTaskInfoResponseBody\data\status;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -23,32 +23,40 @@ class data extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->status) {
+            $this->status->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->status) {
-            $res['Status'] = null !== $this->status ? $this->status->toMap() : null;
+            $res['Status'] = null !== $this->status ? $this->status->toArray($noStream) : $this->status;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Status'])) {
             $model->status = status::fromMap($map['Status']);
         }

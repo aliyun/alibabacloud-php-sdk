@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAuditTaskResponseBody\data\response\payload;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class usage extends Model
 {
     /**
-     * @example 200
-     *
      * @var int
      */
     public $inputTokens;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $outputTokens;
 
     /**
-     * @example 300
-     *
      * @var int
      */
     public $totalTokens;
@@ -34,17 +28,22 @@ class usage extends Model
         'totalTokens' => 'TotalTokens',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputTokens) {
             $res['InputTokens'] = $this->inputTokens;
         }
+
         if (null !== $this->outputTokens) {
             $res['OutputTokens'] = $this->outputTokens;
         }
+
         if (null !== $this->totalTokens) {
             $res['TotalTokens'] = $this->totalTokens;
         }
@@ -52,20 +51,22 @@ class usage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return usage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InputTokens'])) {
             $model->inputTokens = $map['InputTokens'];
         }
+
         if (isset($map['OutputTokens'])) {
             $model->outputTokens = $map['OutputTokens'];
         }
+
         if (isset($map['TotalTokens'])) {
             $model->totalTokens = $map['TotalTokens'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubmitSmartAuditShrinkRequest extends Model
 {
@@ -24,8 +24,6 @@ class SubmitSmartAuditShrinkRequest extends Model
     public $text;
 
     /**
-     * @example xxxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -42,23 +40,30 @@ class SubmitSmartAuditShrinkRequest extends Model
         'imageUrlsShrink' => 'imageUrls',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageUrlListShrink) {
             $res['ImageUrlList'] = $this->imageUrlListShrink;
         }
+
         if (null !== $this->subCodesShrink) {
             $res['SubCodes'] = $this->subCodesShrink;
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
+
         if (null !== $this->imageUrlsShrink) {
             $res['imageUrls'] = $this->imageUrlsShrink;
         }
@@ -66,26 +71,30 @@ class SubmitSmartAuditShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitSmartAuditShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageUrlList'])) {
             $model->imageUrlListShrink = $map['ImageUrlList'];
         }
+
         if (isset($map['SubCodes'])) {
             $model->subCodesShrink = $map['SubCodes'];
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }
+
         if (isset($map['imageUrls'])) {
             $model->imageUrlsShrink = $map['imageUrls'];
         }

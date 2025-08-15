@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunTitleGenerationShrinkRequest extends Model
 {
@@ -14,15 +14,11 @@ class RunTitleGenerationShrinkRequest extends Model
     public $deduplicatedTitlesShrink;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $referenceDataShrink;
 
     /**
-     * @example xxxx
-     *
      * @var string
      */
     public $taskId;
@@ -33,10 +29,6 @@ class RunTitleGenerationShrinkRequest extends Model
     public $titleCount;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-xxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -48,23 +40,30 @@ class RunTitleGenerationShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deduplicatedTitlesShrink) {
             $res['DeduplicatedTitles'] = $this->deduplicatedTitlesShrink;
         }
+
         if (null !== $this->referenceDataShrink) {
             $res['ReferenceData'] = $this->referenceDataShrink;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->titleCount) {
             $res['TitleCount'] = $this->titleCount;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -72,26 +71,30 @@ class RunTitleGenerationShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunTitleGenerationShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeduplicatedTitles'])) {
             $model->deduplicatedTitlesShrink = $map['DeduplicatedTitles'];
         }
+
         if (isset($map['ReferenceData'])) {
             $model->referenceDataShrink = $map['ReferenceData'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TitleCount'])) {
             $model->titleCount = $map['TitleCount'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

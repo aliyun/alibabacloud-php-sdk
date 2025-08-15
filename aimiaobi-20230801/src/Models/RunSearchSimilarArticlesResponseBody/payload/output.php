@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchSimilarArticlesResponseBody\payload;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchSimilarArticlesResponseBody\payload\output\articles;
-use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
@@ -15,8 +15,6 @@ class output extends Model
     public $articles;
 
     /**
-     * @example 文本生成结果
-     *
      * @var string
      */
     public $text;
@@ -25,20 +23,28 @@ class output extends Model
         'text' => 'Text',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->articles)) {
+            Model::validateArray($this->articles);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->articles) {
-            $res['Articles'] = [];
-            if (null !== $this->articles && \is_array($this->articles)) {
-                $n = 0;
-                foreach ($this->articles as $item) {
-                    $res['Articles'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->articles)) {
+                $res['Articles'] = [];
+                $n1 = 0;
+                foreach ($this->articles as $item1) {
+                    $res['Articles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
@@ -46,23 +52,25 @@ class output extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return output
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Articles'])) {
             if (!empty($map['Articles'])) {
                 $model->articles = [];
-                $n = 0;
-                foreach ($map['Articles'] as $item) {
-                    $model->articles[$n++] = null !== $item ? articles::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Articles'] as $item1) {
+                    $model->articles[$n1] = articles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }

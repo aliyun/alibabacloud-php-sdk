@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetRequest\datasetConfig;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetRequest\documentHandleConfig;
-use AlibabaCloud\Tea\Model;
 
 class CreateDatasetRequest extends Model
 {
@@ -16,24 +16,16 @@ class CreateDatasetRequest extends Model
     public $datasetConfig;
 
     /**
-     * @example 企业自定义数据集
-     *
      * @var string
      */
     public $datasetDescription;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example businessDataset
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @example CustomSemanticSearch
-     *
      * @var string
      */
     public $datasetType;
@@ -44,24 +36,16 @@ class CreateDatasetRequest extends Model
     public $documentHandleConfig;
 
     /**
-     * @example portal
-     *
      * @var string
      */
     public $invokeType;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $searchDatasetEnable;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-xxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -76,32 +60,48 @@ class CreateDatasetRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->datasetConfig) {
+            $this->datasetConfig->validate();
+        }
+        if (null !== $this->documentHandleConfig) {
+            $this->documentHandleConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasetConfig) {
-            $res['DatasetConfig'] = null !== $this->datasetConfig ? $this->datasetConfig->toMap() : null;
+            $res['DatasetConfig'] = null !== $this->datasetConfig ? $this->datasetConfig->toArray($noStream) : $this->datasetConfig;
         }
+
         if (null !== $this->datasetDescription) {
             $res['DatasetDescription'] = $this->datasetDescription;
         }
+
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+
         if (null !== $this->datasetType) {
             $res['DatasetType'] = $this->datasetType;
         }
+
         if (null !== $this->documentHandleConfig) {
-            $res['DocumentHandleConfig'] = null !== $this->documentHandleConfig ? $this->documentHandleConfig->toMap() : null;
+            $res['DocumentHandleConfig'] = null !== $this->documentHandleConfig ? $this->documentHandleConfig->toArray($noStream) : $this->documentHandleConfig;
         }
+
         if (null !== $this->invokeType) {
             $res['InvokeType'] = $this->invokeType;
         }
+
         if (null !== $this->searchDatasetEnable) {
             $res['SearchDatasetEnable'] = $this->searchDatasetEnable;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -109,35 +109,42 @@ class CreateDatasetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDatasetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetConfig'])) {
             $model->datasetConfig = datasetConfig::fromMap($map['DatasetConfig']);
         }
+
         if (isset($map['DatasetDescription'])) {
             $model->datasetDescription = $map['DatasetDescription'];
         }
+
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+
         if (isset($map['DatasetType'])) {
             $model->datasetType = $map['DatasetType'];
         }
+
         if (isset($map['DocumentHandleConfig'])) {
             $model->documentHandleConfig = documentHandleConfig::fromMap($map['DocumentHandleConfig']);
         }
+
         if (isset($map['InvokeType'])) {
             $model->invokeType = $map['InvokeType'];
         }
+
         if (isset($map['SearchDatasetEnable'])) {
             $model->searchDatasetEnable = $map['SearchDatasetEnable'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

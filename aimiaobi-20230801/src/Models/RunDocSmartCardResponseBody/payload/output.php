@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocSmartCardResponseBody\payload;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class output extends Model
 {
@@ -22,35 +22,55 @@ class output extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return output
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
-                $model->tags = $map['Tags'];
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

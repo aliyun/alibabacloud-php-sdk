@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInterveneRuleDetailRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 2daaa2e0c209xb26acb97009ea77bd4b_p_efm
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @example 12345
-     *
      * @var int
      */
     public $ruleId;
@@ -28,14 +22,18 @@ class GetInterveneRuleDetailRequest extends Model
         'ruleId' => 'RuleId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -43,17 +41,18 @@ class GetInterveneRuleDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInterveneRuleDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AsyncCreateClipsTimeLineRequest extends Model
 {
@@ -29,19 +29,11 @@ class AsyncCreateClipsTimeLineRequest extends Model
     public $processPrompt;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 7AA2AE16-D873-5C5F-9708-15396C382EB1
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-2setzb9x4ewsd
-     *
      * @var string
      */
     public $workspaceId;
@@ -54,26 +46,34 @@ class AsyncCreateClipsTimeLineRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->additionalContent) {
             $res['AdditionalContent'] = $this->additionalContent;
         }
+
         if (null !== $this->customContent) {
             $res['CustomContent'] = $this->customContent;
         }
+
         if (null !== $this->noRefVideo) {
             $res['NoRefVideo'] = $this->noRefVideo;
         }
+
         if (null !== $this->processPrompt) {
             $res['ProcessPrompt'] = $this->processPrompt;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -81,29 +81,34 @@ class AsyncCreateClipsTimeLineRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AsyncCreateClipsTimeLineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdditionalContent'])) {
             $model->additionalContent = $map['AdditionalContent'];
         }
+
         if (isset($map['CustomContent'])) {
             $model->customContent = $map['CustomContent'];
         }
+
         if (isset($map['NoRefVideo'])) {
             $model->noRefVideo = $map['NoRefVideo'];
         }
+
         if (isset($map['ProcessPrompt'])) {
             $model->processPrompt = $map['ProcessPrompt'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

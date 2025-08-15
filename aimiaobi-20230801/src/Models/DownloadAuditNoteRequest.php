@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DownloadAuditNoteRequest extends Model
 {
     /**
-     * @example xxx_Default_1241541251241
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-xx
-     *
      * @var string
      */
     public $workspaceId;
@@ -28,14 +22,18 @@ class DownloadAuditNoteRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -43,17 +41,18 @@ class DownloadAuditNoteRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DownloadAuditNoteRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

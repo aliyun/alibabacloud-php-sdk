@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocQaResponseBody\payload\output\mediaUrlList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class clipInfos extends Model
 {
     /**
-     * @example 0
-     *
      * @var float
      */
     public $from;
 
     /**
-     * @example 30
-     *
      * @var float
      */
     public $to;
@@ -26,14 +22,18 @@ class clipInfos extends Model
         'to' => 'To',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->to) {
             $res['To'] = $this->to;
         }
@@ -41,17 +41,18 @@ class clipInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clipInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['To'])) {
             $model->to = $map['To'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchExportTermsTaskResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example https//xxxx
-     *
      * @var string
      */
     public $fileUrl;
 
     /**
-     * @example PENDING-待执行、RUNNING-执行中、SUCCESSED-成功、SUSPENDED-暂停、FAILED-失败、CANCELLED-取消
-     *
      * @var string
      */
     public $status;
@@ -26,14 +22,18 @@ class data extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -41,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

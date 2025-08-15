@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\WritingStyleTemplateField;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class style extends Model
 {
@@ -46,26 +46,34 @@ class style extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->format) {
             $res['Format'] = $this->format;
         }
+
         if (null !== $this->placeholder) {
             $res['Placeholder'] = $this->placeholder;
         }
+
         if (null !== $this->showTime) {
             $res['ShowTime'] = $this->showTime;
         }
+
         if (null !== $this->suffix) {
             $res['Suffix'] = $this->suffix;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -73,29 +81,34 @@ class style extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return style
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
         }
+
         if (isset($map['Placeholder'])) {
             $model->placeholder = $map['Placeholder'];
         }
+
         if (isset($map['ShowTime'])) {
             $model->showTime = $map['ShowTime'];
         }
+
         if (isset($map['Suffix'])) {
             $model->suffix = $map['Suffix'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

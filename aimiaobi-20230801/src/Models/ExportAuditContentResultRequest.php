@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExportAuditContentResultRequest extends Model
 {
     /**
-     * @example 7AA2AE16-D873-5C5F-9708-15396C382EB1
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @example xxxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -26,14 +22,18 @@ class ExportAuditContentResultRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -41,17 +41,18 @@ class ExportAuditContentResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExportAuditContentResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

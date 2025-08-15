@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskResponseBody\data\statisticsOverview;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskResponseBody\data\usage;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example error
-     *
      * @var string
      */
     public $errorMessage;
@@ -23,8 +21,6 @@ class data extends Model
     public $statisticsOverview;
 
     /**
-     * @example SUCCESSED
-     *
      * @var string
      */
     public $status;
@@ -40,44 +36,59 @@ class data extends Model
         'usage' => 'Usage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->statisticsOverview) {
+            $this->statisticsOverview->validate();
+        }
+        if (null !== $this->usage) {
+            $this->usage->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->statisticsOverview) {
-            $res['StatisticsOverview'] = null !== $this->statisticsOverview ? $this->statisticsOverview->toMap() : null;
+            $res['StatisticsOverview'] = null !== $this->statisticsOverview ? $this->statisticsOverview->toArray($noStream) : $this->statisticsOverview;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->usage) {
-            $res['Usage'] = null !== $this->usage ? $this->usage->toMap() : null;
+            $res['Usage'] = null !== $this->usage ? $this->usage->toArray($noStream) : $this->usage;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['StatisticsOverview'])) {
             $model->statisticsOverview = statisticsOverview::fromMap($map['StatisticsOverview']);
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Usage'])) {
             $model->usage = usage::fromMap($map['Usage']);
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FetchImageTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example cd327c3d5d5e44159cc716e23bfa530e_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example e1be065b-adc3-435e-bd01-1c18c5ed75d3
-     *
      * @var string
      */
     public $articleTaskId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ["9d8c9185-3f75-4a20-aca1-c5bb53dd97b3"]
-     *
      * @var string[]
      */
     public $taskIdList;
@@ -40,41 +28,63 @@ class FetchImageTaskRequest extends Model
         'taskIdList' => 'TaskIdList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->taskIdList)) {
+            Model::validateArray($this->taskIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->articleTaskId) {
             $res['ArticleTaskId'] = $this->articleTaskId;
         }
+
         if (null !== $this->taskIdList) {
-            $res['TaskIdList'] = $this->taskIdList;
+            if (\is_array($this->taskIdList)) {
+                $res['TaskIdList'] = [];
+                $n1 = 0;
+                foreach ($this->taskIdList as $item1) {
+                    $res['TaskIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FetchImageTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['ArticleTaskId'])) {
             $model->articleTaskId = $map['ArticleTaskId'];
         }
+
         if (isset($map['TaskIdList'])) {
             if (!empty($map['TaskIdList'])) {
-                $model->taskIdList = $map['TaskIdList'];
+                $model->taskIdList = [];
+                $n1 = 0;
+                foreach ($map['TaskIdList'] as $item1) {
+                    $model->taskIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

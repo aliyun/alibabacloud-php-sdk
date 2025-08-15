@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCustomTextRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example xxxxx_p_efm
-     *
      * @var string
      */
     public $agentKey;
@@ -23,10 +19,6 @@ class DeleteCustomTextRequest extends Model
     public $commodityCode;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 85
-     *
      * @var int
      */
     public $id;
@@ -36,17 +28,22 @@ class DeleteCustomTextRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -54,20 +51,22 @@ class DeleteCustomTextRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCustomTextRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

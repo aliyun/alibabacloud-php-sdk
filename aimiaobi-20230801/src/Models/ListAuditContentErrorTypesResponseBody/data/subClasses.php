@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAuditContentErrorTypesResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class subClasses extends Model
 {
     /**
-     * @example PunctuationError
-     *
      * @var string
      */
     public $classCode;
@@ -24,14 +22,18 @@ class subClasses extends Model
         'className' => 'ClassName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->classCode) {
             $res['ClassCode'] = $this->classCode;
         }
+
         if (null !== $this->className) {
             $res['ClassName'] = $this->className;
         }
@@ -39,17 +41,18 @@ class subClasses extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subClasses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClassCode'])) {
             $model->classCode = $map['ClassCode'];
         }
+
         if (isset($map['ClassName'])) {
             $model->className = $map['ClassName'];
         }

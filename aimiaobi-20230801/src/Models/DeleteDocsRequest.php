@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDocsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $docIds;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-2setzb9x4ewsd
-     *
      * @var string
      */
     public $workspaceId;
@@ -28,14 +22,28 @@ class DeleteDocsRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->docIds)) {
+            Model::validateArray($this->docIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->docIds) {
-            $res['DocIds'] = $this->docIds;
+            if (\is_array($this->docIds)) {
+                $res['DocIds'] = [];
+                $n1 = 0;
+                foreach ($this->docIds as $item1) {
+                    $res['DocIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -43,19 +51,25 @@ class DeleteDocsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDocsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocIds'])) {
             if (!empty($map['DocIds'])) {
-                $model->docIds = $map['DocIds'];
+                $model->docIds = [];
+                $n1 = 0;
+                foreach ($map['DocIds'] as $item1) {
+                    $model->docIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

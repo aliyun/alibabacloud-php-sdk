@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListWritingStylesRequest extends Model
 {
     /**
-     * @example 100
-     *
      * @var int
      */
     public $maxResults;
@@ -21,19 +19,11 @@ class ListWritingStylesRequest extends Model
     public $nextToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example media
-     *
      * @var string
      */
     public $scene;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-xxxxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -44,20 +34,26 @@ class ListWritingStylesRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -65,23 +61,26 @@ class ListWritingStylesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWritingStylesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

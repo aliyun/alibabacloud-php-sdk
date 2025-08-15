@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetResponseBody\data\datasetConfig\searchSourceConfigs;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetResponseBody\data\datasetConfig\searchSourceConfigs\searchSourceRequestConfig\headers;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetResponseBody\data\datasetConfig\searchSourceConfigs\searchSourceRequestConfig\params;
-use AlibabaCloud\Tea\Model;
 
 class searchSourceRequestConfig extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
     public $body;
 
     /**
-     * @example 30
-     *
      * @var int
      */
     public $connectTimeout;
@@ -30,8 +26,6 @@ class searchSourceRequestConfig extends Model
     public $headers;
 
     /**
-     * @example 请求方式
-     *
      * @var string
      */
     public $method;
@@ -42,22 +36,16 @@ class searchSourceRequestConfig extends Model
     public $params;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $pathParamsEnable;
 
     /**
-     * @example 78
-     *
      * @var int
      */
     public $socketTimeout;
 
     /**
-     * @example api地址
-     *
      * @var string
      */
     public $url;
@@ -72,44 +60,62 @@ class searchSourceRequestConfig extends Model
         'url' => 'Url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->headers)) {
+            Model::validateArray($this->headers);
+        }
+        if (\is_array($this->params)) {
+            Model::validateArray($this->params);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
             $res['Body'] = $this->body;
         }
+
         if (null !== $this->connectTimeout) {
             $res['ConnectTimeout'] = $this->connectTimeout;
         }
+
         if (null !== $this->headers) {
-            $res['Headers'] = [];
-            if (null !== $this->headers && \is_array($this->headers)) {
-                $n = 0;
-                foreach ($this->headers as $item) {
-                    $res['Headers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->headers)) {
+                $res['Headers'] = [];
+                $n1 = 0;
+                foreach ($this->headers as $item1) {
+                    $res['Headers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
+
         if (null !== $this->params) {
-            $res['Params'] = [];
-            if (null !== $this->params && \is_array($this->params)) {
-                $n = 0;
-                foreach ($this->params as $item) {
-                    $res['Params'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->params)) {
+                $res['Params'] = [];
+                $n1 = 0;
+                foreach ($this->params as $item1) {
+                    $res['Params'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pathParamsEnable) {
             $res['PathParamsEnable'] = $this->pathParamsEnable;
         }
+
         if (null !== $this->socketTimeout) {
             $res['SocketTimeout'] = $this->socketTimeout;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -117,47 +123,56 @@ class searchSourceRequestConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return searchSourceRequestConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Body'])) {
             $model->body = $map['Body'];
         }
+
         if (isset($map['ConnectTimeout'])) {
             $model->connectTimeout = $map['ConnectTimeout'];
         }
+
         if (isset($map['Headers'])) {
             if (!empty($map['Headers'])) {
                 $model->headers = [];
-                $n = 0;
-                foreach ($map['Headers'] as $item) {
-                    $model->headers[$n++] = null !== $item ? headers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Headers'] as $item1) {
+                    $model->headers[$n1] = headers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }
+
         if (isset($map['Params'])) {
             if (!empty($map['Params'])) {
                 $model->params = [];
-                $n = 0;
-                foreach ($map['Params'] as $item) {
-                    $model->params[$n++] = null !== $item ? params::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Params'] as $item1) {
+                    $model->params[$n1] = params::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PathParamsEnable'])) {
             $model->pathParamsEnable = $map['PathParamsEnable'];
         }
+
         if (isset($map['SocketTimeout'])) {
             $model->socketTimeout = $map['SocketTimeout'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

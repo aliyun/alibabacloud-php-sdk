@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDocsRequest extends Model
 {
     /**
-     * @example default
-     *
      * @var string
      */
     public $categoryId;
@@ -21,29 +19,21 @@ class ListDocsRequest extends Model
     public $docName;
 
     /**
-     * @example pdf
-     *
      * @var string
      */
     public $docType;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example 52a33dc83779f63641e16f5146cd7125
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $skip;
@@ -54,10 +44,6 @@ class ListDocsRequest extends Model
     public $statuses;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-2setzb9x4ewsd
-     *
      * @var string
      */
     public $workspaceId;
@@ -72,32 +58,52 @@ class ListDocsRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->statuses)) {
+            Model::validateArray($this->statuses);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
+
         if (null !== $this->docName) {
             $res['DocName'] = $this->docName;
         }
+
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->skip) {
             $res['Skip'] = $this->skip;
         }
+
         if (null !== $this->statuses) {
-            $res['Statuses'] = $this->statuses;
+            if (\is_array($this->statuses)) {
+                $res['Statuses'] = [];
+                $n1 = 0;
+                foreach ($this->statuses as $item1) {
+                    $res['Statuses'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -105,37 +111,49 @@ class ListDocsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDocsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
+
         if (isset($map['DocName'])) {
             $model->docName = $map['DocName'];
         }
+
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Skip'])) {
             $model->skip = $map['Skip'];
         }
+
         if (isset($map['Statuses'])) {
             if (!empty($map['Statuses'])) {
-                $model->statuses = $map['Statuses'];
+                $model->statuses = [];
+                $n1 = 0;
+                foreach ($map['Statuses'] as $item1) {
+                    $model->statuses[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

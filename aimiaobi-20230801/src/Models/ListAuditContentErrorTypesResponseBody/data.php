@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAuditContentErrorTypesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAuditContentErrorTypesResponseBody\data\subClasses;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example ContentAccuracy
-     *
      * @var string
      */
     public $majorClassCode;
@@ -31,23 +29,32 @@ class data extends Model
         'subClasses' => 'SubClasses',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->subClasses)) {
+            Model::validateArray($this->subClasses);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->majorClassCode) {
             $res['MajorClassCode'] = $this->majorClassCode;
         }
+
         if (null !== $this->majorClassName) {
             $res['MajorClassName'] = $this->majorClassName;
         }
+
         if (null !== $this->subClasses) {
-            $res['SubClasses'] = [];
-            if (null !== $this->subClasses && \is_array($this->subClasses)) {
-                $n = 0;
-                foreach ($this->subClasses as $item) {
-                    $res['SubClasses'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subClasses)) {
+                $res['SubClasses'] = [];
+                $n1 = 0;
+                foreach ($this->subClasses as $item1) {
+                    $res['SubClasses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -55,26 +62,29 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MajorClassCode'])) {
             $model->majorClassCode = $map['MajorClassCode'];
         }
+
         if (isset($map['MajorClassName'])) {
             $model->majorClassName = $map['MajorClassName'];
         }
+
         if (isset($map['SubClasses'])) {
             if (!empty($map['SubClasses'])) {
                 $model->subClasses = [];
-                $n = 0;
-                foreach ($map['SubClasses'] as $item) {
-                    $model->subClasses[$n++] = null !== $item ? subClasses::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubClasses'] as $item1) {
+                    $model->subClasses[$n1] = subClasses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

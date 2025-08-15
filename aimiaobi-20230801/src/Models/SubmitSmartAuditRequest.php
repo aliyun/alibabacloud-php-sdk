@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartAuditRequest\imageUrlList;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartAuditRequest\imageUrls;
-use AlibabaCloud\Tea\Model;
 
 class SubmitSmartAuditRequest extends Model
 {
@@ -26,8 +26,6 @@ class SubmitSmartAuditRequest extends Model
     public $text;
 
     /**
-     * @example xxxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -44,35 +42,60 @@ class SubmitSmartAuditRequest extends Model
         'imageUrls' => 'imageUrls',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->imageUrlList)) {
+            Model::validateArray($this->imageUrlList);
+        }
+        if (\is_array($this->subCodes)) {
+            Model::validateArray($this->subCodes);
+        }
+        if (\is_array($this->imageUrls)) {
+            Model::validateArray($this->imageUrls);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageUrlList) {
-            $res['ImageUrlList'] = [];
-            if (null !== $this->imageUrlList && \is_array($this->imageUrlList)) {
-                $n = 0;
-                foreach ($this->imageUrlList as $item) {
-                    $res['ImageUrlList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->imageUrlList)) {
+                $res['ImageUrlList'] = [];
+                $n1 = 0;
+                foreach ($this->imageUrlList as $item1) {
+                    $res['ImageUrlList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->subCodes) {
-            $res['SubCodes'] = $this->subCodes;
+            if (\is_array($this->subCodes)) {
+                $res['SubCodes'] = [];
+                $n1 = 0;
+                foreach ($this->subCodes as $item1) {
+                    $res['SubCodes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
+
         if (null !== $this->imageUrls) {
-            $res['imageUrls'] = [];
-            if (null !== $this->imageUrls && \is_array($this->imageUrls)) {
-                $n = 0;
-                foreach ($this->imageUrls as $item) {
-                    $res['imageUrls'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->imageUrls)) {
+                $res['imageUrls'] = [];
+                $n1 = 0;
+                foreach ($this->imageUrls as $item1) {
+                    $res['imageUrls'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -80,40 +103,51 @@ class SubmitSmartAuditRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitSmartAuditRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageUrlList'])) {
             if (!empty($map['ImageUrlList'])) {
                 $model->imageUrlList = [];
-                $n = 0;
-                foreach ($map['ImageUrlList'] as $item) {
-                    $model->imageUrlList[$n++] = null !== $item ? imageUrlList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ImageUrlList'] as $item1) {
+                    $model->imageUrlList[$n1] = imageUrlList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SubCodes'])) {
             if (!empty($map['SubCodes'])) {
-                $model->subCodes = $map['SubCodes'];
+                $model->subCodes = [];
+                $n1 = 0;
+                foreach ($map['SubCodes'] as $item1) {
+                    $model->subCodes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }
+
         if (isset($map['imageUrls'])) {
             if (!empty($map['imageUrls'])) {
                 $model->imageUrls = [];
-                $n = 0;
-                foreach ($map['imageUrls'] as $item) {
-                    $model->imageUrls[$n++] = null !== $item ? imageUrls::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['imageUrls'] as $item1) {
+                    $model->imageUrls[$n1] = imageUrls::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

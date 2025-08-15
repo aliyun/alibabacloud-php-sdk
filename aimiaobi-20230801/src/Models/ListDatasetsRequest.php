@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDatasetsRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $datasetId;
 
     /**
-     * @example businessDataset
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @example CustomSemanticSearch
-     *
      * @var string
      */
     public $datasetType;
 
     /**
-     * @example 创建时间-结束
-     *
      * @var string
      */
     public $endTime;
@@ -42,38 +34,26 @@ class ListDatasetsRequest extends Model
     public $includeConfig;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 10
-     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $searchDatasetEnable;
 
     /**
-     * @example 创建时间-开始
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-xxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -90,38 +70,50 @@ class ListDatasetsRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
         }
+
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+
         if (null !== $this->datasetType) {
             $res['DatasetType'] = $this->datasetType;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->includeConfig) {
             $res['IncludeConfig'] = $this->includeConfig;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->searchDatasetEnable) {
             $res['SearchDatasetEnable'] = $this->searchDatasetEnable;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -129,41 +121,50 @@ class ListDatasetsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDatasetsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
         }
+
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+
         if (isset($map['DatasetType'])) {
             $model->datasetType = $map['DatasetType'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['IncludeConfig'])) {
             $model->includeConfig = $map['IncludeConfig'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SearchDatasetEnable'])) {
             $model->searchDatasetEnable = $map['SearchDatasetEnable'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

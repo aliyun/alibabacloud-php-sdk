@@ -4,50 +4,36 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAsyncTasksRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example cd327c3d5d5e44159cc716e23bfa530e_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @example 2023-03-18 02:00:00
-     *
      * @var string
      */
     public $createTimeEnd;
 
     /**
-     * @example 2023-02-19 07:28:11
-     *
      * @var string
      */
     public $createTimeStart;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $current;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @example MaterialDocumentUpload
-     *
      * @var string
      */
     public $taskCode;
@@ -58,8 +44,6 @@ class ListAsyncTasksRequest extends Model
     public $taskName;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $taskStatus;
@@ -92,91 +76,144 @@ class ListAsyncTasksRequest extends Model
         'taskTypeList' => 'TaskTypeList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->taskStatusList)) {
+            Model::validateArray($this->taskStatusList);
+        }
+        if (\is_array($this->taskTypeList)) {
+            Model::validateArray($this->taskTypeList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->createTimeEnd) {
             $res['CreateTimeEnd'] = $this->createTimeEnd;
         }
+
         if (null !== $this->createTimeStart) {
             $res['CreateTimeStart'] = $this->createTimeStart;
         }
+
         if (null !== $this->current) {
             $res['Current'] = $this->current;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
+
         if (null !== $this->taskCode) {
             $res['TaskCode'] = $this->taskCode;
         }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
+
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
         }
+
         if (null !== $this->taskStatusList) {
-            $res['TaskStatusList'] = $this->taskStatusList;
+            if (\is_array($this->taskStatusList)) {
+                $res['TaskStatusList'] = [];
+                $n1 = 0;
+                foreach ($this->taskStatusList as $item1) {
+                    $res['TaskStatusList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
+
         if (null !== $this->taskTypeList) {
-            $res['TaskTypeList'] = $this->taskTypeList;
+            if (\is_array($this->taskTypeList)) {
+                $res['TaskTypeList'] = [];
+                $n1 = 0;
+                foreach ($this->taskTypeList as $item1) {
+                    $res['TaskTypeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAsyncTasksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['CreateTimeEnd'])) {
             $model->createTimeEnd = $map['CreateTimeEnd'];
         }
+
         if (isset($map['CreateTimeStart'])) {
             $model->createTimeStart = $map['CreateTimeStart'];
         }
+
         if (isset($map['Current'])) {
             $model->current = $map['Current'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
+
         if (isset($map['TaskCode'])) {
             $model->taskCode = $map['TaskCode'];
         }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }
+
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
         }
+
         if (isset($map['TaskStatusList'])) {
             if (!empty($map['TaskStatusList'])) {
-                $model->taskStatusList = $map['TaskStatusList'];
+                $model->taskStatusList = [];
+                $n1 = 0;
+                foreach ($map['TaskStatusList'] as $item1) {
+                    $model->taskStatusList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
+
         if (isset($map['TaskTypeList'])) {
             if (!empty($map['TaskTypeList'])) {
-                $model->taskTypeList = $map['TaskTypeList'];
+                $model->taskTypeList = [];
+                $n1 = 0;
+                foreach ($map['TaskTypeList'] as $item1) {
+                    $model->taskTypeList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

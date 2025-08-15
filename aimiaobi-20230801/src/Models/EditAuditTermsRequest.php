@@ -4,47 +4,41 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EditAuditTermsRequest extends Model
 {
     /**
-     * @example 20103
-     *
+     * @var string[]
+     */
+    public $exceptionWord;
+
+    /**
      * @var string
      */
     public $id;
 
     /**
-     * @example 龘
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @example 龘(dá)
-     *
      * @var string
      */
     public $suggestWord;
 
     /**
-     * @example 龙行龘龘出自四库本《玉篇》23龙部第8字，文字释义为群龙腾飞的样子，昂扬而热烈。
-     *
      * @var string
      */
     public $termsDesc;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-xx
-     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
+        'exceptionWord' => 'ExceptionWord',
         'id' => 'Id',
         'keyword' => 'Keyword',
         'suggestWord' => 'SuggestWord',
@@ -52,23 +46,44 @@ class EditAuditTermsRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->exceptionWord)) {
+            Model::validateArray($this->exceptionWord);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->exceptionWord) {
+            if (\is_array($this->exceptionWord)) {
+                $res['ExceptionWord'] = [];
+                $n1 = 0;
+                foreach ($this->exceptionWord as $item1) {
+                    $res['ExceptionWord'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->suggestWord) {
             $res['SuggestWord'] = $this->suggestWord;
         }
+
         if (null !== $this->termsDesc) {
             $res['TermsDesc'] = $this->termsDesc;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -76,26 +91,41 @@ class EditAuditTermsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EditAuditTermsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExceptionWord'])) {
+            if (!empty($map['ExceptionWord'])) {
+                $model->exceptionWord = [];
+                $n1 = 0;
+                foreach ($map['ExceptionWord'] as $item1) {
+                    $model->exceptionWord[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['SuggestWord'])) {
             $model->suggestWord = $map['SuggestWord'];
         }
+
         if (isset($map['TermsDesc'])) {
             $model->termsDesc = $map['TermsDesc'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

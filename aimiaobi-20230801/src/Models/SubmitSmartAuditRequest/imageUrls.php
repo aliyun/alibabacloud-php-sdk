@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartAuditRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class imageUrls extends Model
 {
@@ -22,14 +22,18 @@ class imageUrls extends Model
         'url' => 'url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -37,17 +41,18 @@ class imageUrls extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageUrls
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

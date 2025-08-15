@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class videoInfos extends Model
 {
@@ -14,22 +14,16 @@ class videoInfos extends Model
     public $videoExtraInfo;
 
     /**
-     * @example 60616fad41b171f0bb4b4531948c0102
-     *
      * @var string
      */
     public $videoId;
 
     /**
-     * @example 123.mp4
-     *
      * @var string
      */
     public $videoName;
 
     /**
-     * @example http://123.mp4
-     *
      * @var string
      */
     public $videoUrl;
@@ -40,20 +34,26 @@ class videoInfos extends Model
         'videoUrl' => 'VideoUrl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoExtraInfo) {
             $res['VideoExtraInfo'] = $this->videoExtraInfo;
         }
+
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
         }
+
         if (null !== $this->videoName) {
             $res['VideoName'] = $this->videoName;
         }
+
         if (null !== $this->videoUrl) {
             $res['VideoUrl'] = $this->videoUrl;
         }
@@ -61,23 +61,26 @@ class videoInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VideoExtraInfo'])) {
             $model->videoExtraInfo = $map['VideoExtraInfo'];
         }
+
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];
         }
+
         if (isset($map['VideoName'])) {
             $model->videoName = $map['VideoName'];
         }
+
         if (isset($map['VideoUrl'])) {
             $model->videoUrl = $map['VideoUrl'];
         }

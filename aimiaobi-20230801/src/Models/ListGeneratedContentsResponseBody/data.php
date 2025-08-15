@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListGeneratedContentsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListGeneratedContentsResponseBody\data\fileAttr;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -15,8 +15,6 @@ class data extends Model
     public $content;
 
     /**
-     * @example media
-     *
      * @var string
      */
     public $contentDomain;
@@ -27,22 +25,16 @@ class data extends Model
     public $contentText;
 
     /**
-     * @example 2024-01-04 11:46:07
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $createUser;
 
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $deviceId;
@@ -58,8 +50,6 @@ class data extends Model
     public $fileKey;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $id;
@@ -80,8 +70,6 @@ class data extends Model
     public $prompt;
 
     /**
-     * @example 3f7045e099474ba28ceca1b4eb6d6e21
-     *
      * @var string
      */
     public $taskId;
@@ -92,22 +80,16 @@ class data extends Model
     public $title;
 
     /**
-     * @example 2024-01-04 11:46:07
-     *
      * @var string
      */
     public $updateTime;
 
     /**
-     * @example 1111
-     *
      * @var string
      */
     public $updateUser;
 
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $uuid;
@@ -131,59 +113,91 @@ class data extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->fileAttr) {
+            $this->fileAttr->validate();
+        }
+        if (\is_array($this->keywordList)) {
+            Model::validateArray($this->keywordList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->contentDomain) {
             $res['ContentDomain'] = $this->contentDomain;
         }
+
         if (null !== $this->contentText) {
             $res['ContentText'] = $this->contentText;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->createUser) {
             $res['CreateUser'] = $this->createUser;
         }
+
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
+
         if (null !== $this->fileAttr) {
-            $res['FileAttr'] = null !== $this->fileAttr ? $this->fileAttr->toMap() : null;
+            $res['FileAttr'] = null !== $this->fileAttr ? $this->fileAttr->toArray($noStream) : $this->fileAttr;
         }
+
         if (null !== $this->fileKey) {
             $res['FileKey'] = $this->fileKey;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->keywordList) {
-            $res['KeywordList'] = $this->keywordList;
+            if (\is_array($this->keywordList)) {
+                $res['KeywordList'] = [];
+                $n1 = 0;
+                foreach ($this->keywordList as $item1) {
+                    $res['KeywordList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->keywords) {
             $res['Keywords'] = $this->keywords;
         }
+
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
+
         if (null !== $this->updateUser) {
             $res['UpdateUser'] = $this->updateUser;
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -191,64 +205,85 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['ContentDomain'])) {
             $model->contentDomain = $map['ContentDomain'];
         }
+
         if (isset($map['ContentText'])) {
             $model->contentText = $map['ContentText'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['CreateUser'])) {
             $model->createUser = $map['CreateUser'];
         }
+
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
+
         if (isset($map['FileAttr'])) {
             $model->fileAttr = fileAttr::fromMap($map['FileAttr']);
         }
+
         if (isset($map['FileKey'])) {
             $model->fileKey = $map['FileKey'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['KeywordList'])) {
             if (!empty($map['KeywordList'])) {
-                $model->keywordList = $map['KeywordList'];
+                $model->keywordList = [];
+                $n1 = 0;
+                foreach ($map['KeywordList'] as $item1) {
+                    $model->keywordList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Keywords'])) {
             $model->keywords = $map['Keywords'];
         }
+
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
+
         if (isset($map['UpdateUser'])) {
             $model->updateUser = $map['UpdateUser'];
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

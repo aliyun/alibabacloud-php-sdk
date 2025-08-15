@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UploadDocRequest\docs;
-use AlibabaCloud\Tea\Model;
 
 class UploadDocRequest extends Model
 {
     /**
-     * @example default
-     *
      * @var string
      */
     public $categoryId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var docs[]
      */
     public $docs;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-yigtrrjl377rcbab
-     *
      * @var string
      */
     public $workspaceId;
@@ -37,23 +29,32 @@ class UploadDocRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->docs)) {
+            Model::validateArray($this->docs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
+
         if (null !== $this->docs) {
-            $res['Docs'] = [];
-            if (null !== $this->docs && \is_array($this->docs)) {
-                $n = 0;
-                foreach ($this->docs as $item) {
-                    $res['Docs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->docs)) {
+                $res['Docs'] = [];
+                $n1 = 0;
+                foreach ($this->docs as $item1) {
+                    $res['Docs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -61,26 +62,29 @@ class UploadDocRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UploadDocRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
+
         if (isset($map['Docs'])) {
             if (!empty($map['Docs'])) {
                 $model->docs = [];
-                $n = 0;
-                foreach ($map['Docs'] as $item) {
-                    $model->docs[$n++] = null !== $item ? docs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Docs'] as $item1) {
+                    $model->docs[$n1] = docs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

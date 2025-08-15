@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDatasetsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customSemanticSearchConfig extends Model
 {
     /**
-     * @example 3
-     *
      * @var int
      */
     public $datasetQuota;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $datasetUsedQuota;
 
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $docQuota;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $docUsedQuota;
@@ -42,20 +34,26 @@ class customSemanticSearchConfig extends Model
         'docUsedQuota' => 'DocUsedQuota',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasetQuota) {
             $res['DatasetQuota'] = $this->datasetQuota;
         }
+
         if (null !== $this->datasetUsedQuota) {
             $res['DatasetUsedQuota'] = $this->datasetUsedQuota;
         }
+
         if (null !== $this->docQuota) {
             $res['DocQuota'] = $this->docQuota;
         }
+
         if (null !== $this->docUsedQuota) {
             $res['DocUsedQuota'] = $this->docUsedQuota;
         }
@@ -63,23 +61,26 @@ class customSemanticSearchConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customSemanticSearchConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetQuota'])) {
             $model->datasetQuota = $map['DatasetQuota'];
         }
+
         if (isset($map['DatasetUsedQuota'])) {
             $model->datasetUsedQuota = $map['DatasetUsedQuota'];
         }
+
         if (isset($map['DocQuota'])) {
             $model->docQuota = $map['DocQuota'];
         }
+
         if (isset($map['DocUsedQuota'])) {
             $model->docUsedQuota = $map['DocUsedQuota'];
         }

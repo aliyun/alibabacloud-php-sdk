@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneGlobalReplyResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class replyMessagList extends Model
 {
     /**
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example namespace_qa_query
-     *
      * @var string
      */
     public $replyType;
@@ -26,14 +22,18 @@ class replyMessagList extends Model
         'replyType' => 'ReplyType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->replyType) {
             $res['ReplyType'] = $this->replyType;
         }
@@ -41,17 +41,18 @@ class replyMessagList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return replyMessagList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['ReplyType'])) {
             $model->replyType = $map['ReplyType'];
         }

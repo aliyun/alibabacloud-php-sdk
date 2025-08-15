@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -14,8 +14,6 @@ class data extends Model
     public $code;
 
     /**
-     * @example 12345
-     *
      * @var int
      */
     public $ruleId;
@@ -24,14 +22,18 @@ class data extends Model
         'ruleId' => 'RuleId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -39,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

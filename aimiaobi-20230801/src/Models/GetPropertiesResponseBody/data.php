@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\consoleConfig;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\intelligentSearchConfig;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\miaosouConfig;
@@ -12,7 +13,6 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\se
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\userInfo;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\wanxiangImageSizeConfig;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\wanxiangImageStyleConfig;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -52,8 +52,6 @@ class data extends Model
     public $searchSources;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $slrAuthorized;
@@ -86,65 +84,122 @@ class data extends Model
         'wanxiangImageStyleConfig' => 'WanxiangImageStyleConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->chatConfig)) {
+            Model::validateArray($this->chatConfig);
+        }
+        if (null !== $this->consoleConfig) {
+            $this->consoleConfig->validate();
+        }
+        if (\is_array($this->generalConfigMap)) {
+            Model::validateArray($this->generalConfigMap);
+        }
+        if (null !== $this->intelligentSearchConfig) {
+            $this->intelligentSearchConfig->validate();
+        }
+        if (null !== $this->miaosouConfig) {
+            $this->miaosouConfig->validate();
+        }
+        if (\is_array($this->searchSourceList)) {
+            Model::validateArray($this->searchSourceList);
+        }
+        if (\is_array($this->searchSources)) {
+            Model::validateArray($this->searchSources);
+        }
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        if (\is_array($this->wanxiangImageSizeConfig)) {
+            Model::validateArray($this->wanxiangImageSizeConfig);
+        }
+        if (\is_array($this->wanxiangImageStyleConfig)) {
+            Model::validateArray($this->wanxiangImageStyleConfig);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chatConfig) {
-            $res['ChatConfig'] = $this->chatConfig;
+            if (\is_array($this->chatConfig)) {
+                $res['ChatConfig'] = [];
+                foreach ($this->chatConfig as $key1 => $value1) {
+                    $res['ChatConfig'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->consoleConfig) {
-            $res['ConsoleConfig'] = null !== $this->consoleConfig ? $this->consoleConfig->toMap() : null;
+            $res['ConsoleConfig'] = null !== $this->consoleConfig ? $this->consoleConfig->toArray($noStream) : $this->consoleConfig;
         }
+
         if (null !== $this->generalConfigMap) {
-            $res['GeneralConfigMap'] = $this->generalConfigMap;
+            if (\is_array($this->generalConfigMap)) {
+                $res['GeneralConfigMap'] = [];
+                foreach ($this->generalConfigMap as $key1 => $value1) {
+                    $res['GeneralConfigMap'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->intelligentSearchConfig) {
-            $res['IntelligentSearchConfig'] = null !== $this->intelligentSearchConfig ? $this->intelligentSearchConfig->toMap() : null;
+            $res['IntelligentSearchConfig'] = null !== $this->intelligentSearchConfig ? $this->intelligentSearchConfig->toArray($noStream) : $this->intelligentSearchConfig;
         }
+
         if (null !== $this->miaosouConfig) {
-            $res['MiaosouConfig'] = null !== $this->miaosouConfig ? $this->miaosouConfig->toMap() : null;
+            $res['MiaosouConfig'] = null !== $this->miaosouConfig ? $this->miaosouConfig->toArray($noStream) : $this->miaosouConfig;
         }
+
         if (null !== $this->searchSourceList) {
-            $res['SearchSourceList'] = [];
-            if (null !== $this->searchSourceList && \is_array($this->searchSourceList)) {
-                $n = 0;
-                foreach ($this->searchSourceList as $item) {
-                    $res['SearchSourceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->searchSourceList)) {
+                $res['SearchSourceList'] = [];
+                $n1 = 0;
+                foreach ($this->searchSourceList as $item1) {
+                    $res['SearchSourceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->searchSources) {
-            $res['SearchSources'] = [];
-            if (null !== $this->searchSources && \is_array($this->searchSources)) {
-                $n = 0;
-                foreach ($this->searchSources as $item) {
-                    $res['SearchSources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->searchSources)) {
+                $res['SearchSources'] = [];
+                $n1 = 0;
+                foreach ($this->searchSources as $item1) {
+                    $res['SearchSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->slrAuthorized) {
             $res['SlrAuthorized'] = $this->slrAuthorized;
         }
+
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
+
         if (null !== $this->wanxiangImageSizeConfig) {
-            $res['WanxiangImageSizeConfig'] = [];
-            if (null !== $this->wanxiangImageSizeConfig && \is_array($this->wanxiangImageSizeConfig)) {
-                $n = 0;
-                foreach ($this->wanxiangImageSizeConfig as $item) {
-                    $res['WanxiangImageSizeConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->wanxiangImageSizeConfig)) {
+                $res['WanxiangImageSizeConfig'] = [];
+                $n1 = 0;
+                foreach ($this->wanxiangImageSizeConfig as $item1) {
+                    $res['WanxiangImageSizeConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->wanxiangImageStyleConfig) {
-            $res['WanxiangImageStyleConfig'] = [];
-            if (null !== $this->wanxiangImageStyleConfig && \is_array($this->wanxiangImageStyleConfig)) {
-                $n = 0;
-                foreach ($this->wanxiangImageStyleConfig as $item) {
-                    $res['WanxiangImageStyleConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->wanxiangImageStyleConfig)) {
+                $res['WanxiangImageStyleConfig'] = [];
+                $n1 = 0;
+                foreach ($this->wanxiangImageStyleConfig as $item1) {
+                    $res['WanxiangImageStyleConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,68 +207,92 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChatConfig'])) {
-            $model->chatConfig = $map['ChatConfig'];
+            if (!empty($map['ChatConfig'])) {
+                $model->chatConfig = [];
+                foreach ($map['ChatConfig'] as $key1 => $value1) {
+                    $model->chatConfig[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['ConsoleConfig'])) {
             $model->consoleConfig = consoleConfig::fromMap($map['ConsoleConfig']);
         }
+
         if (isset($map['GeneralConfigMap'])) {
-            $model->generalConfigMap = $map['GeneralConfigMap'];
+            if (!empty($map['GeneralConfigMap'])) {
+                $model->generalConfigMap = [];
+                foreach ($map['GeneralConfigMap'] as $key1 => $value1) {
+                    $model->generalConfigMap[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['IntelligentSearchConfig'])) {
             $model->intelligentSearchConfig = intelligentSearchConfig::fromMap($map['IntelligentSearchConfig']);
         }
+
         if (isset($map['MiaosouConfig'])) {
             $model->miaosouConfig = miaosouConfig::fromMap($map['MiaosouConfig']);
         }
+
         if (isset($map['SearchSourceList'])) {
             if (!empty($map['SearchSourceList'])) {
                 $model->searchSourceList = [];
-                $n = 0;
-                foreach ($map['SearchSourceList'] as $item) {
-                    $model->searchSourceList[$n++] = null !== $item ? searchSourceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SearchSourceList'] as $item1) {
+                    $model->searchSourceList[$n1] = searchSourceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SearchSources'])) {
             if (!empty($map['SearchSources'])) {
                 $model->searchSources = [];
-                $n = 0;
-                foreach ($map['SearchSources'] as $item) {
-                    $model->searchSources[$n++] = null !== $item ? searchSources::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SearchSources'] as $item1) {
+                    $model->searchSources[$n1] = searchSources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SlrAuthorized'])) {
             $model->slrAuthorized = $map['SlrAuthorized'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }
+
         if (isset($map['WanxiangImageSizeConfig'])) {
             if (!empty($map['WanxiangImageSizeConfig'])) {
                 $model->wanxiangImageSizeConfig = [];
-                $n = 0;
-                foreach ($map['WanxiangImageSizeConfig'] as $item) {
-                    $model->wanxiangImageSizeConfig[$n++] = null !== $item ? wanxiangImageSizeConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WanxiangImageSizeConfig'] as $item1) {
+                    $model->wanxiangImageSizeConfig[$n1] = wanxiangImageSizeConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['WanxiangImageStyleConfig'])) {
             if (!empty($map['WanxiangImageStyleConfig'])) {
                 $model->wanxiangImageStyleConfig = [];
-                $n = 0;
-                foreach ($map['WanxiangImageStyleConfig'] as $item) {
-                    $model->wanxiangImageStyleConfig[$n++] = null !== $item ? wanxiangImageStyleConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WanxiangImageStyleConfig'] as $item1) {
+                    $model->wanxiangImageStyleConfig[$n1] = wanxiangImageStyleConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

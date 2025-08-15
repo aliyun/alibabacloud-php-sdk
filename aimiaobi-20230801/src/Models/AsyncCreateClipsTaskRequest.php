@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTaskRequest\colorWords;
-use AlibabaCloud\Tea\Model;
 
 class AsyncCreateClipsTaskRequest extends Model
 {
@@ -15,15 +15,11 @@ class AsyncCreateClipsTaskRequest extends Model
     public $colorWords;
 
     /**
-     * @example 1920
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @example http://music.mp4
-     *
      * @var string
      */
     public $musicUrl;
@@ -39,10 +35,6 @@ class AsyncCreateClipsTaskRequest extends Model
     public $subtitleFontSize;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 17a299a9-f223-4707-b0dd-4c22519bddf5
-     *
      * @var string
      */
     public $taskId;
@@ -58,17 +50,11 @@ class AsyncCreateClipsTaskRequest extends Model
     public $voiceVolume;
 
     /**
-     * @example 1080
-     *
      * @var int
      */
     public $width;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-ipe7d81yq4sl5jmk
-     *
      * @var string
      */
     public $workspaceId;
@@ -85,44 +71,60 @@ class AsyncCreateClipsTaskRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->colorWords)) {
+            Model::validateArray($this->colorWords);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->colorWords) {
-            $res['ColorWords'] = [];
-            if (null !== $this->colorWords && \is_array($this->colorWords)) {
-                $n = 0;
-                foreach ($this->colorWords as $item) {
-                    $res['ColorWords'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->colorWords)) {
+                $res['ColorWords'] = [];
+                $n1 = 0;
+                foreach ($this->colorWords as $item1) {
+                    $res['ColorWords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+
         if (null !== $this->musicUrl) {
             $res['MusicUrl'] = $this->musicUrl;
         }
+
         if (null !== $this->musicVolume) {
             $res['MusicVolume'] = $this->musicVolume;
         }
+
         if (null !== $this->subtitleFontSize) {
             $res['SubtitleFontSize'] = $this->subtitleFontSize;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->voiceStyle) {
             $res['VoiceStyle'] = $this->voiceStyle;
         }
+
         if (null !== $this->voiceVolume) {
             $res['VoiceVolume'] = $this->voiceVolume;
         }
+
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -130,47 +132,57 @@ class AsyncCreateClipsTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AsyncCreateClipsTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColorWords'])) {
             if (!empty($map['ColorWords'])) {
                 $model->colorWords = [];
-                $n = 0;
-                foreach ($map['ColorWords'] as $item) {
-                    $model->colorWords[$n++] = null !== $item ? colorWords::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ColorWords'] as $item1) {
+                    $model->colorWords[$n1] = colorWords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+
         if (isset($map['MusicUrl'])) {
             $model->musicUrl = $map['MusicUrl'];
         }
+
         if (isset($map['MusicVolume'])) {
             $model->musicVolume = $map['MusicVolume'];
         }
+
         if (isset($map['SubtitleFontSize'])) {
             $model->subtitleFontSize = $map['SubtitleFontSize'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['VoiceStyle'])) {
             $model->voiceStyle = $map['VoiceStyle'];
         }
+
         if (isset($map['VoiceVolume'])) {
             $model->voiceVolume = $map['VoiceVolume'];
         }
+
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

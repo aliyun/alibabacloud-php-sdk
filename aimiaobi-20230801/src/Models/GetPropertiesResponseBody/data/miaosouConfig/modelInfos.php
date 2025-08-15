@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\miaosouConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class modelInfos extends Model
 {
     /**
-     * @example quanmiao-max
-     *
      * @var string
      */
     public $modelId;
 
     /**
-     * @example 全妙-Max
-     *
      * @var string
      */
     public $modelName;
@@ -26,14 +22,18 @@ class modelInfos extends Model
         'modelName' => 'ModelName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
         }
+
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
@@ -41,17 +41,18 @@ class modelInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return modelInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
         }
+
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }
