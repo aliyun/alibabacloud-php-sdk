@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class CreateUrlObservationResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
     public $configId;
 
