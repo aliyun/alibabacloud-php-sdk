@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataRequest\fixDataCommand\downStreamInstanceIdList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataRequest\fixDataCommand\rootInstanceId;
-use AlibabaCloud\Tea\Model;
 
 class fixDataCommand extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $containRootInstance;
@@ -23,31 +21,21 @@ class fixDataCommand extends Model
     public $downStreamInstanceIdList;
 
     /**
-     * @example ALL_INSTANCE
-     *
      * @var string
      */
     public $downstreamRange;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $forceRerun;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 132344
-     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var rootInstanceId
      */
     public $rootInstanceId;
@@ -60,68 +48,89 @@ class fixDataCommand extends Model
         'rootInstanceId' => 'RootInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->downStreamInstanceIdList)) {
+            Model::validateArray($this->downStreamInstanceIdList);
+        }
+        if (null !== $this->rootInstanceId) {
+            $this->rootInstanceId->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->containRootInstance) {
             $res['ContainRootInstance'] = $this->containRootInstance;
         }
+
         if (null !== $this->downStreamInstanceIdList) {
-            $res['DownStreamInstanceIdList'] = [];
-            if (null !== $this->downStreamInstanceIdList && \is_array($this->downStreamInstanceIdList)) {
-                $n = 0;
-                foreach ($this->downStreamInstanceIdList as $item) {
-                    $res['DownStreamInstanceIdList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->downStreamInstanceIdList)) {
+                $res['DownStreamInstanceIdList'] = [];
+                $n1 = 0;
+                foreach ($this->downStreamInstanceIdList as $item1) {
+                    $res['DownStreamInstanceIdList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->downstreamRange) {
             $res['DownstreamRange'] = $this->downstreamRange;
         }
+
         if (null !== $this->forceRerun) {
             $res['ForceRerun'] = $this->forceRerun;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->rootInstanceId) {
-            $res['RootInstanceId'] = null !== $this->rootInstanceId ? $this->rootInstanceId->toMap() : null;
+            $res['RootInstanceId'] = null !== $this->rootInstanceId ? $this->rootInstanceId->toArray($noStream) : $this->rootInstanceId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fixDataCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContainRootInstance'])) {
             $model->containRootInstance = $map['ContainRootInstance'];
         }
+
         if (isset($map['DownStreamInstanceIdList'])) {
             if (!empty($map['DownStreamInstanceIdList'])) {
                 $model->downStreamInstanceIdList = [];
-                $n = 0;
-                foreach ($map['DownStreamInstanceIdList'] as $item) {
-                    $model->downStreamInstanceIdList[$n++] = null !== $item ? downStreamInstanceIdList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DownStreamInstanceIdList'] as $item1) {
+                    $model->downStreamInstanceIdList[$n1] = downStreamInstanceIdList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['DownstreamRange'])) {
             $model->downstreamRange = $map['DownstreamRange'];
         }
+
         if (isset($map['ForceRerun'])) {
             $model->forceRerun = $map['ForceRerun'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['RootInstanceId'])) {
             $model->rootInstanceId = rootInstanceId::fromMap($map['RootInstanceId']);
         }

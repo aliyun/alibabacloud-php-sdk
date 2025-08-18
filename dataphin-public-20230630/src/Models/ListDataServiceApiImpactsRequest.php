@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceApiImpactsRequest\listQuery;
-use AlibabaCloud\Tea\Model;
 
 class ListDataServiceApiImpactsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var listQuery
      */
     public $listQuery;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 102102
-     *
      * @var int
      */
     public $projectId;
@@ -39,17 +29,25 @@ class ListDataServiceApiImpactsRequest extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->listQuery) {
+            $this->listQuery->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listQuery) {
-            $res['ListQuery'] = null !== $this->listQuery ? $this->listQuery->toMap() : null;
+            $res['ListQuery'] = null !== $this->listQuery ? $this->listQuery->toArray($noStream) : $this->listQuery;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -57,20 +55,22 @@ class ListDataServiceApiImpactsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDataServiceApiImpactsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListQuery'])) {
             $model->listQuery = listQuery::fromMap($map['ListQuery']);
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

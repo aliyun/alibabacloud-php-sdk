@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ApplyDataServiceAppRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class applyCommand extends Model
 {
     /**
-     * @description appId
-     *
-     * This parameter is required.
-     *
-     * @example 2011
-     *
      * @var int
      */
     public $appId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2025-06-30
-     *
      * @var string
      */
     public $expireDate;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $reason;
@@ -42,17 +28,22 @@ class applyCommand extends Model
         'reason' => 'Reason',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->expireDate) {
             $res['ExpireDate'] = $this->expireDate;
         }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
@@ -60,20 +51,22 @@ class applyCommand extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return applyCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['ExpireDate'])) {
             $model->expireDate = $map['ExpireDate'];
         }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }

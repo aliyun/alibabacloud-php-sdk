@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSparkLocalClientInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example XXXX-XXXX-XXXX-XXXX
-     *
      * @var string
      */
     public $clientFileResourceId;
 
     /**
-     * @example spark-cleint.zip
-     *
      * @var string
      */
     public $clientFileResourceName;
 
     /**
-     * @example spark-clinet
-     *
      * @var string
      */
     public $clientName;
 
     /**
-     * @example true/false
-     *
      * @var bool
      */
     public $editable;
@@ -42,20 +34,26 @@ class data extends Model
         'editable' => 'Editable',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientFileResourceId) {
             $res['ClientFileResourceId'] = $this->clientFileResourceId;
         }
+
         if (null !== $this->clientFileResourceName) {
             $res['ClientFileResourceName'] = $this->clientFileResourceName;
         }
+
         if (null !== $this->clientName) {
             $res['ClientName'] = $this->clientName;
         }
+
         if (null !== $this->editable) {
             $res['Editable'] = $this->editable;
         }
@@ -63,23 +61,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientFileResourceId'])) {
             $model->clientFileResourceId = $map['ClientFileResourceId'];
         }
+
         if (isset($map['ClientFileResourceName'])) {
             $model->clientFileResourceName = $map['ClientFileResourceName'];
         }
+
         if (isset($map['ClientName'])) {
             $model->clientName = $map['ClientName'];
         }
+
         if (isset($map['Editable'])) {
             $model->editable = $map['Editable'];
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeDataServiceApiRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class revokeCommand extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1021
-     *
      * @var int
      */
     public $apiId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1203
-     *
      * @var int
      */
     public $appId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $reason;
@@ -40,17 +28,22 @@ class revokeCommand extends Model
         'reason' => 'Reason',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
+
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
@@ -58,20 +51,22 @@ class revokeCommand extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return revokeCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
+
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }

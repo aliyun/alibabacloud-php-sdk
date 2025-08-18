@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeDataServiceApiRequest\revokeCommand;
-use AlibabaCloud\Tea\Model;
 
 class RevokeDataServiceApiRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 102102
-     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var revokeCommand
      */
     public $revokeCommand;
@@ -39,38 +29,48 @@ class RevokeDataServiceApiRequest extends Model
         'revokeCommand' => 'RevokeCommand',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->revokeCommand) {
+            $this->revokeCommand->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->revokeCommand) {
-            $res['RevokeCommand'] = null !== $this->revokeCommand ? $this->revokeCommand->toMap() : null;
+            $res['RevokeCommand'] = null !== $this->revokeCommand ? $this->revokeCommand->toArray($noStream) : $this->revokeCommand;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RevokeDataServiceApiRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['RevokeCommand'])) {
             $model->revokeCommand = revokeCommand::fromMap($map['RevokeCommand']);
         }

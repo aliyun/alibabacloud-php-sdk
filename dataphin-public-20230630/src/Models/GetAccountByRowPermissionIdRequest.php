@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAccountByRowPermissionIdRequest\getAccountByRowPermissionIdQuery;
-use AlibabaCloud\Tea\Model;
 
 class GetAccountByRowPermissionIdRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var getAccountByRowPermissionIdQuery
      */
     public $getAccountByRowPermissionIdQuery;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
@@ -29,14 +23,21 @@ class GetAccountByRowPermissionIdRequest extends Model
         'opTenantId' => 'OpTenantId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->getAccountByRowPermissionIdQuery) {
+            $this->getAccountByRowPermissionIdQuery->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->getAccountByRowPermissionIdQuery) {
-            $res['GetAccountByRowPermissionIdQuery'] = null !== $this->getAccountByRowPermissionIdQuery ? $this->getAccountByRowPermissionIdQuery->toMap() : null;
+            $res['GetAccountByRowPermissionIdQuery'] = null !== $this->getAccountByRowPermissionIdQuery ? $this->getAccountByRowPermissionIdQuery->toArray($noStream) : $this->getAccountByRowPermissionIdQuery;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -44,17 +45,18 @@ class GetAccountByRowPermissionIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccountByRowPermissionIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GetAccountByRowPermissionIdQuery'])) {
             $model->getAccountByRowPermissionIdQuery = getAccountByRowPermissionIdQuery::fromMap($map['GetAccountByRowPermissionIdQuery']);
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

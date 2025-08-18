@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionResponseBody\pageResult\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tables extends Model
 {
     /**
-     * @example business_id
-     *
      * @var string
      */
     public $columnName;
 
     /**
-     * @example business_id
-     *
      * @var string
      */
     public $mappingColumnName;
 
     /**
-     * @example odps.300199897.project_name.table_name
-     *
      * @var string
      */
     public $resourceId;
@@ -34,17 +28,22 @@ class tables extends Model
         'resourceId' => 'ResourceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
+
         if (null !== $this->mappingColumnName) {
             $res['MappingColumnName'] = $this->mappingColumnName;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -52,20 +51,22 @@ class tables extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tables
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
+
         if (isset($map['MappingColumnName'])) {
             $model->mappingColumnName = $map['MappingColumnName'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddDataServiceProjectMemberRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddDataServiceProjectMemberRequest\addCommand\projectMemberList;
-use AlibabaCloud\Tea\Model;
 
 class addCommand extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var projectMemberList[]
      */
     public $projectMemberList;
@@ -19,17 +17,24 @@ class addCommand extends Model
         'projectMemberList' => 'ProjectMemberList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->projectMemberList)) {
+            Model::validateArray($this->projectMemberList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectMemberList) {
-            $res['ProjectMemberList'] = [];
-            if (null !== $this->projectMemberList && \is_array($this->projectMemberList)) {
-                $n = 0;
-                foreach ($this->projectMemberList as $item) {
-                    $res['ProjectMemberList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->projectMemberList)) {
+                $res['ProjectMemberList'] = [];
+                $n1 = 0;
+                foreach ($this->projectMemberList as $item1) {
+                    $res['ProjectMemberList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class addCommand extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return addCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectMemberList'])) {
             if (!empty($map['ProjectMemberList'])) {
                 $model->projectMemberList = [];
-                $n = 0;
-                foreach ($map['ProjectMemberList'] as $item) {
-                    $model->projectMemberList[$n++] = null !== $item ? projectMemberList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ProjectMemberList'] as $item1) {
+                    $model->projectMemberList[$n1] = projectMemberList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

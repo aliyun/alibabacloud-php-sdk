@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizUnitInfoResponseBody\bizUnitInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class envList extends Model
 {
     /**
-     * @example 测试数据板块001_开发
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @example DEV
-     *
      * @var string
      */
     public $envName;
 
     /**
-     * @example LD_test001_dev
-     *
      * @var string
      */
     public $name;
@@ -34,17 +28,22 @@ class envList extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->envName) {
             $res['EnvName'] = $this->envName;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -52,20 +51,22 @@ class envList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return envList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['EnvName'])) {
             $model->envName = $map['EnvName'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionRequest\pageRowPermissionQuery;
-use AlibabaCloud\Tea\Model;
 
 class ListRowPermissionRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var pageRowPermissionQuery
      */
     public $pageRowPermissionQuery;
@@ -29,32 +23,40 @@ class ListRowPermissionRequest extends Model
         'pageRowPermissionQuery' => 'PageRowPermissionQuery',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->pageRowPermissionQuery) {
+            $this->pageRowPermissionQuery->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->pageRowPermissionQuery) {
-            $res['PageRowPermissionQuery'] = null !== $this->pageRowPermissionQuery ? $this->pageRowPermissionQuery->toMap() : null;
+            $res['PageRowPermissionQuery'] = null !== $this->pageRowPermissionQuery ? $this->pageRowPermissionQuery->toArray($noStream) : $this->pageRowPermissionQuery;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRowPermissionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['PageRowPermissionQuery'])) {
             $model->pageRowPermissionQuery = pageRowPermissionQuery::fromMap($map['PageRowPermissionQuery']);
         }

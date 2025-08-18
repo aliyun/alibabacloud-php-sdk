@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ReplaceProjectWhiteListsRequest\replaceCommand;
-use AlibabaCloud\Tea\Model;
 
 class ReplaceProjectWhiteListsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1030111021
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var replaceCommand
      */
     public $replaceCommand;
@@ -39,38 +29,48 @@ class ReplaceProjectWhiteListsRequest extends Model
         'replaceCommand' => 'ReplaceCommand',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->replaceCommand) {
+            $this->replaceCommand->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->replaceCommand) {
-            $res['ReplaceCommand'] = null !== $this->replaceCommand ? $this->replaceCommand->toMap() : null;
+            $res['ReplaceCommand'] = null !== $this->replaceCommand ? $this->replaceCommand->toArray($noStream) : $this->replaceCommand;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReplaceProjectWhiteListsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['ReplaceCommand'])) {
             $model->replaceCommand = replaceCommand::fromMap($map['ReplaceCommand']);
         }

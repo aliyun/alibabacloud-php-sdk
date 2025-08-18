@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMyTenantsShrinkRequest extends Model
 {
@@ -14,10 +14,6 @@ class GetMyTenantsShrinkRequest extends Model
     public $featureCodeListShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
@@ -26,14 +22,18 @@ class GetMyTenantsShrinkRequest extends Model
         'opTenantId' => 'OpTenantId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->featureCodeListShrink) {
             $res['FeatureCodeList'] = $this->featureCodeListShrink;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -41,17 +41,18 @@ class GetMyTenantsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMyTenantsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeatureCodeList'])) {
             $model->featureCodeListShrink = $map['FeatureCodeList'];
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

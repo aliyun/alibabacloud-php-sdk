@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveTenantMemberShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $removeCommandShrink;
@@ -28,14 +22,18 @@ class RemoveTenantMemberShrinkRequest extends Model
         'removeCommandShrink' => 'RemoveCommand',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->removeCommandShrink) {
             $res['RemoveCommand'] = $this->removeCommandShrink;
         }
@@ -43,17 +41,18 @@ class RemoveTenantMemberShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveTenantMemberShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['RemoveCommand'])) {
             $model->removeCommandShrink = $map['RemoveCommand'];
         }

@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ApplyDataServiceApiRequest\applyCommand;
-use AlibabaCloud\Tea\Model;
 
 class ApplyDataServiceApiRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var applyCommand
      */
     public $applyCommand;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 102102
-     *
      * @var int
      */
     public $projectId;
@@ -39,17 +29,25 @@ class ApplyDataServiceApiRequest extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->applyCommand) {
+            $this->applyCommand->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applyCommand) {
-            $res['ApplyCommand'] = null !== $this->applyCommand ? $this->applyCommand->toMap() : null;
+            $res['ApplyCommand'] = null !== $this->applyCommand ? $this->applyCommand->toArray($noStream) : $this->applyCommand;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -57,20 +55,22 @@ class ApplyDataServiceApiRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ApplyDataServiceApiRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplyCommand'])) {
             $model->applyCommand = applyCommand::fromMap($map['ApplyCommand']);
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionsResponseBody\pageResult\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionsResponseBody\pageResult\data\permissionPeriodList\period;
-use AlibabaCloud\Tea\Model;
 
 class permissionPeriodList extends Model
 {
@@ -15,8 +15,6 @@ class permissionPeriodList extends Model
     public $period;
 
     /**
-     * @example SELECT
-     *
      * @var string
      */
     public $permissionType;
@@ -25,14 +23,21 @@ class permissionPeriodList extends Model
         'permissionType' => 'PermissionType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->period) {
+            $this->period->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->period) {
-            $res['Period'] = null !== $this->period ? $this->period->toMap() : null;
+            $res['Period'] = null !== $this->period ? $this->period->toArray($noStream) : $this->period;
         }
+
         if (null !== $this->permissionType) {
             $res['PermissionType'] = $this->permissionType;
         }
@@ -40,17 +45,18 @@ class permissionPeriodList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return permissionPeriodList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Period'])) {
             $model->period = period::fromMap($map['Period']);
         }
+
         if (isset($map['PermissionType'])) {
             $model->permissionType = $map['PermissionType'];
         }

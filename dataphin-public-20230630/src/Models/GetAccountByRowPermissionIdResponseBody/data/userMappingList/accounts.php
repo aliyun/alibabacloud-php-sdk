@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAccountByRowPermissionIdResponseBody\data\userMappingList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accounts extends Model
 {
     /**
-     * @example 300901111
-     *
      * @var string
      */
     public $accountId;
@@ -24,14 +22,18 @@ class accounts extends Model
         'accountName' => 'AccountName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
@@ -39,17 +41,18 @@ class accounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }

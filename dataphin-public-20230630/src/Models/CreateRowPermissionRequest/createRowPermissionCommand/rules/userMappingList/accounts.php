@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionRequest\createRowPermissionCommand\rules\userMappingList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accounts extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 300001111
-     *
      * @var string
      */
     public $accountId;
@@ -20,9 +16,12 @@ class accounts extends Model
         'accountId' => 'AccountId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
@@ -32,11 +31,11 @@ class accounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

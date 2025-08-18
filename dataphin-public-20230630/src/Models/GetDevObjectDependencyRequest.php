@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDevObjectDependencyRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example DATA_PROCESS
-     *
      * @var string
      */
     public $objectFrom;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 7026498387616064
-     *
      * @var string
      */
     public $objectId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 7026498387616064
-     *
      * @var string
      */
     public $objectType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 7021037162911616L
-     *
      * @var int
      */
     public $projectId;
@@ -60,23 +40,30 @@ class GetDevObjectDependencyRequest extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->objectFrom) {
             $res['ObjectFrom'] = $this->objectFrom;
         }
+
         if (null !== $this->objectId) {
             $res['ObjectId'] = $this->objectId;
         }
+
         if (null !== $this->objectType) {
             $res['ObjectType'] = $this->objectType;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -84,26 +71,30 @@ class GetDevObjectDependencyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDevObjectDependencyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ObjectFrom'])) {
             $model->objectFrom = $map['ObjectFrom'];
         }
+
         if (isset($map['ObjectId'])) {
             $model->objectId = $map['ObjectId'];
         }
+
         if (isset($map['ObjectType'])) {
             $model->objectType = $map['ObjectType'];
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ReplaceProjectWhiteListsRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ReplaceProjectWhiteListsRequest\replaceCommand\whiteLists;
-use AlibabaCloud\Tea\Model;
 
 class replaceCommand extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var whiteLists[]
      */
     public $whiteLists;
@@ -19,17 +17,24 @@ class replaceCommand extends Model
         'whiteLists' => 'WhiteLists',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->whiteLists)) {
+            Model::validateArray($this->whiteLists);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->whiteLists) {
-            $res['WhiteLists'] = [];
-            if (null !== $this->whiteLists && \is_array($this->whiteLists)) {
-                $n = 0;
-                foreach ($this->whiteLists as $item) {
-                    $res['WhiteLists'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->whiteLists)) {
+                $res['WhiteLists'] = [];
+                $n1 = 0;
+                foreach ($this->whiteLists as $item1) {
+                    $res['WhiteLists'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class replaceCommand extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return replaceCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WhiteLists'])) {
             if (!empty($map['WhiteLists'])) {
                 $model->whiteLists = [];
-                $n = 0;
-                foreach ($map['WhiteLists'] as $item) {
-                    $model->whiteLists[$n++] = null !== $item ? whiteLists::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WhiteLists'] as $item1) {
+                    $model->whiteLists[$n1] = whiteLists::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

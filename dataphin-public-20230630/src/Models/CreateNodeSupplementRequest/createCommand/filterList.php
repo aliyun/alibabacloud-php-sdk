@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementRequest\createCommand;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filterList extends Model
 {
@@ -28,41 +28,63 @@ class filterList extends Model
         'valueList' => 'ValueList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->valueList)) {
+            Model::validateArray($this->valueList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exclude) {
             $res['Exclude'] = $this->exclude;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->valueList) {
-            $res['ValueList'] = $this->valueList;
+            if (\is_array($this->valueList)) {
+                $res['ValueList'] = [];
+                $n1 = 0;
+                foreach ($this->valueList as $item1) {
+                    $res['ValueList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filterList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Exclude'])) {
             $model->exclude = $map['Exclude'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['ValueList'])) {
             if (!empty($map['ValueList'])) {
-                $model->valueList = $map['ValueList'];
+                $model->valueList = [];
+                $n1 = 0;
+                foreach ($map['ValueList'] as $item1) {
+                    $model->valueList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

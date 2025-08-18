@@ -4,41 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListApiByAppResponseBody\listResult\data\requestParamList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tableAndDsList extends Model
 {
     /**
-     * @example ds12345
-     *
      * @var string
      */
     public $datasourceId;
 
     /**
-     * @example exampleDatasource
-     *
      * @var string
      */
     public $datasourceName;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $datasourceType;
 
     /**
-     * @example https://example.com/datasource
-     *
      * @var string
      */
     public $datasourceUrl;
 
     /**
-     * @example example_table
-     *
      * @var string
      */
     public $tableName;
@@ -50,23 +40,30 @@ class tableAndDsList extends Model
         'tableName' => 'TableName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasourceId) {
             $res['DatasourceId'] = $this->datasourceId;
         }
+
         if (null !== $this->datasourceName) {
             $res['DatasourceName'] = $this->datasourceName;
         }
+
         if (null !== $this->datasourceType) {
             $res['DatasourceType'] = $this->datasourceType;
         }
+
         if (null !== $this->datasourceUrl) {
             $res['DatasourceUrl'] = $this->datasourceUrl;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -74,26 +71,30 @@ class tableAndDsList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableAndDsList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasourceId'])) {
             $model->datasourceId = $map['DatasourceId'];
         }
+
         if (isset($map['DatasourceName'])) {
             $model->datasourceName = $map['DatasourceName'];
         }
+
         if (isset($map['DatasourceType'])) {
             $model->datasourceType = $map['DatasourceType'];
         }
+
         if (isset($map['DatasourceUrl'])) {
             $model->datasourceUrl = $map['DatasourceUrl'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

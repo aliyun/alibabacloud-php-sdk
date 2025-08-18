@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUserBySourceIdResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class user extends Model
 {
@@ -14,8 +14,6 @@ class user extends Model
     public $displayName;
 
     /**
-     * @example 23231231
-     *
      * @var string
      */
     public $id;
@@ -24,14 +22,18 @@ class user extends Model
         'id' => 'Id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -39,17 +41,18 @@ class user extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return user
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

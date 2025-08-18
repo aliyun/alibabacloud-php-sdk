@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateTenantComputeEngineRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class updateCommand extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $clusterUrlList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example MacCompute
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example 1.0
-     *
      * @var string
      */
     public $version;
@@ -36,17 +28,32 @@ class updateCommand extends Model
         'version' => 'Version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clusterUrlList)) {
+            Model::validateArray($this->clusterUrlList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterUrlList) {
-            $res['ClusterUrlList'] = $this->clusterUrlList;
+            if (\is_array($this->clusterUrlList)) {
+                $res['ClusterUrlList'] = [];
+                $n1 = 0;
+                foreach ($this->clusterUrlList as $item1) {
+                    $res['ClusterUrlList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -54,22 +61,29 @@ class updateCommand extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return updateCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterUrlList'])) {
             if (!empty($map['ClusterUrlList'])) {
-                $model->clusterUrlList = $map['ClusterUrlList'];
+                $model->clusterUrlList = [];
+                $n1 = 0;
+                foreach ($map['ClusterUrlList'] as $item1) {
+                    $model->clusterUrlList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

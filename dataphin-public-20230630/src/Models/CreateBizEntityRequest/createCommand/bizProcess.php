@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizEntityRequest\createCommand;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bizProcess extends Model
 {
@@ -14,33 +14,21 @@ class bizProcess extends Model
     public $bizEventEntityIdList;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example create_process_name
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example create_process_code_name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 30010010
-     *
      * @var string
      */
     public $ownerUserId;
@@ -56,10 +44,6 @@ class bizProcess extends Model
     public $refBizEntityIdList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example BIZ_EVENT
-     *
      * @var string
      */
     public $type;
@@ -74,32 +58,72 @@ class bizProcess extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bizEventEntityIdList)) {
+            Model::validateArray($this->bizEventEntityIdList);
+        }
+        if (\is_array($this->preBizProcessIdList)) {
+            Model::validateArray($this->preBizProcessIdList);
+        }
+        if (\is_array($this->refBizEntityIdList)) {
+            Model::validateArray($this->refBizEntityIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizEventEntityIdList) {
-            $res['BizEventEntityIdList'] = $this->bizEventEntityIdList;
+            if (\is_array($this->bizEventEntityIdList)) {
+                $res['BizEventEntityIdList'] = [];
+                $n1 = 0;
+                foreach ($this->bizEventEntityIdList as $item1) {
+                    $res['BizEventEntityIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ownerUserId) {
             $res['OwnerUserId'] = $this->ownerUserId;
         }
+
         if (null !== $this->preBizProcessIdList) {
-            $res['PreBizProcessIdList'] = $this->preBizProcessIdList;
+            if (\is_array($this->preBizProcessIdList)) {
+                $res['PreBizProcessIdList'] = [];
+                $n1 = 0;
+                foreach ($this->preBizProcessIdList as $item1) {
+                    $res['PreBizProcessIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->refBizEntityIdList) {
-            $res['RefBizEntityIdList'] = $this->refBizEntityIdList;
+            if (\is_array($this->refBizEntityIdList)) {
+                $res['RefBizEntityIdList'] = [];
+                $n1 = 0;
+                foreach ($this->refBizEntityIdList as $item1) {
+                    $res['RefBizEntityIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -107,41 +131,63 @@ class bizProcess extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bizProcess
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizEventEntityIdList'])) {
             if (!empty($map['BizEventEntityIdList'])) {
-                $model->bizEventEntityIdList = $map['BizEventEntityIdList'];
+                $model->bizEventEntityIdList = [];
+                $n1 = 0;
+                foreach ($map['BizEventEntityIdList'] as $item1) {
+                    $model->bizEventEntityIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OwnerUserId'])) {
             $model->ownerUserId = $map['OwnerUserId'];
         }
+
         if (isset($map['PreBizProcessIdList'])) {
             if (!empty($map['PreBizProcessIdList'])) {
-                $model->preBizProcessIdList = $map['PreBizProcessIdList'];
+                $model->preBizProcessIdList = [];
+                $n1 = 0;
+                foreach ($map['PreBizProcessIdList'] as $item1) {
+                    $model->preBizProcessIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RefBizEntityIdList'])) {
             if (!empty($map['RefBizEntityIdList'])) {
-                $model->refBizEntityIdList = $map['RefBizEntityIdList'];
+                $model->refBizEntityIdList = [];
+                $n1 = 0;
+                foreach ($map['RefBizEntityIdList'] as $item1) {
+                    $model->refBizEntityIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

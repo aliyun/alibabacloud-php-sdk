@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupMembersResponseBody\pageResult\memberList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class creator extends Model
 {
     /**
-     * @example 12121111
-     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @example zhangsan
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @example 12121111
-     *
      * @var string
      */
     public $id;
@@ -34,17 +28,22 @@ class creator extends Model
         'id' => 'Id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -52,20 +51,22 @@ class creator extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return creator
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

@@ -4,41 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class listQuery extends Model
 {
     /**
-     * @example DEV
-     *
      * @var string
      */
     public $env;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @example BASIC
-     *
      * @var string
      */
     public $mode;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
@@ -56,59 +46,87 @@ class listQuery extends Model
         'tagList' => 'TagList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tagList)) {
+            Model::validateArray($this->tagList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->tagList) {
-            $res['TagList'] = $this->tagList;
+            if (\is_array($this->tagList)) {
+                $res['TagList'] = [];
+                $n1 = 0;
+                foreach ($this->tagList as $item1) {
+                    $res['TagList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listQuery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TagList'])) {
             if (!empty($map['TagList'])) {
-                $model->tagList = $map['TagList'];
+                $model->tagList = [];
+                $n1 = 0;
+                foreach ($map['TagList'] as $item1) {
+                    $model->tagList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

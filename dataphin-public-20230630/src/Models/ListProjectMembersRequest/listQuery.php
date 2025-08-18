@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectMembersRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class listQuery extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example DEV
-     *
      * @var string
      */
     public $env;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
@@ -36,17 +28,22 @@ class listQuery extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -54,20 +51,22 @@ class listQuery extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listQuery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

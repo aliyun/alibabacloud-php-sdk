@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateProjectMemberRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateProjectMemberRequest\updateCommand\userList;
-use AlibabaCloud\Tea\Model;
 
 class updateCommand extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example DEV
-     *
      * @var string
      */
     public $env;
 
     /**
-     * @description This parameter is required.
-     *
      * @var userList[]
      */
     public $userList;
@@ -29,20 +23,28 @@ class updateCommand extends Model
         'userList' => 'UserList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userList)) {
+            Model::validateArray($this->userList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
+
         if (null !== $this->userList) {
-            $res['UserList'] = [];
-            if (null !== $this->userList && \is_array($this->userList)) {
-                $n = 0;
-                foreach ($this->userList as $item) {
-                    $res['UserList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userList)) {
+                $res['UserList'] = [];
+                $n1 = 0;
+                foreach ($this->userList as $item1) {
+                    $res['UserList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class updateCommand extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return updateCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
+
         if (isset($map['UserList'])) {
             if (!empty($map['UserList'])) {
                 $model->userList = [];
-                $n = 0;
-                foreach ($map['UserList'] as $item) {
-                    $model->userList[$n++] = null !== $item ? userList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UserList'] as $item1) {
+                    $model->userList[$n1] = userList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

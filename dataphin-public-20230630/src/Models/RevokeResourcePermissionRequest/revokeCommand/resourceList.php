@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeResourcePermissionRequest\revokeCommand;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceList extends Model
 {
     /**
-     * @example odps.300002102.beginner_test.amin_table
-     *
      * @var string
      */
     public $resourceId;
@@ -18,9 +16,12 @@ class resourceList extends Model
         'resourceId' => 'ResourceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceId) {
@@ -30,11 +31,11 @@ class resourceList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,91 +4,67 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTenantMembersResponseBody\pageResult;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTenantMembersResponseBody\pageResult\userList\userGroupList;
-use AlibabaCloud\Tea\Model;
 
 class userList extends Model
 {
     /**
-     * @example zhangsan
-     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @example dd123123
-     *
      * @var string
      */
     public $dingNumber;
 
     /**
-     * @example zhangsan
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @example zhangsan
-     *
      * @var string
      */
     public $displayNameWithoutStatus;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $enableWhiteIp;
 
     /**
-     * @example 1730000000000
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @example 1730000000000
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @example 132321
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example 123@aliyun.com
-     *
      * @var string
      */
     public $mail;
 
     /**
-     * @example 13888888888
-     *
      * @var string
      */
     public $mobilePhone;
 
     /**
-     * @example zhangsan
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example susan
-     *
      * @var string
      */
     public $nickName;
@@ -104,15 +80,11 @@ class userList extends Model
     public $roleList;
 
     /**
-     * @example 213213232422222
-     *
      * @var string
      */
     public $sourceId;
 
     /**
-     * @example aliyun
-     *
      * @var string
      */
     public $sourceType;
@@ -123,8 +95,6 @@ class userList extends Model
     public $userGroupList;
 
     /**
-     * @example 0.0.0.0/0
-     *
      * @var string
      */
     public $whiteIp;
@@ -149,68 +119,102 @@ class userList extends Model
         'whiteIp' => 'WhiteIp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->roleList)) {
+            Model::validateArray($this->roleList);
+        }
+        if (\is_array($this->userGroupList)) {
+            Model::validateArray($this->userGroupList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->dingNumber) {
             $res['DingNumber'] = $this->dingNumber;
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->displayNameWithoutStatus) {
             $res['DisplayNameWithoutStatus'] = $this->displayNameWithoutStatus;
         }
+
         if (null !== $this->enableWhiteIp) {
             $res['EnableWhiteIp'] = $this->enableWhiteIp;
         }
+
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->mail) {
             $res['Mail'] = $this->mail;
         }
+
         if (null !== $this->mobilePhone) {
             $res['MobilePhone'] = $this->mobilePhone;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
         }
+
         if (null !== $this->realName) {
             $res['RealName'] = $this->realName;
         }
+
         if (null !== $this->roleList) {
-            $res['RoleList'] = $this->roleList;
-        }
-        if (null !== $this->sourceId) {
-            $res['SourceId'] = $this->sourceId;
-        }
-        if (null !== $this->sourceType) {
-            $res['SourceType'] = $this->sourceType;
-        }
-        if (null !== $this->userGroupList) {
-            $res['UserGroupList'] = [];
-            if (null !== $this->userGroupList && \is_array($this->userGroupList)) {
-                $n = 0;
-                foreach ($this->userGroupList as $item) {
-                    $res['UserGroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->roleList)) {
+                $res['RoleList'] = [];
+                $n1 = 0;
+                foreach ($this->roleList as $item1) {
+                    $res['RoleList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->sourceId) {
+            $res['SourceId'] = $this->sourceId;
+        }
+
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
+        }
+
+        if (null !== $this->userGroupList) {
+            if (\is_array($this->userGroupList)) {
+                $res['UserGroupList'] = [];
+                $n1 = 0;
+                foreach ($this->userGroupList as $item1) {
+                    $res['UserGroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->whiteIp) {
             $res['WhiteIp'] = $this->whiteIp;
         }
@@ -218,73 +222,96 @@ class userList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['DingNumber'])) {
             $model->dingNumber = $map['DingNumber'];
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['DisplayNameWithoutStatus'])) {
             $model->displayNameWithoutStatus = $map['DisplayNameWithoutStatus'];
         }
+
         if (isset($map['EnableWhiteIp'])) {
             $model->enableWhiteIp = $map['EnableWhiteIp'];
         }
+
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Mail'])) {
             $model->mail = $map['Mail'];
         }
+
         if (isset($map['MobilePhone'])) {
             $model->mobilePhone = $map['MobilePhone'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
         }
+
         if (isset($map['RealName'])) {
             $model->realName = $map['RealName'];
         }
+
         if (isset($map['RoleList'])) {
             if (!empty($map['RoleList'])) {
-                $model->roleList = $map['RoleList'];
-            }
-        }
-        if (isset($map['SourceId'])) {
-            $model->sourceId = $map['SourceId'];
-        }
-        if (isset($map['SourceType'])) {
-            $model->sourceType = $map['SourceType'];
-        }
-        if (isset($map['UserGroupList'])) {
-            if (!empty($map['UserGroupList'])) {
-                $model->userGroupList = [];
-                $n = 0;
-                foreach ($map['UserGroupList'] as $item) {
-                    $model->userGroupList[$n++] = null !== $item ? userGroupList::fromMap($item) : $item;
+                $model->roleList = [];
+                $n1 = 0;
+                foreach ($map['RoleList'] as $item1) {
+                    $model->roleList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['SourceId'])) {
+            $model->sourceId = $map['SourceId'];
+        }
+
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
+        }
+
+        if (isset($map['UserGroupList'])) {
+            if (!empty($map['UserGroupList'])) {
+                $model->userGroupList = [];
+                $n1 = 0;
+                foreach ($map['UserGroupList'] as $item1) {
+                    $model->userGroupList[$n1] = userGroupList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['WhiteIp'])) {
             $model->whiteIp = $map['WhiteIp'];
         }

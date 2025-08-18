@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PublishDataServiceApiRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 102102
-     *
      * @var int
      */
     public $apiId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 102102
-     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $versionId;
@@ -50,20 +34,26 @@ class PublishDataServiceApiRequest extends Model
         'versionId' => 'VersionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
         }
@@ -71,23 +61,26 @@ class PublishDataServiceApiRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PublishDataServiceApiRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
         }

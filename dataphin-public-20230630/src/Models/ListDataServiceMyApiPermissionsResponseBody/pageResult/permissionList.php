@@ -4,83 +4,61 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceMyApiPermissionsResponseBody\pageResult;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class permissionList extends Model
 {
     /**
-     * @example 1322
-     *
      * @var int
      */
     public $apiId;
 
     /**
-     * @example teset
-     *
      * @var string
      */
     public $apiName;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $createUserName;
 
     /**
-     * @example 1121
-     *
      * @var string
      */
     public $creator;
 
     /**
-     * @example 1121
-     *
      * @var string
      */
     public $owner;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $ownerUserName;
 
     /**
-     * @example 1121
-     *
      * @var string
      */
     public $privilegeBelongTo;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $privilegeFrom;
 
     /**
-     * @example 102122
-     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $role;
@@ -98,41 +76,54 @@ class permissionList extends Model
         'role' => 'Role',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
+
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
         }
+
         if (null !== $this->createUserName) {
             $res['CreateUserName'] = $this->createUserName;
         }
+
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
+
         if (null !== $this->ownerUserName) {
             $res['OwnerUserName'] = $this->ownerUserName;
         }
+
         if (null !== $this->privilegeBelongTo) {
             $res['PrivilegeBelongTo'] = $this->privilegeBelongTo;
         }
+
         if (null !== $this->privilegeFrom) {
             $res['PrivilegeFrom'] = $this->privilegeFrom;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -140,44 +131,54 @@ class permissionList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return permissionList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
+
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
         }
+
         if (isset($map['CreateUserName'])) {
             $model->createUserName = $map['CreateUserName'];
         }
+
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
+
         if (isset($map['OwnerUserName'])) {
             $model->ownerUserName = $map['OwnerUserName'];
         }
+
         if (isset($map['PrivilegeBelongTo'])) {
             $model->privilegeBelongTo = $map['PrivilegeBelongTo'];
         }
+
         if (isset($map['PrivilegeFrom'])) {
             $model->privilegeFrom = $map['PrivilegeFrom'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }

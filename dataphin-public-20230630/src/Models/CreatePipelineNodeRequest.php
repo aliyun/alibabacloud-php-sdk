@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineNodeRequest\createPipelineNodeCommand;
-use AlibabaCloud\Tea\Model;
 
 class CreatePipelineNodeRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var createPipelineNodeCommand
      */
     public $createPipelineNodeCommand;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
@@ -29,14 +23,21 @@ class CreatePipelineNodeRequest extends Model
         'opTenantId' => 'OpTenantId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->createPipelineNodeCommand) {
+            $this->createPipelineNodeCommand->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createPipelineNodeCommand) {
-            $res['CreatePipelineNodeCommand'] = null !== $this->createPipelineNodeCommand ? $this->createPipelineNodeCommand->toMap() : null;
+            $res['CreatePipelineNodeCommand'] = null !== $this->createPipelineNodeCommand ? $this->createPipelineNodeCommand->toArray($noStream) : $this->createPipelineNodeCommand;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -44,17 +45,18 @@ class CreatePipelineNodeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePipelineNodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatePipelineNodeCommand'])) {
             $model->createPipelineNodeCommand = createPipelineNodeCommand::fromMap($map['CreatePipelineNodeCommand']);
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

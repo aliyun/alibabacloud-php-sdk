@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddDataServiceProjectMemberRequest\addCommand;
-use AlibabaCloud\Tea\Model;
 
 class AddDataServiceProjectMemberRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var addCommand
      */
     public $addCommand;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 102102
-     *
      * @var int
      */
     public $projectId;
@@ -39,17 +29,25 @@ class AddDataServiceProjectMemberRequest extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->addCommand) {
+            $this->addCommand->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addCommand) {
-            $res['AddCommand'] = null !== $this->addCommand ? $this->addCommand->toMap() : null;
+            $res['AddCommand'] = null !== $this->addCommand ? $this->addCommand->toArray($noStream) : $this->addCommand;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -57,20 +55,22 @@ class AddDataServiceProjectMemberRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddDataServiceProjectMemberRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddCommand'])) {
             $model->addCommand = addCommand::fromMap($map['AddCommand']);
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

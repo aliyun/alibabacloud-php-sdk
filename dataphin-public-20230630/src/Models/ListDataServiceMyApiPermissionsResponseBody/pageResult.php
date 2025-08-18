@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceMyApiPermissionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceMyApiPermissionsResponseBody\pageResult\permissionList;
-use AlibabaCloud\Tea\Model;
 
 class pageResult extends Model
 {
@@ -15,8 +15,6 @@ class pageResult extends Model
     public $permissionList;
 
     /**
-     * @example 68
-     *
      * @var int
      */
     public $totalCount;
@@ -25,20 +23,28 @@ class pageResult extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->permissionList)) {
+            Model::validateArray($this->permissionList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->permissionList) {
-            $res['PermissionList'] = [];
-            if (null !== $this->permissionList && \is_array($this->permissionList)) {
-                $n = 0;
-                foreach ($this->permissionList as $item) {
-                    $res['PermissionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->permissionList)) {
+                $res['PermissionList'] = [];
+                $n1 = 0;
+                foreach ($this->permissionList as $item1) {
+                    $res['PermissionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -46,23 +52,25 @@ class pageResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PermissionList'])) {
             if (!empty($map['PermissionList'])) {
                 $model->permissionList = [];
-                $n = 0;
-                foreach ($map['PermissionList'] as $item) {
-                    $model->permissionList[$n++] = null !== $item ? permissionList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PermissionList'] as $item1) {
+                    $model->permissionList[$n1] = permissionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

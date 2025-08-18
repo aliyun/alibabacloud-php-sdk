@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSubmitRecordsRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSubmitRecordsRequest\listQuery\searchFilter;
-use AlibabaCloud\Tea\Model;
 
 class listQuery extends Model
 {
     /**
-     * @example abc
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description This parameter is required.
-     *
      * @var searchFilter
      */
     public $searchFilter;
@@ -27,32 +23,40 @@ class listQuery extends Model
         'searchFilter' => 'SearchFilter',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->searchFilter) {
+            $this->searchFilter->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->searchFilter) {
-            $res['SearchFilter'] = null !== $this->searchFilter ? $this->searchFilter->toMap() : null;
+            $res['SearchFilter'] = null !== $this->searchFilter ? $this->searchFilter->toArray($noStream) : $this->searchFilter;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listQuery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['SearchFilter'])) {
             $model->searchFilter = searchFilter::fromMap($map['SearchFilter']);
         }

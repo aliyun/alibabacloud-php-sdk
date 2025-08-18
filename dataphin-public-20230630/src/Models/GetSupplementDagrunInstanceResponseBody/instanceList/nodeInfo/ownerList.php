@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunInstanceResponseBody\instanceList\nodeInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ownerList extends Model
 {
     /**
-     * @example 1001012
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example xx测试
-     *
      * @var string
      */
     public $name;
@@ -26,14 +22,18 @@ class ownerList extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -41,17 +41,18 @@ class ownerList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ownerList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

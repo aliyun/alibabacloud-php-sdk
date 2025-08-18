@@ -4,45 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInstanceDownStreamShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $downStreamDepth;
 
     /**
-     * @example PROD
-     *
      * @var string
      */
     public $env;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $instanceGetShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @example SUCCESS
-     *
      * @var string
      */
     public $runStatus;
@@ -54,23 +40,30 @@ class GetInstanceDownStreamShrinkRequest extends Model
         'runStatus' => 'RunStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->downStreamDepth) {
             $res['DownStreamDepth'] = $this->downStreamDepth;
         }
+
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
+
         if (null !== $this->instanceGetShrink) {
             $res['InstanceGet'] = $this->instanceGetShrink;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->runStatus) {
             $res['RunStatus'] = $this->runStatus;
         }
@@ -78,26 +71,30 @@ class GetInstanceDownStreamShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceDownStreamShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownStreamDepth'])) {
             $model->downStreamDepth = $map['DownStreamDepth'];
         }
+
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
+
         if (isset($map['InstanceGet'])) {
             $model->instanceGetShrink = $map['InstanceGet'];
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['RunStatus'])) {
             $model->runStatus = $map['RunStatus'];
         }

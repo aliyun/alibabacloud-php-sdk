@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceApiErrorImpactResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceApiErrorImpactResponseBody\data\errorApiList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceApiErrorImpactResponseBody\data\errorAppList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -24,26 +24,38 @@ class data extends Model
         'errorAppList' => 'ErrorAppList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->errorApiList)) {
+            Model::validateArray($this->errorApiList);
+        }
+        if (\is_array($this->errorAppList)) {
+            Model::validateArray($this->errorAppList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorApiList) {
-            $res['ErrorApiList'] = [];
-            if (null !== $this->errorApiList && \is_array($this->errorApiList)) {
-                $n = 0;
-                foreach ($this->errorApiList as $item) {
-                    $res['ErrorApiList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->errorApiList)) {
+                $res['ErrorApiList'] = [];
+                $n1 = 0;
+                foreach ($this->errorApiList as $item1) {
+                    $res['ErrorApiList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->errorAppList) {
-            $res['ErrorAppList'] = [];
-            if (null !== $this->errorAppList && \is_array($this->errorAppList)) {
-                $n = 0;
-                foreach ($this->errorAppList as $item) {
-                    $res['ErrorAppList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->errorAppList)) {
+                $res['ErrorAppList'] = [];
+                $n1 = 0;
+                foreach ($this->errorAppList as $item1) {
+                    $res['ErrorAppList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,29 +63,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorApiList'])) {
             if (!empty($map['ErrorApiList'])) {
                 $model->errorApiList = [];
-                $n = 0;
-                foreach ($map['ErrorApiList'] as $item) {
-                    $model->errorApiList[$n++] = null !== $item ? errorApiList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ErrorApiList'] as $item1) {
+                    $model->errorApiList[$n1] = errorApiList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ErrorAppList'])) {
             if (!empty($map['ErrorAppList'])) {
                 $model->errorAppList = [];
-                $n = 0;
-                foreach ($map['ErrorAppList'] as $item) {
-                    $model->errorAppList[$n++] = null !== $item ? errorAppList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ErrorAppList'] as $item1) {
+                    $model->errorAppList[$n1] = errorAppList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

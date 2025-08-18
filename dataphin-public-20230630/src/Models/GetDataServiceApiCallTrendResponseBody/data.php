@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceApiCallTrendResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceApiCallTrendResponseBody\data\callErrorImpactTrendList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceApiCallTrendResponseBody\data\callErrorTrendList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -24,26 +24,38 @@ class data extends Model
         'callErrorTrendList' => 'CallErrorTrendList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->callErrorImpactTrendList)) {
+            Model::validateArray($this->callErrorImpactTrendList);
+        }
+        if (\is_array($this->callErrorTrendList)) {
+            Model::validateArray($this->callErrorTrendList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callErrorImpactTrendList) {
-            $res['CallErrorImpactTrendList'] = [];
-            if (null !== $this->callErrorImpactTrendList && \is_array($this->callErrorImpactTrendList)) {
-                $n = 0;
-                foreach ($this->callErrorImpactTrendList as $item) {
-                    $res['CallErrorImpactTrendList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->callErrorImpactTrendList)) {
+                $res['CallErrorImpactTrendList'] = [];
+                $n1 = 0;
+                foreach ($this->callErrorImpactTrendList as $item1) {
+                    $res['CallErrorImpactTrendList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->callErrorTrendList) {
-            $res['CallErrorTrendList'] = [];
-            if (null !== $this->callErrorTrendList && \is_array($this->callErrorTrendList)) {
-                $n = 0;
-                foreach ($this->callErrorTrendList as $item) {
-                    $res['CallErrorTrendList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->callErrorTrendList)) {
+                $res['CallErrorTrendList'] = [];
+                $n1 = 0;
+                foreach ($this->callErrorTrendList as $item1) {
+                    $res['CallErrorTrendList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,29 +63,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallErrorImpactTrendList'])) {
             if (!empty($map['CallErrorImpactTrendList'])) {
                 $model->callErrorImpactTrendList = [];
-                $n = 0;
-                foreach ($map['CallErrorImpactTrendList'] as $item) {
-                    $model->callErrorImpactTrendList[$n++] = null !== $item ? callErrorImpactTrendList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CallErrorImpactTrendList'] as $item1) {
+                    $model->callErrorImpactTrendList[$n1] = callErrorImpactTrendList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['CallErrorTrendList'])) {
             if (!empty($map['CallErrorTrendList'])) {
                 $model->callErrorTrendList = [];
-                $n = 0;
-                foreach ($map['CallErrorTrendList'] as $item) {
-                    $model->callErrorTrendList[$n++] = null !== $item ? callErrorTrendList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CallErrorTrendList'] as $item1) {
+                    $model->callErrorTrendList[$n1] = callErrorTrendList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

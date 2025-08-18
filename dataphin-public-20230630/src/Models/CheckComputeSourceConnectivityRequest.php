@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectivityRequest\checkCommand;
-use AlibabaCloud\Tea\Model;
 
 class CheckComputeSourceConnectivityRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var checkCommand
      */
     public $checkCommand;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
@@ -29,14 +23,21 @@ class CheckComputeSourceConnectivityRequest extends Model
         'opTenantId' => 'OpTenantId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->checkCommand) {
+            $this->checkCommand->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkCommand) {
-            $res['CheckCommand'] = null !== $this->checkCommand ? $this->checkCommand->toMap() : null;
+            $res['CheckCommand'] = null !== $this->checkCommand ? $this->checkCommand->toArray($noStream) : $this->checkCommand;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -44,17 +45,18 @@ class CheckComputeSourceConnectivityRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckComputeSourceConnectivityRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckCommand'])) {
             $model->checkCommand = checkCommand::fromMap($map['CheckCommand']);
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

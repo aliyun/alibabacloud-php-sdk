@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceProjectAddableUsersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userList extends Model
 {
     /**
-     * @example xx@aliyuncs.com
-     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @example 30012011
-     *
      * @var string
      */
     public $userId;
@@ -34,17 +28,22 @@ class userList extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -52,20 +51,22 @@ class userList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

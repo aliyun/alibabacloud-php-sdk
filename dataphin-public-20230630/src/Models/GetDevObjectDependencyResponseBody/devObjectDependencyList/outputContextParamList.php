@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDevObjectDependencyResponseBody\devObjectDependencyList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class outputContextParamList extends Model
 {
     /**
-     * @example v1
-     *
      * @var string
      */
     public $defaultValue;
 
     /**
-     * @example xxtest
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example v1
-     *
      * @var string
      */
     public $key;
@@ -34,17 +28,22 @@ class outputContextParamList extends Model
         'key' => 'Key',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defaultValue) {
             $res['DefaultValue'] = $this->defaultValue;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -52,20 +51,22 @@ class outputContextParamList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return outputContextParamList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultValue'])) {
             $model->defaultValue = $map['DefaultValue'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineNodeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -19,8 +19,6 @@ class data extends Model
     public $errorMessageList;
 
     /**
-     * @example 33749
-     *
      * @var int
      */
     public $pipelineId;
@@ -30,17 +28,42 @@ class data extends Model
         'pipelineId' => 'PipelineId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->errorCodeList)) {
+            Model::validateArray($this->errorCodeList);
+        }
+        if (\is_array($this->errorMessageList)) {
+            Model::validateArray($this->errorMessageList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCodeList) {
-            $res['ErrorCodeList'] = $this->errorCodeList;
+            if (\is_array($this->errorCodeList)) {
+                $res['ErrorCodeList'] = [];
+                $n1 = 0;
+                foreach ($this->errorCodeList as $item1) {
+                    $res['ErrorCodeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->errorMessageList) {
-            $res['ErrorMessageList'] = $this->errorMessageList;
+            if (\is_array($this->errorMessageList)) {
+                $res['ErrorMessageList'] = [];
+                $n1 = 0;
+                foreach ($this->errorMessageList as $item1) {
+                    $res['ErrorMessageList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
@@ -48,24 +71,36 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCodeList'])) {
             if (!empty($map['ErrorCodeList'])) {
-                $model->errorCodeList = $map['ErrorCodeList'];
+                $model->errorCodeList = [];
+                $n1 = 0;
+                foreach ($map['ErrorCodeList'] as $item1) {
+                    $model->errorCodeList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ErrorMessageList'])) {
             if (!empty($map['ErrorMessageList'])) {
-                $model->errorMessageList = $map['ErrorMessageList'];
+                $model->errorMessageList = [];
+                $n1 = 0;
+                foreach ($map['ErrorMessageList'] as $item1) {
+                    $model->errorMessageList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
         }

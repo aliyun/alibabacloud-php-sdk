@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateRowPermissionRequest\updateRowPermissionCommand\rules;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateRowPermissionRequest\updateRowPermissionCommand\rules\userMappingList\accounts;
-use AlibabaCloud\Tea\Model;
 
 class userMappingList extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example PERSONAL
-     *
      * @var string
      */
     public $accountType;
 
     /**
-     * @description This parameter is required.
-     *
      * @var accounts[]
      */
     public $accounts;
@@ -29,20 +23,28 @@ class userMappingList extends Model
         'accounts' => 'Accounts',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->accounts)) {
+            Model::validateArray($this->accounts);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
+
         if (null !== $this->accounts) {
-            $res['Accounts'] = [];
-            if (null !== $this->accounts && \is_array($this->accounts)) {
-                $n = 0;
-                foreach ($this->accounts as $item) {
-                    $res['Accounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->accounts)) {
+                $res['Accounts'] = [];
+                $n1 = 0;
+                foreach ($this->accounts as $item1) {
+                    $res['Accounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class userMappingList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userMappingList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }
+
         if (isset($map['Accounts'])) {
             if (!empty($map['Accounts'])) {
                 $model->accounts = [];
-                $n = 0;
-                foreach ($map['Accounts'] as $item) {
-                    $model->accounts[$n++] = null !== $item ? accounts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Accounts'] as $item1) {
+                    $model->accounts[$n1] = accounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

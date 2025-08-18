@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataSourceDependenciesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dependencyList extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example jytest
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example pipeline
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example pipeline
-     *
      * @var string
      */
     public $typeCode;
@@ -42,20 +34,26 @@ class dependencyList extends Model
         'typeCode' => 'TypeCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->typeCode) {
             $res['TypeCode'] = $this->typeCode;
         }
@@ -63,23 +61,26 @@ class dependencyList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dependencyList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['TypeCode'])) {
             $model->typeCode = $map['TypeCode'];
         }

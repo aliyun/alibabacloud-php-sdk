@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTenantMembersRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class listQuery extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
@@ -48,55 +40,96 @@ class listQuery extends Model
         'userGroupIdList' => 'UserGroupIdList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->roleList)) {
+            Model::validateArray($this->roleList);
+        }
+        if (\is_array($this->userGroupIdList)) {
+            Model::validateArray($this->userGroupIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->roleList) {
-            $res['RoleList'] = $this->roleList;
+            if (\is_array($this->roleList)) {
+                $res['RoleList'] = [];
+                $n1 = 0;
+                foreach ($this->roleList as $item1) {
+                    $res['RoleList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->searchText) {
             $res['SearchText'] = $this->searchText;
         }
+
         if (null !== $this->userGroupIdList) {
-            $res['UserGroupIdList'] = $this->userGroupIdList;
+            if (\is_array($this->userGroupIdList)) {
+                $res['UserGroupIdList'] = [];
+                $n1 = 0;
+                foreach ($this->userGroupIdList as $item1) {
+                    $res['UserGroupIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listQuery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RoleList'])) {
             if (!empty($map['RoleList'])) {
-                $model->roleList = $map['RoleList'];
+                $model->roleList = [];
+                $n1 = 0;
+                foreach ($map['RoleList'] as $item1) {
+                    $model->roleList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SearchText'])) {
             $model->searchText = $map['SearchText'];
         }
+
         if (isset($map['UserGroupIdList'])) {
             if (!empty($map['UserGroupIdList'])) {
-                $model->userGroupIdList = $map['UserGroupIdList'];
+                $model->userGroupIdList = [];
+                $n1 = 0;
+                foreach ($map['UserGroupIdList'] as $item1) {
+                    $model->userGroupIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

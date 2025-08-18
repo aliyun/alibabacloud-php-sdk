@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GrantDataServiceApiRequest\grantCommand;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class devFieldList extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $id;
@@ -18,9 +16,12 @@ class devFieldList extends Model
         'id' => 'Id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
@@ -30,11 +31,11 @@ class devFieldList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return devFieldList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

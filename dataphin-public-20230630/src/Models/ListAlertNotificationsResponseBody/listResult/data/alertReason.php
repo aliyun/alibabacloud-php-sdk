@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsResponseBody\listResult\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsResponseBody\listResult\data\alertReason\alertReasonParamList;
-use AlibabaCloud\Tea\Model;
 
 class alertReason extends Model
 {
@@ -15,22 +15,16 @@ class alertReason extends Model
     public $alertReasonParamList;
 
     /**
-     * @example 20241125
-     *
      * @var string
      */
     public $bizDate;
 
     /**
-     * @example VDM_BATCH_FINISH
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $uniqueKey;
@@ -41,26 +35,36 @@ class alertReason extends Model
         'uniqueKey' => 'UniqueKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->alertReasonParamList)) {
+            Model::validateArray($this->alertReasonParamList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertReasonParamList) {
-            $res['AlertReasonParamList'] = [];
-            if (null !== $this->alertReasonParamList && \is_array($this->alertReasonParamList)) {
-                $n = 0;
-                foreach ($this->alertReasonParamList as $item) {
-                    $res['AlertReasonParamList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alertReasonParamList)) {
+                $res['AlertReasonParamList'] = [];
+                $n1 = 0;
+                foreach ($this->alertReasonParamList as $item1) {
+                    $res['AlertReasonParamList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->bizDate) {
             $res['BizDate'] = $this->bizDate;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->uniqueKey) {
             $res['UniqueKey'] = $this->uniqueKey;
         }
@@ -68,29 +72,33 @@ class alertReason extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return alertReason
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertReasonParamList'])) {
             if (!empty($map['AlertReasonParamList'])) {
                 $model->alertReasonParamList = [];
-                $n = 0;
-                foreach ($map['AlertReasonParamList'] as $item) {
-                    $model->alertReasonParamList[$n++] = null !== $item ? alertReasonParamList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AlertReasonParamList'] as $item1) {
+                    $model->alertReasonParamList[$n1] = alertReasonParamList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['BizDate'])) {
             $model->bizDate = $map['BizDate'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['UniqueKey'])) {
             $model->uniqueKey = $map['UniqueKey'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckDataSourceConnectivityRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckDataSourceConnectivityRequest\checkCommand\configItemList;
-use AlibabaCloud\Tea\Model;
 
 class checkCommand extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var configItemList[]
      */
     public $configItemList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example MAX_COMPUTE
-     *
      * @var string
      */
     public $type;
@@ -29,20 +23,28 @@ class checkCommand extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->configItemList)) {
+            Model::validateArray($this->configItemList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configItemList) {
-            $res['ConfigItemList'] = [];
-            if (null !== $this->configItemList && \is_array($this->configItemList)) {
-                $n = 0;
-                foreach ($this->configItemList as $item) {
-                    $res['ConfigItemList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configItemList)) {
+                $res['ConfigItemList'] = [];
+                $n1 = 0;
+                foreach ($this->configItemList as $item1) {
+                    $res['ConfigItemList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -50,23 +52,25 @@ class checkCommand extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return checkCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigItemList'])) {
             if (!empty($map['ConfigItemList'])) {
                 $model->configItemList = [];
-                $n = 0;
-                foreach ($map['ConfigItemList'] as $item) {
-                    $model->configItemList[$n++] = null !== $item ? configItemList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConfigItemList'] as $item1) {
+                    $model->configItemList[$n1] = configItemList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

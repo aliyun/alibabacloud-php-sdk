@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddDataServiceProjectMemberRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddDataServiceProjectMemberResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddDataServiceProjectMemberShrinkRequest;
@@ -464,11 +463,10 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupSwitchRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupSwitchResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Dataphinpublic extends OpenApiClient
 {
@@ -493,46 +491,56 @@ class Dataphinpublic extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 添加数据服务项目用户并设置角色。
-     *  *
-     * @param AddDataServiceProjectMemberRequest $tmpReq  AddDataServiceProjectMemberRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 添加数据服务项目用户并设置角色。
      *
-     * @return AddDataServiceProjectMemberResponse AddDataServiceProjectMemberResponse
+     * @param tmpReq - AddDataServiceProjectMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDataServiceProjectMemberResponse
+     *
+     * @param AddDataServiceProjectMemberRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AddDataServiceProjectMemberResponse
      */
     public function addDataServiceProjectMemberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddDataServiceProjectMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->addCommand)) {
-            $request->addCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addCommand) {
+            $request->addCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->addCommandShrink)) {
-            $body['AddCommand'] = $request->addCommandShrink;
+        if (null !== $request->addCommandShrink) {
+            @$body['AddCommand'] = $request->addCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddDataServiceProjectMember',
@@ -550,11 +558,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 添加数据服务项目用户并设置角色。
-     *  *
-     * @param AddDataServiceProjectMemberRequest $request AddDataServiceProjectMemberRequest
+     * 添加数据服务项目用户并设置角色。
      *
-     * @return AddDataServiceProjectMemberResponse AddDataServiceProjectMemberResponse
+     * @param request - AddDataServiceProjectMemberRequest
+     *
+     * @returns AddDataServiceProjectMemberResponse
+     *
+     * @param AddDataServiceProjectMemberRequest $request
+     *
+     * @return AddDataServiceProjectMemberResponse
      */
     public function addDataServiceProjectMember($request)
     {
@@ -564,35 +576,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 增加项目成员。
-     *  *
-     * @param AddProjectMemberRequest $tmpReq  AddProjectMemberRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 增加项目成员。
      *
-     * @return AddProjectMemberResponse AddProjectMemberResponse
+     * @param tmpReq - AddProjectMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddProjectMemberResponse
+     *
+     * @param AddProjectMemberRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddProjectMemberResponse
      */
     public function addProjectMemberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddProjectMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->addCommand)) {
-            $request->addCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addCommand) {
+            $request->addCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->addCommandShrink)) {
-            $body['AddCommand'] = $request->addCommandShrink;
+        if (null !== $request->addCommandShrink) {
+            @$body['AddCommand'] = $request->addCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddProjectMember',
@@ -610,11 +631,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 增加项目成员。
-     *  *
-     * @param AddProjectMemberRequest $request AddProjectMemberRequest
+     * 增加项目成员。
      *
-     * @return AddProjectMemberResponse AddProjectMemberResponse
+     * @param request - AddProjectMemberRequest
+     *
+     * @returns AddProjectMemberResponse
+     *
+     * @param AddProjectMemberRequest $request
+     *
+     * @return AddProjectMemberResponse
      */
     public function addProjectMember($request)
     {
@@ -624,32 +649,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 新增租户成员
-     *  *
-     * @param AddTenantMembersRequest $tmpReq  AddTenantMembersRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 新增租户成员.
      *
-     * @return AddTenantMembersResponse AddTenantMembersResponse
+     * @param tmpReq - AddTenantMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddTenantMembersResponse
+     *
+     * @param AddTenantMembersRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddTenantMembersResponse
      */
     public function addTenantMembersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddTenantMembersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->addCommand)) {
-            $request->addCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addCommand) {
+            $request->addCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->addCommandShrink)) {
-            $body['AddCommand'] = $request->addCommandShrink;
+        if (null !== $request->addCommandShrink) {
+            @$body['AddCommand'] = $request->addCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddTenantMembers',
@@ -667,11 +700,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 新增租户成员
-     *  *
-     * @param AddTenantMembersRequest $request AddTenantMembersRequest
+     * 新增租户成员.
      *
-     * @return AddTenantMembersResponse AddTenantMembersResponse
+     * @param request - AddTenantMembersRequest
+     *
+     * @returns AddTenantMembersResponse
+     *
+     * @param AddTenantMembersRequest $request
+     *
+     * @return AddTenantMembersResponse
      */
     public function addTenantMembers($request)
     {
@@ -681,32 +718,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通过原始用户添加租户成员.
-     *  *
-     * @param AddTenantMembersBySourceUserRequest $tmpReq  AddTenantMembersBySourceUserRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 通过原始用户添加租户成员.
      *
-     * @return AddTenantMembersBySourceUserResponse AddTenantMembersBySourceUserResponse
+     * @param tmpReq - AddTenantMembersBySourceUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddTenantMembersBySourceUserResponse
+     *
+     * @param AddTenantMembersBySourceUserRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return AddTenantMembersBySourceUserResponse
      */
     public function addTenantMembersBySourceUserWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddTenantMembersBySourceUserShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->addCommand)) {
-            $request->addCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addCommand) {
+            $request->addCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->addCommandShrink)) {
-            $body['AddCommand'] = $request->addCommandShrink;
+        if (null !== $request->addCommandShrink) {
+            @$body['AddCommand'] = $request->addCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddTenantMembersBySourceUser',
@@ -724,11 +769,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通过原始用户添加租户成员.
-     *  *
-     * @param AddTenantMembersBySourceUserRequest $request AddTenantMembersBySourceUserRequest
+     * 通过原始用户添加租户成员.
      *
-     * @return AddTenantMembersBySourceUserResponse AddTenantMembersBySourceUserResponse
+     * @param request - AddTenantMembersBySourceUserRequest
+     *
+     * @returns AddTenantMembersBySourceUserResponse
+     *
+     * @param AddTenantMembersBySourceUserRequest $request
+     *
+     * @return AddTenantMembersBySourceUserResponse
      */
     public function addTenantMembersBySourceUser($request)
     {
@@ -738,32 +787,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 添加用户组成员.
-     *  *
-     * @param AddUserGroupMemberRequest $tmpReq  AddUserGroupMemberRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 添加用户组成员.
      *
-     * @return AddUserGroupMemberResponse AddUserGroupMemberResponse
+     * @param tmpReq - AddUserGroupMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddUserGroupMemberResponse
+     *
+     * @param AddUserGroupMemberRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddUserGroupMemberResponse
      */
     public function addUserGroupMemberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddUserGroupMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->addCommand)) {
-            $request->addCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addCommand) {
+            $request->addCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->addCommandShrink)) {
-            $body['AddCommand'] = $request->addCommandShrink;
+        if (null !== $request->addCommandShrink) {
+            @$body['AddCommand'] = $request->addCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddUserGroupMember',
@@ -781,11 +838,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 添加用户组成员.
-     *  *
-     * @param AddUserGroupMemberRequest $request AddUserGroupMemberRequest
+     * 添加用户组成员.
      *
-     * @return AddUserGroupMemberResponse AddUserGroupMemberResponse
+     * @param request - AddUserGroupMemberRequest
+     *
+     * @returns AddUserGroupMemberResponse
+     *
+     * @param AddUserGroupMemberRequest $request
+     *
+     * @return AddUserGroupMemberResponse
      */
     public function addUserGroupMember($request)
     {
@@ -795,35 +856,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 申请API权限。
-     *  *
-     * @param ApplyDataServiceApiRequest $tmpReq  ApplyDataServiceApiRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 申请API权限。
      *
-     * @return ApplyDataServiceApiResponse ApplyDataServiceApiResponse
+     * @param tmpReq - ApplyDataServiceApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyDataServiceApiResponse
+     *
+     * @param ApplyDataServiceApiRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ApplyDataServiceApiResponse
      */
     public function applyDataServiceApiWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ApplyDataServiceApiShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->applyCommand)) {
-            $request->applyCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applyCommand, 'ApplyCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->applyCommand) {
+            $request->applyCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applyCommand, 'ApplyCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->applyCommandShrink)) {
-            $body['ApplyCommand'] = $request->applyCommandShrink;
+        if (null !== $request->applyCommandShrink) {
+            @$body['ApplyCommand'] = $request->applyCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ApplyDataServiceApi',
@@ -841,11 +911,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 申请API权限。
-     *  *
-     * @param ApplyDataServiceApiRequest $request ApplyDataServiceApiRequest
+     * 申请API权限。
      *
-     * @return ApplyDataServiceApiResponse ApplyDataServiceApiResponse
+     * @param request - ApplyDataServiceApiRequest
+     *
+     * @returns ApplyDataServiceApiResponse
+     *
+     * @param ApplyDataServiceApiRequest $request
+     *
+     * @return ApplyDataServiceApiResponse
      */
     public function applyDataServiceApi($request)
     {
@@ -855,35 +929,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 申请应用权限。
-     *  *
-     * @param ApplyDataServiceAppRequest $tmpReq  ApplyDataServiceAppRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 申请应用权限。
      *
-     * @return ApplyDataServiceAppResponse ApplyDataServiceAppResponse
+     * @param tmpReq - ApplyDataServiceAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyDataServiceAppResponse
+     *
+     * @param ApplyDataServiceAppRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ApplyDataServiceAppResponse
      */
     public function applyDataServiceAppWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ApplyDataServiceAppShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->applyCommand)) {
-            $request->applyCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applyCommand, 'ApplyCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->applyCommand) {
+            $request->applyCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applyCommand, 'ApplyCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->applyCommandShrink)) {
-            $body['ApplyCommand'] = $request->applyCommandShrink;
+        if (null !== $request->applyCommandShrink) {
+            @$body['ApplyCommand'] = $request->applyCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ApplyDataServiceApp',
@@ -901,11 +984,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 申请应用权限。
-     *  *
-     * @param ApplyDataServiceAppRequest $request ApplyDataServiceAppRequest
+     * 申请应用权限。
      *
-     * @return ApplyDataServiceAppResponse ApplyDataServiceAppResponse
+     * @param request - ApplyDataServiceAppRequest
+     *
+     * @returns ApplyDataServiceAppResponse
+     *
+     * @param ApplyDataServiceAppRequest $request
+     *
+     * @return ApplyDataServiceAppResponse
      */
     public function applyDataServiceApp($request)
     {
@@ -915,32 +1002,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 项目计算源连通性检查。
-     *  *
-     * @param CheckComputeSourceConnectivityRequest $tmpReq  CheckComputeSourceConnectivityRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 项目计算源连通性检查。
      *
-     * @return CheckComputeSourceConnectivityResponse CheckComputeSourceConnectivityResponse
+     * @param tmpReq - CheckComputeSourceConnectivityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckComputeSourceConnectivityResponse
+     *
+     * @param CheckComputeSourceConnectivityRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CheckComputeSourceConnectivityResponse
      */
     public function checkComputeSourceConnectivityWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CheckComputeSourceConnectivityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->checkCommand)) {
-            $request->checkCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->checkCommand, 'CheckCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->checkCommand) {
+            $request->checkCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->checkCommand, 'CheckCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->checkCommandShrink)) {
-            $body['CheckCommand'] = $request->checkCommandShrink;
+        if (null !== $request->checkCommandShrink) {
+            @$body['CheckCommand'] = $request->checkCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CheckComputeSourceConnectivity',
@@ -958,11 +1053,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 项目计算源连通性检查。
-     *  *
-     * @param CheckComputeSourceConnectivityRequest $request CheckComputeSourceConnectivityRequest
+     * 项目计算源连通性检查。
      *
-     * @return CheckComputeSourceConnectivityResponse CheckComputeSourceConnectivityResponse
+     * @param request - CheckComputeSourceConnectivityRequest
+     *
+     * @returns CheckComputeSourceConnectivityResponse
+     *
+     * @param CheckComputeSourceConnectivityRequest $request
+     *
+     * @return CheckComputeSourceConnectivityResponse
      */
     public function checkComputeSourceConnectivity($request)
     {
@@ -972,25 +1071,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 计算源连通性检查。
-     *  *
-     * @param CheckComputeSourceConnectivityByIdRequest $request CheckComputeSourceConnectivityByIdRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * 计算源连通性检查。
      *
-     * @return CheckComputeSourceConnectivityByIdResponse CheckComputeSourceConnectivityByIdResponse
+     * @param request - CheckComputeSourceConnectivityByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckComputeSourceConnectivityByIdResponse
+     *
+     * @param CheckComputeSourceConnectivityByIdRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CheckComputeSourceConnectivityByIdResponse
      */
     public function checkComputeSourceConnectivityByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckComputeSourceConnectivityById',
@@ -1008,11 +1114,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 计算源连通性检查。
-     *  *
-     * @param CheckComputeSourceConnectivityByIdRequest $request CheckComputeSourceConnectivityByIdRequest
+     * 计算源连通性检查。
      *
-     * @return CheckComputeSourceConnectivityByIdResponse CheckComputeSourceConnectivityByIdResponse
+     * @param request - CheckComputeSourceConnectivityByIdRequest
+     *
+     * @returns CheckComputeSourceConnectivityByIdResponse
+     *
+     * @param CheckComputeSourceConnectivityByIdRequest $request
+     *
+     * @return CheckComputeSourceConnectivityByIdResponse
      */
     public function checkComputeSourceConnectivityById($request)
     {
@@ -1022,32 +1132,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 检查数据源连通性
-     *  *
-     * @param CheckDataSourceConnectivityRequest $tmpReq  CheckDataSourceConnectivityRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 检查数据源连通性.
      *
-     * @return CheckDataSourceConnectivityResponse CheckDataSourceConnectivityResponse
+     * @param tmpReq - CheckDataSourceConnectivityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckDataSourceConnectivityResponse
+     *
+     * @param CheckDataSourceConnectivityRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CheckDataSourceConnectivityResponse
      */
     public function checkDataSourceConnectivityWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CheckDataSourceConnectivityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->checkCommand)) {
-            $request->checkCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->checkCommand, 'CheckCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->checkCommand) {
+            $request->checkCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->checkCommand, 'CheckCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->checkCommandShrink)) {
-            $body['CheckCommand'] = $request->checkCommandShrink;
+        if (null !== $request->checkCommandShrink) {
+            @$body['CheckCommand'] = $request->checkCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CheckDataSourceConnectivity',
@@ -1065,11 +1183,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 检查数据源连通性
-     *  *
-     * @param CheckDataSourceConnectivityRequest $request CheckDataSourceConnectivityRequest
+     * 检查数据源连通性.
      *
-     * @return CheckDataSourceConnectivityResponse CheckDataSourceConnectivityResponse
+     * @param request - CheckDataSourceConnectivityRequest
+     *
+     * @returns CheckDataSourceConnectivityResponse
+     *
+     * @param CheckDataSourceConnectivityRequest $request
+     *
+     * @return CheckDataSourceConnectivityResponse
      */
     public function checkDataSourceConnectivity($request)
     {
@@ -1079,25 +1201,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 检查已创建的数据源是否正常连通
-     *  *
-     * @param CheckDataSourceConnectivityByIdRequest $request CheckDataSourceConnectivityByIdRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 检查已创建的数据源是否正常连通.
      *
-     * @return CheckDataSourceConnectivityByIdResponse CheckDataSourceConnectivityByIdResponse
+     * @param request - CheckDataSourceConnectivityByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckDataSourceConnectivityByIdResponse
+     *
+     * @param CheckDataSourceConnectivityByIdRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CheckDataSourceConnectivityByIdResponse
      */
     public function checkDataSourceConnectivityByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckDataSourceConnectivityById',
@@ -1115,11 +1244,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 检查已创建的数据源是否正常连通
-     *  *
-     * @param CheckDataSourceConnectivityByIdRequest $request CheckDataSourceConnectivityByIdRequest
+     * 检查已创建的数据源是否正常连通.
      *
-     * @return CheckDataSourceConnectivityByIdResponse CheckDataSourceConnectivityByIdResponse
+     * @param request - CheckDataSourceConnectivityByIdRequest
+     *
+     * @returns CheckDataSourceConnectivityByIdResponse
+     *
+     * @param CheckDataSourceConnectivityByIdRequest $request
+     *
+     * @return CheckDataSourceConnectivityByIdResponse
      */
     public function checkDataSourceConnectivityById($request)
     {
@@ -1129,25 +1262,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 检查项目是否存在依赖。
-     *  *
-     * @param CheckProjectHasDependencyRequest $request CheckProjectHasDependencyRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 检查项目是否存在依赖。
      *
-     * @return CheckProjectHasDependencyResponse CheckProjectHasDependencyResponse
+     * @param request - CheckProjectHasDependencyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckProjectHasDependencyResponse
+     *
+     * @param CheckProjectHasDependencyRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CheckProjectHasDependencyResponse
      */
     public function checkProjectHasDependencyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckProjectHasDependency',
@@ -1165,11 +1305,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 检查项目是否存在依赖。
-     *  *
-     * @param CheckProjectHasDependencyRequest $request CheckProjectHasDependencyRequest
+     * 检查项目是否存在依赖。
      *
-     * @return CheckProjectHasDependencyResponse CheckProjectHasDependencyResponse
+     * @param request - CheckProjectHasDependencyRequest
+     *
+     * @returns CheckProjectHasDependencyResponse
+     *
+     * @param CheckProjectHasDependencyRequest $request
+     *
+     * @return CheckProjectHasDependencyResponse
      */
     public function checkProjectHasDependency($request)
     {
@@ -1179,32 +1323,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 校验用户是否有指定资源权限点.
-     *  *
-     * @param CheckResourcePermissionRequest $tmpReq  CheckResourcePermissionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 校验用户是否有指定资源权限点.
      *
-     * @return CheckResourcePermissionResponse CheckResourcePermissionResponse
+     * @param tmpReq - CheckResourcePermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckResourcePermissionResponse
+     *
+     * @param CheckResourcePermissionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CheckResourcePermissionResponse
      */
     public function checkResourcePermissionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CheckResourcePermissionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->checkCommand)) {
-            $request->checkCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->checkCommand, 'CheckCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->checkCommand) {
+            $request->checkCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->checkCommand, 'CheckCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->checkCommandShrink)) {
-            $body['CheckCommand'] = $request->checkCommandShrink;
+        if (null !== $request->checkCommandShrink) {
+            @$body['CheckCommand'] = $request->checkCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CheckResourcePermission',
@@ -1222,11 +1374,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 校验用户是否有指定资源权限点.
-     *  *
-     * @param CheckResourcePermissionRequest $request CheckResourcePermissionRequest
+     * 校验用户是否有指定资源权限点.
      *
-     * @return CheckResourcePermissionResponse CheckResourcePermissionResponse
+     * @param request - CheckResourcePermissionRequest
+     *
+     * @returns CheckResourcePermissionResponse
+     *
+     * @param CheckResourcePermissionRequest $request
+     *
+     * @return CheckResourcePermissionResponse
      */
     public function checkResourcePermission($request)
     {
@@ -1236,32 +1392,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建即席查询文件
-     *  *
-     * @param CreateAdHocFileRequest $tmpReq  CreateAdHocFileRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建即席查询文件.
      *
-     * @return CreateAdHocFileResponse CreateAdHocFileResponse
+     * @param tmpReq - CreateAdHocFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAdHocFileResponse
+     *
+     * @param CreateAdHocFileRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateAdHocFileResponse
      */
     public function createAdHocFileWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateAdHocFileShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateAdHocFile',
@@ -1279,11 +1443,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建即席查询文件
-     *  *
-     * @param CreateAdHocFileRequest $request CreateAdHocFileRequest
+     * 创建即席查询文件.
      *
-     * @return CreateAdHocFileResponse CreateAdHocFileResponse
+     * @param request - CreateAdHocFileRequest
+     *
+     * @returns CreateAdHocFileResponse
+     *
+     * @param CreateAdHocFileRequest $request
+     *
+     * @return CreateAdHocFileResponse
      */
     public function createAdHocFile($request)
     {
@@ -1293,32 +1461,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建离线计算任务。
-     *  *
-     * @param CreateBatchTaskRequest $tmpReq  CreateBatchTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建离线计算任务。
      *
-     * @return CreateBatchTaskResponse CreateBatchTaskResponse
+     * @param tmpReq - CreateBatchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBatchTaskResponse
+     *
+     * @param CreateBatchTaskRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateBatchTaskResponse
      */
     public function createBatchTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateBatchTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateBatchTask',
@@ -1336,11 +1512,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建离线计算任务。
-     *  *
-     * @param CreateBatchTaskRequest $request CreateBatchTaskRequest
+     * 创建离线计算任务。
      *
-     * @return CreateBatchTaskResponse CreateBatchTaskResponse
+     * @param request - CreateBatchTaskRequest
+     *
+     * @returns CreateBatchTaskResponse
+     *
+     * @param CreateBatchTaskRequest $request
+     *
+     * @return CreateBatchTaskResponse
      */
     public function createBatchTask($request)
     {
@@ -1350,32 +1530,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建业务实体。
-     *  *
-     * @param CreateBizEntityRequest $tmpReq  CreateBizEntityRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建业务实体。
      *
-     * @return CreateBizEntityResponse CreateBizEntityResponse
+     * @param tmpReq - CreateBizEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBizEntityResponse
+     *
+     * @param CreateBizEntityRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateBizEntityResponse
      */
     public function createBizEntityWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateBizEntityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateBizEntity',
@@ -1393,11 +1581,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建业务实体。
-     *  *
-     * @param CreateBizEntityRequest $request CreateBizEntityRequest
+     * 创建业务实体。
      *
-     * @return CreateBizEntityResponse CreateBizEntityResponse
+     * @param request - CreateBizEntityRequest
+     *
+     * @returns CreateBizEntityResponse
+     *
+     * @param CreateBizEntityRequest $request
+     *
+     * @return CreateBizEntityResponse
      */
     public function createBizEntity($request)
     {
@@ -1407,32 +1599,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建数据板块。
-     *  *
-     * @param CreateBizUnitRequest $tmpReq  CreateBizUnitRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 创建数据板块。
      *
-     * @return CreateBizUnitResponse CreateBizUnitResponse
+     * @param tmpReq - CreateBizUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBizUnitResponse
+     *
+     * @param CreateBizUnitRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateBizUnitResponse
      */
     public function createBizUnitWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateBizUnitShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateBizUnit',
@@ -1450,11 +1650,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建数据板块。
-     *  *
-     * @param CreateBizUnitRequest $request CreateBizUnitRequest
+     * 创建数据板块。
      *
-     * @return CreateBizUnitResponse CreateBizUnitResponse
+     * @param request - CreateBizUnitRequest
+     *
+     * @returns CreateBizUnitResponse
+     *
+     * @param CreateBizUnitRequest $request
+     *
+     * @return CreateBizUnitResponse
      */
     public function createBizUnit($request)
     {
@@ -1464,32 +1668,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建计算源。
-     *  *
-     * @param CreateComputeSourceRequest $tmpReq  CreateComputeSourceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 创建计算源。
      *
-     * @return CreateComputeSourceResponse CreateComputeSourceResponse
+     * @param tmpReq - CreateComputeSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateComputeSourceResponse
+     *
+     * @param CreateComputeSourceRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateComputeSourceResponse
      */
     public function createComputeSourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateComputeSourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateComputeSource',
@@ -1507,11 +1719,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建计算源。
-     *  *
-     * @param CreateComputeSourceRequest $request CreateComputeSourceRequest
+     * 创建计算源。
      *
-     * @return CreateComputeSourceResponse CreateComputeSourceResponse
+     * @param request - CreateComputeSourceRequest
+     *
+     * @returns CreateComputeSourceResponse
+     *
+     * @param CreateComputeSourceRequest $request
+     *
+     * @return CreateComputeSourceResponse
      */
     public function createComputeSource($request)
     {
@@ -1521,32 +1737,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建主题域。
-     *  *
-     * @param CreateDataDomainRequest $tmpReq  CreateDataDomainRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 创建主题域。
      *
-     * @return CreateDataDomainResponse CreateDataDomainResponse
+     * @param tmpReq - CreateDataDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataDomainResponse
+     *
+     * @param CreateDataDomainRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDataDomainResponse
      */
     public function createDataDomainWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataDomainShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDataDomain',
@@ -1564,11 +1788,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建主题域。
-     *  *
-     * @param CreateDataDomainRequest $request CreateDataDomainRequest
+     * 创建主题域。
      *
-     * @return CreateDataDomainResponse CreateDataDomainResponse
+     * @param request - CreateDataDomainRequest
+     *
+     * @returns CreateDataDomainResponse
+     *
+     * @param CreateDataDomainRequest $request
+     *
+     * @return CreateDataDomainResponse
      */
     public function createDataDomain($request)
     {
@@ -1578,32 +1806,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建新的数据服务API并提交。
-     *  *
-     * @param CreateDataServiceApiRequest $tmpReq  CreateDataServiceApiRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 创建新的数据服务API并提交。
      *
-     * @return CreateDataServiceApiResponse CreateDataServiceApiResponse
+     * @param tmpReq - CreateDataServiceApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataServiceApiResponse
+     *
+     * @param CreateDataServiceApiRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDataServiceApiResponse
      */
     public function createDataServiceApiWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataServiceApiShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDataServiceApi',
@@ -1621,11 +1857,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建新的数据服务API并提交。
-     *  *
-     * @param CreateDataServiceApiRequest $request CreateDataServiceApiRequest
+     * 创建新的数据服务API并提交。
      *
-     * @return CreateDataServiceApiResponse CreateDataServiceApiResponse
+     * @param request - CreateDataServiceApiRequest
+     *
+     * @returns CreateDataServiceApiResponse
+     *
+     * @param CreateDataServiceApiRequest $request
+     *
+     * @return CreateDataServiceApiResponse
      */
     public function createDataServiceApi($request)
     {
@@ -1635,32 +1875,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 新建数据源
-     *  *
-     * @param CreateDataSourceRequest $tmpReq  CreateDataSourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 新建数据源.
      *
-     * @return CreateDataSourceResponse CreateDataSourceResponse
+     * @param tmpReq - CreateDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataSourceResponse
+     *
+     * @param CreateDataSourceRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDataSourceResponse
      */
     public function createDataSourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataSourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDataSource',
@@ -1678,11 +1926,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 新建数据源
-     *  *
-     * @param CreateDataSourceRequest $request CreateDataSourceRequest
+     * 新建数据源.
      *
-     * @return CreateDataSourceResponse CreateDataSourceResponse
+     * @param request - CreateDataSourceRequest
+     *
+     * @returns CreateDataSourceResponse
+     *
+     * @param CreateDataSourceRequest $request
+     *
+     * @return CreateDataSourceResponse
      */
     public function createDataSource($request)
     {
@@ -1692,32 +1944,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建菜单树文件目录
-     *  *
-     * @param CreateDirectoryRequest $tmpReq  CreateDirectoryRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建菜单树文件目录.
      *
-     * @return CreateDirectoryResponse CreateDirectoryResponse
+     * @param tmpReq - CreateDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDirectoryResponse
+     *
+     * @param CreateDirectoryRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateDirectoryResponse
      */
     public function createDirectoryWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDirectoryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDirectory',
@@ -1735,11 +1995,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建菜单树文件目录
-     *  *
-     * @param CreateDirectoryRequest $request CreateDirectoryRequest
+     * 创建菜单树文件目录.
      *
-     * @return CreateDirectoryResponse CreateDirectoryResponse
+     * @param request - CreateDirectoryRequest
+     *
+     * @returns CreateDirectoryResponse
+     *
+     * @param CreateDirectoryRequest $request
+     *
+     * @return CreateDirectoryResponse
      */
     public function createDirectory($request)
     {
@@ -1749,35 +2013,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通用补数据接口 1.会生成补数据实例运行：影响相关产产出表数据 2.会进行任务运行：造成计算的费用以及存储的费用
-     *  *
-     * @param CreateNodeSupplementRequest $tmpReq  CreateNodeSupplementRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 通用补数据接口 1.会生成补数据实例运行：影响相关产产出表数据 2.会进行任务运行：造成计算的费用以及存储的费用.
      *
-     * @return CreateNodeSupplementResponse CreateNodeSupplementResponse
+     * @param tmpReq - CreateNodeSupplementRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNodeSupplementResponse
+     *
+     * @param CreateNodeSupplementRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateNodeSupplementResponse
      */
     public function createNodeSupplementWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateNodeSupplementShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateNodeSupplement',
@@ -1795,11 +2068,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通用补数据接口 1.会生成补数据实例运行：影响相关产产出表数据 2.会进行任务运行：造成计算的费用以及存储的费用
-     *  *
-     * @param CreateNodeSupplementRequest $request CreateNodeSupplementRequest
+     * 通用补数据接口 1.会生成补数据实例运行：影响相关产产出表数据 2.会进行任务运行：造成计算的费用以及存储的费用.
      *
-     * @return CreateNodeSupplementResponse CreateNodeSupplementResponse
+     * @param request - CreateNodeSupplementRequest
+     *
+     * @returns CreateNodeSupplementResponse
+     *
+     * @param CreateNodeSupplementRequest $request
+     *
+     * @return CreateNodeSupplementResponse
      */
     public function createNodeSupplement($request)
     {
@@ -1809,32 +2086,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建数据集成任务。
-     *  *
-     * @param CreatePipelineNodeRequest $tmpReq  CreatePipelineNodeRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 创建数据集成任务。
      *
-     * @return CreatePipelineNodeResponse CreatePipelineNodeResponse
+     * @param tmpReq - CreatePipelineNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePipelineNodeResponse
+     *
+     * @param CreatePipelineNodeRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreatePipelineNodeResponse
      */
     public function createPipelineNodeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePipelineNodeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createPipelineNodeCommand)) {
-            $request->createPipelineNodeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createPipelineNodeCommand, 'CreatePipelineNodeCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createPipelineNodeCommand) {
+            $request->createPipelineNodeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createPipelineNodeCommand, 'CreatePipelineNodeCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createPipelineNodeCommandShrink)) {
-            $body['CreatePipelineNodeCommand'] = $request->createPipelineNodeCommandShrink;
+        if (null !== $request->createPipelineNodeCommandShrink) {
+            @$body['CreatePipelineNodeCommand'] = $request->createPipelineNodeCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreatePipelineNode',
@@ -1852,11 +2137,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建数据集成任务。
-     *  *
-     * @param CreatePipelineNodeRequest $request CreatePipelineNodeRequest
+     * 创建数据集成任务。
      *
-     * @return CreatePipelineNodeResponse CreatePipelineNodeResponse
+     * @param request - CreatePipelineNodeRequest
+     *
+     * @returns CreatePipelineNodeResponse
+     *
+     * @param CreatePipelineNodeRequest $request
+     *
+     * @return CreatePipelineNodeResponse
      */
     public function createPipelineNode($request)
     {
@@ -1866,32 +2155,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建资源文件。
-     *  *
-     * @param CreateResourceRequest $tmpReq  CreateResourceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 创建资源文件。
      *
-     * @return CreateResourceResponse CreateResourceResponse
+     * @param tmpReq - CreateResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResourceResponse
+     *
+     * @param CreateResourceRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateResourceResponse
      */
     public function createResourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateResourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateResource',
@@ -1909,11 +2206,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建资源文件。
-     *  *
-     * @param CreateResourceRequest $request CreateResourceRequest
+     * 创建资源文件。
      *
-     * @return CreateResourceResponse CreateResourceResponse
+     * @param request - CreateResourceRequest
+     *
+     * @returns CreateResourceResponse
+     *
+     * @param CreateResourceRequest $request
+     *
+     * @return CreateResourceResponse
      */
     public function createResource($request)
     {
@@ -1923,32 +2224,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建行级权限
-     *  *
-     * @param CreateRowPermissionRequest $tmpReq  CreateRowPermissionRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 创建行级权限.
      *
-     * @return CreateRowPermissionResponse CreateRowPermissionResponse
+     * @param tmpReq - CreateRowPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRowPermissionResponse
+     *
+     * @param CreateRowPermissionRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateRowPermissionResponse
      */
     public function createRowPermissionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateRowPermissionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createRowPermissionCommand)) {
-            $request->createRowPermissionCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createRowPermissionCommand, 'CreateRowPermissionCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createRowPermissionCommand) {
+            $request->createRowPermissionCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createRowPermissionCommand, 'CreateRowPermissionCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createRowPermissionCommandShrink)) {
-            $body['CreateRowPermissionCommand'] = $request->createRowPermissionCommandShrink;
+        if (null !== $request->createRowPermissionCommandShrink) {
+            @$body['CreateRowPermissionCommand'] = $request->createRowPermissionCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateRowPermission',
@@ -1966,11 +2275,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建行级权限
-     *  *
-     * @param CreateRowPermissionRequest $request CreateRowPermissionRequest
+     * 创建行级权限.
      *
-     * @return CreateRowPermissionResponse CreateRowPermissionResponse
+     * @param request - CreateRowPermissionRequest
+     *
+     * @returns CreateRowPermissionResponse
+     *
+     * @param CreateRowPermissionRequest $request
+     *
+     * @return CreateRowPermissionResponse
      */
     public function createRowPermission($request)
     {
@@ -1980,32 +2293,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建流批一体任务
-     *  *
-     * @param CreateStreamBatchJobMappingRequest $tmpReq  CreateStreamBatchJobMappingRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 创建流批一体任务
      *
-     * @return CreateStreamBatchJobMappingResponse CreateStreamBatchJobMappingResponse
+     * @param tmpReq - CreateStreamBatchJobMappingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStreamBatchJobMappingResponse
+     *
+     * @param CreateStreamBatchJobMappingRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateStreamBatchJobMappingResponse
      */
     public function createStreamBatchJobMappingWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateStreamBatchJobMappingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->streamBatchJobMappingCreateCommand)) {
-            $request->streamBatchJobMappingCreateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->streamBatchJobMappingCreateCommand, 'StreamBatchJobMappingCreateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->streamBatchJobMappingCreateCommand) {
+            $request->streamBatchJobMappingCreateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->streamBatchJobMappingCreateCommand, 'StreamBatchJobMappingCreateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->streamBatchJobMappingCreateCommandShrink)) {
-            $body['StreamBatchJobMappingCreateCommand'] = $request->streamBatchJobMappingCreateCommandShrink;
+        if (null !== $request->streamBatchJobMappingCreateCommandShrink) {
+            @$body['StreamBatchJobMappingCreateCommand'] = $request->streamBatchJobMappingCreateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateStreamBatchJobMapping',
@@ -2023,11 +2344,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建流批一体任务
-     *  *
-     * @param CreateStreamBatchJobMappingRequest $request CreateStreamBatchJobMappingRequest
+     * 创建流批一体任务
      *
-     * @return CreateStreamBatchJobMappingResponse CreateStreamBatchJobMappingResponse
+     * @param request - CreateStreamBatchJobMappingRequest
+     *
+     * @returns CreateStreamBatchJobMappingResponse
+     *
+     * @param CreateStreamBatchJobMappingRequest $request
+     *
+     * @return CreateStreamBatchJobMappingResponse
      */
     public function createStreamBatchJobMapping($request)
     {
@@ -2037,32 +2362,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建自定义函数。
-     *  *
-     * @param CreateUdfRequest $tmpReq  CreateUdfRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 创建自定义函数。
      *
-     * @return CreateUdfResponse CreateUdfResponse
+     * @param tmpReq - CreateUdfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUdfResponse
+     *
+     * @param CreateUdfRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateUdfResponse
      */
     public function createUdfWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateUdfShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateUdf',
@@ -2080,11 +2413,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建自定义函数。
-     *  *
-     * @param CreateUdfRequest $request CreateUdfRequest
+     * 创建自定义函数。
      *
-     * @return CreateUdfResponse CreateUdfResponse
+     * @param request - CreateUdfRequest
+     *
+     * @returns CreateUdfResponse
+     *
+     * @param CreateUdfRequest $request
+     *
+     * @return CreateUdfResponse
      */
     public function createUdf($request)
     {
@@ -2094,32 +2431,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 新建用户组.
-     *  *
-     * @param CreateUserGroupRequest $tmpReq  CreateUserGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 新建用户组.
      *
-     * @return CreateUserGroupResponse CreateUserGroupResponse
+     * @param tmpReq - CreateUserGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserGroupResponse
+     *
+     * @param CreateUserGroupRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateUserGroupResponse
      */
     public function createUserGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateUserGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateUserGroup',
@@ -2137,11 +2482,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 新建用户组.
-     *  *
-     * @param CreateUserGroupRequest $request CreateUserGroupRequest
+     * 新建用户组.
      *
-     * @return CreateUserGroupResponse CreateUserGroupResponse
+     * @param request - CreateUserGroupRequest
+     *
+     * @returns CreateUserGroupResponse
+     *
+     * @param CreateUserGroupRequest $request
+     *
+     * @return CreateUserGroupResponse
      */
     public function createUserGroup($request)
     {
@@ -2151,28 +2500,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除菜单树即席查询文件
-     *  *
-     * @param DeleteAdHocFileRequest $request DeleteAdHocFileRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 删除菜单树即席查询文件.
      *
-     * @return DeleteAdHocFileResponse DeleteAdHocFileResponse
+     * @param request - DeleteAdHocFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAdHocFileResponse
+     *
+     * @param DeleteAdHocFileRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteAdHocFileResponse
      */
     public function deleteAdHocFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAdHocFile',
@@ -2190,11 +2547,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除菜单树即席查询文件
-     *  *
-     * @param DeleteAdHocFileRequest $request DeleteAdHocFileRequest
+     * 删除菜单树即席查询文件.
      *
-     * @return DeleteAdHocFileResponse DeleteAdHocFileResponse
+     * @param request - DeleteAdHocFileRequest
+     *
+     * @returns DeleteAdHocFileResponse
+     *
+     * @param DeleteAdHocFileRequest $request
+     *
+     * @return DeleteAdHocFileResponse
      */
     public function deleteAdHocFile($request)
     {
@@ -2204,32 +2565,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除离线计算任务，如果任务还没下线需要先下线再删除。
-     *  *
-     * @param DeleteBatchTaskRequest $tmpReq  DeleteBatchTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 删除离线计算任务，如果任务还没下线需要先下线再删除。
      *
-     * @return DeleteBatchTaskResponse DeleteBatchTaskResponse
+     * @param tmpReq - DeleteBatchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBatchTaskResponse
+     *
+     * @param DeleteBatchTaskRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteBatchTaskResponse
      */
     public function deleteBatchTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteBatchTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deleteCommand)) {
-            $request->deleteCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deleteCommandShrink)) {
-            $body['DeleteCommand'] = $request->deleteCommandShrink;
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteBatchTask',
@@ -2247,11 +2616,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除离线计算任务，如果任务还没下线需要先下线再删除。
-     *  *
-     * @param DeleteBatchTaskRequest $request DeleteBatchTaskRequest
+     * 删除离线计算任务，如果任务还没下线需要先下线再删除。
      *
-     * @return DeleteBatchTaskResponse DeleteBatchTaskResponse
+     * @param request - DeleteBatchTaskRequest
+     *
+     * @returns DeleteBatchTaskResponse
+     *
+     * @param DeleteBatchTaskRequest $request
+     *
+     * @return DeleteBatchTaskResponse
      */
     public function deleteBatchTask($request)
     {
@@ -2261,31 +2634,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除业务实体。
-     *  *
-     * @param DeleteBizEntityRequest $request DeleteBizEntityRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 删除业务实体。
      *
-     * @return DeleteBizEntityResponse DeleteBizEntityResponse
+     * @param request - DeleteBizEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBizEntityResponse
+     *
+     * @param DeleteBizEntityRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteBizEntityResponse
      */
     public function deleteBizEntityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizUnitId)) {
-            $query['BizUnitId'] = $request->bizUnitId;
+        if (null !== $request->bizUnitId) {
+            @$query['BizUnitId'] = $request->bizUnitId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteBizEntity',
@@ -2303,11 +2685,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除业务实体。
-     *  *
-     * @param DeleteBizEntityRequest $request DeleteBizEntityRequest
+     * 删除业务实体。
      *
-     * @return DeleteBizEntityResponse DeleteBizEntityResponse
+     * @param request - DeleteBizEntityRequest
+     *
+     * @returns DeleteBizEntityResponse
+     *
+     * @param DeleteBizEntityRequest $request
+     *
+     * @return DeleteBizEntityResponse
      */
     public function deleteBizEntity($request)
     {
@@ -2317,25 +2703,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除数据板块。
-     *  *
-     * @param DeleteBizUnitRequest $request DeleteBizUnitRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 删除数据板块。
      *
-     * @return DeleteBizUnitResponse DeleteBizUnitResponse
+     * @param request - DeleteBizUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBizUnitResponse
+     *
+     * @param DeleteBizUnitRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteBizUnitResponse
      */
     public function deleteBizUnitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteBizUnit',
@@ -2353,11 +2746,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除数据板块。
-     *  *
-     * @param DeleteBizUnitRequest $request DeleteBizUnitRequest
+     * 删除数据板块。
      *
-     * @return DeleteBizUnitResponse DeleteBizUnitResponse
+     * @param request - DeleteBizUnitRequest
+     *
+     * @returns DeleteBizUnitResponse
+     *
+     * @param DeleteBizUnitRequest $request
+     *
+     * @return DeleteBizUnitResponse
      */
     public function deleteBizUnit($request)
     {
@@ -2367,25 +2764,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除计算源。
-     *  *
-     * @param DeleteComputeSourceRequest $request DeleteComputeSourceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 删除计算源。
      *
-     * @return DeleteComputeSourceResponse DeleteComputeSourceResponse
+     * @param request - DeleteComputeSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteComputeSourceResponse
+     *
+     * @param DeleteComputeSourceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteComputeSourceResponse
      */
     public function deleteComputeSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteComputeSource',
@@ -2403,11 +2807,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除计算源。
-     *  *
-     * @param DeleteComputeSourceRequest $request DeleteComputeSourceRequest
+     * 删除计算源。
      *
-     * @return DeleteComputeSourceResponse DeleteComputeSourceResponse
+     * @param request - DeleteComputeSourceRequest
+     *
+     * @returns DeleteComputeSourceResponse
+     *
+     * @param DeleteComputeSourceRequest $request
+     *
+     * @return DeleteComputeSourceResponse
      */
     public function deleteComputeSource($request)
     {
@@ -2417,28 +2825,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除主题域。
-     *  *
-     * @param DeleteDataDomainRequest $request DeleteDataDomainRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除主题域。
      *
-     * @return DeleteDataDomainResponse DeleteDataDomainResponse
+     * @param request - DeleteDataDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataDomainResponse
+     *
+     * @param DeleteDataDomainRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDataDomainResponse
      */
     public function deleteDataDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizUnitId)) {
-            $query['BizUnitId'] = $request->bizUnitId;
+        if (null !== $request->bizUnitId) {
+            @$query['BizUnitId'] = $request->bizUnitId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDataDomain',
@@ -2456,11 +2872,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除主题域。
-     *  *
-     * @param DeleteDataDomainRequest $request DeleteDataDomainRequest
+     * 删除主题域。
      *
-     * @return DeleteDataDomainResponse DeleteDataDomainResponse
+     * @param request - DeleteDataDomainRequest
+     *
+     * @returns DeleteDataDomainResponse
+     *
+     * @param DeleteDataDomainRequest $request
+     *
+     * @return DeleteDataDomainResponse
      */
     public function deleteDataDomain($request)
     {
@@ -2470,32 +2890,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除数据源
-     *  *
-     * @param DeleteDataSourceRequest $tmpReq  DeleteDataSourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除数据源.
      *
-     * @return DeleteDataSourceResponse DeleteDataSourceResponse
+     * @param tmpReq - DeleteDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataSourceResponse
+     *
+     * @param DeleteDataSourceRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDataSourceResponse
      */
     public function deleteDataSourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteDataSourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deleteCommand)) {
-            $request->deleteCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deleteCommandShrink)) {
-            $body['DeleteCommand'] = $request->deleteCommandShrink;
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteDataSource',
@@ -2513,11 +2941,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除数据源
-     *  *
-     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
+     * 删除数据源.
      *
-     * @return DeleteDataSourceResponse DeleteDataSourceResponse
+     * @param request - DeleteDataSourceRequest
+     *
+     * @returns DeleteDataSourceResponse
+     *
+     * @param DeleteDataSourceRequest $request
+     *
+     * @return DeleteDataSourceResponse
      */
     public function deleteDataSource($request)
     {
@@ -2527,28 +2959,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除菜单树文件目录
-     *  *
-     * @param DeleteDirectoryRequest $request DeleteDirectoryRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 删除菜单树文件目录.
      *
-     * @return DeleteDirectoryResponse DeleteDirectoryResponse
+     * @param request - DeleteDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDirectoryResponse
+     *
+     * @param DeleteDirectoryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteDirectoryResponse
      */
     public function deleteDirectoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDirectory',
@@ -2566,11 +3006,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除菜单树文件目录
-     *  *
-     * @param DeleteDirectoryRequest $request DeleteDirectoryRequest
+     * 删除菜单树文件目录.
      *
-     * @return DeleteDirectoryResponse DeleteDirectoryResponse
+     * @param request - DeleteDirectoryRequest
+     *
+     * @returns DeleteDirectoryResponse
+     *
+     * @param DeleteDirectoryRequest $request
+     *
+     * @return DeleteDirectoryResponse
      */
     public function deleteDirectory($request)
     {
@@ -2580,31 +3024,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除资源文件。
-     *  *
-     * @param DeleteResourceRequest $request DeleteResourceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 删除资源文件。
      *
-     * @return DeleteResourceResponse DeleteResourceResponse
+     * @param request - DeleteResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResourceResponse
+     *
+     * @param DeleteResourceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteResourceResponse
      */
     public function deleteResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteResource',
@@ -2622,11 +3075,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除资源文件。
-     *  *
-     * @param DeleteResourceRequest $request DeleteResourceRequest
+     * 删除资源文件。
      *
-     * @return DeleteResourceResponse DeleteResourceResponse
+     * @param request - DeleteResourceRequest
+     *
+     * @returns DeleteResourceResponse
+     *
+     * @param DeleteResourceRequest $request
+     *
+     * @return DeleteResourceResponse
      */
     public function deleteResource($request)
     {
@@ -2636,32 +3093,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除行级权限
-     *  *
-     * @param DeleteRowPermissionRequest $tmpReq  DeleteRowPermissionRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 删除行级权限.
      *
-     * @return DeleteRowPermissionResponse DeleteRowPermissionResponse
+     * @param tmpReq - DeleteRowPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRowPermissionResponse
+     *
+     * @param DeleteRowPermissionRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteRowPermissionResponse
      */
     public function deleteRowPermissionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteRowPermissionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deleteRowPermissionCommand)) {
-            $request->deleteRowPermissionCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deleteRowPermissionCommand, 'DeleteRowPermissionCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteRowPermissionCommand) {
+            $request->deleteRowPermissionCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteRowPermissionCommand, 'DeleteRowPermissionCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deleteRowPermissionCommandShrink)) {
-            $body['DeleteRowPermissionCommand'] = $request->deleteRowPermissionCommandShrink;
+        if (null !== $request->deleteRowPermissionCommandShrink) {
+            @$body['DeleteRowPermissionCommand'] = $request->deleteRowPermissionCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteRowPermission',
@@ -2679,11 +3144,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除行级权限
-     *  *
-     * @param DeleteRowPermissionRequest $request DeleteRowPermissionRequest
+     * 删除行级权限.
      *
-     * @return DeleteRowPermissionResponse DeleteRowPermissionResponse
+     * @param request - DeleteRowPermissionRequest
+     *
+     * @returns DeleteRowPermissionResponse
+     *
+     * @param DeleteRowPermissionRequest $request
+     *
+     * @return DeleteRowPermissionResponse
      */
     public function deleteRowPermission($request)
     {
@@ -2693,31 +3162,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除自定义函数。
-     *  *
-     * @param DeleteUdfRequest $request DeleteUdfRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 删除自定义函数。
      *
-     * @return DeleteUdfResponse DeleteUdfResponse
+     * @param request - DeleteUdfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUdfResponse
+     *
+     * @param DeleteUdfRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteUdfResponse
      */
     public function deleteUdfWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteUdf',
@@ -2735,11 +3213,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除自定义函数。
-     *  *
-     * @param DeleteUdfRequest $request DeleteUdfRequest
+     * 删除自定义函数。
      *
-     * @return DeleteUdfResponse DeleteUdfResponse
+     * @param request - DeleteUdfRequest
+     *
+     * @returns DeleteUdfResponse
+     *
+     * @param DeleteUdfRequest $request
+     *
+     * @return DeleteUdfResponse
      */
     public function deleteUdf($request)
     {
@@ -2749,25 +3231,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除用户组.
-     *  *
-     * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 删除用户组.
      *
-     * @return DeleteUserGroupResponse DeleteUserGroupResponse
+     * @param request - DeleteUserGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUserGroupResponse
+     *
+     * @param DeleteUserGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteUserGroupResponse
      */
     public function deleteUserGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->userGroupId)) {
-            $query['UserGroupId'] = $request->userGroupId;
+
+        if (null !== $request->userGroupId) {
+            @$query['UserGroupId'] = $request->userGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteUserGroup',
@@ -2785,11 +3274,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除用户组.
-     *  *
-     * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
+     * 删除用户组.
      *
-     * @return DeleteUserGroupResponse DeleteUserGroupResponse
+     * @param request - DeleteUserGroupRequest
+     *
+     * @returns DeleteUserGroupResponse
+     *
+     * @param DeleteUserGroupRequest $request
+     *
+     * @return DeleteUserGroupResponse
      */
     public function deleteUserGroup($request)
     {
@@ -2799,32 +3292,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 执行即席查询任务。
-     *  *
-     * @param ExecuteAdHocTaskRequest $tmpReq  ExecuteAdHocTaskRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 执行即席查询任务。
      *
-     * @return ExecuteAdHocTaskResponse ExecuteAdHocTaskResponse
+     * @param tmpReq - ExecuteAdHocTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteAdHocTaskResponse
+     *
+     * @param ExecuteAdHocTaskRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExecuteAdHocTaskResponse
      */
     public function executeAdHocTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ExecuteAdHocTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->executeCommand)) {
-            $request->executeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->executeCommand, 'ExecuteCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->executeCommand) {
+            $request->executeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->executeCommand, 'ExecuteCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->executeCommandShrink)) {
-            $body['ExecuteCommand'] = $request->executeCommandShrink;
+        if (null !== $request->executeCommandShrink) {
+            @$body['ExecuteCommand'] = $request->executeCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExecuteAdHocTask',
@@ -2842,11 +3343,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 执行即席查询任务。
-     *  *
-     * @param ExecuteAdHocTaskRequest $request ExecuteAdHocTaskRequest
+     * 执行即席查询任务。
      *
-     * @return ExecuteAdHocTaskResponse ExecuteAdHocTaskResponse
+     * @param request - ExecuteAdHocTaskRequest
+     *
+     * @returns ExecuteAdHocTaskResponse
+     *
+     * @param ExecuteAdHocTaskRequest $request
+     *
+     * @return ExecuteAdHocTaskResponse
      */
     public function executeAdHocTask($request)
     {
@@ -2856,35 +3361,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 运行手动调度节点。
-     *  *
-     * @param ExecuteManualNodeRequest $tmpReq  ExecuteManualNodeRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 运行手动调度节点。
      *
-     * @return ExecuteManualNodeResponse ExecuteManualNodeResponse
+     * @param tmpReq - ExecuteManualNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteManualNodeResponse
+     *
+     * @param ExecuteManualNodeRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ExecuteManualNodeResponse
      */
     public function executeManualNodeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ExecuteManualNodeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->executeCommand)) {
-            $request->executeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->executeCommand, 'ExecuteCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->executeCommand) {
+            $request->executeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->executeCommand, 'ExecuteCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->executeCommandShrink)) {
-            $body['ExecuteCommand'] = $request->executeCommandShrink;
+        if (null !== $request->executeCommandShrink) {
+            @$body['ExecuteCommand'] = $request->executeCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExecuteManualNode',
@@ -2902,11 +3416,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 运行手动调度节点。
-     *  *
-     * @param ExecuteManualNodeRequest $request ExecuteManualNodeRequest
+     * 运行手动调度节点。
      *
-     * @return ExecuteManualNodeResponse ExecuteManualNodeResponse
+     * @param request - ExecuteManualNodeRequest
+     *
+     * @returns ExecuteManualNodeResponse
+     *
+     * @param ExecuteManualNodeRequest $request
+     *
+     * @return ExecuteManualNodeResponse
      */
     public function executeManualNode($request)
     {
@@ -2916,35 +3434,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出
-     *  *
-     * @param FixDataRequest $tmpReq  FixDataRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出.
      *
-     * @return FixDataResponse FixDataResponse
+     * @param tmpReq - FixDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FixDataResponse
+     *
+     * @param FixDataRequest $tmpReq
+     * @param RuntimeOptions $runtime
+     *
+     * @return FixDataResponse
      */
     public function fixDataWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FixDataShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->fixDataCommand)) {
-            $request->fixDataCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fixDataCommand, 'FixDataCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fixDataCommand) {
+            $request->fixDataCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fixDataCommand, 'FixDataCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->fixDataCommandShrink)) {
-            $body['FixDataCommand'] = $request->fixDataCommandShrink;
+        if (null !== $request->fixDataCommandShrink) {
+            @$body['FixDataCommand'] = $request->fixDataCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'FixData',
@@ -2962,11 +3489,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出
-     *  *
-     * @param FixDataRequest $request FixDataRequest
+     * 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出.
      *
-     * @return FixDataResponse FixDataResponse
+     * @param request - FixDataRequest
+     *
+     * @returns FixDataResponse
+     *
+     * @param FixDataRequest $request
+     *
+     * @return FixDataResponse
      */
     public function fixData($request)
     {
@@ -2976,32 +3507,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据行级权限ID获取某一行级权限下的所有授权账号
-     *  *
-     * @param GetAccountByRowPermissionIdRequest $tmpReq  GetAccountByRowPermissionIdRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 根据行级权限ID获取某一行级权限下的所有授权账号.
      *
-     * @return GetAccountByRowPermissionIdResponse GetAccountByRowPermissionIdResponse
+     * @param tmpReq - GetAccountByRowPermissionIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAccountByRowPermissionIdResponse
+     *
+     * @param GetAccountByRowPermissionIdRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetAccountByRowPermissionIdResponse
      */
     public function getAccountByRowPermissionIdWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetAccountByRowPermissionIdShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->getAccountByRowPermissionIdQuery)) {
-            $request->getAccountByRowPermissionIdQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->getAccountByRowPermissionIdQuery, 'GetAccountByRowPermissionIdQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->getAccountByRowPermissionIdQuery) {
+            $request->getAccountByRowPermissionIdQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->getAccountByRowPermissionIdQuery, 'GetAccountByRowPermissionIdQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->getAccountByRowPermissionIdQueryShrink)) {
-            $body['GetAccountByRowPermissionIdQuery'] = $request->getAccountByRowPermissionIdQueryShrink;
+        if (null !== $request->getAccountByRowPermissionIdQueryShrink) {
+            @$body['GetAccountByRowPermissionIdQuery'] = $request->getAccountByRowPermissionIdQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetAccountByRowPermissionId',
@@ -3019,11 +3558,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据行级权限ID获取某一行级权限下的所有授权账号
-     *  *
-     * @param GetAccountByRowPermissionIdRequest $request GetAccountByRowPermissionIdRequest
+     * 根据行级权限ID获取某一行级权限下的所有授权账号.
      *
-     * @return GetAccountByRowPermissionIdResponse GetAccountByRowPermissionIdResponse
+     * @param request - GetAccountByRowPermissionIdRequest
+     *
+     * @returns GetAccountByRowPermissionIdResponse
+     *
+     * @param GetAccountByRowPermissionIdRequest $request
+     *
+     * @return GetAccountByRowPermissionIdResponse
      */
     public function getAccountByRowPermissionId($request)
     {
@@ -3033,28 +3576,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询即席查询文件。
-     *  *
-     * @param GetAdHocFileRequest $request GetAdHocFileRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 查询即席查询文件。
      *
-     * @return GetAdHocFileResponse GetAdHocFileResponse
+     * @param request - GetAdHocFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAdHocFileResponse
+     *
+     * @param GetAdHocFileRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAdHocFileResponse
      */
     public function getAdHocFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAdHocFile',
@@ -3072,11 +3623,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询即席查询文件。
-     *  *
-     * @param GetAdHocFileRequest $request GetAdHocFileRequest
+     * 查询即席查询文件。
      *
-     * @return GetAdHocFileResponse GetAdHocFileResponse
+     * @param request - GetAdHocFileRequest
+     *
+     * @returns GetAdHocFileResponse
+     *
+     * @param GetAdHocFileRequest $request
+     *
+     * @return GetAdHocFileResponse
      */
     public function getAdHocFile($request)
     {
@@ -3086,34 +3641,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取即席查询任务运行日志。
-     *  *
-     * @param GetAdHocTaskLogRequest $request GetAdHocTaskLogRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取即席查询任务运行日志。
      *
-     * @return GetAdHocTaskLogResponse GetAdHocTaskLogResponse
+     * @param request - GetAdHocTaskLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAdHocTaskLogResponse
+     *
+     * @param GetAdHocTaskLogRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAdHocTaskLogResponse
      */
     public function getAdHocTaskLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->offset)) {
-            $query['Offset'] = $request->offset;
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->subTaskId)) {
-            $query['SubTaskId'] = $request->subTaskId;
+
+        if (null !== $request->subTaskId) {
+            @$query['SubTaskId'] = $request->subTaskId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAdHocTaskLog',
@@ -3131,11 +3696,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取即席查询任务运行日志。
-     *  *
-     * @param GetAdHocTaskLogRequest $request GetAdHocTaskLogRequest
+     * 获取即席查询任务运行日志。
      *
-     * @return GetAdHocTaskLogResponse GetAdHocTaskLogResponse
+     * @param request - GetAdHocTaskLogRequest
+     *
+     * @returns GetAdHocTaskLogResponse
+     *
+     * @param GetAdHocTaskLogRequest $request
+     *
+     * @return GetAdHocTaskLogResponse
      */
     public function getAdHocTaskLog($request)
     {
@@ -3145,31 +3714,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取即席查询的任务运行结果。
-     *  *
-     * @param GetAdHocTaskResultRequest $request GetAdHocTaskResultRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取即席查询的任务运行结果。
      *
-     * @return GetAdHocTaskResultResponse GetAdHocTaskResultResponse
+     * @param request - GetAdHocTaskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAdHocTaskResultResponse
+     *
+     * @param GetAdHocTaskResultRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAdHocTaskResultResponse
      */
     public function getAdHocTaskResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->subTaskId)) {
-            $query['SubTaskId'] = $request->subTaskId;
+
+        if (null !== $request->subTaskId) {
+            @$query['SubTaskId'] = $request->subTaskId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAdHocTaskResult',
@@ -3187,11 +3765,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取即席查询的任务运行结果。
-     *  *
-     * @param GetAdHocTaskResultRequest $request GetAdHocTaskResultRequest
+     * 获取即席查询的任务运行结果。
      *
-     * @return GetAdHocTaskResultResponse GetAdHocTaskResultResponse
+     * @param request - GetAdHocTaskResultRequest
+     *
+     * @returns GetAdHocTaskResultResponse
+     *
+     * @param GetAdHocTaskResultRequest $request
+     *
+     * @return GetAdHocTaskResultResponse
      */
     public function getAdHocTaskResult($request)
     {
@@ -3201,25 +3783,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取告警事件详情
-     *  *
-     * @param GetAlertEventRequest $request GetAlertEventRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取告警事件详情.
      *
-     * @return GetAlertEventResponse GetAlertEventResponse
+     * @param request - GetAlertEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlertEventResponse
+     *
+     * @param GetAlertEventRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetAlertEventResponse
      */
     public function getAlertEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAlertEvent',
@@ -3237,11 +3826,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取告警事件详情
-     *  *
-     * @param GetAlertEventRequest $request GetAlertEventRequest
+     * 获取告警事件详情.
      *
-     * @return GetAlertEventResponse GetAlertEventResponse
+     * @param request - GetAlertEventRequest
+     *
+     * @returns GetAlertEventResponse
+     *
+     * @param GetAlertEventRequest $request
+     *
+     * @return GetAlertEventResponse
      */
     public function getAlertEvent($request)
     {
@@ -3251,34 +3844,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取离线计算任务详情。
-     *  *
-     * @param GetBatchTaskInfoRequest $request GetBatchTaskInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取离线计算任务详情。
      *
-     * @return GetBatchTaskInfoResponse GetBatchTaskInfoResponse
+     * @param request - GetBatchTaskInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBatchTaskInfoResponse
+     *
+     * @param GetBatchTaskInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetBatchTaskInfoResponse
      */
     public function getBatchTaskInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->includeAllUpStreams)) {
-            $query['IncludeAllUpStreams'] = $request->includeAllUpStreams;
+
+        if (null !== $request->includeAllUpStreams) {
+            @$query['IncludeAllUpStreams'] = $request->includeAllUpStreams;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBatchTaskInfo',
@@ -3296,11 +3899,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取离线计算任务详情。
-     *  *
-     * @param GetBatchTaskInfoRequest $request GetBatchTaskInfoRequest
+     * 获取离线计算任务详情。
      *
-     * @return GetBatchTaskInfoResponse GetBatchTaskInfoResponse
+     * @param request - GetBatchTaskInfoRequest
+     *
+     * @returns GetBatchTaskInfoResponse
+     *
+     * @param GetBatchTaskInfoRequest $request
+     *
+     * @return GetBatchTaskInfoResponse
      */
     public function getBatchTaskInfo($request)
     {
@@ -3310,31 +3917,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取离线计算任务指定版本任务详情。
-     *  *
-     * @param GetBatchTaskInfoByVersionRequest $request GetBatchTaskInfoByVersionRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 获取离线计算任务指定版本任务详情。
      *
-     * @return GetBatchTaskInfoByVersionResponse GetBatchTaskInfoByVersionResponse
+     * @param request - GetBatchTaskInfoByVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBatchTaskInfoByVersionResponse
+     *
+     * @param GetBatchTaskInfoByVersionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetBatchTaskInfoByVersionResponse
      */
     public function getBatchTaskInfoByVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBatchTaskInfoByVersion',
@@ -3352,11 +3968,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取离线计算任务指定版本任务详情。
-     *  *
-     * @param GetBatchTaskInfoByVersionRequest $request GetBatchTaskInfoByVersionRequest
+     * 获取离线计算任务指定版本任务详情。
      *
-     * @return GetBatchTaskInfoByVersionResponse GetBatchTaskInfoByVersionResponse
+     * @param request - GetBatchTaskInfoByVersionRequest
+     *
+     * @returns GetBatchTaskInfoByVersionResponse
+     *
+     * @param GetBatchTaskInfoByVersionRequest $request
+     *
+     * @return GetBatchTaskInfoByVersionResponse
      */
     public function getBatchTaskInfoByVersion($request)
     {
@@ -3366,28 +3986,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取离线任务自定义血缘。
-     *  *
-     * @param GetBatchTaskUdfLineagesRequest $request GetBatchTaskUdfLineagesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 获取离线任务自定义血缘。
      *
-     * @return GetBatchTaskUdfLineagesResponse GetBatchTaskUdfLineagesResponse
+     * @param request - GetBatchTaskUdfLineagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBatchTaskUdfLineagesResponse
+     *
+     * @param GetBatchTaskUdfLineagesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetBatchTaskUdfLineagesResponse
      */
     public function getBatchTaskUdfLineagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBatchTaskUdfLineages',
@@ -3405,11 +4033,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取离线任务自定义血缘。
-     *  *
-     * @param GetBatchTaskUdfLineagesRequest $request GetBatchTaskUdfLineagesRequest
+     * 获取离线任务自定义血缘。
      *
-     * @return GetBatchTaskUdfLineagesResponse GetBatchTaskUdfLineagesResponse
+     * @param request - GetBatchTaskUdfLineagesRequest
+     *
+     * @returns GetBatchTaskUdfLineagesResponse
+     *
+     * @param GetBatchTaskUdfLineagesRequest $request
+     *
+     * @return GetBatchTaskUdfLineagesResponse
      */
     public function getBatchTaskUdfLineages($request)
     {
@@ -3419,28 +4051,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取离线计算任务版本列表。
-     *  *
-     * @param GetBatchTaskVersionsRequest $request GetBatchTaskVersionsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取离线计算任务版本列表。
      *
-     * @return GetBatchTaskVersionsResponse GetBatchTaskVersionsResponse
+     * @param request - GetBatchTaskVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBatchTaskVersionsResponse
+     *
+     * @param GetBatchTaskVersionsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetBatchTaskVersionsResponse
      */
     public function getBatchTaskVersionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBatchTaskVersions',
@@ -3458,11 +4098,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取离线计算任务版本列表。
-     *  *
-     * @param GetBatchTaskVersionsRequest $request GetBatchTaskVersionsRequest
+     * 获取离线计算任务版本列表。
      *
-     * @return GetBatchTaskVersionsResponse GetBatchTaskVersionsResponse
+     * @param request - GetBatchTaskVersionsRequest
+     *
+     * @returns GetBatchTaskVersionsResponse
+     *
+     * @param GetBatchTaskVersionsRequest $request
+     *
+     * @return GetBatchTaskVersionsResponse
      */
     public function getBatchTaskVersions($request)
     {
@@ -3472,28 +4116,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取业务实体详情。
-     *  *
-     * @param GetBizEntityInfoRequest $request GetBizEntityInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取业务实体详情。
      *
-     * @return GetBizEntityInfoResponse GetBizEntityInfoResponse
+     * @param request - GetBizEntityInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBizEntityInfoResponse
+     *
+     * @param GetBizEntityInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetBizEntityInfoResponse
      */
     public function getBizEntityInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBizEntityInfo',
@@ -3511,11 +4163,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取业务实体详情。
-     *  *
-     * @param GetBizEntityInfoRequest $request GetBizEntityInfoRequest
+     * 获取业务实体详情。
      *
-     * @return GetBizEntityInfoResponse GetBizEntityInfoResponse
+     * @param request - GetBizEntityInfoRequest
+     *
+     * @returns GetBizEntityInfoResponse
+     *
+     * @param GetBizEntityInfoRequest $request
+     *
+     * @return GetBizEntityInfoResponse
      */
     public function getBizEntityInfo($request)
     {
@@ -3525,31 +4181,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定版本的业务实体的详情。
-     *  *
-     * @param GetBizEntityInfoByVersionRequest $request GetBizEntityInfoByVersionRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 查询指定版本的业务实体的详情。
      *
-     * @return GetBizEntityInfoByVersionResponse GetBizEntityInfoByVersionResponse
+     * @param request - GetBizEntityInfoByVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBizEntityInfoByVersionResponse
+     *
+     * @param GetBizEntityInfoByVersionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetBizEntityInfoByVersionResponse
      */
     public function getBizEntityInfoByVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBizEntityInfoByVersion',
@@ -3567,11 +4232,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定版本的业务实体的详情。
-     *  *
-     * @param GetBizEntityInfoByVersionRequest $request GetBizEntityInfoByVersionRequest
+     * 查询指定版本的业务实体的详情。
      *
-     * @return GetBizEntityInfoByVersionResponse GetBizEntityInfoByVersionResponse
+     * @param request - GetBizEntityInfoByVersionRequest
+     *
+     * @returns GetBizEntityInfoByVersionResponse
+     *
+     * @param GetBizEntityInfoByVersionRequest $request
+     *
+     * @return GetBizEntityInfoByVersionResponse
      */
     public function getBizEntityInfoByVersion($request)
     {
@@ -3581,25 +4250,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据板块详情。
-     *  *
-     * @param GetBizUnitInfoRequest $request GetBizUnitInfoRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取数据板块详情。
      *
-     * @return GetBizUnitInfoResponse GetBizUnitInfoResponse
+     * @param request - GetBizUnitInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBizUnitInfoResponse
+     *
+     * @param GetBizUnitInfoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetBizUnitInfoResponse
      */
     public function getBizUnitInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBizUnitInfo',
@@ -3617,11 +4293,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据板块详情。
-     *  *
-     * @param GetBizUnitInfoRequest $request GetBizUnitInfoRequest
+     * 获取数据板块详情。
      *
-     * @return GetBizUnitInfoResponse GetBizUnitInfoResponse
+     * @param request - GetBizUnitInfoRequest
+     *
+     * @returns GetBizUnitInfoResponse
+     *
+     * @param GetBizUnitInfoRequest $request
+     *
+     * @return GetBizUnitInfoResponse
      */
     public function getBizUnitInfo($request)
     {
@@ -3631,31 +4311,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据环境获取集群信息
-     *  *
-     * @param GetClusterQueueInfoByEnvRequest $request GetClusterQueueInfoByEnvRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 根据环境获取集群信息.
      *
-     * @return GetClusterQueueInfoByEnvResponse GetClusterQueueInfoByEnvResponse
+     * @param request - GetClusterQueueInfoByEnvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetClusterQueueInfoByEnvResponse
+     *
+     * @param GetClusterQueueInfoByEnvRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetClusterQueueInfoByEnvResponse
      */
     public function getClusterQueueInfoByEnvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->streamBatchMode)) {
-            $query['StreamBatchMode'] = $request->streamBatchMode;
+
+        if (null !== $request->streamBatchMode) {
+            @$query['StreamBatchMode'] = $request->streamBatchMode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetClusterQueueInfoByEnv',
@@ -3673,11 +4362,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据环境获取集群信息
-     *  *
-     * @param GetClusterQueueInfoByEnvRequest $request GetClusterQueueInfoByEnvRequest
+     * 根据环境获取集群信息.
      *
-     * @return GetClusterQueueInfoByEnvResponse GetClusterQueueInfoByEnvResponse
+     * @param request - GetClusterQueueInfoByEnvRequest
+     *
+     * @returns GetClusterQueueInfoByEnvResponse
+     *
+     * @param GetClusterQueueInfoByEnvRequest $request
+     *
+     * @return GetClusterQueueInfoByEnvResponse
      */
     public function getClusterQueueInfoByEnv($request)
     {
@@ -3687,25 +4380,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取计算源详情。
-     *  *
-     * @param GetComputeSourceRequest $request GetComputeSourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取计算源详情。
      *
-     * @return GetComputeSourceResponse GetComputeSourceResponse
+     * @param request - GetComputeSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetComputeSourceResponse
+     *
+     * @param GetComputeSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetComputeSourceResponse
      */
     public function getComputeSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetComputeSource',
@@ -3723,11 +4423,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取计算源详情。
-     *  *
-     * @param GetComputeSourceRequest $request GetComputeSourceRequest
+     * 获取计算源详情。
      *
-     * @return GetComputeSourceResponse GetComputeSourceResponse
+     * @param request - GetComputeSourceRequest
+     *
+     * @returns GetComputeSourceResponse
+     *
+     * @param GetComputeSourceRequest $request
+     *
+     * @return GetComputeSourceResponse
      */
     public function getComputeSource($request)
     {
@@ -3737,25 +4441,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取主题域详情。
-     *  *
-     * @param GetDataDomainInfoRequest $request GetDataDomainInfoRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取主题域详情。
      *
-     * @return GetDataDomainInfoResponse GetDataDomainInfoResponse
+     * @param request - GetDataDomainInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataDomainInfoResponse
+     *
+     * @param GetDataDomainInfoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetDataDomainInfoResponse
      */
     public function getDataDomainInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataDomainInfo',
@@ -3773,11 +4484,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取主题域详情。
-     *  *
-     * @param GetDataDomainInfoRequest $request GetDataDomainInfoRequest
+     * 获取主题域详情。
      *
-     * @return GetDataDomainInfoResponse GetDataDomainInfoResponse
+     * @param request - GetDataDomainInfoRequest
+     *
+     * @returns GetDataDomainInfoResponse
+     *
+     * @param GetDataDomainInfoRequest $request
+     *
+     * @return GetDataDomainInfoResponse
      */
     public function getDataDomainInfo($request)
     {
@@ -3787,31 +4502,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 运维监控Api调用汇总统计。
-     *  *
-     * @param GetDataServiceApiCallSummaryRequest $request GetDataServiceApiCallSummaryRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 运维监控Api调用汇总统计。
      *
-     * @return GetDataServiceApiCallSummaryResponse GetDataServiceApiCallSummaryResponse
+     * @param request - GetDataServiceApiCallSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataServiceApiCallSummaryResponse
+     *
+     * @param GetDataServiceApiCallSummaryRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetDataServiceApiCallSummaryResponse
      */
     public function getDataServiceApiCallSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataServiceApiCallSummary',
@@ -3829,11 +4553,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 运维监控Api调用汇总统计。
-     *  *
-     * @param GetDataServiceApiCallSummaryRequest $request GetDataServiceApiCallSummaryRequest
+     * 运维监控Api调用汇总统计。
      *
-     * @return GetDataServiceApiCallSummaryResponse GetDataServiceApiCallSummaryResponse
+     * @param request - GetDataServiceApiCallSummaryRequest
+     *
+     * @returns GetDataServiceApiCallSummaryResponse
+     *
+     * @param GetDataServiceApiCallSummaryRequest $request
+     *
+     * @return GetDataServiceApiCallSummaryResponse
      */
     public function getDataServiceApiCallSummary($request)
     {
@@ -3843,31 +4571,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 运维监控Api访问趋势分析。
-     *  *
-     * @param GetDataServiceApiCallTrendRequest $request GetDataServiceApiCallTrendRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 运维监控Api访问趋势分析。
      *
-     * @return GetDataServiceApiCallTrendResponse GetDataServiceApiCallTrendResponse
+     * @param request - GetDataServiceApiCallTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataServiceApiCallTrendResponse
+     *
+     * @param GetDataServiceApiCallTrendRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetDataServiceApiCallTrendResponse
      */
     public function getDataServiceApiCallTrendWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataServiceApiCallTrend',
@@ -3885,11 +4622,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 运维监控Api访问趋势分析。
-     *  *
-     * @param GetDataServiceApiCallTrendRequest $request GetDataServiceApiCallTrendRequest
+     * 运维监控Api访问趋势分析。
      *
-     * @return GetDataServiceApiCallTrendResponse GetDataServiceApiCallTrendResponse
+     * @param request - GetDataServiceApiCallTrendRequest
+     *
+     * @returns GetDataServiceApiCallTrendResponse
+     *
+     * @param GetDataServiceApiCallTrendRequest $request
+     *
+     * @return GetDataServiceApiCallTrendResponse
      */
     public function getDataServiceApiCallTrend($request)
     {
@@ -3899,28 +4640,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取API文档。
-     *  *
-     * @param GetDataServiceApiDocumentRequest $request GetDataServiceApiDocumentRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 获取API文档。
      *
-     * @return GetDataServiceApiDocumentResponse GetDataServiceApiDocumentResponse
+     * @param request - GetDataServiceApiDocumentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataServiceApiDocumentResponse
+     *
+     * @param GetDataServiceApiDocumentRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetDataServiceApiDocumentResponse
      */
     public function getDataServiceApiDocumentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataServiceApiDocument',
@@ -3938,11 +4687,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取API文档。
-     *  *
-     * @param GetDataServiceApiDocumentRequest $request GetDataServiceApiDocumentRequest
+     * 获取API文档。
      *
-     * @return GetDataServiceApiDocumentResponse GetDataServiceApiDocumentResponse
+     * @param request - GetDataServiceApiDocumentRequest
+     *
+     * @returns GetDataServiceApiDocumentResponse
+     *
+     * @param GetDataServiceApiDocumentRequest $request
+     *
+     * @return GetDataServiceApiDocumentResponse
      */
     public function getDataServiceApiDocument($request)
     {
@@ -3952,31 +4705,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取API异常影响汇总。
-     *  *
-     * @param GetDataServiceApiErrorImpactRequest $request GetDataServiceApiErrorImpactRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 获取API异常影响汇总。
      *
-     * @return GetDataServiceApiErrorImpactResponse GetDataServiceApiErrorImpactResponse
+     * @param request - GetDataServiceApiErrorImpactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataServiceApiErrorImpactResponse
+     *
+     * @param GetDataServiceApiErrorImpactRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetDataServiceApiErrorImpactResponse
      */
     public function getDataServiceApiErrorImpactWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataServiceApiErrorImpact',
@@ -3994,11 +4756,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取API异常影响汇总。
-     *  *
-     * @param GetDataServiceApiErrorImpactRequest $request GetDataServiceApiErrorImpactRequest
+     * 获取API异常影响汇总。
      *
-     * @return GetDataServiceApiErrorImpactResponse GetDataServiceApiErrorImpactResponse
+     * @param request - GetDataServiceApiErrorImpactRequest
+     *
+     * @returns GetDataServiceApiErrorImpactResponse
+     *
+     * @param GetDataServiceApiErrorImpactRequest $request
+     *
+     * @return GetDataServiceApiErrorImpactResponse
      */
     public function getDataServiceApiErrorImpact($request)
     {
@@ -4008,25 +4774,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据服务API分组列表。
-     *  *
-     * @param GetDataServiceApiGroupsRequest $request GetDataServiceApiGroupsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查询数据服务API分组列表。
      *
-     * @return GetDataServiceApiGroupsResponse GetDataServiceApiGroupsResponse
+     * @param request - GetDataServiceApiGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataServiceApiGroupsResponse
+     *
+     * @param GetDataServiceApiGroupsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetDataServiceApiGroupsResponse
      */
     public function getDataServiceApiGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataServiceApiGroups',
@@ -4044,11 +4817,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据服务API分组列表。
-     *  *
-     * @param GetDataServiceApiGroupsRequest $request GetDataServiceApiGroupsRequest
+     * 查询数据服务API分组列表。
      *
-     * @return GetDataServiceApiGroupsResponse GetDataServiceApiGroupsResponse
+     * @param request - GetDataServiceApiGroupsRequest
+     *
+     * @returns GetDataServiceApiGroupsResponse
+     *
+     * @param GetDataServiceApiGroupsRequest $request
+     *
+     * @return GetDataServiceApiGroupsResponse
      */
     public function getDataServiceApiGroups($request)
     {
@@ -4058,28 +4835,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取应用有权限的用户列表。
-     *  *
-     * @param GetDataServiceAppAuthorizedUsersRequest $request GetDataServiceAppAuthorizedUsersRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 获取应用有权限的用户列表。
      *
-     * @return GetDataServiceAppAuthorizedUsersResponse GetDataServiceAppAuthorizedUsersResponse
+     * @param request - GetDataServiceAppAuthorizedUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataServiceAppAuthorizedUsersResponse
+     *
+     * @param GetDataServiceAppAuthorizedUsersRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetDataServiceAppAuthorizedUsersResponse
      */
     public function getDataServiceAppAuthorizedUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataServiceAppAuthorizedUsers',
@@ -4097,11 +4882,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取应用有权限的用户列表。
-     *  *
-     * @param GetDataServiceAppAuthorizedUsersRequest $request GetDataServiceAppAuthorizedUsersRequest
+     * 获取应用有权限的用户列表。
      *
-     * @return GetDataServiceAppAuthorizedUsersResponse GetDataServiceAppAuthorizedUsersResponse
+     * @param request - GetDataServiceAppAuthorizedUsersRequest
+     *
+     * @returns GetDataServiceAppAuthorizedUsersResponse
+     *
+     * @param GetDataServiceAppAuthorizedUsersRequest $request
+     *
+     * @return GetDataServiceAppAuthorizedUsersResponse
      */
     public function getDataServiceAppAuthorizedUsers($request)
     {
@@ -4111,25 +4900,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据服务项目的应用分组列表。
-     *  *
-     * @param GetDataServiceAppGroupsRequest $request GetDataServiceAppGroupsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查询数据服务项目的应用分组列表。
      *
-     * @return GetDataServiceAppGroupsResponse GetDataServiceAppGroupsResponse
+     * @param request - GetDataServiceAppGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataServiceAppGroupsResponse
+     *
+     * @param GetDataServiceAppGroupsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetDataServiceAppGroupsResponse
      */
     public function getDataServiceAppGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataServiceAppGroups',
@@ -4147,11 +4943,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据服务项目的应用分组列表。
-     *  *
-     * @param GetDataServiceAppGroupsRequest $request GetDataServiceAppGroupsRequest
+     * 查询数据服务项目的应用分组列表。
      *
-     * @return GetDataServiceAppGroupsResponse GetDataServiceAppGroupsResponse
+     * @param request - GetDataServiceAppGroupsRequest
+     *
+     * @returns GetDataServiceAppGroupsResponse
+     *
+     * @param GetDataServiceAppGroupsRequest $request
+     *
+     * @return GetDataServiceAppGroupsResponse
      */
     public function getDataServiceAppGroups($request)
     {
@@ -4161,28 +4961,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询分组下应用列表。
-     *  *
-     * @param GetDataServiceAppsByGroupIdRequest $request GetDataServiceAppsByGroupIdRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 查询分组下应用列表。
      *
-     * @return GetDataServiceAppsByGroupIdResponse GetDataServiceAppsByGroupIdResponse
+     * @param request - GetDataServiceAppsByGroupIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataServiceAppsByGroupIdResponse
+     *
+     * @param GetDataServiceAppsByGroupIdRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetDataServiceAppsByGroupIdResponse
      */
     public function getDataServiceAppsByGroupIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataServiceAppsByGroupId',
@@ -4200,11 +5008,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询分组下应用列表。
-     *  *
-     * @param GetDataServiceAppsByGroupIdRequest $request GetDataServiceAppsByGroupIdRequest
+     * 查询分组下应用列表。
      *
-     * @return GetDataServiceAppsByGroupIdResponse GetDataServiceAppsByGroupIdResponse
+     * @param request - GetDataServiceAppsByGroupIdRequest
+     *
+     * @returns GetDataServiceAppsByGroupIdResponse
+     *
+     * @param GetDataServiceAppsByGroupIdRequest $request
+     *
+     * @return GetDataServiceAppsByGroupIdResponse
      */
     public function getDataServiceAppsByGroupId($request)
     {
@@ -4214,28 +5026,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据App分组Id查询账号有权限的应用列表。
-     *  *
-     * @param GetDataServiceAuthorizedAppsByGroupIdRequest $request GetDataServiceAuthorizedAppsByGroupIdRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * 根据App分组Id查询账号有权限的应用列表。
      *
-     * @return GetDataServiceAuthorizedAppsByGroupIdResponse GetDataServiceAuthorizedAppsByGroupIdResponse
+     * @param request - GetDataServiceAuthorizedAppsByGroupIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataServiceAuthorizedAppsByGroupIdResponse
+     *
+     * @param GetDataServiceAuthorizedAppsByGroupIdRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return GetDataServiceAuthorizedAppsByGroupIdResponse
      */
     public function getDataServiceAuthorizedAppsByGroupIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataServiceAuthorizedAppsByGroupId',
@@ -4253,11 +5073,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据App分组Id查询账号有权限的应用列表。
-     *  *
-     * @param GetDataServiceAuthorizedAppsByGroupIdRequest $request GetDataServiceAuthorizedAppsByGroupIdRequest
+     * 根据App分组Id查询账号有权限的应用列表。
      *
-     * @return GetDataServiceAuthorizedAppsByGroupIdResponse GetDataServiceAuthorizedAppsByGroupIdResponse
+     * @param request - GetDataServiceAuthorizedAppsByGroupIdRequest
+     *
+     * @returns GetDataServiceAuthorizedAppsByGroupIdResponse
+     *
+     * @param GetDataServiceAuthorizedAppsByGroupIdRequest $request
+     *
+     * @return GetDataServiceAuthorizedAppsByGroupIdResponse
      */
     public function getDataServiceAuthorizedAppsByGroupId($request)
     {
@@ -4267,22 +5091,28 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询有权限的项目列表。
-     *  *
-     * @param GetDataServiceAuthorizedProjectsRequest $request GetDataServiceAuthorizedProjectsRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 查询有权限的项目列表。
      *
-     * @return GetDataServiceAuthorizedProjectsResponse GetDataServiceAuthorizedProjectsResponse
+     * @param request - GetDataServiceAuthorizedProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataServiceAuthorizedProjectsResponse
+     *
+     * @param GetDataServiceAuthorizedProjectsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetDataServiceAuthorizedProjectsResponse
      */
     public function getDataServiceAuthorizedProjectsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataServiceAuthorizedProjects',
@@ -4300,11 +5130,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询有权限的项目列表。
-     *  *
-     * @param GetDataServiceAuthorizedProjectsRequest $request GetDataServiceAuthorizedProjectsRequest
+     * 查询有权限的项目列表。
      *
-     * @return GetDataServiceAuthorizedProjectsResponse GetDataServiceAuthorizedProjectsResponse
+     * @param request - GetDataServiceAuthorizedProjectsRequest
+     *
+     * @returns GetDataServiceAuthorizedProjectsResponse
+     *
+     * @param GetDataServiceAuthorizedProjectsRequest $request
+     *
+     * @return GetDataServiceAuthorizedProjectsResponse
      */
     public function getDataServiceAuthorizedProjects($request)
     {
@@ -4314,22 +5148,28 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 当前登录当前用户作为负责人的项目列表。
-     *  *
-     * @param GetDataServiceMyProjectsRequest $request GetDataServiceMyProjectsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 当前登录当前用户作为负责人的项目列表。
      *
-     * @return GetDataServiceMyProjectsResponse GetDataServiceMyProjectsResponse
+     * @param request - GetDataServiceMyProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataServiceMyProjectsResponse
+     *
+     * @param GetDataServiceMyProjectsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDataServiceMyProjectsResponse
      */
     public function getDataServiceMyProjectsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataServiceMyProjects',
@@ -4347,11 +5187,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 当前登录当前用户作为负责人的项目列表。
-     *  *
-     * @param GetDataServiceMyProjectsRequest $request GetDataServiceMyProjectsRequest
+     * 当前登录当前用户作为负责人的项目列表。
      *
-     * @return GetDataServiceMyProjectsResponse GetDataServiceMyProjectsResponse
+     * @param request - GetDataServiceMyProjectsRequest
+     *
+     * @returns GetDataServiceMyProjectsResponse
+     *
+     * @param GetDataServiceMyProjectsRequest $request
+     *
+     * @return GetDataServiceMyProjectsResponse
      */
     public function getDataServiceMyProjects($request)
     {
@@ -4361,25 +5205,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取可添加到项目成员的用户列表。
-     *  *
-     * @param GetDataServiceProjectAddableUsersRequest $request GetDataServiceProjectAddableUsersRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * 获取可添加到项目成员的用户列表。
      *
-     * @return GetDataServiceProjectAddableUsersResponse GetDataServiceProjectAddableUsersResponse
+     * @param request - GetDataServiceProjectAddableUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataServiceProjectAddableUsersResponse
+     *
+     * @param GetDataServiceProjectAddableUsersRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetDataServiceProjectAddableUsersResponse
      */
     public function getDataServiceProjectAddableUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataServiceProjectAddableUsers',
@@ -4397,11 +5248,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取可添加到项目成员的用户列表。
-     *  *
-     * @param GetDataServiceProjectAddableUsersRequest $request GetDataServiceProjectAddableUsersRequest
+     * 获取可添加到项目成员的用户列表。
      *
-     * @return GetDataServiceProjectAddableUsersResponse GetDataServiceProjectAddableUsersResponse
+     * @param request - GetDataServiceProjectAddableUsersRequest
+     *
+     * @returns GetDataServiceProjectAddableUsersResponse
+     *
+     * @param GetDataServiceProjectAddableUsersRequest $request
+     *
+     * @return GetDataServiceProjectAddableUsersResponse
      */
     public function getDataServiceProjectAddableUsers($request)
     {
@@ -4411,25 +5266,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据源变更影响的集成任务及数据库SQL任务。
-     *  *
-     * @param GetDataSourceDependenciesRequest $request GetDataSourceDependenciesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 查询数据源变更影响的集成任务及数据库SQL任务。
      *
-     * @return GetDataSourceDependenciesResponse GetDataSourceDependenciesResponse
+     * @param request - GetDataSourceDependenciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataSourceDependenciesResponse
+     *
+     * @param GetDataSourceDependenciesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetDataSourceDependenciesResponse
      */
     public function getDataSourceDependenciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataSourceDependencies',
@@ -4447,11 +5309,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据源变更影响的集成任务及数据库SQL任务。
-     *  *
-     * @param GetDataSourceDependenciesRequest $request GetDataSourceDependenciesRequest
+     * 查询数据源变更影响的集成任务及数据库SQL任务。
      *
-     * @return GetDataSourceDependenciesResponse GetDataSourceDependenciesResponse
+     * @param request - GetDataSourceDependenciesRequest
+     *
+     * @returns GetDataSourceDependenciesResponse
+     *
+     * @param GetDataSourceDependenciesRequest $request
+     *
+     * @return GetDataSourceDependenciesResponse
      */
     public function getDataSourceDependencies($request)
     {
@@ -4461,34 +5327,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询开发态对象上游依赖。
-     *  *
-     * @param GetDevObjectDependencyRequest $request GetDevObjectDependencyRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询开发态对象上游依赖。
      *
-     * @return GetDevObjectDependencyResponse GetDevObjectDependencyResponse
+     * @param request - GetDevObjectDependencyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDevObjectDependencyResponse
+     *
+     * @param GetDevObjectDependencyRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDevObjectDependencyResponse
      */
     public function getDevObjectDependencyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->objectFrom)) {
-            $query['ObjectFrom'] = $request->objectFrom;
+        if (null !== $request->objectFrom) {
+            @$query['ObjectFrom'] = $request->objectFrom;
         }
-        if (!Utils::isUnset($request->objectId)) {
-            $query['ObjectId'] = $request->objectId;
+
+        if (null !== $request->objectId) {
+            @$query['ObjectId'] = $request->objectId;
         }
-        if (!Utils::isUnset($request->objectType)) {
-            $query['ObjectType'] = $request->objectType;
+
+        if (null !== $request->objectType) {
+            @$query['ObjectType'] = $request->objectType;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDevObjectDependency',
@@ -4506,11 +5382,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询开发态对象上游依赖。
-     *  *
-     * @param GetDevObjectDependencyRequest $request GetDevObjectDependencyRequest
+     * 查询开发态对象上游依赖。
      *
-     * @return GetDevObjectDependencyResponse GetDevObjectDependencyResponse
+     * @param request - GetDevObjectDependencyRequest
+     *
+     * @returns GetDevObjectDependencyResponse
+     *
+     * @param GetDevObjectDependencyRequest $request
+     *
+     * @return GetDevObjectDependencyResponse
      */
     public function getDevObjectDependency($request)
     {
@@ -4520,28 +5400,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取文件夹目录树
-     *  *
-     * @param GetDirectoryTreeRequest $request GetDirectoryTreeRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取文件夹目录树.
      *
-     * @return GetDirectoryTreeResponse GetDirectoryTreeResponse
+     * @param request - GetDirectoryTreeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDirectoryTreeResponse
+     *
+     * @param GetDirectoryTreeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetDirectoryTreeResponse
      */
     public function getDirectoryTreeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDirectoryTree',
@@ -4559,11 +5447,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取文件夹目录树
-     *  *
-     * @param GetDirectoryTreeRequest $request GetDirectoryTreeRequest
+     * 获取文件夹目录树.
      *
-     * @return GetDirectoryTreeResponse GetDirectoryTreeResponse
+     * @param request - GetDirectoryTreeRequest
+     *
+     * @returns GetDirectoryTreeResponse
+     *
+     * @param GetDirectoryTreeRequest $request
+     *
+     * @return GetDirectoryTreeResponse
      */
     public function getDirectoryTree($request)
     {
@@ -4573,31 +5465,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取文件存储临时读写授权。
-     *  *
-     * @param GetFileStorageCredentialRequest $request GetFileStorageCredentialRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 获取文件存储临时读写授权。
      *
-     * @return GetFileStorageCredentialResponse GetFileStorageCredentialResponse
+     * @param request - GetFileStorageCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFileStorageCredentialResponse
+     *
+     * @param GetFileStorageCredentialRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetFileStorageCredentialResponse
      */
     public function getFileStorageCredentialWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->purpose)) {
-            $query['Purpose'] = $request->purpose;
+
+        if (null !== $request->purpose) {
+            @$query['Purpose'] = $request->purpose;
         }
-        if (!Utils::isUnset($request->useVpcEndpoint)) {
-            $query['UseVpcEndpoint'] = $request->useVpcEndpoint;
+
+        if (null !== $request->useVpcEndpoint) {
+            @$query['UseVpcEndpoint'] = $request->useVpcEndpoint;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetFileStorageCredential',
@@ -4615,11 +5516,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取文件存储临时读写授权。
-     *  *
-     * @param GetFileStorageCredentialRequest $request GetFileStorageCredentialRequest
+     * 获取文件存储临时读写授权。
      *
-     * @return GetFileStorageCredentialResponse GetFileStorageCredentialResponse
+     * @param request - GetFileStorageCredentialRequest
+     *
+     * @returns GetFileStorageCredentialResponse
+     *
+     * @param GetFileStorageCredentialRequest $request
+     *
+     * @return GetFileStorageCredentialResponse
      */
     public function getFileStorageCredential($request)
     {
@@ -4629,41 +5534,52 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据起始的实例查询该实例的下游
-     *  *
-     * @param GetInstanceDownStreamRequest $tmpReq  GetInstanceDownStreamRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 根据起始的实例查询该实例的下游.
      *
-     * @return GetInstanceDownStreamResponse GetInstanceDownStreamResponse
+     * @param tmpReq - GetInstanceDownStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceDownStreamResponse
+     *
+     * @param GetInstanceDownStreamRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetInstanceDownStreamResponse
      */
     public function getInstanceDownStreamWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetInstanceDownStreamShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceGet)) {
-            $request->instanceGetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceGet, 'InstanceGet', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceGet) {
+            $request->instanceGetShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceGet, 'InstanceGet', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->downStreamDepth)) {
-            $query['DownStreamDepth'] = $request->downStreamDepth;
+        if (null !== $request->downStreamDepth) {
+            @$query['DownStreamDepth'] = $request->downStreamDepth;
         }
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->runStatus)) {
-            $query['RunStatus'] = $request->runStatus;
+
+        if (null !== $request->runStatus) {
+            @$query['RunStatus'] = $request->runStatus;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->instanceGetShrink)) {
-            $body['InstanceGet'] = $request->instanceGetShrink;
+        if (null !== $request->instanceGetShrink) {
+            @$body['InstanceGet'] = $request->instanceGetShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetInstanceDownStream',
@@ -4681,11 +5597,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据起始的实例查询该实例的下游
-     *  *
-     * @param GetInstanceDownStreamRequest $request GetInstanceDownStreamRequest
+     * 根据起始的实例查询该实例的下游.
      *
-     * @return GetInstanceDownStreamResponse GetInstanceDownStreamResponse
+     * @param request - GetInstanceDownStreamRequest
+     *
+     * @returns GetInstanceDownStreamResponse
+     *
+     * @param GetInstanceDownStreamRequest $request
+     *
+     * @return GetInstanceDownStreamResponse
      */
     public function getInstanceDownStream($request)
     {
@@ -4695,44 +5615,56 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例的上下游，支持逻辑表和代码任务。
-     *  *
-     * @param GetInstanceUpDownStreamRequest $tmpReq  GetInstanceUpDownStreamRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查询实例的上下游，支持逻辑表和代码任务。
      *
-     * @return GetInstanceUpDownStreamResponse GetInstanceUpDownStreamResponse
+     * @param tmpReq - GetInstanceUpDownStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceUpDownStreamResponse
+     *
+     * @param GetInstanceUpDownStreamRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetInstanceUpDownStreamResponse
      */
     public function getInstanceUpDownStreamWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetInstanceUpDownStreamShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceId)) {
-            $request->instanceIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceId, 'InstanceId', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceId) {
+            $request->instanceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceId, 'InstanceId', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->downStreamDepth)) {
-            $query['DownStreamDepth'] = $request->downStreamDepth;
+        if (null !== $request->downStreamDepth) {
+            @$query['DownStreamDepth'] = $request->downStreamDepth;
         }
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->upStreamDepth)) {
-            $query['UpStreamDepth'] = $request->upStreamDepth;
+
+        if (null !== $request->upStreamDepth) {
+            @$query['UpStreamDepth'] = $request->upStreamDepth;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->instanceIdShrink)) {
-            $body['InstanceId'] = $request->instanceIdShrink;
+        if (null !== $request->instanceIdShrink) {
+            @$body['InstanceId'] = $request->instanceIdShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetInstanceUpDownStream',
@@ -4750,11 +5682,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例的上下游，支持逻辑表和代码任务。
-     *  *
-     * @param GetInstanceUpDownStreamRequest $request GetInstanceUpDownStreamRequest
+     * 查询实例的上下游，支持逻辑表和代码任务。
      *
-     * @return GetInstanceUpDownStreamResponse GetInstanceUpDownStreamResponse
+     * @param request - GetInstanceUpDownStreamRequest
+     *
+     * @returns GetInstanceUpDownStreamResponse
+     *
+     * @param GetInstanceUpDownStreamRequest $request
+     *
+     * @return GetInstanceUpDownStreamResponse
      */
     public function getInstanceUpDownStream($request)
     {
@@ -4764,32 +5700,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取最新的待发布记录详情
-     *  *
-     * @param GetLatestSubmitDetailRequest $tmpReq  GetLatestSubmitDetailRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取最新的待发布记录详情.
      *
-     * @return GetLatestSubmitDetailResponse GetLatestSubmitDetailResponse
+     * @param tmpReq - GetLatestSubmitDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLatestSubmitDetailResponse
+     *
+     * @param GetLatestSubmitDetailRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetLatestSubmitDetailResponse
      */
     public function getLatestSubmitDetailWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetLatestSubmitDetailShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->submitDetailQuery)) {
-            $request->submitDetailQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->submitDetailQuery, 'SubmitDetailQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->submitDetailQuery) {
+            $request->submitDetailQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->submitDetailQuery, 'SubmitDetailQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->submitDetailQueryShrink)) {
-            $body['SubmitDetailQuery'] = $request->submitDetailQueryShrink;
+        if (null !== $request->submitDetailQueryShrink) {
+            @$body['SubmitDetailQuery'] = $request->submitDetailQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetLatestSubmitDetail',
@@ -4807,11 +5751,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取最新的待发布记录详情
-     *  *
-     * @param GetLatestSubmitDetailRequest $request GetLatestSubmitDetailRequest
+     * 获取最新的待发布记录详情.
      *
-     * @return GetLatestSubmitDetailResponse GetLatestSubmitDetailResponse
+     * @param request - GetLatestSubmitDetailRequest
+     *
+     * @returns GetLatestSubmitDetailResponse
+     *
+     * @param GetLatestSubmitDetailRequest $request
+     *
+     * @return GetLatestSubmitDetailResponse
      */
     public function getLatestSubmitDetail($request)
     {
@@ -4821,22 +5769,28 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户角色列表
-     *  *
-     * @param GetMyRolesRequest $request GetMyRolesRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 获取用户角色列表.
      *
-     * @return GetMyRolesResponse GetMyRolesResponse
+     * @param request - GetMyRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMyRolesResponse
+     *
+     * @param GetMyRolesRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetMyRolesResponse
      */
     public function getMyRolesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMyRoles',
@@ -4854,11 +5808,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户角色列表
-     *  *
-     * @param GetMyRolesRequest $request GetMyRolesRequest
+     * 获取用户角色列表.
      *
-     * @return GetMyRolesResponse GetMyRolesResponse
+     * @param request - GetMyRolesRequest
+     *
+     * @returns GetMyRolesResponse
+     *
+     * @param GetMyRolesRequest $request
+     *
+     * @return GetMyRolesResponse
      */
     public function getMyRoles($request)
     {
@@ -4868,32 +5826,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取当前用户归属租户.
-     *  *
-     * @param GetMyTenantsRequest $tmpReq  GetMyTenantsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取当前用户归属租户.
      *
-     * @return GetMyTenantsResponse GetMyTenantsResponse
+     * @param tmpReq - GetMyTenantsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMyTenantsResponse
+     *
+     * @param GetMyTenantsRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetMyTenantsResponse
      */
     public function getMyTenantsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetMyTenantsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->featureCodeList)) {
-            $request->featureCodeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->featureCodeList, 'FeatureCodeList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->featureCodeList) {
+            $request->featureCodeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->featureCodeList, 'FeatureCodeList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->featureCodeListShrink)) {
-            $body['FeatureCodeList'] = $request->featureCodeListShrink;
+        if (null !== $request->featureCodeListShrink) {
+            @$body['FeatureCodeList'] = $request->featureCodeListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetMyTenants',
@@ -4911,11 +5877,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取当前用户归属租户.
-     *  *
-     * @param GetMyTenantsRequest $request GetMyTenantsRequest
+     * 获取当前用户归属租户.
      *
-     * @return GetMyTenantsResponse GetMyTenantsResponse
+     * @param request - GetMyTenantsRequest
+     *
+     * @returns GetMyTenantsResponse
+     *
+     * @param GetMyTenantsRequest $request
+     *
+     * @return GetMyTenantsResponse
      */
     public function getMyTenants($request)
     {
@@ -4925,44 +5895,56 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通用查询节点上下游接口
-     *  *
-     * @param GetNodeUpDownStreamRequest $tmpReq  GetNodeUpDownStreamRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 通用查询节点上下游接口.
      *
-     * @return GetNodeUpDownStreamResponse GetNodeUpDownStreamResponse
+     * @param tmpReq - GetNodeUpDownStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNodeUpDownStreamResponse
+     *
+     * @param GetNodeUpDownStreamRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetNodeUpDownStreamResponse
      */
     public function getNodeUpDownStreamWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetNodeUpDownStreamShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->nodeId)) {
-            $request->nodeIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeId, 'NodeId', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeId) {
+            $request->nodeIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeId, 'NodeId', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->downStreamDepth)) {
-            $query['DownStreamDepth'] = $request->downStreamDepth;
+        if (null !== $request->downStreamDepth) {
+            @$query['DownStreamDepth'] = $request->downStreamDepth;
         }
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->upStreamDepth)) {
-            $query['UpStreamDepth'] = $request->upStreamDepth;
+
+        if (null !== $request->upStreamDepth) {
+            @$query['UpStreamDepth'] = $request->upStreamDepth;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->nodeIdShrink)) {
-            $body['NodeId'] = $request->nodeIdShrink;
+        if (null !== $request->nodeIdShrink) {
+            @$body['NodeId'] = $request->nodeIdShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetNodeUpDownStream',
@@ -4980,11 +5962,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通用查询节点上下游接口
-     *  *
-     * @param GetNodeUpDownStreamRequest $request GetNodeUpDownStreamRequest
+     * 通用查询节点上下游接口.
      *
-     * @return GetNodeUpDownStreamResponse GetNodeUpDownStreamResponse
+     * @param request - GetNodeUpDownStreamRequest
+     *
+     * @returns GetNodeUpDownStreamResponse
+     *
+     * @param GetNodeUpDownStreamRequest $request
+     *
+     * @return GetNodeUpDownStreamResponse
      */
     public function getNodeUpDownStream($request)
     {
@@ -4994,28 +5980,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询补数据提交的状态
-     *  *
-     * @param GetOperationSubmitStatusRequest $request GetOperationSubmitStatusRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 查询补数据提交的状态
      *
-     * @return GetOperationSubmitStatusResponse GetOperationSubmitStatusResponse
+     * @param request - GetOperationSubmitStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOperationSubmitStatusResponse
+     *
+     * @param GetOperationSubmitStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetOperationSubmitStatusResponse
      */
     public function getOperationSubmitStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetOperationSubmitStatus',
@@ -5033,11 +6027,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询补数据提交的状态
-     *  *
-     * @param GetOperationSubmitStatusRequest $request GetOperationSubmitStatusRequest
+     * 查询补数据提交的状态
      *
-     * @return GetOperationSubmitStatusResponse GetOperationSubmitStatusResponse
+     * @param request - GetOperationSubmitStatusRequest
+     *
+     * @returns GetOperationSubmitStatusResponse
+     *
+     * @param GetOperationSubmitStatusRequest $request
+     *
+     * @return GetOperationSubmitStatusResponse
      */
     public function getOperationSubmitStatus($request)
     {
@@ -5047,31 +6045,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询脚本的实例信息, 包括实例状态、运行时间等信息.
-     *  *
-     * @param GetPhysicalInstanceRequest $request GetPhysicalInstanceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询脚本的实例信息, 包括实例状态、运行时间等信息.
      *
-     * @return GetPhysicalInstanceResponse GetPhysicalInstanceResponse
+     * @param request - GetPhysicalInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPhysicalInstanceResponse
+     *
+     * @param GetPhysicalInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetPhysicalInstanceResponse
      */
     public function getPhysicalInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPhysicalInstance',
@@ -5089,11 +6096,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询脚本的实例信息, 包括实例状态、运行时间等信息.
-     *  *
-     * @param GetPhysicalInstanceRequest $request GetPhysicalInstanceRequest
+     * 查询脚本的实例信息, 包括实例状态、运行时间等信息.
      *
-     * @return GetPhysicalInstanceResponse GetPhysicalInstanceResponse
+     * @param request - GetPhysicalInstanceRequest
+     *
+     * @returns GetPhysicalInstanceResponse
+     *
+     * @param GetPhysicalInstanceRequest $request
+     *
+     * @return GetPhysicalInstanceResponse
      */
     public function getPhysicalInstance($request)
     {
@@ -5103,31 +6114,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例执行的日志，如果实例重跑了多次，则会有多条日志
-     *  *
-     * @param GetPhysicalInstanceLogRequest $request GetPhysicalInstanceLogRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获取实例执行的日志，如果实例重跑了多次，则会有多条日志.
      *
-     * @return GetPhysicalInstanceLogResponse GetPhysicalInstanceLogResponse
+     * @param request - GetPhysicalInstanceLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPhysicalInstanceLogResponse
+     *
+     * @param GetPhysicalInstanceLogRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetPhysicalInstanceLogResponse
      */
     public function getPhysicalInstanceLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPhysicalInstanceLog',
@@ -5145,11 +6165,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例执行的日志，如果实例重跑了多次，则会有多条日志
-     *  *
-     * @param GetPhysicalInstanceLogRequest $request GetPhysicalInstanceLogRequest
+     * 获取实例执行的日志，如果实例重跑了多次，则会有多条日志.
      *
-     * @return GetPhysicalInstanceLogResponse GetPhysicalInstanceLogResponse
+     * @param request - GetPhysicalInstanceLogRequest
+     *
+     * @returns GetPhysicalInstanceLogResponse
+     *
+     * @param GetPhysicalInstanceLogRequest $request
+     *
+     * @return GetPhysicalInstanceLogResponse
      */
     public function getPhysicalInstanceLog($request)
     {
@@ -5159,28 +6183,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询物理调度节点。
-     *  *
-     * @param GetPhysicalNodeRequest $request GetPhysicalNodeRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询物理调度节点。
      *
-     * @return GetPhysicalNodeResponse GetPhysicalNodeResponse
+     * @param request - GetPhysicalNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPhysicalNodeResponse
+     *
+     * @param GetPhysicalNodeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetPhysicalNodeResponse
      */
     public function getPhysicalNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPhysicalNode',
@@ -5198,11 +6230,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询物理调度节点。
-     *  *
-     * @param GetPhysicalNodeRequest $request GetPhysicalNodeRequest
+     * 查询物理调度节点。
      *
-     * @return GetPhysicalNodeResponse GetPhysicalNodeResponse
+     * @param request - GetPhysicalNodeRequest
+     *
+     * @returns GetPhysicalNodeResponse
+     *
+     * @param GetPhysicalNodeRequest $request
+     *
+     * @return GetPhysicalNodeResponse
      */
     public function getPhysicalNode($request)
     {
@@ -5212,28 +6248,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据输出名查询对应的物理节点。
-     *  *
-     * @param GetPhysicalNodeByOutputNameRequest $request GetPhysicalNodeByOutputNameRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 根据输出名查询对应的物理节点。
      *
-     * @return GetPhysicalNodeByOutputNameResponse GetPhysicalNodeByOutputNameResponse
+     * @param request - GetPhysicalNodeByOutputNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPhysicalNodeByOutputNameResponse
+     *
+     * @param GetPhysicalNodeByOutputNameRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetPhysicalNodeByOutputNameResponse
      */
     public function getPhysicalNodeByOutputNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->outputName)) {
-            $query['OutputName'] = $request->outputName;
+
+        if (null !== $request->outputName) {
+            @$query['OutputName'] = $request->outputName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPhysicalNodeByOutputName',
@@ -5251,11 +6295,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据输出名查询对应的物理节点。
-     *  *
-     * @param GetPhysicalNodeByOutputNameRequest $request GetPhysicalNodeByOutputNameRequest
+     * 根据输出名查询对应的物理节点。
      *
-     * @return GetPhysicalNodeByOutputNameResponse GetPhysicalNodeByOutputNameResponse
+     * @param request - GetPhysicalNodeByOutputNameRequest
+     *
+     * @returns GetPhysicalNodeByOutputNameResponse
+     *
+     * @param GetPhysicalNodeByOutputNameRequest $request
+     *
+     * @return GetPhysicalNodeByOutputNameResponse
      */
     public function getPhysicalNodeByOutputName($request)
     {
@@ -5265,28 +6313,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询调度节点代码内容。
-     *  *
-     * @param GetPhysicalNodeContentRequest $request GetPhysicalNodeContentRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询调度节点代码内容。
      *
-     * @return GetPhysicalNodeContentResponse GetPhysicalNodeContentResponse
+     * @param request - GetPhysicalNodeContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPhysicalNodeContentResponse
+     *
+     * @param GetPhysicalNodeContentRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetPhysicalNodeContentResponse
      */
     public function getPhysicalNodeContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPhysicalNodeContent',
@@ -5304,11 +6360,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询调度节点代码内容。
-     *  *
-     * @param GetPhysicalNodeContentRequest $request GetPhysicalNodeContentRequest
+     * 查询调度节点代码内容。
      *
-     * @return GetPhysicalNodeContentResponse GetPhysicalNodeContentResponse
+     * @param request - GetPhysicalNodeContentRequest
+     *
+     * @returns GetPhysicalNodeContentResponse
+     *
+     * @param GetPhysicalNodeContentRequest $request
+     *
+     * @return GetPhysicalNodeContentResponse
      */
     public function getPhysicalNodeContent($request)
     {
@@ -5318,28 +6378,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询节点的操作日志。
-     *  *
-     * @param GetPhysicalNodeOperationLogRequest $request GetPhysicalNodeOperationLogRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 查询节点的操作日志。
      *
-     * @return GetPhysicalNodeOperationLogResponse GetPhysicalNodeOperationLogResponse
+     * @param request - GetPhysicalNodeOperationLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPhysicalNodeOperationLogResponse
+     *
+     * @param GetPhysicalNodeOperationLogRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetPhysicalNodeOperationLogResponse
      */
     public function getPhysicalNodeOperationLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPhysicalNodeOperationLog',
@@ -5357,11 +6425,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询节点的操作日志。
-     *  *
-     * @param GetPhysicalNodeOperationLogRequest $request GetPhysicalNodeOperationLogRequest
+     * 查询节点的操作日志。
      *
-     * @return GetPhysicalNodeOperationLogResponse GetPhysicalNodeOperationLogResponse
+     * @param request - GetPhysicalNodeOperationLogRequest
+     *
+     * @returns GetPhysicalNodeOperationLogResponse
+     *
+     * @param GetPhysicalNodeOperationLogRequest $request
+     *
+     * @return GetPhysicalNodeOperationLogResponse
      */
     public function getPhysicalNodeOperationLog($request)
     {
@@ -5371,28 +6443,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目详情。
-     *  *
-     * @param GetProjectRequest $request GetProjectRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 获取项目详情。
      *
-     * @return GetProjectResponse GetProjectResponse
+     * @param request - GetProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectResponse
+     *
+     * @param GetProjectRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetProjectResponse
      */
     public function getProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetProject',
@@ -5410,11 +6490,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目详情。
-     *  *
-     * @param GetProjectRequest $request GetProjectRequest
+     * 获取项目详情。
      *
-     * @return GetProjectResponse GetProjectResponse
+     * @param request - GetProjectRequest
+     *
+     * @returns GetProjectResponse
+     *
+     * @param GetProjectRequest $request
+     *
+     * @return GetProjectResponse
      */
     public function getProject($request)
     {
@@ -5424,25 +6508,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通过项目名获取项目详情。
-     *  *
-     * @param GetProjectByNameRequest $request GetProjectByNameRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 通过项目名获取项目详情。
      *
-     * @return GetProjectByNameResponse GetProjectByNameResponse
+     * @param request - GetProjectByNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectByNameResponse
+     *
+     * @param GetProjectByNameRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetProjectByNameResponse
      */
     public function getProjectByNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetProjectByName',
@@ -5460,11 +6551,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通过项目名获取项目详情。
-     *  *
-     * @param GetProjectByNameRequest $request GetProjectByNameRequest
+     * 通过项目名获取项目详情。
      *
-     * @return GetProjectByNameResponse GetProjectByNameResponse
+     * @param request - GetProjectByNameRequest
+     *
+     * @returns GetProjectByNameResponse
+     *
+     * @param GetProjectByNameRequest $request
+     *
+     * @return GetProjectByNameResponse
      */
     public function getProjectByName($request)
     {
@@ -5474,25 +6569,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目生产账号
-     *  *
-     * @param GetProjectProduceUserRequest $request GetProjectProduceUserRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取项目生产账号.
      *
-     * @return GetProjectProduceUserResponse GetProjectProduceUserResponse
+     * @param request - GetProjectProduceUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectProduceUserResponse
+     *
+     * @param GetProjectProduceUserRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetProjectProduceUserResponse
      */
     public function getProjectProduceUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetProjectProduceUser',
@@ -5510,11 +6612,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目生产账号
-     *  *
-     * @param GetProjectProduceUserRequest $request GetProjectProduceUserRequest
+     * 获取项目生产账号.
      *
-     * @return GetProjectProduceUserResponse GetProjectProduceUserResponse
+     * @param request - GetProjectProduceUserRequest
+     *
+     * @returns GetProjectProduceUserResponse
+     *
+     * @param GetProjectProduceUserRequest $request
+     *
+     * @return GetProjectProduceUserResponse
      */
     public function getProjectProduceUser($request)
     {
@@ -5524,25 +6630,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目白名单。
-     *  *
-     * @param GetProjectWhiteListsRequest $request GetProjectWhiteListsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取项目白名单。
      *
-     * @return GetProjectWhiteListsResponse GetProjectWhiteListsResponse
+     * @param request - GetProjectWhiteListsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectWhiteListsResponse
+     *
+     * @param GetProjectWhiteListsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetProjectWhiteListsResponse
      */
     public function getProjectWhiteListsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetProjectWhiteLists',
@@ -5560,11 +6673,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目白名单。
-     *  *
-     * @param GetProjectWhiteListsRequest $request GetProjectWhiteListsRequest
+     * 获取项目白名单。
      *
-     * @return GetProjectWhiteListsResponse GetProjectWhiteListsResponse
+     * @param request - GetProjectWhiteListsRequest
+     *
+     * @returns GetProjectWhiteListsResponse
+     *
+     * @param GetProjectWhiteListsRequest $request
+     *
+     * @return GetProjectWhiteListsResponse
      */
     public function getProjectWhiteLists($request)
     {
@@ -5574,37 +6691,48 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据集群ID获取集群版本
-     *  *
-     * @param GetQueueEngineVersionByEnvRequest $request GetQueueEngineVersionByEnvRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 根据集群ID获取集群版本.
      *
-     * @return GetQueueEngineVersionByEnvResponse GetQueueEngineVersionByEnvResponse
+     * @param request - GetQueueEngineVersionByEnvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQueueEngineVersionByEnvResponse
+     *
+     * @param GetQueueEngineVersionByEnvRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetQueueEngineVersionByEnvResponse
      */
     public function getQueueEngineVersionByEnvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->queueName)) {
-            $query['QueueName'] = $request->queueName;
+
+        if (null !== $request->queueName) {
+            @$query['QueueName'] = $request->queueName;
         }
-        if (!Utils::isUnset($request->streamBatchMode)) {
-            $query['StreamBatchMode'] = $request->streamBatchMode;
+
+        if (null !== $request->streamBatchMode) {
+            @$query['StreamBatchMode'] = $request->streamBatchMode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQueueEngineVersionByEnv',
@@ -5622,11 +6750,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据集群ID获取集群版本
-     *  *
-     * @param GetQueueEngineVersionByEnvRequest $request GetQueueEngineVersionByEnvRequest
+     * 根据集群ID获取集群版本.
      *
-     * @return GetQueueEngineVersionByEnvResponse GetQueueEngineVersionByEnvResponse
+     * @param request - GetQueueEngineVersionByEnvRequest
+     *
+     * @returns GetQueueEngineVersionByEnvResponse
+     *
+     * @param GetQueueEngineVersionByEnvRequest $request
+     *
+     * @return GetQueueEngineVersionByEnvResponse
      */
     public function getQueueEngineVersionByEnv($request)
     {
@@ -5636,28 +6768,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取资源文件详情。
-     *  *
-     * @param GetResourceRequest $request GetResourceRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 获取资源文件详情。
      *
-     * @return GetResourceResponse GetResourceResponse
+     * @param request - GetResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceResponse
+     *
+     * @param GetResourceRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetResourceResponse
      */
     public function getResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetResource',
@@ -5675,11 +6815,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取资源文件详情。
-     *  *
-     * @param GetResourceRequest $request GetResourceRequest
+     * 获取资源文件详情。
      *
-     * @return GetResourceResponse GetResourceResponse
+     * @param request - GetResourceRequest
+     *
+     * @returns GetResourceResponse
+     *
+     * @param GetResourceRequest $request
+     *
+     * @return GetResourceResponse
      */
     public function getResource($request)
     {
@@ -5689,31 +6833,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取资源文件指定版本详情。
-     *  *
-     * @param GetResourceByVersionRequest $request GetResourceByVersionRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取资源文件指定版本详情。
      *
-     * @return GetResourceByVersionResponse GetResourceByVersionResponse
+     * @param request - GetResourceByVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceByVersionResponse
+     *
+     * @param GetResourceByVersionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetResourceByVersionResponse
      */
     public function getResourceByVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetResourceByVersion',
@@ -5731,11 +6884,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取资源文件指定版本详情。
-     *  *
-     * @param GetResourceByVersionRequest $request GetResourceByVersionRequest
+     * 获取资源文件指定版本详情。
      *
-     * @return GetResourceByVersionResponse GetResourceByVersionResponse
+     * @param request - GetResourceByVersionRequest
+     *
+     * @returns GetResourceByVersionResponse
+     *
+     * @param GetResourceByVersionRequest $request
+     *
+     * @return GetResourceByVersionResponse
      */
     public function getResourceByVersion($request)
     {
@@ -5745,28 +6902,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取计算源对应集群的spark客户信息
-     *  *
-     * @param GetSparkLocalClientInfoRequest $request GetSparkLocalClientInfoRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 获取计算源对应集群的spark客户信息.
      *
-     * @return GetSparkLocalClientInfoResponse GetSparkLocalClientInfoResponse
+     * @param request - GetSparkLocalClientInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSparkLocalClientInfoResponse
+     *
+     * @param GetSparkLocalClientInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetSparkLocalClientInfoResponse
      */
     public function getSparkLocalClientInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->envEnum)) {
-            $query['EnvEnum'] = $request->envEnum;
+        if (null !== $request->envEnum) {
+            @$query['EnvEnum'] = $request->envEnum;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSparkLocalClientInfo',
@@ -5784,11 +6949,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取计算源对应集群的spark客户信息
-     *  *
-     * @param GetSparkLocalClientInfoRequest $request GetSparkLocalClientInfoRequest
+     * 获取计算源对应集群的spark客户信息.
      *
-     * @return GetSparkLocalClientInfoResponse GetSparkLocalClientInfoResponse
+     * @param request - GetSparkLocalClientInfoRequest
+     *
+     * @returns GetSparkLocalClientInfoResponse
+     *
+     * @param GetSparkLocalClientInfoRequest $request
+     *
+     * @return GetSparkLocalClientInfoResponse
      */
     public function getSparkLocalClientInfo($request)
     {
@@ -5798,28 +6967,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取dataphin实时研发任务集合
-     *  *
-     * @param GetStreamJobsRequest $request GetStreamJobsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取dataphin实时研发任务集合.
      *
-     * @return GetStreamJobsResponse GetStreamJobsResponse
+     * @param request - GetStreamJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStreamJobsResponse
+     *
+     * @param GetStreamJobsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetStreamJobsResponse
      */
     public function getStreamJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetStreamJobs',
@@ -5837,11 +7014,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取dataphin实时研发任务集合
-     *  *
-     * @param GetStreamJobsRequest $request GetStreamJobsRequest
+     * 获取dataphin实时研发任务集合.
      *
-     * @return GetStreamJobsResponse GetStreamJobsResponse
+     * @param request - GetStreamJobsRequest
+     *
+     * @returns GetStreamJobsResponse
+     *
+     * @param GetStreamJobsRequest $request
+     *
+     * @return GetStreamJobsResponse
      */
     public function getStreamJobs($request)
     {
@@ -5851,28 +7032,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取补数据工作流所有业务日期的Dagrun信息。
-     *  *
-     * @param GetSupplementDagrunRequest $request GetSupplementDagrunRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取补数据工作流所有业务日期的Dagrun信息。
      *
-     * @return GetSupplementDagrunResponse GetSupplementDagrunResponse
+     * @param request - GetSupplementDagrunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSupplementDagrunResponse
+     *
+     * @param GetSupplementDagrunRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetSupplementDagrunResponse
      */
     public function getSupplementDagrunWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->supplementId)) {
-            $query['SupplementId'] = $request->supplementId;
+
+        if (null !== $request->supplementId) {
+            @$query['SupplementId'] = $request->supplementId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSupplementDagrun',
@@ -5890,11 +7079,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取补数据工作流所有业务日期的Dagrun信息。
-     *  *
-     * @param GetSupplementDagrunRequest $request GetSupplementDagrunRequest
+     * 获取补数据工作流所有业务日期的Dagrun信息。
      *
-     * @return GetSupplementDagrunResponse GetSupplementDagrunResponse
+     * @param request - GetSupplementDagrunRequest
+     *
+     * @returns GetSupplementDagrunResponse
+     *
+     * @param GetSupplementDagrunRequest $request
+     *
+     * @return GetSupplementDagrunResponse
      */
     public function getSupplementDagrun($request)
     {
@@ -5904,28 +7097,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 列出补数据工作流下具体一个业务日期的所有节点的实例。
-     *  *
-     * @param GetSupplementDagrunInstanceRequest $request GetSupplementDagrunInstanceRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 列出补数据工作流下具体一个业务日期的所有节点的实例。
      *
-     * @return GetSupplementDagrunInstanceResponse GetSupplementDagrunInstanceResponse
+     * @param request - GetSupplementDagrunInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSupplementDagrunInstanceResponse
+     *
+     * @param GetSupplementDagrunInstanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetSupplementDagrunInstanceResponse
      */
     public function getSupplementDagrunInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagrunId)) {
-            $query['DagrunId'] = $request->dagrunId;
+        if (null !== $request->dagrunId) {
+            @$query['DagrunId'] = $request->dagrunId;
         }
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSupplementDagrunInstance',
@@ -5943,11 +7144,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 列出补数据工作流下具体一个业务日期的所有节点的实例。
-     *  *
-     * @param GetSupplementDagrunInstanceRequest $request GetSupplementDagrunInstanceRequest
+     * 列出补数据工作流下具体一个业务日期的所有节点的实例。
      *
-     * @return GetSupplementDagrunInstanceResponse GetSupplementDagrunInstanceResponse
+     * @param request - GetSupplementDagrunInstanceRequest
+     *
+     * @returns GetSupplementDagrunInstanceResponse
+     *
+     * @param GetSupplementDagrunInstanceRequest $request
+     *
+     * @return GetSupplementDagrunInstanceResponse
      */
     public function getSupplementDagrunInstance($request)
     {
@@ -5957,32 +7162,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询表字段血缘信息
-     *  *
-     * @param GetTableColumnLineageByTaskIdRequest $tmpReq  GetTableColumnLineageByTaskIdRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 查询表字段血缘信息.
      *
-     * @return GetTableColumnLineageByTaskIdResponse GetTableColumnLineageByTaskIdResponse
+     * @param tmpReq - GetTableColumnLineageByTaskIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableColumnLineageByTaskIdResponse
+     *
+     * @param GetTableColumnLineageByTaskIdRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetTableColumnLineageByTaskIdResponse
      */
     public function getTableColumnLineageByTaskIdWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetTableColumnLineageByTaskIdShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tableColumnLineageByTaskIdQuery)) {
-            $request->tableColumnLineageByTaskIdQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableColumnLineageByTaskIdQuery, 'TableColumnLineageByTaskIdQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tableColumnLineageByTaskIdQuery) {
+            $request->tableColumnLineageByTaskIdQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tableColumnLineageByTaskIdQuery, 'TableColumnLineageByTaskIdQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->tableColumnLineageByTaskIdQueryShrink)) {
-            $body['TableColumnLineageByTaskIdQuery'] = $request->tableColumnLineageByTaskIdQueryShrink;
+        if (null !== $request->tableColumnLineageByTaskIdQueryShrink) {
+            @$body['TableColumnLineageByTaskIdQuery'] = $request->tableColumnLineageByTaskIdQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetTableColumnLineageByTaskId',
@@ -6000,11 +7213,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询表字段血缘信息
-     *  *
-     * @param GetTableColumnLineageByTaskIdRequest $request GetTableColumnLineageByTaskIdRequest
+     * 查询表字段血缘信息.
      *
-     * @return GetTableColumnLineageByTaskIdResponse GetTableColumnLineageByTaskIdResponse
+     * @param request - GetTableColumnLineageByTaskIdRequest
+     *
+     * @returns GetTableColumnLineageByTaskIdResponse
+     *
+     * @param GetTableColumnLineageByTaskIdRequest $request
+     *
+     * @return GetTableColumnLineageByTaskIdResponse
      */
     public function getTableColumnLineageByTaskId($request)
     {
@@ -6014,32 +7231,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询表血缘信息
-     *  *
-     * @param GetTableLineageByTaskIdRequest $tmpReq  GetTableLineageByTaskIdRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查询表血缘信息.
      *
-     * @return GetTableLineageByTaskIdResponse GetTableLineageByTaskIdResponse
+     * @param tmpReq - GetTableLineageByTaskIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableLineageByTaskIdResponse
+     *
+     * @param GetTableLineageByTaskIdRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetTableLineageByTaskIdResponse
      */
     public function getTableLineageByTaskIdWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetTableLineageByTaskIdShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tableLineageByTaskIdQuery)) {
-            $request->tableLineageByTaskIdQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableLineageByTaskIdQuery, 'TableLineageByTaskIdQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tableLineageByTaskIdQuery) {
+            $request->tableLineageByTaskIdQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tableLineageByTaskIdQuery, 'TableLineageByTaskIdQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->tableLineageByTaskIdQueryShrink)) {
-            $body['TableLineageByTaskIdQuery'] = $request->tableLineageByTaskIdQueryShrink;
+        if (null !== $request->tableLineageByTaskIdQueryShrink) {
+            @$body['TableLineageByTaskIdQuery'] = $request->tableLineageByTaskIdQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetTableLineageByTaskId',
@@ -6057,11 +7282,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询表血缘信息
-     *  *
-     * @param GetTableLineageByTaskIdRequest $request GetTableLineageByTaskIdRequest
+     * 查询表血缘信息.
      *
-     * @return GetTableLineageByTaskIdResponse GetTableLineageByTaskIdResponse
+     * @param request - GetTableLineageByTaskIdRequest
+     *
+     * @returns GetTableLineageByTaskIdResponse
+     *
+     * @param GetTableLineageByTaskIdRequest $request
+     *
+     * @return GetTableLineageByTaskIdResponse
      */
     public function getTableLineageByTaskId($request)
     {
@@ -6071,28 +7300,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取自定义函数详情。
-     *  *
-     * @param GetUdfRequest  $request GetUdfRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取自定义函数详情。
      *
-     * @return GetUdfResponse GetUdfResponse
+     * @param request - GetUdfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUdfResponse
+     *
+     * @param GetUdfRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetUdfResponse
      */
     public function getUdfWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetUdf',
@@ -6110,11 +7347,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取自定义函数详情。
-     *  *
-     * @param GetUdfRequest $request GetUdfRequest
+     * 获取自定义函数详情。
      *
-     * @return GetUdfResponse GetUdfResponse
+     * @param request - GetUdfRequest
+     *
+     * @returns GetUdfResponse
+     *
+     * @param GetUdfRequest $request
+     *
+     * @return GetUdfResponse
      */
     public function getUdf($request)
     {
@@ -6124,31 +7365,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询自定义函数版本详情。
-     *  *
-     * @param GetUdfByVersionRequest $request GetUdfByVersionRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询自定义函数版本详情。
      *
-     * @return GetUdfByVersionResponse GetUdfByVersionResponse
+     * @param request - GetUdfByVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUdfByVersionResponse
+     *
+     * @param GetUdfByVersionRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetUdfByVersionResponse
      */
     public function getUdfByVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetUdfByVersion',
@@ -6166,11 +7416,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询自定义函数版本详情。
-     *  *
-     * @param GetUdfByVersionRequest $request GetUdfByVersionRequest
+     * 查询自定义函数版本详情。
      *
-     * @return GetUdfByVersionResponse GetUdfByVersionResponse
+     * @param request - GetUdfByVersionRequest
+     *
+     * @returns GetUdfByVersionResponse
+     *
+     * @param GetUdfByVersionRequest $request
+     *
+     * @return GetUdfByVersionResponse
      */
     public function getUdfByVersion($request)
     {
@@ -6180,25 +7434,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通过用户原始Id（如阿里云Id）获取用户详情
-     *  *
-     * @param GetUserBySourceIdRequest $request GetUserBySourceIdRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 通过用户原始Id（如阿里云Id）获取用户详情.
      *
-     * @return GetUserBySourceIdResponse GetUserBySourceIdResponse
+     * @param request - GetUserBySourceIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserBySourceIdResponse
+     *
+     * @param GetUserBySourceIdRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetUserBySourceIdResponse
      */
     public function getUserBySourceIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->sourceId)) {
-            $query['SourceId'] = $request->sourceId;
+
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetUserBySourceId',
@@ -6216,11 +7477,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通过用户原始Id（如阿里云Id）获取用户详情
-     *  *
-     * @param GetUserBySourceIdRequest $request GetUserBySourceIdRequest
+     * 通过用户原始Id（如阿里云Id）获取用户详情.
      *
-     * @return GetUserBySourceIdResponse GetUserBySourceIdResponse
+     * @param request - GetUserBySourceIdRequest
+     *
+     * @returns GetUserBySourceIdResponse
+     *
+     * @param GetUserBySourceIdRequest $request
+     *
+     * @return GetUserBySourceIdResponse
      */
     public function getUserBySourceId($request)
     {
@@ -6230,25 +7495,32 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户组详情.
-     *  *
-     * @param GetUserGroupRequest $request GetUserGroupRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取用户组详情.
      *
-     * @return GetUserGroupResponse GetUserGroupResponse
+     * @param request - GetUserGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserGroupResponse
+     *
+     * @param GetUserGroupRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetUserGroupResponse
      */
     public function getUserGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->userGroupId)) {
-            $query['UserGroupId'] = $request->userGroupId;
+
+        if (null !== $request->userGroupId) {
+            @$query['UserGroupId'] = $request->userGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetUserGroup',
@@ -6266,11 +7538,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户组详情.
-     *  *
-     * @param GetUserGroupRequest $request GetUserGroupRequest
+     * 获取用户组详情.
      *
-     * @return GetUserGroupResponse GetUserGroupResponse
+     * @param request - GetUserGroupRequest
+     *
+     * @returns GetUserGroupResponse
+     *
+     * @param GetUserGroupRequest $request
+     *
+     * @return GetUserGroupResponse
      */
     public function getUserGroup($request)
     {
@@ -6280,32 +7556,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户详情
-     *  *
-     * @param GetUsersRequest $tmpReq  GetUsersRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 获取用户详情.
      *
-     * @return GetUsersResponse GetUsersResponse
+     * @param tmpReq - GetUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUsersResponse
+     *
+     * @param GetUsersRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetUsersResponse
      */
     public function getUsersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetUsersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userIdList)) {
-            $request->userIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIdList, 'UserIdList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userIdList) {
+            $request->userIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userIdList, 'UserIdList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->userIdListShrink)) {
-            $body['UserIdList'] = $request->userIdListShrink;
+        if (null !== $request->userIdListShrink) {
+            @$body['UserIdList'] = $request->userIdListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetUsers',
@@ -6323,11 +7607,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户详情
-     *  *
-     * @param GetUsersRequest $request GetUsersRequest
+     * 获取用户详情.
      *
-     * @return GetUsersResponse GetUsersResponse
+     * @param request - GetUsersRequest
+     *
+     * @returns GetUsersResponse
+     *
+     * @param GetUsersRequest $request
+     *
+     * @return GetUsersResponse
      */
     public function getUsers($request)
     {
@@ -6337,35 +7625,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary API授权。
-     *  *
-     * @param GrantDataServiceApiRequest $tmpReq  GrantDataServiceApiRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * API授权。
      *
-     * @return GrantDataServiceApiResponse GrantDataServiceApiResponse
+     * @param tmpReq - GrantDataServiceApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GrantDataServiceApiResponse
+     *
+     * @param GrantDataServiceApiRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GrantDataServiceApiResponse
      */
     public function grantDataServiceApiWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GrantDataServiceApiShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->grantCommand)) {
-            $request->grantCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->grantCommand, 'GrantCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->grantCommand) {
+            $request->grantCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->grantCommand, 'GrantCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->grantCommandShrink)) {
-            $body['GrantCommand'] = $request->grantCommandShrink;
+        if (null !== $request->grantCommandShrink) {
+            @$body['GrantCommand'] = $request->grantCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GrantDataServiceApi',
@@ -6383,11 +7680,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary API授权。
-     *  *
-     * @param GrantDataServiceApiRequest $request GrantDataServiceApiRequest
+     * API授权。
      *
-     * @return GrantDataServiceApiResponse GrantDataServiceApiResponse
+     * @param request - GrantDataServiceApiRequest
+     *
+     * @returns GrantDataServiceApiResponse
+     *
+     * @param GrantDataServiceApiRequest $request
+     *
+     * @return GrantDataServiceApiResponse
      */
     public function grantDataServiceApi($request)
     {
@@ -6397,32 +7698,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通过资源点对用户授权
-     *  *
-     * @param GrantResourcePermissionRequest $tmpReq  GrantResourcePermissionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 通过资源点对用户授权.
      *
-     * @return GrantResourcePermissionResponse GrantResourcePermissionResponse
+     * @param tmpReq - GrantResourcePermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GrantResourcePermissionResponse
+     *
+     * @param GrantResourcePermissionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GrantResourcePermissionResponse
      */
     public function grantResourcePermissionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GrantResourcePermissionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->grantCommand)) {
-            $request->grantCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->grantCommand, 'GrantCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->grantCommand) {
+            $request->grantCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->grantCommand, 'GrantCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->grantCommandShrink)) {
-            $body['GrantCommand'] = $request->grantCommandShrink;
+        if (null !== $request->grantCommandShrink) {
+            @$body['GrantCommand'] = $request->grantCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GrantResourcePermission',
@@ -6440,11 +7749,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通过资源点对用户授权
-     *  *
-     * @param GrantResourcePermissionRequest $request GrantResourcePermissionRequest
+     * 通过资源点对用户授权.
      *
-     * @return GrantResourcePermissionResponse GrantResourcePermissionResponse
+     * @param request - GrantResourcePermissionRequest
+     *
+     * @returns GrantResourcePermissionResponse
+     *
+     * @param GrantResourcePermissionRequest $request
+     *
+     * @return GrantResourcePermissionResponse
      */
     public function grantResourcePermission($request)
     {
@@ -6454,22 +7767,28 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户角色列表
-     *  *
-     * @param ListAddableRolesRequest $request ListAddableRolesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取用户角色列表.
      *
-     * @return ListAddableRolesResponse ListAddableRolesResponse
+     * @param request - ListAddableRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAddableRolesResponse
+     *
+     * @param ListAddableRolesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAddableRolesResponse
      */
     public function listAddableRolesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAddableRoles',
@@ -6487,11 +7806,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户角色列表
-     *  *
-     * @param ListAddableRolesRequest $request ListAddableRolesRequest
+     * 获取用户角色列表.
      *
-     * @return ListAddableRolesResponse ListAddableRolesResponse
+     * @param request - ListAddableRolesRequest
+     *
+     * @returns ListAddableRolesResponse
+     *
+     * @param ListAddableRolesRequest $request
+     *
+     * @return ListAddableRolesResponse
      */
     public function listAddableRoles($request)
     {
@@ -6501,32 +7824,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取可加入租户成员列表的用户
-     *  *
-     * @param ListAddableUsersRequest $tmpReq  ListAddableUsersRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取可加入租户成员列表的用户.
      *
-     * @return ListAddableUsersResponse ListAddableUsersResponse
+     * @param tmpReq - ListAddableUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAddableUsersResponse
+     *
+     * @param ListAddableUsersRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAddableUsersResponse
      */
     public function listAddableUsersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAddableUsersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListAddableUsers',
@@ -6544,11 +7875,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取可加入租户成员列表的用户
-     *  *
-     * @param ListAddableUsersRequest $request ListAddableUsersRequest
+     * 获取可加入租户成员列表的用户.
      *
-     * @return ListAddableUsersResponse ListAddableUsersResponse
+     * @param request - ListAddableUsersRequest
+     *
+     * @returns ListAddableUsersResponse
+     *
+     * @param ListAddableUsersRequest $request
+     *
+     * @return ListAddableUsersResponse
      */
     public function listAddableUsers($request)
     {
@@ -6558,32 +7893,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据条件查询多个告警事件
-     *  *
-     * @param ListAlertEventsRequest $tmpReq  ListAlertEventsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 根据条件查询多个告警事件.
      *
-     * @return ListAlertEventsResponse ListAlertEventsResponse
+     * @param tmpReq - ListAlertEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlertEventsResponse
+     *
+     * @param ListAlertEventsRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListAlertEventsResponse
      */
     public function listAlertEventsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAlertEventsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListAlertEvents',
@@ -6601,11 +7944,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据条件查询多个告警事件
-     *  *
-     * @param ListAlertEventsRequest $request ListAlertEventsRequest
+     * 根据条件查询多个告警事件.
      *
-     * @return ListAlertEventsResponse ListAlertEventsResponse
+     * @param request - ListAlertEventsRequest
+     *
+     * @returns ListAlertEventsResponse
+     *
+     * @param ListAlertEventsRequest $request
+     *
+     * @return ListAlertEventsResponse
      */
     public function listAlertEvents($request)
     {
@@ -6615,32 +7962,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据条件查询多个推送记录
-     *  *
-     * @param ListAlertNotificationsRequest $tmpReq  ListAlertNotificationsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 根据条件查询多个推送记录.
      *
-     * @return ListAlertNotificationsResponse ListAlertNotificationsResponse
+     * @param tmpReq - ListAlertNotificationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlertNotificationsResponse
+     *
+     * @param ListAlertNotificationsRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAlertNotificationsResponse
      */
     public function listAlertNotificationsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAlertNotificationsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListAlertNotifications',
@@ -6658,11 +8013,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据条件查询多个推送记录
-     *  *
-     * @param ListAlertNotificationsRequest $request ListAlertNotificationsRequest
+     * 根据条件查询多个推送记录.
      *
-     * @return ListAlertNotificationsResponse ListAlertNotificationsResponse
+     * @param request - ListAlertNotificationsRequest
+     *
+     * @returns ListAlertNotificationsResponse
+     *
+     * @param ListAlertNotificationsRequest $request
+     *
+     * @return ListAlertNotificationsResponse
      */
     public function listAlertNotifications($request)
     {
@@ -6672,32 +8031,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据app查询api列表
-     *  *
-     * @param ListApiByAppRequest $tmpReq  ListApiByAppRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 根据app查询api列表.
      *
-     * @return ListApiByAppResponse ListApiByAppResponse
+     * @param tmpReq - ListApiByAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApiByAppResponse
+     *
+     * @param ListApiByAppRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListApiByAppResponse
      */
     public function listApiByAppWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListApiByAppShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->pageQuery)) {
-            $request->pageQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pageQuery, 'PageQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pageQuery) {
+            $request->pageQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pageQuery, 'PageQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->pageQueryShrink)) {
-            $body['PageQuery'] = $request->pageQueryShrink;
+        if (null !== $request->pageQueryShrink) {
+            @$body['PageQuery'] = $request->pageQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListApiByApp',
@@ -6715,11 +8082,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据app查询api列表
-     *  *
-     * @param ListApiByAppRequest $request ListApiByAppRequest
+     * 根据app查询api列表.
      *
-     * @return ListApiByAppResponse ListApiByAppResponse
+     * @param request - ListApiByAppRequest
+     *
+     * @returns ListApiByAppResponse
+     *
+     * @param ListApiByAppRequest $request
+     *
+     * @return ListApiByAppResponse
      */
     public function listApiByApp($request)
     {
@@ -6729,32 +8100,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询应用已申请的API的具体的字段列表
-     *  *
-     * @param ListAuthorizedDataServiceApiDetailsRequest $tmpReq  ListAuthorizedDataServiceApiDetailsRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * 查询应用已申请的API的具体的字段列表.
      *
-     * @return ListAuthorizedDataServiceApiDetailsResponse ListAuthorizedDataServiceApiDetailsResponse
+     * @param tmpReq - ListAuthorizedDataServiceApiDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthorizedDataServiceApiDetailsResponse
+     *
+     * @param ListAuthorizedDataServiceApiDetailsRequest $tmpReq
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ListAuthorizedDataServiceApiDetailsResponse
      */
     public function listAuthorizedDataServiceApiDetailsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAuthorizedDataServiceApiDetailsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListAuthorizedDataServiceApiDetails',
@@ -6772,11 +8151,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询应用已申请的API的具体的字段列表
-     *  *
-     * @param ListAuthorizedDataServiceApiDetailsRequest $request ListAuthorizedDataServiceApiDetailsRequest
+     * 查询应用已申请的API的具体的字段列表.
      *
-     * @return ListAuthorizedDataServiceApiDetailsResponse ListAuthorizedDataServiceApiDetailsResponse
+     * @param request - ListAuthorizedDataServiceApiDetailsRequest
+     *
+     * @returns ListAuthorizedDataServiceApiDetailsResponse
+     *
+     * @param ListAuthorizedDataServiceApiDetailsRequest $request
+     *
+     * @return ListAuthorizedDataServiceApiDetailsResponse
      */
     public function listAuthorizedDataServiceApiDetails($request)
     {
@@ -6786,32 +8169,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询业务实体列表。
-     *  *
-     * @param ListBizEntitiesRequest $tmpReq  ListBizEntitiesRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询业务实体列表。
      *
-     * @return ListBizEntitiesResponse ListBizEntitiesResponse
+     * @param tmpReq - ListBizEntitiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBizEntitiesResponse
+     *
+     * @param ListBizEntitiesRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListBizEntitiesResponse
      */
     public function listBizEntitiesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListBizEntitiesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListBizEntities',
@@ -6829,11 +8220,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询业务实体列表。
-     *  *
-     * @param ListBizEntitiesRequest $request ListBizEntitiesRequest
+     * 查询业务实体列表。
      *
-     * @return ListBizEntitiesResponse ListBizEntitiesResponse
+     * @param request - ListBizEntitiesRequest
+     *
+     * @returns ListBizEntitiesResponse
+     *
+     * @param ListBizEntitiesRequest $request
+     *
+     * @return ListBizEntitiesResponse
      */
     public function listBizEntities($request)
     {
@@ -6843,22 +8238,28 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取当前租户下的所有数据板块
-     *  *
-     * @param ListBizUnitsRequest $request ListBizUnitsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取当前租户下的所有数据板块.
      *
-     * @return ListBizUnitsResponse ListBizUnitsResponse
+     * @param request - ListBizUnitsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBizUnitsResponse
+     *
+     * @param ListBizUnitsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListBizUnitsResponse
      */
     public function listBizUnitsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListBizUnits',
@@ -6876,11 +8277,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取当前租户下的所有数据板块
-     *  *
-     * @param ListBizUnitsRequest $request ListBizUnitsRequest
+     * 获取当前租户下的所有数据板块.
      *
-     * @return ListBizUnitsResponse ListBizUnitsResponse
+     * @param request - ListBizUnitsRequest
+     *
+     * @returns ListBizUnitsResponse
+     *
+     * @param ListBizUnitsRequest $request
+     *
+     * @return ListBizUnitsResponse
      */
     public function listBizUnits($request)
     {
@@ -6890,32 +8295,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询计算源列表。
-     *  *
-     * @param ListComputeSourcesRequest $tmpReq  ListComputeSourcesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询计算源列表。
      *
-     * @return ListComputeSourcesResponse ListComputeSourcesResponse
+     * @param tmpReq - ListComputeSourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListComputeSourcesResponse
+     *
+     * @param ListComputeSourcesRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListComputeSourcesResponse
      */
     public function listComputeSourcesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListComputeSourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListComputeSources',
@@ -6933,11 +8346,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询计算源列表。
-     *  *
-     * @param ListComputeSourcesRequest $request ListComputeSourcesRequest
+     * 查询计算源列表。
      *
-     * @return ListComputeSourcesResponse ListComputeSourcesResponse
+     * @param request - ListComputeSourcesRequest
+     *
+     * @returns ListComputeSourcesResponse
+     *
+     * @param ListComputeSourcesRequest $request
+     *
+     * @return ListComputeSourcesResponse
      */
     public function listComputeSources($request)
     {
@@ -6947,32 +8364,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取主题域列表。
-     *  *
-     * @param ListDataDomainsRequest $tmpReq  ListDataDomainsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取主题域列表。
      *
-     * @return ListDataDomainsResponse ListDataDomainsResponse
+     * @param tmpReq - ListDataDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataDomainsResponse
+     *
+     * @param ListDataDomainsRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDataDomainsResponse
      */
     public function listDataDomainsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataDomainsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDataDomains',
@@ -6990,11 +8415,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取主题域列表。
-     *  *
-     * @param ListDataDomainsRequest $request ListDataDomainsRequest
+     * 获取主题域列表。
      *
-     * @return ListDataDomainsResponse ListDataDomainsResponse
+     * @param request - ListDataDomainsRequest
+     *
+     * @returns ListDataDomainsResponse
+     *
+     * @param ListDataDomainsRequest $request
+     *
+     * @return ListDataDomainsResponse
      */
     public function listDataDomains($request)
     {
@@ -7004,35 +8433,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询API运维统计信息。
-     *  *
-     * @param ListDataServiceApiCallStatisticsRequest $tmpReq  ListDataServiceApiCallStatisticsRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 查询API运维统计信息。
      *
-     * @return ListDataServiceApiCallStatisticsResponse ListDataServiceApiCallStatisticsResponse
+     * @param tmpReq - ListDataServiceApiCallStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataServiceApiCallStatisticsResponse
+     *
+     * @param ListDataServiceApiCallStatisticsRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListDataServiceApiCallStatisticsResponse
      */
     public function listDataServiceApiCallStatisticsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataServiceApiCallStatisticsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDataServiceApiCallStatistics',
@@ -7050,11 +8488,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询API运维统计信息。
-     *  *
-     * @param ListDataServiceApiCallStatisticsRequest $request ListDataServiceApiCallStatisticsRequest
+     * 查询API运维统计信息。
      *
-     * @return ListDataServiceApiCallStatisticsResponse ListDataServiceApiCallStatisticsResponse
+     * @param request - ListDataServiceApiCallStatisticsRequest
+     *
+     * @returns ListDataServiceApiCallStatisticsResponse
+     *
+     * @param ListDataServiceApiCallStatisticsRequest $request
+     *
+     * @return ListDataServiceApiCallStatisticsResponse
      */
     public function listDataServiceApiCallStatistics($request)
     {
@@ -7064,35 +8506,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询数据服务调用日志。
-     *  *
-     * @param ListDataServiceApiCallsRequest $tmpReq  ListDataServiceApiCallsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 分页查询数据服务调用日志。
      *
-     * @return ListDataServiceApiCallsResponse ListDataServiceApiCallsResponse
+     * @param tmpReq - ListDataServiceApiCallsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataServiceApiCallsResponse
+     *
+     * @param ListDataServiceApiCallsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListDataServiceApiCallsResponse
      */
     public function listDataServiceApiCallsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataServiceApiCallsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDataServiceApiCalls',
@@ -7110,11 +8561,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询数据服务调用日志。
-     *  *
-     * @param ListDataServiceApiCallsRequest $request ListDataServiceApiCallsRequest
+     * 分页查询数据服务调用日志。
      *
-     * @return ListDataServiceApiCallsResponse ListDataServiceApiCallsResponse
+     * @param request - ListDataServiceApiCallsRequest
+     *
+     * @returns ListDataServiceApiCallsResponse
+     *
+     * @param ListDataServiceApiCallsRequest $request
+     *
+     * @return ListDataServiceApiCallsResponse
      */
     public function listDataServiceApiCalls($request)
     {
@@ -7124,35 +8579,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary API影响分析列表。
-     *  *
-     * @param ListDataServiceApiImpactsRequest $tmpReq  ListDataServiceApiImpactsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * API影响分析列表。
      *
-     * @return ListDataServiceApiImpactsResponse ListDataServiceApiImpactsResponse
+     * @param tmpReq - ListDataServiceApiImpactsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataServiceApiImpactsResponse
+     *
+     * @param ListDataServiceApiImpactsRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListDataServiceApiImpactsResponse
      */
     public function listDataServiceApiImpactsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataServiceApiImpactsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDataServiceApiImpacts',
@@ -7170,11 +8634,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary API影响分析列表。
-     *  *
-     * @param ListDataServiceApiImpactsRequest $request ListDataServiceApiImpactsRequest
+     * API影响分析列表。
      *
-     * @return ListDataServiceApiImpactsResponse ListDataServiceApiImpactsResponse
+     * @param request - ListDataServiceApiImpactsRequest
+     *
+     * @returns ListDataServiceApiImpactsResponse
+     *
+     * @param ListDataServiceApiImpactsRequest $request
+     *
+     * @return ListDataServiceApiImpactsResponse
      */
     public function listDataServiceApiImpacts($request)
     {
@@ -7184,35 +8652,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询当前用户有权限的应用列表。
-     *  *
-     * @param ListDataServiceAuthorizedAppsRequest $tmpReq  ListDataServiceAuthorizedAppsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 查询当前用户有权限的应用列表。
      *
-     * @return ListDataServiceAuthorizedAppsResponse ListDataServiceAuthorizedAppsResponse
+     * @param tmpReq - ListDataServiceAuthorizedAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataServiceAuthorizedAppsResponse
+     *
+     * @param ListDataServiceAuthorizedAppsRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListDataServiceAuthorizedAppsResponse
      */
     public function listDataServiceAuthorizedAppsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataServiceAuthorizedAppsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDataServiceAuthorizedApps',
@@ -7230,11 +8707,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询当前用户有权限的应用列表。
-     *  *
-     * @param ListDataServiceAuthorizedAppsRequest $request ListDataServiceAuthorizedAppsRequest
+     * 查询当前用户有权限的应用列表。
      *
-     * @return ListDataServiceAuthorizedAppsResponse ListDataServiceAuthorizedAppsResponse
+     * @param request - ListDataServiceAuthorizedAppsRequest
+     *
+     * @returns ListDataServiceAuthorizedAppsResponse
+     *
+     * @param ListDataServiceAuthorizedAppsRequest $request
+     *
+     * @return ListDataServiceAuthorizedAppsResponse
      */
     public function listDataServiceAuthorizedApps($request)
     {
@@ -7244,35 +8725,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取我管理的API权限列表。
-     *  *
-     * @param ListDataServiceMyApiPermissionsRequest $tmpReq  ListDataServiceMyApiPermissionsRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 获取我管理的API权限列表。
      *
-     * @return ListDataServiceMyApiPermissionsResponse ListDataServiceMyApiPermissionsResponse
+     * @param tmpReq - ListDataServiceMyApiPermissionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataServiceMyApiPermissionsResponse
+     *
+     * @param ListDataServiceMyApiPermissionsRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListDataServiceMyApiPermissionsResponse
      */
     public function listDataServiceMyApiPermissionsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataServiceMyApiPermissionsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDataServiceMyApiPermissions',
@@ -7290,11 +8780,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取我管理的API权限列表。
-     *  *
-     * @param ListDataServiceMyApiPermissionsRequest $request ListDataServiceMyApiPermissionsRequest
+     * 获取我管理的API权限列表。
      *
-     * @return ListDataServiceMyApiPermissionsResponse ListDataServiceMyApiPermissionsResponse
+     * @param request - ListDataServiceMyApiPermissionsRequest
+     *
+     * @returns ListDataServiceMyApiPermissionsResponse
+     *
+     * @param ListDataServiceMyApiPermissionsRequest $request
+     *
+     * @return ListDataServiceMyApiPermissionsResponse
      */
     public function listDataServiceMyApiPermissions($request)
     {
@@ -7304,35 +8798,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询当前用户有权限的应用。
-     *  *
-     * @param ListDataServiceMyAppPermissionsRequest $tmpReq  ListDataServiceMyAppPermissionsRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 查询当前用户有权限的应用。
      *
-     * @return ListDataServiceMyAppPermissionsResponse ListDataServiceMyAppPermissionsResponse
+     * @param tmpReq - ListDataServiceMyAppPermissionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataServiceMyAppPermissionsResponse
+     *
+     * @param ListDataServiceMyAppPermissionsRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListDataServiceMyAppPermissionsResponse
      */
     public function listDataServiceMyAppPermissionsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataServiceMyAppPermissionsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDataServiceMyAppPermissions',
@@ -7350,11 +8853,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询当前用户有权限的应用。
-     *  *
-     * @param ListDataServiceMyAppPermissionsRequest $request ListDataServiceMyAppPermissionsRequest
+     * 查询当前用户有权限的应用。
      *
-     * @return ListDataServiceMyAppPermissionsResponse ListDataServiceMyAppPermissionsResponse
+     * @param request - ListDataServiceMyAppPermissionsRequest
+     *
+     * @returns ListDataServiceMyAppPermissionsResponse
+     *
+     * @param ListDataServiceMyAppPermissionsRequest $request
+     *
+     * @return ListDataServiceMyAppPermissionsResponse
      */
     public function listDataServiceMyAppPermissions($request)
     {
@@ -7364,35 +8871,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询已发布的API列表。
-     *  *
-     * @param ListDataServicePublishedApisRequest $tmpReq  ListDataServicePublishedApisRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 分页查询已发布的API列表。
      *
-     * @return ListDataServicePublishedApisResponse ListDataServicePublishedApisResponse
+     * @param tmpReq - ListDataServicePublishedApisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataServicePublishedApisResponse
+     *
+     * @param ListDataServicePublishedApisRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListDataServicePublishedApisResponse
      */
     public function listDataServicePublishedApisWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataServicePublishedApisShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDataServicePublishedApis',
@@ -7410,11 +8926,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询已发布的API列表。
-     *  *
-     * @param ListDataServicePublishedApisRequest $request ListDataServicePublishedApisRequest
+     * 分页查询已发布的API列表。
      *
-     * @return ListDataServicePublishedApisResponse ListDataServicePublishedApisResponse
+     * @param request - ListDataServicePublishedApisRequest
+     *
+     * @returns ListDataServicePublishedApisResponse
+     *
+     * @param ListDataServicePublishedApisRequest $request
+     *
+     * @return ListDataServicePublishedApisResponse
      */
     public function listDataServicePublishedApis($request)
     {
@@ -7424,32 +8944,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 搜索数据源，所属结果包含数据源配置项
-     *  *
-     * @param ListDataSourceWithConfigRequest $tmpReq  ListDataSourceWithConfigRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 搜索数据源，所属结果包含数据源配置项.
      *
-     * @return ListDataSourceWithConfigResponse ListDataSourceWithConfigResponse
+     * @param tmpReq - ListDataSourceWithConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataSourceWithConfigResponse
+     *
+     * @param ListDataSourceWithConfigRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListDataSourceWithConfigResponse
      */
     public function listDataSourceWithConfigWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataSourceWithConfigShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDataSourceWithConfig',
@@ -7467,11 +8995,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 搜索数据源，所属结果包含数据源配置项
-     *  *
-     * @param ListDataSourceWithConfigRequest $request ListDataSourceWithConfigRequest
+     * 搜索数据源，所属结果包含数据源配置项.
      *
-     * @return ListDataSourceWithConfigResponse ListDataSourceWithConfigResponse
+     * @param request - ListDataSourceWithConfigRequest
+     *
+     * @returns ListDataSourceWithConfigResponse
+     *
+     * @param ListDataSourceWithConfigRequest $request
+     *
+     * @return ListDataSourceWithConfigResponse
      */
     public function listDataSourceWithConfig($request)
     {
@@ -7481,32 +9013,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 遍历菜单树目录文件。
-     *  *
-     * @param ListFilesRequest $tmpReq  ListFilesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 遍历菜单树目录文件。
      *
-     * @return ListFilesResponse ListFilesResponse
+     * @param tmpReq - ListFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFilesResponse
+     *
+     * @param ListFilesRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListFilesResponse
      */
     public function listFilesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListFilesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListFiles',
@@ -7524,11 +9064,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 遍历菜单树目录文件。
-     *  *
-     * @param ListFilesRequest $request ListFilesRequest
+     * 遍历菜单树目录文件。
      *
-     * @return ListFilesResponse ListFilesResponse
+     * @param request - ListFilesRequest
+     *
+     * @returns ListFilesResponse
+     *
+     * @param ListFilesRequest $request
+     *
+     * @return ListFilesResponse
      */
     public function listFiles($request)
     {
@@ -7538,35 +9082,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询实例。
-     *  *
-     * @param ListInstancesRequest $tmpReq  ListInstancesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 分页查询实例。
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param tmpReq - ListInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
      */
     public function listInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListInstances',
@@ -7584,11 +9137,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询实例。
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
+     * 分页查询实例。
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -7598,35 +9155,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询节点下游，创建补数据工作流时可以作为数据参考
-     *  *
-     * @param ListNodeDownStreamRequest $tmpReq  ListNodeDownStreamRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询节点下游，创建补数据工作流时可以作为数据参考.
      *
-     * @return ListNodeDownStreamResponse ListNodeDownStreamResponse
+     * @param tmpReq - ListNodeDownStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodeDownStreamResponse
+     *
+     * @param ListNodeDownStreamRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListNodeDownStreamResponse
      */
     public function listNodeDownStreamWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListNodeDownStreamShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListNodeDownStream',
@@ -7644,11 +9210,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询节点下游，创建补数据工作流时可以作为数据参考
-     *  *
-     * @param ListNodeDownStreamRequest $request ListNodeDownStreamRequest
+     * 查询节点下游，创建补数据工作流时可以作为数据参考.
      *
-     * @return ListNodeDownStreamResponse ListNodeDownStreamResponse
+     * @param request - ListNodeDownStreamRequest
+     *
+     * @returns ListNodeDownStreamResponse
+     *
+     * @param ListNodeDownStreamRequest $request
+     *
+     * @return ListNodeDownStreamResponse
      */
     public function listNodeDownStream($request)
     {
@@ -7658,35 +9228,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询调度节点列表。
-     *  *
-     * @param ListNodesRequest $tmpReq  ListNodesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 查询调度节点列表。
      *
-     * @return ListNodesResponse ListNodesResponse
+     * @param tmpReq - ListNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodesResponse
+     *
+     * @param ListNodesRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListNodesResponse
      */
     public function listNodesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListNodesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListNodes',
@@ -7704,11 +9283,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询调度节点列表。
-     *  *
-     * @param ListNodesRequest $request ListNodesRequest
+     * 查询调度节点列表。
      *
-     * @return ListNodesResponse ListNodesResponse
+     * @param request - ListNodesRequest
+     *
+     * @returns ListNodesResponse
+     *
+     * @param ListNodesRequest $request
+     *
+     * @return ListNodesResponse
      */
     public function listNodes($request)
     {
@@ -7718,35 +9301,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目成员列表。
-     *  *
-     * @param ListProjectMembersRequest $tmpReq  ListProjectMembersRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取项目成员列表。
      *
-     * @return ListProjectMembersResponse ListProjectMembersResponse
+     * @param tmpReq - ListProjectMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectMembersResponse
+     *
+     * @param ListProjectMembersRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListProjectMembersResponse
      */
     public function listProjectMembersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListProjectMembersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListProjectMembers',
@@ -7764,11 +9356,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目成员列表。
-     *  *
-     * @param ListProjectMembersRequest $request ListProjectMembersRequest
+     * 获取项目成员列表。
      *
-     * @return ListProjectMembersResponse ListProjectMembersResponse
+     * @param request - ListProjectMembersRequest
+     *
+     * @returns ListProjectMembersResponse
+     *
+     * @param ListProjectMembersRequest $request
+     *
+     * @return ListProjectMembersResponse
      */
     public function listProjectMembers($request)
     {
@@ -7778,32 +9374,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目列表。
-     *  *
-     * @param ListProjectsRequest $tmpReq  ListProjectsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取项目列表。
      *
-     * @return ListProjectsResponse ListProjectsResponse
+     * @param tmpReq - ListProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectsResponse
+     *
+     * @param ListProjectsRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProjectsResponse
      */
     public function listProjectsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListProjectsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListProjects',
@@ -7821,11 +9425,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目列表。
-     *  *
-     * @param ListProjectsRequest $request ListProjectsRequest
+     * 获取项目列表。
      *
-     * @return ListProjectsResponse ListProjectsResponse
+     * @param request - ListProjectsRequest
+     *
+     * @returns ListProjectsResponse
+     *
+     * @param ListProjectsRequest $request
+     *
+     * @return ListProjectsResponse
      */
     public function listProjects($request)
     {
@@ -7835,32 +9443,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取发布记录列表
-     *  *
-     * @param ListPublishRecordsRequest $tmpReq  ListPublishRecordsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 分页获取发布记录列表.
      *
-     * @return ListPublishRecordsResponse ListPublishRecordsResponse
+     * @param tmpReq - ListPublishRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPublishRecordsResponse
+     *
+     * @param ListPublishRecordsRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListPublishRecordsResponse
      */
     public function listPublishRecordsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListPublishRecordsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListPublishRecords',
@@ -7878,11 +9494,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取发布记录列表
-     *  *
-     * @param ListPublishRecordsRequest $request ListPublishRecordsRequest
+     * 分页获取发布记录列表.
      *
-     * @return ListPublishRecordsResponse ListPublishRecordsResponse
+     * @param request - ListPublishRecordsRequest
+     *
+     * @returns ListPublishRecordsResponse
+     *
+     * @param ListPublishRecordsRequest $request
+     *
+     * @return ListPublishRecordsResponse
      */
     public function listPublishRecords($request)
     {
@@ -7892,32 +9512,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取权限操作列表
-     *  *
-     * @param ListResourcePermissionOperationLogRequest $tmpReq  ListResourcePermissionOperationLogRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * 分页获取权限操作列表.
      *
-     * @return ListResourcePermissionOperationLogResponse ListResourcePermissionOperationLogResponse
+     * @param tmpReq - ListResourcePermissionOperationLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourcePermissionOperationLogResponse
+     *
+     * @param ListResourcePermissionOperationLogRequest $tmpReq
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ListResourcePermissionOperationLogResponse
      */
     public function listResourcePermissionOperationLogWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListResourcePermissionOperationLogShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListResourcePermissionOperationLog',
@@ -7935,11 +9563,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取权限操作列表
-     *  *
-     * @param ListResourcePermissionOperationLogRequest $request ListResourcePermissionOperationLogRequest
+     * 分页获取权限操作列表.
      *
-     * @return ListResourcePermissionOperationLogResponse ListResourcePermissionOperationLogResponse
+     * @param request - ListResourcePermissionOperationLogRequest
+     *
+     * @returns ListResourcePermissionOperationLogResponse
+     *
+     * @param ListResourcePermissionOperationLogRequest $request
+     *
+     * @return ListResourcePermissionOperationLogResponse
      */
     public function listResourcePermissionOperationLog($request)
     {
@@ -7949,32 +9581,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取权限记录列表
-     *  *
-     * @param ListResourcePermissionsRequest $tmpReq  ListResourcePermissionsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 分页获取权限记录列表.
      *
-     * @return ListResourcePermissionsResponse ListResourcePermissionsResponse
+     * @param tmpReq - ListResourcePermissionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourcePermissionsResponse
+     *
+     * @param ListResourcePermissionsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListResourcePermissionsResponse
      */
     public function listResourcePermissionsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListResourcePermissionsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListResourcePermissions',
@@ -7992,11 +9632,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取权限记录列表
-     *  *
-     * @param ListResourcePermissionsRequest $request ListResourcePermissionsRequest
+     * 分页获取权限记录列表.
      *
-     * @return ListResourcePermissionsResponse ListResourcePermissionsResponse
+     * @param request - ListResourcePermissionsRequest
+     *
+     * @returns ListResourcePermissionsResponse
+     *
+     * @param ListResourcePermissionsRequest $request
+     *
+     * @return ListResourcePermissionsResponse
      */
     public function listResourcePermissions($request)
     {
@@ -8006,32 +9650,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询行级权限
-     *  *
-     * @param ListRowPermissionRequest $tmpReq  ListRowPermissionRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 分页查询行级权限.
      *
-     * @return ListRowPermissionResponse ListRowPermissionResponse
+     * @param tmpReq - ListRowPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRowPermissionResponse
+     *
+     * @param ListRowPermissionRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListRowPermissionResponse
      */
     public function listRowPermissionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListRowPermissionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->pageRowPermissionQuery)) {
-            $request->pageRowPermissionQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pageRowPermissionQuery, 'PageRowPermissionQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pageRowPermissionQuery) {
+            $request->pageRowPermissionQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pageRowPermissionQuery, 'PageRowPermissionQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->pageRowPermissionQueryShrink)) {
-            $body['PageRowPermissionQuery'] = $request->pageRowPermissionQueryShrink;
+        if (null !== $request->pageRowPermissionQueryShrink) {
+            @$body['PageRowPermissionQuery'] = $request->pageRowPermissionQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListRowPermission',
@@ -8049,11 +9701,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询行级权限
-     *  *
-     * @param ListRowPermissionRequest $request ListRowPermissionRequest
+     * 分页查询行级权限.
      *
-     * @return ListRowPermissionResponse ListRowPermissionResponse
+     * @param request - ListRowPermissionRequest
+     *
+     * @returns ListRowPermissionResponse
+     *
+     * @param ListRowPermissionRequest $request
+     *
+     * @return ListRowPermissionResponse
      */
     public function listRowPermission($request)
     {
@@ -8063,32 +9719,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询指定用户行级权限
-     *  *
-     * @param ListRowPermissionByUserIdRequest $tmpReq  ListRowPermissionByUserIdRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 分页查询指定用户行级权限.
      *
-     * @return ListRowPermissionByUserIdResponse ListRowPermissionByUserIdResponse
+     * @param tmpReq - ListRowPermissionByUserIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRowPermissionByUserIdResponse
+     *
+     * @param ListRowPermissionByUserIdRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListRowPermissionByUserIdResponse
      */
     public function listRowPermissionByUserIdWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListRowPermissionByUserIdShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listRowPermissionByUserIdQuery)) {
-            $request->listRowPermissionByUserIdQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listRowPermissionByUserIdQuery, 'ListRowPermissionByUserIdQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listRowPermissionByUserIdQuery) {
+            $request->listRowPermissionByUserIdQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listRowPermissionByUserIdQuery, 'ListRowPermissionByUserIdQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listRowPermissionByUserIdQueryShrink)) {
-            $body['ListRowPermissionByUserIdQuery'] = $request->listRowPermissionByUserIdQueryShrink;
+        if (null !== $request->listRowPermissionByUserIdQueryShrink) {
+            @$body['ListRowPermissionByUserIdQuery'] = $request->listRowPermissionByUserIdQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListRowPermissionByUserId',
@@ -8106,11 +9770,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询指定用户行级权限
-     *  *
-     * @param ListRowPermissionByUserIdRequest $request ListRowPermissionByUserIdRequest
+     * 分页查询指定用户行级权限.
      *
-     * @return ListRowPermissionByUserIdResponse ListRowPermissionByUserIdResponse
+     * @param request - ListRowPermissionByUserIdRequest
+     *
+     * @returns ListRowPermissionByUserIdResponse
+     *
+     * @param ListRowPermissionByUserIdRequest $request
+     *
+     * @return ListRowPermissionByUserIdResponse
      */
     public function listRowPermissionByUserId($request)
     {
@@ -8120,32 +9788,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取待发布记录列表
-     *  *
-     * @param ListSubmitRecordsRequest $tmpReq  ListSubmitRecordsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 分页获取待发布记录列表.
      *
-     * @return ListSubmitRecordsResponse ListSubmitRecordsResponse
+     * @param tmpReq - ListSubmitRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSubmitRecordsResponse
+     *
+     * @param ListSubmitRecordsRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListSubmitRecordsResponse
      */
     public function listSubmitRecordsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListSubmitRecordsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListSubmitRecords',
@@ -8163,11 +9839,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取待发布记录列表
-     *  *
-     * @param ListSubmitRecordsRequest $request ListSubmitRecordsRequest
+     * 分页获取待发布记录列表.
      *
-     * @return ListSubmitRecordsResponse ListSubmitRecordsResponse
+     * @param request - ListSubmitRecordsRequest
+     *
+     * @returns ListSubmitRecordsResponse
+     *
+     * @param ListSubmitRecordsRequest $request
+     *
+     * @return ListSubmitRecordsResponse
      */
     public function listSubmitRecords($request)
     {
@@ -8177,32 +9857,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询租户成员列表
-     *  *
-     * @param ListTenantMembersRequest $tmpReq  ListTenantMembersRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询租户成员列表.
      *
-     * @return ListTenantMembersResponse ListTenantMembersResponse
+     * @param tmpReq - ListTenantMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTenantMembersResponse
+     *
+     * @param ListTenantMembersRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListTenantMembersResponse
      */
     public function listTenantMembersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTenantMembersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListTenantMembers',
@@ -8220,11 +9908,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询租户成员列表
-     *  *
-     * @param ListTenantMembersRequest $request ListTenantMembersRequest
+     * 查询租户成员列表.
      *
-     * @return ListTenantMembersResponse ListTenantMembersResponse
+     * @param request - ListTenantMembersRequest
+     *
+     * @returns ListTenantMembersResponse
+     *
+     * @param ListTenantMembersRequest $request
+     *
+     * @return ListTenantMembersResponse
      */
     public function listTenantMembers($request)
     {
@@ -8234,32 +9926,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 用户组成员列表分页查询.
-     *  *
-     * @param ListUserGroupMembersRequest $tmpReq  ListUserGroupMembersRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 用户组成员列表分页查询.
      *
-     * @return ListUserGroupMembersResponse ListUserGroupMembersResponse
+     * @param tmpReq - ListUserGroupMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserGroupMembersResponse
+     *
+     * @param ListUserGroupMembersRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListUserGroupMembersResponse
      */
     public function listUserGroupMembersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListUserGroupMembersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListUserGroupMembers',
@@ -8277,11 +9977,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 用户组成员列表分页查询.
-     *  *
-     * @param ListUserGroupMembersRequest $request ListUserGroupMembersRequest
+     * 用户组成员列表分页查询.
      *
-     * @return ListUserGroupMembersResponse ListUserGroupMembersResponse
+     * @param request - ListUserGroupMembersRequest
+     *
+     * @returns ListUserGroupMembersResponse
+     *
+     * @param ListUserGroupMembersRequest $request
+     *
+     * @return ListUserGroupMembersResponse
      */
     public function listUserGroupMembers($request)
     {
@@ -8291,32 +9995,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 用户组列表分页查询.
-     *  *
-     * @param ListUserGroupsRequest $tmpReq  ListUserGroupsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 用户组列表分页查询.
      *
-     * @return ListUserGroupsResponse ListUserGroupsResponse
+     * @param tmpReq - ListUserGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserGroupsResponse
+     *
+     * @param ListUserGroupsRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListUserGroupsResponse
      */
     public function listUserGroupsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListUserGroupsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListUserGroups',
@@ -8334,11 +10046,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 用户组列表分页查询.
-     *  *
-     * @param ListUserGroupsRequest $request ListUserGroupsRequest
+     * 用户组列表分页查询.
      *
-     * @return ListUserGroupsResponse ListUserGroupsResponse
+     * @param request - ListUserGroupsRequest
+     *
+     * @returns ListUserGroupsResponse
+     *
+     * @param ListUserGroupsRequest $request
+     *
+     * @return ListUserGroupsResponse
      */
     public function listUserGroups($request)
     {
@@ -8348,31 +10064,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 下线离线计算任务。
-     *  *
-     * @param OfflineBatchTaskRequest $request OfflineBatchTaskRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 下线离线计算任务。
      *
-     * @return OfflineBatchTaskResponse OfflineBatchTaskResponse
+     * @param request - OfflineBatchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OfflineBatchTaskResponse
+     *
+     * @param OfflineBatchTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return OfflineBatchTaskResponse
      */
     public function offlineBatchTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'OfflineBatchTask',
@@ -8390,11 +10115,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 下线离线计算任务。
-     *  *
-     * @param OfflineBatchTaskRequest $request OfflineBatchTaskRequest
+     * 下线离线计算任务。
      *
-     * @return OfflineBatchTaskResponse OfflineBatchTaskResponse
+     * @param request - OfflineBatchTaskRequest
+     *
+     * @returns OfflineBatchTaskResponse
+     *
+     * @param OfflineBatchTaskRequest $request
+     *
+     * @return OfflineBatchTaskResponse
      */
     public function offlineBatchTask($request)
     {
@@ -8404,32 +10133,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 下线业务实体、
-     *  *
-     * @param OfflineBizEntityRequest $tmpReq  OfflineBizEntityRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 下线业务实体、
      *
-     * @return OfflineBizEntityResponse OfflineBizEntityResponse
+     * @param tmpReq - OfflineBizEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OfflineBizEntityResponse
+     *
+     * @param OfflineBizEntityRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return OfflineBizEntityResponse
      */
     public function offlineBizEntityWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new OfflineBizEntityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->offlineCommand)) {
-            $request->offlineCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->offlineCommand, 'OfflineCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->offlineCommand) {
+            $request->offlineCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->offlineCommand, 'OfflineCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->offlineCommandShrink)) {
-            $body['OfflineCommand'] = $request->offlineCommandShrink;
+        if (null !== $request->offlineCommandShrink) {
+            @$body['OfflineCommand'] = $request->offlineCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'OfflineBizEntity',
@@ -8447,11 +10184,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 下线业务实体、
-     *  *
-     * @param OfflineBizEntityRequest $request OfflineBizEntityRequest
+     * 下线业务实体、
      *
-     * @return OfflineBizEntityResponse OfflineBizEntityResponse
+     * @param request - OfflineBizEntityRequest
+     *
+     * @returns OfflineBizEntityResponse
+     *
+     * @param OfflineBizEntityRequest $request
+     *
+     * @return OfflineBizEntityResponse
      */
     public function offlineBizEntity($request)
     {
@@ -8461,32 +10202,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 上线业务实体。
-     *  *
-     * @param OnlineBizEntityRequest $tmpReq  OnlineBizEntityRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 上线业务实体。
      *
-     * @return OnlineBizEntityResponse OnlineBizEntityResponse
+     * @param tmpReq - OnlineBizEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OnlineBizEntityResponse
+     *
+     * @param OnlineBizEntityRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return OnlineBizEntityResponse
      */
     public function onlineBizEntityWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new OnlineBizEntityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->onlineCommand)) {
-            $request->onlineCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->onlineCommand, 'OnlineCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->onlineCommand) {
+            $request->onlineCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->onlineCommand, 'OnlineCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->onlineCommandShrink)) {
-            $body['OnlineCommand'] = $request->onlineCommandShrink;
+        if (null !== $request->onlineCommandShrink) {
+            @$body['OnlineCommand'] = $request->onlineCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'OnlineBizEntity',
@@ -8504,11 +10253,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 上线业务实体。
-     *  *
-     * @param OnlineBizEntityRequest $request OnlineBizEntityRequest
+     * 上线业务实体。
      *
-     * @return OnlineBizEntityResponse OnlineBizEntityResponse
+     * @param request - OnlineBizEntityRequest
+     *
+     * @returns OnlineBizEntityResponse
+     *
+     * @param OnlineBizEntityRequest $request
+     *
+     * @return OnlineBizEntityResponse
      */
     public function onlineBizEntity($request)
     {
@@ -8518,35 +10271,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 运维实例。
-     *  *
-     * @param OperateInstanceRequest $tmpReq  OperateInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 运维实例。
      *
-     * @return OperateInstanceResponse OperateInstanceResponse
+     * @param tmpReq - OperateInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateInstanceResponse
+     *
+     * @param OperateInstanceRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return OperateInstanceResponse
      */
     public function operateInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new OperateInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->operateCommand)) {
-            $request->operateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operateCommand, 'OperateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->operateCommand) {
+            $request->operateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operateCommand, 'OperateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->operateCommandShrink)) {
-            $body['OperateCommand'] = $request->operateCommandShrink;
+        if (null !== $request->operateCommandShrink) {
+            @$body['OperateCommand'] = $request->operateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'OperateInstance',
@@ -8564,11 +10326,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 运维实例。
-     *  *
-     * @param OperateInstanceRequest $request OperateInstanceRequest
+     * 运维实例。
      *
-     * @return OperateInstanceResponse OperateInstanceResponse
+     * @param request - OperateInstanceRequest
+     *
+     * @returns OperateInstanceResponse
+     *
+     * @param OperateInstanceRequest $request
+     *
+     * @return OperateInstanceResponse
      */
     public function operateInstance($request)
     {
@@ -8578,32 +10344,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
-     *  *
-     * @param ParseBatchTaskDependencyRequest $tmpReq  ParseBatchTaskDependencyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
      *
-     * @return ParseBatchTaskDependencyResponse ParseBatchTaskDependencyResponse
+     * @param tmpReq - ParseBatchTaskDependencyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ParseBatchTaskDependencyResponse
+     *
+     * @param ParseBatchTaskDependencyRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ParseBatchTaskDependencyResponse
      */
     public function parseBatchTaskDependencyWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ParseBatchTaskDependencyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->parseCommand)) {
-            $request->parseCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parseCommand, 'ParseCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->parseCommand) {
+            $request->parseCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parseCommand, 'ParseCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->parseCommandShrink)) {
-            $body['ParseCommand'] = $request->parseCommandShrink;
+        if (null !== $request->parseCommandShrink) {
+            @$body['ParseCommand'] = $request->parseCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ParseBatchTaskDependency',
@@ -8621,11 +10395,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
-     *  *
-     * @param ParseBatchTaskDependencyRequest $request ParseBatchTaskDependencyRequest
+     * 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
      *
-     * @return ParseBatchTaskDependencyResponse ParseBatchTaskDependencyResponse
+     * @param request - ParseBatchTaskDependencyRequest
+     *
+     * @returns ParseBatchTaskDependencyResponse
+     *
+     * @param ParseBatchTaskDependencyRequest $request
+     *
+     * @return ParseBatchTaskDependencyResponse
      */
     public function parseBatchTaskDependency($request)
     {
@@ -8635,35 +10413,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 暂停物理节点调度。
-     *  *
-     * @param PausePhysicalNodeRequest $tmpReq  PausePhysicalNodeRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 暂停物理节点调度。
      *
-     * @return PausePhysicalNodeResponse PausePhysicalNodeResponse
+     * @param tmpReq - PausePhysicalNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PausePhysicalNodeResponse
+     *
+     * @param PausePhysicalNodeRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PausePhysicalNodeResponse
      */
     public function pausePhysicalNodeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PausePhysicalNodeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->pauseCommand)) {
-            $request->pauseCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pauseCommand, 'PauseCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pauseCommand) {
+            $request->pauseCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pauseCommand, 'PauseCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->pauseCommandShrink)) {
-            $body['PauseCommand'] = $request->pauseCommandShrink;
+        if (null !== $request->pauseCommandShrink) {
+            @$body['PauseCommand'] = $request->pauseCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'PausePhysicalNode',
@@ -8681,11 +10468,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 暂停物理节点调度。
-     *  *
-     * @param PausePhysicalNodeRequest $request PausePhysicalNodeRequest
+     * 暂停物理节点调度。
      *
-     * @return PausePhysicalNodeResponse PausePhysicalNodeResponse
+     * @param request - PausePhysicalNodeRequest
+     *
+     * @returns PausePhysicalNodeResponse
+     *
+     * @param PausePhysicalNodeRequest $request
+     *
+     * @return PausePhysicalNodeResponse
      */
     public function pausePhysicalNode($request)
     {
@@ -8695,31 +10486,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 发布数据服务API到生产环境。
-     *  *
-     * @param PublishDataServiceApiRequest $request PublishDataServiceApiRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 发布数据服务API到生产环境。
      *
-     * @return PublishDataServiceApiResponse PublishDataServiceApiResponse
+     * @param request - PublishDataServiceApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishDataServiceApiResponse
+     *
+     * @param PublishDataServiceApiRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return PublishDataServiceApiResponse
      */
     public function publishDataServiceApiWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apiId)) {
-            $query['ApiId'] = $request->apiId;
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'PublishDataServiceApi',
@@ -8737,11 +10537,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 发布数据服务API到生产环境。
-     *  *
-     * @param PublishDataServiceApiRequest $request PublishDataServiceApiRequest
+     * 发布数据服务API到生产环境。
      *
-     * @return PublishDataServiceApiResponse PublishDataServiceApiResponse
+     * @param request - PublishDataServiceApiRequest
+     *
+     * @returns PublishDataServiceApiResponse
+     *
+     * @param PublishDataServiceApiRequest $request
+     *
+     * @return PublishDataServiceApiResponse
      */
     public function publishDataServiceApi($request)
     {
@@ -8751,32 +10555,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 批量发布对象
-     *  *
-     * @param PublishObjectListRequest $tmpReq  PublishObjectListRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 批量发布对象
      *
-     * @return PublishObjectListResponse PublishObjectListResponse
+     * @param tmpReq - PublishObjectListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishObjectListResponse
+     *
+     * @param PublishObjectListRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PublishObjectListResponse
      */
     public function publishObjectListWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PublishObjectListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->publishCommand)) {
-            $request->publishCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->publishCommand, 'PublishCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->publishCommand) {
+            $request->publishCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->publishCommand, 'PublishCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->publishCommandShrink)) {
-            $body['PublishCommand'] = $request->publishCommandShrink;
+        if (null !== $request->publishCommandShrink) {
+            @$body['PublishCommand'] = $request->publishCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'PublishObjectList',
@@ -8794,11 +10606,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 批量发布对象
-     *  *
-     * @param PublishObjectListRequest $request PublishObjectListRequest
+     * 批量发布对象
      *
-     * @return PublishObjectListResponse PublishObjectListResponse
+     * @param request - PublishObjectListRequest
+     *
+     * @returns PublishObjectListResponse
+     *
+     * @param PublishObjectListRequest $request
+     *
+     * @return PublishObjectListResponse
      */
     public function publishObjectList($request)
     {
@@ -8808,35 +10624,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除项目成员。
-     *  *
-     * @param RemoveProjectMemberRequest $tmpReq  RemoveProjectMemberRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 删除项目成员。
      *
-     * @return RemoveProjectMemberResponse RemoveProjectMemberResponse
+     * @param tmpReq - RemoveProjectMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveProjectMemberResponse
+     *
+     * @param RemoveProjectMemberRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RemoveProjectMemberResponse
      */
     public function removeProjectMemberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RemoveProjectMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->removeCommand)) {
-            $request->removeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->removeCommand, 'RemoveCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->removeCommand) {
+            $request->removeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->removeCommand, 'RemoveCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->removeCommandShrink)) {
-            $body['RemoveCommand'] = $request->removeCommandShrink;
+        if (null !== $request->removeCommandShrink) {
+            @$body['RemoveCommand'] = $request->removeCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RemoveProjectMember',
@@ -8854,11 +10679,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除项目成员。
-     *  *
-     * @param RemoveProjectMemberRequest $request RemoveProjectMemberRequest
+     * 删除项目成员。
      *
-     * @return RemoveProjectMemberResponse RemoveProjectMemberResponse
+     * @param request - RemoveProjectMemberRequest
+     *
+     * @returns RemoveProjectMemberResponse
+     *
+     * @param RemoveProjectMemberRequest $request
+     *
+     * @return RemoveProjectMemberResponse
      */
     public function removeProjectMember($request)
     {
@@ -8868,32 +10697,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除租户成员
-     *  *
-     * @param RemoveTenantMemberRequest $tmpReq  RemoveTenantMemberRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 删除租户成员.
      *
-     * @return RemoveTenantMemberResponse RemoveTenantMemberResponse
+     * @param tmpReq - RemoveTenantMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveTenantMemberResponse
+     *
+     * @param RemoveTenantMemberRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RemoveTenantMemberResponse
      */
     public function removeTenantMemberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RemoveTenantMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->removeCommand)) {
-            $request->removeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->removeCommand, 'RemoveCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->removeCommand) {
+            $request->removeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->removeCommand, 'RemoveCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->removeCommandShrink)) {
-            $body['RemoveCommand'] = $request->removeCommandShrink;
+        if (null !== $request->removeCommandShrink) {
+            @$body['RemoveCommand'] = $request->removeCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RemoveTenantMember',
@@ -8911,11 +10748,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除租户成员
-     *  *
-     * @param RemoveTenantMemberRequest $request RemoveTenantMemberRequest
+     * 删除租户成员.
      *
-     * @return RemoveTenantMemberResponse RemoveTenantMemberResponse
+     * @param request - RemoveTenantMemberRequest
+     *
+     * @returns RemoveTenantMemberResponse
+     *
+     * @param RemoveTenantMemberRequest $request
+     *
+     * @return RemoveTenantMemberResponse
      */
     public function removeTenantMember($request)
     {
@@ -8925,32 +10766,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 移除用户组成员.
-     *  *
-     * @param RemoveUserGroupMemberRequest $tmpReq  RemoveUserGroupMemberRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 移除用户组成员.
      *
-     * @return RemoveUserGroupMemberResponse RemoveUserGroupMemberResponse
+     * @param tmpReq - RemoveUserGroupMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveUserGroupMemberResponse
+     *
+     * @param RemoveUserGroupMemberRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RemoveUserGroupMemberResponse
      */
     public function removeUserGroupMemberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RemoveUserGroupMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->removeCommand)) {
-            $request->removeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->removeCommand, 'RemoveCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->removeCommand) {
+            $request->removeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->removeCommand, 'RemoveCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->removeCommandShrink)) {
-            $body['RemoveCommand'] = $request->removeCommandShrink;
+        if (null !== $request->removeCommandShrink) {
+            @$body['RemoveCommand'] = $request->removeCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RemoveUserGroupMember',
@@ -8968,11 +10817,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 移除用户组成员.
-     *  *
-     * @param RemoveUserGroupMemberRequest $request RemoveUserGroupMemberRequest
+     * 移除用户组成员.
      *
-     * @return RemoveUserGroupMemberResponse RemoveUserGroupMemberResponse
+     * @param request - RemoveUserGroupMemberRequest
+     *
+     * @returns RemoveUserGroupMemberResponse
+     *
+     * @param RemoveUserGroupMemberRequest $request
+     *
+     * @return RemoveUserGroupMemberResponse
      */
     public function removeUserGroupMember($request)
     {
@@ -8982,35 +10835,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新项目白名单。
-     *  *
-     * @param ReplaceProjectWhiteListsRequest $tmpReq  ReplaceProjectWhiteListsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 更新项目白名单。
      *
-     * @return ReplaceProjectWhiteListsResponse ReplaceProjectWhiteListsResponse
+     * @param tmpReq - ReplaceProjectWhiteListsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReplaceProjectWhiteListsResponse
+     *
+     * @param ReplaceProjectWhiteListsRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ReplaceProjectWhiteListsResponse
      */
     public function replaceProjectWhiteListsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ReplaceProjectWhiteListsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->replaceCommand)) {
-            $request->replaceCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->replaceCommand, 'ReplaceCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->replaceCommand) {
+            $request->replaceCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->replaceCommand, 'ReplaceCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->replaceCommandShrink)) {
-            $body['ReplaceCommand'] = $request->replaceCommandShrink;
+        if (null !== $request->replaceCommandShrink) {
+            @$body['ReplaceCommand'] = $request->replaceCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ReplaceProjectWhiteLists',
@@ -9028,11 +10890,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新项目白名单。
-     *  *
-     * @param ReplaceProjectWhiteListsRequest $request ReplaceProjectWhiteListsRequest
+     * 更新项目白名单。
      *
-     * @return ReplaceProjectWhiteListsResponse ReplaceProjectWhiteListsResponse
+     * @param request - ReplaceProjectWhiteListsRequest
+     *
+     * @returns ReplaceProjectWhiteListsResponse
+     *
+     * @param ReplaceProjectWhiteListsRequest $request
+     *
+     * @return ReplaceProjectWhiteListsResponse
      */
     public function replaceProjectWhiteLists($request)
     {
@@ -9042,35 +10908,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 恢复物理节点调度。
-     *  *
-     * @param ResumePhysicalNodeRequest $tmpReq  ResumePhysicalNodeRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 恢复物理节点调度。
      *
-     * @return ResumePhysicalNodeResponse ResumePhysicalNodeResponse
+     * @param tmpReq - ResumePhysicalNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumePhysicalNodeResponse
+     *
+     * @param ResumePhysicalNodeRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ResumePhysicalNodeResponse
      */
     public function resumePhysicalNodeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ResumePhysicalNodeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resumeCommand)) {
-            $request->resumeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resumeCommand, 'ResumeCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resumeCommand) {
+            $request->resumeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resumeCommand, 'ResumeCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->resumeCommandShrink)) {
-            $body['ResumeCommand'] = $request->resumeCommandShrink;
+        if (null !== $request->resumeCommandShrink) {
+            @$body['ResumeCommand'] = $request->resumeCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ResumePhysicalNode',
@@ -9088,11 +10963,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 恢复物理节点调度。
-     *  *
-     * @param ResumePhysicalNodeRequest $request ResumePhysicalNodeRequest
+     * 恢复物理节点调度。
      *
-     * @return ResumePhysicalNodeResponse ResumePhysicalNodeResponse
+     * @param request - ResumePhysicalNodeRequest
+     *
+     * @returns ResumePhysicalNodeResponse
+     *
+     * @param ResumePhysicalNodeRequest $request
+     *
+     * @return ResumePhysicalNodeResponse
      */
     public function resumePhysicalNode($request)
     {
@@ -9102,35 +10981,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 回收API授权。
-     *  *
-     * @param RevokeDataServiceApiRequest $tmpReq  RevokeDataServiceApiRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 回收API授权。
      *
-     * @return RevokeDataServiceApiResponse RevokeDataServiceApiResponse
+     * @param tmpReq - RevokeDataServiceApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeDataServiceApiResponse
+     *
+     * @param RevokeDataServiceApiRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RevokeDataServiceApiResponse
      */
     public function revokeDataServiceApiWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RevokeDataServiceApiShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->revokeCommand)) {
-            $request->revokeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->revokeCommand, 'RevokeCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->revokeCommand) {
+            $request->revokeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->revokeCommand, 'RevokeCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->revokeCommandShrink)) {
-            $body['RevokeCommand'] = $request->revokeCommandShrink;
+        if (null !== $request->revokeCommandShrink) {
+            @$body['RevokeCommand'] = $request->revokeCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RevokeDataServiceApi',
@@ -9148,11 +11036,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 回收API授权。
-     *  *
-     * @param RevokeDataServiceApiRequest $request RevokeDataServiceApiRequest
+     * 回收API授权。
      *
-     * @return RevokeDataServiceApiResponse RevokeDataServiceApiResponse
+     * @param request - RevokeDataServiceApiRequest
+     *
+     * @returns RevokeDataServiceApiResponse
+     *
+     * @param RevokeDataServiceApiRequest $request
+     *
+     * @return RevokeDataServiceApiResponse
      */
     public function revokeDataServiceApi($request)
     {
@@ -9162,32 +11054,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 回收用户资源授权
-     *  *
-     * @param RevokeResourcePermissionRequest $tmpReq  RevokeResourcePermissionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 回收用户资源授权.
      *
-     * @return RevokeResourcePermissionResponse RevokeResourcePermissionResponse
+     * @param tmpReq - RevokeResourcePermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeResourcePermissionResponse
+     *
+     * @param RevokeResourcePermissionRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RevokeResourcePermissionResponse
      */
     public function revokeResourcePermissionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RevokeResourcePermissionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->revokeCommand)) {
-            $request->revokeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->revokeCommand, 'RevokeCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->revokeCommand) {
+            $request->revokeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->revokeCommand, 'RevokeCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->revokeCommandShrink)) {
-            $body['RevokeCommand'] = $request->revokeCommandShrink;
+        if (null !== $request->revokeCommandShrink) {
+            @$body['RevokeCommand'] = $request->revokeCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RevokeResourcePermission',
@@ -9205,11 +11105,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 回收用户资源授权
-     *  *
-     * @param RevokeResourcePermissionRequest $request RevokeResourcePermissionRequest
+     * 回收用户资源授权.
      *
-     * @return RevokeResourcePermissionResponse RevokeResourcePermissionResponse
+     * @param request - RevokeResourcePermissionRequest
+     *
+     * @returns RevokeResourcePermissionResponse
+     *
+     * @param RevokeResourcePermissionRequest $request
+     *
+     * @return RevokeResourcePermissionResponse
      */
     public function revokeResourcePermission($request)
     {
@@ -9219,28 +11123,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 终止即席查询任务。
-     *  *
-     * @param StopAdHocTaskRequest $request StopAdHocTaskRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 终止即席查询任务。
      *
-     * @return StopAdHocTaskResponse StopAdHocTaskResponse
+     * @param request - StopAdHocTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopAdHocTaskResponse
+     *
+     * @param StopAdHocTaskRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StopAdHocTaskResponse
      */
     public function stopAdHocTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'StopAdHocTask',
@@ -9258,11 +11170,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 终止即席查询任务。
-     *  *
-     * @param StopAdHocTaskRequest $request StopAdHocTaskRequest
+     * 终止即席查询任务。
      *
-     * @return StopAdHocTaskResponse StopAdHocTaskResponse
+     * @param request - StopAdHocTaskRequest
+     *
+     * @returns StopAdHocTaskResponse
+     *
+     * @param StopAdHocTaskRequest $request
+     *
+     * @return StopAdHocTaskResponse
      */
     public function stopAdHocTask($request)
     {
@@ -9272,32 +11188,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 提交离线计算任务。
-     *  *
-     * @param SubmitBatchTaskRequest $tmpReq  SubmitBatchTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 提交离线计算任务。
      *
-     * @return SubmitBatchTaskResponse SubmitBatchTaskResponse
+     * @param tmpReq - SubmitBatchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitBatchTaskResponse
+     *
+     * @param SubmitBatchTaskRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SubmitBatchTaskResponse
      */
     public function submitBatchTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitBatchTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->submitCommand)) {
-            $request->submitCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->submitCommand, 'SubmitCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->submitCommand) {
+            $request->submitCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->submitCommand, 'SubmitCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->submitCommandShrink)) {
-            $body['SubmitCommand'] = $request->submitCommandShrink;
+        if (null !== $request->submitCommandShrink) {
+            @$body['SubmitCommand'] = $request->submitCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SubmitBatchTask',
@@ -9315,11 +11239,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 提交离线计算任务。
-     *  *
-     * @param SubmitBatchTaskRequest $request SubmitBatchTaskRequest
+     * 提交离线计算任务。
      *
-     * @return SubmitBatchTaskResponse SubmitBatchTaskResponse
+     * @param request - SubmitBatchTaskRequest
+     *
+     * @returns SubmitBatchTaskResponse
+     *
+     * @param SubmitBatchTaskRequest $request
+     *
+     * @return SubmitBatchTaskResponse
      */
     public function submitBatchTask($request)
     {
@@ -9329,32 +11257,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑即席查询文件。
-     *  *
-     * @param UpdateAdHocFileRequest $tmpReq  UpdateAdHocFileRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 编辑即席查询文件。
      *
-     * @return UpdateAdHocFileResponse UpdateAdHocFileResponse
+     * @param tmpReq - UpdateAdHocFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAdHocFileResponse
+     *
+     * @param UpdateAdHocFileRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateAdHocFileResponse
      */
     public function updateAdHocFileWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateAdHocFileShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateAdHocFile',
@@ -9372,11 +11308,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑即席查询文件。
-     *  *
-     * @param UpdateAdHocFileRequest $request UpdateAdHocFileRequest
+     * 编辑即席查询文件。
      *
-     * @return UpdateAdHocFileResponse UpdateAdHocFileResponse
+     * @param request - UpdateAdHocFileRequest
+     *
+     * @returns UpdateAdHocFileResponse
+     *
+     * @param UpdateAdHocFileRequest $request
+     *
+     * @return UpdateAdHocFileResponse
      */
     public function updateAdHocFile($request)
     {
@@ -9386,32 +11326,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑离线计算任务。
-     *  *
-     * @param UpdateBatchTaskRequest $tmpReq  UpdateBatchTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 编辑离线计算任务。
      *
-     * @return UpdateBatchTaskResponse UpdateBatchTaskResponse
+     * @param tmpReq - UpdateBatchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBatchTaskResponse
+     *
+     * @param UpdateBatchTaskRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateBatchTaskResponse
      */
     public function updateBatchTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateBatchTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateBatchTask',
@@ -9429,11 +11377,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑离线计算任务。
-     *  *
-     * @param UpdateBatchTaskRequest $request UpdateBatchTaskRequest
+     * 编辑离线计算任务。
      *
-     * @return UpdateBatchTaskResponse UpdateBatchTaskResponse
+     * @param request - UpdateBatchTaskRequest
+     *
+     * @returns UpdateBatchTaskResponse
+     *
+     * @param UpdateBatchTaskRequest $request
+     *
+     * @return UpdateBatchTaskResponse
      */
     public function updateBatchTask($request)
     {
@@ -9443,32 +11395,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑离线计算任务自定义血缘。
-     *  *
-     * @param UpdateBatchTaskUdfLineagesRequest $tmpReq  UpdateBatchTaskUdfLineagesRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 编辑离线计算任务自定义血缘。
      *
-     * @return UpdateBatchTaskUdfLineagesResponse UpdateBatchTaskUdfLineagesResponse
+     * @param tmpReq - UpdateBatchTaskUdfLineagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBatchTaskUdfLineagesResponse
+     *
+     * @param UpdateBatchTaskUdfLineagesRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateBatchTaskUdfLineagesResponse
      */
     public function updateBatchTaskUdfLineagesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateBatchTaskUdfLineagesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateBatchTaskUdfLineages',
@@ -9486,11 +11446,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑离线计算任务自定义血缘。
-     *  *
-     * @param UpdateBatchTaskUdfLineagesRequest $request UpdateBatchTaskUdfLineagesRequest
+     * 编辑离线计算任务自定义血缘。
      *
-     * @return UpdateBatchTaskUdfLineagesResponse UpdateBatchTaskUdfLineagesResponse
+     * @param request - UpdateBatchTaskUdfLineagesRequest
+     *
+     * @returns UpdateBatchTaskUdfLineagesResponse
+     *
+     * @param UpdateBatchTaskUdfLineagesRequest $request
+     *
+     * @return UpdateBatchTaskUdfLineagesResponse
      */
     public function updateBatchTaskUdfLineages($request)
     {
@@ -9500,32 +11464,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新业务实体、
-     *  *
-     * @param UpdateBizEntityRequest $tmpReq  UpdateBizEntityRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 更新业务实体、
      *
-     * @return UpdateBizEntityResponse UpdateBizEntityResponse
+     * @param tmpReq - UpdateBizEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBizEntityResponse
+     *
+     * @param UpdateBizEntityRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateBizEntityResponse
      */
     public function updateBizEntityWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateBizEntityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateBizEntity',
@@ -9543,11 +11515,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新业务实体、
-     *  *
-     * @param UpdateBizEntityRequest $request UpdateBizEntityRequest
+     * 更新业务实体、
      *
-     * @return UpdateBizEntityResponse UpdateBizEntityResponse
+     * @param request - UpdateBizEntityRequest
+     *
+     * @returns UpdateBizEntityResponse
+     *
+     * @param UpdateBizEntityRequest $request
+     *
+     * @return UpdateBizEntityResponse
      */
     public function updateBizEntity($request)
     {
@@ -9557,32 +11533,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新数据板块。
-     *  *
-     * @param UpdateBizUnitRequest $tmpReq  UpdateBizUnitRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 更新数据板块。
      *
-     * @return UpdateBizUnitResponse UpdateBizUnitResponse
+     * @param tmpReq - UpdateBizUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBizUnitResponse
+     *
+     * @param UpdateBizUnitRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateBizUnitResponse
      */
     public function updateBizUnitWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateBizUnitShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateBizUnit',
@@ -9600,11 +11584,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新数据板块。
-     *  *
-     * @param UpdateBizUnitRequest $request UpdateBizUnitRequest
+     * 更新数据板块。
      *
-     * @return UpdateBizUnitResponse UpdateBizUnitResponse
+     * @param request - UpdateBizUnitRequest
+     *
+     * @returns UpdateBizUnitResponse
+     *
+     * @param UpdateBizUnitRequest $request
+     *
+     * @return UpdateBizUnitResponse
      */
     public function updateBizUnit($request)
     {
@@ -9614,32 +11602,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改计算源。
-     *  *
-     * @param UpdateComputeSourceRequest $tmpReq  UpdateComputeSourceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 修改计算源。
      *
-     * @return UpdateComputeSourceResponse UpdateComputeSourceResponse
+     * @param tmpReq - UpdateComputeSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateComputeSourceResponse
+     *
+     * @param UpdateComputeSourceRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateComputeSourceResponse
      */
     public function updateComputeSourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateComputeSourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateComputeSource',
@@ -9657,11 +11653,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改计算源。
-     *  *
-     * @param UpdateComputeSourceRequest $request UpdateComputeSourceRequest
+     * 修改计算源。
      *
-     * @return UpdateComputeSourceResponse UpdateComputeSourceResponse
+     * @param request - UpdateComputeSourceRequest
+     *
+     * @returns UpdateComputeSourceResponse
+     *
+     * @param UpdateComputeSourceRequest $request
+     *
+     * @return UpdateComputeSourceResponse
      */
     public function updateComputeSource($request)
     {
@@ -9671,32 +11671,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新主题域。
-     *  *
-     * @param UpdateDataDomainRequest $tmpReq  UpdateDataDomainRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 更新主题域。
      *
-     * @return UpdateDataDomainResponse UpdateDataDomainResponse
+     * @param tmpReq - UpdateDataDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataDomainResponse
+     *
+     * @param UpdateDataDomainRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDataDomainResponse
      */
     public function updateDataDomainWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDataDomainShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateDataDomain',
@@ -9714,11 +11722,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新主题域。
-     *  *
-     * @param UpdateDataDomainRequest $request UpdateDataDomainRequest
+     * 更新主题域。
      *
-     * @return UpdateDataDomainResponse UpdateDataDomainResponse
+     * @param request - UpdateDataDomainRequest
+     *
+     * @returns UpdateDataDomainResponse
+     *
+     * @param UpdateDataDomainRequest $request
+     *
+     * @return UpdateDataDomainResponse
      */
     public function updateDataDomain($request)
     {
@@ -9728,32 +11740,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑数据源基本信息
-     *  *
-     * @param UpdateDataSourceBasicInfoRequest $tmpReq  UpdateDataSourceBasicInfoRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 编辑数据源基本信息.
      *
-     * @return UpdateDataSourceBasicInfoResponse UpdateDataSourceBasicInfoResponse
+     * @param tmpReq - UpdateDataSourceBasicInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataSourceBasicInfoResponse
+     *
+     * @param UpdateDataSourceBasicInfoRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateDataSourceBasicInfoResponse
      */
     public function updateDataSourceBasicInfoWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDataSourceBasicInfoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateDataSourceBasicInfo',
@@ -9771,11 +11791,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑数据源基本信息
-     *  *
-     * @param UpdateDataSourceBasicInfoRequest $request UpdateDataSourceBasicInfoRequest
+     * 编辑数据源基本信息.
      *
-     * @return UpdateDataSourceBasicInfoResponse UpdateDataSourceBasicInfoResponse
+     * @param request - UpdateDataSourceBasicInfoRequest
+     *
+     * @returns UpdateDataSourceBasicInfoResponse
+     *
+     * @param UpdateDataSourceBasicInfoRequest $request
+     *
+     * @return UpdateDataSourceBasicInfoResponse
      */
     public function updateDataSourceBasicInfo($request)
     {
@@ -9785,32 +11809,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑数据源连接配置项
-     *  *
-     * @param UpdateDataSourceConfigRequest $tmpReq  UpdateDataSourceConfigRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 编辑数据源连接配置项.
      *
-     * @return UpdateDataSourceConfigResponse UpdateDataSourceConfigResponse
+     * @param tmpReq - UpdateDataSourceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataSourceConfigResponse
+     *
+     * @param UpdateDataSourceConfigRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateDataSourceConfigResponse
      */
     public function updateDataSourceConfigWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDataSourceConfigShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateDataSourceConfig',
@@ -9828,11 +11860,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑数据源连接配置项
-     *  *
-     * @param UpdateDataSourceConfigRequest $request UpdateDataSourceConfigRequest
+     * 编辑数据源连接配置项.
      *
-     * @return UpdateDataSourceConfigResponse UpdateDataSourceConfigResponse
+     * @param request - UpdateDataSourceConfigRequest
+     *
+     * @returns UpdateDataSourceConfigResponse
+     *
+     * @param UpdateDataSourceConfigRequest $request
+     *
+     * @return UpdateDataSourceConfigResponse
      */
     public function updateDataSourceConfig($request)
     {
@@ -9842,31 +11878,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改菜单树文件所在目录
-     *  *
-     * @param UpdateFileDirectoryRequest $request UpdateFileDirectoryRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 修改菜单树文件所在目录.
      *
-     * @return UpdateFileDirectoryResponse UpdateFileDirectoryResponse
+     * @param request - UpdateFileDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFileDirectoryResponse
+     *
+     * @param UpdateFileDirectoryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateFileDirectoryResponse
      */
     public function updateFileDirectoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->directory)) {
-            $query['Directory'] = $request->directory;
+        if (null !== $request->directory) {
+            @$query['Directory'] = $request->directory;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateFileDirectory',
@@ -9884,11 +11929,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改菜单树文件所在目录
-     *  *
-     * @param UpdateFileDirectoryRequest $request UpdateFileDirectoryRequest
+     * 修改菜单树文件所在目录.
      *
-     * @return UpdateFileDirectoryResponse UpdateFileDirectoryResponse
+     * @param request - UpdateFileDirectoryRequest
+     *
+     * @returns UpdateFileDirectoryResponse
+     *
+     * @param UpdateFileDirectoryRequest $request
+     *
+     * @return UpdateFileDirectoryResponse
      */
     public function updateFileDirectory($request)
     {
@@ -9898,31 +11947,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改菜单树文件名称
-     *  *
-     * @param UpdateFileNameRequest $request UpdateFileNameRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 修改菜单树文件名称.
      *
-     * @return UpdateFileNameResponse UpdateFileNameResponse
+     * @param request - UpdateFileNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFileNameResponse
+     *
+     * @param UpdateFileNameRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateFileNameResponse
      */
     public function updateFileNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateFileName',
@@ -9940,11 +11998,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改菜单树文件名称
-     *  *
-     * @param UpdateFileNameRequest $request UpdateFileNameRequest
+     * 修改菜单树文件名称.
      *
-     * @return UpdateFileNameResponse UpdateFileNameResponse
+     * @param request - UpdateFileNameRequest
+     *
+     * @returns UpdateFileNameResponse
+     *
+     * @param UpdateFileNameRequest $request
+     *
+     * @return UpdateFileNameResponse
      */
     public function updateFileName($request)
     {
@@ -9954,35 +12016,44 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 增加项目成员。
-     *  *
-     * @param UpdateProjectMemberRequest $tmpReq  UpdateProjectMemberRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 增加项目成员。
      *
-     * @return UpdateProjectMemberResponse UpdateProjectMemberResponse
+     * @param tmpReq - UpdateProjectMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProjectMemberResponse
+     *
+     * @param UpdateProjectMemberRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateProjectMemberResponse
      */
     public function updateProjectMemberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateProjectMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateProjectMember',
@@ -10000,11 +12071,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 增加项目成员。
-     *  *
-     * @param UpdateProjectMemberRequest $request UpdateProjectMemberRequest
+     * 增加项目成员。
      *
-     * @return UpdateProjectMemberResponse UpdateProjectMemberResponse
+     * @param request - UpdateProjectMemberRequest
+     *
+     * @returns UpdateProjectMemberResponse
+     *
+     * @param UpdateProjectMemberRequest $request
+     *
+     * @return UpdateProjectMemberResponse
      */
     public function updateProjectMember($request)
     {
@@ -10014,32 +12089,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑资源文件。
-     *  *
-     * @param UpdateResourceRequest $tmpReq  UpdateResourceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 编辑资源文件。
      *
-     * @return UpdateResourceResponse UpdateResourceResponse
+     * @param tmpReq - UpdateResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateResourceResponse
+     *
+     * @param UpdateResourceRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateResourceResponse
      */
     public function updateResourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateResourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateResource',
@@ -10057,11 +12140,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑资源文件。
-     *  *
-     * @param UpdateResourceRequest $request UpdateResourceRequest
+     * 编辑资源文件。
      *
-     * @return UpdateResourceResponse UpdateResourceResponse
+     * @param request - UpdateResourceRequest
+     *
+     * @returns UpdateResourceResponse
+     *
+     * @param UpdateResourceRequest $request
+     *
+     * @return UpdateResourceResponse
      */
     public function updateResource($request)
     {
@@ -10071,32 +12158,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新行级权限
-     *  *
-     * @param UpdateRowPermissionRequest $tmpReq  UpdateRowPermissionRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 更新行级权限.
      *
-     * @return UpdateRowPermissionResponse UpdateRowPermissionResponse
+     * @param tmpReq - UpdateRowPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRowPermissionResponse
+     *
+     * @param UpdateRowPermissionRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateRowPermissionResponse
      */
     public function updateRowPermissionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateRowPermissionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateRowPermissionCommand)) {
-            $request->updateRowPermissionCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateRowPermissionCommand, 'UpdateRowPermissionCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateRowPermissionCommand) {
+            $request->updateRowPermissionCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateRowPermissionCommand, 'UpdateRowPermissionCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateRowPermissionCommandShrink)) {
-            $body['UpdateRowPermissionCommand'] = $request->updateRowPermissionCommandShrink;
+        if (null !== $request->updateRowPermissionCommandShrink) {
+            @$body['UpdateRowPermissionCommand'] = $request->updateRowPermissionCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateRowPermission',
@@ -10114,11 +12209,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新行级权限
-     *  *
-     * @param UpdateRowPermissionRequest $request UpdateRowPermissionRequest
+     * 更新行级权限.
      *
-     * @return UpdateRowPermissionResponse UpdateRowPermissionResponse
+     * @param request - UpdateRowPermissionRequest
+     *
+     * @returns UpdateRowPermissionResponse
+     *
+     * @param UpdateRowPermissionRequest $request
+     *
+     * @return UpdateRowPermissionResponse
      */
     public function updateRowPermission($request)
     {
@@ -10128,32 +12227,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改租户计算设置。
-     *  *
-     * @param UpdateTenantComputeEngineRequest $tmpReq  UpdateTenantComputeEngineRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 修改租户计算设置。
      *
-     * @return UpdateTenantComputeEngineResponse UpdateTenantComputeEngineResponse
+     * @param tmpReq - UpdateTenantComputeEngineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTenantComputeEngineResponse
+     *
+     * @param UpdateTenantComputeEngineRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateTenantComputeEngineResponse
      */
     public function updateTenantComputeEngineWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateTenantComputeEngineShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateTenantComputeEngine',
@@ -10171,11 +12278,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改租户计算设置。
-     *  *
-     * @param UpdateTenantComputeEngineRequest $request UpdateTenantComputeEngineRequest
+     * 修改租户计算设置。
      *
-     * @return UpdateTenantComputeEngineResponse UpdateTenantComputeEngineResponse
+     * @param request - UpdateTenantComputeEngineRequest
+     *
+     * @returns UpdateTenantComputeEngineResponse
+     *
+     * @param UpdateTenantComputeEngineRequest $request
+     *
+     * @return UpdateTenantComputeEngineResponse
      */
     public function updateTenantComputeEngine($request)
     {
@@ -10185,32 +12296,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑租户成员
-     *  *
-     * @param UpdateTenantMemberRequest $tmpReq  UpdateTenantMemberRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 编辑租户成员.
      *
-     * @return UpdateTenantMemberResponse UpdateTenantMemberResponse
+     * @param tmpReq - UpdateTenantMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTenantMemberResponse
+     *
+     * @param UpdateTenantMemberRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateTenantMemberResponse
      */
     public function updateTenantMemberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateTenantMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateTenantMember',
@@ -10228,11 +12347,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑租户成员
-     *  *
-     * @param UpdateTenantMemberRequest $request UpdateTenantMemberRequest
+     * 编辑租户成员.
      *
-     * @return UpdateTenantMemberResponse UpdateTenantMemberResponse
+     * @param request - UpdateTenantMemberRequest
+     *
+     * @returns UpdateTenantMemberResponse
+     *
+     * @param UpdateTenantMemberRequest $request
+     *
+     * @return UpdateTenantMemberResponse
      */
     public function updateTenantMember($request)
     {
@@ -10242,32 +12365,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑自定义函数。
-     *  *
-     * @param UpdateUdfRequest $tmpReq  UpdateUdfRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 编辑自定义函数。
      *
-     * @return UpdateUdfResponse UpdateUdfResponse
+     * @param tmpReq - UpdateUdfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUdfResponse
+     *
+     * @param UpdateUdfRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateUdfResponse
      */
     public function updateUdfWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateUdfShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateUdf',
@@ -10285,11 +12416,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑自定义函数。
-     *  *
-     * @param UpdateUdfRequest $request UpdateUdfRequest
+     * 编辑自定义函数。
      *
-     * @return UpdateUdfResponse UpdateUdfResponse
+     * @param request - UpdateUdfRequest
+     *
+     * @returns UpdateUdfResponse
+     *
+     * @param UpdateUdfRequest $request
+     *
+     * @return UpdateUdfResponse
      */
     public function updateUdf($request)
     {
@@ -10299,32 +12434,40 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑用户组.
-     *  *
-     * @param UpdateUserGroupRequest $tmpReq  UpdateUserGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 编辑用户组.
      *
-     * @return UpdateUserGroupResponse UpdateUserGroupResponse
+     * @param tmpReq - UpdateUserGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUserGroupResponse
+     *
+     * @param UpdateUserGroupRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateUserGroupResponse
      */
     public function updateUserGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateUserGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateUserGroup',
@@ -10342,11 +12485,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑用户组.
-     *  *
-     * @param UpdateUserGroupRequest $request UpdateUserGroupRequest
+     * 编辑用户组.
      *
-     * @return UpdateUserGroupResponse UpdateUserGroupResponse
+     * @param request - UpdateUserGroupRequest
+     *
+     * @returns UpdateUserGroupResponse
+     *
+     * @param UpdateUserGroupRequest $request
+     *
+     * @return UpdateUserGroupResponse
      */
     public function updateUserGroup($request)
     {
@@ -10356,28 +12503,36 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑用户组启用开关.
-     *  *
-     * @param UpdateUserGroupSwitchRequest $request UpdateUserGroupSwitchRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 编辑用户组启用开关.
      *
-     * @return UpdateUserGroupSwitchResponse UpdateUserGroupSwitchResponse
+     * @param request - UpdateUserGroupSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUserGroupSwitchResponse
+     *
+     * @param UpdateUserGroupSwitchRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateUserGroupSwitchResponse
      */
     public function updateUserGroupSwitchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->active)) {
-            $query['Active'] = $request->active;
+        if (null !== $request->active) {
+            @$query['Active'] = $request->active;
         }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
-        if (!Utils::isUnset($request->userGroupId)) {
-            $query['UserGroupId'] = $request->userGroupId;
+
+        if (null !== $request->userGroupId) {
+            @$query['UserGroupId'] = $request->userGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateUserGroupSwitch',
@@ -10395,11 +12550,15 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑用户组启用开关.
-     *  *
-     * @param UpdateUserGroupSwitchRequest $request UpdateUserGroupSwitchRequest
+     * 编辑用户组启用开关.
      *
-     * @return UpdateUserGroupSwitchResponse UpdateUserGroupSwitchResponse
+     * @param request - UpdateUserGroupSwitchRequest
+     *
+     * @returns UpdateUserGroupSwitchResponse
+     *
+     * @param UpdateUserGroupSwitchRequest $request
+     *
+     * @return UpdateUserGroupSwitchResponse
      */
     public function updateUserGroupSwitch($request)
     {

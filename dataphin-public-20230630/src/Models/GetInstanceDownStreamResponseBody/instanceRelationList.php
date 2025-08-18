@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceDownStreamResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceDownStreamResponseBody\instanceRelationList\fieldInstanceList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceDownStreamResponseBody\instanceRelationList\instanceInfo;
-use AlibabaCloud\Tea\Model;
 
 class instanceRelationList extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $downStreamDepth;
 
     /**
-     * @example {"a":"x"}
-     *
      * @var string
      */
     public $extendInfo;
@@ -35,22 +31,16 @@ class instanceRelationList extends Model
     public $instanceInfo;
 
     /**
-     * @example RUNNING
-     *
      * @var string
      */
     public $runStatus;
 
     /**
-     * @example OPTIONAL
-     *
      * @var string
      */
     public $selectStatus;
 
     /**
-     * @example FIELD_DELETED
-     *
      * @var string
      */
     public $selectStatusCause;
@@ -64,35 +54,51 @@ class instanceRelationList extends Model
         'selectStatusCause' => 'SelectStatusCause',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fieldInstanceList)) {
+            Model::validateArray($this->fieldInstanceList);
+        }
+        if (null !== $this->instanceInfo) {
+            $this->instanceInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->downStreamDepth) {
             $res['DownStreamDepth'] = $this->downStreamDepth;
         }
+
         if (null !== $this->extendInfo) {
             $res['ExtendInfo'] = $this->extendInfo;
         }
+
         if (null !== $this->fieldInstanceList) {
-            $res['FieldInstanceList'] = [];
-            if (null !== $this->fieldInstanceList && \is_array($this->fieldInstanceList)) {
-                $n = 0;
-                foreach ($this->fieldInstanceList as $item) {
-                    $res['FieldInstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fieldInstanceList)) {
+                $res['FieldInstanceList'] = [];
+                $n1 = 0;
+                foreach ($this->fieldInstanceList as $item1) {
+                    $res['FieldInstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->instanceInfo) {
-            $res['InstanceInfo'] = null !== $this->instanceInfo ? $this->instanceInfo->toMap() : null;
+            $res['InstanceInfo'] = null !== $this->instanceInfo ? $this->instanceInfo->toArray($noStream) : $this->instanceInfo;
         }
+
         if (null !== $this->runStatus) {
             $res['RunStatus'] = $this->runStatus;
         }
+
         if (null !== $this->selectStatus) {
             $res['SelectStatus'] = $this->selectStatus;
         }
+
         if (null !== $this->selectStatusCause) {
             $res['SelectStatusCause'] = $this->selectStatusCause;
         }
@@ -100,38 +106,45 @@ class instanceRelationList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceRelationList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownStreamDepth'])) {
             $model->downStreamDepth = $map['DownStreamDepth'];
         }
+
         if (isset($map['ExtendInfo'])) {
             $model->extendInfo = $map['ExtendInfo'];
         }
+
         if (isset($map['FieldInstanceList'])) {
             if (!empty($map['FieldInstanceList'])) {
                 $model->fieldInstanceList = [];
-                $n = 0;
-                foreach ($map['FieldInstanceList'] as $item) {
-                    $model->fieldInstanceList[$n++] = null !== $item ? fieldInstanceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FieldInstanceList'] as $item1) {
+                    $model->fieldInstanceList[$n1] = fieldInstanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['InstanceInfo'])) {
             $model->instanceInfo = instanceInfo::fromMap($map['InstanceInfo']);
         }
+
         if (isset($map['RunStatus'])) {
             $model->runStatus = $map['RunStatus'];
         }
+
         if (isset($map['SelectStatus'])) {
             $model->selectStatus = $map['SelectStatus'];
         }
+
         if (isset($map['SelectStatusCause'])) {
             $model->selectStatusCause = $map['SelectStatusCause'];
         }

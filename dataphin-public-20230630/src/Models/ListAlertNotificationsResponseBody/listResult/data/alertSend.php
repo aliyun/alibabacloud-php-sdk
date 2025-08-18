@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsResponseBody\listResult\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class alertSend extends Model
 {
@@ -14,22 +14,16 @@ class alertSend extends Model
     public $failReason;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $sendContent;
 
     /**
-     * @example 2024-11-25 10:02:47
-     *
      * @var string
      */
     public $sendTime;
 
     /**
-     * @example SUCCESS
-     *
      * @var string
      */
     public $status;
@@ -40,20 +34,26 @@ class alertSend extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failReason) {
             $res['FailReason'] = $this->failReason;
         }
+
         if (null !== $this->sendContent) {
             $res['SendContent'] = $this->sendContent;
         }
+
         if (null !== $this->sendTime) {
             $res['SendTime'] = $this->sendTime;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -61,23 +61,26 @@ class alertSend extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return alertSend
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailReason'])) {
             $model->failReason = $map['FailReason'];
         }
+
         if (isset($map['SendContent'])) {
             $model->sendContent = $map['SendContent'];
         }
+
         if (isset($map['SendTime'])) {
             $model->sendTime = $map['SendTime'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

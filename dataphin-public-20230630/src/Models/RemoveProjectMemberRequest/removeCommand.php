@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveProjectMemberRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class removeCommand extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example DEV
-     *
      * @var string
      */
     public $env;
@@ -26,35 +22,55 @@ class removeCommand extends Model
         'userIdList' => 'UserIdList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userIdList)) {
+            Model::validateArray($this->userIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
+
         if (null !== $this->userIdList) {
-            $res['UserIdList'] = $this->userIdList;
+            if (\is_array($this->userIdList)) {
+                $res['UserIdList'] = [];
+                $n1 = 0;
+                foreach ($this->userIdList as $item1) {
+                    $res['UserIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return removeCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
+
         if (isset($map['UserIdList'])) {
             if (!empty($map['UserIdList'])) {
-                $model->userIdList = $map['UserIdList'];
+                $model->userIdList = [];
+                $n1 = 0;
+                foreach ($map['UserIdList'] as $item1) {
+                    $model->userIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

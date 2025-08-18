@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPhysicalNodeByOutputNameRequest extends Model
 {
     /**
-     * @example PROD
-     *
      * @var string
      */
     public $env;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example t_test
-     *
      * @var string
      */
     public $outputName;
@@ -38,17 +28,22 @@ class GetPhysicalNodeByOutputNameRequest extends Model
         'outputName' => 'OutputName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->outputName) {
             $res['OutputName'] = $this->outputName;
         }
@@ -56,20 +51,22 @@ class GetPhysicalNodeByOutputNameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPhysicalNodeByOutputNameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['OutputName'])) {
             $model->outputName = $map['OutputName'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceApiGroupsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class apiGroupList extends Model
 {
     /**
-     * @example 101231
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $name;
@@ -26,14 +22,18 @@ class apiGroupList extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -41,17 +41,18 @@ class apiGroupList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apiGroupList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

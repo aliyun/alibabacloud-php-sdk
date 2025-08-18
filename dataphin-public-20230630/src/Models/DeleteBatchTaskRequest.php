@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBatchTaskRequest\deleteCommand;
-use AlibabaCloud\Tea\Model;
 
 class DeleteBatchTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var deleteCommand
      */
     public $deleteCommand;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
@@ -29,14 +23,21 @@ class DeleteBatchTaskRequest extends Model
         'opTenantId' => 'OpTenantId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->deleteCommand) {
+            $this->deleteCommand->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deleteCommand) {
-            $res['DeleteCommand'] = null !== $this->deleteCommand ? $this->deleteCommand->toMap() : null;
+            $res['DeleteCommand'] = null !== $this->deleteCommand ? $this->deleteCommand->toArray($noStream) : $this->deleteCommand;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -44,17 +45,18 @@ class DeleteBatchTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteBatchTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteCommand'])) {
             $model->deleteCommand = deleteCommand::fromMap($map['DeleteCommand']);
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

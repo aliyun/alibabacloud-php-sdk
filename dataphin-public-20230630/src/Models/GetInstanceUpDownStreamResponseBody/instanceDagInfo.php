@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceUpDownStreamResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceUpDownStreamResponseBody\instanceDagInfo\downInstanceList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceUpDownStreamResponseBody\instanceDagInfo\startInstanceList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceUpDownStreamResponseBody\instanceDagInfo\upInstanceList;
-use AlibabaCloud\Tea\Model;
 
 class instanceDagInfo extends Model
 {
@@ -31,35 +31,52 @@ class instanceDagInfo extends Model
         'upInstanceList' => 'UpInstanceList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->downInstanceList)) {
+            Model::validateArray($this->downInstanceList);
+        }
+        if (\is_array($this->startInstanceList)) {
+            Model::validateArray($this->startInstanceList);
+        }
+        if (\is_array($this->upInstanceList)) {
+            Model::validateArray($this->upInstanceList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->downInstanceList) {
-            $res['DownInstanceList'] = [];
-            if (null !== $this->downInstanceList && \is_array($this->downInstanceList)) {
-                $n = 0;
-                foreach ($this->downInstanceList as $item) {
-                    $res['DownInstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->downInstanceList)) {
+                $res['DownInstanceList'] = [];
+                $n1 = 0;
+                foreach ($this->downInstanceList as $item1) {
+                    $res['DownInstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->startInstanceList) {
-            $res['StartInstanceList'] = [];
-            if (null !== $this->startInstanceList && \is_array($this->startInstanceList)) {
-                $n = 0;
-                foreach ($this->startInstanceList as $item) {
-                    $res['StartInstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->startInstanceList)) {
+                $res['StartInstanceList'] = [];
+                $n1 = 0;
+                foreach ($this->startInstanceList as $item1) {
+                    $res['StartInstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->upInstanceList) {
-            $res['UpInstanceList'] = [];
-            if (null !== $this->upInstanceList && \is_array($this->upInstanceList)) {
-                $n = 0;
-                foreach ($this->upInstanceList as $item) {
-                    $res['UpInstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->upInstanceList)) {
+                $res['UpInstanceList'] = [];
+                $n1 = 0;
+                foreach ($this->upInstanceList as $item1) {
+                    $res['UpInstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,38 +84,43 @@ class instanceDagInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceDagInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownInstanceList'])) {
             if (!empty($map['DownInstanceList'])) {
                 $model->downInstanceList = [];
-                $n = 0;
-                foreach ($map['DownInstanceList'] as $item) {
-                    $model->downInstanceList[$n++] = null !== $item ? downInstanceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DownInstanceList'] as $item1) {
+                    $model->downInstanceList[$n1] = downInstanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['StartInstanceList'])) {
             if (!empty($map['StartInstanceList'])) {
                 $model->startInstanceList = [];
-                $n = 0;
-                foreach ($map['StartInstanceList'] as $item) {
-                    $model->startInstanceList[$n++] = null !== $item ? startInstanceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StartInstanceList'] as $item1) {
+                    $model->startInstanceList[$n1] = startInstanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['UpInstanceList'])) {
             if (!empty($map['UpInstanceList'])) {
                 $model->upInstanceList = [];
-                $n = 0;
-                foreach ($map['UpInstanceList'] as $item) {
-                    $model->upInstanceList[$n++] = null !== $item ? upInstanceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UpInstanceList'] as $item1) {
+                    $model->upInstanceList[$n1] = upInstanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineBatchTaskResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class offlineResult extends Model
 {
     /**
-     * @example 10211123
-     *
      * @var int
      */
     public $publishObjectId;
@@ -18,9 +16,12 @@ class offlineResult extends Model
         'publishObjectId' => 'PublishObjectId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->publishObjectId) {
@@ -30,11 +31,11 @@ class offlineResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return offlineResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

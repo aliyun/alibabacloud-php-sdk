@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskUdfLineagesRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskUdfLineagesRequest\updateCommand\lineageGroupList;
-use AlibabaCloud\Tea\Model;
 
 class updateCommand extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 12113111
-     *
      * @var int
      */
     public $fileId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var lineageGroupList[]
      */
     public $lineageGroupList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 131211211
-     *
      * @var int
      */
     public $projectId;
@@ -39,23 +29,32 @@ class updateCommand extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->lineageGroupList)) {
+            Model::validateArray($this->lineageGroupList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
+
         if (null !== $this->lineageGroupList) {
-            $res['LineageGroupList'] = [];
-            if (null !== $this->lineageGroupList && \is_array($this->lineageGroupList)) {
-                $n = 0;
-                foreach ($this->lineageGroupList as $item) {
-                    $res['LineageGroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->lineageGroupList)) {
+                $res['LineageGroupList'] = [];
+                $n1 = 0;
+                foreach ($this->lineageGroupList as $item1) {
+                    $res['LineageGroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -63,26 +62,29 @@ class updateCommand extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return updateCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
+
         if (isset($map['LineageGroupList'])) {
             if (!empty($map['LineageGroupList'])) {
                 $model->lineageGroupList = [];
-                $n = 0;
-                foreach ($map['LineageGroupList'] as $item) {
-                    $model->lineageGroupList[$n++] = null !== $item ? lineageGroupList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LineageGroupList'] as $item1) {
+                    $model->lineageGroupList[$n1] = lineageGroupList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineageByTaskIdRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tableLineageByTaskIdQuery extends Model
 {
@@ -14,17 +14,11 @@ class tableLineageByTaskIdQuery extends Model
     public $needNotExistObject;
 
     /**
-     * @example DEV
-     *
      * @var string
      */
     public $taskEnv;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example n_123
-     *
      * @var string
      */
     public $taskId;
@@ -34,17 +28,22 @@ class tableLineageByTaskIdQuery extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->needNotExistObject) {
             $res['NeedNotExistObject'] = $this->needNotExistObject;
         }
+
         if (null !== $this->taskEnv) {
             $res['TaskEnv'] = $this->taskEnv;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -52,20 +51,22 @@ class tableLineageByTaskIdQuery extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableLineageByTaskIdQuery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NeedNotExistObject'])) {
             $model->needNotExistObject = $map['NeedNotExistObject'];
         }
+
         if (isset($map['TaskEnv'])) {
             $model->taskEnv = $map['TaskEnv'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

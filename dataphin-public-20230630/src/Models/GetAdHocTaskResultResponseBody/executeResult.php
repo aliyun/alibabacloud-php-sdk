@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocTaskResultResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class executeResult extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $result;
 
     /**
-     * @example t_2242892326444990464_20210125_2242892326444990465
-     *
      * @var string
      */
     public $scheduleTaskId;
 
     /**
-     * @example MaxCompute_SQL_300000843_1611548758327
-     *
      * @var string
      */
     public $taskId;
@@ -34,17 +28,22 @@ class executeResult extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
+
         if (null !== $this->scheduleTaskId) {
             $res['ScheduleTaskId'] = $this->scheduleTaskId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -52,20 +51,22 @@ class executeResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return executeResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
+
         if (isset($map['ScheduleTaskId'])) {
             $model->scheduleTaskId = $map['ScheduleTaskId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

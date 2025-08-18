@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceAuthorizedProjectsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class projectList extends Model
 {
     /**
-     * @example 1011
-     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $role;
@@ -34,17 +28,22 @@ class projectList extends Model
         'role' => 'Role',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -52,20 +51,22 @@ class projectList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return projectList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }

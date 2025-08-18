@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceMyProjectsResponseBody\projectList;
-use AlibabaCloud\Tea\Model;
 
 class GetDataServiceMyProjectsResponseBody extends Model
 {
     /**
-     * @example OK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @example internal error
-     *
      * @var string
      */
     public $message;
@@ -36,10 +30,6 @@ class GetDataServiceMyProjectsResponseBody extends Model
     public $projectList;
 
     /**
-     * @description Id of the request
-     *
-     * @example 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
-     *
      * @var string
      */
     public $requestId;
@@ -57,32 +47,44 @@ class GetDataServiceMyProjectsResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->projectList)) {
+            Model::validateArray($this->projectList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->projectList) {
-            $res['ProjectList'] = [];
-            if (null !== $this->projectList && \is_array($this->projectList)) {
-                $n = 0;
-                foreach ($this->projectList as $item) {
-                    $res['ProjectList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->projectList)) {
+                $res['ProjectList'] = [];
+                $n1 = 0;
+                foreach ($this->projectList as $item1) {
+                    $res['ProjectList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -90,35 +92,41 @@ class GetDataServiceMyProjectsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataServiceMyProjectsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['ProjectList'])) {
             if (!empty($map['ProjectList'])) {
                 $model->projectList = [];
-                $n = 0;
-                foreach ($map['ProjectList'] as $item) {
-                    $model->projectList[$n++] = null !== $item ? projectList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ProjectList'] as $item1) {
+                    $model->projectList[$n1] = projectList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

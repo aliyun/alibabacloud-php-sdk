@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectByNameResponseBody\projectInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class whiteLists extends Model
 {
     /**
-     * @example xx 白名单
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description Ip
-     *
-     * @example 10.11.1.21
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @example 5432
-     *
      * @var string
      */
     public $port;
@@ -36,17 +28,22 @@ class whiteLists extends Model
         'port' => 'Port',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -54,20 +51,22 @@ class whiteLists extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return whiteLists
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }

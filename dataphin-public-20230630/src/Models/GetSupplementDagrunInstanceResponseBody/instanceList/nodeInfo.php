@@ -4,23 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunInstanceResponseBody\instanceList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunInstanceResponseBody\instanceList\nodeInfo\creator;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunInstanceResponseBody\instanceList\nodeInfo\modifier;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunInstanceResponseBody\instanceList\nodeInfo\ownerList;
-use AlibabaCloud\Tea\Model;
 
 class nodeInfo extends Model
 {
     /**
-     * @example xx测试
-     *
      * @var string
      */
     public $bizUnitName;
 
     /**
-     * @example 2024-01-30 10:08:49
-     *
      * @var string
      */
     public $createTime;
@@ -31,50 +27,36 @@ class nodeInfo extends Model
     public $creator;
 
     /**
-     * @example xx测试
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @example DATA_PROCESS
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $hasDev;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $hasProd;
 
     /**
-     * @example n_239496
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example 2024-01-30 10:08:49
-     *
      * @var string
      */
     public $lastModifiedTime;
@@ -85,8 +67,6 @@ class nodeInfo extends Model
     public $modifier;
 
     /**
-     * @example xx测试
-     *
      * @var string
      */
     public $name;
@@ -107,8 +87,6 @@ class nodeInfo extends Model
     public $resourceGroupList;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $schedulePaused;
@@ -119,15 +97,11 @@ class nodeInfo extends Model
     public $schedulePeriodList;
 
     /**
-     * @example SHELL
-     *
      * @var string
      */
     public $subDetailType;
 
     /**
-     * @example DATA_PROCESS
-     *
      * @var string
      */
     public $type;
@@ -153,71 +127,132 @@ class nodeInfo extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->creator) {
+            $this->creator->validate();
+        }
+        if (null !== $this->modifier) {
+            $this->modifier->validate();
+        }
+        if (\is_array($this->ownerList)) {
+            Model::validateArray($this->ownerList);
+        }
+        if (\is_array($this->priorityList)) {
+            Model::validateArray($this->priorityList);
+        }
+        if (\is_array($this->resourceGroupList)) {
+            Model::validateArray($this->resourceGroupList);
+        }
+        if (\is_array($this->schedulePeriodList)) {
+            Model::validateArray($this->schedulePeriodList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizUnitName) {
             $res['BizUnitName'] = $this->bizUnitName;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->creator) {
-            $res['Creator'] = null !== $this->creator ? $this->creator->toMap() : null;
+            $res['Creator'] = null !== $this->creator ? $this->creator->toArray($noStream) : $this->creator;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->hasDev) {
             $res['HasDev'] = $this->hasDev;
         }
+
         if (null !== $this->hasProd) {
             $res['HasProd'] = $this->hasProd;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->lastModifiedTime) {
             $res['LastModifiedTime'] = $this->lastModifiedTime;
         }
+
         if (null !== $this->modifier) {
-            $res['Modifier'] = null !== $this->modifier ? $this->modifier->toMap() : null;
+            $res['Modifier'] = null !== $this->modifier ? $this->modifier->toArray($noStream) : $this->modifier;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ownerList) {
-            $res['OwnerList'] = [];
-            if (null !== $this->ownerList && \is_array($this->ownerList)) {
-                $n = 0;
-                foreach ($this->ownerList as $item) {
-                    $res['OwnerList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ownerList)) {
+                $res['OwnerList'] = [];
+                $n1 = 0;
+                foreach ($this->ownerList as $item1) {
+                    $res['OwnerList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->priorityList) {
-            $res['PriorityList'] = $this->priorityList;
+            if (\is_array($this->priorityList)) {
+                $res['PriorityList'] = [];
+                $n1 = 0;
+                foreach ($this->priorityList as $item1) {
+                    $res['PriorityList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->resourceGroupList) {
-            $res['ResourceGroupList'] = $this->resourceGroupList;
+            if (\is_array($this->resourceGroupList)) {
+                $res['ResourceGroupList'] = [];
+                $n1 = 0;
+                foreach ($this->resourceGroupList as $item1) {
+                    $res['ResourceGroupList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->schedulePaused) {
             $res['SchedulePaused'] = $this->schedulePaused;
         }
+
         if (null !== $this->schedulePeriodList) {
-            $res['SchedulePeriodList'] = $this->schedulePeriodList;
+            if (\is_array($this->schedulePeriodList)) {
+                $res['SchedulePeriodList'] = [];
+                $n1 = 0;
+                foreach ($this->schedulePeriodList as $item1) {
+                    $res['SchedulePeriodList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->subDetailType) {
             $res['SubDetailType'] = $this->subDetailType;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -225,80 +260,114 @@ class nodeInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizUnitName'])) {
             $model->bizUnitName = $map['BizUnitName'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Creator'])) {
             $model->creator = creator::fromMap($map['Creator']);
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['HasDev'])) {
             $model->hasDev = $map['HasDev'];
         }
+
         if (isset($map['HasProd'])) {
             $model->hasProd = $map['HasProd'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['LastModifiedTime'])) {
             $model->lastModifiedTime = $map['LastModifiedTime'];
         }
+
         if (isset($map['Modifier'])) {
             $model->modifier = modifier::fromMap($map['Modifier']);
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OwnerList'])) {
             if (!empty($map['OwnerList'])) {
                 $model->ownerList = [];
-                $n = 0;
-                foreach ($map['OwnerList'] as $item) {
-                    $model->ownerList[$n++] = null !== $item ? ownerList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OwnerList'] as $item1) {
+                    $model->ownerList[$n1] = ownerList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PriorityList'])) {
             if (!empty($map['PriorityList'])) {
-                $model->priorityList = $map['PriorityList'];
+                $model->priorityList = [];
+                $n1 = 0;
+                foreach ($map['PriorityList'] as $item1) {
+                    $model->priorityList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ResourceGroupList'])) {
             if (!empty($map['ResourceGroupList'])) {
-                $model->resourceGroupList = $map['ResourceGroupList'];
+                $model->resourceGroupList = [];
+                $n1 = 0;
+                foreach ($map['ResourceGroupList'] as $item1) {
+                    $model->resourceGroupList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SchedulePaused'])) {
             $model->schedulePaused = $map['SchedulePaused'];
         }
+
         if (isset($map['SchedulePeriodList'])) {
             if (!empty($map['SchedulePeriodList'])) {
-                $model->schedulePeriodList = $map['SchedulePeriodList'];
+                $model->schedulePeriodList = [];
+                $n1 = 0;
+                foreach ($map['SchedulePeriodList'] as $item1) {
+                    $model->schedulePeriodList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SubDetailType'])) {
             $model->subDetailType = $map['SubDetailType'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

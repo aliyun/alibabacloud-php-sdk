@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListInstancesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class listQuery extends Model
 {
     /**
-     * @example SCRIPT
-     *
      * @var string
      */
     public $bizType;
@@ -26,36 +24,26 @@ class listQuery extends Model
     public $flowId;
 
     /**
-     * @example 2024-05-31
-     *
      * @var string
      */
     public $maxBizDate;
 
     /**
-     * @example 2024-05-31
-     *
      * @var string
      */
     public $maxRunDate;
 
     /**
-     * @example 2024-05-30
-     *
      * @var string
      */
     public $minBizDate;
 
     /**
-     * @example 2024-05-30
-     *
      * @var string
      */
     public $minRunDate;
 
     /**
-     * @example n_23131
-     *
      * @var string
      */
     public $nodeId;
@@ -66,19 +54,11 @@ class listQuery extends Model
     public $ownerList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
@@ -89,10 +69,6 @@ class listQuery extends Model
     public $priorityList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 131311111321
-     *
      * @var int
      */
     public $projectId;
@@ -113,17 +89,11 @@ class listQuery extends Model
     public $schedulePeriodList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example NORMAL
-     *
      * @var string
      */
     public $scheduleType;
 
     /**
-     * @example xx
-     *
      * @var string
      */
     public $searchText;
@@ -154,145 +124,259 @@ class listQuery extends Model
         'subBizTypeList' => 'SubBizTypeList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ownerList)) {
+            Model::validateArray($this->ownerList);
+        }
+        if (\is_array($this->priorityList)) {
+            Model::validateArray($this->priorityList);
+        }
+        if (\is_array($this->runStatusList)) {
+            Model::validateArray($this->runStatusList);
+        }
+        if (\is_array($this->schedulePeriodList)) {
+            Model::validateArray($this->schedulePeriodList);
+        }
+        if (\is_array($this->subBizTypeList)) {
+            Model::validateArray($this->subBizTypeList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
+
         if (null !== $this->bizUnitId) {
             $res['BizUnitId'] = $this->bizUnitId;
         }
+
         if (null !== $this->flowId) {
             $res['FlowId'] = $this->flowId;
         }
+
         if (null !== $this->maxBizDate) {
             $res['MaxBizDate'] = $this->maxBizDate;
         }
+
         if (null !== $this->maxRunDate) {
             $res['MaxRunDate'] = $this->maxRunDate;
         }
+
         if (null !== $this->minBizDate) {
             $res['MinBizDate'] = $this->minBizDate;
         }
+
         if (null !== $this->minRunDate) {
             $res['MinRunDate'] = $this->minRunDate;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->ownerList) {
-            $res['OwnerList'] = $this->ownerList;
+            if (\is_array($this->ownerList)) {
+                $res['OwnerList'] = [];
+                $n1 = 0;
+                foreach ($this->ownerList as $item1) {
+                    $res['OwnerList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->priorityList) {
-            $res['PriorityList'] = $this->priorityList;
+            if (\is_array($this->priorityList)) {
+                $res['PriorityList'] = [];
+                $n1 = 0;
+                foreach ($this->priorityList as $item1) {
+                    $res['PriorityList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->runStatusList) {
-            $res['RunStatusList'] = $this->runStatusList;
+            if (\is_array($this->runStatusList)) {
+                $res['RunStatusList'] = [];
+                $n1 = 0;
+                foreach ($this->runStatusList as $item1) {
+                    $res['RunStatusList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->schedulePaused) {
             $res['SchedulePaused'] = $this->schedulePaused;
         }
+
         if (null !== $this->schedulePeriodList) {
-            $res['SchedulePeriodList'] = $this->schedulePeriodList;
+            if (\is_array($this->schedulePeriodList)) {
+                $res['SchedulePeriodList'] = [];
+                $n1 = 0;
+                foreach ($this->schedulePeriodList as $item1) {
+                    $res['SchedulePeriodList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->scheduleType) {
             $res['ScheduleType'] = $this->scheduleType;
         }
+
         if (null !== $this->searchText) {
             $res['SearchText'] = $this->searchText;
         }
+
         if (null !== $this->subBizTypeList) {
-            $res['SubBizTypeList'] = $this->subBizTypeList;
+            if (\is_array($this->subBizTypeList)) {
+                $res['SubBizTypeList'] = [];
+                $n1 = 0;
+                foreach ($this->subBizTypeList as $item1) {
+                    $res['SubBizTypeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listQuery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
+
         if (isset($map['BizUnitId'])) {
             $model->bizUnitId = $map['BizUnitId'];
         }
+
         if (isset($map['FlowId'])) {
             $model->flowId = $map['FlowId'];
         }
+
         if (isset($map['MaxBizDate'])) {
             $model->maxBizDate = $map['MaxBizDate'];
         }
+
         if (isset($map['MaxRunDate'])) {
             $model->maxRunDate = $map['MaxRunDate'];
         }
+
         if (isset($map['MinBizDate'])) {
             $model->minBizDate = $map['MinBizDate'];
         }
+
         if (isset($map['MinRunDate'])) {
             $model->minRunDate = $map['MinRunDate'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['OwnerList'])) {
             if (!empty($map['OwnerList'])) {
-                $model->ownerList = $map['OwnerList'];
+                $model->ownerList = [];
+                $n1 = 0;
+                foreach ($map['OwnerList'] as $item1) {
+                    $model->ownerList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['PriorityList'])) {
             if (!empty($map['PriorityList'])) {
-                $model->priorityList = $map['PriorityList'];
+                $model->priorityList = [];
+                $n1 = 0;
+                foreach ($map['PriorityList'] as $item1) {
+                    $model->priorityList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['RunStatusList'])) {
             if (!empty($map['RunStatusList'])) {
-                $model->runStatusList = $map['RunStatusList'];
+                $model->runStatusList = [];
+                $n1 = 0;
+                foreach ($map['RunStatusList'] as $item1) {
+                    $model->runStatusList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SchedulePaused'])) {
             $model->schedulePaused = $map['SchedulePaused'];
         }
+
         if (isset($map['SchedulePeriodList'])) {
             if (!empty($map['SchedulePeriodList'])) {
-                $model->schedulePeriodList = $map['SchedulePeriodList'];
+                $model->schedulePeriodList = [];
+                $n1 = 0;
+                foreach ($map['SchedulePeriodList'] as $item1) {
+                    $model->schedulePeriodList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ScheduleType'])) {
             $model->scheduleType = $map['ScheduleType'];
         }
+
         if (isset($map['SearchText'])) {
             $model->searchText = $map['SearchText'];
         }
+
         if (isset($map['SubBizTypeList'])) {
             if (!empty($map['SubBizTypeList'])) {
-                $model->subBizTypeList = $map['SubBizTypeList'];
+                $model->subBizTypeList = [];
+                $n1 = 0;
+                foreach ($map['SubBizTypeList'] as $item1) {
+                    $model->subBizTypeList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceApiErrorImpactResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class errorAppList extends Model
 {
     /**
-     * @description appId
-     *
-     * @example 1021
-     *
      * @var int
      */
     public $appId;
 
     /**
-     * @description appKey
-     *
-     * @example 100211
-     *
      * @var int
      */
     public $appKey;
 
     /**
-     * @example app1
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $errorCount;
@@ -46,20 +34,26 @@ class errorAppList extends Model
         'errorCount' => 'ErrorCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->errorCount) {
             $res['ErrorCount'] = $this->errorCount;
         }
@@ -67,23 +61,26 @@ class errorAppList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return errorAppList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['ErrorCount'])) {
             $model->errorCount = $map['ErrorCount'];
         }

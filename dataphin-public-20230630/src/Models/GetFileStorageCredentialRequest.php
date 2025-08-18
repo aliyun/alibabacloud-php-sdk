@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetFileStorageCredentialRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @example 1030131021
-     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @example RESOURCE
-     *
      * @var string
      */
     public $purpose;
@@ -42,20 +34,26 @@ class GetFileStorageCredentialRequest extends Model
         'useVpcEndpoint' => 'UseVpcEndpoint',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->purpose) {
             $res['Purpose'] = $this->purpose;
         }
+
         if (null !== $this->useVpcEndpoint) {
             $res['UseVpcEndpoint'] = $this->useVpcEndpoint;
         }
@@ -63,23 +61,26 @@ class GetFileStorageCredentialRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFileStorageCredentialRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['Purpose'])) {
             $model->purpose = $map['Purpose'];
         }
+
         if (isset($map['UseVpcEndpoint'])) {
             $model->useVpcEndpoint = $map['UseVpcEndpoint'];
         }

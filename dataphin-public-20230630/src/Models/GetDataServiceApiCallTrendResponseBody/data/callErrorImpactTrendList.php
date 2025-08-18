@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceApiCallTrendResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class callErrorImpactTrendList extends Model
 {
@@ -14,22 +14,16 @@ class callErrorImpactTrendList extends Model
     public $apiIdList;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $errorApiCount;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $errorAppCount;
 
     /**
-     * @example 2025-06-30 08:00
-     *
      * @var string
      */
     public $minute;
@@ -40,20 +34,36 @@ class callErrorImpactTrendList extends Model
         'minute' => 'Minute',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->apiIdList)) {
+            Model::validateArray($this->apiIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiIdList) {
-            $res['ApiIdList'] = $this->apiIdList;
+            if (\is_array($this->apiIdList)) {
+                $res['ApiIdList'] = [];
+                $n1 = 0;
+                foreach ($this->apiIdList as $item1) {
+                    $res['ApiIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->errorApiCount) {
             $res['ErrorApiCount'] = $this->errorApiCount;
         }
+
         if (null !== $this->errorAppCount) {
             $res['ErrorAppCount'] = $this->errorAppCount;
         }
+
         if (null !== $this->minute) {
             $res['Minute'] = $this->minute;
         }
@@ -61,25 +71,33 @@ class callErrorImpactTrendList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return callErrorImpactTrendList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiIdList'])) {
             if (!empty($map['ApiIdList'])) {
-                $model->apiIdList = $map['ApiIdList'];
+                $model->apiIdList = [];
+                $n1 = 0;
+                foreach ($map['ApiIdList'] as $item1) {
+                    $model->apiIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ErrorApiCount'])) {
             $model->errorApiCount = $map['ErrorApiCount'];
         }
+
         if (isset($map['ErrorAppCount'])) {
             $model->errorAppCount = $map['ErrorAppCount'];
         }
+
         if (isset($map['Minute'])) {
             $model->minute = $map['Minute'];
         }

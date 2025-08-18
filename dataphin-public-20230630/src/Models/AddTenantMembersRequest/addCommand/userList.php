@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddTenantMembersRequest\addCommand;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userList extends Model
 {
     /**
-     * @example 1323241
-     *
      * @var string
      */
     public $id;
@@ -24,35 +22,55 @@ class userList extends Model
         'roleList' => 'RoleList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->roleList)) {
+            Model::validateArray($this->roleList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->roleList) {
-            $res['RoleList'] = $this->roleList;
+            if (\is_array($this->roleList)) {
+                $res['RoleList'] = [];
+                $n1 = 0;
+                foreach ($this->roleList as $item1) {
+                    $res['RoleList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['RoleList'])) {
             if (!empty($map['RoleList'])) {
-                $model->roleList = $map['RoleList'];
+                $model->roleList = [];
+                $n1 = 0;
+                foreach ($map['RoleList'] as $item1) {
+                    $model->roleList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

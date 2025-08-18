@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAccountByRowPermissionIdResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAccountByRowPermissionIdResponseBody\data\userMappingList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 300001235
-     *
      * @var int
      */
     public $id;
@@ -25,20 +23,28 @@ class data extends Model
         'userMappingList' => 'UserMappingList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userMappingList)) {
+            Model::validateArray($this->userMappingList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->userMappingList) {
-            $res['UserMappingList'] = [];
-            if (null !== $this->userMappingList && \is_array($this->userMappingList)) {
-                $n = 0;
-                foreach ($this->userMappingList as $item) {
-                    $res['UserMappingList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userMappingList)) {
+                $res['UserMappingList'] = [];
+                $n1 = 0;
+                foreach ($this->userMappingList as $item1) {
+                    $res['UserMappingList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -46,23 +52,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['UserMappingList'])) {
             if (!empty($map['UserMappingList'])) {
                 $model->userMappingList = [];
-                $n = 0;
-                foreach ($map['UserMappingList'] as $item) {
-                    $model->userMappingList[$n++] = null !== $item ? userMappingList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UserMappingList'] as $item1) {
+                    $model->userMappingList[$n1] = userMappingList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

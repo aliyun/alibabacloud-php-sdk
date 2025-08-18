@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceAppAuthorizedUsersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userList extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @example 30002101
-     *
      * @var string
      */
     public $id;
@@ -26,14 +22,18 @@ class userList extends Model
         'id' => 'Id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -41,17 +41,18 @@ class userList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

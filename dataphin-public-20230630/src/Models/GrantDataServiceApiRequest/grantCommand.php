@@ -4,28 +4,18 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GrantDataServiceApiRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GrantDataServiceApiRequest\grantCommand\devFieldList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GrantDataServiceApiRequest\grantCommand\prodFieldList;
-use AlibabaCloud\Tea\Model;
 
 class grantCommand extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1021
-     *
      * @var int
      */
     public $apiId;
 
     /**
-     * @description AppID
-     *
-     * This parameter is required.
-     *
-     * @example 1201
-     *
      * @var int
      */
     public $appId;
@@ -36,10 +26,6 @@ class grantCommand extends Model
     public $devFieldList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2025-06-30
-     *
      * @var string
      */
     public $expireDate;
@@ -50,10 +36,6 @@ class grantCommand extends Model
     public $prodFieldList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $reason;
@@ -66,38 +48,54 @@ class grantCommand extends Model
         'reason' => 'Reason',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->devFieldList)) {
+            Model::validateArray($this->devFieldList);
+        }
+        if (\is_array($this->prodFieldList)) {
+            Model::validateArray($this->prodFieldList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
+
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->devFieldList) {
-            $res['DevFieldList'] = [];
-            if (null !== $this->devFieldList && \is_array($this->devFieldList)) {
-                $n = 0;
-                foreach ($this->devFieldList as $item) {
-                    $res['DevFieldList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->devFieldList)) {
+                $res['DevFieldList'] = [];
+                $n1 = 0;
+                foreach ($this->devFieldList as $item1) {
+                    $res['DevFieldList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->expireDate) {
             $res['ExpireDate'] = $this->expireDate;
         }
+
         if (null !== $this->prodFieldList) {
-            $res['ProdFieldList'] = [];
-            if (null !== $this->prodFieldList && \is_array($this->prodFieldList)) {
-                $n = 0;
-                foreach ($this->prodFieldList as $item) {
-                    $res['ProdFieldList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->prodFieldList)) {
+                $res['ProdFieldList'] = [];
+                $n1 = 0;
+                foreach ($this->prodFieldList as $item1) {
+                    $res['ProdFieldList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
@@ -105,41 +103,48 @@ class grantCommand extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return grantCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
+
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['DevFieldList'])) {
             if (!empty($map['DevFieldList'])) {
                 $model->devFieldList = [];
-                $n = 0;
-                foreach ($map['DevFieldList'] as $item) {
-                    $model->devFieldList[$n++] = null !== $item ? devFieldList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DevFieldList'] as $item1) {
+                    $model->devFieldList[$n1] = devFieldList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ExpireDate'])) {
             $model->expireDate = $map['ExpireDate'];
         }
+
         if (isset($map['ProdFieldList'])) {
             if (!empty($map['ProdFieldList'])) {
                 $model->prodFieldList = [];
-                $n = 0;
-                foreach ($map['ProdFieldList'] as $item) {
-                    $model->prodFieldList[$n++] = null !== $item ? prodFieldList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ProdFieldList'] as $item1) {
+                    $model->prodFieldList[$n1] = prodFieldList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }

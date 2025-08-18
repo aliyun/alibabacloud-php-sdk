@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionResponseBody\pageResult\data\rules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class expressions extends Model
 {
     /**
-     * @example business_id
-     *
      * @var string
      */
     public $mappingColumnName;
 
     /**
-     * @example 30008888
-     *
      * @var string
      */
     public $operator;
@@ -28,8 +24,6 @@ class expressions extends Model
     public $subConditions;
 
     /**
-     * @example EXPRESSION
-     *
      * @var string
      */
     public $type;
@@ -46,55 +40,96 @@ class expressions extends Model
         'values' => 'Values',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->subConditions)) {
+            Model::validateArray($this->subConditions);
+        }
+        if (\is_array($this->values)) {
+            Model::validateArray($this->values);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mappingColumnName) {
             $res['MappingColumnName'] = $this->mappingColumnName;
         }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
+
         if (null !== $this->subConditions) {
-            $res['SubConditions'] = $this->subConditions;
+            if (\is_array($this->subConditions)) {
+                $res['SubConditions'] = [];
+                $n1 = 0;
+                foreach ($this->subConditions as $item1) {
+                    $res['SubConditions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->values) {
-            $res['Values'] = $this->values;
+            if (\is_array($this->values)) {
+                $res['Values'] = [];
+                $n1 = 0;
+                foreach ($this->values as $item1) {
+                    $res['Values'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return expressions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MappingColumnName'])) {
             $model->mappingColumnName = $map['MappingColumnName'];
         }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
+
         if (isset($map['SubConditions'])) {
             if (!empty($map['SubConditions'])) {
-                $model->subConditions = $map['SubConditions'];
+                $model->subConditions = [];
+                $n1 = 0;
+                foreach ($map['SubConditions'] as $item1) {
+                    $model->subConditions[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
-                $model->values = $map['Values'];
+                $model->values = [];
+                $n1 = 0;
+                foreach ($map['Values'] as $item1) {
+                    $model->values[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

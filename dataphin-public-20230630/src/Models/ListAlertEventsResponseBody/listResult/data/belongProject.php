@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertEventsResponseBody\listResult\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class belongProject extends Model
 {
     /**
-     * @example biz_1
-     *
      * @var string
      */
     public $bizName;
 
     /**
-     * @example project_1
-     *
      * @var string
      */
     public $projectName;
@@ -26,14 +22,18 @@ class belongProject extends Model
         'projectName' => 'ProjectName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizName) {
             $res['BizName'] = $this->bizName;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -41,17 +41,18 @@ class belongProject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return belongProject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizName'])) {
             $model->bizName = $map['BizName'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

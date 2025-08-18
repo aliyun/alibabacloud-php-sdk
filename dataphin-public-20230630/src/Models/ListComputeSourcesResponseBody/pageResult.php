@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListComputeSourcesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListComputeSourcesResponseBody\pageResult\computeSourceList;
-use AlibabaCloud\Tea\Model;
 
 class pageResult extends Model
 {
@@ -15,8 +15,6 @@ class pageResult extends Model
     public $computeSourceList;
 
     /**
-     * @example 68
-     *
      * @var int
      */
     public $totalCount;
@@ -25,20 +23,28 @@ class pageResult extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->computeSourceList)) {
+            Model::validateArray($this->computeSourceList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->computeSourceList) {
-            $res['ComputeSourceList'] = [];
-            if (null !== $this->computeSourceList && \is_array($this->computeSourceList)) {
-                $n = 0;
-                foreach ($this->computeSourceList as $item) {
-                    $res['ComputeSourceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->computeSourceList)) {
+                $res['ComputeSourceList'] = [];
+                $n1 = 0;
+                foreach ($this->computeSourceList as $item1) {
+                    $res['ComputeSourceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -46,23 +52,25 @@ class pageResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComputeSourceList'])) {
             if (!empty($map['ComputeSourceList'])) {
                 $model->computeSourceList = [];
-                $n = 0;
-                foreach ($map['ComputeSourceList'] as $item) {
-                    $model->computeSourceList[$n++] = null !== $item ? computeSourceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ComputeSourceList'] as $item1) {
+                    $model->computeSourceList[$n1] = computeSourceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

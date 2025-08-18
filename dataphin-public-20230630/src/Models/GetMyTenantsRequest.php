@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMyTenantsRequest extends Model
 {
@@ -14,10 +14,6 @@ class GetMyTenantsRequest extends Model
     public $featureCodeList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
@@ -26,14 +22,28 @@ class GetMyTenantsRequest extends Model
         'opTenantId' => 'OpTenantId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->featureCodeList)) {
+            Model::validateArray($this->featureCodeList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->featureCodeList) {
-            $res['FeatureCodeList'] = $this->featureCodeList;
+            if (\is_array($this->featureCodeList)) {
+                $res['FeatureCodeList'] = [];
+                $n1 = 0;
+                foreach ($this->featureCodeList as $item1) {
+                    $res['FeatureCodeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -41,19 +51,25 @@ class GetMyTenantsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMyTenantsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeatureCodeList'])) {
             if (!empty($map['FeatureCodeList'])) {
-                $model->featureCodeList = $map['FeatureCodeList'];
+                $model->featureCodeList = [];
+                $n1 = 0;
+                foreach ($map['FeatureCodeList'] as $item1) {
+                    $model->featureCodeList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

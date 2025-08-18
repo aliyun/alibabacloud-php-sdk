@@ -4,86 +4,62 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceMyAppPermissionsResponseBody\pageResult;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceMyAppPermissionsResponseBody\pageResult\permissionList\remarkForDebugList;
-use AlibabaCloud\Tea\Model;
 
 class permissionList extends Model
 {
     /**
-     * @description AppId
-     *
-     * @example 1021
-     *
      * @var int
      */
     public $appId;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $createUserName;
 
     /**
-     * @example 1121
-     *
      * @var string
      */
     public $creator;
 
     /**
-     * @example NormalUser
-     *
      * @var string
      */
     public $currentUserRole;
 
     /**
-     * @example 1121
-     *
      * @var string
      */
     public $owner;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $ownerUserName;
 
     /**
-     * @example 1121
-     *
      * @var string
      */
     public $privilegeBelongTo;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $privilegeFrom;
 
     /**
-     * @example 112101
-     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $projectName;
@@ -94,8 +70,6 @@ class permissionList extends Model
     public $remarkForDebugList;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $role;
@@ -115,53 +89,72 @@ class permissionList extends Model
         'role' => 'Role',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->remarkForDebugList)) {
+            Model::validateArray($this->remarkForDebugList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->createUserName) {
             $res['CreateUserName'] = $this->createUserName;
         }
+
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
+
         if (null !== $this->currentUserRole) {
             $res['CurrentUserRole'] = $this->currentUserRole;
         }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
+
         if (null !== $this->ownerUserName) {
             $res['OwnerUserName'] = $this->ownerUserName;
         }
+
         if (null !== $this->privilegeBelongTo) {
             $res['PrivilegeBelongTo'] = $this->privilegeBelongTo;
         }
+
         if (null !== $this->privilegeFrom) {
             $res['PrivilegeFrom'] = $this->privilegeFrom;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->remarkForDebugList) {
-            $res['RemarkForDebugList'] = [];
-            if (null !== $this->remarkForDebugList && \is_array($this->remarkForDebugList)) {
-                $n = 0;
-                foreach ($this->remarkForDebugList as $item) {
-                    $res['RemarkForDebugList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->remarkForDebugList)) {
+                $res['RemarkForDebugList'] = [];
+                $n1 = 0;
+                foreach ($this->remarkForDebugList as $item1) {
+                    $res['RemarkForDebugList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -169,56 +162,69 @@ class permissionList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return permissionList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['CreateUserName'])) {
             $model->createUserName = $map['CreateUserName'];
         }
+
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }
+
         if (isset($map['CurrentUserRole'])) {
             $model->currentUserRole = $map['CurrentUserRole'];
         }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
+
         if (isset($map['OwnerUserName'])) {
             $model->ownerUserName = $map['OwnerUserName'];
         }
+
         if (isset($map['PrivilegeBelongTo'])) {
             $model->privilegeBelongTo = $map['PrivilegeBelongTo'];
         }
+
         if (isset($map['PrivilegeFrom'])) {
             $model->privilegeFrom = $map['PrivilegeFrom'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['RemarkForDebugList'])) {
             if (!empty($map['RemarkForDebugList'])) {
                 $model->remarkForDebugList = [];
-                $n = 0;
-                foreach ($map['RemarkForDebugList'] as $item) {
-                    $model->remarkForDebugList[$n++] = null !== $item ? remarkForDebugList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RemarkForDebugList'] as $item1) {
+                    $model->remarkForDebugList[$n1] = remarkForDebugList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
