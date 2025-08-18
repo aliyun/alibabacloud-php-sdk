@@ -54,6 +54,8 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\EnableAutoGroupCreationRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\EnableAutoGroupCreationResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\EnableAutoTopicCreationRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\EnableAutoTopicCreationResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\FailoverTestRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\FailoverTestResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllInstanceIdListRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllInstanceIdListResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllowedIpListRequest;
@@ -2004,6 +2006,91 @@ class Alikafka extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableAutoTopicCreationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 故障演练.
+     *
+     * @param request - FailoverTestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FailoverTestResponse
+     *
+     * @param FailoverTestRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return FailoverTestResponse
+     */
+    public function failoverTestWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configs) {
+            @$query['Configs'] = $request->configs;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->executeTime) {
+            @$query['ExecuteTime'] = $request->executeTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'FailoverTest',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FailoverTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 故障演练.
+     *
+     * @param request - FailoverTestRequest
+     *
+     * @returns FailoverTestResponse
+     *
+     * @param FailoverTestRequest $request
+     *
+     * @return FailoverTestResponse
+     */
+    public function failoverTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->failoverTestWithOptions($request, $runtime);
     }
 
     /**

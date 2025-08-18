@@ -1,3 +1,7 @@
+2025-08-18 Version: 2.12.0
+- Support API FailoverTest.
+
+
 2025-08-06 Version: 2.11.2
 - Update API GetInstanceList: add response parameters Body.InstanceList.$.ConfluentInstanceComponents.
 
