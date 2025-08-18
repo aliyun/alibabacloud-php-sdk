@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupResp
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateWuyingServerRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesRequest;
@@ -52,6 +54,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTagCloudResourcesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTagCloudResourcesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTenantConfigResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\LogOffAllSessionsInAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\LogOffAllSessionsInAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest;
@@ -68,11 +72,21 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAttributeRes
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAttributeShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyTenantConfigRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyTenantConfigResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyWuyingServerAttributeRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyWuyingServerAttributeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\PageListAppInstanceGroupUserRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\PageListAppInstanceGroupUserResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewAppInstanceGroupShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewWuyingServerRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewWuyingServerResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RestartWuyingServerRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RestartWuyingServerResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StartWuyingServerRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StartWuyingServerResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StopWuyingServerRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StopWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\TagCloudResourcesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\TagCloudResourcesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnbindRequest;
@@ -552,6 +566,134 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createImageFromAppInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建一台或多台研发主机.
+     *
+     * @param request - CreateWuyingServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWuyingServerResponse
+     *
+     * @param CreateWuyingServerRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateWuyingServerResponse
+     */
+    public function createWuyingServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->amount) {
+            @$body['Amount'] = $request->amount;
+        }
+
+        if (null !== $request->autoPay) {
+            @$body['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$body['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->chargeType) {
+            @$body['ChargeType'] = $request->chargeType;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->dataDisk) {
+            @$bodyFlat['DataDisk'] = $request->dataDisk;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$body['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->password) {
+            @$body['Password'] = $request->password;
+        }
+
+        if (null !== $request->period) {
+            @$body['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$body['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->promotionId) {
+            @$body['PromotionId'] = $request->promotionId;
+        }
+
+        if (null !== $request->serverInstanceType) {
+            @$body['ServerInstanceType'] = $request->serverInstanceType;
+        }
+
+        if (null !== $request->systemDiskCategory) {
+            @$body['SystemDiskCategory'] = $request->systemDiskCategory;
+        }
+
+        if (null !== $request->systemDiskPerformanceLevel) {
+            @$body['SystemDiskPerformanceLevel'] = $request->systemDiskPerformanceLevel;
+        }
+
+        if (null !== $request->systemDiskSize) {
+            @$body['SystemDiskSize'] = $request->systemDiskSize;
+        }
+
+        if (null !== $request->vSwitchIds) {
+            @$body['VSwitchIds'] = $request->vSwitchIds;
+        }
+
+        if (null !== $request->wuyingServerName) {
+            @$body['WuyingServerName'] = $request->wuyingServerName;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWuyingServer',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWuyingServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一台或多台研发主机.
+     *
+     * @param request - CreateWuyingServerRequest
+     *
+     * @returns CreateWuyingServerResponse
+     *
+     * @param CreateWuyingServerRequest $request
+     *
+     * @return CreateWuyingServerResponse
+     */
+    public function createWuyingServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWuyingServerWithOptions($request, $runtime);
     }
 
     /**
@@ -1989,6 +2131,102 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * 查询研发主机列表.
+     *
+     * @param request - ListWuyingServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWuyingServerResponse
+     *
+     * @param ListWuyingServerRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListWuyingServerResponse
+     */
+    public function listWuyingServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->chargeType) {
+            @$body['ChargeType'] = $request->chargeType;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$body['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->serverInstanceType) {
+            @$body['ServerInstanceType'] = $request->serverInstanceType;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->wuyingServerIdList) {
+            @$bodyFlat['WuyingServerIdList'] = $request->wuyingServerIdList;
+        }
+
+        if (null !== $request->wuyingServerNameOrId) {
+            @$body['WuyingServerNameOrId'] = $request->wuyingServerNameOrId;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListWuyingServer',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWuyingServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询研发主机列表.
+     *
+     * @param request - ListWuyingServerRequest
+     *
+     * @returns ListWuyingServerResponse
+     *
+     * @param ListWuyingServerRequest $request
+     *
+     * @return ListWuyingServerResponse
+     */
+    public function listWuyingServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWuyingServerWithOptions($request, $runtime);
+    }
+
+    /**
      * Closes all sessions in a pay-as-you-go delivery group for which a scheduled scaling policy is used.
      *
      * @remarks
@@ -2447,6 +2685,71 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * 修改研发主机属性.
+     *
+     * @param request - ModifyWuyingServerAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyWuyingServerAttributeResponse
+     *
+     * @param ModifyWuyingServerAttributeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyWuyingServerAttributeResponse
+     */
+    public function modifyWuyingServerAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->password) {
+            @$body['Password'] = $request->password;
+        }
+
+        if (null !== $request->wuyingServerId) {
+            @$body['WuyingServerId'] = $request->wuyingServerId;
+        }
+
+        if (null !== $request->wuyingServerName) {
+            @$body['WuyingServerName'] = $request->wuyingServerName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyWuyingServerAttribute',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyWuyingServerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改研发主机属性.
+     *
+     * @param request - ModifyWuyingServerAttributeRequest
+     *
+     * @returns ModifyWuyingServerAttributeResponse
+     *
+     * @param ModifyWuyingServerAttributeRequest $request
+     *
+     * @return ModifyWuyingServerAttributeResponse
+     */
+    public function modifyWuyingServerAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyWuyingServerAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the assigned users that are added to a delivery group by page.
      *
      * @param request - PageListAppInstanceGroupUserRequest
@@ -2614,6 +2917,263 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->renewAppInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 续费研发主机.
+     *
+     * @param request - RenewWuyingServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewWuyingServerResponse
+     *
+     * @param RenewWuyingServerRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RenewWuyingServerResponse
+     */
+    public function renewWuyingServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->autoPay) {
+            @$body['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->period) {
+            @$body['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$body['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->promotionId) {
+            @$body['PromotionId'] = $request->promotionId;
+        }
+
+        if (null !== $request->wuyingServerId) {
+            @$body['WuyingServerId'] = $request->wuyingServerId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RenewWuyingServer',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RenewWuyingServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 续费研发主机.
+     *
+     * @param request - RenewWuyingServerRequest
+     *
+     * @returns RenewWuyingServerResponse
+     *
+     * @param RenewWuyingServerRequest $request
+     *
+     * @return RenewWuyingServerResponse
+     */
+    public function renewWuyingServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewWuyingServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重启研发主机.
+     *
+     * @param request - RestartWuyingServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartWuyingServerResponse
+     *
+     * @param RestartWuyingServerRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RestartWuyingServerResponse
+     */
+    public function restartWuyingServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->wuyingServerIdList) {
+            @$bodyFlat['WuyingServerIdList'] = $request->wuyingServerIdList;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RestartWuyingServer',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartWuyingServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重启研发主机.
+     *
+     * @param request - RestartWuyingServerRequest
+     *
+     * @returns RestartWuyingServerResponse
+     *
+     * @param RestartWuyingServerRequest $request
+     *
+     * @return RestartWuyingServerResponse
+     */
+    public function restartWuyingServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartWuyingServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启动研发主机.
+     *
+     * @param request - StartWuyingServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartWuyingServerResponse
+     *
+     * @param StartWuyingServerRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return StartWuyingServerResponse
+     */
+    public function startWuyingServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->wuyingServerIdList) {
+            @$bodyFlat['WuyingServerIdList'] = $request->wuyingServerIdList;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StartWuyingServer',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartWuyingServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启动研发主机.
+     *
+     * @param request - StartWuyingServerRequest
+     *
+     * @returns StartWuyingServerResponse
+     *
+     * @param StartWuyingServerRequest $request
+     *
+     * @return StartWuyingServerResponse
+     */
+    public function startWuyingServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startWuyingServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 停止研发主机.
+     *
+     * @param request - StopWuyingServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopWuyingServerResponse
+     *
+     * @param StopWuyingServerRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StopWuyingServerResponse
+     */
+    public function stopWuyingServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->force) {
+            @$body['Force'] = $request->force;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->wuyingServerIdList) {
+            @$bodyFlat['WuyingServerIdList'] = $request->wuyingServerIdList;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StopWuyingServer',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopWuyingServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止研发主机.
+     *
+     * @param request - StopWuyingServerRequest
+     *
+     * @returns StopWuyingServerResponse
+     *
+     * @param StopWuyingServerRequest $request
+     *
+     * @return StopWuyingServerResponse
+     */
+    public function stopWuyingServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopWuyingServerWithOptions($request, $runtime);
     }
 
     /**
