@@ -21,10 +21,16 @@ class RegisterMediaStreamRequest extends Model
     /**
      * @var string
      */
+    public $streamTags;
+
+    /**
+     * @var string
+     */
     public $userData;
     protected $_name = [
         'inputURL' => 'InputURL',
         'mediaId' => 'MediaId',
+        'streamTags' => 'StreamTags',
         'userData' => 'UserData',
     ];
 
@@ -42,6 +48,10 @@ class RegisterMediaStreamRequest extends Model
 
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
+        }
+
+        if (null !== $this->streamTags) {
+            $res['StreamTags'] = $this->streamTags;
         }
 
         if (null !== $this->userData) {
@@ -65,6 +75,10 @@ class RegisterMediaStreamRequest extends Model
 
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
+        }
+
+        if (isset($map['StreamTags'])) {
+            $model->streamTags = $map['StreamTags'];
         }
 
         if (isset($map['UserData'])) {

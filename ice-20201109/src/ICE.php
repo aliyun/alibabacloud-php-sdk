@@ -775,7 +775,6 @@ class ICE extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'ap-northeast-1' => 'ice.aliyuncs.com',
@@ -11369,7 +11368,7 @@ class ICE extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return GetPublicMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPublicMediaInfoResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -13030,7 +13029,7 @@ class ICE extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return ListAllPublicMediaTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAllPublicMediaTagsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -15742,7 +15741,7 @@ class ICE extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return ListPublicMediaBasicInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPublicMediaBasicInfosResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -18410,6 +18409,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->mediaId) {
             @$query['MediaId'] = $request->mediaId;
+        }
+
+        if (null !== $request->streamTags) {
+            @$query['StreamTags'] = $request->streamTags;
         }
 
         if (null !== $request->userData) {
