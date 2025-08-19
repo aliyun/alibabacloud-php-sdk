@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnInstallClusterAddonsResponseBody extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example c5b5e80b0b64a4bf6939d2d8fbbc5****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 74D1512F-67DA-54E8-99EA-4D50EB4898F4
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The task ID.
-     *
-     * @example T-66e39b39c0fdd001320005c0
-     *
      * @var string
      */
     public $taskId;
@@ -40,17 +28,22 @@ class UnInstallClusterAddonsResponseBody extends Model
         'taskId' => 'task_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
+
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['task_id'] = $this->taskId;
         }
@@ -58,20 +51,22 @@ class UnInstallClusterAddonsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnInstallClusterAddonsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }
+
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }
+
         if (isset($map['task_id'])) {
             $model->taskId = $map['task_id'];
         }

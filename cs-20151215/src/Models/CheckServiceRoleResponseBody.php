@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\CheckServiceRoleResponseBody\roles;
-use AlibabaCloud\Tea\Model;
 
 class CheckServiceRoleResponseBody extends Model
 {
     /**
-     * @description The check results.
-     *
      * @var roles[]
      */
     public $roles;
@@ -19,17 +17,24 @@ class CheckServiceRoleResponseBody extends Model
         'roles' => 'roles',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->roles)) {
+            Model::validateArray($this->roles);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->roles) {
-            $res['roles'] = [];
-            if (null !== $this->roles && \is_array($this->roles)) {
-                $n = 0;
-                foreach ($this->roles as $item) {
-                    $res['roles'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->roles)) {
+                $res['roles'] = [];
+                $n1 = 0;
+                foreach ($this->roles as $item1) {
+                    $res['roles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class CheckServiceRoleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckServiceRoleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['roles'])) {
             if (!empty($map['roles'])) {
                 $model->roles = [];
-                $n = 0;
-                foreach ($map['roles'] as $item) {
-                    $model->roles[$n++] = null !== $item ? roles::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['roles'] as $item1) {
+                    $model->roles[$n1] = roles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

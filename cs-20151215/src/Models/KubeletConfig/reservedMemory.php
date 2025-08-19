@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\KubeletConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class reservedMemory extends Model
 {
@@ -22,14 +22,26 @@ class reservedMemory extends Model
         'numaNode' => 'numaNode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->limits)) {
+            Model::validateArray($this->limits);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->limits) {
-            $res['limits'] = $this->limits;
+            if (\is_array($this->limits)) {
+                $res['limits'] = [];
+                foreach ($this->limits as $key1 => $value1) {
+                    $res['limits'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->numaNode) {
             $res['numaNode'] = $this->numaNode;
         }
@@ -37,17 +49,23 @@ class reservedMemory extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reservedMemory
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['limits'])) {
-            $model->limits = $map['limits'];
+            if (!empty($map['limits'])) {
+                $model->limits = [];
+                foreach ($map['limits'] as $key1 => $value1) {
+                    $model->limits[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['numaNode'])) {
             $model->numaNode = $map['numaNode'];
         }

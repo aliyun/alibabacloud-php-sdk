@@ -4,57 +4,31 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results.
-     *
-     * @example ***
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The list of cluster IDs.
-     *
-     * This parameter is required.
-     *
-     * @example ["xxxxx","xxxxxx"]
-     *
      * @var string[]
      */
     public $resourceIds;
 
     /**
-     * @description The resource type. Set the value to `CLUSTER`.
-     *
-     * This parameter is required.
-     *
-     * @example CLUSTER
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description The list of labels that you want to query. You can specify up to 20 labels.
-     *
-     * @example [{\\"key\\":\\"env\\",\\"value\\",\\"dev\\"},{\\"key\\":\\"dev\\", \\"value\\":\\"IT\\"}]
-     *
      * @var Tag[]
      */
     public $tags;
@@ -66,29 +40,50 @@ class ListTagResourcesRequest extends Model
         'tags' => 'tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resourceIds)) {
+            Model::validateArray($this->resourceIds);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['next_token'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['region_id'] = $this->regionId;
         }
+
         if (null !== $this->resourceIds) {
-            $res['resource_ids'] = $this->resourceIds;
+            if (\is_array($this->resourceIds)) {
+                $res['resource_ids'] = [];
+                $n1 = 0;
+                foreach ($this->resourceIds as $item1) {
+                    $res['resource_ids'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['resource_type'] = $this->resourceType;
         }
+
         if (null !== $this->tags) {
-            $res['tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,34 +91,44 @@ class ListTagResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTagResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['next_token'])) {
             $model->nextToken = $map['next_token'];
         }
+
         if (isset($map['region_id'])) {
             $model->regionId = $map['region_id'];
         }
+
         if (isset($map['resource_ids'])) {
             if (!empty($map['resource_ids'])) {
-                $model->resourceIds = $map['resource_ids'];
+                $model->resourceIds = [];
+                $n1 = 0;
+                foreach ($map['resource_ids'] as $item1) {
+                    $model->resourceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['resource_type'])) {
             $model->resourceType = $map['resource_type'];
         }
+
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

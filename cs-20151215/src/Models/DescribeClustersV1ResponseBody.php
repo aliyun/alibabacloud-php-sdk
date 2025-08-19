@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1ResponseBody\clusters;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1ResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeClustersV1ResponseBody extends Model
 {
     /**
-     * @description The queried cluster details.
-     *
      * @var clusters[]
      */
     public $clusters;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
@@ -28,44 +24,57 @@ class DescribeClustersV1ResponseBody extends Model
         'pageInfo' => 'page_info',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clusters)) {
+            Model::validateArray($this->clusters);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusters) {
-            $res['clusters'] = [];
-            if (null !== $this->clusters && \is_array($this->clusters)) {
-                $n = 0;
-                foreach ($this->clusters as $item) {
-                    $res['clusters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clusters)) {
+                $res['clusters'] = [];
+                $n1 = 0;
+                foreach ($this->clusters as $item1) {
+                    $res['clusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['page_info'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['page_info'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClustersV1ResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['clusters'])) {
             if (!empty($map['clusters'])) {
                 $model->clusters = [];
-                $n = 0;
-                foreach ($map['clusters'] as $item) {
-                    $model->clusters[$n++] = null !== $item ? clusters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['clusters'] as $item1) {
+                    $model->clusters[$n1] = clusters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['page_info'])) {
             $model->pageInfo = pageInfo::fromMap($map['page_info']);
         }

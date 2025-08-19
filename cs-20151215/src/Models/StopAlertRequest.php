@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopAlertRequest extends Model
 {
     /**
-     * @description The name of the alert rule group.
-     *
-     * @example sample
-     *
      * @var string
      */
     public $alertRuleGroupName;
 
     /**
-     * @description The name of the alert rule.
-     *
-     * @example sample
-     *
      * @var string
      */
     public $alertRuleName;
@@ -30,14 +22,18 @@ class StopAlertRequest extends Model
         'alertRuleName' => 'alert_rule_name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertRuleGroupName) {
             $res['alert_rule_group_name'] = $this->alertRuleGroupName;
         }
+
         if (null !== $this->alertRuleName) {
             $res['alert_rule_name'] = $this->alertRuleName;
         }
@@ -45,17 +41,18 @@ class StopAlertRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopAlertRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alert_rule_group_name'])) {
             $model->alertRuleGroupName = $map['alert_rule_group_name'];
         }
+
         if (isset($map['alert_rule_name'])) {
             $model->alertRuleName = $map['alert_rule_name'];
         }

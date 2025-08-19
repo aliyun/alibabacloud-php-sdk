@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Runtime extends Model
 {
     /**
-     * @example docker
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 19.03.5
-     *
      * @var string
      */
     public $version;
@@ -26,14 +22,18 @@ class Runtime extends Model
         'version' => 'version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -41,17 +41,18 @@ class Runtime extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Runtime
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

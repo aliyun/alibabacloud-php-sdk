@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachinesResponseBody\edgeMachines;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachinesResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeEdgeMachinesResponseBody extends Model
 {
     /**
-     * @description The list of cloud-native boxes.
-     *
      * @var edgeMachines[]
      */
     public $edgeMachines;
 
     /**
-     * @description The paging information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
@@ -28,44 +24,57 @@ class DescribeEdgeMachinesResponseBody extends Model
         'pageInfo' => 'page_info',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->edgeMachines)) {
+            Model::validateArray($this->edgeMachines);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->edgeMachines) {
-            $res['edge_machines'] = [];
-            if (null !== $this->edgeMachines && \is_array($this->edgeMachines)) {
-                $n = 0;
-                foreach ($this->edgeMachines as $item) {
-                    $res['edge_machines'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->edgeMachines)) {
+                $res['edge_machines'] = [];
+                $n1 = 0;
+                foreach ($this->edgeMachines as $item1) {
+                    $res['edge_machines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['page_info'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['page_info'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEdgeMachinesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['edge_machines'])) {
             if (!empty($map['edge_machines'])) {
                 $model->edgeMachines = [];
-                $n = 0;
-                foreach ($map['edge_machines'] as $item) {
-                    $model->edgeMachines[$n++] = null !== $item ? edgeMachines::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['edge_machines'] as $item1) {
+                    $model->edgeMachines[$n1] = edgeMachines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['page_info'])) {
             $model->pageInfo = pageInfo::fromMap($map['page_info']);
         }

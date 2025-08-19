@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeClusterNodepoolResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 2D69A58F-345C-4FDE-88E4-BF518944****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The task ID.
-     *
-     * @example T-5fd211e924e1d0078700xxxx
-     *
      * @var string
      */
     public $taskId;
@@ -30,14 +22,18 @@ class UpgradeClusterNodepoolResponseBody extends Model
         'taskId' => 'task_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['task_id'] = $this->taskId;
         }
@@ -45,17 +41,18 @@ class UpgradeClusterNodepoolResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeClusterNodepoolResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['task_id'])) {
             $model->taskId = $map['task_id'];
         }

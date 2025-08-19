@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunClusterInspectRequest extends Model
 {
     /**
-     * @description The idempotency token that ensures an API request completes no more than one time.
-     *
-     * @example c82e6987e2961451182edacd74faf
-     *
      * @var string
      */
     public $clientToken;
@@ -20,9 +16,12 @@ class RunClusterInspectRequest extends Model
         'clientToken' => 'clientToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
@@ -32,11 +31,11 @@ class RunClusterInspectRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunClusterInspectRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

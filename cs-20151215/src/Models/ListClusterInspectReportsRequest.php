@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListClusterInspectReportsRequest extends Model
 {
     /**
-     * @description The maximum number of returned results. Maximum value: 50.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The pagination token.
-     *
-     * @example AK8uQQrxgFKsI3OiS5TbhUQ9R3kPme4I3
-     *
      * @var string
      */
     public $nextToken;
@@ -30,14 +22,18 @@ class ListClusterInspectReportsRequest extends Model
         'nextToken' => 'nextToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
@@ -45,17 +41,18 @@ class ListClusterInspectReportsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListClusterInspectReportsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }

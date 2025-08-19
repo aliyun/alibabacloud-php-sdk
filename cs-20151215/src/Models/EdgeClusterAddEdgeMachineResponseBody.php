@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EdgeClusterAddEdgeMachineResponseBody extends Model
 {
     /**
-     * @description The ID of the cloud-native box.
-     *
-     * @example 0f4bf70a-caff-4b26-a679-fb0188a1****
-     *
      * @var string
      */
     public $edgeMachineId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0adf3a23-6841-41e8-9f55-7b290216c980
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class EdgeClusterAddEdgeMachineResponseBody extends Model
         'requestId' => 'request_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->edgeMachineId) {
             $res['edge_machine_id'] = $this->edgeMachineId;
         }
+
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class EdgeClusterAddEdgeMachineResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EdgeClusterAddEdgeMachineResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['edge_machine_id'])) {
             $model->edgeMachineId = $map['edge_machine_id'];
         }
+
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }

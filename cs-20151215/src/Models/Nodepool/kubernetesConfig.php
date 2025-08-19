@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\Nodepool;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\Tag;
 use AlibabaCloud\SDK\CS\V20151215\Models\Taint;
-use AlibabaCloud\Tea\Model;
 
 class kubernetesConfig extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $cmsEnabled;
 
     /**
-     * @example none
-     *
      * @var string
      */
     public $cpuPolicy;
@@ -30,26 +26,16 @@ class kubernetesConfig extends Model
     public $labels;
 
     /**
-     * @example customized,test.,5,.com
-     *
      * @var string
      */
     public $nodeNameMode;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example docker
-     *
      * @var string
      */
     public $runtime;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 19.03.5
-     *
      * @var string
      */
     public $runtimeVersion;
@@ -60,8 +46,6 @@ class kubernetesConfig extends Model
     public $taints;
 
     /**
-     * @example MXM=
-     *
      * @var string
      */
     public $userData;
@@ -76,44 +60,62 @@ class kubernetesConfig extends Model
         'userData' => 'user_data',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        if (\is_array($this->taints)) {
+            Model::validateArray($this->taints);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cmsEnabled) {
             $res['cms_enabled'] = $this->cmsEnabled;
         }
+
         if (null !== $this->cpuPolicy) {
             $res['cpu_policy'] = $this->cpuPolicy;
         }
+
         if (null !== $this->labels) {
-            $res['labels'] = [];
-            if (null !== $this->labels && \is_array($this->labels)) {
-                $n = 0;
-                foreach ($this->labels as $item) {
-                    $res['labels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->labels)) {
+                $res['labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nodeNameMode) {
             $res['node_name_mode'] = $this->nodeNameMode;
         }
+
         if (null !== $this->runtime) {
             $res['runtime'] = $this->runtime;
         }
+
         if (null !== $this->runtimeVersion) {
             $res['runtime_version'] = $this->runtimeVersion;
         }
+
         if (null !== $this->taints) {
-            $res['taints'] = [];
-            if (null !== $this->taints && \is_array($this->taints)) {
-                $n = 0;
-                foreach ($this->taints as $item) {
-                    $res['taints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taints)) {
+                $res['taints'] = [];
+                $n1 = 0;
+                foreach ($this->taints as $item1) {
+                    $res['taints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->userData) {
             $res['user_data'] = $this->userData;
         }
@@ -121,47 +123,56 @@ class kubernetesConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return kubernetesConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cms_enabled'])) {
             $model->cmsEnabled = $map['cms_enabled'];
         }
+
         if (isset($map['cpu_policy'])) {
             $model->cpuPolicy = $map['cpu_policy'];
         }
+
         if (isset($map['labels'])) {
             if (!empty($map['labels'])) {
                 $model->labels = [];
-                $n = 0;
-                foreach ($map['labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? Tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['labels'] as $item1) {
+                    $model->labels[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['node_name_mode'])) {
             $model->nodeNameMode = $map['node_name_mode'];
         }
+
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];
         }
+
         if (isset($map['runtime_version'])) {
             $model->runtimeVersion = $map['runtime_version'];
         }
+
         if (isset($map['taints'])) {
             if (!empty($map['taints'])) {
                 $model->taints = [];
-                $n = 0;
-                foreach ($map['taints'] as $item) {
-                    $model->taints[$n++] = null !== $item ? Taint::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['taints'] as $item1) {
+                    $model->taints[$n1] = Taint::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['user_data'])) {
             $model->userData = $map['user_data'];
         }

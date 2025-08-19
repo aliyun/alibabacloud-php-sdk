@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\ListClusterChecksResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class checks extends Model
 {
     /**
-     * @description The ID of the cluster check task.
-     *
-     * @example 1697100584236600453-ce0da5a1d627e4e9e9f96cae8ad07****-clustercheck-lboto
-     *
      * @var string
      */
     public $checkId;
 
     /**
-     * @description The time when the cluster check task was created.
-     *
-     * @example 2023-10-16T08:31:20.292030178Z
-     *
      * @var string
      */
     public $createdAt;
 
     /**
-     * @description The time when the cluster check task was completed.
-     *
-     * @example 2023-10-16T08:35:20.292030178Z
-     *
      * @var string
      */
     public $finishedAt;
 
     /**
-     * @description The message that indicates the status of the cluster check task.
-     *
-     * @example task succeed
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The status of the cluster check.
-     *
-     * @example Succeeded
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The check method.
-     *
-     * @example ClusterUpgrade
-     *
      * @var string
      */
     public $type;
@@ -70,26 +46,34 @@ class checks extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkId) {
             $res['check_id'] = $this->checkId;
         }
+
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
         }
+
         if (null !== $this->finishedAt) {
             $res['finished_at'] = $this->finishedAt;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -97,29 +81,34 @@ class checks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return checks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['check_id'])) {
             $model->checkId = $map['check_id'];
         }
+
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
         }
+
         if (isset($map['finished_at'])) {
             $model->finishedAt = $map['finished_at'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

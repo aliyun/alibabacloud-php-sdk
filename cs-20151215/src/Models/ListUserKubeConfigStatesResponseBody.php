@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListUserKubeConfigStatesResponseBody\page;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListUserKubeConfigStatesResponseBody\states;
-use AlibabaCloud\Tea\Model;
 
 class ListUserKubeConfigStatesResponseBody extends Model
 {
     /**
-     * @description The pagination information.
-     *
      * @var page
      */
     public $page;
 
     /**
-     * @description The status of the kubeconfig files.
-     *
      * @var states[]
      */
     public $states;
@@ -28,20 +24,31 @@ class ListUserKubeConfigStatesResponseBody extends Model
         'states' => 'states',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->page) {
+            $this->page->validate();
+        }
+        if (\is_array($this->states)) {
+            Model::validateArray($this->states);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->page) {
-            $res['page'] = null !== $this->page ? $this->page->toMap() : null;
+            $res['page'] = null !== $this->page ? $this->page->toArray($noStream) : $this->page;
         }
+
         if (null !== $this->states) {
-            $res['states'] = [];
-            if (null !== $this->states && \is_array($this->states)) {
-                $n = 0;
-                foreach ($this->states as $item) {
-                    $res['states'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->states)) {
+                $res['states'] = [];
+                $n1 = 0;
+                foreach ($this->states as $item1) {
+                    $res['states'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -49,23 +56,25 @@ class ListUserKubeConfigStatesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUserKubeConfigStatesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['page'])) {
             $model->page = page::fromMap($map['page']);
         }
+
         if (isset($map['states'])) {
             if (!empty($map['states'])) {
                 $model->states = [];
-                $n = 0;
-                foreach ($map['states'] as $item) {
-                    $model->states[$n++] = null !== $item ? states::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['states'] as $item1) {
+                    $model->states[$n1] = states::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachinesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class pageInfo extends Model
 {
     /**
-     * @description The page number.
-     *
-     * Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The total number of pages returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -44,17 +28,22 @@ class pageInfo extends Model
         'totalCount' => 'total_count',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['page_number'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['page_size'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['total_count'] = $this->totalCount;
         }
@@ -62,20 +51,22 @@ class pageInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['page_number'])) {
             $model->pageNumber = $map['page_number'];
         }
+
         if (isset($map['page_size'])) {
             $model->pageSize = $map['page_size'];
         }
+
         if (isset($map['total_count'])) {
             $model->totalCount = $map['total_count'];
         }

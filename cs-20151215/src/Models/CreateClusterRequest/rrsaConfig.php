@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rrsaConfig extends Model
 {
@@ -16,9 +16,12 @@ class rrsaConfig extends Model
         'enabled' => 'enabled',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
@@ -28,11 +31,11 @@ class rrsaConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rrsaConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the orchestration template.
-     *
-     * @example ba1fe77b-b01e-4640-b77e-8f1b80e3e3cf
-     *
      * @var string
      */
     public $templateId;
@@ -20,9 +16,12 @@ class CreateTemplateResponseBody extends Model
         'templateId' => 'template_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->templateId) {
@@ -32,11 +31,11 @@ class CreateTemplateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

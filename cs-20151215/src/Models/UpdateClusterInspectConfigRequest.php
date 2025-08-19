@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateClusterInspectConfigRequest extends Model
 {
     /**
-     * @description The list of disabled inspection check items.
-     *
      * @var string[]
      */
     public $disabledCheckItems;
 
     /**
-     * @description Specifies whether to enable cluster inspection.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @description The inspection period defined using RFC5545 Recurrence Rule. You must specify BYHOUR and BYMINUTE. Only FREQ=DAILY is supported. COUNT or UNTIL is not supported.
-     *
-     * @example FREQ=DAILY;BYHOUR=10;BYMINUTE=15
-     *
      * @var string
      */
     public $scheduleTime;
@@ -38,17 +28,32 @@ class UpdateClusterInspectConfigRequest extends Model
         'scheduleTime' => 'scheduleTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->disabledCheckItems)) {
+            Model::validateArray($this->disabledCheckItems);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->disabledCheckItems) {
-            $res['disabledCheckItems'] = $this->disabledCheckItems;
+            if (\is_array($this->disabledCheckItems)) {
+                $res['disabledCheckItems'] = [];
+                $n1 = 0;
+                foreach ($this->disabledCheckItems as $item1) {
+                    $res['disabledCheckItems'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
         }
+
         if (null !== $this->scheduleTime) {
             $res['scheduleTime'] = $this->scheduleTime;
         }
@@ -56,22 +61,29 @@ class UpdateClusterInspectConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateClusterInspectConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['disabledCheckItems'])) {
             if (!empty($map['disabledCheckItems'])) {
-                $model->disabledCheckItems = $map['disabledCheckItems'];
+                $model->disabledCheckItems = [];
+                $n1 = 0;
+                foreach ($map['disabledCheckItems'] as $item1) {
+                    $model->disabledCheckItems[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
         }
+
         if (isset($map['scheduleTime'])) {
             $model->scheduleTime = $map['scheduleTime'];
         }

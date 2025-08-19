@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\management;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class autoRepairPolicy extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $restartNode;
@@ -18,9 +16,12 @@ class autoRepairPolicy extends Model
         'restartNode' => 'restart_node',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->restartNode) {
@@ -30,11 +31,11 @@ class autoRepairPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return autoRepairPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

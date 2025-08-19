@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyClusterTagsRequest extends Model
 {
     /**
-     * @description The data of the tags that you want to modify.
-     *
      * @var Tag[]
      */
     public $body;
@@ -18,17 +16,24 @@ class ModifyClusterTagsRequest extends Model
         'body' => 'body',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->body)) {
+            Model::validateArray($this->body);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = [];
-            if (null !== $this->body && \is_array($this->body)) {
-                $n = 0;
-                foreach ($this->body as $item) {
-                    $res['body'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->body)) {
+                $res['body'] = [];
+                $n1 = 0;
+                foreach ($this->body as $item1) {
+                    $res['body'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +41,21 @@ class ModifyClusterTagsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyClusterTagsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             if (!empty($map['body'])) {
                 $model->body = [];
-                $n = 0;
-                foreach ($map['body'] as $item) {
-                    $model->body[$n++] = null !== $item ? Tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['body'] as $item1) {
+                    $model->body[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

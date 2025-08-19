@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ScaleClusterNodePoolRequest extends Model
 {
     /**
-     * @description The number of worker nodes that you want to add. For example, the current node pool contains two nodes. After the two node is scaled out, the node pool contains four nodes. Due to the limit of the node quota, you can add at most 500 nodes in each request.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
@@ -20,9 +16,12 @@ class ScaleClusterNodePoolRequest extends Model
         'count' => 'count',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
@@ -32,11 +31,11 @@ class ScaleClusterNodePoolRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ScaleClusterNodePoolRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

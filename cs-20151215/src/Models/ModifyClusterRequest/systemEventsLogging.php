@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class systemEventsLogging extends Model
 {
     /**
-     * @description Specifies whether to enable system event storage.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @description The name of the Simple Log Service project that stores system events.
-     *
-     * @example k8s-log-cb95aa626a47740afbf6aa099b65****
-     *
      * @var string
      */
     public $loggingProject;
@@ -30,14 +22,18 @@ class systemEventsLogging extends Model
         'loggingProject' => 'logging_project',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
         }
+
         if (null !== $this->loggingProject) {
             $res['logging_project'] = $this->loggingProject;
         }
@@ -45,17 +41,18 @@ class systemEventsLogging extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return systemEventsLogging
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
         }
+
         if (isset($map['logging_project'])) {
             $model->loggingProject = $map['logging_project'];
         }

@@ -4,49 +4,31 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeTaskInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class stages extends Model
 {
     /**
-     * @description The end time of the stage.
-     *
-     * @example 2022-12-15 23:00:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The message about the stage.
-     *
-     * @example success to xxxxx
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The output generated at the stage.
-     *
      * @var mixed[]
      */
     public $outputs;
 
     /**
-     * @description The start time of the stage.
-     *
-     * @example 2022-12-15 23:00:00
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The status of the stage.
-     *
-     * @example running
-     *
      * @var string
      */
     public $state;
@@ -58,23 +40,38 @@ class stages extends Model
         'state' => 'state',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->outputs)) {
+            Model::validateArray($this->outputs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['end_time'] = $this->endTime;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->outputs) {
-            $res['outputs'] = $this->outputs;
+            if (\is_array($this->outputs)) {
+                $res['outputs'] = [];
+                foreach ($this->outputs as $key1 => $value1) {
+                    $res['outputs'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->startTime) {
             $res['start_time'] = $this->startTime;
         }
+
         if (null !== $this->state) {
             $res['state'] = $this->state;
         }
@@ -82,26 +79,35 @@ class stages extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stages
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['end_time'])) {
             $model->endTime = $map['end_time'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['outputs'])) {
-            $model->outputs = $map['outputs'];
+            if (!empty($map['outputs'])) {
+                $model->outputs = [];
+                foreach ($map['outputs'] as $key1 => $value1) {
+                    $model->outputs[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['start_time'])) {
             $model->startTime = $map['start_time'];
         }
+
         if (isset($map['state'])) {
             $model->state = $map['state'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteClusterNodepoolResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 7263C978-3DBD-4E06-B319-793B38A2F388
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description task IDs
-     *
-     * @example T-655ace947e0e6603af000004
-     *
      * @var string
      */
     public $taskId;
@@ -30,14 +22,18 @@ class DeleteClusterNodepoolResponseBody extends Model
         'taskId' => 'task_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['task_id'] = $this->taskId;
         }
@@ -45,17 +41,18 @@ class DeleteClusterNodepoolResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteClusterNodepoolResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }
+
         if (isset($map['task_id'])) {
             $model->taskId = $map['task_id'];
         }

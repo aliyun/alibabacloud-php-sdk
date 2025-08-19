@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\GetUpgradeStatusResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class upgradeTask extends Model
 {
     /**
-     * @description The description of the update task.
-     *
-     * @example subject to actual return
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The status of the update task. Valid values:
-     *
-     *   `running`: The update task is being executed.
-     *   `Success`: The update task is successfully executed.
-     *   `Failed`: The update task failed.
-     *
-     * @example running
-     *
      * @var string
      */
     public $status;
@@ -34,14 +22,18 @@ class upgradeTask extends Model
         'status' => 'status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -49,17 +41,18 @@ class upgradeTask extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return upgradeTask
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

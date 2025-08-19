@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rolloutPolicy extends Model
 {
     /**
-     * @description The maximum concurrency for batch patching. Minimum value: 1. The maximum value equals the number of nodes in the node pool.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $maxParallelism;
@@ -20,9 +16,12 @@ class rolloutPolicy extends Model
         'maxParallelism' => 'max_parallelism',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxParallelism) {
@@ -32,11 +31,11 @@ class rolloutPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rolloutPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
