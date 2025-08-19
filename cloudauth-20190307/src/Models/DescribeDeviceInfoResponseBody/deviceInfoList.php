@@ -33,7 +33,8 @@ class deviceInfoList extends Model
                 $res['DeviceInfo'] = [];
                 $n1 = 0;
                 foreach ($this->deviceInfo as $item1) {
-                    $res['DeviceInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeviceInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class deviceInfoList extends Model
                 $model->deviceInfo = [];
                 $n1 = 0;
                 foreach ($map['DeviceInfo'] as $item1) {
-                    $model->deviceInfo[$n1++] = deviceInfo::fromMap($item1);
+                    $model->deviceInfo[$n1] = deviceInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

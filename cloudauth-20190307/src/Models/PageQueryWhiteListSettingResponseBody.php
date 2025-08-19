@@ -101,7 +101,8 @@ class PageQueryWhiteListSettingResponseBody extends Model
                 $res['ResultObject'] = [];
                 $n1 = 0;
                 foreach ($this->resultObject as $item1) {
-                    $res['ResultObject'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResultObject'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +155,8 @@ class PageQueryWhiteListSettingResponseBody extends Model
                 $model->resultObject = [];
                 $n1 = 0;
                 foreach ($map['ResultObject'] as $item1) {
-                    $model->resultObject[$n1++] = resultObject::fromMap($item1);
+                    $model->resultObject[$n1] = resultObject::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

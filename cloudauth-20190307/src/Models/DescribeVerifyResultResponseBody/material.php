@@ -106,7 +106,8 @@ class material extends Model
                 $res['VideoUrls'] = [];
                 $n1 = 0;
                 foreach ($this->videoUrls as $item1) {
-                    $res['VideoUrls'][$n1++] = $item1;
+                    $res['VideoUrls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +156,8 @@ class material extends Model
                 $model->videoUrls = [];
                 $n1 = 0;
                 foreach ($map['VideoUrls'] as $item1) {
-                    $model->videoUrls[$n1++] = $item1;
+                    $model->videoUrls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

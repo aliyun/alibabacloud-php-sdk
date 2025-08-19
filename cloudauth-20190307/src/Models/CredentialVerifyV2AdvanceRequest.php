@@ -154,7 +154,8 @@ class CredentialVerifyV2AdvanceRequest extends Model
                 $res['MerchantDetail'] = [];
                 $n1 = 0;
                 foreach ($this->merchantDetail as $item1) {
-                    $res['MerchantDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MerchantDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -231,7 +232,8 @@ class CredentialVerifyV2AdvanceRequest extends Model
                 $model->merchantDetail = [];
                 $n1 = 0;
                 foreach ($map['MerchantDetail'] as $item1) {
-                    $model->merchantDetail[$n1++] = merchantDetail::fromMap($item1);
+                    $model->merchantDetail[$n1] = merchantDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

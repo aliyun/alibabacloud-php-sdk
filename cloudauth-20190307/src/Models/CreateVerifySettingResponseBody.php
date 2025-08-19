@@ -72,7 +72,8 @@ class CreateVerifySettingResponseBody extends Model
                 $res['StepList'] = [];
                 $n1 = 0;
                 foreach ($this->stepList as $item1) {
-                    $res['StepList'][$n1++] = $item1;
+                    $res['StepList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class CreateVerifySettingResponseBody extends Model
                 $model->stepList = [];
                 $n1 = 0;
                 foreach ($map['StepList'] as $item1) {
-                    $model->stepList[$n1++] = $item1;
+                    $model->stepList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

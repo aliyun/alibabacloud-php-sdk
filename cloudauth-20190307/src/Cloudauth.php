@@ -4,7 +4,13 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307;
 
+use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Models\FileField;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\Util\FormUtil;
+use AlibabaCloud\Dara\Util\StreamUtil;
+use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\AIGCFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\AIGCFaceVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\BankMetaVerifyRequest;
@@ -107,13 +113,7 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VehicleQueryRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VehicleQueryResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VerifyMaterialRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VerifyMaterialResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
-use AlibabaCloud\SDK\OSS\OSS;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
-use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -128,6 +128,51 @@ class Cloudauth extends OpenApiClient
         $this->_endpointRule = 'central';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cloudauth', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param string  $bucketName
+     * @param mixed[] $form
+     *
+     * @return mixed[]
+     */
+    public function _postOSSObject($bucketName, $form)
+    {
+        $_request = new Request();
+        $boundary = FormUtil::getBoundary();
+        $_request->protocol = 'HTTPS';
+        $_request->method = 'POST';
+        $_request->pathname = '/';
+        $_request->headers = [
+            'host' => '' . @$form['host'],
+            'date' => Utils::getDateUTCString(),
+            'user-agent' => Utils::getUserAgent(''),
+        ];
+        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+        $_request->body = FormUtil::toFileForm($form, $boundary);
+        $_response = Dara::send($_request);
+
+        $respMap = null;
+        $bodyStr = StreamUtil::readAsString($_response->body);
+        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+            $respMap = XML::parseXml($bodyStr, null);
+            $err = @$respMap['Error'];
+
+            throw new ClientException([
+                'code' => '' . @$err['Code'],
+                'message' => '' . @$err['Message'],
+                'data' => [
+                    'httpCode' => $_response->statusCode,
+                    'requestId' => '' . @$err['RequestId'],
+                    'hostId' => '' . @$err['HostId'],
+                ],
+            ]);
+        }
+
+        $respMap = XML::parseXml($bodyStr, null);
+
+        return Dara::merge([
+        ], $respMap);
     }
 
     /**
@@ -155,9 +200,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 新增AIGC人脸检测能力.
+     * Add AIGC Face Detection Capability.
      *
-     * @param request - AIGCFaceVerifyRequest
+     * @param Request - AIGCFaceVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns AIGCFaceVerifyResponse
@@ -220,9 +265,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 新增AIGC人脸检测能力.
+     * Add AIGC Face Detection Capability.
      *
-     * @param request - AIGCFaceVerifyRequest
+     * @param Request - AIGCFaceVerifyRequest
      *
      * @returns AIGCFaceVerifyResponse
      *
@@ -238,9 +283,17 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 银行卡要素核验接口.
+     * Bank Card Element Verification Interface.
      *
-     * @param request - BankMetaVerifyRequest
+     * @remarks
+     * Bank card verification, including: two elements (name + bank card number), three elements (name + ID number + bank card number), and four elements (name + ID number + mobile phone number + bank card number) consistency verification.
+     * - Service address:
+     *   - Beijing region: cloudauth.cn-beijing.aliyuncs.com (IPv4) or cloudauth-dualstack.cn-beijing.aliyuncs.com (IPv6).
+     *   - Shanghai region: cloudauth.cn-shanghai.aliyuncs.com (IPv4) or cloudauth-dualstack.cn-shanghai.aliyuncs.com (IPv6).
+     * - Request method: POST and GET.
+     * - Transfer protocol: HTTPS.
+     *
+     * @param Request - BankMetaVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns BankMetaVerifyResponse
@@ -305,9 +358,17 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 银行卡要素核验接口.
+     * Bank Card Element Verification Interface.
      *
-     * @param request - BankMetaVerifyRequest
+     * @remarks
+     * Bank card verification, including: two elements (name + bank card number), three elements (name + ID number + bank card number), and four elements (name + ID number + mobile phone number + bank card number) consistency verification.
+     * - Service address:
+     *   - Beijing region: cloudauth.cn-beijing.aliyuncs.com (IPv4) or cloudauth-dualstack.cn-beijing.aliyuncs.com (IPv6).
+     *   - Shanghai region: cloudauth.cn-shanghai.aliyuncs.com (IPv4) or cloudauth-dualstack.cn-shanghai.aliyuncs.com (IPv6).
+     * - Request method: POST and GET.
+     * - Transfer protocol: HTTPS.
+     *
+     * @param Request - BankMetaVerifyRequest
      *
      * @returns BankMetaVerifyResponse
      *
@@ -323,7 +384,22 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - CompareFaceVerifyRequest
+     * Financial-grade Pure Server-Side API for Face Comparison.
+     *
+     * @remarks
+     * - API Name: CompareFaceVerify.
+     * - Service Address: cloudauth.aliyuncs.com.
+     * - Request Method: HTTPS POST and GET.
+     * - API Description: An interface to achieve real-person authentication through server-side integration.
+     * #### Photo Format Requirements
+     * When performing face comparison, please upload 2 facial photos that meet all the following conditions:
+     * - Recent photo/recent database photo, with a complete, clear, unobstructed face, natural expression, and facing the camera directly.
+     * - Clear photo with normal exposure, no overly dark, overly bright, or halo effects on the face, and no significant angle deviation.
+     * - Resolution not exceeding 1920*1080, at least 640*480, recommended to scale the shorter side to 720 pixels, with a compression ratio greater than 0.9.
+     * - Photo size: <1MB.
+     * - Supports 90, 180, and 270-degree photos; in cases of multiple faces, the largest face will be selected.
+     *
+     * @param Request - CompareFaceVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CompareFaceVerifyResponse
@@ -412,7 +488,22 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - CompareFaceVerifyRequest
+     * Financial-grade Pure Server-Side API for Face Comparison.
+     *
+     * @remarks
+     * - API Name: CompareFaceVerify.
+     * - Service Address: cloudauth.aliyuncs.com.
+     * - Request Method: HTTPS POST and GET.
+     * - API Description: An interface to achieve real-person authentication through server-side integration.
+     * #### Photo Format Requirements
+     * When performing face comparison, please upload 2 facial photos that meet all the following conditions:
+     * - Recent photo/recent database photo, with a complete, clear, unobstructed face, natural expression, and facing the camera directly.
+     * - Clear photo with normal exposure, no overly dark, overly bright, or halo effects on the face, and no significant angle deviation.
+     * - Resolution not exceeding 1920*1080, at least 640*480, recommended to scale the shorter side to 720 pixels, with a compression ratio greater than 0.9.
+     * - Photo size: <1MB.
+     * - Supports 90, 180, and 270-degree photos; in cases of multiple faces, the largest face will be selected.
+     *
+     * @param Request - CompareFaceVerifyRequest
      *
      * @returns CompareFaceVerifyResponse
      *
@@ -428,7 +519,24 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - CompareFacesRequest
+     * Invoke CompareFaces for face comparison.
+     *
+     * @remarks
+     * Request Method: Only supports sending requests via HTTPS POST.
+     * Interface Description: Compares two face images and outputs the similarity score of the faces in the two images as the result.
+     * - At least one of the specified comparison images should be a face photo (FacePic).
+     * - If an image contains multiple faces, the algorithm will automatically select the largest face in the image.
+     * - If one of the two comparison images does not detect a face, the system will return an error message stating \\"No face detected\\".
+     * When uploading images, you need to provide the HTTP address or base64 encoding of the image.
+     * - HTTP Address: A publicly accessible HTTP address. For example, `http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg`.
+     * - Base64 Encoding: An image encoded in base64, formatted as `base64://<base64 string of the image>`.
+     * Image Restrictions
+     * - Does not support relative or absolute paths for local images.
+     * - Please keep the size of a single image within 2MB to avoid timeout during retrieval by the algorithm.
+     * - The body of a single request has a size limit of 8MB; please calculate the total size of all images and other information in the request to ensure it does not exceed this limit.
+     * - When using base64 to transmit images, the request method must be changed to POST; the header description such as `data:image/png;base64,` should be removed from the base64 string of the image.
+     *
+     * @param Request - CompareFacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CompareFacesResponse
@@ -477,7 +585,24 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - CompareFacesRequest
+     * Invoke CompareFaces for face comparison.
+     *
+     * @remarks
+     * Request Method: Only supports sending requests via HTTPS POST.
+     * Interface Description: Compares two face images and outputs the similarity score of the faces in the two images as the result.
+     * - At least one of the specified comparison images should be a face photo (FacePic).
+     * - If an image contains multiple faces, the algorithm will automatically select the largest face in the image.
+     * - If one of the two comparison images does not detect a face, the system will return an error message stating \\"No face detected\\".
+     * When uploading images, you need to provide the HTTP address or base64 encoding of the image.
+     * - HTTP Address: A publicly accessible HTTP address. For example, `http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg`.
+     * - Base64 Encoding: An image encoded in base64, formatted as `base64://<base64 string of the image>`.
+     * Image Restrictions
+     * - Does not support relative or absolute paths for local images.
+     * - Please keep the size of a single image within 2MB to avoid timeout during retrieval by the algorithm.
+     * - The body of a single request has a size limit of 8MB; please calculate the total size of all images and other information in the request to ensure it does not exceed this limit.
+     * - When using base64 to transmit images, the request method must be changed to POST; the header description such as `data:image/png;base64,` should be removed from the base64 string of the image.
+     *
+     * @param Request - CompareFacesRequest
      *
      * @returns CompareFacesResponse
      *
@@ -493,7 +618,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - ContrastFaceVerifyRequest
+     * @param Request - ContrastFaceVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ContrastFaceVerifyResponse
@@ -604,7 +729,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - ContrastFaceVerifyRequest
+     * @param Request - ContrastFaceVerifyRequest
      *
      * @returns ContrastFaceVerifyResponse
      *
@@ -628,12 +753,20 @@ class Cloudauth extends OpenApiClient
     public function contrastFaceVerifyAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -650,58 +783,61 @@ class Cloudauth extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'Cloudauth',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $contrastFaceVerifyReq = new ContrastFaceVerifyRequest([]);
         Utils::convert($request, $contrastFaceVerifyReq);
         if (null !== $request->faceContrastFileObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->faceContrastFileObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $contrastFaceVerifyReq->faceContrastFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $contrastFaceVerifyReq->faceContrastFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->contrastFaceVerifyWithOptions($contrastFaceVerifyReq, $runtime);
     }
 
     /**
-     * @param request - CreateAuthKeyRequest
+     * @param Request - CreateAuthKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateAuthKeyResponse
@@ -750,7 +886,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - CreateAuthKeyRequest
+     * @param Request - CreateAuthKeyRequest
      *
      * @returns CreateAuthKeyResponse
      *
@@ -766,7 +902,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - CreateVerifySettingRequest
+     * @param Request - CreateVerifySettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateVerifySettingResponse
@@ -823,7 +959,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - CreateVerifySettingRequest
+     * @param Request - CreateVerifySettingRequest
      *
      * @returns CreateVerifySettingResponse
      *
@@ -839,9 +975,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 商品凭证核验.
+     * Product Credential Verification.
      *
-     * @param request - CredentialProductVerifyV2Request
+     * @remarks
+     * Upload e-commerce product images to perform tampering, quality (clarity), and similar image detection, returning risk labels and scores.
+     *
+     * @param Request - CredentialProductVerifyV2Request
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CredentialProductVerifyV2Response
@@ -900,9 +1039,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 商品凭证核验.
+     * Product Credential Verification.
      *
-     * @param request - CredentialProductVerifyV2Request
+     * @remarks
+     * Upload e-commerce product images to perform tampering, quality (clarity), and similar image detection, returning risk labels and scores.
+     *
+     * @param Request - CredentialProductVerifyV2Request
      *
      * @returns CredentialProductVerifyV2Response
      *
@@ -926,12 +1068,20 @@ class Cloudauth extends OpenApiClient
     public function credentialProductVerifyV2Advance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -948,51 +1098,54 @@ class Cloudauth extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'Cloudauth',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $credentialProductVerifyV2Req = new CredentialProductVerifyV2Request([]);
         Utils::convert($request, $credentialProductVerifyV2Req);
         if (null !== $request->imageFileObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->imageFileObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $credentialProductVerifyV2Req->imageFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $credentialProductVerifyV2Req->imageFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->credentialProductVerifyV2WithOptions($credentialProductVerifyV2Req, $runtime);
@@ -1100,7 +1253,7 @@ class Cloudauth extends OpenApiClient
     /**
      * 凭证核验.
      *
-     * @param request - CredentialVerifyRequest
+     * @param Request - CredentialVerifyRequest
      *
      * @returns CredentialVerifyResponse
      *
@@ -1116,7 +1269,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 凭证核验.
+     * Credential Verification.
+     *
+     * @remarks
+     * Input credential image information, perform image tampering and forgery detection, and image semantic understanding. Return the risk detection results.
      *
      * @param tmpReq - CredentialVerifyV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1219,9 +1375,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 凭证核验.
+     * Credential Verification.
      *
-     * @param request - CredentialVerifyV2Request
+     * @remarks
+     * Input credential image information, perform image tampering and forgery detection, and image semantic understanding. Return the risk detection results.
+     *
+     * @param Request - CredentialVerifyV2Request
      *
      * @returns CredentialVerifyV2Response
      *
@@ -1245,12 +1404,20 @@ class Cloudauth extends OpenApiClient
     public function credentialVerifyV2Advance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -1267,60 +1434,69 @@ class Cloudauth extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'Cloudauth',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $credentialVerifyV2Req = new CredentialVerifyV2Request([]);
         Utils::convert($request, $credentialVerifyV2Req);
         if (null !== $request->imageFileObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->imageFileObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $credentialVerifyV2Req->imageFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $credentialVerifyV2Req->imageFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->credentialVerifyV2WithOptions($credentialVerifyV2Req, $runtime);
     }
 
     /**
-     * 人脸凭证核验服务
+     * Face Credential Verification Service.
      *
-     * @param request - DeepfakeDetectRequest
+     * @remarks
+     * > The Face Deepfake Detection API is currently in the free public beta stage, which will end on August 30, 2024, at 23:59:59. During the public beta, the QPS (Queries Per Second) cannot exceed 3 times/second.
+     * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+     * - Request method: POST and GET.
+     * - Transfer protocol: HTTPS.
+     *
+     * @param Request - DeepfakeDetectRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeepfakeDetectResponse
@@ -1371,9 +1547,15 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 人脸凭证核验服务
+     * Face Credential Verification Service.
      *
-     * @param request - DeepfakeDetectRequest
+     * @remarks
+     * > The Face Deepfake Detection API is currently in the free public beta stage, which will end on August 30, 2024, at 23:59:59. During the public beta, the QPS (Queries Per Second) cannot exceed 3 times/second.
+     * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+     * - Request method: POST and GET.
+     * - Transfer protocol: HTTPS.
+     *
+     * @param Request - DeepfakeDetectRequest
      *
      * @returns DeepfakeDetectResponse
      *
@@ -1389,9 +1571,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 金融级服务敏感数据删除接口.
+     * Financial Level Sensitive Data Deletion Interface.
      *
-     * @param request - DeleteFaceVerifyResultRequest
+     * @remarks
+     * Deletes all personal information fields in the request, including name, ID number, phone number, IP, images, videos, and device information, etc.
+     *
+     * @param Request - DeleteFaceVerifyResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteFaceVerifyResultResponse
@@ -1432,9 +1617,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 金融级服务敏感数据删除接口.
+     * Financial Level Sensitive Data Deletion Interface.
      *
-     * @param request - DeleteFaceVerifyResultRequest
+     * @remarks
+     * Deletes all personal information fields in the request, including name, ID number, phone number, IP, images, videos, and device information, etc.
+     *
+     * @param Request - DeleteFaceVerifyResultRequest
      *
      * @returns DeleteFaceVerifyResultResponse
      *
@@ -1452,7 +1640,7 @@ class Cloudauth extends OpenApiClient
     /**
      * 图片要素核验获取认证结果.
      *
-     * @param request - DescribeCardVerifyRequest
+     * @param Request - DescribeCardVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeCardVerifyResponse
@@ -1491,7 +1679,7 @@ class Cloudauth extends OpenApiClient
     /**
      * 图片要素核验获取认证结果.
      *
-     * @param request - DescribeCardVerifyRequest
+     * @param Request - DescribeCardVerifyRequest
      *
      * @returns DescribeCardVerifyResponse
      *
@@ -1507,7 +1695,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeDeviceInfoRequest
+     * @param Request - DescribeDeviceInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDeviceInfoResponse
@@ -1568,7 +1756,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeDeviceInfoRequest
+     * @param Request - DescribeDeviceInfoRequest
      *
      * @returns DescribeDeviceInfoResponse
      *
@@ -1586,7 +1774,7 @@ class Cloudauth extends OpenApiClient
     /**
      * 金融级人脸保镖服务
      *
-     * @param request - DescribeFaceGuardRiskRequest
+     * @param Request - DescribeFaceGuardRiskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeFaceGuardRiskResponse
@@ -1637,7 +1825,7 @@ class Cloudauth extends OpenApiClient
     /**
      * 金融级人脸保镖服务
      *
-     * @param request - DescribeFaceGuardRiskRequest
+     * @param Request - DescribeFaceGuardRiskRequest
      *
      * @returns DescribeFaceGuardRiskResponse
      *
@@ -1653,7 +1841,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeFaceVerifyRequest
+     * @param Request - DescribeFaceVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeFaceVerifyResponse
@@ -1698,7 +1886,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeFaceVerifyRequest
+     * @param Request - DescribeFaceVerifyRequest
      *
      * @returns DescribeFaceVerifyResponse
      *
@@ -1714,7 +1902,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeOssUploadTokenRequest
+     * @param Request - DescribeOssUploadTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeOssUploadTokenResponse
@@ -1756,7 +1944,7 @@ class Cloudauth extends OpenApiClient
     /**
      * Open API新增金融级数据统计API.
      *
-     * @param request - DescribePageFaceVerifyDataRequest
+     * @param Request - DescribePageFaceVerifyDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribePageFaceVerifyDataResponse
@@ -1815,7 +2003,7 @@ class Cloudauth extends OpenApiClient
     /**
      * Open API新增金融级数据统计API.
      *
-     * @param request - DescribePageFaceVerifyDataRequest
+     * @param Request - DescribePageFaceVerifyDataRequest
      *
      * @returns DescribePageFaceVerifyDataResponse
      *
@@ -1831,7 +2019,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeSmartStatisticsPageListRequest
+     * @param Request - DescribeSmartStatisticsPageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSmartStatisticsPageListResponse
@@ -1888,7 +2076,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeSmartStatisticsPageListRequest
+     * @param Request - DescribeSmartStatisticsPageListRequest
      *
      * @returns DescribeSmartStatisticsPageListResponse
      *
@@ -1904,7 +2092,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeVerifyResultRequest
+     * @param Request - DescribeVerifyResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeVerifyResultResponse
@@ -1945,7 +2133,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeVerifyResultRequest
+     * @param Request - DescribeVerifyResultRequest
      *
      * @returns DescribeVerifyResultResponse
      *
@@ -1961,7 +2149,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeVerifySDKRequest
+     * @param Request - DescribeVerifySDKRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeVerifySDKResponse
@@ -1998,7 +2186,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeVerifySDKRequest
+     * @param Request - DescribeVerifySDKRequest
      *
      * @returns DescribeVerifySDKResponse
      *
@@ -2014,7 +2202,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeVerifyTokenRequest
+     * @param Request - DescribeVerifyTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeVerifyTokenResponse
@@ -2107,7 +2295,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeVerifyTokenRequest
+     * @param Request - DescribeVerifyTokenRequest
      *
      * @returns DescribeVerifyTokenResponse
      *
@@ -2123,7 +2311,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DetectFaceAttributesRequest
+     * @param Request - DetectFaceAttributesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DetectFaceAttributesResponse
@@ -2164,7 +2352,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - DetectFaceAttributesRequest
+     * @param Request - DetectFaceAttributesRequest
      *
      * @returns DetectFaceAttributesResponse
      *
@@ -2180,9 +2368,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 二要素有效期核验接口.
+     * Two-Factor Validity Verification API.
      *
-     * @param request - Id2MetaPeriodVerifyRequest
+     * @param Request - Id2MetaPeriodVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns Id2MetaPeriodVerifyResponse
@@ -2235,9 +2423,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 二要素有效期核验接口.
+     * Two-Factor Validity Verification API.
      *
-     * @param request - Id2MetaPeriodVerifyRequest
+     * @param Request - Id2MetaPeriodVerifyRequest
      *
      * @returns Id2MetaPeriodVerifyResponse
      *
@@ -2253,9 +2441,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 身份二要素标准版.
+     * Identity Two-Factor Standard.
      *
-     * @param request - Id2MetaStandardVerifyRequest
+     * @param Request - Id2MetaStandardVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns Id2MetaStandardVerifyResponse
@@ -2300,9 +2488,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 身份二要素标准版.
+     * Identity Two-Factor Standard.
      *
-     * @param request - Id2MetaStandardVerifyRequest
+     * @param Request - Id2MetaStandardVerifyRequest
      *
      * @returns Id2MetaStandardVerifyResponse
      *
@@ -2318,9 +2506,14 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 身份二要素接口.
+     * Identity Two-Factor Interface.
      *
-     * @param request - Id2MetaVerifyRequest
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+     * - Request method: POST and GET.
+     * - Transfer protocol: HTTPS.
+     *
+     * @param Request - Id2MetaVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns Id2MetaVerifyResponse
@@ -2365,9 +2558,14 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 身份二要素接口.
+     * Identity Two-Factor Interface.
      *
-     * @param request - Id2MetaVerifyRequest
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+     * - Request method: POST and GET.
+     * - Transfer protocol: HTTPS.
+     *
+     * @param Request - Id2MetaVerifyRequest
      *
      * @returns Id2MetaVerifyResponse
      *
@@ -2383,9 +2581,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 身份二要素图片核验.
+     * ID Two-Factor Image Verification.
      *
-     * @param request - Id2MetaVerifyWithOCRRequest
+     * @remarks
+     * Upload both sides of the ID card, and get the verification result of the two factors from an authoritative data source.
+     *
+     * @param Request - Id2MetaVerifyWithOCRRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns Id2MetaVerifyWithOCRResponse
@@ -2434,9 +2635,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 身份二要素图片核验.
+     * ID Two-Factor Image Verification.
      *
-     * @param request - Id2MetaVerifyWithOCRRequest
+     * @remarks
+     * Upload both sides of the ID card, and get the verification result of the two factors from an authoritative data source.
+     *
+     * @param Request - Id2MetaVerifyWithOCRRequest
      *
      * @returns Id2MetaVerifyWithOCRResponse
      *
@@ -2460,12 +2664,20 @@ class Cloudauth extends OpenApiClient
     public function id2MetaVerifyWithOCRAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -2482,86 +2694,89 @@ class Cloudauth extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'Cloudauth',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $id2MetaVerifyWithOCRReq = new Id2MetaVerifyWithOCRRequest([]);
         Utils::convert($request, $id2MetaVerifyWithOCRReq);
         if (null !== $request->certFileObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->certFileObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $id2MetaVerifyWithOCRReq->certFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $id2MetaVerifyWithOCRReq->certFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         if (null !== $request->certNationalFileObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->certNationalFileObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $id2MetaVerifyWithOCRReq->certNationalFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $id2MetaVerifyWithOCRReq->certNationalFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->id2MetaVerifyWithOCRWithOptions($id2MetaVerifyWithOCRReq, $runtime);
     }
 
     /**
-     * 图片核验发起认证请求
+     * Initiate an authentication request for image verification.
      *
-     * @param request - InitCardVerifyRequest
+     * @remarks
+     * Before each authentication, use this interface to obtain the CertifyId, which is used to link various interfaces in the authentication request.
+     *
+     * @param Request - InitCardVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns InitCardVerifyResponse
@@ -2634,9 +2849,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 图片核验发起认证请求
+     * Initiate an authentication request for image verification.
      *
-     * @param request - InitCardVerifyRequest
+     * @remarks
+     * Before each authentication, use this interface to obtain the CertifyId, which is used to link various interfaces in the authentication request.
+     *
+     * @param Request - InitCardVerifyRequest
      *
      * @returns InitCardVerifyResponse
      *
@@ -2652,7 +2870,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - InitFaceVerifyRequest
+     * @param Request - InitFaceVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns InitFaceVerifyResponse
@@ -2835,7 +3053,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - InitFaceVerifyRequest
+     * @param Request - InitFaceVerifyRequest
      *
      * @returns InitFaceVerifyResponse
      *
@@ -2851,9 +3069,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 新增实人白名单.
+     * Add Real Person Whitelist.
      *
-     * @param request - InsertWhiteListSettingRequest
+     * @param Request - InsertWhiteListSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns InsertWhiteListSettingResponse
@@ -2910,9 +3128,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 新增实人白名单.
+     * Add Real Person Whitelist.
      *
-     * @param request - InsertWhiteListSettingRequest
+     * @param Request - InsertWhiteListSettingRequest
      *
      * @returns InsertWhiteListSettingResponse
      *
@@ -2928,7 +3146,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - LivenessFaceVerifyRequest
+     * @param Request - LivenessFaceVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns LivenessFaceVerifyResponse
@@ -3019,7 +3237,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - LivenessFaceVerifyRequest
+     * @param Request - LivenessFaceVerifyRequest
      *
      * @returns LivenessFaceVerifyResponse
      *
@@ -3035,9 +3253,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 手机二要素核验.
+     * Mobile Two-Factor Verification.
      *
-     * @param request - Mobile2MetaVerifyRequest
+     * @remarks
+     * Input the phone number and name, verify their authenticity and consistency through authoritative data sources.
+     *
+     * @param Request - Mobile2MetaVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns Mobile2MetaVerifyResponse
@@ -3082,9 +3303,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 手机二要素核验.
+     * Mobile Two-Factor Verification.
      *
-     * @param request - Mobile2MetaVerifyRequest
+     * @remarks
+     * Input the phone number and name, verify their authenticity and consistency through authoritative data sources.
+     *
+     * @param Request - Mobile2MetaVerifyRequest
      *
      * @returns Mobile2MetaVerifyResponse
      *
@@ -3100,9 +3324,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 手机号三要素详版_标准版.
+     * Detailed Three-Element Verification for Phone Number_Standard Version.
      *
-     * @param request - Mobile3MetaDetailStandardVerifyRequest
+     * @remarks
+     * Input the phone number, name, and ID number to verify their authenticity and consistency through authoritative data sources. If they do not match, the reason for the mismatch is returned.
+     *
+     * @param Request - Mobile3MetaDetailStandardVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns Mobile3MetaDetailStandardVerifyResponse
@@ -3151,9 +3378,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 手机号三要素详版_标准版.
+     * Detailed Three-Element Verification for Phone Number_Standard Version.
      *
-     * @param request - Mobile3MetaDetailStandardVerifyRequest
+     * @remarks
+     * Input the phone number, name, and ID number to verify their authenticity and consistency through authoritative data sources. If they do not match, the reason for the mismatch is returned.
+     *
+     * @param Request - Mobile3MetaDetailStandardVerifyRequest
      *
      * @returns Mobile3MetaDetailStandardVerifyResponse
      *
@@ -3169,9 +3399,14 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 手机三要素详版接口.
+     * Detailed Mobile Three-Element Verification Interface.
      *
-     * @param request - Mobile3MetaDetailVerifyRequest
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+     * - Request method: POST and GET.
+     * - Transfer protocol: HTTPS.
+     *
+     * @param Request - Mobile3MetaDetailVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns Mobile3MetaDetailVerifyResponse
@@ -3220,9 +3455,14 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 手机三要素详版接口.
+     * Detailed Mobile Three-Element Verification Interface.
      *
-     * @param request - Mobile3MetaDetailVerifyRequest
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+     * - Request method: POST and GET.
+     * - Transfer protocol: HTTPS.
+     *
+     * @param Request - Mobile3MetaDetailVerifyRequest
      *
      * @returns Mobile3MetaDetailVerifyResponse
      *
@@ -3238,9 +3478,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 手机号三要素简版_标准版.
+     * Simplified Three-Element Verification for Phone Number_Standard Version.
      *
-     * @param request - Mobile3MetaSimpleStandardVerifyRequest
+     * @remarks
+     * Input the phone number, name, and ID number to verify their authenticity and consistency through authoritative data sources.
+     *
+     * @param Request - Mobile3MetaSimpleStandardVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns Mobile3MetaSimpleStandardVerifyResponse
@@ -3289,9 +3532,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 手机号三要素简版_标准版.
+     * Simplified Three-Element Verification for Phone Number_Standard Version.
      *
-     * @param request - Mobile3MetaSimpleStandardVerifyRequest
+     * @remarks
+     * Input the phone number, name, and ID number to verify their authenticity and consistency through authoritative data sources.
+     *
+     * @param Request - Mobile3MetaSimpleStandardVerifyRequest
      *
      * @returns Mobile3MetaSimpleStandardVerifyResponse
      *
@@ -3307,9 +3553,14 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 手机号三要素简版接口.
+     * Mobile Three Elements Simplified Interface.
      *
-     * @param request - Mobile3MetaSimpleVerifyRequest
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+     * - Request method: POST and GET.
+     * - Transfer protocol: HTTPS.
+     *
+     * @param Request - Mobile3MetaSimpleVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns Mobile3MetaSimpleVerifyResponse
@@ -3358,9 +3609,14 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 手机号三要素简版接口.
+     * Mobile Three Elements Simplified Interface.
      *
-     * @param request - Mobile3MetaSimpleVerifyRequest
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+     * - Request method: POST and GET.
+     * - Transfer protocol: HTTPS.
+     *
+     * @param Request - Mobile3MetaSimpleVerifyRequest
      *
      * @returns Mobile3MetaSimpleVerifyResponse
      *
@@ -3376,9 +3632,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 号码检测.
+     * Number Detection.
      *
-     * @param request - MobileDetectRequest
+     * @param Request - MobileDetectRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns MobileDetectResponse
@@ -3419,9 +3675,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 号码检测.
+     * Number Detection.
      *
-     * @param request - MobileDetectRequest
+     * @param Request - MobileDetectRequest
      *
      * @returns MobileDetectResponse
      *
@@ -3437,9 +3693,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 查询手机号在网状态
+     * Query the online status of a mobile number.
      *
-     * @param request - MobileOnlineStatusRequest
+     * @param Request - MobileOnlineStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns MobileOnlineStatusResponse
@@ -3480,9 +3736,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 查询手机号在网状态
+     * Query the online status of a mobile number.
      *
-     * @param request - MobileOnlineStatusRequest
+     * @param Request - MobileOnlineStatusRequest
      *
      * @returns MobileOnlineStatusResponse
      *
@@ -3498,9 +3754,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 查询手机号在网时长
+     * Query the online duration of a mobile number.
      *
-     * @param request - MobileOnlineTimeRequest
+     * @param Request - MobileOnlineTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns MobileOnlineTimeResponse
@@ -3541,9 +3797,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 查询手机号在网时长
+     * Query the online duration of a mobile number.
      *
-     * @param request - MobileOnlineTimeRequest
+     * @param Request - MobileOnlineTimeRequest
      *
      * @returns MobileOnlineTimeResponse
      *
@@ -3559,7 +3815,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - ModifyDeviceInfoRequest
+     * Call ModifyDeviceInfo to update device-related information, such as extending the device authorization validity period, updating the business party\\"s custom business identifier, and device ID. Suitable for scenarios like renewing the device validity period.
+     *
+     * @remarks
+     * Request Method: Supports sending requests using HTTPS POST and GET methods.
+     *
+     * @param Request - ModifyDeviceInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyDeviceInfoResponse
@@ -3612,7 +3873,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - ModifyDeviceInfoRequest
+     * Call ModifyDeviceInfo to update device-related information, such as extending the device authorization validity period, updating the business party\\"s custom business identifier, and device ID. Suitable for scenarios like renewing the device validity period.
+     *
+     * @remarks
+     * Request Method: Supports sending requests using HTTPS POST and GET methods.
+     *
+     * @param Request - ModifyDeviceInfoRequest
      *
      * @returns ModifyDeviceInfoResponse
      *
@@ -3628,9 +3894,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 分页查询实人白名单配置.
+     * Paging Query for Real Person Whitelist Configuration.
      *
-     * @param request - PageQueryWhiteListSettingRequest
+     * @param Request - PageQueryWhiteListSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PageQueryWhiteListSettingResponse
@@ -3699,9 +3965,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 分页查询实人白名单配置.
+     * Paging Query for Real Person Whitelist Configuration.
      *
-     * @param request - PageQueryWhiteListSettingRequest
+     * @param Request - PageQueryWhiteListSettingRequest
      *
      * @returns PageQueryWhiteListSettingResponse
      *
@@ -3717,7 +3983,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 删除实人白名单.
+     * Delete Real Person Whitelist.
      *
      * @param tmpReq - RemoveWhiteListSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3766,9 +4032,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 删除实人白名单.
+     * Delete Real Person Whitelist.
      *
-     * @param request - RemoveWhiteListSettingRequest
+     * @param Request - RemoveWhiteListSettingRequest
      *
      * @returns RemoveWhiteListSettingResponse
      *
@@ -3784,9 +4050,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 车五项信息识别.
+     * Five-Item Vehicle Information Recognition.
      *
-     * @param request - Vehicle5ItemQueryRequest
+     * @remarks
+     * Query basic vehicle information through the license plate number and vehicle type.
+     *
+     * @param Request - Vehicle5ItemQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns Vehicle5ItemQueryResponse
@@ -3831,9 +4100,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 车五项信息识别.
+     * Five-Item Vehicle Information Recognition.
      *
-     * @param request - Vehicle5ItemQueryRequest
+     * @remarks
+     * Query basic vehicle information through the license plate number and vehicle type.
+     *
+     * @param Request - Vehicle5ItemQueryRequest
      *
      * @returns Vehicle5ItemQueryResponse
      *
@@ -3849,9 +4121,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 车辆投保日期查询.
+     * Vehicle Insurance Date Inquiry.
      *
-     * @param request - VehicleInsureQueryRequest
+     * @remarks
+     * Query the vehicle insurance date through the license plate number, vehicle type, and vehicle identification number (VIN).
+     *
+     * @param Request - VehicleInsureQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns VehicleInsureQueryResponse
@@ -3900,9 +4175,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 车辆投保日期查询.
+     * Vehicle Insurance Date Inquiry.
      *
-     * @param request - VehicleInsureQueryRequest
+     * @remarks
+     * Query the vehicle insurance date through the license plate number, vehicle type, and vehicle identification number (VIN).
+     *
+     * @param Request - VehicleInsureQueryRequest
      *
      * @returns VehicleInsureQueryResponse
      *
@@ -3918,9 +4196,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 车辆要素核验.
+     * Vehicle Element Verification.
      *
-     * @param request - VehicleMetaVerifyRequest
+     * @remarks
+     * Verifies the consistency of name, ID number, vehicle license plate, and vehicle type.
+     *
+     * @param Request - VehicleMetaVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns VehicleMetaVerifyResponse
@@ -3977,9 +4258,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 车辆要素核验.
+     * Vehicle Element Verification.
      *
-     * @param request - VehicleMetaVerifyRequest
+     * @remarks
+     * Verifies the consistency of name, ID number, vehicle license plate, and vehicle type.
+     *
+     * @param Request - VehicleMetaVerifyRequest
      *
      * @returns VehicleMetaVerifyResponse
      *
@@ -3995,9 +4279,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 车辆要素核验增强版.
+     * Enhanced Vehicle Element Verification.
      *
-     * @param request - VehicleMetaVerifyV2Request
+     * @remarks
+     * Verifies the consistency of name, ID number, license plate number, and vehicle type, and supports returning detailed vehicle information.
+     *
+     * @param Request - VehicleMetaVerifyV2Request
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns VehicleMetaVerifyV2Response
@@ -4054,9 +4341,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 车辆要素核验增强版.
+     * Enhanced Vehicle Element Verification.
      *
-     * @param request - VehicleMetaVerifyV2Request
+     * @remarks
+     * Verifies the consistency of name, ID number, license plate number, and vehicle type, and supports returning detailed vehicle information.
+     *
+     * @param Request - VehicleMetaVerifyV2Request
      *
      * @returns VehicleMetaVerifyV2Response
      *
@@ -4072,9 +4362,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 车辆信息识别.
+     * Vehicle Information Recognition.
      *
-     * @param request - VehicleQueryRequest
+     * @remarks
+     * Query detailed vehicle information through the license plate number and vehicle type.
+     *
+     * @param Request - VehicleQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns VehicleQueryResponse
@@ -4119,9 +4412,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 车辆信息识别.
+     * Vehicle Information Recognition.
      *
-     * @param request - VehicleQueryRequest
+     * @remarks
+     * Query detailed vehicle information through the license plate number and vehicle type.
+     *
+     * @param Request - VehicleQueryRequest
      *
      * @returns VehicleQueryResponse
      *
@@ -4137,7 +4433,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - VerifyMaterialRequest
+     * @param Request - VerifyMaterialRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns VerifyMaterialResponse
@@ -4202,7 +4498,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param request - VerifyMaterialRequest
+     * @param Request - VerifyMaterialRequest
      *
      * @returns VerifyMaterialResponse
      *

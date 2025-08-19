@@ -33,7 +33,8 @@ class faceInfos extends Model
                 $res['FaceAttributesDetectInfo'] = [];
                 $n1 = 0;
                 foreach ($this->faceAttributesDetectInfo as $item1) {
-                    $res['FaceAttributesDetectInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FaceAttributesDetectInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class faceInfos extends Model
                 $model->faceAttributesDetectInfo = [];
                 $n1 = 0;
                 foreach ($map['FaceAttributesDetectInfo'] as $item1) {
-                    $model->faceAttributesDetectInfo[$n1++] = faceAttributesDetectInfo::fromMap($item1);
+                    $model->faceAttributesDetectInfo[$n1] = faceAttributesDetectInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
