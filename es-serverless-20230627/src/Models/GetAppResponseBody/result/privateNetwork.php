@@ -93,7 +93,8 @@ class privateNetwork extends Model
                 $res['whiteIpGroup'] = [];
                 $n1 = 0;
                 foreach ($this->whiteIpGroup as $item1) {
-                    $res['whiteIpGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['whiteIpGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class privateNetwork extends Model
                 $model->whiteIpGroup = [];
                 $n1 = 0;
                 foreach ($map['whiteIpGroup'] as $item1) {
-                    $model->whiteIpGroup[$n1++] = whiteIpGroup::fromMap($item1);
+                    $model->whiteIpGroup[$n1] = whiteIpGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

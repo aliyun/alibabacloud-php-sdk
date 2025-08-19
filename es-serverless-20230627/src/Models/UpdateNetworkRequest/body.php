@@ -2,22 +2,27 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest;
+namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateNetworkRequest;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\privateNetwork\whiteIpGroup;
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateNetworkRequest\body\whiteIpGroup;
 
-class privateNetwork extends Model
+class body extends Model
 {
+    /**
+     * @var string
+     */
+    public $domain;
+
     /**
      * @var bool
      */
     public $enabled;
 
     /**
-     * @var string
+     * @var int
      */
-    public $pvlEndpointId;
+    public $port;
 
     /**
      * @var string
@@ -25,19 +30,14 @@ class privateNetwork extends Model
     public $type;
 
     /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
      * @var whiteIpGroup[]
      */
     public $whiteIpGroup;
     protected $_name = [
+        'domain' => 'domain',
         'enabled' => 'enabled',
-        'pvlEndpointId' => 'pvlEndpointId',
+        'port' => 'port',
         'type' => 'type',
-        'vpcId' => 'vpcId',
         'whiteIpGroup' => 'whiteIpGroup',
     ];
 
@@ -52,20 +52,20 @@ class privateNetwork extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->domain) {
+            $res['domain'] = $this->domain;
+        }
+
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
         }
 
-        if (null !== $this->pvlEndpointId) {
-            $res['pvlEndpointId'] = $this->pvlEndpointId;
+        if (null !== $this->port) {
+            $res['port'] = $this->port;
         }
 
         if (null !== $this->type) {
             $res['type'] = $this->type;
-        }
-
-        if (null !== $this->vpcId) {
-            $res['vpcId'] = $this->vpcId;
         }
 
         if (null !== $this->whiteIpGroup) {
@@ -90,20 +90,20 @@ class privateNetwork extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['domain'])) {
+            $model->domain = $map['domain'];
+        }
+
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
         }
 
-        if (isset($map['pvlEndpointId'])) {
-            $model->pvlEndpointId = $map['pvlEndpointId'];
+        if (isset($map['port'])) {
+            $model->port = $map['port'];
         }
 
         if (isset($map['type'])) {
             $model->type = $map['type'];
-        }
-
-        if (isset($map['vpcId'])) {
-            $model->vpcId = $map['vpcId'];
         }
 
         if (isset($map['whiteIpGroup'])) {

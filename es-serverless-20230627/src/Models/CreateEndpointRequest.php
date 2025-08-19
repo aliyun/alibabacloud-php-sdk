@@ -51,7 +51,8 @@ class CreateEndpointRequest extends Model
                 $res['endpointZones'] = [];
                 $n1 = 0;
                 foreach ($this->endpointZones as $item1) {
-                    $res['endpointZones'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['endpointZones'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class CreateEndpointRequest extends Model
                 $model->endpointZones = [];
                 $n1 = 0;
                 foreach ($map['endpointZones'] as $item1) {
-                    $model->endpointZones[$n1++] = endpointZones::fromMap($item1);
+                    $model->endpointZones[$n1] = endpointZones::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

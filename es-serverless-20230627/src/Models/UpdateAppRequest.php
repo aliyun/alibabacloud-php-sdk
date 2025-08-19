@@ -101,7 +101,8 @@ class UpdateAppRequest extends Model
                 $res['network'] = [];
                 $n1 = 0;
                 foreach ($this->network as $item1) {
-                    $res['network'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['network'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class UpdateAppRequest extends Model
                 $res['privateNetwork'] = [];
                 $n1 = 0;
                 foreach ($this->privateNetwork as $item1) {
-                    $res['privateNetwork'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['privateNetwork'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +154,8 @@ class UpdateAppRequest extends Model
                 $model->network = [];
                 $n1 = 0;
                 foreach ($map['network'] as $item1) {
-                    $model->network[$n1++] = network::fromMap($item1);
+                    $model->network[$n1] = network::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +165,8 @@ class UpdateAppRequest extends Model
                 $model->privateNetwork = [];
                 $n1 = 0;
                 foreach ($map['privateNetwork'] as $item1) {
-                    $model->privateNetwork[$n1++] = privateNetwork::fromMap($item1);
+                    $model->privateNetwork[$n1] = privateNetwork::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

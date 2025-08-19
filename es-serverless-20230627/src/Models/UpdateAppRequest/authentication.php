@@ -33,7 +33,8 @@ class authentication extends Model
                 $res['basicAuth'] = [];
                 $n1 = 0;
                 foreach ($this->basicAuth as $item1) {
-                    $res['basicAuth'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['basicAuth'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class authentication extends Model
                 $model->basicAuth = [];
                 $n1 = 0;
                 foreach ($map['basicAuth'] as $item1) {
-                    $model->basicAuth[$n1++] = basicAuth::fromMap($item1);
+                    $model->basicAuth[$n1] = basicAuth::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

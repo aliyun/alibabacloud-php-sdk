@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppResponseBody\result\network;
+namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateNetworkRequest\body;
 
 use AlibabaCloud\Dara\Model;
 
@@ -17,9 +17,15 @@ class whiteIpGroup extends Model
      * @var string[]
      */
     public $ips;
+
+    /**
+     * @var string
+     */
+    public $modifyMode;
     protected $_name = [
         'groupName' => 'groupName',
         'ips' => 'ips',
+        'modifyMode' => 'modifyMode',
     ];
 
     public function validate()
@@ -48,6 +54,10 @@ class whiteIpGroup extends Model
             }
         }
 
+        if (null !== $this->modifyMode) {
+            $res['modifyMode'] = $this->modifyMode;
+        }
+
         return $res;
     }
 
@@ -72,6 +82,10 @@ class whiteIpGroup extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['modifyMode'])) {
+            $model->modifyMode = $map['modifyMode'];
         }
 
         return $model;

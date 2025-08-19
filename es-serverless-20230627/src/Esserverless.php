@@ -43,6 +43,8 @@ use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateDictRequest;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateDictResponse;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateEndpointRequest;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateEndpointResponse;
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateNetworkRequest;
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateNetworkResponse;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateSnapshotSettingRequest;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateSnapshotSettingResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1622,6 +1624,64 @@ class Esserverless extends OpenApiClient
         $headers = [];
 
         return $this->updateEndpointWithOptions($endpointId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改应用公网配置。
+     *
+     * @param request - UpdateNetworkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNetworkResponse
+     *
+     * @param string               $appName
+     * @param UpdateNetworkRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateNetworkResponse
+     */
+    public function updateNetworkWithOptions($appName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::toArray($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNetwork',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/networks',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改应用公网配置。
+     *
+     * @param request - UpdateNetworkRequest
+     *
+     * @returns UpdateNetworkResponse
+     *
+     * @param string               $appName
+     * @param UpdateNetworkRequest $request
+     *
+     * @return UpdateNetworkResponse
+     */
+    public function updateNetwork($appName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateNetworkWithOptions($appName, $request, $headers, $runtime);
     }
 
     /**

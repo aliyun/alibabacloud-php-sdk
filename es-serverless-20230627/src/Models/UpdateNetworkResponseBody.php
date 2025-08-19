@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Esserverless\V20230627\Models\ListAppsResponseBody\result;
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateNetworkResponseBody\result;
 
-class ListAppsResponseBody extends Model
+class UpdateNetworkResponseBody extends Model
 {
     /**
      * @var string
@@ -18,15 +18,9 @@ class ListAppsResponseBody extends Model
      * @var result[]
      */
     public $result;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
     protected $_name = [
         'requestId' => 'requestId',
         'result' => 'result',
-        'totalCount' => 'totalCount',
     ];
 
     public function validate()
@@ -55,10 +49,6 @@ class ListAppsResponseBody extends Model
             }
         }
 
-        if (null !== $this->totalCount) {
-            $res['totalCount'] = $this->totalCount;
-        }
-
         return $res;
     }
 
@@ -83,10 +73,6 @@ class ListAppsResponseBody extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (isset($map['totalCount'])) {
-            $model->totalCount = $map['totalCount'];
         }
 
         return $model;

@@ -43,11 +43,12 @@ class ListSnapshotRepositoriesResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->result as $item1) {
                     if (\is_array($item1)) {
-                        $res['result'][$n1++] = [];
+                        $res['result'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['result'][$n1++][$key2] = $value2;
+                            $res['result'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -73,11 +74,12 @@ class ListSnapshotRepositoriesResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['result'] as $item1) {
                     if (!empty($item1)) {
-                        $model->result[$n1++] = [];
+                        $model->result[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->result[$n1++][$key2] = $value2;
+                            $model->result[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
