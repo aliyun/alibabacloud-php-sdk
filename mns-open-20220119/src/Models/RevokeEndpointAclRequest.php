@@ -4,41 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RevokeEndpointAclRequest extends Model
 {
     /**
-     * @description The ACL policy. Value:
-     *
-     *   **allow**: indicates that this operation is included in the Cidr whitelist. (Only the allow is supported.)
-     *
-     * This parameter is required.
-     *
-     * @example allow
-     *
      * @var string
      */
     public $aclStrategy;
 
     /**
-     * @description The list of CIDR block.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $cidrList;
 
     /**
-     * @description The type of the endpoint. Valid values:
-     *
-     *   **public**: indicates public endpoint. (Only the public is supported.)
-     *
-     * This parameter is required.
-     *
-     * @example public
-     *
      * @var string
      */
     public $endpointType;
@@ -48,17 +28,32 @@ class RevokeEndpointAclRequest extends Model
         'endpointType' => 'EndpointType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->cidrList)) {
+            Model::validateArray($this->cidrList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclStrategy) {
             $res['AclStrategy'] = $this->aclStrategy;
         }
+
         if (null !== $this->cidrList) {
-            $res['CidrList'] = $this->cidrList;
+            if (\is_array($this->cidrList)) {
+                $res['CidrList'] = [];
+                $n1 = 0;
+                foreach ($this->cidrList as $item1) {
+                    $res['CidrList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
         }
@@ -66,22 +61,29 @@ class RevokeEndpointAclRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RevokeEndpointAclRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclStrategy'])) {
             $model->aclStrategy = $map['AclStrategy'];
         }
+
         if (isset($map['CidrList'])) {
             if (!empty($map['CidrList'])) {
-                $model->cidrList = $map['CidrList'];
+                $model->cidrList = [];
+                $n1 = 0;
+                foreach ($map['CidrList'] as $item1) {
+                    $model->cidrList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
         }

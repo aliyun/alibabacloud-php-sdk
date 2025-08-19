@@ -4,84 +4,49 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateQueueRequest\dlqPolicy;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateQueueRequest\tag;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateQueueRequest\tenantRateLimitPolicy;
-use AlibabaCloud\Tea\Model;
 
 class CreateQueueRequest extends Model
 {
     /**
-     * @description The period after which all messages sent to the queue are consumed. Valid values: 0 to 604800. Unit: seconds. Default value: 0
-     *
-     * @example 0
-     *
      * @var int
      */
     public $delaySeconds;
 
     /**
-     * @description The dead-letter queue policy.
-     *
      * @var dlqPolicy
      */
     public $dlqPolicy;
 
     /**
-     * @description Specifies whether to enable the log management feature. Valid values:
-     *
-     *   true: enabled.
-     *   false: disabled.
-     *
-     * Default value: false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableLogging;
 
     /**
-     * @description The maximum length of the message that is sent to the queue. Valid values: 1024 to 65536. Unit: bytes. Default value: 65536.
-     *
-     * @example 65536
-     *
      * @var int
      */
     public $maximumMessageSize;
 
     /**
-     * @description The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is consumed. Valid values: 60 to 604800. Unit: seconds. Default value: 345600.
-     *
-     * @example 345600
-     *
      * @var int
      */
     public $messageRetentionPeriod;
 
     /**
-     * @description The maximum duration for which long polling requests are held after the ReceiveMessage operation is called. Valid values: 0 to 30. Unit: seconds. Default value: 0
-     *
-     * @example 0
-     *
      * @var int
      */
     public $pollingWaitSeconds;
 
     /**
-     * @description The name of the queue.
-     *
-     * This parameter is required.
-     *
-     * @example 06273500-249F-5863-121D-74D51123****
-     *
      * @var string
      */
     public $queueName;
 
     /**
-     * @description The tags.
-     *
      * @var tag[]
      */
     public $tag;
@@ -92,10 +57,6 @@ class CreateQueueRequest extends Model
     public $tenantRateLimitPolicy;
 
     /**
-     * @description The duration for which a message stays in the Inactive state after the message is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
-     *
-     * @example 60
-     *
      * @var int
      */
     public $visibilityTimeout;
@@ -112,44 +73,66 @@ class CreateQueueRequest extends Model
         'visibilityTimeout' => 'VisibilityTimeout',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->dlqPolicy) {
+            $this->dlqPolicy->validate();
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        if (null !== $this->tenantRateLimitPolicy) {
+            $this->tenantRateLimitPolicy->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->delaySeconds) {
             $res['DelaySeconds'] = $this->delaySeconds;
         }
+
         if (null !== $this->dlqPolicy) {
-            $res['DlqPolicy'] = null !== $this->dlqPolicy ? $this->dlqPolicy->toMap() : null;
+            $res['DlqPolicy'] = null !== $this->dlqPolicy ? $this->dlqPolicy->toArray($noStream) : $this->dlqPolicy;
         }
+
         if (null !== $this->enableLogging) {
             $res['EnableLogging'] = $this->enableLogging;
         }
+
         if (null !== $this->maximumMessageSize) {
             $res['MaximumMessageSize'] = $this->maximumMessageSize;
         }
+
         if (null !== $this->messageRetentionPeriod) {
             $res['MessageRetentionPeriod'] = $this->messageRetentionPeriod;
         }
+
         if (null !== $this->pollingWaitSeconds) {
             $res['PollingWaitSeconds'] = $this->pollingWaitSeconds;
         }
+
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->tenantRateLimitPolicy) {
-            $res['TenantRateLimitPolicy'] = null !== $this->tenantRateLimitPolicy ? $this->tenantRateLimitPolicy->toMap() : null;
+            $res['TenantRateLimitPolicy'] = null !== $this->tenantRateLimitPolicy ? $this->tenantRateLimitPolicy->toArray($noStream) : $this->tenantRateLimitPolicy;
         }
+
         if (null !== $this->visibilityTimeout) {
             $res['VisibilityTimeout'] = $this->visibilityTimeout;
         }
@@ -157,47 +140,57 @@ class CreateQueueRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateQueueRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DelaySeconds'])) {
             $model->delaySeconds = $map['DelaySeconds'];
         }
+
         if (isset($map['DlqPolicy'])) {
             $model->dlqPolicy = dlqPolicy::fromMap($map['DlqPolicy']);
         }
+
         if (isset($map['EnableLogging'])) {
             $model->enableLogging = $map['EnableLogging'];
         }
+
         if (isset($map['MaximumMessageSize'])) {
             $model->maximumMessageSize = $map['MaximumMessageSize'];
         }
+
         if (isset($map['MessageRetentionPeriod'])) {
             $model->messageRetentionPeriod = $map['MessageRetentionPeriod'];
         }
+
         if (isset($map['PollingWaitSeconds'])) {
             $model->pollingWaitSeconds = $map['PollingWaitSeconds'];
         }
+
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TenantRateLimitPolicy'])) {
             $model->tenantRateLimitPolicy = tenantRateLimitPolicy::fromMap($map['TenantRateLimitPolicy']);
         }
+
         if (isset($map['VisibilityTimeout'])) {
             $model->visibilityTimeout = $map['VisibilityTimeout'];
         }

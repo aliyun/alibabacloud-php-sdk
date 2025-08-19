@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models\SubscribeRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dmAttributes extends Model
 {
@@ -22,14 +22,18 @@ class dmAttributes extends Model
         'subject' => 'Subject',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->subject) {
             $res['Subject'] = $this->subject;
         }
@@ -37,17 +41,18 @@ class dmAttributes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dmAttributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['Subject'])) {
             $model->subject = $map['Subject'];
         }

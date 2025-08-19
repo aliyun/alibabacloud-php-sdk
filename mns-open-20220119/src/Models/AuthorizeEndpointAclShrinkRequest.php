@@ -4,41 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AuthorizeEndpointAclShrinkRequest extends Model
 {
     /**
-     * @description The ACL policy. Valid values:
-     *
-     *   **allow**: indicates that this operation is included in the Cidr whitelist. (Only the allow is supported.)
-     *
-     * This parameter is required.
-     *
-     * @example allow
-     *
      * @var string
      */
     public $aclStrategy;
 
     /**
-     * @description The list of CIDR block.
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $cidrListShrink;
 
     /**
-     * @description The type of the endpoint. Valid values:
-     *
-     *   **public**: indicates public endpoint. (Only the public endpoint is supported.)
-     *
-     * This parameter is required.
-     *
-     * @example public
-     *
      * @var string
      */
     public $endpointType;
@@ -48,17 +28,22 @@ class AuthorizeEndpointAclShrinkRequest extends Model
         'endpointType' => 'EndpointType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclStrategy) {
             $res['AclStrategy'] = $this->aclStrategy;
         }
+
         if (null !== $this->cidrListShrink) {
             $res['CidrList'] = $this->cidrListShrink;
         }
+
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
         }
@@ -66,20 +51,22 @@ class AuthorizeEndpointAclShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AuthorizeEndpointAclShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclStrategy'])) {
             $model->aclStrategy = $map['AclStrategy'];
         }
+
         if (isset($map['CidrList'])) {
             $model->cidrListShrink = $map['CidrList'];
         }
+
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
         }

@@ -4,38 +4,23 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetSubscriptionAttributesRequest\dlqPolicy;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetSubscriptionAttributesRequest\tenantRateLimitPolicy;
-use AlibabaCloud\Tea\Model;
 
 class SetSubscriptionAttributesRequest extends Model
 {
     /**
-     * @description The dead-letter queue policy.
-     *
      * @var dlqPolicy
      */
     public $dlqPolicy;
 
     /**
-     * @description The retry policy that is applied if an error occurs when Message Service (MNS) pushes messages to the endpoint. Valid values:
-     *
-     *   BACKOFF_RETRY
-     *   EXPONENTIAL_DECAY_RETRY
-     *
-     * @example BACKOFF_RETRY
-     *
      * @var string
      */
     public $notifyStrategy;
 
     /**
-     * @description The name of the subscription.
-     *
-     * This parameter is required.
-     *
-     * @example MySubscription
-     *
      * @var string
      */
     public $subscriptionName;
@@ -46,12 +31,6 @@ class SetSubscriptionAttributesRequest extends Model
     public $tenantRateLimitPolicy;
 
     /**
-     * @description The name of the topic.
-     *
-     * This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $topicName;
@@ -63,23 +42,36 @@ class SetSubscriptionAttributesRequest extends Model
         'topicName' => 'TopicName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->dlqPolicy) {
+            $this->dlqPolicy->validate();
+        }
+        if (null !== $this->tenantRateLimitPolicy) {
+            $this->tenantRateLimitPolicy->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dlqPolicy) {
-            $res['DlqPolicy'] = null !== $this->dlqPolicy ? $this->dlqPolicy->toMap() : null;
+            $res['DlqPolicy'] = null !== $this->dlqPolicy ? $this->dlqPolicy->toArray($noStream) : $this->dlqPolicy;
         }
+
         if (null !== $this->notifyStrategy) {
             $res['NotifyStrategy'] = $this->notifyStrategy;
         }
+
         if (null !== $this->subscriptionName) {
             $res['SubscriptionName'] = $this->subscriptionName;
         }
+
         if (null !== $this->tenantRateLimitPolicy) {
-            $res['TenantRateLimitPolicy'] = null !== $this->tenantRateLimitPolicy ? $this->tenantRateLimitPolicy->toMap() : null;
+            $res['TenantRateLimitPolicy'] = null !== $this->tenantRateLimitPolicy ? $this->tenantRateLimitPolicy->toArray($noStream) : $this->tenantRateLimitPolicy;
         }
+
         if (null !== $this->topicName) {
             $res['TopicName'] = $this->topicName;
         }
@@ -87,26 +79,30 @@ class SetSubscriptionAttributesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetSubscriptionAttributesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DlqPolicy'])) {
             $model->dlqPolicy = dlqPolicy::fromMap($map['DlqPolicy']);
         }
+
         if (isset($map['NotifyStrategy'])) {
             $model->notifyStrategy = $map['NotifyStrategy'];
         }
+
         if (isset($map['SubscriptionName'])) {
             $model->subscriptionName = $map['SubscriptionName'];
         }
+
         if (isset($map['TenantRateLimitPolicy'])) {
             $model->tenantRateLimitPolicy = tenantRateLimitPolicy::fromMap($map['TenantRateLimitPolicy']);
         }
+
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];
         }

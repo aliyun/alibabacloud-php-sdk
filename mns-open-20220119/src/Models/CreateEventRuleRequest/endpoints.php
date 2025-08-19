@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateEventRuleRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class endpoints extends Model
 {
     /**
-     * @example http
-     *
      * @var string
      */
     public $endpointType;
 
     /**
-     * @example test-xxx-queue
-     *
      * @var string
      */
     public $endpointValue;
@@ -26,14 +22,18 @@ class endpoints extends Model
         'endpointValue' => 'EndpointValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
         }
+
         if (null !== $this->endpointValue) {
             $res['EndpointValue'] = $this->endpointValue;
         }
@@ -41,17 +41,18 @@ class endpoints extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return endpoints
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
         }
+
         if (isset($map['EndpointValue'])) {
             $model->endpointValue = $map['EndpointValue'];
         }
