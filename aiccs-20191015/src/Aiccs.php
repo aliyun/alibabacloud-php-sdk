@@ -119,6 +119,8 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetAiOutboundTaskProgressRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetAiOutboundTaskProgressResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetAllDepartmentRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetAllDepartmentResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetCallDialogContentRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetCallDialogContentResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetCallSoundRecordRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetCallSoundRecordResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetConfigNumListRequest;
@@ -4183,6 +4185,79 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAllDepartmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询对话内容.
+     *
+     * @param request - GetCallDialogContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCallDialogContentResponse
+     *
+     * @param GetCallDialogContentRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetCallDialogContentResponse
+     */
+    public function getCallDialogContentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callDate) {
+            @$query['CallDate'] = $request->callDate;
+        }
+
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCallDialogContent',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCallDialogContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询对话内容.
+     *
+     * @param request - GetCallDialogContentRequest
+     *
+     * @returns GetCallDialogContentResponse
+     *
+     * @param GetCallDialogContentRequest $request
+     *
+     * @return GetCallDialogContentResponse
+     */
+    public function getCallDialogContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCallDialogContentWithOptions($request, $runtime);
     }
 
     /**
