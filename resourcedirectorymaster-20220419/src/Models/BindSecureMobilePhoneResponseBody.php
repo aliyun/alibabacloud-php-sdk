@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BindSecureMobilePhoneResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 0217AFEB-5318-56D4-B167-1933D83EDF3F
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class BindSecureMobilePhoneResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class BindSecureMobilePhoneResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BindSecureMobilePhoneResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

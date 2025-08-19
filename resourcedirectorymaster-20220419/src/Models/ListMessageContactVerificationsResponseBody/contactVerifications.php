@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListMessageContactVerificationsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contactVerifications extends Model
 {
     /**
-     * @description The ID of the contact.
-     *
-     * @example c-qL4HqKONzOM7****
-     *
      * @var string
      */
     public $contactId;
 
     /**
-     * @description The object that is used for verification. Valid values:
-     *
-     * - Mobile phone number
-     * - Email address
-     *
-     * @example someone***@example.com
-     *
      * @var string
      */
     public $target;
@@ -33,14 +22,18 @@ class contactVerifications extends Model
         'target' => 'Target',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
+
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
@@ -48,17 +41,18 @@ class contactVerifications extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contactVerifications
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
+
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }

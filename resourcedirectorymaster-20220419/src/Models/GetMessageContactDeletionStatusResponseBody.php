@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetMessageContactDeletionStatusResponseBody\contactDeletionStatus;
-use AlibabaCloud\Tea\Model;
 
 class GetMessageContactDeletionStatusResponseBody extends Model
 {
     /**
-     * @description The deletion information of the contact.
-     *
      * @var contactDeletionStatus
      */
     public $contactDeletionStatus;
 
     /**
-     * @description The request ID.
-     *
-     * @example 95060F1D-6990-4645-8920-A81D1BBFE992
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetMessageContactDeletionStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->contactDeletionStatus) {
+            $this->contactDeletionStatus->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactDeletionStatus) {
-            $res['ContactDeletionStatus'] = null !== $this->contactDeletionStatus ? $this->contactDeletionStatus->toMap() : null;
+            $res['ContactDeletionStatus'] = null !== $this->contactDeletionStatus ? $this->contactDeletionStatus->toArray($noStream) : $this->contactDeletionStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetMessageContactDeletionStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMessageContactDeletionStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactDeletionStatus'])) {
             $model->contactDeletionStatus = contactDeletionStatus::fromMap($map['ContactDeletionStatus']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

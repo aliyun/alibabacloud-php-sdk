@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisassociateMembersRequest extends Model
 {
     /**
-     * @description The ID of the contact.
-     *
-     * This parameter is required.
-     *
-     * @example c-qL4HqKONzOM7****
-     *
      * @var string
      */
     public $contactId;
 
     /**
-     * @description The IDs of objects from which you want to unbind the contact.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $members;
@@ -32,35 +22,55 @@ class DisassociateMembersRequest extends Model
         'members' => 'Members',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->members)) {
+            Model::validateArray($this->members);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
+
         if (null !== $this->members) {
-            $res['Members'] = $this->members;
+            if (\is_array($this->members)) {
+                $res['Members'] = [];
+                $n1 = 0;
+                foreach ($this->members as $item1) {
+                    $res['Members'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisassociateMembersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
+
         if (isset($map['Members'])) {
             if (!empty($map['Members'])) {
-                $model->members = $map['Members'];
+                $model->members = [];
+                $n1 = 0;
+                foreach ($map['Members'] as $item1) {
+                    $model->members[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

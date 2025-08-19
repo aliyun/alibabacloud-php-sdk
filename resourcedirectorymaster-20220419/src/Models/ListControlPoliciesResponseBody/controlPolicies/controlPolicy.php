@@ -4,92 +4,52 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListControlPoliciesResponseBody\controlPolicies;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListControlPoliciesResponseBody\controlPolicies\controlPolicy\tags;
-use AlibabaCloud\Tea\Model;
 
 class controlPolicy extends Model
 {
     /**
-     * @description The number of times that the access control policy is referenced.
-     *
-     * @example 44
-     *
      * @var string
      */
     public $attachmentCount;
 
     /**
-     * @description The time when the access control policy was created.
-     *
-     * @example 2020-08-05T06:32:24Z
-     *
      * @var string
      */
     public $createDate;
 
     /**
-     * @description The description of the access control policy.
-     *
-     * @example System access control policy available for all operations on the cloud
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The effective scope of the access control policy. Valid values:
-     *
-     *   All: The access control policy is in effect for Alibaba Cloud accounts, RAM users, and RAM roles.
-     *   RAM: The access control policy is in effect only for RAM users and RAM roles.
-     *
-     * @example All
-     *
      * @var string
      */
     public $effectScope;
 
     /**
-     * @description The ID of the access control policy.
-     *
-     * @example cp-FullAliyunAccess
-     *
      * @var string
      */
     public $policyId;
 
     /**
-     * @description The name of the access control policy.
-     *
-     * @example FullAliyunAccess
-     *
      * @var string
      */
     public $policyName;
 
     /**
-     * @description The type of the access control policy. Valid values:
-     *
-     *   System: system access control policy
-     *   Custom: custom access control policy
-     *
-     * @example System
-     *
      * @var string
      */
     public $policyType;
 
     /**
-     * @description The tags.
-     *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The time when the access control policy was updated.
-     *
-     * @example 2020-08-05T06:32:24Z
-     *
      * @var string
      */
     public $updateDate;
@@ -105,35 +65,49 @@ class controlPolicy extends Model
         'updateDate' => 'UpdateDate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tags) {
+            $this->tags->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attachmentCount) {
             $res['AttachmentCount'] = $this->attachmentCount;
         }
+
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->effectScope) {
             $res['EffectScope'] = $this->effectScope;
         }
+
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
+
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
+
         if (null !== $this->updateDate) {
             $res['UpdateDate'] = $this->updateDate;
         }
@@ -141,38 +115,46 @@ class controlPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return controlPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttachmentCount'])) {
             $model->attachmentCount = $map['AttachmentCount'];
         }
+
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EffectScope'])) {
             $model->effectScope = $map['EffectScope'];
         }
+
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
+
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
         }
+
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }
+
         if (isset($map['UpdateDate'])) {
             $model->updateDate = $map['UpdateDate'];
         }

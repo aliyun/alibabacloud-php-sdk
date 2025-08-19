@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetResourceDirectoryResponseBody\resourceDirectory;
-use AlibabaCloud\Tea\Model;
 
 class GetResourceDirectoryResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example CD76D376-2517-4924-92C5-DBC52262F93A
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the resource directory.
-     *
      * @var resourceDirectory
      */
     public $resourceDirectory;
@@ -29,32 +23,40 @@ class GetResourceDirectoryResponseBody extends Model
         'resourceDirectory' => 'ResourceDirectory',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->resourceDirectory) {
+            $this->resourceDirectory->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceDirectory) {
-            $res['ResourceDirectory'] = null !== $this->resourceDirectory ? $this->resourceDirectory->toMap() : null;
+            $res['ResourceDirectory'] = null !== $this->resourceDirectory ? $this->resourceDirectory->toArray($noStream) : $this->resourceDirectory;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourceDirectoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceDirectory'])) {
             $model->resourceDirectory = resourceDirectory::fromMap($map['ResourceDirectory']);
         }

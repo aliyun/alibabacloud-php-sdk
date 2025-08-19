@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\CreateControlPolicyResponseBody\controlPolicy;
-use AlibabaCloud\Tea\Model;
 
 class CreateControlPolicyResponseBody extends Model
 {
     /**
-     * @description The details of the access control policy.
-     *
      * @var controlPolicy
      */
     public $controlPolicy;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 776B05B3-A0B0-464B-A191-F4E1119A94B2
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class CreateControlPolicyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->controlPolicy) {
+            $this->controlPolicy->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->controlPolicy) {
-            $res['ControlPolicy'] = null !== $this->controlPolicy ? $this->controlPolicy->toMap() : null;
+            $res['ControlPolicy'] = null !== $this->controlPolicy ? $this->controlPolicy->toArray($noStream) : $this->controlPolicy;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class CreateControlPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateControlPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ControlPolicy'])) {
             $model->controlPolicy = controlPolicy::fromMap($map['ControlPolicy']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendVerificationCodeForEnableRDRequest extends Model
 {
     /**
-     * @description The mobile phone number that is bound to the newly created account. If you leave this parameter empty, the mobile phone number that is bound to the current account is used.
-     *
-     * Specify the mobile phone number in the `<Country code>-<Mobile phone number>` format.
-     *
-     * > Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
-     *
-     * @example xx-13900001234
-     *
      * @var string
      */
     public $secureMobilePhone;
@@ -24,9 +16,12 @@ class SendVerificationCodeForEnableRDRequest extends Model
         'secureMobilePhone' => 'SecureMobilePhone',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->secureMobilePhone) {
@@ -36,11 +31,11 @@ class SendVerificationCodeForEnableRDRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendVerificationCodeForEnableRDRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

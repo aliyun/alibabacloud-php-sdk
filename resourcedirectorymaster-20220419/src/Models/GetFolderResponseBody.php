@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetFolderResponseBody\folder;
-use AlibabaCloud\Tea\Model;
 
 class GetFolderResponseBody extends Model
 {
     /**
-     * @description The information about the folder.
-     *
      * @var folder
      */
     public $folder;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example C2CBCA30-C8DD-423E-B4AD-4FB694C9180C
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetFolderResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->folder) {
+            $this->folder->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->folder) {
-            $res['Folder'] = null !== $this->folder ? $this->folder->toMap() : null;
+            $res['Folder'] = null !== $this->folder ? $this->folder->toArray($noStream) : $this->folder;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetFolderResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFolderResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Folder'])) {
             $model->folder = folder::fromMap($map['Folder']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

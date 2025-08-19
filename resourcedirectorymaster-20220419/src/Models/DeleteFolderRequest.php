@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteFolderRequest extends Model
 {
     /**
-     * @description The ID of the folder.
-     *
-     * This parameter is required.
-     *
-     * @example fd-ae1in7****
-     *
      * @var string
      */
     public $folderId;
@@ -22,9 +16,12 @@ class DeleteFolderRequest extends Model
         'folderId' => 'FolderId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->folderId) {
@@ -34,11 +31,11 @@ class DeleteFolderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteFolderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetMemberDisplayNameSyncStatusResponseBody extends Model
 {
     /**
-     * @description The status of the Member Display Name Synchronization feature. Valid values:
-     *
-     *   Enabled
-     *   Disabled
-     *
-     * @example Enabled
-     *
      * @var string
      */
     public $memberAccountDisplayNameSyncStatus;
 
     /**
-     * @description The request ID.
-     *
-     * @example 9B34724D-54B0-4A51-B34D-4512372FE1BE
-     *
      * @var string
      */
     public $requestId;
@@ -33,14 +22,18 @@ class SetMemberDisplayNameSyncStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->memberAccountDisplayNameSyncStatus) {
             $res['MemberAccountDisplayNameSyncStatus'] = $this->memberAccountDisplayNameSyncStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,17 +41,18 @@ class SetMemberDisplayNameSyncStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetMemberDisplayNameSyncStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MemberAccountDisplayNameSyncStatus'])) {
             $model->memberAccountDisplayNameSyncStatus = $map['MemberAccountDisplayNameSyncStatus'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

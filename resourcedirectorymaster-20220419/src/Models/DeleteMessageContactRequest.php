@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMessageContactRequest extends Model
 {
     /**
-     * @description The ID of the contact.
-     *
-     * This parameter is required.
-     *
-     * @example c-qL4HqKONzOM7****
-     *
      * @var string
      */
     public $contactId;
 
     /**
-     * @description Specifies whether to retain the contact for members. Valid values:
-     *
-     *   true (default): retains the contact for members. In this case, the contact can still receive messages for the members.
-     *   false: does not retain the contact for members. In this case, the contact can no longer receive messages for the members. If you set this parameter to false, the response is asynchronously returned. You can call [GetMessageContactDeletionStatus](~~GetMessageContactDeletionStatus~~) to obtain the deletion result.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $retainContactInMembers;
@@ -35,14 +22,18 @@ class DeleteMessageContactRequest extends Model
         'retainContactInMembers' => 'RetainContactInMembers',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
+
         if (null !== $this->retainContactInMembers) {
             $res['RetainContactInMembers'] = $this->retainContactInMembers;
         }
@@ -50,17 +41,18 @@ class DeleteMessageContactRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMessageContactRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
+
         if (isset($map['RetainContactInMembers'])) {
             $model->retainContactInMembers = $map['RetainContactInMembers'];
         }

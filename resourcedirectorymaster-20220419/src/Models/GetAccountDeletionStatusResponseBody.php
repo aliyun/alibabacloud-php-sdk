@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetAccountDeletionStatusResponseBody\rdAccountDeletionStatus;
-use AlibabaCloud\Tea\Model;
 
 class GetAccountDeletionStatusResponseBody extends Model
 {
     /**
-     * @description The deletion status of the member.
-     *
      * @var rdAccountDeletionStatus
      */
     public $rdAccountDeletionStatus;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 8AA43293-7C8F-5730-8F2D-7F864EC092C5
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetAccountDeletionStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->rdAccountDeletionStatus) {
+            $this->rdAccountDeletionStatus->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rdAccountDeletionStatus) {
-            $res['RdAccountDeletionStatus'] = null !== $this->rdAccountDeletionStatus ? $this->rdAccountDeletionStatus->toMap() : null;
+            $res['RdAccountDeletionStatus'] = null !== $this->rdAccountDeletionStatus ? $this->rdAccountDeletionStatus->toArray($noStream) : $this->rdAccountDeletionStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetAccountDeletionStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccountDeletionStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RdAccountDeletionStatus'])) {
             $model->rdAccountDeletionStatus = rdAccountDeletionStatus::fromMap($map['RdAccountDeletionStatus']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

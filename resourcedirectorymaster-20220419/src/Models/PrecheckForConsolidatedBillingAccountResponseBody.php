@@ -4,35 +4,22 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\PrecheckForConsolidatedBillingAccountResponseBody\reasons;
-use AlibabaCloud\Tea\Model;
 
 class PrecheckForConsolidatedBillingAccountResponseBody extends Model
 {
     /**
-     * @description The cause of the check failure.
-     *
      * @var reasons[]
      */
     public $reasons;
 
     /**
-     * @description The request ID.
-     *
-     * @example 9E6B6CA8-9E7A-521F-A743-AA582714727E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the check was successful. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example false
-     *
      * @var bool
      */
     public $result;
@@ -42,23 +29,32 @@ class PrecheckForConsolidatedBillingAccountResponseBody extends Model
         'result' => 'Result',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->reasons)) {
+            Model::validateArray($this->reasons);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reasons) {
-            $res['Reasons'] = [];
-            if (null !== $this->reasons && \is_array($this->reasons)) {
-                $n = 0;
-                foreach ($this->reasons as $item) {
-                    $res['Reasons'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->reasons)) {
+                $res['Reasons'] = [];
+                $n1 = 0;
+                foreach ($this->reasons as $item1) {
+                    $res['Reasons'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
@@ -66,26 +62,29 @@ class PrecheckForConsolidatedBillingAccountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PrecheckForConsolidatedBillingAccountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Reasons'])) {
             if (!empty($map['Reasons'])) {
                 $model->reasons = [];
-                $n = 0;
-                foreach ($map['Reasons'] as $item) {
-                    $model->reasons[$n++] = null !== $item ? reasons::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Reasons'] as $item1) {
+                    $model->reasons[$n1] = reasons::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }

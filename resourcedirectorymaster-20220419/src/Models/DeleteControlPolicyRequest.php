@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteControlPolicyRequest extends Model
 {
     /**
-     * @description The ID of the access control policy.
-     *
-     * This parameter is required.
-     *
-     * @example cp-SImPt8GCEwiq****
-     *
      * @var string
      */
     public $policyId;
@@ -22,9 +16,12 @@ class DeleteControlPolicyRequest extends Model
         'policyId' => 'PolicyId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyId) {
@@ -34,11 +31,11 @@ class DeleteControlPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteControlPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

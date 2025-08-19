@@ -4,36 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListControlPolicyAttachmentsForTargetRequest extends Model
 {
     /**
-     * @description The language in which you want to return the descriptions of the access control policies. Valid values:
-     *
-     *   zh-CN (default value): Chinese
-     *   en: English
-     *   ja: Japanese
-     *
-     * > This parameter is valid only for system access control policies.
-     *
-     * @example zh-CN
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description The ID of the object whose access control policies you want to query. Access control policies can be attached to the following objects:
-     *
-     *   Root folder
-     *   Subfolders of the Root folder
-     *   Members
-     *
-     * This parameter is required.
-     *
-     * @example fd-ZDNPiT****
-     *
      * @var string
      */
     public $targetId;
@@ -42,14 +22,18 @@ class ListControlPolicyAttachmentsForTargetRequest extends Model
         'targetId' => 'TargetId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
@@ -57,17 +41,18 @@ class ListControlPolicyAttachmentsForTargetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListControlPolicyAttachmentsForTargetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }

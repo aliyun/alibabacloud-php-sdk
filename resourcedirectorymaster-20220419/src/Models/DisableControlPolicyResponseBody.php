@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableControlPolicyResponseBody extends Model
 {
     /**
-     * @description The status of the Control Policy feature. Valid values:
-     *
-     *   Enabled: The feature is enabled.
-     *   PendingEnable: The feature is being enabled.
-     *   Disabled: The feature is disabled.
-     *   PendingDisable: The feature is being disabled.
-     *
-     * @example PendingDisable
-     *
      * @var string
      */
     public $enablementStatus;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 7C709979-451D-4C92-835D-7DDCCAA562E9
-     *
      * @var string
      */
     public $requestId;
@@ -35,14 +22,18 @@ class DisableControlPolicyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enablementStatus) {
             $res['EnablementStatus'] = $this->enablementStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,17 +41,18 @@ class DisableControlPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableControlPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnablementStatus'])) {
             $model->enablementStatus = $map['EnablementStatus'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

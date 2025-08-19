@@ -4,25 +4,17 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListDelegatedServicesForAccountResponseBody\delegatedServices;
-use AlibabaCloud\Tea\Model;
 
 class ListDelegatedServicesForAccountResponseBody extends Model
 {
     /**
-     * @description The information about the trusted services.
-     *
-     * > If the value of this parameter is empty, the member is not specified as a delegated administrator account.
-     *
      * @var delegatedServices
      */
     public $delegatedServices;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example D9C03B94-9396-4794-A74B-13DC437556A6
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +23,21 @@ class ListDelegatedServicesForAccountResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->delegatedServices) {
+            $this->delegatedServices->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->delegatedServices) {
-            $res['DelegatedServices'] = null !== $this->delegatedServices ? $this->delegatedServices->toMap() : null;
+            $res['DelegatedServices'] = null !== $this->delegatedServices ? $this->delegatedServices->toArray($noStream) : $this->delegatedServices;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class ListDelegatedServicesForAccountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDelegatedServicesForAccountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DelegatedServices'])) {
             $model->delegatedServices = delegatedServices::fromMap($map['DelegatedServices']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

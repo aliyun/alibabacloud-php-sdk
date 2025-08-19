@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendEmailVerificationForMessageContactRequest extends Model
 {
     /**
-     * @description The ID of the contact.
-     *
-     * @example c-5gsZAGt***PGduDF
-     *
      * @var string
      */
     public $contactId;
 
     /**
-     * @description The email address of the contact.
-     *
-     * The specified email address must be the one you specify when you call [AddMessageContact](~~AddMessageContact~~).
-     *
-     * @example someone***@example.com
-     *
      * @var string
      */
     public $emailAddress;
@@ -32,14 +22,18 @@ class SendEmailVerificationForMessageContactRequest extends Model
         'emailAddress' => 'EmailAddress',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
+
         if (null !== $this->emailAddress) {
             $res['EmailAddress'] = $this->emailAddress;
         }
@@ -47,17 +41,18 @@ class SendEmailVerificationForMessageContactRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendEmailVerificationForMessageContactRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
+
         if (isset($map['EmailAddress'])) {
             $model->emailAddress = $map['EmailAddress'];
         }
