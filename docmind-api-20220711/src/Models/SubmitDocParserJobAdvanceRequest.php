@@ -12,6 +12,11 @@ class SubmitDocParserJobAdvanceRequest extends Model
     /**
      * @var string
      */
+    public $enhancementMode;
+
+    /**
+     * @var string
+     */
     public $fileName;
 
     /**
@@ -59,6 +64,7 @@ class SubmitDocParserJobAdvanceRequest extends Model
      */
     public $pageIndex;
     protected $_name = [
+        'enhancementMode' => 'EnhancementMode',
         'fileName' => 'FileName',
         'fileNameExtension' => 'FileNameExtension',
         'fileUrlObject' => 'FileUrl',
@@ -79,6 +85,10 @@ class SubmitDocParserJobAdvanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enhancementMode) {
+            $res['EnhancementMode'] = $this->enhancementMode;
+        }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
@@ -130,6 +140,10 @@ class SubmitDocParserJobAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnhancementMode'])) {
+            $model->enhancementMode = $map['EnhancementMode'];
+        }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }

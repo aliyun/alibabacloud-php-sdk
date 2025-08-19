@@ -1962,6 +1962,10 @@ class Docmindapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->enhancementMode) {
+            @$query['EnhancementMode'] = $request->enhancementMode;
+        }
+
         if (null !== $request->fileName) {
             @$query['FileName'] = $request->fileName;
         }
