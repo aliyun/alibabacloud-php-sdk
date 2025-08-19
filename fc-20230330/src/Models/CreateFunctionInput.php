@@ -79,6 +79,11 @@ class CreateFunctionInput extends Model
     public $instanceConcurrency;
 
     /**
+     * @var string
+     */
+    public $instanceIsolationMode;
+
+    /**
      * @var InstanceLifecycleConfig
      */
     public $instanceLifecycleConfig;
@@ -134,6 +139,11 @@ class CreateFunctionInput extends Model
     public $sessionAffinity;
 
     /**
+     * @var string
+     */
+    public $sessionAffinityConfig;
+
+    /**
      * @var Tag[]
      */
     public $tags;
@@ -167,6 +177,7 @@ class CreateFunctionInput extends Model
         'gpuConfig' => 'gpuConfig',
         'handler' => 'handler',
         'instanceConcurrency' => 'instanceConcurrency',
+        'instanceIsolationMode' => 'instanceIsolationMode',
         'instanceLifecycleConfig' => 'instanceLifecycleConfig',
         'internetAccess' => 'internetAccess',
         'layers' => 'layers',
@@ -178,6 +189,7 @@ class CreateFunctionInput extends Model
         'role' => 'role',
         'runtime' => 'runtime',
         'sessionAffinity' => 'sessionAffinity',
+        'sessionAffinityConfig' => 'sessionAffinityConfig',
         'tags' => 'tags',
         'timeout' => 'timeout',
         'tracingConfig' => 'tracingConfig',
@@ -295,6 +307,10 @@ class CreateFunctionInput extends Model
             $res['instanceConcurrency'] = $this->instanceConcurrency;
         }
 
+        if (null !== $this->instanceIsolationMode) {
+            $res['instanceIsolationMode'] = $this->instanceIsolationMode;
+        }
+
         if (null !== $this->instanceLifecycleConfig) {
             $res['instanceLifecycleConfig'] = null !== $this->instanceLifecycleConfig ? $this->instanceLifecycleConfig->toArray($noStream) : $this->instanceLifecycleConfig;
         }
@@ -344,6 +360,10 @@ class CreateFunctionInput extends Model
 
         if (null !== $this->sessionAffinity) {
             $res['sessionAffinity'] = $this->sessionAffinity;
+        }
+
+        if (null !== $this->sessionAffinityConfig) {
+            $res['sessionAffinityConfig'] = $this->sessionAffinityConfig;
         }
 
         if (null !== $this->tags) {
@@ -441,6 +461,10 @@ class CreateFunctionInput extends Model
             $model->instanceConcurrency = $map['instanceConcurrency'];
         }
 
+        if (isset($map['instanceIsolationMode'])) {
+            $model->instanceIsolationMode = $map['instanceIsolationMode'];
+        }
+
         if (isset($map['instanceLifecycleConfig'])) {
             $model->instanceLifecycleConfig = InstanceLifecycleConfig::fromMap($map['instanceLifecycleConfig']);
         }
@@ -490,6 +514,10 @@ class CreateFunctionInput extends Model
 
         if (isset($map['sessionAffinity'])) {
             $model->sessionAffinity = $map['sessionAffinity'];
+        }
+
+        if (isset($map['sessionAffinityConfig'])) {
+            $model->sessionAffinityConfig = $map['sessionAffinityConfig'];
         }
 
         if (isset($map['tags'])) {

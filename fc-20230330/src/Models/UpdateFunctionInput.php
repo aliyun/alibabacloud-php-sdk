@@ -74,6 +74,11 @@ class UpdateFunctionInput extends Model
     public $instanceConcurrency;
 
     /**
+     * @var string
+     */
+    public $instanceIsolationMode;
+
+    /**
      * @var InstanceLifecycleConfig
      */
     public $instanceLifecycleConfig;
@@ -124,6 +129,11 @@ class UpdateFunctionInput extends Model
     public $sessionAffinity;
 
     /**
+     * @var string
+     */
+    public $sessionAffinityConfig;
+
+    /**
      * @var int
      */
     public $timeout;
@@ -151,6 +161,7 @@ class UpdateFunctionInput extends Model
         'gpuConfig' => 'gpuConfig',
         'handler' => 'handler',
         'instanceConcurrency' => 'instanceConcurrency',
+        'instanceIsolationMode' => 'instanceIsolationMode',
         'instanceLifecycleConfig' => 'instanceLifecycleConfig',
         'internetAccess' => 'internetAccess',
         'layers' => 'layers',
@@ -161,6 +172,7 @@ class UpdateFunctionInput extends Model
         'role' => 'role',
         'runtime' => 'runtime',
         'sessionAffinity' => 'sessionAffinity',
+        'sessionAffinityConfig' => 'sessionAffinityConfig',
         'timeout' => 'timeout',
         'tracingConfig' => 'tracingConfig',
         'vpcConfig' => 'vpcConfig',
@@ -270,6 +282,10 @@ class UpdateFunctionInput extends Model
             $res['instanceConcurrency'] = $this->instanceConcurrency;
         }
 
+        if (null !== $this->instanceIsolationMode) {
+            $res['instanceIsolationMode'] = $this->instanceIsolationMode;
+        }
+
         if (null !== $this->instanceLifecycleConfig) {
             $res['instanceLifecycleConfig'] = null !== $this->instanceLifecycleConfig ? $this->instanceLifecycleConfig->toArray($noStream) : $this->instanceLifecycleConfig;
         }
@@ -315,6 +331,10 @@ class UpdateFunctionInput extends Model
 
         if (null !== $this->sessionAffinity) {
             $res['sessionAffinity'] = $this->sessionAffinity;
+        }
+
+        if (null !== $this->sessionAffinityConfig) {
+            $res['sessionAffinityConfig'] = $this->sessionAffinityConfig;
         }
 
         if (null !== $this->timeout) {
@@ -397,6 +417,10 @@ class UpdateFunctionInput extends Model
             $model->instanceConcurrency = $map['instanceConcurrency'];
         }
 
+        if (isset($map['instanceIsolationMode'])) {
+            $model->instanceIsolationMode = $map['instanceIsolationMode'];
+        }
+
         if (isset($map['instanceLifecycleConfig'])) {
             $model->instanceLifecycleConfig = InstanceLifecycleConfig::fromMap($map['instanceLifecycleConfig']);
         }
@@ -442,6 +466,10 @@ class UpdateFunctionInput extends Model
 
         if (isset($map['sessionAffinity'])) {
             $model->sessionAffinity = $map['sessionAffinity'];
+        }
+
+        if (isset($map['sessionAffinityConfig'])) {
+            $model->sessionAffinityConfig = $map['sessionAffinityConfig'];
         }
 
         if (isset($map['timeout'])) {

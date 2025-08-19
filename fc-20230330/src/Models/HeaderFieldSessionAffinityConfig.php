@@ -1,0 +1,90 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\FC\V20230330\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class HeaderFieldSessionAffinityConfig extends Model
+{
+    /**
+     * @var string
+     */
+    public $affinityHeaderFieldName;
+
+    /**
+     * @var int
+     */
+    public $sessionConcurrencyPerInstance;
+
+    /**
+     * @var int
+     */
+    public $sessionIdleTimeoutInSeconds;
+
+    /**
+     * @var int
+     */
+    public $sessionTTLInSeconds;
+    protected $_name = [
+        'affinityHeaderFieldName' => 'affinityHeaderFieldName',
+        'sessionConcurrencyPerInstance' => 'sessionConcurrencyPerInstance',
+        'sessionIdleTimeoutInSeconds' => 'sessionIdleTimeoutInSeconds',
+        'sessionTTLInSeconds' => 'sessionTTLInSeconds',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->affinityHeaderFieldName) {
+            $res['affinityHeaderFieldName'] = $this->affinityHeaderFieldName;
+        }
+
+        if (null !== $this->sessionConcurrencyPerInstance) {
+            $res['sessionConcurrencyPerInstance'] = $this->sessionConcurrencyPerInstance;
+        }
+
+        if (null !== $this->sessionIdleTimeoutInSeconds) {
+            $res['sessionIdleTimeoutInSeconds'] = $this->sessionIdleTimeoutInSeconds;
+        }
+
+        if (null !== $this->sessionTTLInSeconds) {
+            $res['sessionTTLInSeconds'] = $this->sessionTTLInSeconds;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['affinityHeaderFieldName'])) {
+            $model->affinityHeaderFieldName = $map['affinityHeaderFieldName'];
+        }
+
+        if (isset($map['sessionConcurrencyPerInstance'])) {
+            $model->sessionConcurrencyPerInstance = $map['sessionConcurrencyPerInstance'];
+        }
+
+        if (isset($map['sessionIdleTimeoutInSeconds'])) {
+            $model->sessionIdleTimeoutInSeconds = $map['sessionIdleTimeoutInSeconds'];
+        }
+
+        if (isset($map['sessionTTLInSeconds'])) {
+            $model->sessionTTLInSeconds = $map['sessionTTLInSeconds'];
+        }
+
+        return $model;
+    }
+}

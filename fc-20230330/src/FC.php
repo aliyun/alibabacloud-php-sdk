@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\FC\V20230330;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
 use AlibabaCloud\Dara\Util\StreamUtil;
+use AlibabaCloud\SDK\FC\V20230330\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateAliasRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateAliasResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateCustomDomainRequest;
@@ -147,6 +149,62 @@ class FC extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 修改实例所在资源组.
+     *
+     * @param request - ChangeResourceGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeResourceGroup',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/resource-groups',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改实例所在资源组.
+     *
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->changeResourceGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
