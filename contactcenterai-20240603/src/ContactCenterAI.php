@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateVocabRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateVocabResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\DeleteVocabRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\DeleteVocabResponse;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GeneralAnalyzeImageRequest;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GeneralAnalyzeImageResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultShrinkRequest;
@@ -898,6 +900,151 @@ class ContactCenterAI extends OpenApiClient
         $headers = [];
 
         return $this->deleteVocabWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 通用图片分析.
+     *
+     * @param request - GeneralAnalyzeImageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GeneralAnalyzeImageResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $appId
+     * @param GeneralAnalyzeImageRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GeneralAnalyzeImageResponse
+     */
+    public function generalAnalyzeImageWithSSE($workspaceId, $appId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->customPrompt) {
+            @$body['customPrompt'] = $request->customPrompt;
+        }
+
+        if (null !== $request->imageUrls) {
+            @$body['imageUrls'] = $request->imageUrls;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        if (null !== $request->templateIds) {
+            @$body['templateIds'] = $request->templateIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GeneralAnalyzeImage',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/generalanalyzeImage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield GeneralAnalyzeImageResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 通用图片分析.
+     *
+     * @param request - GeneralAnalyzeImageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GeneralAnalyzeImageResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $appId
+     * @param GeneralAnalyzeImageRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GeneralAnalyzeImageResponse
+     */
+    public function generalAnalyzeImageWithOptions($workspaceId, $appId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->customPrompt) {
+            @$body['customPrompt'] = $request->customPrompt;
+        }
+
+        if (null !== $request->imageUrls) {
+            @$body['imageUrls'] = $request->imageUrls;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        if (null !== $request->templateIds) {
+            @$body['templateIds'] = $request->templateIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GeneralAnalyzeImage',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/generalanalyzeImage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GeneralAnalyzeImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通用图片分析.
+     *
+     * @param request - GeneralAnalyzeImageRequest
+     *
+     * @returns GeneralAnalyzeImageResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $appId
+     * @param GeneralAnalyzeImageRequest $request
+     *
+     * @return GeneralAnalyzeImageResponse
+     */
+    public function generalAnalyzeImage($workspaceId, $appId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->generalAnalyzeImageWithOptions($workspaceId, $appId, $request, $headers, $runtime);
     }
 
     /**
