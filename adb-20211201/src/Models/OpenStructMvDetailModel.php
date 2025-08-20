@@ -72,6 +72,11 @@ class OpenStructMvDetailModel extends Model
     /**
      * @var string
      */
+    public $tableEngine;
+
+    /**
+     * @var string
+     */
     public $updatedAt;
     protected $_name = [
         'baseTableInfos' => 'BaseTableInfos',
@@ -86,6 +91,7 @@ class OpenStructMvDetailModel extends Model
         'refreshState' => 'RefreshState',
         'remoteSize' => 'RemoteSize',
         'resourceGroup' => 'ResourceGroup',
+        'tableEngine' => 'TableEngine',
         'updatedAt' => 'UpdatedAt',
     ];
 
@@ -172,6 +178,10 @@ class OpenStructMvDetailModel extends Model
             $res['ResourceGroup'] = $this->resourceGroup;
         }
 
+        if (null !== $this->tableEngine) {
+            $res['TableEngine'] = $this->tableEngine;
+        }
+
         if (null !== $this->updatedAt) {
             $res['UpdatedAt'] = $this->updatedAt;
         }
@@ -254,6 +264,10 @@ class OpenStructMvDetailModel extends Model
 
         if (isset($map['ResourceGroup'])) {
             $model->resourceGroup = $map['ResourceGroup'];
+        }
+
+        if (isset($map['TableEngine'])) {
+            $model->tableEngine = $map['TableEngine'];
         }
 
         if (isset($map['UpdatedAt'])) {

@@ -15,9 +15,29 @@ class rayConfig extends Model
     public $category;
 
     /**
+     * @var bool
+     */
+    public $enableUserEni;
+
+    /**
+     * @var string
+     */
+    public $headAllocateUnit;
+
+    /**
+     * @var string
+     */
+    public $headDiskCapacity;
+
+    /**
      * @var string
      */
     public $headSpec;
+
+    /**
+     * @var string
+     */
+    public $headSpecType;
 
     /**
      * @var workerGroups[]
@@ -25,7 +45,11 @@ class rayConfig extends Model
     public $workerGroups;
     protected $_name = [
         'category' => 'Category',
+        'enableUserEni' => 'EnableUserEni',
+        'headAllocateUnit' => 'HeadAllocateUnit',
+        'headDiskCapacity' => 'HeadDiskCapacity',
         'headSpec' => 'HeadSpec',
+        'headSpecType' => 'HeadSpecType',
         'workerGroups' => 'WorkerGroups',
     ];
 
@@ -44,8 +68,24 @@ class rayConfig extends Model
             $res['Category'] = $this->category;
         }
 
+        if (null !== $this->enableUserEni) {
+            $res['EnableUserEni'] = $this->enableUserEni;
+        }
+
+        if (null !== $this->headAllocateUnit) {
+            $res['HeadAllocateUnit'] = $this->headAllocateUnit;
+        }
+
+        if (null !== $this->headDiskCapacity) {
+            $res['HeadDiskCapacity'] = $this->headDiskCapacity;
+        }
+
         if (null !== $this->headSpec) {
             $res['HeadSpec'] = $this->headSpec;
+        }
+
+        if (null !== $this->headSpecType) {
+            $res['HeadSpecType'] = $this->headSpecType;
         }
 
         if (null !== $this->workerGroups) {
@@ -74,8 +114,24 @@ class rayConfig extends Model
             $model->category = $map['Category'];
         }
 
+        if (isset($map['EnableUserEni'])) {
+            $model->enableUserEni = $map['EnableUserEni'];
+        }
+
+        if (isset($map['HeadAllocateUnit'])) {
+            $model->headAllocateUnit = $map['HeadAllocateUnit'];
+        }
+
+        if (isset($map['HeadDiskCapacity'])) {
+            $model->headDiskCapacity = $map['HeadDiskCapacity'];
+        }
+
         if (isset($map['HeadSpec'])) {
             $model->headSpec = $map['HeadSpec'];
+        }
+
+        if (isset($map['HeadSpecType'])) {
+            $model->headSpecType = $map['HeadSpecType'];
         }
 
         if (isset($map['WorkerGroups'])) {

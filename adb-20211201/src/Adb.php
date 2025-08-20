@@ -36,6 +36,9 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsHiveJobRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsHiveJobResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateAPSJobRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateAPSJobResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsKafkaHudiJobRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsKafkaHudiJobResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsKafkaHudiJobShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsSlsADBJobRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsSlsADBJobResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsSlsADBJobShrinkRequest;
@@ -160,6 +163,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterSpaceSummaryRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterSpaceSummaryResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterSSLRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterSSLResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterStatusRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterStatusResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupRequest;
@@ -188,6 +193,10 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeExcessivePrimaryKeysRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeExcessivePrimaryKeysResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeExecutorDetectionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeExecutorDetectionResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeHistoryTasksRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeHistoryTasksResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeHistoryTasksStatRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeHistoryTasksStatResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeInclinedNodesRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeInclinedNodesResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeInclinedTablesRequest;
@@ -274,6 +283,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ExecuteSparkWarehouseBatchSQLRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ExecuteSparkWarehouseBatchSQLResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ExistRunningSQLEngineRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ExistRunningSQLEngineResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GetADBSparkNecessaryRAMPermissionsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GetADBSparkNecessaryRAMPermissionsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetApsManagedDatabasesRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetApsManagedDatabasesResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetCreateTableSQLRequest;
@@ -394,6 +405,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterResourceGroupRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterResourceGroupResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterSSLRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterSSLResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterVipRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterVipResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupRequest;
@@ -1743,6 +1756,181 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createApsHiveJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建Kafka到Huid的APS链路.
+     *
+     * @param tmpReq - CreateApsKafkaHudiJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApsKafkaHudiJobResponse
+     *
+     * @param CreateApsKafkaHudiJobRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateApsKafkaHudiJobResponse
+     */
+    public function createApsKafkaHudiJobWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateApsKafkaHudiJobShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->columns) {
+            $request->columnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->columns, 'Columns', 'json');
+        }
+
+        if (null !== $tmpReq->partitionSpecs) {
+            $request->partitionSpecsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->partitionSpecs, 'PartitionSpecs', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->acrossRole) {
+            @$body['AcrossRole'] = $request->acrossRole;
+        }
+
+        if (null !== $request->acrossUid) {
+            @$body['AcrossUid'] = $request->acrossUid;
+        }
+
+        if (null !== $request->advancedConfig) {
+            @$body['AdvancedConfig'] = $request->advancedConfig;
+        }
+
+        if (null !== $request->columnsShrink) {
+            @$body['Columns'] = $request->columnsShrink;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$body['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->dataOutputFormat) {
+            @$body['DataOutputFormat'] = $request->dataOutputFormat;
+        }
+
+        if (null !== $request->datasourceId) {
+            @$body['DatasourceId'] = $request->datasourceId;
+        }
+
+        if (null !== $request->dbName) {
+            @$body['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->fullComputeUnit) {
+            @$body['FullComputeUnit'] = $request->fullComputeUnit;
+        }
+
+        if (null !== $request->hudiAdvancedConfig) {
+            @$body['HudiAdvancedConfig'] = $request->hudiAdvancedConfig;
+        }
+
+        if (null !== $request->incrementalComputeUnit) {
+            @$body['IncrementalComputeUnit'] = $request->incrementalComputeUnit;
+        }
+
+        if (null !== $request->jsonParseLevel) {
+            @$body['JsonParseLevel'] = $request->jsonParseLevel;
+        }
+
+        if (null !== $request->kafkaClusterId) {
+            @$body['KafkaClusterId'] = $request->kafkaClusterId;
+        }
+
+        if (null !== $request->kafkaTopic) {
+            @$body['KafkaTopic'] = $request->kafkaTopic;
+        }
+
+        if (null !== $request->lakehouseId) {
+            @$body['LakehouseId'] = $request->lakehouseId;
+        }
+
+        if (null !== $request->maxOffsetsPerTrigger) {
+            @$body['MaxOffsetsPerTrigger'] = $request->maxOffsetsPerTrigger;
+        }
+
+        if (null !== $request->ossLocation) {
+            @$body['OssLocation'] = $request->ossLocation;
+        }
+
+        if (null !== $request->outputFormat) {
+            @$body['OutputFormat'] = $request->outputFormat;
+        }
+
+        if (null !== $request->partitionSpecsShrink) {
+            @$body['PartitionSpecs'] = $request->partitionSpecsShrink;
+        }
+
+        if (null !== $request->primaryKeyDefinition) {
+            @$body['PrimaryKeyDefinition'] = $request->primaryKeyDefinition;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroup) {
+            @$body['ResourceGroup'] = $request->resourceGroup;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$body['SourceRegionId'] = $request->sourceRegionId;
+        }
+
+        if (null !== $request->startingOffsets) {
+            @$body['StartingOffsets'] = $request->startingOffsets;
+        }
+
+        if (null !== $request->tableName) {
+            @$body['TableName'] = $request->tableName;
+        }
+
+        if (null !== $request->targetGenerateRule) {
+            @$body['TargetGenerateRule'] = $request->targetGenerateRule;
+        }
+
+        if (null !== $request->targetType) {
+            @$body['TargetType'] = $request->targetType;
+        }
+
+        if (null !== $request->workloadName) {
+            @$body['WorkloadName'] = $request->workloadName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApsKafkaHudiJob',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApsKafkaHudiJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Kafka到Huid的APS链路.
+     *
+     * @param request - CreateApsKafkaHudiJobRequest
+     *
+     * @returns CreateApsKafkaHudiJobResponse
+     *
+     * @param CreateApsKafkaHudiJobRequest $request
+     *
+     * @return CreateApsKafkaHudiJobResponse
+     */
+    public function createApsKafkaHudiJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApsKafkaHudiJobWithOptions($request, $runtime);
     }
 
     /**
@@ -6542,6 +6730,67 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * 获取SSL配置信息.
+     *
+     * @param request - DescribeDBClusterSSLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBClusterSSLResponse
+     *
+     * @param DescribeDBClusterSSLRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDBClusterSSLResponse
+     */
+    public function describeDBClusterSSLWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBClusterSSL',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBClusterSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取SSL配置信息.
+     *
+     * @param request - DescribeDBClusterSSLRequest
+     *
+     * @returns DescribeDBClusterSSLResponse
+     *
+     * @param DescribeDBClusterSSLRequest $request
+     *
+     * @return DescribeDBClusterSSLResponse
+     */
+    public function describeDBClusterSSL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterSSLWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the storage overview information of an AnalyticDB for MySQL cluster, such as the total data size, hot data size, cold data size, and data growth.
      *
      * @remarks
@@ -7854,6 +8103,228 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * 任务中心任务列表.
+     *
+     * @param request - DescribeHistoryTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHistoryTasksResponse
+     *
+     * @param DescribeHistoryTasksRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeHistoryTasksResponse
+     */
+    public function describeHistoryTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fromExecTime) {
+            @$query['FromExecTime'] = $request->fromExecTime;
+        }
+
+        if (null !== $request->fromStartTime) {
+            @$query['FromStartTime'] = $request->fromStartTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        if (null !== $request->toExecTime) {
+            @$query['ToExecTime'] = $request->toExecTime;
+        }
+
+        if (null !== $request->toStartTime) {
+            @$query['ToStartTime'] = $request->toStartTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHistoryTasks',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHistoryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 任务中心任务列表.
+     *
+     * @param request - DescribeHistoryTasksRequest
+     *
+     * @returns DescribeHistoryTasksResponse
+     *
+     * @param DescribeHistoryTasksRequest $request
+     *
+     * @return DescribeHistoryTasksResponse
+     */
+    public function describeHistoryTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHistoryTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 任务中心任务统计
+     *
+     * @param request - DescribeHistoryTasksStatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHistoryTasksStatResponse
+     *
+     * @param DescribeHistoryTasksStatRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeHistoryTasksStatResponse
+     */
+    public function describeHistoryTasksStatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fromExecTime) {
+            @$query['FromExecTime'] = $request->fromExecTime;
+        }
+
+        if (null !== $request->fromStartTime) {
+            @$query['FromStartTime'] = $request->fromStartTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        if (null !== $request->toExecTime) {
+            @$query['ToExecTime'] = $request->toExecTime;
+        }
+
+        if (null !== $request->toStartTime) {
+            @$query['ToStartTime'] = $request->toStartTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHistoryTasksStat',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHistoryTasksStatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 任务中心任务统计
+     *
+     * @param request - DescribeHistoryTasksStatRequest
+     *
+     * @returns DescribeHistoryTasksStatResponse
+     *
+     * @param DescribeHistoryTasksStatRequest $request
+     *
+     * @return DescribeHistoryTasksStatResponse
+     */
+    public function describeHistoryTasksStat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHistoryTasksStatWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the disk usage of all storage nodes.
      *
      * @remarks
@@ -8167,6 +8638,81 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeKernelVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the answer by a large language model (LLM) to a user question about the use of AnalyticDB for MySQL.
+     *
+     * @param request - DescribeLLMAnswerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLLMAnswerResponse
+     *
+     * @param DescribeLLMAnswerRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeLLMAnswerResponse
+     */
+    public function describeLLMAnswerWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLLMAnswer',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield DescribeLLMAnswerResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
     }
 
     /**
@@ -11061,7 +11607,6 @@ class Adb extends OpenApiClient
         return $this->executeSparkWarehouseBatchSQLWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries whether a running SQL engine exists.
      *
@@ -11136,6 +11681,63 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->existRunningSQLEngineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取Spark权限说明,失败时给出配置权限的帮助信息.
+     *
+     * @param request - GetADBSparkNecessaryRAMPermissionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetADBSparkNecessaryRAMPermissionsResponse
+     *
+     * @param GetADBSparkNecessaryRAMPermissionsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetADBSparkNecessaryRAMPermissionsResponse
+     */
+    public function getADBSparkNecessaryRAMPermissionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->DBClusterId) {
+            @$body['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetADBSparkNecessaryRAMPermissions',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetADBSparkNecessaryRAMPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Spark权限说明,失败时给出配置权限的帮助信息.
+     *
+     * @param request - GetADBSparkNecessaryRAMPermissionsRequest
+     *
+     * @returns GetADBSparkNecessaryRAMPermissionsResponse
+     *
+     * @param GetADBSparkNecessaryRAMPermissionsRequest $request
+     *
+     * @return GetADBSparkNecessaryRAMPermissionsResponse
+     */
+    public function getADBSparkNecessaryRAMPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getADBSparkNecessaryRAMPermissionsWithOptions($request, $runtime);
     }
 
     /**
@@ -12160,7 +12762,6 @@ class Adb extends OpenApiClient
         return $this->getSparkReplStatementWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the state information about the Spark SQL engine.
      *
@@ -13287,7 +13888,6 @@ class Adb extends OpenApiClient
         return $this->killSparkLogAnalyzeTaskWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Shuts down a Spark SQL engine.
      *
@@ -15591,6 +16191,75 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * 配置SSL.
+     *
+     * @param request - ModifyDBClusterSSLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBClusterSSLResponse
+     *
+     * @param ModifyDBClusterSSLRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyDBClusterSSLResponse
+     */
+    public function modifyDBClusterSSLWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectionString) {
+            @$query['ConnectionString'] = $request->connectionString;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->enableSSL) {
+            @$query['EnableSSL'] = $request->enableSSL;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBClusterSSL',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBClusterSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置SSL.
+     *
+     * @param request - ModifyDBClusterSSLRequest
+     *
+     * @returns ModifyDBClusterSSLResponse
+     *
+     * @param ModifyDBClusterSSLRequest $request
+     *
+     * @return ModifyDBClusterSSLResponse
+     */
+    public function modifyDBClusterSSL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterSSLWithOptions($request, $runtime);
+    }
+
+    /**
      * Changes the virtual IP address (VIP) that is used to connect to an AnalyticDB for MySQL cluster.
      *
      * @param request - ModifyDBClusterVipRequest
@@ -16692,7 +17361,6 @@ class Adb extends OpenApiClient
         return $this->startSparkReplSessionWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Starts the Spark SQL engine.
      *

@@ -34,6 +34,11 @@ class Detail extends Model
     public $estimateExecutionCpuTimeInSeconds;
 
     /**
+     * @var int
+     */
+    public $executionDurationInMillis;
+
+    /**
      * @var string
      */
     public $lastAttemptId;
@@ -52,6 +57,16 @@ class Detail extends Model
      * @var string
      */
     public $resourceGroupName;
+
+    /**
+     * @var int
+     */
+    public $resourceProvisioningDurationInMillis;
+
+    /**
+     * @var int
+     */
+    public $runningStartTimeInMillis;
 
     /**
      * @var int
@@ -78,10 +93,13 @@ class Detail extends Model
         'data' => 'Data',
         'durationInMillis' => 'DurationInMillis',
         'estimateExecutionCpuTimeInSeconds' => 'EstimateExecutionCpuTimeInSeconds',
+        'executionDurationInMillis' => 'ExecutionDurationInMillis',
         'lastAttemptId' => 'LastAttemptId',
         'lastUpdatedTimeInMillis' => 'LastUpdatedTimeInMillis',
         'logRootPath' => 'LogRootPath',
         'resourceGroupName' => 'ResourceGroupName',
+        'resourceProvisioningDurationInMillis' => 'ResourceProvisioningDurationInMillis',
+        'runningStartTimeInMillis' => 'RunningStartTimeInMillis',
         'startedTimeInMillis' => 'StartedTimeInMillis',
         'submittedTimeInMillis' => 'SubmittedTimeInMillis',
         'terminatedTimeInMillis' => 'TerminatedTimeInMillis',
@@ -116,6 +134,10 @@ class Detail extends Model
             $res['EstimateExecutionCpuTimeInSeconds'] = $this->estimateExecutionCpuTimeInSeconds;
         }
 
+        if (null !== $this->executionDurationInMillis) {
+            $res['ExecutionDurationInMillis'] = $this->executionDurationInMillis;
+        }
+
         if (null !== $this->lastAttemptId) {
             $res['LastAttemptId'] = $this->lastAttemptId;
         }
@@ -130,6 +152,14 @@ class Detail extends Model
 
         if (null !== $this->resourceGroupName) {
             $res['ResourceGroupName'] = $this->resourceGroupName;
+        }
+
+        if (null !== $this->resourceProvisioningDurationInMillis) {
+            $res['ResourceProvisioningDurationInMillis'] = $this->resourceProvisioningDurationInMillis;
+        }
+
+        if (null !== $this->runningStartTimeInMillis) {
+            $res['RunningStartTimeInMillis'] = $this->runningStartTimeInMillis;
         }
 
         if (null !== $this->startedTimeInMillis) {
@@ -179,6 +209,10 @@ class Detail extends Model
             $model->estimateExecutionCpuTimeInSeconds = $map['EstimateExecutionCpuTimeInSeconds'];
         }
 
+        if (isset($map['ExecutionDurationInMillis'])) {
+            $model->executionDurationInMillis = $map['ExecutionDurationInMillis'];
+        }
+
         if (isset($map['LastAttemptId'])) {
             $model->lastAttemptId = $map['LastAttemptId'];
         }
@@ -193,6 +227,14 @@ class Detail extends Model
 
         if (isset($map['ResourceGroupName'])) {
             $model->resourceGroupName = $map['ResourceGroupName'];
+        }
+
+        if (isset($map['ResourceProvisioningDurationInMillis'])) {
+            $model->resourceProvisioningDurationInMillis = $map['ResourceProvisioningDurationInMillis'];
+        }
+
+        if (isset($map['RunningStartTimeInMillis'])) {
+            $model->runningStartTimeInMillis = $map['RunningStartTimeInMillis'];
         }
 
         if (isset($map['StartedTimeInMillis'])) {

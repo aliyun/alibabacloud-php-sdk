@@ -21,10 +21,16 @@ class baseTableInfos extends Model
     /**
      * @var string
      */
+    public $tableEngine;
+
+    /**
+     * @var string
+     */
     public $tableName;
     protected $_name = [
         'baseTableIsMv' => 'BaseTableIsMv',
         'schemaName' => 'SchemaName',
+        'tableEngine' => 'TableEngine',
         'tableName' => 'TableName',
     ];
 
@@ -42,6 +48,10 @@ class baseTableInfos extends Model
 
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
+        }
+
+        if (null !== $this->tableEngine) {
+            $res['TableEngine'] = $this->tableEngine;
         }
 
         if (null !== $this->tableName) {
@@ -65,6 +75,10 @@ class baseTableInfos extends Model
 
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
+        }
+
+        if (isset($map['TableEngine'])) {
+            $model->tableEngine = $map['TableEngine'];
         }
 
         if (isset($map['TableName'])) {
