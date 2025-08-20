@@ -43,7 +43,8 @@ class log extends Model
                 $res['ResourceLogs'] = [];
                 $n1 = 0;
                 foreach ($this->resourceLogs as $item1) {
-                    $res['ResourceLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceLogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class log extends Model
                 $res['TerraformLogs'] = [];
                 $n1 = 0;
                 foreach ($this->terraformLogs as $item1) {
-                    $res['TerraformLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TerraformLogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class log extends Model
                 $model->resourceLogs = [];
                 $n1 = 0;
                 foreach ($map['ResourceLogs'] as $item1) {
-                    $model->resourceLogs[$n1++] = resourceLogs::fromMap($item1);
+                    $model->resourceLogs[$n1] = resourceLogs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class log extends Model
                 $model->terraformLogs = [];
                 $n1 = 0;
                 foreach ($map['TerraformLogs'] as $item1) {
-                    $model->terraformLogs[$n1++] = terraformLogs::fromMap($item1);
+                    $model->terraformLogs[$n1] = terraformLogs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

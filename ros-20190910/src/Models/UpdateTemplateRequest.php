@@ -102,7 +102,8 @@ class UpdateTemplateRequest extends Model
                 $res['ValidationOptions'] = [];
                 $n1 = 0;
                 foreach ($this->validationOptions as $item1) {
-                    $res['ValidationOptions'][$n1++] = $item1;
+                    $res['ValidationOptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +152,8 @@ class UpdateTemplateRequest extends Model
                 $model->validationOptions = [];
                 $n1 = 0;
                 foreach ($map['ValidationOptions'] as $item1) {
-                    $model->validationOptions[$n1++] = $item1;
+                    $model->validationOptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

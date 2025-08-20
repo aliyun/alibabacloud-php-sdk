@@ -83,7 +83,8 @@ class resourceProgress extends Model
                 $res['InProgressResourceDetails'] = [];
                 $n1 = 0;
                 foreach ($this->inProgressResourceDetails as $item1) {
-                    $res['InProgressResourceDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InProgressResourceDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +133,8 @@ class resourceProgress extends Model
                 $model->inProgressResourceDetails = [];
                 $n1 = 0;
                 foreach ($map['InProgressResourceDetails'] as $item1) {
-                    $model->inProgressResourceDetails[$n1++] = inProgressResourceDetails::fromMap($item1);
+                    $model->inProgressResourceDetails[$n1] = inProgressResourceDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

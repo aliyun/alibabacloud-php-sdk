@@ -123,7 +123,8 @@ class ContinueCreateStackRequest extends Model
                 $res['Parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class ContinueCreateStackRequest extends Model
                 $res['RecreatingOptions'] = [];
                 $n1 = 0;
                 foreach ($this->recreatingOptions as $item1) {
-                    $res['RecreatingOptions'][$n1++] = $item1;
+                    $res['RecreatingOptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +149,8 @@ class ContinueCreateStackRequest extends Model
                 $res['RecreatingResources'] = [];
                 $n1 = 0;
                 foreach ($this->recreatingResources as $item1) {
-                    $res['RecreatingResources'][$n1++] = $item1;
+                    $res['RecreatingResources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -204,7 +207,8 @@ class ContinueCreateStackRequest extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -218,7 +222,8 @@ class ContinueCreateStackRequest extends Model
                 $model->recreatingOptions = [];
                 $n1 = 0;
                 foreach ($map['RecreatingOptions'] as $item1) {
-                    $model->recreatingOptions[$n1++] = $item1;
+                    $model->recreatingOptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -228,7 +233,8 @@ class ContinueCreateStackRequest extends Model
                 $model->recreatingResources = [];
                 $n1 = 0;
                 foreach ($map['RecreatingResources'] as $item1) {
-                    $model->recreatingResources[$n1++] = $item1;
+                    $model->recreatingResources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

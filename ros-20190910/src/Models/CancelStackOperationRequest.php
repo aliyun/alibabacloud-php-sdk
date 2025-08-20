@@ -50,7 +50,8 @@ class CancelStackOperationRequest extends Model
                 $res['AllowedStackOperations'] = [];
                 $n1 = 0;
                 foreach ($this->allowedStackOperations as $item1) {
-                    $res['AllowedStackOperations'][$n1++] = $item1;
+                    $res['AllowedStackOperations'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class CancelStackOperationRequest extends Model
                 $model->allowedStackOperations = [];
                 $n1 = 0;
                 foreach ($map['AllowedStackOperations'] as $item1) {
-                    $model->allowedStackOperations[$n1++] = $item1;
+                    $model->allowedStackOperations[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

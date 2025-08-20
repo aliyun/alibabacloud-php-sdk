@@ -53,7 +53,8 @@ class statement extends Model
                 $res['Action'] = [];
                 $n1 = 0;
                 foreach ($this->action as $item1) {
-                    $res['Action'][$n1++] = $item1;
+                    $res['Action'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class statement extends Model
                 $model->action = [];
                 $n1 = 0;
                 foreach ($map['Action'] as $item1) {
-                    $model->action[$n1++] = $item1;
+                    $model->action[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -84,7 +84,8 @@ class ListChangeSetsRequest extends Model
                 $res['ChangeSetName'] = [];
                 $n1 = 0;
                 foreach ($this->changeSetName as $item1) {
-                    $res['ChangeSetName'][$n1++] = $item1;
+                    $res['ChangeSetName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListChangeSetsRequest extends Model
                 $res['ExecutionStatus'] = [];
                 $n1 = 0;
                 foreach ($this->executionStatus as $item1) {
-                    $res['ExecutionStatus'][$n1++] = $item1;
+                    $res['ExecutionStatus'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +122,8 @@ class ListChangeSetsRequest extends Model
                 $res['Status'] = [];
                 $n1 = 0;
                 foreach ($this->status as $item1) {
-                    $res['Status'][$n1++] = $item1;
+                    $res['Status'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -145,7 +148,8 @@ class ListChangeSetsRequest extends Model
                 $model->changeSetName = [];
                 $n1 = 0;
                 foreach ($map['ChangeSetName'] as $item1) {
-                    $model->changeSetName[$n1++] = $item1;
+                    $model->changeSetName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +159,8 @@ class ListChangeSetsRequest extends Model
                 $model->executionStatus = [];
                 $n1 = 0;
                 foreach ($map['ExecutionStatus'] as $item1) {
-                    $model->executionStatus[$n1++] = $item1;
+                    $model->executionStatus[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +186,8 @@ class ListChangeSetsRequest extends Model
                 $model->status = [];
                 $n1 = 0;
                 foreach ($map['Status'] as $item1) {
-                    $model->status[$n1++] = $item1;
+                    $model->status[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

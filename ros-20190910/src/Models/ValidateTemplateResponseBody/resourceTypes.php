@@ -41,7 +41,8 @@ class resourceTypes extends Model
                 $res['DataSources'] = [];
                 $n1 = 0;
                 foreach ($this->dataSources as $item1) {
-                    $res['DataSources'][$n1++] = $item1;
+                    $res['DataSources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,7 +52,8 @@ class resourceTypes extends Model
                 $res['Resources'] = [];
                 $n1 = 0;
                 foreach ($this->resources as $item1) {
-                    $res['Resources'][$n1++] = $item1;
+                    $res['Resources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +74,8 @@ class resourceTypes extends Model
                 $model->dataSources = [];
                 $n1 = 0;
                 foreach ($map['DataSources'] as $item1) {
-                    $model->dataSources[$n1++] = $item1;
+                    $model->dataSources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +85,8 @@ class resourceTypes extends Model
                 $model->resources = [];
                 $n1 = 0;
                 foreach ($map['Resources'] as $item1) {
-                    $model->resources[$n1++] = $item1;
+                    $model->resources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

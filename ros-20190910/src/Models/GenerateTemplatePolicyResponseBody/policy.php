@@ -39,7 +39,8 @@ class policy extends Model
                 $res['Statement'] = [];
                 $n1 = 0;
                 foreach ($this->statement as $item1) {
-                    $res['Statement'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Statement'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class policy extends Model
                 $model->statement = [];
                 $n1 = 0;
                 foreach ($map['Statement'] as $item1) {
-                    $model->statement[$n1++] = statement::fromMap($item1);
+                    $model->statement[$n1] = statement::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

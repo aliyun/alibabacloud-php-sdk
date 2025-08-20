@@ -69,7 +69,8 @@ class ListStackInstancesResponseBody extends Model
                 $res['StackInstances'] = [];
                 $n1 = 0;
                 foreach ($this->stackInstances as $item1) {
-                    $res['StackInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StackInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListStackInstancesResponseBody extends Model
                 $model->stackInstances = [];
                 $n1 = 0;
                 foreach ($map['StackInstances'] as $item1) {
-                    $model->stackInstances[$n1++] = stackInstances::fromMap($item1);
+                    $model->stackInstances[$n1] = stackInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

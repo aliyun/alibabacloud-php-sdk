@@ -112,7 +112,8 @@ class ListStackOperationRisksRequest extends Model
                 $res['RetainResources'] = [];
                 $n1 = 0;
                 foreach ($this->retainResources as $item1) {
-                    $res['RetainResources'][$n1++] = $item1;
+                    $res['RetainResources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +174,8 @@ class ListStackOperationRisksRequest extends Model
                 $model->retainResources = [];
                 $n1 = 0;
                 foreach ($map['RetainResources'] as $item1) {
-                    $model->retainResources[$n1++] = $item1;
+                    $model->retainResources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

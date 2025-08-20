@@ -44,7 +44,8 @@ class parameters extends Model
                 $res['ParameterCandidateValues'] = [];
                 $n1 = 0;
                 foreach ($this->parameterCandidateValues as $item1) {
-                    $res['ParameterCandidateValues'][$n1++] = $item1;
+                    $res['ParameterCandidateValues'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class parameters extends Model
                 $model->parameterCandidateValues = [];
                 $n1 = 0;
                 foreach ($map['ParameterCandidateValues'] as $item1) {
-                    $model->parameterCandidateValues[$n1++] = $item1;
+                    $model->parameterCandidateValues[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

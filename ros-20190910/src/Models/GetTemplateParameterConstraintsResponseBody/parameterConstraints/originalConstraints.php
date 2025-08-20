@@ -74,7 +74,8 @@ class originalConstraints extends Model
                 $res['AllowedValues'] = [];
                 $n1 = 0;
                 foreach ($this->allowedValues as $item1) {
-                    $res['AllowedValues'][$n1++] = $item1;
+                    $res['AllowedValues'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class originalConstraints extends Model
                 $model->allowedValues = [];
                 $n1 = 0;
                 foreach ($map['AllowedValues'] as $item1) {
-                    $model->allowedValues[$n1++] = $item1;
+                    $model->allowedValues[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

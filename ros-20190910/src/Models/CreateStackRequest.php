@@ -177,7 +177,8 @@ class CreateStackRequest extends Model
                 $res['CreateOptions'] = [];
                 $n1 = 0;
                 foreach ($this->createOptions as $item1) {
-                    $res['CreateOptions'][$n1++] = $item1;
+                    $res['CreateOptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +196,8 @@ class CreateStackRequest extends Model
                 $res['NotificationURLs'] = [];
                 $n1 = 0;
                 foreach ($this->notificationURLs as $item1) {
-                    $res['NotificationURLs'][$n1++] = $item1;
+                    $res['NotificationURLs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +211,8 @@ class CreateStackRequest extends Model
                 $res['Parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -243,7 +246,8 @@ class CreateStackRequest extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -300,7 +304,8 @@ class CreateStackRequest extends Model
                 $model->createOptions = [];
                 $n1 = 0;
                 foreach ($map['CreateOptions'] as $item1) {
-                    $model->createOptions[$n1++] = $item1;
+                    $model->createOptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -318,7 +323,8 @@ class CreateStackRequest extends Model
                 $model->notificationURLs = [];
                 $n1 = 0;
                 foreach ($map['NotificationURLs'] as $item1) {
-                    $model->notificationURLs[$n1++] = $item1;
+                    $model->notificationURLs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -332,7 +338,8 @@ class CreateStackRequest extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -366,7 +373,8 @@ class CreateStackRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -86,7 +86,8 @@ class serviceProvisions extends Model
                 $res['CommodityProvisions'] = [];
                 $n1 = 0;
                 foreach ($this->commodityProvisions as $item1) {
-                    $res['CommodityProvisions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CommodityProvisions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class serviceProvisions extends Model
                 $res['DependentServiceNames'] = [];
                 $n1 = 0;
                 foreach ($this->dependentServiceNames as $item1) {
-                    $res['DependentServiceNames'][$n1++] = $item1;
+                    $res['DependentServiceNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +143,8 @@ class serviceProvisions extends Model
                 $model->commodityProvisions = [];
                 $n1 = 0;
                 foreach ($map['CommodityProvisions'] as $item1) {
-                    $model->commodityProvisions[$n1++] = commodityProvisions::fromMap($item1);
+                    $model->commodityProvisions[$n1] = commodityProvisions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +154,8 @@ class serviceProvisions extends Model
                 $model->dependentServiceNames = [];
                 $n1 = 0;
                 foreach ($map['DependentServiceNames'] as $item1) {
-                    $model->dependentServiceNames[$n1++] = $item1;
+                    $model->dependentServiceNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

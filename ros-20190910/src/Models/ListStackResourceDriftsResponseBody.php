@@ -53,7 +53,8 @@ class ListStackResourceDriftsResponseBody extends Model
                 $res['ResourceDrifts'] = [];
                 $n1 = 0;
                 foreach ($this->resourceDrifts as $item1) {
-                    $res['ResourceDrifts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceDrifts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class ListStackResourceDriftsResponseBody extends Model
                 $model->resourceDrifts = [];
                 $n1 = 0;
                 foreach ($map['ResourceDrifts'] as $item1) {
-                    $model->resourceDrifts[$n1++] = resourceDrifts::fromMap($item1);
+                    $model->resourceDrifts[$n1] = resourceDrifts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

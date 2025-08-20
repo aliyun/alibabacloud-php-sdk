@@ -54,7 +54,8 @@ class supportedVersions extends Model
                 $res['ProviderVersions'] = [];
                 $n1 = 0;
                 foreach ($this->providerVersions as $item1) {
-                    $res['ProviderVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProviderVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class supportedVersions extends Model
                 $res['UpdateAllowedTransforms'] = [];
                 $n1 = 0;
                 foreach ($this->updateAllowedTransforms as $item1) {
-                    $res['UpdateAllowedTransforms'][$n1++] = $item1;
+                    $res['UpdateAllowedTransforms'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class supportedVersions extends Model
                 $model->providerVersions = [];
                 $n1 = 0;
                 foreach ($map['ProviderVersions'] as $item1) {
-                    $model->providerVersions[$n1++] = providerVersions::fromMap($item1);
+                    $model->providerVersions[$n1] = providerVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +114,8 @@ class supportedVersions extends Model
                 $model->updateAllowedTransforms = [];
                 $n1 = 0;
                 foreach ($map['UpdateAllowedTransforms'] as $item1) {
-                    $model->updateAllowedTransforms[$n1++] = $item1;
+                    $model->updateAllowedTransforms[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -125,7 +125,8 @@ class resources extends Model
                 $res['RequiredBy'] = [];
                 $n1 = 0;
                 foreach ($this->requiredBy as $item1) {
-                    $res['RequiredBy'][$n1++] = $item1;
+                    $res['RequiredBy'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +193,8 @@ class resources extends Model
                 $model->requiredBy = [];
                 $n1 = 0;
                 foreach ($map['RequiredBy'] as $item1) {
-                    $model->requiredBy[$n1++] = $item1;
+                    $model->requiredBy[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

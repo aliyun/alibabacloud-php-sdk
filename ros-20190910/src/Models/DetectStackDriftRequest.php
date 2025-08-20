@@ -54,7 +54,8 @@ class DetectStackDriftRequest extends Model
                 $res['LogicalResourceId'] = [];
                 $n1 = 0;
                 foreach ($this->logicalResourceId as $item1) {
-                    $res['LogicalResourceId'][$n1++] = $item1;
+                    $res['LogicalResourceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class DetectStackDriftRequest extends Model
                 $model->logicalResourceId = [];
                 $n1 = 0;
                 foreach ($map['LogicalResourceId'] as $item1) {
-                    $model->logicalResourceId[$n1++] = $item1;
+                    $model->logicalResourceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

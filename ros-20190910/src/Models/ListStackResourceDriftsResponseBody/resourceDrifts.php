@@ -115,7 +115,8 @@ class resourceDrifts extends Model
                 $res['PropertyDifferences'] = [];
                 $n1 = 0;
                 foreach ($this->propertyDifferences as $item1) {
-                    $res['PropertyDifferences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PropertyDifferences'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +173,8 @@ class resourceDrifts extends Model
                 $model->propertyDifferences = [];
                 $n1 = 0;
                 foreach ($map['PropertyDifferences'] as $item1) {
-                    $model->propertyDifferences[$n1++] = propertyDifferences::fromMap($item1);
+                    $model->propertyDifferences[$n1] = propertyDifferences::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

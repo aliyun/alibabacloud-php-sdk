@@ -68,7 +68,8 @@ class ListStackResourceDriftsRequest extends Model
                 $res['ResourceDriftStatus'] = [];
                 $n1 = 0;
                 foreach ($this->resourceDriftStatus as $item1) {
-                    $res['ResourceDriftStatus'][$n1++] = $item1;
+                    $res['ResourceDriftStatus'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class ListStackResourceDriftsRequest extends Model
                 $model->resourceDriftStatus = [];
                 $n1 = 0;
                 foreach ($map['ResourceDriftStatus'] as $item1) {
-                    $model->resourceDriftStatus[$n1++] = $item1;
+                    $model->resourceDriftStatus[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

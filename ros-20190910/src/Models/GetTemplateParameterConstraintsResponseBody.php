@@ -39,7 +39,8 @@ class GetTemplateParameterConstraintsResponseBody extends Model
                 $res['ParameterConstraints'] = [];
                 $n1 = 0;
                 foreach ($this->parameterConstraints as $item1) {
-                    $res['ParameterConstraints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ParameterConstraints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class GetTemplateParameterConstraintsResponseBody extends Model
                 $model->parameterConstraints = [];
                 $n1 = 0;
                 foreach ($map['ParameterConstraints'] as $item1) {
-                    $model->parameterConstraints[$n1++] = parameterConstraints::fromMap($item1);
+                    $model->parameterConstraints[$n1] = parameterConstraints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

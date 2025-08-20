@@ -82,7 +82,8 @@ class supportedResourceTypes extends Model
                 $res['SupportedTemplateScratchTypes'] = [];
                 $n1 = 0;
                 foreach ($this->supportedTemplateScratchTypes as $item1) {
-                    $res['SupportedTemplateScratchTypes'][$n1++] = $item1;
+                    $res['SupportedTemplateScratchTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class supportedResourceTypes extends Model
                 $model->supportedTemplateScratchTypes = [];
                 $n1 = 0;
                 foreach ($map['SupportedTemplateScratchTypes'] as $item1) {
-                    $model->supportedTemplateScratchTypes[$n1++] = $item1;
+                    $model->supportedTemplateScratchTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

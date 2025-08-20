@@ -32,7 +32,8 @@ class stackOperationRisk extends Model
                 $res['DeleteStack'] = [];
                 $n1 = 0;
                 foreach ($this->deleteStack as $item1) {
-                    $res['DeleteStack'][$n1++] = $item1;
+                    $res['DeleteStack'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class stackOperationRisk extends Model
                 $model->deleteStack = [];
                 $n1 = 0;
                 foreach ($map['DeleteStack'] as $item1) {
-                    $model->deleteStack[$n1++] = $item1;
+                    $model->deleteStack[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

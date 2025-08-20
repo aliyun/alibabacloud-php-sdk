@@ -69,7 +69,8 @@ class ListStacksResponseBody extends Model
                 $res['Stacks'] = [];
                 $n1 = 0;
                 foreach ($this->stacks as $item1) {
-                    $res['Stacks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Stacks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListStacksResponseBody extends Model
                 $model->stacks = [];
                 $n1 = 0;
                 foreach ($map['Stacks'] as $item1) {
-                    $model->stacks[$n1++] = stacks::fromMap($item1);
+                    $model->stacks[$n1] = stacks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

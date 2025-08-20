@@ -168,7 +168,8 @@ class templateScratch extends Model
                 $res['PreferenceParameters'] = [];
                 $n1 = 0;
                 foreach ($this->preferenceParameters as $item1) {
-                    $res['PreferenceParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PreferenceParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +187,8 @@ class templateScratch extends Model
                 $res['SourceResources'] = [];
                 $n1 = 0;
                 foreach ($this->sourceResources as $item1) {
-                    $res['SourceResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SourceResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -204,7 +206,8 @@ class templateScratch extends Model
                 $res['Stacks'] = [];
                 $n1 = 0;
                 foreach ($this->stacks as $item1) {
-                    $res['Stacks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Stacks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -270,7 +273,8 @@ class templateScratch extends Model
                 $model->preferenceParameters = [];
                 $n1 = 0;
                 foreach ($map['PreferenceParameters'] as $item1) {
-                    $model->preferenceParameters[$n1++] = preferenceParameters::fromMap($item1);
+                    $model->preferenceParameters[$n1] = preferenceParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -288,7 +292,8 @@ class templateScratch extends Model
                 $model->sourceResources = [];
                 $n1 = 0;
                 foreach ($map['SourceResources'] as $item1) {
-                    $model->sourceResources[$n1++] = sourceResources::fromMap($item1);
+                    $model->sourceResources[$n1] = sourceResources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -306,7 +311,8 @@ class templateScratch extends Model
                 $model->stacks = [];
                 $n1 = 0;
                 foreach ($map['Stacks'] as $item1) {
-                    $model->stacks[$n1++] = stacks::fromMap($item1);
+                    $model->stacks[$n1] = stacks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

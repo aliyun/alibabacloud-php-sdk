@@ -88,7 +88,8 @@ class ValidateTemplateResponseBody extends Model
                 $res['Outputs'] = [];
                 $n1 = 0;
                 foreach ($this->outputs as $item1) {
-                    $res['Outputs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Outputs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,11 +100,12 @@ class ValidateTemplateResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     if (\is_array($item1)) {
-                        $res['Parameters'][$n1++] = [];
+                        $res['Parameters'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Parameters'][$n1++][$key2] = $value2;
+                            $res['Parameters'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +123,8 @@ class ValidateTemplateResponseBody extends Model
                 $res['Resources'] = [];
                 $n1 = 0;
                 foreach ($this->resources as $item1) {
-                    $res['Resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Resources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +153,8 @@ class ValidateTemplateResponseBody extends Model
                 $model->outputs = [];
                 $n1 = 0;
                 foreach ($map['Outputs'] as $item1) {
-                    $model->outputs[$n1++] = outputs::fromMap($item1);
+                    $model->outputs[$n1] = outputs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -161,11 +165,12 @@ class ValidateTemplateResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     if (!empty($item1)) {
-                        $model->parameters[$n1++] = [];
+                        $model->parameters[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->parameters[$n1++][$key2] = $value2;
+                            $model->parameters[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +188,8 @@ class ValidateTemplateResponseBody extends Model
                 $model->resources = [];
                 $n1 = 0;
                 foreach ($map['Resources'] as $item1) {
-                    $model->resources[$n1++] = resources::fromMap($item1);
+                    $model->resources[$n1] = resources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -38,7 +38,8 @@ class supportedResourceTypes extends Model
                 $res['Properties'] = [];
                 $n1 = 0;
                 foreach ($this->properties as $item1) {
-                    $res['Properties'][$n1++] = $item1;
+                    $res['Properties'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class supportedResourceTypes extends Model
                 $model->properties = [];
                 $n1 = 0;
                 foreach ($map['Properties'] as $item1) {
-                    $model->properties[$n1++] = $item1;
+                    $model->properties[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

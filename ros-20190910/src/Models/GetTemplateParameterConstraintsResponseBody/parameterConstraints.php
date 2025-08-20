@@ -123,7 +123,8 @@ class parameterConstraints extends Model
                 $res['AllowedValues'] = [];
                 $n1 = 0;
                 foreach ($this->allowedValues as $item1) {
-                    $res['AllowedValues'][$n1++] = $item1;
+                    $res['AllowedValues'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +134,8 @@ class parameterConstraints extends Model
                 $res['AssociationParameterNames'] = [];
                 $n1 = 0;
                 foreach ($this->associationParameterNames as $item1) {
-                    $res['AssociationParameterNames'][$n1++] = $item1;
+                    $res['AssociationParameterNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +153,8 @@ class parameterConstraints extends Model
                 $res['IllegalValueByParameterConstraints'] = [];
                 $n1 = 0;
                 foreach ($this->illegalValueByParameterConstraints as $item1) {
-                    $res['IllegalValueByParameterConstraints'][$n1++] = $item1;
+                    $res['IllegalValueByParameterConstraints'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +164,8 @@ class parameterConstraints extends Model
                 $res['IllegalValueByRules'] = [];
                 $n1 = 0;
                 foreach ($this->illegalValueByRules as $item1) {
-                    $res['IllegalValueByRules'][$n1++] = $item1;
+                    $res['IllegalValueByRules'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -171,7 +175,8 @@ class parameterConstraints extends Model
                 $res['NotSupportResources'] = [];
                 $n1 = 0;
                 foreach ($this->notSupportResources as $item1) {
-                    $res['NotSupportResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NotSupportResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +186,8 @@ class parameterConstraints extends Model
                 $res['OriginalConstraints'] = [];
                 $n1 = 0;
                 foreach ($this->originalConstraints as $item1) {
-                    $res['OriginalConstraints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OriginalConstraints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +201,8 @@ class parameterConstraints extends Model
                 $res['QueryErrors'] = [];
                 $n1 = 0;
                 foreach ($this->queryErrors as $item1) {
-                    $res['QueryErrors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QueryErrors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +212,8 @@ class parameterConstraints extends Model
                 $res['QueryTimeoutDetails'] = [];
                 $n1 = 0;
                 foreach ($this->queryTimeoutDetails as $item1) {
-                    $res['QueryTimeoutDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QueryTimeoutDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -230,7 +238,8 @@ class parameterConstraints extends Model
                 $model->allowedValues = [];
                 $n1 = 0;
                 foreach ($map['AllowedValues'] as $item1) {
-                    $model->allowedValues[$n1++] = $item1;
+                    $model->allowedValues[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -240,7 +249,8 @@ class parameterConstraints extends Model
                 $model->associationParameterNames = [];
                 $n1 = 0;
                 foreach ($map['AssociationParameterNames'] as $item1) {
-                    $model->associationParameterNames[$n1++] = $item1;
+                    $model->associationParameterNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -258,7 +268,8 @@ class parameterConstraints extends Model
                 $model->illegalValueByParameterConstraints = [];
                 $n1 = 0;
                 foreach ($map['IllegalValueByParameterConstraints'] as $item1) {
-                    $model->illegalValueByParameterConstraints[$n1++] = $item1;
+                    $model->illegalValueByParameterConstraints[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -268,7 +279,8 @@ class parameterConstraints extends Model
                 $model->illegalValueByRules = [];
                 $n1 = 0;
                 foreach ($map['IllegalValueByRules'] as $item1) {
-                    $model->illegalValueByRules[$n1++] = $item1;
+                    $model->illegalValueByRules[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -278,7 +290,8 @@ class parameterConstraints extends Model
                 $model->notSupportResources = [];
                 $n1 = 0;
                 foreach ($map['NotSupportResources'] as $item1) {
-                    $model->notSupportResources[$n1++] = notSupportResources::fromMap($item1);
+                    $model->notSupportResources[$n1] = notSupportResources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -288,7 +301,8 @@ class parameterConstraints extends Model
                 $model->originalConstraints = [];
                 $n1 = 0;
                 foreach ($map['OriginalConstraints'] as $item1) {
-                    $model->originalConstraints[$n1++] = originalConstraints::fromMap($item1);
+                    $model->originalConstraints[$n1] = originalConstraints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -302,7 +316,8 @@ class parameterConstraints extends Model
                 $model->queryErrors = [];
                 $n1 = 0;
                 foreach ($map['QueryErrors'] as $item1) {
-                    $model->queryErrors[$n1++] = queryErrors::fromMap($item1);
+                    $model->queryErrors[$n1] = queryErrors::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -312,7 +327,8 @@ class parameterConstraints extends Model
                 $model->queryTimeoutDetails = [];
                 $n1 = 0;
                 foreach ($map['QueryTimeoutDetails'] as $item1) {
-                    $model->queryTimeoutDetails[$n1++] = queryTimeoutDetails::fromMap($item1);
+                    $model->queryTimeoutDetails[$n1] = queryTimeoutDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

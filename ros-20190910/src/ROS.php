@@ -6226,6 +6226,10 @@ class ROS extends OpenApiClient
             @$query['TimeoutInMinutes'] = $request->timeoutInMinutes;
         }
 
+        if (null !== $request->usePreviousParameters) {
+            @$query['UsePreviousParameters'] = $request->usePreviousParameters;
+        }
+
         $body = [];
         if (null !== $request->templateBody) {
             @$body['TemplateBody'] = $request->templateBody;

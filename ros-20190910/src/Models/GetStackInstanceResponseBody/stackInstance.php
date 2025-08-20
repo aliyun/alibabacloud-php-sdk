@@ -111,11 +111,12 @@ class stackInstance extends Model
                 $n1 = 0;
                 foreach ($this->outputs as $item1) {
                     if (\is_array($item1)) {
-                        $res['Outputs'][$n1++] = [];
+                        $res['Outputs'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Outputs'][$n1++][$key2] = $value2;
+                            $res['Outputs'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +126,8 @@ class stackInstance extends Model
                 $res['ParameterOverrides'] = [];
                 $n1 = 0;
                 foreach ($this->parameterOverrides as $item1) {
-                    $res['ParameterOverrides'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ParameterOverrides'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,11 +189,12 @@ class stackInstance extends Model
                 $n1 = 0;
                 foreach ($map['Outputs'] as $item1) {
                     if (!empty($item1)) {
-                        $model->outputs[$n1++] = [];
+                        $model->outputs[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->outputs[$n1++][$key2] = $value2;
+                            $model->outputs[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +204,8 @@ class stackInstance extends Model
                 $model->parameterOverrides = [];
                 $n1 = 0;
                 foreach ($map['ParameterOverrides'] as $item1) {
-                    $model->parameterOverrides[$n1++] = parameterOverrides::fromMap($item1);
+                    $model->parameterOverrides[$n1] = parameterOverrides::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

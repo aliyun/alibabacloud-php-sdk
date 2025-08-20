@@ -43,7 +43,8 @@ class ListResourceTypeVersionsResponseBody extends Model
                 $res['ResourceTypeVersions'] = [];
                 $n1 = 0;
                 foreach ($this->resourceTypeVersions as $item1) {
-                    $res['ResourceTypeVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceTypeVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class ListResourceTypeVersionsResponseBody extends Model
                 $model->resourceTypeVersions = [];
                 $n1 = 0;
                 foreach ($map['ResourceTypeVersions'] as $item1) {
-                    $model->resourceTypeVersions[$n1++] = resourceTypeVersions::fromMap($item1);
+                    $model->resourceTypeVersions[$n1] = resourceTypeVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

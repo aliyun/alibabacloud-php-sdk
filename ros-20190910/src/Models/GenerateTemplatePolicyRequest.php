@@ -56,7 +56,8 @@ class GenerateTemplatePolicyRequest extends Model
                 $res['OperationTypes'] = [];
                 $n1 = 0;
                 foreach ($this->operationTypes as $item1) {
-                    $res['OperationTypes'][$n1++] = $item1;
+                    $res['OperationTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class GenerateTemplatePolicyRequest extends Model
                 $model->operationTypes = [];
                 $n1 = 0;
                 foreach ($map['OperationTypes'] as $item1) {
-                    $model->operationTypes[$n1++] = $item1;
+                    $model->operationTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -69,7 +69,8 @@ class supportedResourceTypes extends Model
                 $res['CustomTag'] = [];
                 $n1 = 0;
                 foreach ($this->customTag as $item1) {
-                    $res['CustomTag'][$n1++] = $item1;
+                    $res['CustomTag'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,7 +80,8 @@ class supportedResourceTypes extends Model
                 $res['EstimateCost'] = [];
                 $n1 = 0;
                 foreach ($this->estimateCost as $item1) {
-                    $res['EstimateCost'][$n1++] = $item1;
+                    $res['EstimateCost'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +91,8 @@ class supportedResourceTypes extends Model
                 $res['ResourceGroup'] = [];
                 $n1 = 0;
                 foreach ($this->resourceGroup as $item1) {
-                    $res['ResourceGroup'][$n1++] = $item1;
+                    $res['ResourceGroup'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +106,8 @@ class supportedResourceTypes extends Model
                 $res['SystemTag'] = [];
                 $n1 = 0;
                 foreach ($this->systemTag as $item1) {
-                    $res['SystemTag'][$n1++] = $item1;
+                    $res['SystemTag'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +128,8 @@ class supportedResourceTypes extends Model
                 $model->customTag = [];
                 $n1 = 0;
                 foreach ($map['CustomTag'] as $item1) {
-                    $model->customTag[$n1++] = $item1;
+                    $model->customTag[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +139,8 @@ class supportedResourceTypes extends Model
                 $model->estimateCost = [];
                 $n1 = 0;
                 foreach ($map['EstimateCost'] as $item1) {
-                    $model->estimateCost[$n1++] = $item1;
+                    $model->estimateCost[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +150,8 @@ class supportedResourceTypes extends Model
                 $model->resourceGroup = [];
                 $n1 = 0;
                 foreach ($map['ResourceGroup'] as $item1) {
-                    $model->resourceGroup[$n1++] = $item1;
+                    $model->resourceGroup[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +165,8 @@ class supportedResourceTypes extends Model
                 $model->systemTag = [];
                 $n1 = 0;
                 foreach ($map['SystemTag'] as $item1) {
-                    $model->systemTag[$n1++] = $item1;
+                    $model->systemTag[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

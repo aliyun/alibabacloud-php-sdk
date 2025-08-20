@@ -53,7 +53,8 @@ class ListTemplateVersionsResponseBody extends Model
                 $res['Versions'] = [];
                 $n1 = 0;
                 foreach ($this->versions as $item1) {
-                    $res['Versions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Versions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class ListTemplateVersionsResponseBody extends Model
                 $model->versions = [];
                 $n1 = 0;
                 foreach ($map['Versions'] as $item1) {
-                    $model->versions[$n1++] = versions::fromMap($item1);
+                    $model->versions[$n1] = versions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

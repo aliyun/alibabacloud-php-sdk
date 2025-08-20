@@ -69,7 +69,8 @@ class ListTemplateScratchesResponseBody extends Model
                 $res['TemplateScratches'] = [];
                 $n1 = 0;
                 foreach ($this->templateScratches as $item1) {
-                    $res['TemplateScratches'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TemplateScratches'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListTemplateScratchesResponseBody extends Model
                 $model->templateScratches = [];
                 $n1 = 0;
                 foreach ($map['TemplateScratches'] as $item1) {
-                    $model->templateScratches[$n1++] = templateScratches::fromMap($item1);
+                    $model->templateScratches[$n1] = templateScratches::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

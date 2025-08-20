@@ -74,7 +74,8 @@ class GetStackResourceRequest extends Model
                 $res['ResourceAttributes'] = [];
                 $n1 = 0;
                 foreach ($this->resourceAttributes as $item1) {
-                    $res['ResourceAttributes'][$n1++] = $item1;
+                    $res['ResourceAttributes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class GetStackResourceRequest extends Model
                 $model->resourceAttributes = [];
                 $n1 = 0;
                 foreach ($map['ResourceAttributes'] as $item1) {
-                    $model->resourceAttributes[$n1++] = $item1;
+                    $model->resourceAttributes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

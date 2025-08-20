@@ -78,7 +78,8 @@ class ValidateTemplateRequest extends Model
                 $res['UpdateInfoOptions'] = [];
                 $n1 = 0;
                 foreach ($this->updateInfoOptions as $item1) {
-                    $res['UpdateInfoOptions'][$n1++] = $item1;
+                    $res['UpdateInfoOptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +120,8 @@ class ValidateTemplateRequest extends Model
                 $model->updateInfoOptions = [];
                 $n1 = 0;
                 foreach ($map['UpdateInfoOptions'] as $item1) {
-                    $model->updateInfoOptions[$n1++] = $item1;
+                    $model->updateInfoOptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

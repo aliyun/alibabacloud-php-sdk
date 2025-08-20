@@ -73,7 +73,8 @@ class GetServiceProvisionsRequest extends Model
                 $res['Parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class GetServiceProvisionsRequest extends Model
                 $res['Services'] = [];
                 $n1 = 0;
                 foreach ($this->services as $item1) {
-                    $res['Services'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Services'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +126,8 @@ class GetServiceProvisionsRequest extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +141,8 @@ class GetServiceProvisionsRequest extends Model
                 $model->services = [];
                 $n1 = 0;
                 foreach ($map['Services'] as $item1) {
-                    $model->services[$n1++] = services::fromMap($item1);
+                    $model->services[$n1] = services::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

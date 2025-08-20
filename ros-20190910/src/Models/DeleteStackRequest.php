@@ -71,7 +71,8 @@ class DeleteStackRequest extends Model
                 $res['DeleteOptions'] = [];
                 $n1 = 0;
                 foreach ($this->deleteOptions as $item1) {
-                    $res['DeleteOptions'][$n1++] = $item1;
+                    $res['DeleteOptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class DeleteStackRequest extends Model
                 $res['RetainResources'] = [];
                 $n1 = 0;
                 foreach ($this->retainResources as $item1) {
-                    $res['RetainResources'][$n1++] = $item1;
+                    $res['RetainResources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +124,8 @@ class DeleteStackRequest extends Model
                 $model->deleteOptions = [];
                 $n1 = 0;
                 foreach ($map['DeleteOptions'] as $item1) {
-                    $model->deleteOptions[$n1++] = $item1;
+                    $model->deleteOptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +151,8 @@ class DeleteStackRequest extends Model
                 $model->retainResources = [];
                 $n1 = 0;
                 foreach ($map['RetainResources'] as $item1) {
-                    $model->retainResources[$n1++] = $item1;
+                    $model->retainResources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

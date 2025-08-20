@@ -32,7 +32,8 @@ class driftDetection extends Model
                 $res['SupportedResourceTypes'] = [];
                 $n1 = 0;
                 foreach ($this->supportedResourceTypes as $item1) {
-                    $res['SupportedResourceTypes'][$n1++] = $item1;
+                    $res['SupportedResourceTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class driftDetection extends Model
                 $model->supportedResourceTypes = [];
                 $n1 = 0;
                 foreach ($map['SupportedResourceTypes'] as $item1) {
-                    $model->supportedResourceTypes[$n1++] = $item1;
+                    $model->supportedResourceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

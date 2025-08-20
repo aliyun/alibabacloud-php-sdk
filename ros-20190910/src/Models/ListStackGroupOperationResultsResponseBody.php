@@ -69,7 +69,8 @@ class ListStackGroupOperationResultsResponseBody extends Model
                 $res['StackGroupOperationResults'] = [];
                 $n1 = 0;
                 foreach ($this->stackGroupOperationResults as $item1) {
-                    $res['StackGroupOperationResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StackGroupOperationResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class ListStackGroupOperationResultsResponseBody extends Model
                 $model->stackGroupOperationResults = [];
                 $n1 = 0;
                 foreach ($map['StackGroupOperationResults'] as $item1) {
-                    $model->stackGroupOperationResults[$n1++] = stackGroupOperationResults::fromMap($item1);
+                    $model->stackGroupOperationResults[$n1] = stackGroupOperationResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

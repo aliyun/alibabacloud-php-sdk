@@ -110,7 +110,8 @@ class CreateStackInstancesShrinkRequest extends Model
                 $res['DeploymentOptions'] = [];
                 $n1 = 0;
                 foreach ($this->deploymentOptions as $item1) {
-                    $res['DeploymentOptions'][$n1++] = $item1;
+                    $res['DeploymentOptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +137,8 @@ class CreateStackInstancesShrinkRequest extends Model
                 $res['ParameterOverrides'] = [];
                 $n1 = 0;
                 foreach ($this->parameterOverrides as $item1) {
-                    $res['ParameterOverrides'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ParameterOverrides'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +183,8 @@ class CreateStackInstancesShrinkRequest extends Model
                 $model->deploymentOptions = [];
                 $n1 = 0;
                 foreach ($map['DeploymentOptions'] as $item1) {
-                    $model->deploymentOptions[$n1++] = $item1;
+                    $model->deploymentOptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -207,7 +210,8 @@ class CreateStackInstancesShrinkRequest extends Model
                 $model->parameterOverrides = [];
                 $n1 = 0;
                 foreach ($map['ParameterOverrides'] as $item1) {
-                    $model->parameterOverrides[$n1++] = parameterOverrides::fromMap($item1);
+                    $model->parameterOverrides[$n1] = parameterOverrides::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

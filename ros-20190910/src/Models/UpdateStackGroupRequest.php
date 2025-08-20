@@ -170,7 +170,8 @@ class UpdateStackGroupRequest extends Model
                 $res['AccountIds'] = [];
                 $n1 = 0;
                 foreach ($this->accountIds as $item1) {
-                    $res['AccountIds'][$n1++] = $item1;
+                    $res['AccountIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +189,8 @@ class UpdateStackGroupRequest extends Model
                 $res['Capabilities'] = [];
                 $n1 = 0;
                 foreach ($this->capabilities as $item1) {
-                    $res['Capabilities'][$n1++] = $item1;
+                    $res['Capabilities'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -202,7 +204,8 @@ class UpdateStackGroupRequest extends Model
                 $res['DeploymentOptions'] = [];
                 $n1 = 0;
                 foreach ($this->deploymentOptions as $item1) {
-                    $res['DeploymentOptions'][$n1++] = $item1;
+                    $res['DeploymentOptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -237,7 +240,8 @@ class UpdateStackGroupRequest extends Model
                 $res['Parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +259,8 @@ class UpdateStackGroupRequest extends Model
                 $res['RegionIds'] = [];
                 $n1 = 0;
                 foreach ($this->regionIds as $item1) {
-                    $res['RegionIds'][$n1++] = $item1;
+                    $res['RegionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -296,7 +301,8 @@ class UpdateStackGroupRequest extends Model
                 $model->accountIds = [];
                 $n1 = 0;
                 foreach ($map['AccountIds'] as $item1) {
-                    $model->accountIds[$n1++] = $item1;
+                    $model->accountIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -314,7 +320,8 @@ class UpdateStackGroupRequest extends Model
                 $model->capabilities = [];
                 $n1 = 0;
                 foreach ($map['Capabilities'] as $item1) {
-                    $model->capabilities[$n1++] = $item1;
+                    $model->capabilities[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -328,7 +335,8 @@ class UpdateStackGroupRequest extends Model
                 $model->deploymentOptions = [];
                 $n1 = 0;
                 foreach ($map['DeploymentOptions'] as $item1) {
-                    $model->deploymentOptions[$n1++] = $item1;
+                    $model->deploymentOptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -363,7 +371,8 @@ class UpdateStackGroupRequest extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -381,7 +390,8 @@ class UpdateStackGroupRequest extends Model
                 $model->regionIds = [];
                 $n1 = 0;
                 foreach ($map['RegionIds'] as $item1) {
-                    $model->regionIds[$n1++] = $item1;
+                    $model->regionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -44,7 +44,8 @@ class sourceResources extends Model
                 $res['RelatedResourceTypeFilter'] = [];
                 $n1 = 0;
                 foreach ($this->relatedResourceTypeFilter as $item1) {
-                    $res['RelatedResourceTypeFilter'][$n1++] = $item1;
+                    $res['RelatedResourceTypeFilter'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class sourceResources extends Model
                 $model->relatedResourceTypeFilter = [];
                 $n1 = 0;
                 foreach ($map['RelatedResourceTypeFilter'] as $item1) {
-                    $model->relatedResourceTypeFilter[$n1++] = $item1;
+                    $model->relatedResourceTypeFilter[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

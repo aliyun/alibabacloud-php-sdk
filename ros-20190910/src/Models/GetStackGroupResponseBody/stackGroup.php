@@ -154,7 +154,8 @@ class stackGroup extends Model
                 $res['Parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -168,7 +169,8 @@ class stackGroup extends Model
                 $res['RdFolderIds'] = [];
                 $n1 = 0;
                 foreach ($this->rdFolderIds as $item1) {
-                    $res['RdFolderIds'][$n1++] = $item1;
+                    $res['RdFolderIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -241,7 +243,8 @@ class stackGroup extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +258,8 @@ class stackGroup extends Model
                 $model->rdFolderIds = [];
                 $n1 = 0;
                 foreach ($map['RdFolderIds'] as $item1) {
-                    $model->rdFolderIds[$n1++] = $item1;
+                    $model->rdFolderIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

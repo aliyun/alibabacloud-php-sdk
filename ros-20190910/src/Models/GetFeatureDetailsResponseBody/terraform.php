@@ -47,7 +47,8 @@ class terraform extends Model
                 $res['SupportedVersions'] = [];
                 $n1 = 0;
                 foreach ($this->supportedVersions as $item1) {
-                    $res['SupportedVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class terraform extends Model
                 $model->supportedVersions = [];
                 $n1 = 0;
                 foreach ($map['SupportedVersions'] as $item1) {
-                    $model->supportedVersions[$n1++] = supportedVersions::fromMap($item1);
+                    $model->supportedVersions[$n1] = supportedVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

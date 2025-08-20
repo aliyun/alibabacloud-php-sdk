@@ -113,7 +113,8 @@ class dryRunResult extends Model
                 $res['ParametersAllowedToBeModified'] = [];
                 $n1 = 0;
                 foreach ($this->parametersAllowedToBeModified as $item1) {
-                    $res['ParametersAllowedToBeModified'][$n1++] = $item1;
+                    $res['ParametersAllowedToBeModified'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class dryRunResult extends Model
                 $res['ParametersCauseInterruptionIfModified'] = [];
                 $n1 = 0;
                 foreach ($this->parametersCauseInterruptionIfModified as $item1) {
-                    $res['ParametersCauseInterruptionIfModified'][$n1++] = $item1;
+                    $res['ParametersCauseInterruptionIfModified'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +135,8 @@ class dryRunResult extends Model
                 $res['ParametersCauseReplacementIfModified'] = [];
                 $n1 = 0;
                 foreach ($this->parametersCauseReplacementIfModified as $item1) {
-                    $res['ParametersCauseReplacementIfModified'][$n1++] = $item1;
+                    $res['ParametersCauseReplacementIfModified'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +146,8 @@ class dryRunResult extends Model
                 $res['ParametersConditionallyAllowedToBeModified'] = [];
                 $n1 = 0;
                 foreach ($this->parametersConditionallyAllowedToBeModified as $item1) {
-                    $res['ParametersConditionallyAllowedToBeModified'][$n1++] = $item1;
+                    $res['ParametersConditionallyAllowedToBeModified'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +157,8 @@ class dryRunResult extends Model
                 $res['ParametersConditionallyCauseInterruptionIfModified'] = [];
                 $n1 = 0;
                 foreach ($this->parametersConditionallyCauseInterruptionIfModified as $item1) {
-                    $res['ParametersConditionallyCauseInterruptionIfModified'][$n1++] = $item1;
+                    $res['ParametersConditionallyCauseInterruptionIfModified'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +168,8 @@ class dryRunResult extends Model
                 $res['ParametersConditionallyCauseReplacementIfModified'] = [];
                 $n1 = 0;
                 foreach ($this->parametersConditionallyCauseReplacementIfModified as $item1) {
-                    $res['ParametersConditionallyCauseReplacementIfModified'][$n1++] = $item1;
+                    $res['ParametersConditionallyCauseReplacementIfModified'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +179,8 @@ class dryRunResult extends Model
                 $res['ParametersNotAllowedToBeModified'] = [];
                 $n1 = 0;
                 foreach ($this->parametersNotAllowedToBeModified as $item1) {
-                    $res['ParametersNotAllowedToBeModified'][$n1++] = $item1;
+                    $res['ParametersNotAllowedToBeModified'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +190,8 @@ class dryRunResult extends Model
                 $res['ParametersUncertainlyAllowedToBeModified'] = [];
                 $n1 = 0;
                 foreach ($this->parametersUncertainlyAllowedToBeModified as $item1) {
-                    $res['ParametersUncertainlyAllowedToBeModified'][$n1++] = $item1;
+                    $res['ParametersUncertainlyAllowedToBeModified'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -193,7 +201,8 @@ class dryRunResult extends Model
                 $res['ParametersUncertainlyCauseInterruptionIfModified'] = [];
                 $n1 = 0;
                 foreach ($this->parametersUncertainlyCauseInterruptionIfModified as $item1) {
-                    $res['ParametersUncertainlyCauseInterruptionIfModified'][$n1++] = $item1;
+                    $res['ParametersUncertainlyCauseInterruptionIfModified'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +212,8 @@ class dryRunResult extends Model
                 $res['ParametersUncertainlyCauseReplacementIfModified'] = [];
                 $n1 = 0;
                 foreach ($this->parametersUncertainlyCauseReplacementIfModified as $item1) {
-                    $res['ParametersUncertainlyCauseReplacementIfModified'][$n1++] = $item1;
+                    $res['ParametersUncertainlyCauseReplacementIfModified'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -224,7 +234,8 @@ class dryRunResult extends Model
                 $model->parametersAllowedToBeModified = [];
                 $n1 = 0;
                 foreach ($map['ParametersAllowedToBeModified'] as $item1) {
-                    $model->parametersAllowedToBeModified[$n1++] = $item1;
+                    $model->parametersAllowedToBeModified[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -234,7 +245,8 @@ class dryRunResult extends Model
                 $model->parametersCauseInterruptionIfModified = [];
                 $n1 = 0;
                 foreach ($map['ParametersCauseInterruptionIfModified'] as $item1) {
-                    $model->parametersCauseInterruptionIfModified[$n1++] = $item1;
+                    $model->parametersCauseInterruptionIfModified[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -244,7 +256,8 @@ class dryRunResult extends Model
                 $model->parametersCauseReplacementIfModified = [];
                 $n1 = 0;
                 foreach ($map['ParametersCauseReplacementIfModified'] as $item1) {
-                    $model->parametersCauseReplacementIfModified[$n1++] = $item1;
+                    $model->parametersCauseReplacementIfModified[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -254,7 +267,8 @@ class dryRunResult extends Model
                 $model->parametersConditionallyAllowedToBeModified = [];
                 $n1 = 0;
                 foreach ($map['ParametersConditionallyAllowedToBeModified'] as $item1) {
-                    $model->parametersConditionallyAllowedToBeModified[$n1++] = $item1;
+                    $model->parametersConditionallyAllowedToBeModified[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -264,7 +278,8 @@ class dryRunResult extends Model
                 $model->parametersConditionallyCauseInterruptionIfModified = [];
                 $n1 = 0;
                 foreach ($map['ParametersConditionallyCauseInterruptionIfModified'] as $item1) {
-                    $model->parametersConditionallyCauseInterruptionIfModified[$n1++] = $item1;
+                    $model->parametersConditionallyCauseInterruptionIfModified[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -274,7 +289,8 @@ class dryRunResult extends Model
                 $model->parametersConditionallyCauseReplacementIfModified = [];
                 $n1 = 0;
                 foreach ($map['ParametersConditionallyCauseReplacementIfModified'] as $item1) {
-                    $model->parametersConditionallyCauseReplacementIfModified[$n1++] = $item1;
+                    $model->parametersConditionallyCauseReplacementIfModified[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -284,7 +300,8 @@ class dryRunResult extends Model
                 $model->parametersNotAllowedToBeModified = [];
                 $n1 = 0;
                 foreach ($map['ParametersNotAllowedToBeModified'] as $item1) {
-                    $model->parametersNotAllowedToBeModified[$n1++] = $item1;
+                    $model->parametersNotAllowedToBeModified[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -294,7 +311,8 @@ class dryRunResult extends Model
                 $model->parametersUncertainlyAllowedToBeModified = [];
                 $n1 = 0;
                 foreach ($map['ParametersUncertainlyAllowedToBeModified'] as $item1) {
-                    $model->parametersUncertainlyAllowedToBeModified[$n1++] = $item1;
+                    $model->parametersUncertainlyAllowedToBeModified[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -304,7 +322,8 @@ class dryRunResult extends Model
                 $model->parametersUncertainlyCauseInterruptionIfModified = [];
                 $n1 = 0;
                 foreach ($map['ParametersUncertainlyCauseInterruptionIfModified'] as $item1) {
-                    $model->parametersUncertainlyCauseInterruptionIfModified[$n1++] = $item1;
+                    $model->parametersUncertainlyCauseInterruptionIfModified[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -314,7 +333,8 @@ class dryRunResult extends Model
                 $model->parametersUncertainlyCauseReplacementIfModified = [];
                 $n1 = 0;
                 foreach ($map['ParametersUncertainlyCauseReplacementIfModified'] as $item1) {
-                    $model->parametersUncertainlyCauseReplacementIfModified[$n1++] = $item1;
+                    $model->parametersUncertainlyCauseReplacementIfModified[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -316,7 +316,8 @@ class GetStackResponseBody extends Model
                 $res['NotificationURLs'] = [];
                 $n1 = 0;
                 foreach ($this->notificationURLs as $item1) {
-                    $res['NotificationURLs'][$n1++] = $item1;
+                    $res['NotificationURLs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -330,7 +331,8 @@ class GetStackResponseBody extends Model
                 $res['OrderIds'] = [];
                 $n1 = 0;
                 foreach ($this->orderIds as $item1) {
-                    $res['OrderIds'][$n1++] = $item1;
+                    $res['OrderIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -341,11 +343,12 @@ class GetStackResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->outputs as $item1) {
                     if (\is_array($item1)) {
-                        $res['Outputs'][$n1++] = [];
+                        $res['Outputs'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Outputs'][$n1++][$key2] = $value2;
+                            $res['Outputs'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -355,7 +358,8 @@ class GetStackResponseBody extends Model
                 $res['Parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -429,7 +433,8 @@ class GetStackResponseBody extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -514,7 +519,8 @@ class GetStackResponseBody extends Model
                 $model->notificationURLs = [];
                 $n1 = 0;
                 foreach ($map['NotificationURLs'] as $item1) {
-                    $model->notificationURLs[$n1++] = $item1;
+                    $model->notificationURLs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -528,7 +534,8 @@ class GetStackResponseBody extends Model
                 $model->orderIds = [];
                 $n1 = 0;
                 foreach ($map['OrderIds'] as $item1) {
-                    $model->orderIds[$n1++] = $item1;
+                    $model->orderIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -539,11 +546,12 @@ class GetStackResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['Outputs'] as $item1) {
                     if (!empty($item1)) {
-                        $model->outputs[$n1++] = [];
+                        $model->outputs[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->outputs[$n1++][$key2] = $value2;
+                            $model->outputs[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -553,7 +561,8 @@ class GetStackResponseBody extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -627,7 +636,8 @@ class GetStackResponseBody extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

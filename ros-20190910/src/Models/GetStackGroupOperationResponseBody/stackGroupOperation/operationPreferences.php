@@ -72,7 +72,8 @@ class operationPreferences extends Model
                 $res['RegionIdsOrder'] = [];
                 $n1 = 0;
                 foreach ($this->regionIdsOrder as $item1) {
-                    $res['RegionIdsOrder'][$n1++] = $item1;
+                    $res['RegionIdsOrder'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class operationPreferences extends Model
                 $model->regionIdsOrder = [];
                 $n1 = 0;
                 foreach ($map['RegionIdsOrder'] as $item1) {
-                    $model->regionIdsOrder[$n1++] = $item1;
+                    $model->regionIdsOrder[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

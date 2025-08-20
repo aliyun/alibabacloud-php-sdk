@@ -39,7 +39,8 @@ class resourceLogs extends Model
                 $res['Logs'] = [];
                 $n1 = 0;
                 foreach ($this->logs as $item1) {
-                    $res['Logs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Logs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class resourceLogs extends Model
                 $model->logs = [];
                 $n1 = 0;
                 foreach ($map['Logs'] as $item1) {
-                    $model->logs[$n1++] = logs::fromMap($item1);
+                    $model->logs[$n1] = logs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

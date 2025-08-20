@@ -51,7 +51,8 @@ class supportedResourceTypes extends Model
                 $res['SideEffects'] = [];
                 $n1 = 0;
                 foreach ($this->sideEffects as $item1) {
-                    $res['SideEffects'][$n1++] = $item1;
+                    $res['SideEffects'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,7 +62,8 @@ class supportedResourceTypes extends Model
                 $res['SupportedFilters'] = [];
                 $n1 = 0;
                 foreach ($this->supportedFilters as $item1) {
-                    $res['SupportedFilters'][$n1++] = $item1;
+                    $res['SupportedFilters'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,7 +88,8 @@ class supportedResourceTypes extends Model
                 $model->sideEffects = [];
                 $n1 = 0;
                 foreach ($map['SideEffects'] as $item1) {
-                    $model->sideEffects[$n1++] = $item1;
+                    $model->sideEffects[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +99,8 @@ class supportedResourceTypes extends Model
                 $model->supportedFilters = [];
                 $n1 = 0;
                 foreach ($map['SupportedFilters'] as $item1) {
-                    $model->supportedFilters[$n1++] = $item1;
+                    $model->supportedFilters[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

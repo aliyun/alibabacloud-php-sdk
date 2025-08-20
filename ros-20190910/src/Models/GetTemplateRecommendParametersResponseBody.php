@@ -39,7 +39,8 @@ class GetTemplateRecommendParametersResponseBody extends Model
                 $res['RecommendParameterValues'] = [];
                 $n1 = 0;
                 foreach ($this->recommendParameterValues as $item1) {
-                    $res['RecommendParameterValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecommendParameterValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class GetTemplateRecommendParametersResponseBody extends Model
                 $model->recommendParameterValues = [];
                 $n1 = 0;
                 foreach ($map['RecommendParameterValues'] as $item1) {
-                    $model->recommendParameterValues[$n1++] = recommendParameterValues::fromMap($item1);
+                    $model->recommendParameterValues[$n1] = recommendParameterValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

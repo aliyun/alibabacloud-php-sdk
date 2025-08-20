@@ -80,7 +80,8 @@ class CreateTemplateRequest extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class CreateTemplateRequest extends Model
                 $res['ValidationOptions'] = [];
                 $n1 = 0;
                 foreach ($this->validationOptions as $item1) {
-                    $res['ValidationOptions'][$n1++] = $item1;
+                    $res['ValidationOptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +133,8 @@ class CreateTemplateRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +156,8 @@ class CreateTemplateRequest extends Model
                 $model->validationOptions = [];
                 $n1 = 0;
                 foreach ($map['ValidationOptions'] as $item1) {
-                    $model->validationOptions[$n1++] = $item1;
+                    $model->validationOptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -187,7 +187,8 @@ class UpdateStackRequest extends Model
                 $res['DryRunOptions'] = [];
                 $n1 = 0;
                 foreach ($this->dryRunOptions as $item1) {
-                    $res['DryRunOptions'][$n1++] = $item1;
+                    $res['DryRunOptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +202,8 @@ class UpdateStackRequest extends Model
                 $res['Parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -247,7 +249,8 @@ class UpdateStackRequest extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -257,7 +260,8 @@ class UpdateStackRequest extends Model
                 $res['TaintResources'] = [];
                 $n1 = 0;
                 foreach ($this->taintResources as $item1) {
-                    $res['TaintResources'][$n1++] = $item1;
+                    $res['TaintResources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -314,7 +318,8 @@ class UpdateStackRequest extends Model
                 $model->dryRunOptions = [];
                 $n1 = 0;
                 foreach ($map['DryRunOptions'] as $item1) {
-                    $model->dryRunOptions[$n1++] = $item1;
+                    $model->dryRunOptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -328,7 +333,8 @@ class UpdateStackRequest extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -374,7 +380,8 @@ class UpdateStackRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -384,7 +391,8 @@ class UpdateStackRequest extends Model
                 $model->taintResources = [];
                 $n1 = 0;
                 foreach ($map['TaintResources'] as $item1) {
-                    $model->taintResources[$n1++] = $item1;
+                    $model->taintResources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

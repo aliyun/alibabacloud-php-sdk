@@ -42,7 +42,8 @@ class sourceResourceGroup extends Model
                 $res['ResourceTypeFilter'] = [];
                 $n1 = 0;
                 foreach ($this->resourceTypeFilter as $item1) {
-                    $res['ResourceTypeFilter'][$n1++] = $item1;
+                    $res['ResourceTypeFilter'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class sourceResourceGroup extends Model
                 $model->resourceTypeFilter = [];
                 $n1 = 0;
                 foreach ($map['ResourceTypeFilter'] as $item1) {
-                    $model->resourceTypeFilter[$n1++] = $item1;
+                    $model->resourceTypeFilter[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

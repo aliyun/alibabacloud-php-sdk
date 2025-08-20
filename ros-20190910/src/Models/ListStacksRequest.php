@@ -146,7 +146,8 @@ class ListStacksRequest extends Model
                 $res['StackIds'] = [];
                 $n1 = 0;
                 foreach ($this->stackIds as $item1) {
-                    $res['StackIds'][$n1++] = $item1;
+                    $res['StackIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +157,8 @@ class ListStacksRequest extends Model
                 $res['StackName'] = [];
                 $n1 = 0;
                 foreach ($this->stackName as $item1) {
-                    $res['StackName'][$n1++] = $item1;
+                    $res['StackName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +172,8 @@ class ListStacksRequest extends Model
                 $res['Status'] = [];
                 $n1 = 0;
                 foreach ($this->status as $item1) {
-                    $res['Status'][$n1++] = $item1;
+                    $res['Status'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +183,8 @@ class ListStacksRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -233,7 +237,8 @@ class ListStacksRequest extends Model
                 $model->stackIds = [];
                 $n1 = 0;
                 foreach ($map['StackIds'] as $item1) {
-                    $model->stackIds[$n1++] = $item1;
+                    $model->stackIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -243,7 +248,8 @@ class ListStacksRequest extends Model
                 $model->stackName = [];
                 $n1 = 0;
                 foreach ($map['StackName'] as $item1) {
-                    $model->stackName[$n1++] = $item1;
+                    $model->stackName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -257,7 +263,8 @@ class ListStacksRequest extends Model
                 $model->status = [];
                 $n1 = 0;
                 foreach ($map['Status'] as $item1) {
-                    $model->status[$n1++] = $item1;
+                    $model->status[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -267,7 +274,8 @@ class ListStacksRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

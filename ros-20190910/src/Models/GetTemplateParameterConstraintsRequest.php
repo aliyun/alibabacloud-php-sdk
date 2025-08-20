@@ -97,7 +97,8 @@ class GetTemplateParameterConstraintsRequest extends Model
                 $res['Parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class GetTemplateParameterConstraintsRequest extends Model
                 $res['ParametersKeyFilter'] = [];
                 $n1 = 0;
                 foreach ($this->parametersKeyFilter as $item1) {
-                    $res['ParametersKeyFilter'][$n1++] = $item1;
+                    $res['ParametersKeyFilter'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +119,8 @@ class GetTemplateParameterConstraintsRequest extends Model
                 $res['ParametersOrder'] = [];
                 $n1 = 0;
                 foreach ($this->parametersOrder as $item1) {
-                    $res['ParametersOrder'][$n1++] = $item1;
+                    $res['ParametersOrder'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +169,8 @@ class GetTemplateParameterConstraintsRequest extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +180,8 @@ class GetTemplateParameterConstraintsRequest extends Model
                 $model->parametersKeyFilter = [];
                 $n1 = 0;
                 foreach ($map['ParametersKeyFilter'] as $item1) {
-                    $model->parametersKeyFilter[$n1++] = $item1;
+                    $model->parametersKeyFilter[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +191,8 @@ class GetTemplateParameterConstraintsRequest extends Model
                 $model->parametersOrder = [];
                 $n1 = 0;
                 foreach ($map['ParametersOrder'] as $item1) {
-                    $model->parametersOrder[$n1++] = $item1;
+                    $model->parametersOrder[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

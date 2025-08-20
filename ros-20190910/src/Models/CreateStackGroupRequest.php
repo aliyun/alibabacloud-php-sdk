@@ -148,7 +148,8 @@ class CreateStackGroupRequest extends Model
                 $res['Capabilities'] = [];
                 $n1 = 0;
                 foreach ($this->capabilities as $item1) {
-                    $res['Capabilities'][$n1++] = $item1;
+                    $res['Capabilities'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +171,8 @@ class CreateStackGroupRequest extends Model
                 $res['Parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +202,8 @@ class CreateStackGroupRequest extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +248,8 @@ class CreateStackGroupRequest extends Model
                 $model->capabilities = [];
                 $n1 = 0;
                 foreach ($map['Capabilities'] as $item1) {
-                    $model->capabilities[$n1++] = $item1;
+                    $model->capabilities[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -267,7 +271,8 @@ class CreateStackGroupRequest extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -297,7 +302,8 @@ class CreateStackGroupRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

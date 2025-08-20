@@ -95,7 +95,8 @@ class ImportStacksToStackGroupRequest extends Model
                 $res['ResourceDirectoryFolderIds'] = [];
                 $n1 = 0;
                 foreach ($this->resourceDirectoryFolderIds as $item1) {
-                    $res['ResourceDirectoryFolderIds'][$n1++] = $item1;
+                    $res['ResourceDirectoryFolderIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class ImportStacksToStackGroupRequest extends Model
                 $res['StackArns'] = [];
                 $n1 = 0;
                 foreach ($this->stackArns as $item1) {
-                    $res['StackArns'][$n1++] = $item1;
+                    $res['StackArns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +153,8 @@ class ImportStacksToStackGroupRequest extends Model
                 $model->resourceDirectoryFolderIds = [];
                 $n1 = 0;
                 foreach ($map['ResourceDirectoryFolderIds'] as $item1) {
-                    $model->resourceDirectoryFolderIds[$n1++] = $item1;
+                    $model->resourceDirectoryFolderIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +164,8 @@ class ImportStacksToStackGroupRequest extends Model
                 $model->stackArns = [];
                 $n1 = 0;
                 foreach ($map['StackArns'] as $item1) {
-                    $model->stackArns[$n1++] = $item1;
+                    $model->stackArns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

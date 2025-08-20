@@ -57,7 +57,8 @@ class ListChangeSetsResponseBody extends Model
                 $res['ChangeSets'] = [];
                 $n1 = 0;
                 foreach ($this->changeSets as $item1) {
-                    $res['ChangeSets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ChangeSets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListChangeSetsResponseBody extends Model
                 $model->changeSets = [];
                 $n1 = 0;
                 foreach ($map['ChangeSets'] as $item1) {
-                    $model->changeSets[$n1++] = changeSets::fromMap($item1);
+                    $model->changeSets[$n1] = changeSets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

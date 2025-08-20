@@ -171,11 +171,12 @@ class GetChangeSetResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->changes as $item1) {
                     if (\is_array($item1)) {
-                        $res['Changes'][$n1++] = [];
+                        $res['Changes'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Changes'][$n1++][$key2] = $value2;
+                            $res['Changes'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +206,8 @@ class GetChangeSetResponseBody extends Model
                 $res['Parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -243,7 +245,8 @@ class GetChangeSetResponseBody extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -285,11 +288,12 @@ class GetChangeSetResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['Changes'] as $item1) {
                     if (!empty($item1)) {
-                        $model->changes[$n1++] = [];
+                        $model->changes[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->changes[$n1++][$key2] = $value2;
+                            $model->changes[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -319,7 +323,8 @@ class GetChangeSetResponseBody extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -357,7 +362,8 @@ class GetChangeSetResponseBody extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

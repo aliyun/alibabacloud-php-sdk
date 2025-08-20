@@ -98,6 +98,11 @@ class PreviewStackRequest extends Model
      * @var int
      */
     public $timeoutInMinutes;
+
+    /**
+     * @var bool
+     */
+    public $usePreviousParameters;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'disableRollback' => 'DisableRollback',
@@ -117,6 +122,7 @@ class PreviewStackRequest extends Model
         'templateURL' => 'TemplateURL',
         'templateVersion' => 'TemplateVersion',
         'timeoutInMinutes' => 'TimeoutInMinutes',
+        'usePreviousParameters' => 'UsePreviousParameters',
     ];
 
     public function validate()
@@ -154,7 +160,8 @@ class PreviewStackRequest extends Model
                 $res['Parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +191,8 @@ class PreviewStackRequest extends Model
                 $res['TaintResources'] = [];
                 $n1 = 0;
                 foreach ($this->taintResources as $item1) {
-                    $res['TaintResources'][$n1++] = $item1;
+                    $res['TaintResources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -215,6 +223,10 @@ class PreviewStackRequest extends Model
 
         if (null !== $this->timeoutInMinutes) {
             $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
+        }
+
+        if (null !== $this->usePreviousParameters) {
+            $res['UsePreviousParameters'] = $this->usePreviousParameters;
         }
 
         return $res;
@@ -249,7 +261,8 @@ class PreviewStackRequest extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -279,7 +292,8 @@ class PreviewStackRequest extends Model
                 $model->taintResources = [];
                 $n1 = 0;
                 foreach ($map['TaintResources'] as $item1) {
-                    $model->taintResources[$n1++] = $item1;
+                    $model->taintResources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -310,6 +324,10 @@ class PreviewStackRequest extends Model
 
         if (isset($map['TimeoutInMinutes'])) {
             $model->timeoutInMinutes = $map['TimeoutInMinutes'];
+        }
+
+        if (isset($map['UsePreviousParameters'])) {
+            $model->usePreviousParameters = $map['UsePreviousParameters'];
         }
 
         return $model;

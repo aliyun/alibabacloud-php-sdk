@@ -42,7 +42,8 @@ class providerVersions extends Model
                 $res['SupportedVersions'] = [];
                 $n1 = 0;
                 foreach ($this->supportedVersions as $item1) {
-                    $res['SupportedVersions'][$n1++] = $item1;
+                    $res['SupportedVersions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class providerVersions extends Model
                 $model->supportedVersions = [];
                 $n1 = 0;
                 foreach ($map['SupportedVersions'] as $item1) {
-                    $model->supportedVersions[$n1++] = $item1;
+                    $model->supportedVersions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

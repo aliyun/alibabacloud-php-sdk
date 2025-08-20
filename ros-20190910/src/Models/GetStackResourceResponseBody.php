@@ -167,11 +167,12 @@ class GetStackResourceResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->resourceAttributes as $item1) {
                     if (\is_array($item1)) {
-                        $res['ResourceAttributes'][$n1++] = [];
+                        $res['ResourceAttributes'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['ResourceAttributes'][$n1++][$key2] = $value2;
+                            $res['ResourceAttributes'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -258,11 +259,12 @@ class GetStackResourceResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['ResourceAttributes'] as $item1) {
                     if (!empty($item1)) {
-                        $model->resourceAttributes[$n1++] = [];
+                        $model->resourceAttributes[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->resourceAttributes[$n1++][$key2] = $value2;
+                            $model->resourceAttributes[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

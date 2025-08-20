@@ -48,7 +48,8 @@ class ListStackOperationRisksResponseBody extends Model
                 $res['MissingPolicyActions'] = [];
                 $n1 = 0;
                 foreach ($this->missingPolicyActions as $item1) {
-                    $res['MissingPolicyActions'][$n1++] = $item1;
+                    $res['MissingPolicyActions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -62,7 +63,8 @@ class ListStackOperationRisksResponseBody extends Model
                 $res['RiskResources'] = [];
                 $n1 = 0;
                 foreach ($this->riskResources as $item1) {
-                    $res['RiskResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RiskResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class ListStackOperationRisksResponseBody extends Model
                 $model->missingPolicyActions = [];
                 $n1 = 0;
                 foreach ($map['MissingPolicyActions'] as $item1) {
-                    $model->missingPolicyActions[$n1++] = $item1;
+                    $model->missingPolicyActions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +100,8 @@ class ListStackOperationRisksResponseBody extends Model
                 $model->riskResources = [];
                 $n1 = 0;
                 foreach ($map['RiskResources'] as $item1) {
-                    $model->riskResources[$n1++] = riskResources::fromMap($item1);
+                    $model->riskResources[$n1] = riskResources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

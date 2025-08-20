@@ -92,11 +92,12 @@ class GetTemplateSummaryResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     if (\is_array($item1)) {
-                        $res['Parameters'][$n1++] = [];
+                        $res['Parameters'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Parameters'][$n1++][$key2] = $value2;
+                            $res['Parameters'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class GetTemplateSummaryResponseBody extends Model
                 $res['ResourceIdentifierSummaries'] = [];
                 $n1 = 0;
                 foreach ($this->resourceIdentifierSummaries as $item1) {
-                    $res['ResourceIdentifierSummaries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceIdentifierSummaries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +122,8 @@ class GetTemplateSummaryResponseBody extends Model
                 $res['ResourceTypes'] = [];
                 $n1 = 0;
                 foreach ($this->resourceTypes as $item1) {
-                    $res['ResourceTypes'][$n1++] = $item1;
+                    $res['ResourceTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -159,11 +162,12 @@ class GetTemplateSummaryResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     if (!empty($item1)) {
-                        $model->parameters[$n1++] = [];
+                        $model->parameters[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->parameters[$n1++][$key2] = $value2;
+                            $model->parameters[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -177,7 +181,8 @@ class GetTemplateSummaryResponseBody extends Model
                 $model->resourceIdentifierSummaries = [];
                 $n1 = 0;
                 foreach ($map['ResourceIdentifierSummaries'] as $item1) {
-                    $model->resourceIdentifierSummaries[$n1++] = resourceIdentifierSummaries::fromMap($item1);
+                    $model->resourceIdentifierSummaries[$n1] = resourceIdentifierSummaries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +192,8 @@ class GetTemplateSummaryResponseBody extends Model
                 $model->resourceTypes = [];
                 $n1 = 0;
                 foreach ($map['ResourceTypes'] as $item1) {
-                    $model->resourceTypes[$n1++] = $item1;
+                    $model->resourceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

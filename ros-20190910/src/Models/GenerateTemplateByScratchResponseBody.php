@@ -49,7 +49,8 @@ class GenerateTemplateByScratchResponseBody extends Model
                 $res['ResourcesToImport'] = [];
                 $n1 = 0;
                 foreach ($this->resourcesToImport as $item1) {
-                    $res['ResourcesToImport'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourcesToImport'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class GenerateTemplateByScratchResponseBody extends Model
                 $model->resourcesToImport = [];
                 $n1 = 0;
                 foreach ($map['ResourcesToImport'] as $item1) {
-                    $model->resourcesToImport[$n1++] = resourcesToImport::fromMap($item1);
+                    $model->resourcesToImport[$n1] = resourcesToImport::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

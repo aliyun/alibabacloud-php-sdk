@@ -55,7 +55,8 @@ class ListResourceTypeRegistrationsResponseBody extends Model
                 $res['Registrations'] = [];
                 $n1 = 0;
                 foreach ($this->registrations as $item1) {
-                    $res['Registrations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Registrations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class ListResourceTypeRegistrationsResponseBody extends Model
                 $model->registrations = [];
                 $n1 = 0;
                 foreach ($map['Registrations'] as $item1) {
-                    $model->registrations[$n1++] = registrations::fromMap($item1);
+                    $model->registrations[$n1] = registrations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

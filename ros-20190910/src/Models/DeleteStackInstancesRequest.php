@@ -90,7 +90,8 @@ class DeleteStackInstancesRequest extends Model
                 $res['AccountIds'] = [];
                 $n1 = 0;
                 foreach ($this->accountIds as $item1) {
-                    $res['AccountIds'][$n1++] = $item1;
+                    $res['AccountIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +126,8 @@ class DeleteStackInstancesRequest extends Model
                 $res['RegionIds'] = [];
                 $n1 = 0;
                 foreach ($this->regionIds as $item1) {
-                    $res['RegionIds'][$n1++] = $item1;
+                    $res['RegionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +156,8 @@ class DeleteStackInstancesRequest extends Model
                 $model->accountIds = [];
                 $n1 = 0;
                 foreach ($map['AccountIds'] as $item1) {
-                    $model->accountIds[$n1++] = $item1;
+                    $model->accountIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -189,7 +192,8 @@ class DeleteStackInstancesRequest extends Model
                 $model->regionIds = [];
                 $n1 = 0;
                 foreach ($map['RegionIds'] as $item1) {
-                    $model->regionIds[$n1++] = $item1;
+                    $model->regionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
