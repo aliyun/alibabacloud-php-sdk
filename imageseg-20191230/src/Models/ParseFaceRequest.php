@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imageseg\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ParseFaceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/ParseFace/ParseFace1.jpg
-     *
      * @var string
      */
     public $imageURL;
@@ -22,9 +18,10 @@ class ParseFaceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURL) {
@@ -34,11 +31,11 @@ class ParseFaceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ParseFaceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

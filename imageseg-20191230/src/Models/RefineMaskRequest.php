@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Imageseg\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefineMaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/RefineMask/RefineMask1.jpg
-     *
      * @var string
      */
     public $imageURL;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/RefineMask/RefineMask6.jpg
-     *
      * @var string
      */
     public $maskImageURL;
     protected $_name = [
-        'imageURL'     => 'ImageURL',
+        'imageURL' => 'ImageURL',
         'maskImageURL' => 'MaskImageURL',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
+
         if (null !== $this->maskImageURL) {
             $res['MaskImageURL'] = $this->maskImageURL;
         }
@@ -47,17 +41,18 @@ class RefineMaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefineMaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
+
         if (isset($map['MaskImageURL'])) {
             $model->maskImageURL = $map['MaskImageURL'];
         }
