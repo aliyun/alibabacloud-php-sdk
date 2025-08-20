@@ -11,6 +11,11 @@ class ListJobRunsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $applicationConfigs;
+
+    /**
+     * @var string
+     */
     public $creator;
 
     /**
@@ -66,6 +71,11 @@ class ListJobRunsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $runtimeConfigs;
+
+    /**
+     * @var string
+     */
     public $startTimeShrink;
 
     /**
@@ -78,6 +88,7 @@ class ListJobRunsShrinkRequest extends Model
      */
     public $tagsShrink;
     protected $_name = [
+        'applicationConfigs' => 'applicationConfigs',
         'creator' => 'creator',
         'endTimeShrink' => 'endTime',
         'isWorkflow' => 'isWorkflow',
@@ -89,6 +100,7 @@ class ListJobRunsShrinkRequest extends Model
         'nextToken' => 'nextToken',
         'regionId' => 'regionId',
         'resourceQueueId' => 'resourceQueueId',
+        'runtimeConfigs' => 'runtimeConfigs',
         'startTimeShrink' => 'startTime',
         'statesShrink' => 'states',
         'tagsShrink' => 'tags',
@@ -102,6 +114,10 @@ class ListJobRunsShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->applicationConfigs) {
+            $res['applicationConfigs'] = $this->applicationConfigs;
+        }
+
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
@@ -146,6 +162,10 @@ class ListJobRunsShrinkRequest extends Model
             $res['resourceQueueId'] = $this->resourceQueueId;
         }
 
+        if (null !== $this->runtimeConfigs) {
+            $res['runtimeConfigs'] = $this->runtimeConfigs;
+        }
+
         if (null !== $this->startTimeShrink) {
             $res['startTime'] = $this->startTimeShrink;
         }
@@ -169,6 +189,10 @@ class ListJobRunsShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['applicationConfigs'])) {
+            $model->applicationConfigs = $map['applicationConfigs'];
+        }
+
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
@@ -211,6 +235,10 @@ class ListJobRunsShrinkRequest extends Model
 
         if (isset($map['resourceQueueId'])) {
             $model->resourceQueueId = $map['resourceQueueId'];
+        }
+
+        if (isset($map['runtimeConfigs'])) {
+            $model->runtimeConfigs = $map['runtimeConfigs'];
         }
 
         if (isset($map['startTime'])) {

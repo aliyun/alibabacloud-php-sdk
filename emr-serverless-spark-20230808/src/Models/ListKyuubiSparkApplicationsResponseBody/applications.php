@@ -31,6 +31,11 @@ class applications extends Model
     /**
      * @var string
      */
+    public $exitReason;
+
+    /**
+     * @var string
+     */
     public $latestSqlStatementStatus;
 
     /**
@@ -67,6 +72,7 @@ class applications extends Model
         'applicationName' => 'applicationName',
         'cuHours' => 'cuHours',
         'endTime' => 'endTime',
+        'exitReason' => 'exitReason',
         'latestSqlStatementStatus' => 'latestSqlStatementStatus',
         'mbSeconds' => 'mbSeconds',
         'resourceQueueId' => 'resourceQueueId',
@@ -98,6 +104,10 @@ class applications extends Model
 
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
+        }
+
+        if (null !== $this->exitReason) {
+            $res['exitReason'] = $this->exitReason;
         }
 
         if (null !== $this->latestSqlStatementStatus) {
@@ -153,6 +163,10 @@ class applications extends Model
 
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
+        }
+
+        if (isset($map['exitReason'])) {
+            $model->exitReason = $map['exitReason'];
         }
 
         if (isset($map['latestSqlStatementStatus'])) {

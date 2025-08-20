@@ -36,6 +36,11 @@ class kyuubiServices extends Model
     /**
      * @var string
      */
+    public $kyuubiReleaseVersion;
+
+    /**
+     * @var string
+     */
     public $kyuubiServiceId;
 
     /**
@@ -83,6 +88,7 @@ class kyuubiServices extends Model
         'creator' => 'creator',
         'innerEndpoint' => 'innerEndpoint',
         'kyuubiConfigs' => 'kyuubiConfigs',
+        'kyuubiReleaseVersion' => 'kyuubiReleaseVersion',
         'kyuubiServiceId' => 'kyuubiServiceId',
         'name' => 'name',
         'publicEndpoint' => 'publicEndpoint',
@@ -120,6 +126,10 @@ class kyuubiServices extends Model
 
         if (null !== $this->kyuubiConfigs) {
             $res['kyuubiConfigs'] = $this->kyuubiConfigs;
+        }
+
+        if (null !== $this->kyuubiReleaseVersion) {
+            $res['kyuubiReleaseVersion'] = $this->kyuubiReleaseVersion;
         }
 
         if (null !== $this->kyuubiServiceId) {
@@ -187,6 +197,10 @@ class kyuubiServices extends Model
 
         if (isset($map['kyuubiConfigs'])) {
             $model->kyuubiConfigs = $map['kyuubiConfigs'];
+        }
+
+        if (isset($map['kyuubiReleaseVersion'])) {
+            $model->kyuubiReleaseVersion = $map['kyuubiReleaseVersion'];
         }
 
         if (isset($map['kyuubiServiceId'])) {

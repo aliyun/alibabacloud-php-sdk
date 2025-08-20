@@ -62,6 +62,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLivyComputeTokenReq
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLivyComputeTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListMembersRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListMembersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSessionClustersRequest;
@@ -657,6 +659,10 @@ class Emrserverlessspark extends OpenApiClient
 
         if (null !== $request->autoStopConfiguration) {
             @$body['autoStopConfiguration'] = $request->autoStopConfiguration;
+        }
+
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
         }
 
         if (null !== $request->displayReleaseVersion) {
@@ -1803,6 +1809,10 @@ class Emrserverlessspark extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->applicationConfigs) {
+            @$query['applicationConfigs'] = $request->applicationConfigs;
+        }
+
         if (null !== $request->creator) {
             @$query['creator'] = $request->creator;
         }
@@ -1845,6 +1855,10 @@ class Emrserverlessspark extends OpenApiClient
 
         if (null !== $request->resourceQueueId) {
             @$query['resourceQueueId'] = $request->resourceQueueId;
+        }
+
+        if (null !== $request->runtimeConfigs) {
+            @$query['runtimeConfigs'] = $request->runtimeConfigs;
         }
 
         if (null !== $request->startTimeShrink) {
@@ -2326,6 +2340,77 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->listLogContentsWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询用户列表.
+     *
+     * @param request - ListMembersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMembersResponse
+     *
+     * @param string             $workspaceId
+     * @param ListMembersRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListMembersResponse
+     */
+    public function listMembersWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMembers',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/auth/' . Url::percentEncode($workspaceId) . '/members',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户列表.
+     *
+     * @param request - ListMembersRequest
+     *
+     * @returns ListMembersResponse
+     *
+     * @param string             $workspaceId
+     * @param ListMembersRequest $request
+     *
+     * @return ListMembersResponse
+     */
+    public function listMembers($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMembersWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**

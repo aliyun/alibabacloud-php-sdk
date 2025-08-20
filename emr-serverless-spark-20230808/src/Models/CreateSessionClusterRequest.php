@@ -29,6 +29,11 @@ class CreateSessionClusterRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $displayReleaseVersion;
 
     /**
@@ -74,6 +79,7 @@ class CreateSessionClusterRequest extends Model
         'applicationConfigs' => 'applicationConfigs',
         'autoStartConfiguration' => 'autoStartConfiguration',
         'autoStopConfiguration' => 'autoStopConfiguration',
+        'clientToken' => 'clientToken',
         'displayReleaseVersion' => 'displayReleaseVersion',
         'envId' => 'envId',
         'fusion' => 'fusion',
@@ -119,6 +125,10 @@ class CreateSessionClusterRequest extends Model
 
         if (null !== $this->autoStopConfiguration) {
             $res['autoStopConfiguration'] = null !== $this->autoStopConfiguration ? $this->autoStopConfiguration->toArray($noStream) : $this->autoStopConfiguration;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
 
         if (null !== $this->displayReleaseVersion) {
@@ -185,6 +195,10 @@ class CreateSessionClusterRequest extends Model
 
         if (isset($map['autoStopConfiguration'])) {
             $model->autoStopConfiguration = autoStopConfiguration::fromMap($map['autoStopConfiguration']);
+        }
+
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
 
         if (isset($map['displayReleaseVersion'])) {

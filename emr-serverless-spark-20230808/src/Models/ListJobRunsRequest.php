@@ -14,6 +14,11 @@ class ListJobRunsRequest extends Model
     /**
      * @var string
      */
+    public $applicationConfigs;
+
+    /**
+     * @var string
+     */
     public $creator;
 
     /**
@@ -67,6 +72,11 @@ class ListJobRunsRequest extends Model
     public $resourceQueueId;
 
     /**
+     * @var string
+     */
+    public $runtimeConfigs;
+
+    /**
      * @var startTime
      */
     public $startTime;
@@ -81,6 +91,7 @@ class ListJobRunsRequest extends Model
      */
     public $tags;
     protected $_name = [
+        'applicationConfigs' => 'applicationConfigs',
         'creator' => 'creator',
         'endTime' => 'endTime',
         'isWorkflow' => 'isWorkflow',
@@ -92,6 +103,7 @@ class ListJobRunsRequest extends Model
         'nextToken' => 'nextToken',
         'regionId' => 'regionId',
         'resourceQueueId' => 'resourceQueueId',
+        'runtimeConfigs' => 'runtimeConfigs',
         'startTime' => 'startTime',
         'states' => 'states',
         'tags' => 'tags',
@@ -117,6 +129,10 @@ class ListJobRunsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->applicationConfigs) {
+            $res['applicationConfigs'] = $this->applicationConfigs;
+        }
+
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
@@ -161,6 +177,10 @@ class ListJobRunsRequest extends Model
             $res['resourceQueueId'] = $this->resourceQueueId;
         }
 
+        if (null !== $this->runtimeConfigs) {
+            $res['runtimeConfigs'] = $this->runtimeConfigs;
+        }
+
         if (null !== $this->startTime) {
             $res['startTime'] = null !== $this->startTime ? $this->startTime->toArray($noStream) : $this->startTime;
         }
@@ -198,6 +218,10 @@ class ListJobRunsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['applicationConfigs'])) {
+            $model->applicationConfigs = $map['applicationConfigs'];
+        }
+
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
@@ -240,6 +264,10 @@ class ListJobRunsRequest extends Model
 
         if (isset($map['resourceQueueId'])) {
             $model->resourceQueueId = $map['resourceQueueId'];
+        }
+
+        if (isset($map['runtimeConfigs'])) {
+            $model->runtimeConfigs = $map['runtimeConfigs'];
         }
 
         if (isset($map['startTime'])) {
