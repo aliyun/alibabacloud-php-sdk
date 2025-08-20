@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\LingMou\V20250527\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateChatSessionResponse extends Model
+class CloseChatInstanceSessionsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateChatSessionResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreateChatSessionResponseBody
+     * @var CloseChatInstanceSessionsResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class CreateChatSessionResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = CreateChatSessionResponseBody::fromMap($map['body']);
+            $model->body = CloseChatInstanceSessionsResponseBody::fromMap($map['body']);
         }
 
         return $model;

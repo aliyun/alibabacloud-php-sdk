@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\LingMou\V20250527\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateChatSessionResponseBody\data;
 
-class CreateChatSessionResponseBody extends Model
+class CloseChatInstanceSessionsResponseBody extends Model
 {
     /**
      * @var string
@@ -15,7 +14,7 @@ class CreateChatSessionResponseBody extends Model
     public $code;
 
     /**
-     * @var data
+     * @var ChatSessionInfo[]
      */
     public $data;
 
@@ -49,8 +48,8 @@ class CreateChatSessionResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->data) {
-            $this->data->validate();
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
         }
         parent::validate();
     }
@@ -63,7 +62,14 @@ class CreateChatSessionResponseBody extends Model
         }
 
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    $res['data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->httpStatusCode) {
@@ -98,7 +104,14 @@ class CreateChatSessionResponseBody extends Model
         }
 
         if (isset($map['data'])) {
-            $model->data = data::fromMap($map['data']);
+            if (!empty($map['data'])) {
+                $model->data = [];
+                $n1 = 0;
+                foreach ($map['data'] as $item1) {
+                    $model->data[$n1] = ChatSessionInfo::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['httpStatusCode'])) {
