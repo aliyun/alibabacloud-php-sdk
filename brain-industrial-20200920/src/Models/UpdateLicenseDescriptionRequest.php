@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateLicenseDescriptionRequest extends Model
 {
@@ -14,8 +14,6 @@ class UpdateLicenseDescriptionRequest extends Model
     public $description;
 
     /**
-     * @example brainindustrial_aicsruntime_public_cn-mdu3ps3kw04
-     *
      * @var string
      */
     public $instanceId;
@@ -24,14 +22,18 @@ class UpdateLicenseDescriptionRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -39,17 +41,18 @@ class UpdateLicenseDescriptionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLicenseDescriptionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

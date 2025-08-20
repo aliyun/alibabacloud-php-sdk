@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Brainindustrial\V20200920;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\ActivateLicenseRequest;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\ActivateLicenseResponse;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\AicsOpenApiInvokeRequest;
@@ -37,11 +36,10 @@ use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\ListUserResourcesRequest;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\ListUserResourcesResponse;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\UpdateLicenseDescriptionRequest;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\UpdateLicenseDescriptionResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Brainindustrial extends OpenApiClient
 {
@@ -66,42 +64,52 @@ class Brainindustrial extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 激活License
-     *  *
-     * @param ActivateLicenseRequest $request ActivateLicenseRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 激活License.
      *
-     * @return ActivateLicenseResponse ActivateLicenseResponse
+     * @param request - ActivateLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ActivateLicenseResponse
+     *
+     * @param ActivateLicenseRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ActivateLicenseResponse
      */
     public function activateLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fingerprint)) {
-            $body['Fingerprint'] = $request->fingerprint;
+        if (null !== $request->fingerprint) {
+            @$body['Fingerprint'] = $request->fingerprint;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['OrderId'] = $request->orderId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ActivateLicense',
@@ -119,11 +127,15 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 激活License
-     *  *
-     * @param ActivateLicenseRequest $request ActivateLicenseRequest
+     * 激活License.
      *
-     * @return ActivateLicenseResponse ActivateLicenseResponse
+     * @param request - ActivateLicenseRequest
+     *
+     * @returns ActivateLicenseResponse
+     *
+     * @param ActivateLicenseRequest $request
+     *
+     * @return ActivateLicenseResponse
      */
     public function activateLicense($request)
     {
@@ -133,38 +145,52 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 调用aics openapi
-     *  *
-     * @param AicsOpenApiInvokeRequest $tmpReq  AicsOpenApiInvokeRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 调用aics openapi.
      *
-     * @return AicsOpenApiInvokeResponse AicsOpenApiInvokeResponse
+     * @param tmpReq - AicsOpenApiInvokeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AicsOpenApiInvokeResponse
+     *
+     * @param AicsOpenApiInvokeRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AicsOpenApiInvokeResponse
      */
     public function aicsOpenApiInvokeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AicsOpenApiInvokeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->param) {
+            $request->paramShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->paramShrink)) {
-            $body['Param'] = $request->paramShrink;
+        if (null !== $request->paramShrink) {
+            @$body['Param'] = $request->paramShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AicsOpenApiInvoke',
@@ -182,11 +208,15 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 调用aics openapi
-     *  *
-     * @param AicsOpenApiInvokeRequest $request AicsOpenApiInvokeRequest
+     * 调用aics openapi.
      *
-     * @return AicsOpenApiInvokeResponse AicsOpenApiInvokeResponse
+     * @param request - AicsOpenApiInvokeRequest
+     *
+     * @returns AicsOpenApiInvokeResponse
+     *
+     * @param AicsOpenApiInvokeRequest $request
+     *
+     * @return AicsOpenApiInvokeResponse
      */
     public function aicsOpenApiInvoke($request)
     {
@@ -196,66 +226,86 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 创建储能运行优化任务
-     *  *
-     * @param CreateEssOptJobRequest $tmpReq  CreateEssOptJobRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建储能运行优化任务
      *
-     * @return CreateEssOptJobResponse CreateEssOptJobResponse
+     * @param tmpReq - CreateEssOptJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEssOptJobResponse
+     *
+     * @param CreateEssOptJobRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateEssOptJobResponse
      */
     public function createEssOptJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateEssOptJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->elecPrice)) {
-            $request->elecPriceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->elecPrice, 'ElecPrice', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->elecPrice) {
+            $request->elecPriceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->elecPrice, 'ElecPrice', 'json');
         }
-        if (!Utils::isUnset($tmpReq->genPrice)) {
-            $request->genPriceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->genPrice, 'GenPrice', 'json');
+
+        if (null !== $tmpReq->genPrice) {
+            $request->genPriceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->genPrice, 'GenPrice', 'json');
         }
-        if (!Utils::isUnset($tmpReq->location)) {
-            $request->locationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->location, 'Location', 'json');
+
+        if (null !== $tmpReq->location) {
+            $request->locationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->location, 'Location', 'json');
         }
-        if (!Utils::isUnset($tmpReq->systemData)) {
-            $request->systemDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->systemData, 'SystemData', 'json');
+
+        if (null !== $tmpReq->systemData) {
+            $request->systemDataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->systemData, 'SystemData', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->businessKey)) {
-            $body['BusinessKey'] = $request->businessKey;
+        if (null !== $request->businessKey) {
+            @$body['BusinessKey'] = $request->businessKey;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $body['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$body['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->elecPriceShrink)) {
-            $body['ElecPrice'] = $request->elecPriceShrink;
+
+        if (null !== $request->elecPriceShrink) {
+            @$body['ElecPrice'] = $request->elecPriceShrink;
         }
-        if (!Utils::isUnset($request->freq)) {
-            $body['Freq'] = $request->freq;
+
+        if (null !== $request->freq) {
+            @$body['Freq'] = $request->freq;
         }
-        if (!Utils::isUnset($request->genPriceShrink)) {
-            $body['GenPrice'] = $request->genPriceShrink;
+
+        if (null !== $request->genPriceShrink) {
+            @$body['GenPrice'] = $request->genPriceShrink;
         }
-        if (!Utils::isUnset($request->locationShrink)) {
-            $body['Location'] = $request->locationShrink;
+
+        if (null !== $request->locationShrink) {
+            @$body['Location'] = $request->locationShrink;
         }
-        if (!Utils::isUnset($request->modelVersion)) {
-            $body['ModelVersion'] = $request->modelVersion;
+
+        if (null !== $request->modelVersion) {
+            @$body['ModelVersion'] = $request->modelVersion;
         }
-        if (!Utils::isUnset($request->runDate)) {
-            $body['RunDate'] = $request->runDate;
+
+        if (null !== $request->runDate) {
+            @$body['RunDate'] = $request->runDate;
         }
-        if (!Utils::isUnset($request->systemDataShrink)) {
-            $body['SystemData'] = $request->systemDataShrink;
+
+        if (null !== $request->systemDataShrink) {
+            @$body['SystemData'] = $request->systemDataShrink;
         }
-        if (!Utils::isUnset($request->timeZone)) {
-            $body['TimeZone'] = $request->timeZone;
+
+        if (null !== $request->timeZone) {
+            @$body['TimeZone'] = $request->timeZone;
         }
-        if (!Utils::isUnset($request->topoType)) {
-            $body['TopoType'] = $request->topoType;
+
+        if (null !== $request->topoType) {
+            @$body['TopoType'] = $request->topoType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateEssOptJob',
@@ -273,11 +323,15 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 创建储能运行优化任务
-     *  *
-     * @param CreateEssOptJobRequest $request CreateEssOptJobRequest
+     * 创建储能运行优化任务
      *
-     * @return CreateEssOptJobResponse CreateEssOptJobResponse
+     * @param request - CreateEssOptJobRequest
+     *
+     * @returns CreateEssOptJobResponse
+     *
+     * @param CreateEssOptJobRequest $request
+     *
+     * @return CreateEssOptJobResponse
      */
     public function createEssOptJob($request)
     {
@@ -287,52 +341,68 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 创建用电负荷预测任务，历史数据来自文件url
-     *  *
-     * @param CreateLoadForecastByFileUrlJobRequest $request CreateLoadForecastByFileUrlJobRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 创建用电负荷预测任务，历史数据来自文件url.
      *
-     * @return CreateLoadForecastByFileUrlJobResponse CreateLoadForecastByFileUrlJobResponse
+     * @param request - CreateLoadForecastByFileUrlJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLoadForecastByFileUrlJobResponse
+     *
+     * @param CreateLoadForecastByFileUrlJobRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateLoadForecastByFileUrlJobResponse
      */
     public function createLoadForecastByFileUrlJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->businessKey)) {
-            $body['BusinessKey'] = $request->businessKey;
+        if (null !== $request->businessKey) {
+            @$body['BusinessKey'] = $request->businessKey;
         }
-        if (!Utils::isUnset($request->deviceType)) {
-            $body['DeviceType'] = $request->deviceType;
+
+        if (null !== $request->deviceType) {
+            @$body['DeviceType'] = $request->deviceType;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $body['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$body['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->freq)) {
-            $body['Freq'] = $request->freq;
+
+        if (null !== $request->freq) {
+            @$body['Freq'] = $request->freq;
         }
-        if (!Utils::isUnset($request->historyUrl)) {
-            $body['HistoryUrl'] = $request->historyUrl;
+
+        if (null !== $request->historyUrl) {
+            @$body['HistoryUrl'] = $request->historyUrl;
         }
-        if (!Utils::isUnset($request->modelVersion)) {
-            $body['ModelVersion'] = $request->modelVersion;
+
+        if (null !== $request->modelVersion) {
+            @$body['ModelVersion'] = $request->modelVersion;
         }
-        if (!Utils::isUnset($request->runDate)) {
-            $body['RunDate'] = $request->runDate;
+
+        if (null !== $request->runDate) {
+            @$body['RunDate'] = $request->runDate;
         }
-        if (!Utils::isUnset($request->systemType)) {
-            $body['SystemType'] = $request->systemType;
+
+        if (null !== $request->systemType) {
+            @$body['SystemType'] = $request->systemType;
         }
-        if (!Utils::isUnset($request->timeColumn)) {
-            $body['TimeColumn'] = $request->timeColumn;
+
+        if (null !== $request->timeColumn) {
+            @$body['TimeColumn'] = $request->timeColumn;
         }
-        if (!Utils::isUnset($request->timeZone)) {
-            $body['TimeZone'] = $request->timeZone;
+
+        if (null !== $request->timeZone) {
+            @$body['TimeZone'] = $request->timeZone;
         }
-        if (!Utils::isUnset($request->valueColumn)) {
-            $body['ValueColumn'] = $request->valueColumn;
+
+        if (null !== $request->valueColumn) {
+            @$body['ValueColumn'] = $request->valueColumn;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateLoadForecastByFileUrlJob',
@@ -350,11 +420,15 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 创建用电负荷预测任务，历史数据来自文件url
-     *  *
-     * @param CreateLoadForecastByFileUrlJobRequest $request CreateLoadForecastByFileUrlJobRequest
+     * 创建用电负荷预测任务，历史数据来自文件url.
      *
-     * @return CreateLoadForecastByFileUrlJobResponse CreateLoadForecastByFileUrlJobResponse
+     * @param request - CreateLoadForecastByFileUrlJobRequest
+     *
+     * @returns CreateLoadForecastByFileUrlJobResponse
+     *
+     * @param CreateLoadForecastByFileUrlJobRequest $request
+     *
+     * @return CreateLoadForecastByFileUrlJobResponse
      */
     public function createLoadForecastByFileUrlJob($request)
     {
@@ -364,51 +438,66 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 创建用电负荷预测任务
-     *  *
-     * @param CreateLoadForecastJobRequest $tmpReq  CreateLoadForecastJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 创建用电负荷预测任务
      *
-     * @return CreateLoadForecastJobResponse CreateLoadForecastJobResponse
+     * @param tmpReq - CreateLoadForecastJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLoadForecastJobResponse
+     *
+     * @param CreateLoadForecastJobRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateLoadForecastJobResponse
      */
     public function createLoadForecastJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateLoadForecastJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->historyData)) {
-            $request->historyDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->historyData, 'HistoryData', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->historyData) {
+            $request->historyDataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->historyData, 'HistoryData', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->businessKey)) {
-            $body['BusinessKey'] = $request->businessKey;
+        if (null !== $request->businessKey) {
+            @$body['BusinessKey'] = $request->businessKey;
         }
-        if (!Utils::isUnset($request->deviceType)) {
-            $body['DeviceType'] = $request->deviceType;
+
+        if (null !== $request->deviceType) {
+            @$body['DeviceType'] = $request->deviceType;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $body['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$body['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->freq)) {
-            $body['Freq'] = $request->freq;
+
+        if (null !== $request->freq) {
+            @$body['Freq'] = $request->freq;
         }
-        if (!Utils::isUnset($request->historyDataShrink)) {
-            $body['HistoryData'] = $request->historyDataShrink;
+
+        if (null !== $request->historyDataShrink) {
+            @$body['HistoryData'] = $request->historyDataShrink;
         }
-        if (!Utils::isUnset($request->modelVersion)) {
-            $body['ModelVersion'] = $request->modelVersion;
+
+        if (null !== $request->modelVersion) {
+            @$body['ModelVersion'] = $request->modelVersion;
         }
-        if (!Utils::isUnset($request->runDate)) {
-            $body['RunDate'] = $request->runDate;
+
+        if (null !== $request->runDate) {
+            @$body['RunDate'] = $request->runDate;
         }
-        if (!Utils::isUnset($request->systemType)) {
-            $body['SystemType'] = $request->systemType;
+
+        if (null !== $request->systemType) {
+            @$body['SystemType'] = $request->systemType;
         }
-        if (!Utils::isUnset($request->timeZone)) {
-            $body['TimeZone'] = $request->timeZone;
+
+        if (null !== $request->timeZone) {
+            @$body['TimeZone'] = $request->timeZone;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateLoadForecastJob',
@@ -426,11 +515,15 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 创建用电负荷预测任务
-     *  *
-     * @param CreateLoadForecastJobRequest $request CreateLoadForecastJobRequest
+     * 创建用电负荷预测任务
      *
-     * @return CreateLoadForecastJobResponse CreateLoadForecastJobResponse
+     * @param request - CreateLoadForecastJobRequest
+     *
+     * @returns CreateLoadForecastJobResponse
+     *
+     * @param CreateLoadForecastJobRequest $request
+     *
+     * @return CreateLoadForecastJobResponse
      */
     public function createLoadForecastJob($request)
     {
@@ -440,60 +533,78 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 创建发电功率预测任务，历史数据来自文件url
-     *  *
-     * @param CreatePowerForecastByFileUrlJobRequest $tmpReq  CreatePowerForecastByFileUrlJobRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 创建发电功率预测任务，历史数据来自文件url.
      *
-     * @return CreatePowerForecastByFileUrlJobResponse CreatePowerForecastByFileUrlJobResponse
+     * @param tmpReq - CreatePowerForecastByFileUrlJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePowerForecastByFileUrlJobResponse
+     *
+     * @param CreatePowerForecastByFileUrlJobRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreatePowerForecastByFileUrlJobResponse
      */
     public function createPowerForecastByFileUrlJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePowerForecastByFileUrlJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->location)) {
-            $request->locationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->location, 'Location', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->location) {
+            $request->locationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->location, 'Location', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->businessKey)) {
-            $body['BusinessKey'] = $request->businessKey;
+        if (null !== $request->businessKey) {
+            @$body['BusinessKey'] = $request->businessKey;
         }
-        if (!Utils::isUnset($request->deviceType)) {
-            $body['DeviceType'] = $request->deviceType;
+
+        if (null !== $request->deviceType) {
+            @$body['DeviceType'] = $request->deviceType;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $body['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$body['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->freq)) {
-            $body['Freq'] = $request->freq;
+
+        if (null !== $request->freq) {
+            @$body['Freq'] = $request->freq;
         }
-        if (!Utils::isUnset($request->historyUrl)) {
-            $body['HistoryUrl'] = $request->historyUrl;
+
+        if (null !== $request->historyUrl) {
+            @$body['HistoryUrl'] = $request->historyUrl;
         }
-        if (!Utils::isUnset($request->locationShrink)) {
-            $body['Location'] = $request->locationShrink;
+
+        if (null !== $request->locationShrink) {
+            @$body['Location'] = $request->locationShrink;
         }
-        if (!Utils::isUnset($request->modelVersion)) {
-            $body['ModelVersion'] = $request->modelVersion;
+
+        if (null !== $request->modelVersion) {
+            @$body['ModelVersion'] = $request->modelVersion;
         }
-        if (!Utils::isUnset($request->runDate)) {
-            $body['RunDate'] = $request->runDate;
+
+        if (null !== $request->runDate) {
+            @$body['RunDate'] = $request->runDate;
         }
-        if (!Utils::isUnset($request->systemType)) {
-            $body['SystemType'] = $request->systemType;
+
+        if (null !== $request->systemType) {
+            @$body['SystemType'] = $request->systemType;
         }
-        if (!Utils::isUnset($request->timeColumn)) {
-            $body['TimeColumn'] = $request->timeColumn;
+
+        if (null !== $request->timeColumn) {
+            @$body['TimeColumn'] = $request->timeColumn;
         }
-        if (!Utils::isUnset($request->timeZone)) {
-            $body['TimeZone'] = $request->timeZone;
+
+        if (null !== $request->timeZone) {
+            @$body['TimeZone'] = $request->timeZone;
         }
-        if (!Utils::isUnset($request->valueColumn)) {
-            $body['ValueColumn'] = $request->valueColumn;
+
+        if (null !== $request->valueColumn) {
+            @$body['ValueColumn'] = $request->valueColumn;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreatePowerForecastByFileUrlJob',
@@ -511,11 +622,15 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 创建发电功率预测任务，历史数据来自文件url
-     *  *
-     * @param CreatePowerForecastByFileUrlJobRequest $request CreatePowerForecastByFileUrlJobRequest
+     * 创建发电功率预测任务，历史数据来自文件url.
      *
-     * @return CreatePowerForecastByFileUrlJobResponse CreatePowerForecastByFileUrlJobResponse
+     * @param request - CreatePowerForecastByFileUrlJobRequest
+     *
+     * @returns CreatePowerForecastByFileUrlJobResponse
+     *
+     * @param CreatePowerForecastByFileUrlJobRequest $request
+     *
+     * @return CreatePowerForecastByFileUrlJobResponse
      */
     public function createPowerForecastByFileUrlJob($request)
     {
@@ -525,57 +640,74 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 创建发电功率预测任务
-     *  *
-     * @param CreatePowerForecastJobRequest $tmpReq  CreatePowerForecastJobRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 创建发电功率预测任务
      *
-     * @return CreatePowerForecastJobResponse CreatePowerForecastJobResponse
+     * @param tmpReq - CreatePowerForecastJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePowerForecastJobResponse
+     *
+     * @param CreatePowerForecastJobRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreatePowerForecastJobResponse
      */
     public function createPowerForecastJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePowerForecastJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->historyData)) {
-            $request->historyDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->historyData, 'HistoryData', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->historyData) {
+            $request->historyDataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->historyData, 'HistoryData', 'json');
         }
-        if (!Utils::isUnset($tmpReq->location)) {
-            $request->locationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->location, 'Location', 'json');
+
+        if (null !== $tmpReq->location) {
+            $request->locationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->location, 'Location', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->businessKey)) {
-            $body['BusinessKey'] = $request->businessKey;
+        if (null !== $request->businessKey) {
+            @$body['BusinessKey'] = $request->businessKey;
         }
-        if (!Utils::isUnset($request->deviceType)) {
-            $body['DeviceType'] = $request->deviceType;
+
+        if (null !== $request->deviceType) {
+            @$body['DeviceType'] = $request->deviceType;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $body['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$body['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->freq)) {
-            $body['Freq'] = $request->freq;
+
+        if (null !== $request->freq) {
+            @$body['Freq'] = $request->freq;
         }
-        if (!Utils::isUnset($request->historyDataShrink)) {
-            $body['HistoryData'] = $request->historyDataShrink;
+
+        if (null !== $request->historyDataShrink) {
+            @$body['HistoryData'] = $request->historyDataShrink;
         }
-        if (!Utils::isUnset($request->locationShrink)) {
-            $body['Location'] = $request->locationShrink;
+
+        if (null !== $request->locationShrink) {
+            @$body['Location'] = $request->locationShrink;
         }
-        if (!Utils::isUnset($request->modelVersion)) {
-            $body['ModelVersion'] = $request->modelVersion;
+
+        if (null !== $request->modelVersion) {
+            @$body['ModelVersion'] = $request->modelVersion;
         }
-        if (!Utils::isUnset($request->runDate)) {
-            $body['RunDate'] = $request->runDate;
+
+        if (null !== $request->runDate) {
+            @$body['RunDate'] = $request->runDate;
         }
-        if (!Utils::isUnset($request->systemType)) {
-            $body['SystemType'] = $request->systemType;
+
+        if (null !== $request->systemType) {
+            @$body['SystemType'] = $request->systemType;
         }
-        if (!Utils::isUnset($request->timeZone)) {
-            $body['TimeZone'] = $request->timeZone;
+
+        if (null !== $request->timeZone) {
+            @$body['TimeZone'] = $request->timeZone;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreatePowerForecastJob',
@@ -593,11 +725,15 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 创建发电功率预测任务
-     *  *
-     * @param CreatePowerForecastJobRequest $request CreatePowerForecastJobRequest
+     * 创建发电功率预测任务
      *
-     * @return CreatePowerForecastJobResponse CreatePowerForecastJobResponse
+     * @param request - CreatePowerForecastJobRequest
+     *
+     * @returns CreatePowerForecastJobResponse
+     *
+     * @param CreatePowerForecastJobRequest $request
+     *
+     * @return CreatePowerForecastJobResponse
      */
     public function createPowerForecastJob($request)
     {
@@ -607,22 +743,28 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 查询aivpp算法job
-     *  *
-     * @param GetAivppAlgoJobRequest $request GetAivppAlgoJobRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询aivpp算法job.
      *
-     * @return GetAivppAlgoJobResponse GetAivppAlgoJobResponse
+     * @param request - GetAivppAlgoJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAivppAlgoJobResponse
+     *
+     * @param GetAivppAlgoJobRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAivppAlgoJobResponse
      */
     public function getAivppAlgoJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetAivppAlgoJob',
@@ -640,11 +782,15 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 查询aivpp算法job
-     *  *
-     * @param GetAivppAlgoJobRequest $request GetAivppAlgoJobRequest
+     * 查询aivpp算法job.
      *
-     * @return GetAivppAlgoJobResponse GetAivppAlgoJobResponse
+     * @param request - GetAivppAlgoJobRequest
+     *
+     * @returns GetAivppAlgoJobResponse
+     *
+     * @param GetAivppAlgoJobRequest $request
+     *
+     * @return GetAivppAlgoJobResponse
      */
     public function getAivppAlgoJob($request)
     {
@@ -654,25 +800,32 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary License详情
-     *  *
-     * @param GetLicenseRequest $request GetLicenseRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * License详情.
      *
-     * @return GetLicenseResponse GetLicenseResponse
+     * @param request - GetLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLicenseResponse
+     *
+     * @param GetLicenseRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetLicenseResponse
      */
     public function getLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetLicense',
@@ -690,11 +843,15 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary License详情
-     *  *
-     * @param GetLicenseRequest $request GetLicenseRequest
+     * License详情.
      *
-     * @return GetLicenseResponse GetLicenseResponse
+     * @param request - GetLicenseRequest
+     *
+     * @returns GetLicenseResponse
+     *
+     * @param GetLicenseRequest $request
+     *
+     * @return GetLicenseResponse
      */
     public function getLicense($request)
     {
@@ -704,25 +861,32 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户AIVPP资源列表
-     *  *
-     * @param ListAivppResourcesRequest $request ListAivppResourcesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取用户AIVPP资源列表.
      *
-     * @return ListAivppResourcesResponse ListAivppResourcesResponse
+     * @param request - ListAivppResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAivppResourcesResponse
+     *
+     * @param ListAivppResourcesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListAivppResourcesResponse
      */
     public function listAivppResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListAivppResources',
@@ -740,11 +904,15 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户AIVPP资源列表
-     *  *
-     * @param ListAivppResourcesRequest $request ListAivppResourcesRequest
+     * 获取用户AIVPP资源列表.
      *
-     * @return ListAivppResourcesResponse ListAivppResourcesResponse
+     * @param request - ListAivppResourcesRequest
+     *
+     * @returns ListAivppResourcesResponse
+     *
+     * @param ListAivppResourcesRequest $request
+     *
+     * @return ListAivppResourcesResponse
      */
     public function listAivppResources($request)
     {
@@ -754,28 +922,36 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary License列表
-     *  *
-     * @param ListLicensesRequest $request ListLicensesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * License列表.
      *
-     * @return ListLicensesResponse ListLicensesResponse
+     * @param request - ListLicensesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLicensesResponse
+     *
+     * @param ListLicensesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListLicensesResponse
      */
     public function listLicensesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryStr)) {
-            $body['QueryStr'] = $request->queryStr;
+
+        if (null !== $request->queryStr) {
+            @$body['QueryStr'] = $request->queryStr;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListLicenses',
@@ -793,11 +969,15 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary License列表
-     *  *
-     * @param ListLicensesRequest $request ListLicensesRequest
+     * License列表.
      *
-     * @return ListLicensesResponse ListLicensesResponse
+     * @param request - ListLicensesRequest
+     *
+     * @returns ListLicensesResponse
+     *
+     * @param ListLicensesRequest $request
+     *
+     * @return ListLicensesResponse
      */
     public function listLicenses($request)
     {
@@ -807,22 +987,28 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户资源列表
-     *  *
-     * @param ListUserResourcesRequest $request ListUserResourcesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取用户资源列表.
      *
-     * @return ListUserResourcesResponse ListUserResourcesResponse
+     * @param request - ListUserResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserResourcesResponse
+     *
+     * @param ListUserResourcesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListUserResourcesResponse
      */
     public function listUserResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->commodityCode)) {
-            $body['CommodityCode'] = $request->commodityCode;
+        if (null !== $request->commodityCode) {
+            @$body['CommodityCode'] = $request->commodityCode;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListUserResources',
@@ -840,11 +1026,15 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户资源列表
-     *  *
-     * @param ListUserResourcesRequest $request ListUserResourcesRequest
+     * 获取用户资源列表.
      *
-     * @return ListUserResourcesResponse ListUserResourcesResponse
+     * @param request - ListUserResourcesRequest
+     *
+     * @returns ListUserResourcesResponse
+     *
+     * @param ListUserResourcesRequest $request
+     *
+     * @return ListUserResourcesResponse
      */
     public function listUserResources($request)
     {
@@ -854,25 +1044,32 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 更新license描述
-     *  *
-     * @param UpdateLicenseDescriptionRequest $request UpdateLicenseDescriptionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 更新license描述.
      *
-     * @return UpdateLicenseDescriptionResponse UpdateLicenseDescriptionResponse
+     * @param request - UpdateLicenseDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLicenseDescriptionResponse
+     *
+     * @param UpdateLicenseDescriptionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateLicenseDescriptionResponse
      */
     public function updateLicenseDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateLicenseDescription',
@@ -890,11 +1087,15 @@ class Brainindustrial extends OpenApiClient
     }
 
     /**
-     * @summary 更新license描述
-     *  *
-     * @param UpdateLicenseDescriptionRequest $request UpdateLicenseDescriptionRequest
+     * 更新license描述.
      *
-     * @return UpdateLicenseDescriptionResponse UpdateLicenseDescriptionResponse
+     * @param request - UpdateLicenseDescriptionRequest
+     *
+     * @returns UpdateLicenseDescriptionResponse
+     *
+     * @param UpdateLicenseDescriptionRequest $request
+     *
+     * @return UpdateLicenseDescriptionResponse
      */
     public function updateLicenseDescription($request)
     {

@@ -4,60 +4,66 @@
 
 namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AicsOpenApiInvokeShrinkRequest extends Model
 {
     /**
-     * @example 119397
-     *
+     * @var string
+     */
+    public $jobId;
+
+    /**
      * @var string
      */
     public $nodeId;
 
     /**
-     * @example {"a":1}
-     *
      * @var string
      */
     public $paramShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ae5f9884c9914ed7af72b07e6c1616f9
-     *
      * @var string
      */
     public $serviceId;
 
     /**
-     * @example EXPERIMENT
-     *
      * @var string
      */
     public $type;
     protected $_name = [
+        'jobId' => 'JobId',
         'nodeId' => 'NodeId',
         'paramShrink' => 'Param',
         'serviceId' => 'ServiceId',
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->paramShrink) {
             $res['Param'] = $this->paramShrink;
         }
+
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -65,23 +71,30 @@ class AicsOpenApiInvokeShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AicsOpenApiInvokeShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['Param'])) {
             $model->paramShrink = $map['Param'];
         }
+
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
