@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CommonConfig\idp;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class feishu extends Model
 {
@@ -34,20 +34,26 @@ class feishu extends Model
         'loginRedirect' => 'LoginRedirect',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventCallbackBase) {
             $res['EventCallbackBase'] = $this->eventCallbackBase;
         }
+
         if (null !== $this->eventLabel) {
             $res['EventLabel'] = $this->eventLabel;
         }
+
         if (null !== $this->homePage) {
             $res['HomePage'] = $this->homePage;
         }
+
         if (null !== $this->loginRedirect) {
             $res['LoginRedirect'] = $this->loginRedirect;
         }
@@ -55,23 +61,26 @@ class feishu extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return feishu
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventCallbackBase'])) {
             $model->eventCallbackBase = $map['EventCallbackBase'];
         }
+
         if (isset($map['EventLabel'])) {
             $model->eventLabel = $map['EventLabel'];
         }
+
         if (isset($map['HomePage'])) {
             $model->homePage = $map['HomePage'];
         }
+
         if (isset($map['LoginRedirect'])) {
             $model->loginRedirect = $map['LoginRedirect'];
         }

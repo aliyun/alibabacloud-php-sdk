@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationResponseBody\application;
-use AlibabaCloud\Tea\Model;
 
 class GetPrivateAccessApplicationResponseBody extends Model
 {
     /**
-     * @description The office application.
-     *
      * @var application
      */
     public $application;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 3ACC5EDC-2B7D-5032-8C58-D7615D66C1D4
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetPrivateAccessApplicationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->application) {
+            $this->application->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->application) {
-            $res['Application'] = null !== $this->application ? $this->application->toMap() : null;
+            $res['Application'] = null !== $this->application ? $this->application->toArray($noStream) : $this->application;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetPrivateAccessApplicationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPrivateAccessApplicationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Application'])) {
             $model->application = application::fromMap($map['Application']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

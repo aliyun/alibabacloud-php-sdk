@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IdpConfig extends Model
 {
@@ -112,122 +112,187 @@ class IdpConfig extends Model
         'wuyingConfig' => 'WuyingConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->attrMapConfig) {
+            $this->attrMapConfig->validate();
+        }
+        if (null !== $this->connectConfig) {
+            $this->connectConfig->validate();
+        }
+        if (null !== $this->dingtalkConfig) {
+            $this->dingtalkConfig->validate();
+        }
+        if (null !== $this->feishuConfig) {
+            $this->feishuConfig->validate();
+        }
+        if (null !== $this->idaasConfig) {
+            $this->idaasConfig->validate();
+        }
+        if (null !== $this->ldapConfig) {
+            $this->ldapConfig->validate();
+        }
+        if (null !== $this->loginConfig) {
+            $this->loginConfig->validate();
+        }
+        if (null !== $this->syncConfig) {
+            $this->syncConfig->validate();
+        }
+        if (null !== $this->weixinConfig) {
+            $this->weixinConfig->validate();
+        }
+        if (null !== $this->wuyingConfig) {
+            $this->wuyingConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attrMapConfig) {
-            $res['AttrMapConfig'] = null !== $this->attrMapConfig ? $this->attrMapConfig->toMap() : null;
+            $res['AttrMapConfig'] = null !== $this->attrMapConfig ? $this->attrMapConfig->toArray($noStream) : $this->attrMapConfig;
         }
+
         if (null !== $this->connectConfig) {
-            $res['ConnectConfig'] = null !== $this->connectConfig ? $this->connectConfig->toMap() : null;
+            $res['ConnectConfig'] = null !== $this->connectConfig ? $this->connectConfig->toArray($noStream) : $this->connectConfig;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->dingtalkConfig) {
-            $res['DingtalkConfig'] = null !== $this->dingtalkConfig ? $this->dingtalkConfig->toMap() : null;
+            $res['DingtalkConfig'] = null !== $this->dingtalkConfig ? $this->dingtalkConfig->toArray($noStream) : $this->dingtalkConfig;
         }
+
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->feishuConfig) {
-            $res['FeishuConfig'] = null !== $this->feishuConfig ? $this->feishuConfig->toMap() : null;
+            $res['FeishuConfig'] = null !== $this->feishuConfig ? $this->feishuConfig->toArray($noStream) : $this->feishuConfig;
         }
+
         if (null !== $this->idaasConfig) {
-            $res['IdaasConfig'] = null !== $this->idaasConfig ? $this->idaasConfig->toMap() : null;
+            $res['IdaasConfig'] = null !== $this->idaasConfig ? $this->idaasConfig->toArray($noStream) : $this->idaasConfig;
         }
+
         if (null !== $this->idpConfigId) {
             $res['IdpConfigId'] = $this->idpConfigId;
         }
+
         if (null !== $this->lastSyncTimeUnix) {
             $res['LastSyncTimeUnix'] = $this->lastSyncTimeUnix;
         }
+
         if (null !== $this->ldapConfig) {
-            $res['LdapConfig'] = null !== $this->ldapConfig ? $this->ldapConfig->toMap() : null;
+            $res['LdapConfig'] = null !== $this->ldapConfig ? $this->ldapConfig->toArray($noStream) : $this->ldapConfig;
         }
+
         if (null !== $this->loginConfig) {
-            $res['LoginConfig'] = null !== $this->loginConfig ? $this->loginConfig->toMap() : null;
+            $res['LoginConfig'] = null !== $this->loginConfig ? $this->loginConfig->toArray($noStream) : $this->loginConfig;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->syncConfig) {
-            $res['SyncConfig'] = null !== $this->syncConfig ? $this->syncConfig->toMap() : null;
+            $res['SyncConfig'] = null !== $this->syncConfig ? $this->syncConfig->toArray($noStream) : $this->syncConfig;
         }
+
         if (null !== $this->syncStatus) {
             $res['SyncStatus'] = $this->syncStatus;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->weixinConfig) {
-            $res['WeixinConfig'] = null !== $this->weixinConfig ? $this->weixinConfig->toMap() : null;
+            $res['WeixinConfig'] = null !== $this->weixinConfig ? $this->weixinConfig->toArray($noStream) : $this->weixinConfig;
         }
+
         if (null !== $this->wuyingConfig) {
-            $res['WuyingConfig'] = null !== $this->wuyingConfig ? $this->wuyingConfig->toMap() : null;
+            $res['WuyingConfig'] = null !== $this->wuyingConfig ? $this->wuyingConfig->toArray($noStream) : $this->wuyingConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IdpConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttrMapConfig'])) {
             $model->attrMapConfig = IdpAttrMapConfig::fromMap($map['AttrMapConfig']);
         }
+
         if (isset($map['ConnectConfig'])) {
             $model->connectConfig = IdpConnectConfig::fromMap($map['ConnectConfig']);
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DingtalkConfig'])) {
             $model->dingtalkConfig = IdpDingtalkSubConfig::fromMap($map['DingtalkConfig']);
         }
+
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['FeishuConfig'])) {
             $model->feishuConfig = IdpFeishuSubConfig::fromMap($map['FeishuConfig']);
         }
+
         if (isset($map['IdaasConfig'])) {
             $model->idaasConfig = IdpIdaas2SubConfig::fromMap($map['IdaasConfig']);
         }
+
         if (isset($map['IdpConfigId'])) {
             $model->idpConfigId = $map['IdpConfigId'];
         }
+
         if (isset($map['LastSyncTimeUnix'])) {
             $model->lastSyncTimeUnix = $map['LastSyncTimeUnix'];
         }
+
         if (isset($map['LdapConfig'])) {
             $model->ldapConfig = IdpLdapSubConfig::fromMap($map['LdapConfig']);
         }
+
         if (isset($map['LoginConfig'])) {
             $model->loginConfig = IdpLoginConfig::fromMap($map['LoginConfig']);
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SyncConfig'])) {
             $model->syncConfig = IdpSyncConfig::fromMap($map['SyncConfig']);
         }
+
         if (isset($map['SyncStatus'])) {
             $model->syncStatus = $map['SyncStatus'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['WeixinConfig'])) {
             $model->weixinConfig = IdpWeixin2SubConfig::fromMap($map['WeixinConfig']);
         }
+
         if (isset($map['WuyingConfig'])) {
             $model->wuyingConfig = OpenStructIdpWuyingSubConfig::fromMap($map['WuyingConfig']);
         }

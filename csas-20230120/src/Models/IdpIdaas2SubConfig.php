@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IdpIdaas2SubConfig extends Model
 {
@@ -64,35 +64,46 @@ class IdpIdaas2SubConfig extends Model
         'samlMetadata' => 'SamlMetadata',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
+
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
+
         if (null !== $this->clientSecret) {
             $res['ClientSecret'] = $this->clientSecret;
         }
+
         if (null !== $this->eventAesKey) {
             $res['EventAesKey'] = $this->eventAesKey;
         }
+
         if (null !== $this->eventLabel) {
             $res['EventLabel'] = $this->eventLabel;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->publicKeyEndpoint) {
             $res['PublicKeyEndpoint'] = $this->publicKeyEndpoint;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->samlMetadata) {
             $res['SamlMetadata'] = $this->samlMetadata;
         }
@@ -100,38 +111,46 @@ class IdpIdaas2SubConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IdpIdaas2SubConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
+
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
+
         if (isset($map['ClientSecret'])) {
             $model->clientSecret = $map['ClientSecret'];
         }
+
         if (isset($map['EventAesKey'])) {
             $model->eventAesKey = $map['EventAesKey'];
         }
+
         if (isset($map['EventLabel'])) {
             $model->eventLabel = $map['EventLabel'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PublicKeyEndpoint'])) {
             $model->publicKeyEndpoint = $map['PublicKeyEndpoint'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['SamlMetadata'])) {
             $model->samlMetadata = $map['SamlMetadata'];
         }

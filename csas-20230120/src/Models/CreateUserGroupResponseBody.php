@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateUserGroupResponseBody extends Model
 {
     /**
-     * @example 102350E7-1A20-58F5-9D63-ABEA820AE6E1
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example usergroup-6f1ef2fc56b6****
-     *
      * @var string
      */
     public $userGroupId;
@@ -26,14 +22,18 @@ class CreateUserGroupResponseBody extends Model
         'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->userGroupId) {
             $res['UserGroupId'] = $this->userGroupId;
         }
@@ -41,17 +41,18 @@ class CreateUserGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateUserGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UserGroupId'])) {
             $model->userGroupId = $map['UserGroupId'];
         }

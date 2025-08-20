@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachApplication2ConnectorRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $applicationIds;
 
     /**
-     * @description ConnectorID。
-     *
-     * This parameter is required.
-     *
-     * @example connector-94db94e06b98****
-     *
      * @var string
      */
     public $connectorId;
@@ -30,14 +22,28 @@ class AttachApplication2ConnectorRequest extends Model
         'connectorId' => 'ConnectorId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->applicationIds)) {
+            Model::validateArray($this->applicationIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationIds) {
-            $res['ApplicationIds'] = $this->applicationIds;
+            if (\is_array($this->applicationIds)) {
+                $res['ApplicationIds'] = [];
+                $n1 = 0;
+                foreach ($this->applicationIds as $item1) {
+                    $res['ApplicationIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->connectorId) {
             $res['ConnectorId'] = $this->connectorId;
         }
@@ -45,19 +51,25 @@ class AttachApplication2ConnectorRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachApplication2ConnectorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationIds'])) {
             if (!empty($map['ApplicationIds'])) {
-                $model->applicationIds = $map['ApplicationIds'];
+                $model->applicationIds = [];
+                $n1 = 0;
+                foreach ($map['ApplicationIds'] as $item1) {
+                    $model->applicationIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ConnectorId'])) {
             $model->connectorId = $map['ConnectorId'];
         }

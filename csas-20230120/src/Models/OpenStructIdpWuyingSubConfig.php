@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OpenStructIdpWuyingSubConfig extends Model
 {
@@ -16,29 +16,47 @@ class OpenStructIdpWuyingSubConfig extends Model
         'aliuids' => 'Aliuids',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->aliuids)) {
+            Model::validateArray($this->aliuids);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliuids) {
-            $res['Aliuids'] = $this->aliuids;
+            if (\is_array($this->aliuids)) {
+                $res['Aliuids'] = [];
+                $n1 = 0;
+                foreach ($this->aliuids as $item1) {
+                    $res['Aliuids'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OpenStructIdpWuyingSubConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Aliuids'])) {
             if (!empty($map['Aliuids'])) {
-                $model->aliuids = $map['Aliuids'];
+                $model->aliuids = [];
+                $n1 = 0;
+                foreach ($map['Aliuids'] as $item1) {
+                    $model->aliuids[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

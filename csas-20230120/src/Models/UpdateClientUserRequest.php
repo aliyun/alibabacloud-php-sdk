@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateClientUserRequest extends Model
 {
     /**
-     * @example 10701
-     *
      * @var string
      */
     public $departmentId;
@@ -21,24 +19,16 @@ class UpdateClientUserRequest extends Model
     public $description;
 
     /**
-     * @example johndoe@example.com
-     *
      * @var string
      */
     public $email;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 20644
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example 13641966835
-     *
      * @var string
      */
     public $mobileNumber;
@@ -50,23 +40,30 @@ class UpdateClientUserRequest extends Model
         'mobileNumber' => 'MobileNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->mobileNumber) {
             $res['MobileNumber'] = $this->mobileNumber;
         }
@@ -74,26 +71,30 @@ class UpdateClientUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateClientUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DepartmentId'])) {
             $model->departmentId = $map['DepartmentId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['MobileNumber'])) {
             $model->mobileNumber = $map['MobileNumber'];
         }

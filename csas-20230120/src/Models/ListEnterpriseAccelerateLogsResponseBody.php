@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListEnterpriseAccelerateLogsResponseBody\logs;
-use AlibabaCloud\Tea\Model;
 
 class ListEnterpriseAccelerateLogsResponseBody extends Model
 {
@@ -15,15 +15,11 @@ class ListEnterpriseAccelerateLogsResponseBody extends Model
     public $logs;
 
     /**
-     * @example 43F07A6A-294D-56FB-85EB-6AD00C5B60FF
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 120
-     *
      * @var int
      */
     public $totalNumber;
@@ -33,23 +29,32 @@ class ListEnterpriseAccelerateLogsResponseBody extends Model
         'totalNumber' => 'TotalNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->logs)) {
+            Model::validateArray($this->logs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logs) {
-            $res['Logs'] = [];
-            if (null !== $this->logs && \is_array($this->logs)) {
-                $n = 0;
-                foreach ($this->logs as $item) {
-                    $res['Logs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logs)) {
+                $res['Logs'] = [];
+                $n1 = 0;
+                foreach ($this->logs as $item1) {
+                    $res['Logs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalNumber) {
             $res['TotalNumber'] = $this->totalNumber;
         }
@@ -57,26 +62,29 @@ class ListEnterpriseAccelerateLogsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEnterpriseAccelerateLogsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n = 0;
-                foreach ($map['Logs'] as $item) {
-                    $model->logs[$n++] = null !== $item ? logs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Logs'] as $item1) {
+                    $model->logs[$n1] = logs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalNumber'])) {
             $model->totalNumber = $map['TotalNumber'];
         }

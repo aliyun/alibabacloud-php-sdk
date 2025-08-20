@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PAL7ConfigReplaceRule extends Model
 {
     /**
-     * @example aaa
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @example bbb
-     *
      * @var string
      */
     public $to;
@@ -26,14 +22,18 @@ class PAL7ConfigReplaceRule extends Model
         'to' => 'To',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->to) {
             $res['To'] = $this->to;
         }
@@ -41,17 +41,18 @@ class PAL7ConfigReplaceRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PAL7ConfigReplaceRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['To'])) {
             $model->to = $map['To'];
         }

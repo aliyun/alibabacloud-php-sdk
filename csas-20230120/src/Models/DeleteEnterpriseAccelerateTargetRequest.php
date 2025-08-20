@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteEnterpriseAccelerateTargetRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example eap-ed1f0e392a28a4e6
-     *
      * @var string
      */
     public $eapId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $target;
@@ -28,35 +22,55 @@ class DeleteEnterpriseAccelerateTargetRequest extends Model
         'target' => 'Target',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->target)) {
+            Model::validateArray($this->target);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eapId) {
             $res['EapId'] = $this->eapId;
         }
+
         if (null !== $this->target) {
-            $res['Target'] = $this->target;
+            if (\is_array($this->target)) {
+                $res['Target'] = [];
+                $n1 = 0;
+                foreach ($this->target as $item1) {
+                    $res['Target'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteEnterpriseAccelerateTargetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EapId'])) {
             $model->eapId = $map['EapId'];
         }
+
         if (isset($map['Target'])) {
             if (!empty($map['Target'])) {
-                $model->target = $map['Target'];
+                $model->target = [];
+                $n1 = 0;
+                foreach ($map['Target'] as $item1) {
+                    $model->target[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

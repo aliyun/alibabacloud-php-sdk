@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CommonConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CommonConfig\idp\dingtalk;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CommonConfig\idp\feishu;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CommonConfig\idp\idaas2;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CommonConfig\idp\saml;
-use AlibabaCloud\Tea\Model;
 
 class idp extends Model
 {
@@ -44,50 +44,73 @@ class idp extends Model
         'saml' => 'Saml',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->dingtalk) {
+            $this->dingtalk->validate();
+        }
+        if (null !== $this->feishu) {
+            $this->feishu->validate();
+        }
+        if (null !== $this->idaas2) {
+            $this->idaas2->validate();
+        }
+        if (null !== $this->saml) {
+            $this->saml->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apOidcCallbackUrl) {
             $res['ApOidcCallbackUrl'] = $this->apOidcCallbackUrl;
         }
+
         if (null !== $this->dingtalk) {
-            $res['Dingtalk'] = null !== $this->dingtalk ? $this->dingtalk->toMap() : null;
+            $res['Dingtalk'] = null !== $this->dingtalk ? $this->dingtalk->toArray($noStream) : $this->dingtalk;
         }
+
         if (null !== $this->feishu) {
-            $res['Feishu'] = null !== $this->feishu ? $this->feishu->toMap() : null;
+            $res['Feishu'] = null !== $this->feishu ? $this->feishu->toArray($noStream) : $this->feishu;
         }
+
         if (null !== $this->idaas2) {
-            $res['Idaas2'] = null !== $this->idaas2 ? $this->idaas2->toMap() : null;
+            $res['Idaas2'] = null !== $this->idaas2 ? $this->idaas2->toArray($noStream) : $this->idaas2;
         }
+
         if (null !== $this->saml) {
-            $res['Saml'] = null !== $this->saml ? $this->saml->toMap() : null;
+            $res['Saml'] = null !== $this->saml ? $this->saml->toArray($noStream) : $this->saml;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return idp
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApOidcCallbackUrl'])) {
             $model->apOidcCallbackUrl = $map['ApOidcCallbackUrl'];
         }
+
         if (isset($map['Dingtalk'])) {
             $model->dingtalk = dingtalk::fromMap($map['Dingtalk']);
         }
+
         if (isset($map['Feishu'])) {
             $model->feishu = feishu::fromMap($map['Feishu']);
         }
+
         if (isset($map['Idaas2'])) {
             $model->idaas2 = idaas2::fromMap($map['Idaas2']);
         }
+
         if (isset($map['Saml'])) {
             $model->saml = saml::fromMap($map['Saml']);
         }

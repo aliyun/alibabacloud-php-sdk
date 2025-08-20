@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponseBody\connectors;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class connectorClients extends Model
 {
@@ -34,20 +34,26 @@ class connectorClients extends Model
         'publicIp' => 'PublicIp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionStatus) {
             $res['ConnectionStatus'] = $this->connectionStatus;
         }
+
         if (null !== $this->devTag) {
             $res['DevTag'] = $this->devTag;
         }
+
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
         }
+
         if (null !== $this->publicIp) {
             $res['PublicIp'] = $this->publicIp;
         }
@@ -55,23 +61,26 @@ class connectorClients extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return connectorClients
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionStatus'])) {
             $model->connectionStatus = $map['ConnectionStatus'];
         }
+
         if (isset($map['DevTag'])) {
             $model->devTag = $map['DevTag'];
         }
+
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
         }
+
         if (isset($map['PublicIp'])) {
             $model->publicIp = $map['PublicIp'];
         }

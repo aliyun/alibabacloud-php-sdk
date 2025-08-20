@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponseBody\process\appUninstallPolicies;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponseBody\process\deviceRegistrationPolicies;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponseBody\process\dlpSendPolicies;
@@ -11,10 +12,9 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponseBody\pro
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponseBody\process\domainWhitelistPolicies;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponseBody\process\endpointHardeningPolicies;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponseBody\process\peripheralBlockPolicies;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponseBody\process\processNodes;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponseBody\process\softwareBlockPolicies;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponseBody\process\softwareHardeningPolicies;
-use AlibabaCloud\SDK\Csas\V20230120\Models\undefined;
-use AlibabaCloud\Tea\Model;
 
 class process extends Model
 {
@@ -24,8 +24,6 @@ class process extends Model
     public $appUninstallPolicies;
 
     /**
-     * @example 2022-10-25 10:44:09
-     *
      * @var string
      */
     public $createTime;
@@ -66,8 +64,6 @@ class process extends Model
     public $peripheralBlockPolicies;
 
     /**
-     * @example approval-process-dc61e92ba5c5****
-     *
      * @var string
      */
     public $processId;
@@ -78,7 +74,7 @@ class process extends Model
     public $processName;
 
     /**
-     * @var undefined[][]
+     * @var processNodes[][]
      */
     public $processNodes;
 
@@ -108,106 +104,191 @@ class process extends Model
         'softwareHardeningPolicies' => 'SoftwareHardeningPolicies',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->appUninstallPolicies) {
+            $this->appUninstallPolicies->validate();
+        }
+        if (null !== $this->deviceRegistrationPolicies) {
+            $this->deviceRegistrationPolicies->validate();
+        }
+        if (null !== $this->dlpSendPolicies) {
+            $this->dlpSendPolicies->validate();
+        }
+        if (null !== $this->domainBlacklistPolicies) {
+            $this->domainBlacklistPolicies->validate();
+        }
+        if (null !== $this->domainWhitelistPolicies) {
+            $this->domainWhitelistPolicies->validate();
+        }
+        if (null !== $this->endpointHardeningPolicies) {
+            $this->endpointHardeningPolicies->validate();
+        }
+        if (null !== $this->peripheralBlockPolicies) {
+            $this->peripheralBlockPolicies->validate();
+        }
+        if (\is_array($this->processNodes)) {
+            Model::validateArray($this->processNodes);
+        }
+        if (null !== $this->softwareBlockPolicies) {
+            $this->softwareBlockPolicies->validate();
+        }
+        if (null !== $this->softwareHardeningPolicies) {
+            $this->softwareHardeningPolicies->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appUninstallPolicies) {
-            $res['AppUninstallPolicies'] = null !== $this->appUninstallPolicies ? $this->appUninstallPolicies->toMap() : null;
+            $res['AppUninstallPolicies'] = null !== $this->appUninstallPolicies ? $this->appUninstallPolicies->toArray($noStream) : $this->appUninstallPolicies;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->deviceRegistrationPolicies) {
-            $res['DeviceRegistrationPolicies'] = null !== $this->deviceRegistrationPolicies ? $this->deviceRegistrationPolicies->toMap() : null;
+            $res['DeviceRegistrationPolicies'] = null !== $this->deviceRegistrationPolicies ? $this->deviceRegistrationPolicies->toArray($noStream) : $this->deviceRegistrationPolicies;
         }
+
         if (null !== $this->dlpSendPolicies) {
-            $res['DlpSendPolicies'] = null !== $this->dlpSendPolicies ? $this->dlpSendPolicies->toMap() : null;
+            $res['DlpSendPolicies'] = null !== $this->dlpSendPolicies ? $this->dlpSendPolicies->toArray($noStream) : $this->dlpSendPolicies;
         }
+
         if (null !== $this->domainBlacklistPolicies) {
-            $res['DomainBlacklistPolicies'] = null !== $this->domainBlacklistPolicies ? $this->domainBlacklistPolicies->toMap() : null;
+            $res['DomainBlacklistPolicies'] = null !== $this->domainBlacklistPolicies ? $this->domainBlacklistPolicies->toArray($noStream) : $this->domainBlacklistPolicies;
         }
+
         if (null !== $this->domainWhitelistPolicies) {
-            $res['DomainWhitelistPolicies'] = null !== $this->domainWhitelistPolicies ? $this->domainWhitelistPolicies->toMap() : null;
+            $res['DomainWhitelistPolicies'] = null !== $this->domainWhitelistPolicies ? $this->domainWhitelistPolicies->toArray($noStream) : $this->domainWhitelistPolicies;
         }
+
         if (null !== $this->endpointHardeningPolicies) {
-            $res['EndpointHardeningPolicies'] = null !== $this->endpointHardeningPolicies ? $this->endpointHardeningPolicies->toMap() : null;
+            $res['EndpointHardeningPolicies'] = null !== $this->endpointHardeningPolicies ? $this->endpointHardeningPolicies->toArray($noStream) : $this->endpointHardeningPolicies;
         }
+
         if (null !== $this->peripheralBlockPolicies) {
-            $res['PeripheralBlockPolicies'] = null !== $this->peripheralBlockPolicies ? $this->peripheralBlockPolicies->toMap() : null;
+            $res['PeripheralBlockPolicies'] = null !== $this->peripheralBlockPolicies ? $this->peripheralBlockPolicies->toArray($noStream) : $this->peripheralBlockPolicies;
         }
+
         if (null !== $this->processId) {
             $res['ProcessId'] = $this->processId;
         }
+
         if (null !== $this->processName) {
             $res['ProcessName'] = $this->processName;
         }
+
         if (null !== $this->processNodes) {
-            $res['ProcessNodes'] = $this->processNodes;
+            if (\is_array($this->processNodes)) {
+                $res['ProcessNodes'] = [];
+                $n1 = 0;
+                foreach ($this->processNodes as $item1) {
+                    if (\is_array($item1)) {
+                        $res['ProcessNodes'][$n1] = [];
+                        $n2 = 0;
+                        foreach ($item1 as $item2) {
+                            $res['ProcessNodes'][$n1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->softwareBlockPolicies) {
-            $res['SoftwareBlockPolicies'] = null !== $this->softwareBlockPolicies ? $this->softwareBlockPolicies->toMap() : null;
+            $res['SoftwareBlockPolicies'] = null !== $this->softwareBlockPolicies ? $this->softwareBlockPolicies->toArray($noStream) : $this->softwareBlockPolicies;
         }
+
         if (null !== $this->softwareHardeningPolicies) {
-            $res['SoftwareHardeningPolicies'] = null !== $this->softwareHardeningPolicies ? $this->softwareHardeningPolicies->toMap() : null;
+            $res['SoftwareHardeningPolicies'] = null !== $this->softwareHardeningPolicies ? $this->softwareHardeningPolicies->toArray($noStream) : $this->softwareHardeningPolicies;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return process
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppUninstallPolicies'])) {
             $model->appUninstallPolicies = appUninstallPolicies::fromMap($map['AppUninstallPolicies']);
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DeviceRegistrationPolicies'])) {
             $model->deviceRegistrationPolicies = deviceRegistrationPolicies::fromMap($map['DeviceRegistrationPolicies']);
         }
+
         if (isset($map['DlpSendPolicies'])) {
             $model->dlpSendPolicies = dlpSendPolicies::fromMap($map['DlpSendPolicies']);
         }
+
         if (isset($map['DomainBlacklistPolicies'])) {
             $model->domainBlacklistPolicies = domainBlacklistPolicies::fromMap($map['DomainBlacklistPolicies']);
         }
+
         if (isset($map['DomainWhitelistPolicies'])) {
             $model->domainWhitelistPolicies = domainWhitelistPolicies::fromMap($map['DomainWhitelistPolicies']);
         }
+
         if (isset($map['EndpointHardeningPolicies'])) {
             $model->endpointHardeningPolicies = endpointHardeningPolicies::fromMap($map['EndpointHardeningPolicies']);
         }
+
         if (isset($map['PeripheralBlockPolicies'])) {
             $model->peripheralBlockPolicies = peripheralBlockPolicies::fromMap($map['PeripheralBlockPolicies']);
         }
+
         if (isset($map['ProcessId'])) {
             $model->processId = $map['ProcessId'];
         }
+
         if (isset($map['ProcessName'])) {
             $model->processName = $map['ProcessName'];
         }
+
         if (isset($map['ProcessNodes'])) {
             if (!empty($map['ProcessNodes'])) {
-                $model->processNodes = $map['ProcessNodes'];
+                $model->processNodes = [];
+                $n1 = 0;
+                foreach ($map['ProcessNodes'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->processNodes[$n1] = [];
+                        $n2 = 0;
+                        foreach ($item1 as $item2) {
+                            $model->processNodes[$n1][$n2] = processNodes::fromMap($item2);
+                            ++$n2;
+                        }
+                    }
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SoftwareBlockPolicies'])) {
             $model->softwareBlockPolicies = softwareBlockPolicies::fromMap($map['SoftwareBlockPolicies']);
         }
+
         if (isset($map['SoftwareHardeningPolicies'])) {
             $model->softwareHardeningPolicies = softwareHardeningPolicies::fromMap($map['SoftwareHardeningPolicies']);
         }

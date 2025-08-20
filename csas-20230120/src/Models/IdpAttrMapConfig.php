@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IdpAttrMapConfig extends Model
 {
@@ -16,17 +16,24 @@ class IdpAttrMapConfig extends Model
         'mapItems' => 'MapItems',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->mapItems)) {
+            Model::validateArray($this->mapItems);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mapItems) {
-            $res['MapItems'] = [];
-            if (null !== $this->mapItems && \is_array($this->mapItems)) {
-                $n = 0;
-                foreach ($this->mapItems as $item) {
-                    $res['MapItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mapItems)) {
+                $res['MapItems'] = [];
+                $n1 = 0;
+                foreach ($this->mapItems as $item1) {
+                    $res['MapItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +41,21 @@ class IdpAttrMapConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IdpAttrMapConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MapItems'])) {
             if (!empty($map['MapItems'])) {
                 $model->mapItems = [];
-                $n = 0;
-                foreach ($map['MapItems'] as $item) {
-                    $model->mapItems[$n++] = null !== $item ? IdpAttrMapConfigItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MapItems'] as $item1) {
+                    $model->mapItems[$n1] = IdpAttrMapConfigItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

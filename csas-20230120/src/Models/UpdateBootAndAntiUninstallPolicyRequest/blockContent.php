@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\UpdateBootAndAntiUninstallPolicyRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateBootAndAntiUninstallPolicyRequest\blockContent\blockTextEn;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateBootAndAntiUninstallPolicyRequest\blockContent\blockTextZh;
-use AlibabaCloud\Tea\Model;
 
 class blockContent extends Model
 {
@@ -24,32 +24,43 @@ class blockContent extends Model
         'blockTextZh' => 'BlockTextZh',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->blockTextEn) {
+            $this->blockTextEn->validate();
+        }
+        if (null !== $this->blockTextZh) {
+            $this->blockTextZh->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blockTextEn) {
-            $res['BlockTextEn'] = null !== $this->blockTextEn ? $this->blockTextEn->toMap() : null;
+            $res['BlockTextEn'] = null !== $this->blockTextEn ? $this->blockTextEn->toArray($noStream) : $this->blockTextEn;
         }
+
         if (null !== $this->blockTextZh) {
-            $res['BlockTextZh'] = null !== $this->blockTextZh ? $this->blockTextZh->toMap() : null;
+            $res['BlockTextZh'] = null !== $this->blockTextZh ? $this->blockTextZh->toArray($noStream) : $this->blockTextZh;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return blockContent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BlockTextEn'])) {
             $model->blockTextEn = blockTextEn::fromMap($map['BlockTextEn']);
         }
+
         if (isset($map['BlockTextZh'])) {
             $model->blockTextZh = blockTextZh::fromMap($map['BlockTextZh']);
         }

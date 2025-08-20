@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisposalContent extends Model
 {
@@ -17,6 +17,11 @@ class DisposalContent extends Model
      * @var string
      */
     public $alertContentEn;
+
+    /**
+     * @var int
+     */
+    public $alertIntervalSeconds;
 
     /**
      * @var string
@@ -44,8 +49,6 @@ class DisposalContent extends Model
     public $noticeContentEn;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $notifyActions;
@@ -54,9 +57,15 @@ class DisposalContent extends Model
      * @var string[]
      */
     public $prohibitActions;
+
+    /**
+     * @var string[]
+     */
+    public $prohibitSoftwareIds;
     protected $_name = [
         'alertContent' => 'AlertContent',
         'alertContentEn' => 'AlertContentEn',
+        'alertIntervalSeconds' => 'AlertIntervalSeconds',
         'alertTitle' => 'AlertTitle',
         'alertTitleEn' => 'AlertTitleEn',
         'nacDemotionPolicyIds' => 'NacDemotionPolicyIds',
@@ -64,83 +73,181 @@ class DisposalContent extends Model
         'noticeContentEn' => 'NoticeContentEn',
         'notifyActions' => 'NotifyActions',
         'prohibitActions' => 'ProhibitActions',
+        'prohibitSoftwareIds' => 'ProhibitSoftwareIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->nacDemotionPolicyIds)) {
+            Model::validateArray($this->nacDemotionPolicyIds);
+        }
+        if (\is_array($this->notifyActions)) {
+            Model::validateArray($this->notifyActions);
+        }
+        if (\is_array($this->prohibitActions)) {
+            Model::validateArray($this->prohibitActions);
+        }
+        if (\is_array($this->prohibitSoftwareIds)) {
+            Model::validateArray($this->prohibitSoftwareIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertContent) {
             $res['AlertContent'] = $this->alertContent;
         }
+
         if (null !== $this->alertContentEn) {
             $res['AlertContentEn'] = $this->alertContentEn;
         }
+
+        if (null !== $this->alertIntervalSeconds) {
+            $res['AlertIntervalSeconds'] = $this->alertIntervalSeconds;
+        }
+
         if (null !== $this->alertTitle) {
             $res['AlertTitle'] = $this->alertTitle;
         }
+
         if (null !== $this->alertTitleEn) {
             $res['AlertTitleEn'] = $this->alertTitleEn;
         }
+
         if (null !== $this->nacDemotionPolicyIds) {
-            $res['NacDemotionPolicyIds'] = $this->nacDemotionPolicyIds;
+            if (\is_array($this->nacDemotionPolicyIds)) {
+                $res['NacDemotionPolicyIds'] = [];
+                $n1 = 0;
+                foreach ($this->nacDemotionPolicyIds as $item1) {
+                    $res['NacDemotionPolicyIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->noticeContent) {
             $res['NoticeContent'] = $this->noticeContent;
         }
+
         if (null !== $this->noticeContentEn) {
             $res['NoticeContentEn'] = $this->noticeContentEn;
         }
+
         if (null !== $this->notifyActions) {
-            $res['NotifyActions'] = $this->notifyActions;
+            if (\is_array($this->notifyActions)) {
+                $res['NotifyActions'] = [];
+                $n1 = 0;
+                foreach ($this->notifyActions as $item1) {
+                    $res['NotifyActions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->prohibitActions) {
-            $res['ProhibitActions'] = $this->prohibitActions;
+            if (\is_array($this->prohibitActions)) {
+                $res['ProhibitActions'] = [];
+                $n1 = 0;
+                foreach ($this->prohibitActions as $item1) {
+                    $res['ProhibitActions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->prohibitSoftwareIds) {
+            if (\is_array($this->prohibitSoftwareIds)) {
+                $res['ProhibitSoftwareIds'] = [];
+                $n1 = 0;
+                foreach ($this->prohibitSoftwareIds as $item1) {
+                    $res['ProhibitSoftwareIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisposalContent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertContent'])) {
             $model->alertContent = $map['AlertContent'];
         }
+
         if (isset($map['AlertContentEn'])) {
             $model->alertContentEn = $map['AlertContentEn'];
         }
+
+        if (isset($map['AlertIntervalSeconds'])) {
+            $model->alertIntervalSeconds = $map['AlertIntervalSeconds'];
+        }
+
         if (isset($map['AlertTitle'])) {
             $model->alertTitle = $map['AlertTitle'];
         }
+
         if (isset($map['AlertTitleEn'])) {
             $model->alertTitleEn = $map['AlertTitleEn'];
         }
+
         if (isset($map['NacDemotionPolicyIds'])) {
             if (!empty($map['NacDemotionPolicyIds'])) {
-                $model->nacDemotionPolicyIds = $map['NacDemotionPolicyIds'];
+                $model->nacDemotionPolicyIds = [];
+                $n1 = 0;
+                foreach ($map['NacDemotionPolicyIds'] as $item1) {
+                    $model->nacDemotionPolicyIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NoticeContent'])) {
             $model->noticeContent = $map['NoticeContent'];
         }
+
         if (isset($map['NoticeContentEn'])) {
             $model->noticeContentEn = $map['NoticeContentEn'];
         }
+
         if (isset($map['NotifyActions'])) {
             if (!empty($map['NotifyActions'])) {
-                $model->notifyActions = $map['NotifyActions'];
+                $model->notifyActions = [];
+                $n1 = 0;
+                foreach ($map['NotifyActions'] as $item1) {
+                    $model->notifyActions[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ProhibitActions'])) {
             if (!empty($map['ProhibitActions'])) {
-                $model->prohibitActions = $map['ProhibitActions'];
+                $model->prohibitActions = [];
+                $n1 = 0;
+                foreach ($map['ProhibitActions'] as $item1) {
+                    $model->prohibitActions[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ProhibitSoftwareIds'])) {
+            if (!empty($map['ProhibitSoftwareIds'])) {
+                $model->prohibitSoftwareIds = [];
+                $n1 = 0;
+                foreach ($map['ProhibitSoftwareIds'] as $item1) {
+                    $model->prohibitSoftwareIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

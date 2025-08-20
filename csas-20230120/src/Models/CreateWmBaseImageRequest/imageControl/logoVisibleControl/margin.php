@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageRequest\imageControl\logoVisibleControl;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class margin extends Model
 {
@@ -34,20 +34,26 @@ class margin extends Model
         'top' => 'Top',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bottom) {
             $res['Bottom'] = $this->bottom;
         }
+
         if (null !== $this->left) {
             $res['Left'] = $this->left;
         }
+
         if (null !== $this->right) {
             $res['Right'] = $this->right;
         }
+
         if (null !== $this->top) {
             $res['Top'] = $this->top;
         }
@@ -55,23 +61,26 @@ class margin extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return margin
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bottom'])) {
             $model->bottom = $map['Bottom'];
         }
+
         if (isset($map['Left'])) {
             $model->left = $map['Left'];
         }
+
         if (isset($map['Right'])) {
             $model->right = $map['Right'];
         }
+
         if (isset($map['Top'])) {
             $model->top = $map['Top'];
         }

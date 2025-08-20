@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AuthReportInterval extends Model
 {
@@ -22,14 +22,18 @@ class AuthReportInterval extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->timeUnit) {
             $res['TimeUnit'] = $this->timeUnit;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -37,17 +41,18 @@ class AuthReportInterval extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AuthReportInterval
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TimeUnit'])) {
             $model->timeUnit = $map['TimeUnit'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

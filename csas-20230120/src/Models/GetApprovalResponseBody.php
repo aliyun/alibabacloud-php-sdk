@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalResponseBody\approval;
-use AlibabaCloud\Tea\Model;
 
 class GetApprovalResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class GetApprovalResponseBody extends Model
     public $approval;
 
     /**
-     * @example 7E9D7ACD-53D5-56EF-A913-79D148D06299
-     *
      * @var string
      */
     public $requestId;
@@ -25,20 +23,28 @@ class GetApprovalResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->approval)) {
+            Model::validateArray($this->approval);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->approval) {
-            $res['Approval'] = [];
-            if (null !== $this->approval && \is_array($this->approval)) {
-                $n = 0;
-                foreach ($this->approval as $item) {
-                    $res['Approval'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->approval)) {
+                $res['Approval'] = [];
+                $n1 = 0;
+                foreach ($this->approval as $item1) {
+                    $res['Approval'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,23 +52,25 @@ class GetApprovalResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetApprovalResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Approval'])) {
             if (!empty($map['Approval'])) {
                 $model->approval = [];
-                $n = 0;
-                foreach ($map['Approval'] as $item) {
-                    $model->approval[$n++] = null !== $item ? approval::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Approval'] as $item1) {
+                    $model->approval[$n1] = approval::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

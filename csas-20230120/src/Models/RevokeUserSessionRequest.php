@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RevokeUserSessionRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 12345678
-     *
      * @var string
      */
     public $externalIds;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example idp-cfg9vcrqylo39c39uxnw
-     *
      * @var string
      */
     public $idpId;
@@ -30,14 +22,18 @@ class RevokeUserSessionRequest extends Model
         'idpId' => 'IdpId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->externalIds) {
             $res['ExternalIds'] = $this->externalIds;
         }
+
         if (null !== $this->idpId) {
             $res['IdpId'] = $this->idpId;
         }
@@ -45,17 +41,18 @@ class RevokeUserSessionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RevokeUserSessionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExternalIds'])) {
             $model->externalIds = $map['ExternalIds'];
         }
+
         if (isset($map['IdpId'])) {
             $model->idpId = $map['IdpId'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPolicesForUserGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $userGroupIds;
@@ -18,29 +16,47 @@ class ListPolicesForUserGroupRequest extends Model
         'userGroupIds' => 'UserGroupIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userGroupIds)) {
+            Model::validateArray($this->userGroupIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userGroupIds) {
-            $res['UserGroupIds'] = $this->userGroupIds;
+            if (\is_array($this->userGroupIds)) {
+                $res['UserGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->userGroupIds as $item1) {
+                    $res['UserGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPolicesForUserGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserGroupIds'])) {
             if (!empty($map['UserGroupIds'])) {
-                $model->userGroupIds = $map['UserGroupIds'];
+                $model->userGroupIds = [];
+                $n1 = 0;
+                foreach ($map['UserGroupIds'] as $item1) {
+                    $model->userGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

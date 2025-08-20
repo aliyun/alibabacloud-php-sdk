@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OpenStructSaseDepartment extends Model
 {
@@ -34,20 +34,26 @@ class OpenStructSaseDepartment extends Model
         'parentDepartmentId' => 'ParentDepartmentId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
         }
+
         if (null !== $this->fullDn) {
             $res['FullDn'] = $this->fullDn;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->parentDepartmentId) {
             $res['ParentDepartmentId'] = $this->parentDepartmentId;
         }
@@ -55,23 +61,26 @@ class OpenStructSaseDepartment extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OpenStructSaseDepartment
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DepartmentId'])) {
             $model->departmentId = $map['DepartmentId'];
         }
+
         if (isset($map['FullDn'])) {
             $model->fullDn = $map['FullDn'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ParentDepartmentId'])) {
             $model->parentDepartmentId = $map['ParentDepartmentId'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\ListApprovalProcessesForApprovalSchemasResponseBody\schemas;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class processes extends Model
 {
     /**
-     * @example 2022-10-25 10:44:09
-     *
      * @var string
      */
     public $createTime;
@@ -21,8 +19,6 @@ class processes extends Model
     public $description;
 
     /**
-     * @example approval-process-dc61e92ba5c5****
-     *
      * @var string
      */
     public $processId;
@@ -38,20 +34,26 @@ class processes extends Model
         'processName' => 'ProcessName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->processId) {
             $res['ProcessId'] = $this->processId;
         }
+
         if (null !== $this->processName) {
             $res['ProcessName'] = $this->processName;
         }
@@ -59,23 +61,26 @@ class processes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return processes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ProcessId'])) {
             $model->processId = $map['ProcessId'];
         }
+
         if (isset($map['ProcessName'])) {
             $model->processName = $map['ProcessName'];
         }

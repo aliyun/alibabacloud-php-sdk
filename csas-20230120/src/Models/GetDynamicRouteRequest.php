@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDynamicRouteRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example dr-16ff07c8207d****
-     *
      * @var string
      */
     public $dynamicRouteId;
@@ -20,9 +16,12 @@ class GetDynamicRouteRequest extends Model
         'dynamicRouteId' => 'DynamicRouteId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dynamicRouteId) {
@@ -32,11 +31,11 @@ class GetDynamicRouteRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDynamicRouteRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

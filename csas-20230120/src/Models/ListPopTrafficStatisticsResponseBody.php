@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPopTrafficStatisticsResponseBody\trafficData;
-use AlibabaCloud\Tea\Model;
 
 class ListPopTrafficStatisticsResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example EFE7EBB2-449D-5BBB-B381-CA7839BC1649
-     *
      * @var string
      */
     public $requestId;
@@ -27,20 +23,28 @@ class ListPopTrafficStatisticsResponseBody extends Model
         'trafficData' => 'TrafficData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->trafficData)) {
+            Model::validateArray($this->trafficData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->trafficData) {
-            $res['TrafficData'] = [];
-            if (null !== $this->trafficData && \is_array($this->trafficData)) {
-                $n = 0;
-                foreach ($this->trafficData as $item) {
-                    $res['TrafficData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->trafficData)) {
+                $res['TrafficData'] = [];
+                $n1 = 0;
+                foreach ($this->trafficData as $item1) {
+                    $res['TrafficData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,23 +52,25 @@ class ListPopTrafficStatisticsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPopTrafficStatisticsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TrafficData'])) {
             if (!empty($map['TrafficData'])) {
                 $model->trafficData = [];
-                $n = 0;
-                foreach ($map['TrafficData'] as $item) {
-                    $model->trafficData[$n++] = null !== $item ? trafficData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TrafficData'] as $item1) {
+                    $model->trafficData[$n1] = trafficData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

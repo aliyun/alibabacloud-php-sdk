@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteIdpDepartmentRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 10829
-     *
      * @var string
      */
     public $departmentId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 507
-     *
      * @var string
      */
     public $idpConfigId;
@@ -30,14 +22,18 @@ class DeleteIdpDepartmentRequest extends Model
         'idpConfigId' => 'IdpConfigId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
         }
+
         if (null !== $this->idpConfigId) {
             $res['IdpConfigId'] = $this->idpConfigId;
         }
@@ -45,17 +41,18 @@ class DeleteIdpDepartmentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteIdpDepartmentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DepartmentId'])) {
             $model->departmentId = $map['DepartmentId'];
         }
+
         if (isset($map['IdpConfigId'])) {
             $model->idpConfigId = $map['IdpConfigId'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponseBody\connectors;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class upgradeTime extends Model
 {
     /**
-     * @example 23:00
-     *
      * @var string
      */
     public $end;
 
     /**
-     * @example 20:00
-     *
      * @var string
      */
     public $start;
@@ -26,14 +22,18 @@ class upgradeTime extends Model
         'start' => 'Start',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->end) {
             $res['End'] = $this->end;
         }
+
         if (null !== $this->start) {
             $res['Start'] = $this->start;
         }
@@ -41,17 +41,18 @@ class upgradeTime extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return upgradeTime
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['End'])) {
             $model->end = $map['End'];
         }
+
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
         }

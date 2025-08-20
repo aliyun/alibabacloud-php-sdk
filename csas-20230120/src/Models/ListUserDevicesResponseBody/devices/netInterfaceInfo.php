@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\ListUserDevicesResponseBody\devices;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class netInterfaceInfo extends Model
 {
@@ -22,14 +22,18 @@ class netInterfaceInfo extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mac) {
             $res['Mac'] = $this->mac;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -37,17 +41,18 @@ class netInterfaceInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return netInterfaceInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mac'])) {
             $model->mac = $map['Mac'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

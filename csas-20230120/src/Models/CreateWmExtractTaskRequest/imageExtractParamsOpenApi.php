@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmExtractTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class imageExtractParamsOpenApi extends Model
 {
@@ -16,9 +16,12 @@ class imageExtractParamsOpenApi extends Model
         'srcLogoBase64' => 'SrcLogoBase64',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->srcLogoBase64) {
@@ -28,11 +31,11 @@ class imageExtractParamsOpenApi extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageExtractParamsOpenApi
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

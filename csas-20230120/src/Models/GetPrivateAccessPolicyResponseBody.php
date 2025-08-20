@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessPolicyResponseBody\policy;
-use AlibabaCloud\Tea\Model;
 
 class GetPrivateAccessPolicyResponseBody extends Model
 {
     /**
-     * @description Intranet access policy.
-     *
      * @var policy
      */
     public $policy;
 
     /**
-     * @description The ID of the current request.
-     *
-     * @example 7E9D7ACD-53D5-56EF-A913-79D148D06299
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetPrivateAccessPolicyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->policy) {
+            $this->policy->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policy) {
-            $res['Policy'] = null !== $this->policy ? $this->policy->toMap() : null;
+            $res['Policy'] = null !== $this->policy ? $this->policy->toArray($noStream) : $this->policy;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetPrivateAccessPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPrivateAccessPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Policy'])) {
             $model->policy = policy::fromMap($map['Policy']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

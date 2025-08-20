@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePrivateAccessTagRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example tag-d3f64e8bdd4a****
-     *
      * @var string
      */
     public $tagId;
@@ -20,9 +16,12 @@ class DeletePrivateAccessTagRequest extends Model
         'tagId' => 'TagId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagId) {
@@ -32,11 +31,11 @@ class DeletePrivateAccessTagRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePrivateAccessTagRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

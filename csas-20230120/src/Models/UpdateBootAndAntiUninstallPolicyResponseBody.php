@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateBootAndAntiUninstallPolicyResponseBody\strategy;
-use AlibabaCloud\Tea\Model;
 
 class UpdateBootAndAntiUninstallPolicyResponseBody extends Model
 {
     /**
-     * @example CB67D866-1E54-5106-89DF-6D70C73E5989
-     *
      * @var string
      */
     public $requestId;
@@ -25,32 +23,40 @@ class UpdateBootAndAntiUninstallPolicyResponseBody extends Model
         'strategy' => 'Strategy',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->strategy) {
+            $this->strategy->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->strategy) {
-            $res['Strategy'] = null !== $this->strategy ? $this->strategy->toMap() : null;
+            $res['Strategy'] = null !== $this->strategy ? $this->strategy->toArray($noStream) : $this->strategy;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateBootAndAntiUninstallPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Strategy'])) {
             $model->strategy = strategy::fromMap($map['Strategy']);
         }

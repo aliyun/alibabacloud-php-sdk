@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponseBody\connectors\applications;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponseBody\connectors\connectorClients;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponseBody\connectors\upgradeTime;
-use AlibabaCloud\Tea\Model;
 
 class connectors extends Model
 {
@@ -22,45 +22,31 @@ class connectors extends Model
     public $connectorClients;
 
     /**
-     * @description ConnectorID。
-     *
-     * @example connector-94db94e06b98****
-     *
      * @var string
      */
     public $connectorId;
 
     /**
-     * @example 2022-09-27 18:10:25
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @example connector_name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example Online
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example Enabled
-     *
      * @var string
      */
     public $switchStatus;
@@ -81,98 +67,130 @@ class connectors extends Model
         'upgradeTime' => 'UpgradeTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->applications)) {
+            Model::validateArray($this->applications);
+        }
+        if (\is_array($this->connectorClients)) {
+            Model::validateArray($this->connectorClients);
+        }
+        if (null !== $this->upgradeTime) {
+            $this->upgradeTime->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applications) {
-            $res['Applications'] = [];
-            if (null !== $this->applications && \is_array($this->applications)) {
-                $n = 0;
-                foreach ($this->applications as $item) {
-                    $res['Applications'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->applications)) {
+                $res['Applications'] = [];
+                $n1 = 0;
+                foreach ($this->applications as $item1) {
+                    $res['Applications'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->connectorClients) {
-            $res['ConnectorClients'] = [];
-            if (null !== $this->connectorClients && \is_array($this->connectorClients)) {
-                $n = 0;
-                foreach ($this->connectorClients as $item) {
-                    $res['ConnectorClients'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->connectorClients)) {
+                $res['ConnectorClients'] = [];
+                $n1 = 0;
+                foreach ($this->connectorClients as $item1) {
+                    $res['ConnectorClients'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->connectorId) {
             $res['ConnectorId'] = $this->connectorId;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->switchStatus) {
             $res['SwitchStatus'] = $this->switchStatus;
         }
+
         if (null !== $this->upgradeTime) {
-            $res['UpgradeTime'] = null !== $this->upgradeTime ? $this->upgradeTime->toMap() : null;
+            $res['UpgradeTime'] = null !== $this->upgradeTime ? $this->upgradeTime->toArray($noStream) : $this->upgradeTime;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return connectors
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Applications'])) {
             if (!empty($map['Applications'])) {
                 $model->applications = [];
-                $n = 0;
-                foreach ($map['Applications'] as $item) {
-                    $model->applications[$n++] = null !== $item ? applications::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Applications'] as $item1) {
+                    $model->applications[$n1] = applications::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ConnectorClients'])) {
             if (!empty($map['ConnectorClients'])) {
                 $model->connectorClients = [];
-                $n = 0;
-                foreach ($map['ConnectorClients'] as $item) {
-                    $model->connectorClients[$n++] = null !== $item ? connectorClients::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConnectorClients'] as $item1) {
+                    $model->connectorClients[$n1] = connectorClients::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ConnectorId'])) {
             $model->connectorId = $map['ConnectorId'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['SwitchStatus'])) {
             $model->switchStatus = $map['SwitchStatus'];
         }
+
         if (isset($map['UpgradeTime'])) {
             $model->upgradeTime = upgradeTime::fromMap($map['UpgradeTime']);
         }

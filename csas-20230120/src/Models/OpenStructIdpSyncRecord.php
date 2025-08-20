@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OpenStructIdpSyncRecord extends Model
 {
@@ -76,41 +76,54 @@ class OpenStructIdpSyncRecord extends Model
         'timeUnix' => 'TimeUnix',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+
         if (null !== $this->idpRawJson) {
             $res['IdpRawJson'] = $this->idpRawJson;
         }
+
         if (null !== $this->idpResourceId) {
             $res['IdpResourceId'] = $this->idpResourceId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->recordType) {
             $res['RecordType'] = $this->recordType;
         }
+
         if (null !== $this->saseRawJson) {
             $res['SaseRawJson'] = $this->saseRawJson;
         }
+
         if (null !== $this->saseResourceId) {
             $res['SaseResourceId'] = $this->saseResourceId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->syncRecordId) {
             $res['SyncRecordId'] = $this->syncRecordId;
         }
+
         if (null !== $this->syncTaskId) {
             $res['SyncTaskId'] = $this->syncTaskId;
         }
+
         if (null !== $this->timeUnix) {
             $res['TimeUnix'] = $this->timeUnix;
         }
@@ -118,44 +131,54 @@ class OpenStructIdpSyncRecord extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OpenStructIdpSyncRecord
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+
         if (isset($map['IdpRawJson'])) {
             $model->idpRawJson = $map['IdpRawJson'];
         }
+
         if (isset($map['IdpResourceId'])) {
             $model->idpResourceId = $map['IdpResourceId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RecordType'])) {
             $model->recordType = $map['RecordType'];
         }
+
         if (isset($map['SaseRawJson'])) {
             $model->saseRawJson = $map['SaseRawJson'];
         }
+
         if (isset($map['SaseResourceId'])) {
             $model->saseResourceId = $map['SaseResourceId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['SyncRecordId'])) {
             $model->syncRecordId = $map['SyncRecordId'];
         }
+
         if (isset($map['SyncTaskId'])) {
             $model->syncTaskId = $map['SyncTaskId'];
         }
+
         if (isset($map['TimeUnix'])) {
             $model->timeUnix = $map['TimeUnix'];
         }

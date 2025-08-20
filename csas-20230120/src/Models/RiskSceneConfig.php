@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RiskSceneConfig extends Model
 {
@@ -22,37 +22,72 @@ class RiskSceneConfig extends Model
         'officeChannel' => 'OfficeChannel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->detectChannel)) {
+            Model::validateArray($this->detectChannel);
+        }
+        if (\is_array($this->officeChannel)) {
+            Model::validateArray($this->officeChannel);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->detectChannel) {
-            $res['DetectChannel'] = $this->detectChannel;
+            if (\is_array($this->detectChannel)) {
+                $res['DetectChannel'] = [];
+                $n1 = 0;
+                foreach ($this->detectChannel as $item1) {
+                    $res['DetectChannel'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->officeChannel) {
-            $res['OfficeChannel'] = $this->officeChannel;
+            if (\is_array($this->officeChannel)) {
+                $res['OfficeChannel'] = [];
+                $n1 = 0;
+                foreach ($this->officeChannel as $item1) {
+                    $res['OfficeChannel'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RiskSceneConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DetectChannel'])) {
             if (!empty($map['DetectChannel'])) {
-                $model->detectChannel = $map['DetectChannel'];
+                $model->detectChannel = [];
+                $n1 = 0;
+                foreach ($map['DetectChannel'] as $item1) {
+                    $model->detectChannel[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['OfficeChannel'])) {
             if (!empty($map['OfficeChannel'])) {
-                $model->officeChannel = $map['OfficeChannel'];
+                $model->officeChannel = [];
+                $n1 = 0;
+                foreach ($map['OfficeChannel'] as $item1) {
+                    $model->officeChannel[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

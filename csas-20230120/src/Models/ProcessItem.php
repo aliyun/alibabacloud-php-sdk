@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ProcessItem extends Model
 {
@@ -34,20 +34,26 @@ class ProcessItem extends Model
         'process' => 'Process',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bundleId) {
             $res['BundleId'] = $this->bundleId;
         }
+
         if (null !== $this->devType) {
             $res['DevType'] = $this->devType;
         }
+
         if (null !== $this->directory) {
             $res['Directory'] = $this->directory;
         }
+
         if (null !== $this->process) {
             $res['Process'] = $this->process;
         }
@@ -55,23 +61,26 @@ class ProcessItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ProcessItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BundleId'])) {
             $model->bundleId = $map['BundleId'];
         }
+
         if (isset($map['DevType'])) {
             $model->devType = $map['DevType'];
         }
+
         if (isset($map['Directory'])) {
             $model->directory = $map['Directory'];
         }
+
         if (isset($map['Process'])) {
             $model->process = $map['Process'];
         }

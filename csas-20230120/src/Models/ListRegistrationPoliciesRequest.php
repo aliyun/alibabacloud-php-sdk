@@ -4,52 +4,36 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListRegistrationPoliciesRequest extends Model
 {
     /**
-     * @example LimitAll
-     *
      * @var string
      */
     public $companyLimitType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example UserGroupAll
-     *
      * @var string
      */
     public $matchMode;
 
     /**
-     * @example registration_policy_name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example LimitDiff
-     *
      * @var string
      */
     public $personalLimitType;
@@ -60,15 +44,11 @@ class ListRegistrationPoliciesRequest extends Model
     public $policyIds;
 
     /**
-     * @example Enabled
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example usergroup-6f1ef2fc56b6****
-     *
      * @var string
      */
     public $userGroupId;
@@ -84,35 +64,56 @@ class ListRegistrationPoliciesRequest extends Model
         'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->policyIds)) {
+            Model::validateArray($this->policyIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->companyLimitType) {
             $res['CompanyLimitType'] = $this->companyLimitType;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->matchMode) {
             $res['MatchMode'] = $this->matchMode;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->personalLimitType) {
             $res['PersonalLimitType'] = $this->personalLimitType;
         }
+
         if (null !== $this->policyIds) {
-            $res['PolicyIds'] = $this->policyIds;
+            if (\is_array($this->policyIds)) {
+                $res['PolicyIds'] = [];
+                $n1 = 0;
+                foreach ($this->policyIds as $item1) {
+                    $res['PolicyIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->userGroupId) {
             $res['UserGroupId'] = $this->userGroupId;
         }
@@ -120,40 +121,53 @@ class ListRegistrationPoliciesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRegistrationPoliciesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CompanyLimitType'])) {
             $model->companyLimitType = $map['CompanyLimitType'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['MatchMode'])) {
             $model->matchMode = $map['MatchMode'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['PersonalLimitType'])) {
             $model->personalLimitType = $map['PersonalLimitType'];
         }
+
         if (isset($map['PolicyIds'])) {
             if (!empty($map['PolicyIds'])) {
-                $model->policyIds = $map['PolicyIds'];
+                $model->policyIds = [];
+                $n1 = 0;
+                foreach ($map['PolicyIds'] as $item1) {
+                    $model->policyIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['UserGroupId'])) {
             $model->userGroupId = $map['UserGroupId'];
         }

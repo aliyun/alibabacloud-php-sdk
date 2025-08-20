@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PAL7ConfigRewriteOp extends Model
 {
@@ -19,8 +19,6 @@ class PAL7ConfigRewriteOp extends Model
     public $oldValue;
 
     /**
-     * @example add,set,delete,replace
-     *
      * @var string
      */
     public $op;
@@ -42,23 +40,30 @@ class PAL7ConfigRewriteOp extends Model
         'valueVariable' => 'ValueVariable',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->oldValue) {
             $res['OldValue'] = $this->oldValue;
         }
+
         if (null !== $this->op) {
             $res['Op'] = $this->op;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
+
         if (null !== $this->valueVariable) {
             $res['ValueVariable'] = $this->valueVariable;
         }
@@ -66,26 +71,30 @@ class PAL7ConfigRewriteOp extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PAL7ConfigRewriteOp
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['OldValue'])) {
             $model->oldValue = $map['OldValue'];
         }
+
         if (isset($map['Op'])) {
             $model->op = $map['Op'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
+
         if (isset($map['ValueVariable'])) {
             $model->valueVariable = $map['ValueVariable'];
         }

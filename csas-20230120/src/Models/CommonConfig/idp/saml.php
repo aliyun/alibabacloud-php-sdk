@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CommonConfig\idp;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class saml extends Model
 {
@@ -22,14 +22,18 @@ class saml extends Model
         'metadata' => 'Metadata',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acs) {
             $res['Acs'] = $this->acs;
         }
+
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
         }
@@ -37,17 +41,18 @@ class saml extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return saml
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Acs'])) {
             $model->acs = $map['Acs'];
         }
+
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
         }

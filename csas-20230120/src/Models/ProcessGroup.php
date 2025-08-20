@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ProcessGroup extends Model
 {
@@ -46,32 +46,44 @@ class ProcessGroup extends Model
         'processes' => 'Processes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->processes)) {
+            Model::validateArray($this->processes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->processGroupId) {
             $res['ProcessGroupId'] = $this->processGroupId;
         }
+
         if (null !== $this->processes) {
-            $res['Processes'] = [];
-            if (null !== $this->processes && \is_array($this->processes)) {
-                $n = 0;
-                foreach ($this->processes as $item) {
-                    $res['Processes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->processes)) {
+                $res['Processes'] = [];
+                $n1 = 0;
+                foreach ($this->processes as $item1) {
+                    $res['Processes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,35 +91,41 @@ class ProcessGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ProcessGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ProcessGroupId'])) {
             $model->processGroupId = $map['ProcessGroupId'];
         }
+
         if (isset($map['Processes'])) {
             if (!empty($map['Processes'])) {
                 $model->processes = [];
-                $n = 0;
-                foreach ($map['Processes'] as $item) {
-                    $model->processes[$n++] = null !== $item ? ProcessItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Processes'] as $item1) {
+                    $model->processes[$n1] = ProcessItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

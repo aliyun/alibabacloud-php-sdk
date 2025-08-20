@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListEnterpriseAccelerateTargetsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example eap-424ba3f47660425c
-     *
      * @var string
      */
     public $eapId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example googleapis.com
-     *
      * @var string
      */
     public $target;
@@ -48,20 +34,26 @@ class ListEnterpriseAccelerateTargetsRequest extends Model
         'target' => 'Target',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->eapId) {
             $res['EapId'] = $this->eapId;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
@@ -69,23 +61,26 @@ class ListEnterpriseAccelerateTargetsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEnterpriseAccelerateTargetsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['EapId'])) {
             $model->eapId = $map['EapId'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }

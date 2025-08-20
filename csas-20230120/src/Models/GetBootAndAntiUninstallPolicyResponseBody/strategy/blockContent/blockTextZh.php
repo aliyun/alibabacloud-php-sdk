@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\GetBootAndAntiUninstallPolicyResponseBody\strategy\blockContent;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class blockTextZh extends Model
 {
@@ -34,20 +34,26 @@ class blockTextZh extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->mainButtonText) {
             $res['MainButtonText'] = $this->mainButtonText;
         }
+
         if (null !== $this->minorButtonText) {
             $res['MinorButtonText'] = $this->minorButtonText;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -55,23 +61,26 @@ class blockTextZh extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return blockTextZh
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['MainButtonText'])) {
             $model->mainButtonText = $map['MainButtonText'];
         }
+
         if (isset($map['MinorButtonText'])) {
             $model->minorButtonText = $map['MinorButtonText'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

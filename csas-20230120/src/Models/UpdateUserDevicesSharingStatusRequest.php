@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateUserDevicesSharingStatusRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $deviceTags;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $sharingStatus;
@@ -28,14 +22,28 @@ class UpdateUserDevicesSharingStatusRequest extends Model
         'sharingStatus' => 'SharingStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->deviceTags)) {
+            Model::validateArray($this->deviceTags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceTags) {
-            $res['DeviceTags'] = $this->deviceTags;
+            if (\is_array($this->deviceTags)) {
+                $res['DeviceTags'] = [];
+                $n1 = 0;
+                foreach ($this->deviceTags as $item1) {
+                    $res['DeviceTags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->sharingStatus) {
             $res['SharingStatus'] = $this->sharingStatus;
         }
@@ -43,19 +51,25 @@ class UpdateUserDevicesSharingStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateUserDevicesSharingStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceTags'])) {
             if (!empty($map['DeviceTags'])) {
-                $model->deviceTags = $map['DeviceTags'];
+                $model->deviceTags = [];
+                $n1 = 0;
+                foreach ($map['DeviceTags'] as $item1) {
+                    $model->deviceTags[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SharingStatus'])) {
             $model->sharingStatus = $map['SharingStatus'];
         }

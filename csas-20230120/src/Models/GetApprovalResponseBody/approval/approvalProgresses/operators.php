@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalResponseBody\approval\approvalProgresses;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class operators extends Model
 {
     /**
-     * @example su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
-     *
      * @var string
      */
     public $saseUserId;
@@ -24,14 +22,18 @@ class operators extends Model
         'username' => 'Username',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->saseUserId) {
             $res['SaseUserId'] = $this->saseUserId;
         }
+
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -39,17 +41,18 @@ class operators extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operators
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SaseUserId'])) {
             $model->saseUserId = $map['SaseUserId'];
         }
+
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

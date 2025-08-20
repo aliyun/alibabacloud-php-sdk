@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CommonConfig\idp;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class idaas2 extends Model
 {
@@ -22,14 +22,18 @@ class idaas2 extends Model
         'eventLabel' => 'EventLabel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventCallbackBase) {
             $res['EventCallbackBase'] = $this->eventCallbackBase;
         }
+
         if (null !== $this->eventLabel) {
             $res['EventLabel'] = $this->eventLabel;
         }
@@ -37,17 +41,18 @@ class idaas2 extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return idaas2
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventCallbackBase'])) {
             $model->eventCallbackBase = $map['EventCallbackBase'];
         }
+
         if (isset($map['EventLabel'])) {
             $model->eventLabel = $map['EventLabel'];
         }

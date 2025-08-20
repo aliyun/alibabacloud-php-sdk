@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalResponseBody\approval;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalResponseBody\approval\approvalProgresses\operators;
-use AlibabaCloud\Tea\Model;
 
 class approvalProgresses extends Model
 {
     /**
-     * @example Approve
-     *
      * @var string
      */
     public $action;
@@ -22,8 +20,6 @@ class approvalProgresses extends Model
     public $comment;
 
     /**
-     * @example su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
-     *
      * @var string
      */
     public $executor;
@@ -34,15 +30,11 @@ class approvalProgresses extends Model
     public $operators;
 
     /**
-     * @example Approved
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example 1736752000
-     *
      * @var int
      */
     public $timestamp;
@@ -55,32 +47,44 @@ class approvalProgresses extends Model
         'timestamp' => 'Timestamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->operators)) {
+            Model::validateArray($this->operators);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->executor) {
             $res['Executor'] = $this->executor;
         }
+
         if (null !== $this->operators) {
-            $res['Operators'] = [];
-            if (null !== $this->operators && \is_array($this->operators)) {
-                $n = 0;
-                foreach ($this->operators as $item) {
-                    $res['Operators'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operators)) {
+                $res['Operators'] = [];
+                $n1 = 0;
+                foreach ($this->operators as $item1) {
+                    $res['Operators'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -88,35 +92,41 @@ class approvalProgresses extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return approvalProgresses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['Executor'])) {
             $model->executor = $map['Executor'];
         }
+
         if (isset($map['Operators'])) {
             if (!empty($map['Operators'])) {
                 $model->operators = [];
-                $n = 0;
-                foreach ($map['Operators'] as $item) {
-                    $model->operators[$n++] = null !== $item ? operators::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Operators'] as $item1) {
+                    $model->operators[$n1] = operators::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

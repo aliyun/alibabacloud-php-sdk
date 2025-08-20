@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CommonConfig\idp;
-use AlibabaCloud\Tea\Model;
 
 class CommonConfig extends Model
 {
@@ -17,23 +17,29 @@ class CommonConfig extends Model
         'idp' => 'Idp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->idp) {
+            $this->idp->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->idp) {
-            $res['Idp'] = null !== $this->idp ? $this->idp->toMap() : null;
+            $res['Idp'] = null !== $this->idp ? $this->idp->toArray($noStream) : $this->idp;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CommonConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

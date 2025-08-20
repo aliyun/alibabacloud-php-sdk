@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7ConfigReplaceRule;
-use AlibabaCloud\Tea\Model;
 
 class jsHookConfig extends Model
 {
@@ -23,20 +23,28 @@ class jsHookConfig extends Model
         'replaceRules' => 'ReplaceRules',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->replaceRules)) {
+            Model::validateArray($this->replaceRules);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->replaceRules) {
-            $res['ReplaceRules'] = [];
-            if (null !== $this->replaceRules && \is_array($this->replaceRules)) {
-                $n = 0;
-                foreach ($this->replaceRules as $item) {
-                    $res['ReplaceRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->replaceRules)) {
+                $res['ReplaceRules'] = [];
+                $n1 = 0;
+                foreach ($this->replaceRules as $item1) {
+                    $res['ReplaceRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -44,23 +52,25 @@ class jsHookConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jsHookConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['ReplaceRules'])) {
             if (!empty($map['ReplaceRules'])) {
                 $model->replaceRules = [];
-                $n = 0;
-                foreach ($map['ReplaceRules'] as $item) {
-                    $model->replaceRules[$n++] = null !== $item ? PAL7ConfigReplaceRule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ReplaceRules'] as $item1) {
+                    $model->replaceRules[$n1] = PAL7ConfigReplaceRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
