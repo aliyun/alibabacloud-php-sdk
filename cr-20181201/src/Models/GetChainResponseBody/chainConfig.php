@@ -69,7 +69,8 @@ class chainConfig extends Model
                 $res['Nodes'] = [];
                 $n1 = 0;
                 foreach ($this->nodes as $item1) {
-                    $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Nodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,7 +80,8 @@ class chainConfig extends Model
                 $res['Routers'] = [];
                 $n1 = 0;
                 foreach ($this->routers as $item1) {
-                    $res['Routers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Routers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +114,8 @@ class chainConfig extends Model
                 $model->nodes = [];
                 $n1 = 0;
                 foreach ($map['Nodes'] as $item1) {
-                    $model->nodes[$n1++] = nodes::fromMap($item1);
+                    $model->nodes[$n1] = nodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +125,8 @@ class chainConfig extends Model
                 $model->routers = [];
                 $n1 = 0;
                 foreach ($map['Routers'] as $item1) {
-                    $model->routers[$n1++] = routers::fromMap($item1);
+                    $model->routers[$n1] = routers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

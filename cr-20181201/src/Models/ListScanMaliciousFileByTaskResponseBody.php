@@ -89,7 +89,8 @@ class ListScanMaliciousFileByTaskResponseBody extends Model
                 $res['ScanMaliciousFiles'] = [];
                 $n1 = 0;
                 foreach ($this->scanMaliciousFiles as $item1) {
-                    $res['ScanMaliciousFiles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScanMaliciousFiles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class ListScanMaliciousFileByTaskResponseBody extends Model
                 $model->scanMaliciousFiles = [];
                 $n1 = 0;
                 foreach ($map['ScanMaliciousFiles'] as $item1) {
-                    $model->scanMaliciousFiles[$n1++] = scanMaliciousFiles::fromMap($item1);
+                    $model->scanMaliciousFiles[$n1] = scanMaliciousFiles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

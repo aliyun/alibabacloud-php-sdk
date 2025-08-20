@@ -57,7 +57,8 @@ class ListArtifactBuildTaskLogResponseBody extends Model
                 $res['BuildTaskLogs'] = [];
                 $n1 = 0;
                 foreach ($this->buildTaskLogs as $item1) {
-                    $res['BuildTaskLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BuildTaskLogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListArtifactBuildTaskLogResponseBody extends Model
                 $model->buildTaskLogs = [];
                 $n1 = 0;
                 foreach ($map['BuildTaskLogs'] as $item1) {
-                    $model->buildTaskLogs[$n1++] = buildTaskLogs::fromMap($item1);
+                    $model->buildTaskLogs[$n1] = buildTaskLogs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

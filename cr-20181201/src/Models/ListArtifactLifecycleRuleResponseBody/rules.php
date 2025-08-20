@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactLifecycleRuleResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactLifecycleRuleResponseBody\rules\policies;
 
 class rules extends Model
 {
@@ -44,6 +45,11 @@ class rules extends Model
     public $nextTime;
 
     /**
+     * @var policies[]
+     */
+    public $policies;
+
+    /**
      * @var string
      */
     public $repoName;
@@ -80,6 +86,7 @@ class rules extends Model
         'modifiedTime' => 'ModifiedTime',
         'namespaceName' => 'NamespaceName',
         'nextTime' => 'NextTime',
+        'policies' => 'Policies',
         'repoName' => 'RepoName',
         'retentionTagCount' => 'RetentionTagCount',
         'ruleId' => 'RuleId',
@@ -90,6 +97,9 @@ class rules extends Model
 
     public function validate()
     {
+        if (\is_array($this->policies)) {
+            Model::validateArray($this->policies);
+        }
         parent::validate();
     }
 
@@ -122,6 +132,17 @@ class rules extends Model
 
         if (null !== $this->nextTime) {
             $res['NextTime'] = $this->nextTime;
+        }
+
+        if (null !== $this->policies) {
+            if (\is_array($this->policies)) {
+                $res['Policies'] = [];
+                $n1 = 0;
+                foreach ($this->policies as $item1) {
+                    $res['Policies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->repoName) {
@@ -185,6 +206,17 @@ class rules extends Model
 
         if (isset($map['NextTime'])) {
             $model->nextTime = $map['NextTime'];
+        }
+
+        if (isset($map['Policies'])) {
+            if (!empty($map['Policies'])) {
+                $model->policies = [];
+                $n1 = 0;
+                foreach ($map['Policies'] as $item1) {
+                    $model->policies[$n1] = policies::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RepoName'])) {

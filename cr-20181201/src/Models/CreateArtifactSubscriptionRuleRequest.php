@@ -108,7 +108,8 @@ class CreateArtifactSubscriptionRuleRequest extends Model
                 $res['Platform'] = [];
                 $n1 = 0;
                 foreach ($this->platform as $item1) {
-                    $res['Platform'][$n1++] = $item1;
+                    $res['Platform'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +170,8 @@ class CreateArtifactSubscriptionRuleRequest extends Model
                 $model->platform = [];
                 $n1 = 0;
                 foreach ($map['Platform'] as $item1) {
-                    $model->platform[$n1++] = $item1;
+                    $model->platform[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

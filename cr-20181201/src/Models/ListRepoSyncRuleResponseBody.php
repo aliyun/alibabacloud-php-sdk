@@ -89,7 +89,8 @@ class ListRepoSyncRuleResponseBody extends Model
                 $res['SyncRules'] = [];
                 $n1 = 0;
                 foreach ($this->syncRules as $item1) {
-                    $res['SyncRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SyncRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class ListRepoSyncRuleResponseBody extends Model
                 $model->syncRules = [];
                 $n1 = 0;
                 foreach ($map['SyncRules'] as $item1) {
-                    $model->syncRules[$n1++] = syncRules::fromMap($item1);
+                    $model->syncRules[$n1] = syncRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

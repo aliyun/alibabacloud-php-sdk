@@ -151,7 +151,8 @@ class GetRepoSyncTaskResponseBody extends Model
                 $res['LayerTasks'] = [];
                 $n1 = 0;
                 foreach ($this->layerTasks as $item1) {
-                    $res['LayerTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LayerTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -232,7 +233,8 @@ class GetRepoSyncTaskResponseBody extends Model
                 $model->layerTasks = [];
                 $n1 = 0;
                 foreach ($map['LayerTasks'] as $item1) {
-                    $model->layerTasks[$n1++] = layerTasks::fromMap($item1);
+                    $model->layerTasks[$n1] = layerTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

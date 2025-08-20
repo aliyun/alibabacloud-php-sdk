@@ -81,7 +81,8 @@ class endpoints extends Model
                 $res['AclEntries'] = [];
                 $n1 = 0;
                 foreach ($this->aclEntries as $item1) {
-                    $res['AclEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AclEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class endpoints extends Model
                 $res['Domains'] = [];
                 $n1 = 0;
                 foreach ($this->domains as $item1) {
-                    $res['Domains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Domains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +111,8 @@ class endpoints extends Model
                 $res['LinkedVpcs'] = [];
                 $n1 = 0;
                 foreach ($this->linkedVpcs as $item1) {
-                    $res['LinkedVpcs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LinkedVpcs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +141,8 @@ class endpoints extends Model
                 $model->aclEntries = [];
                 $n1 = 0;
                 foreach ($map['AclEntries'] as $item1) {
-                    $model->aclEntries[$n1++] = aclEntries::fromMap($item1);
+                    $model->aclEntries[$n1] = aclEntries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +152,8 @@ class endpoints extends Model
                 $model->domains = [];
                 $n1 = 0;
                 foreach ($map['Domains'] as $item1) {
-                    $model->domains[$n1++] = domains::fromMap($item1);
+                    $model->domains[$n1] = domains::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +171,8 @@ class endpoints extends Model
                 $model->linkedVpcs = [];
                 $n1 = 0;
                 foreach ($map['LinkedVpcs'] as $item1) {
-                    $model->linkedVpcs[$n1++] = linkedVpcs::fromMap($item1);
+                    $model->linkedVpcs[$n1] = linkedVpcs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

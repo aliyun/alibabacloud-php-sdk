@@ -69,7 +69,8 @@ class ListChainResponseBody extends Model
                 $res['Chains'] = [];
                 $n1 = 0;
                 foreach ($this->chains as $item1) {
-                    $res['Chains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Chains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class ListChainResponseBody extends Model
                 $model->chains = [];
                 $n1 = 0;
                 foreach ($map['Chains'] as $item1) {
-                    $model->chains[$n1++] = chains::fromMap($item1);
+                    $model->chains[$n1] = chains::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -89,7 +89,8 @@ class GetArtifactSubscriptionTaskResultResponseBody extends Model
                 $res['TaskResults'] = [];
                 $n1 = 0;
                 foreach ($this->taskResults as $item1) {
-                    $res['TaskResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TaskResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class GetArtifactSubscriptionTaskResultResponseBody extends Model
                 $model->taskResults = [];
                 $n1 = 0;
                 foreach ($map['TaskResults'] as $item1) {
-                    $model->taskResults[$n1++] = taskResults::fromMap($item1);
+                    $model->taskResults[$n1] = taskResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

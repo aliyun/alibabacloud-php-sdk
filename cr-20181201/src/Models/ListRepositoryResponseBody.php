@@ -85,7 +85,8 @@ class ListRepositoryResponseBody extends Model
                 $res['Repositories'] = [];
                 $n1 = 0;
                 foreach ($this->repositories as $item1) {
-                    $res['Repositories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Repositories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +131,8 @@ class ListRepositoryResponseBody extends Model
                 $model->repositories = [];
                 $n1 = 0;
                 foreach ($map['Repositories'] as $item1) {
-                    $model->repositories[$n1++] = repositories::fromMap($item1);
+                    $model->repositories[$n1] = repositories::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

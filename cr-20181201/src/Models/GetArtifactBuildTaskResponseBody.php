@@ -116,7 +116,8 @@ class GetArtifactBuildTaskResponseBody extends Model
                 $res['Instructions'] = [];
                 $n1 = 0;
                 foreach ($this->instructions as $item1) {
-                    $res['Instructions'][$n1++] = $item1;
+                    $res['Instructions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -177,7 +178,8 @@ class GetArtifactBuildTaskResponseBody extends Model
                 $model->instructions = [];
                 $n1 = 0;
                 foreach ($map['Instructions'] as $item1) {
-                    $model->instructions[$n1++] = $item1;
+                    $model->instructions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

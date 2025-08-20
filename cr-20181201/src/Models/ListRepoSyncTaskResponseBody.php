@@ -89,7 +89,8 @@ class ListRepoSyncTaskResponseBody extends Model
                 $res['SyncTasks'] = [];
                 $n1 = 0;
                 foreach ($this->syncTasks as $item1) {
-                    $res['SyncTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SyncTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class ListRepoSyncTaskResponseBody extends Model
                 $model->syncTasks = [];
                 $n1 = 0;
                 foreach ($map['SyncTasks'] as $item1) {
-                    $model->syncTasks[$n1++] = syncTasks::fromMap($item1);
+                    $model->syncTasks[$n1] = syncTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

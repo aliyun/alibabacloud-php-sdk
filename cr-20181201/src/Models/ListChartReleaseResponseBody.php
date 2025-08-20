@@ -69,7 +69,8 @@ class ListChartReleaseResponseBody extends Model
                 $res['ChartReleases'] = [];
                 $n1 = 0;
                 foreach ($this->chartReleases as $item1) {
-                    $res['ChartReleases'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ChartReleases'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class ListChartReleaseResponseBody extends Model
                 $model->chartReleases = [];
                 $n1 = 0;
                 foreach ($map['ChartReleases'] as $item1) {
-                    $model->chartReleases[$n1++] = chartReleases::fromMap($item1);
+                    $model->chartReleases[$n1] = chartReleases::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

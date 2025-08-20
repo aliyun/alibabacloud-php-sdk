@@ -69,7 +69,8 @@ class ListRepoBuildRecordLogResponseBody extends Model
                 $res['BuildRecordLogs'] = [];
                 $n1 = 0;
                 foreach ($this->buildRecordLogs as $item1) {
-                    $res['BuildRecordLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BuildRecordLogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class ListRepoBuildRecordLogResponseBody extends Model
                 $model->buildRecordLogs = [];
                 $n1 = 0;
                 foreach ($map['BuildRecordLogs'] as $item1) {
-                    $model->buildRecordLogs[$n1++] = buildRecordLogs::fromMap($item1);
+                    $model->buildRecordLogs[$n1] = buildRecordLogs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -63,7 +63,8 @@ class ListEventCenterRuleNameResponseBody extends Model
                 $res['RuleNames'] = [];
                 $n1 = 0;
                 foreach ($this->ruleNames as $item1) {
-                    $res['RuleNames'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleNames'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class ListEventCenterRuleNameResponseBody extends Model
                 $model->ruleNames = [];
                 $n1 = 0;
                 foreach ($map['RuleNames'] as $item1) {
-                    $model->ruleNames[$n1++] = ruleNames::fromMap($item1);
+                    $model->ruleNames[$n1] = ruleNames::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

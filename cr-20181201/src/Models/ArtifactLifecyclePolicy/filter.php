@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cr\V20181201\Models\RepoConfiguration;
+namespace AlibabaCloud\SDK\Cr\V20181201\Models\ArtifactLifecyclePolicy;
 
 use AlibabaCloud\Dara\Model;
 
-class artifactBuildRuleParameters extends Model
+class filter extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $imageIndexOnly;
+    public $tagWildcard;
     protected $_name = [
-        'imageIndexOnly' => 'ImageIndexOnly',
+        'tagWildcard' => 'TagWildcard',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class artifactBuildRuleParameters extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->imageIndexOnly) {
-            $res['ImageIndexOnly'] = $this->imageIndexOnly;
+        if (null !== $this->tagWildcard) {
+            $res['TagWildcard'] = $this->tagWildcard;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class artifactBuildRuleParameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageIndexOnly'])) {
-            $model->imageIndexOnly = $map['ImageIndexOnly'];
+        if (isset($map['TagWildcard'])) {
+            $model->tagWildcard = $map['TagWildcard'];
         }
 
         return $model;

@@ -89,7 +89,8 @@ class ListScanBaselineByTaskResponseBody extends Model
                 $res['ScanBaselines'] = [];
                 $n1 = 0;
                 foreach ($this->scanBaselines as $item1) {
-                    $res['ScanBaselines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScanBaselines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class ListScanBaselineByTaskResponseBody extends Model
                 $model->scanBaselines = [];
                 $n1 = 0;
                 foreach ($map['ScanBaselines'] as $item1) {
-                    $model->scanBaselines[$n1++] = scanBaselines::fromMap($item1);
+                    $model->scanBaselines[$n1] = scanBaselines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

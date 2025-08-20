@@ -69,7 +69,8 @@ class ListRepoBuildRuleResponseBody extends Model
                 $res['BuildRules'] = [];
                 $n1 = 0;
                 foreach ($this->buildRules as $item1) {
-                    $res['BuildRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BuildRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class ListRepoBuildRuleResponseBody extends Model
                 $model->buildRules = [];
                 $n1 = 0;
                 foreach ($map['BuildRules'] as $item1) {
-                    $model->buildRules[$n1++] = buildRules::fromMap($item1);
+                    $model->buildRules[$n1] = buildRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -93,7 +93,8 @@ class ListRepoTagScanResultResponseBody extends Model
                 $res['Vulnerabilities'] = [];
                 $n1 = 0;
                 foreach ($this->vulnerabilities as $item1) {
-                    $res['Vulnerabilities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Vulnerabilities'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class ListRepoTagScanResultResponseBody extends Model
                 $model->vulnerabilities = [];
                 $n1 = 0;
                 foreach ($map['Vulnerabilities'] as $item1) {
-                    $model->vulnerabilities[$n1++] = vulnerabilities::fromMap($item1);
+                    $model->vulnerabilities[$n1] = vulnerabilities::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

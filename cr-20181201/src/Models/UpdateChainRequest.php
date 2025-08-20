@@ -82,7 +82,8 @@ class UpdateChainRequest extends Model
                 $res['ScopeExclude'] = [];
                 $n1 = 0;
                 foreach ($this->scopeExclude as $item1) {
-                    $res['ScopeExclude'][$n1++] = $item1;
+                    $res['ScopeExclude'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class UpdateChainRequest extends Model
                 $model->scopeExclude = [];
                 $n1 = 0;
                 foreach ($map['ScopeExclude'] as $item1) {
-                    $model->scopeExclude[$n1++] = $item1;
+                    $model->scopeExclude[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -77,7 +77,8 @@ class buildRules extends Model
                 $res['BuildArgs'] = [];
                 $n1 = 0;
                 foreach ($this->buildArgs as $item1) {
-                    $res['BuildArgs'][$n1++] = $item1;
+                    $res['BuildArgs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class buildRules extends Model
                 $res['Platforms'] = [];
                 $n1 = 0;
                 foreach ($this->platforms as $item1) {
-                    $res['Platforms'][$n1++] = $item1;
+                    $res['Platforms'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +134,8 @@ class buildRules extends Model
                 $model->buildArgs = [];
                 $n1 = 0;
                 foreach ($map['BuildArgs'] as $item1) {
-                    $model->buildArgs[$n1++] = $item1;
+                    $model->buildArgs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +161,8 @@ class buildRules extends Model
                 $model->platforms = [];
                 $n1 = 0;
                 foreach ($map['Platforms'] as $item1) {
-                    $model->platforms[$n1++] = $item1;
+                    $model->platforms[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

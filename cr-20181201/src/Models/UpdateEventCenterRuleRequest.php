@@ -109,7 +109,8 @@ class UpdateEventCenterRuleRequest extends Model
                 $res['Namespaces'] = [];
                 $n1 = 0;
                 foreach ($this->namespaces as $item1) {
-                    $res['Namespaces'][$n1++] = $item1;
+                    $res['Namespaces'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +120,8 @@ class UpdateEventCenterRuleRequest extends Model
                 $res['RepoNames'] = [];
                 $n1 = 0;
                 foreach ($this->repoNames as $item1) {
-                    $res['RepoNames'][$n1++] = $item1;
+                    $res['RepoNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +174,8 @@ class UpdateEventCenterRuleRequest extends Model
                 $model->namespaces = [];
                 $n1 = 0;
                 foreach ($map['Namespaces'] as $item1) {
-                    $model->namespaces[$n1++] = $item1;
+                    $model->namespaces[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +185,8 @@ class UpdateEventCenterRuleRequest extends Model
                 $model->repoNames = [];
                 $n1 = 0;
                 foreach ($map['RepoNames'] as $item1) {
-                    $model->repoNames[$n1++] = $item1;
+                    $model->repoNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
