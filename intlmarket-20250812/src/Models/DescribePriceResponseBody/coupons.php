@@ -16,6 +16,11 @@ class coupons extends Model
     /**
      * @var string
      */
+    public $couponDesc;
+
+    /**
+     * @var string
+     */
     public $couponName;
 
     /**
@@ -39,6 +44,7 @@ class coupons extends Model
     public $promotionDesc;
     protected $_name = [
         'canPromFee' => 'CanPromFee',
+        'couponDesc' => 'CouponDesc',
         'couponName' => 'CouponName',
         'couponOptionCode' => 'CouponOptionCode',
         'couponOptionNo' => 'CouponOptionNo',
@@ -56,6 +62,10 @@ class coupons extends Model
         $res = [];
         if (null !== $this->canPromFee) {
             $res['CanPromFee'] = $this->canPromFee;
+        }
+
+        if (null !== $this->couponDesc) {
+            $res['CouponDesc'] = $this->couponDesc;
         }
 
         if (null !== $this->couponName) {
@@ -91,6 +101,10 @@ class coupons extends Model
         $model = new self();
         if (isset($map['CanPromFee'])) {
             $model->canPromFee = $map['CanPromFee'];
+        }
+
+        if (isset($map['CouponDesc'])) {
+            $model->couponDesc = $map['CouponDesc'];
         }
 
         if (isset($map['CouponName'])) {
