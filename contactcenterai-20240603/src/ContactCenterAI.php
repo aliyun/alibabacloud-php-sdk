@@ -87,6 +87,102 @@ class ContactCenterAI extends OpenApiClient
      *
      * @return AnalyzeAudioSyncResponse
      */
+    public function analyzeAudioSyncWithSSE($workspaceId, $appId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->categoryTags) {
+            @$body['categoryTags'] = $request->categoryTags;
+        }
+
+        if (null !== $request->customPrompt) {
+            @$body['customPrompt'] = $request->customPrompt;
+        }
+
+        if (null !== $request->fields) {
+            @$body['fields'] = $request->fields;
+        }
+
+        if (null !== $request->modelCode) {
+            @$body['modelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->responseFormatType) {
+            @$body['responseFormatType'] = $request->responseFormatType;
+        }
+
+        if (null !== $request->resultTypes) {
+            @$body['resultTypes'] = $request->resultTypes;
+        }
+
+        if (null !== $request->serviceInspection) {
+            @$body['serviceInspection'] = $request->serviceInspection;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        if (null !== $request->templateIds) {
+            @$body['templateIds'] = $request->templateIds;
+        }
+
+        if (null !== $request->transcription) {
+            @$body['transcription'] = $request->transcription;
+        }
+
+        if (null !== $request->variables) {
+            @$body['variables'] = $request->variables;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AnalyzeAudioSync',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/analyzeAudioSync',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield AnalyzeAudioSyncResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 语音文件分析任务极速版.
+     *
+     * @param request - AnalyzeAudioSyncRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AnalyzeAudioSyncResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $appId
+     * @param AnalyzeAudioSyncRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AnalyzeAudioSyncResponse
+     */
     public function analyzeAudioSyncWithOptions($workspaceId, $appId, $request, $headers, $runtime)
     {
         $request->validate();
@@ -173,6 +269,114 @@ class ContactCenterAI extends OpenApiClient
         $headers = [];
 
         return $this->analyzeAudioSyncWithOptions($workspaceId, $appId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 根据类型调用大模型.
+     *
+     * @param request - AnalyzeConversationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AnalyzeConversationResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $appId
+     * @param AnalyzeConversationRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AnalyzeConversationResponse
+     */
+    public function analyzeConversationWithSSE($workspaceId, $appId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->categoryTags) {
+            @$body['categoryTags'] = $request->categoryTags;
+        }
+
+        if (null !== $request->customPrompt) {
+            @$body['customPrompt'] = $request->customPrompt;
+        }
+
+        if (null !== $request->dialogue) {
+            @$body['dialogue'] = $request->dialogue;
+        }
+
+        if (null !== $request->examples) {
+            @$body['examples'] = $request->examples;
+        }
+
+        if (null !== $request->fields) {
+            @$body['fields'] = $request->fields;
+        }
+
+        if (null !== $request->modelCode) {
+            @$body['modelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->responseFormatType) {
+            @$body['responseFormatType'] = $request->responseFormatType;
+        }
+
+        if (null !== $request->resultTypes) {
+            @$body['resultTypes'] = $request->resultTypes;
+        }
+
+        if (null !== $request->sceneName) {
+            @$body['sceneName'] = $request->sceneName;
+        }
+
+        if (null !== $request->serviceInspection) {
+            @$body['serviceInspection'] = $request->serviceInspection;
+        }
+
+        if (null !== $request->sourceCallerUid) {
+            @$body['sourceCallerUid'] = $request->sourceCallerUid;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        if (null !== $request->timeConstraintList) {
+            @$body['timeConstraintList'] = $request->timeConstraintList;
+        }
+
+        if (null !== $request->userProfiles) {
+            @$body['userProfiles'] = $request->userProfiles;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AnalyzeConversation',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/analyze_conversation',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield AnalyzeConversationResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
     }
 
     /**
@@ -290,6 +494,74 @@ class ContactCenterAI extends OpenApiClient
         $headers = [];
 
         return $this->analyzeConversationWithOptions($workspaceId, $appId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 图片分析.
+     *
+     * @param request - AnalyzeImageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AnalyzeImageResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $appId
+     * @param AnalyzeImageRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AnalyzeImageResponse
+     */
+    public function analyzeImageWithSSE($workspaceId, $appId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->imageUrls) {
+            @$body['imageUrls'] = $request->imageUrls;
+        }
+
+        if (null !== $request->responseFormatType) {
+            @$body['responseFormatType'] = $request->responseFormatType;
+        }
+
+        if (null !== $request->resultTypes) {
+            @$body['resultTypes'] = $request->resultTypes;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AnalyzeImage',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/analyzeImage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield AnalyzeImageResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
     }
 
     /**
@@ -842,6 +1114,90 @@ class ContactCenterAI extends OpenApiClient
      *
      * @return RunCompletionResponse
      */
+    public function runCompletionWithSSE($workspaceId, $appId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->dialogue) {
+            @$body['Dialogue'] = $request->dialogue;
+        }
+
+        if (null !== $request->fields) {
+            @$body['Fields'] = $request->fields;
+        }
+
+        if (null !== $request->modelCode) {
+            @$body['ModelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->serviceInspection) {
+            @$body['ServiceInspection'] = $request->serviceInspection;
+        }
+
+        if (null !== $request->stream) {
+            @$body['Stream'] = $request->stream;
+        }
+
+        if (null !== $request->templateIds) {
+            @$body['TemplateIds'] = $request->templateIds;
+        }
+
+        if (null !== $request->responseFormatType) {
+            @$body['responseFormatType'] = $request->responseFormatType;
+        }
+
+        if (null !== $request->variables) {
+            @$body['variables'] = $request->variables;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunCompletion',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/completion',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield RunCompletionResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * CCAI服务面API.
+     *
+     * @param request - RunCompletionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunCompletionResponse
+     *
+     * @param string               $workspaceId
+     * @param string               $appId
+     * @param RunCompletionRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RunCompletionResponse
+     */
     public function runCompletionWithOptions($workspaceId, $appId, $request, $headers, $runtime)
     {
         $request->validate();
@@ -916,6 +1272,74 @@ class ContactCenterAI extends OpenApiClient
         $headers = [];
 
         return $this->runCompletionWithOptions($workspaceId, $appId, $request, $headers, $runtime);
+    }
+
+    /**
+     * CCAI服务面API.
+     *
+     * @param request - RunCompletionMessageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunCompletionMessageResponse
+     *
+     * @param string                      $workspaceId
+     * @param string                      $appId
+     * @param RunCompletionMessageRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RunCompletionMessageResponse
+     */
+    public function runCompletionMessageWithSSE($workspaceId, $appId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->messages) {
+            @$body['Messages'] = $request->messages;
+        }
+
+        if (null !== $request->modelCode) {
+            @$body['ModelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->stream) {
+            @$body['Stream'] = $request->stream;
+        }
+
+        if (null !== $request->responseFormatType) {
+            @$body['responseFormatType'] = $request->responseFormatType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunCompletionMessage',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/completion_message',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield RunCompletionMessageResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
     }
 
     /**
