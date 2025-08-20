@@ -21,6 +21,11 @@ class liveList extends Model
     /**
      * @var string
      */
+    public $anchorUnionIdInAlibaba;
+
+    /**
+     * @var string
+     */
     public $anchorUserId;
 
     /**
@@ -50,6 +55,7 @@ class liveList extends Model
     protected $_name = [
         'anchorNickname' => 'AnchorNickname',
         'anchorUnionId' => 'AnchorUnionId',
+        'anchorUnionIdInAlibaba' => 'AnchorUnionIdInAlibaba',
         'anchorUserId' => 'AnchorUserId',
         'liveEndTime' => 'LiveEndTime',
         'liveStartTime' => 'LiveStartTime',
@@ -75,6 +81,10 @@ class liveList extends Model
 
         if (null !== $this->anchorUnionId) {
             $res['AnchorUnionId'] = $this->anchorUnionId;
+        }
+
+        if (null !== $this->anchorUnionIdInAlibaba) {
+            $res['AnchorUnionIdInAlibaba'] = $this->anchorUnionIdInAlibaba;
         }
 
         if (null !== $this->anchorUserId) {
@@ -125,6 +135,10 @@ class liveList extends Model
 
         if (isset($map['AnchorUnionId'])) {
             $model->anchorUnionId = $map['AnchorUnionId'];
+        }
+
+        if (isset($map['AnchorUnionIdInAlibaba'])) {
+            $model->anchorUnionIdInAlibaba = $map['AnchorUnionIdInAlibaba'];
         }
 
         if (isset($map['AnchorUserId'])) {
