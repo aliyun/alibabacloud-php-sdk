@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class PushNotificationsResponse extends Model
+class ThirdImmediateMsgPushResponse extends Model
 {
     /**
      * @var string[]
@@ -17,15 +17,24 @@ class PushNotificationsResponse extends Model
      * @var int
      */
     public $statusCode;
+
+    /**
+     * @var ThirdImmediateMsgPushResponseBody
+     */
+    public $body;
     protected $_name = [
         'headers' => 'headers',
         'statusCode' => 'statusCode',
+        'body' => 'body',
     ];
 
     public function validate()
     {
         if (\is_array($this->headers)) {
             Model::validateArray($this->headers);
+        }
+        if (null !== $this->body) {
+            $this->body->validate();
         }
         parent::validate();
     }
@@ -44,6 +53,10 @@ class PushNotificationsResponse extends Model
 
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
+        }
+
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
 
         return $res;
@@ -68,6 +81,10 @@ class PushNotificationsResponse extends Model
 
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
+        }
+
+        if (isset($map['body'])) {
+            $model->body = ThirdImmediateMsgPushResponseBody::fromMap($map['body']);
         }
 
         return $model;

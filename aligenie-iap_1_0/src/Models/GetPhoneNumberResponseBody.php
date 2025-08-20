@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPhoneNumberResponseBody extends Model
 {
     /**
-     * @example 137****
-     *
      * @var string
      */
     public $phoneNumber;
@@ -20,9 +18,10 @@ class GetPhoneNumberResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->phoneNumber) {
@@ -32,11 +31,11 @@ class GetPhoneNumberResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPhoneNumberResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CheckThirdRightSendPlanHeaders extends Model
+class ThirdImmediateMsgPushHeaders extends Model
 {
     /**
      * @var string[]

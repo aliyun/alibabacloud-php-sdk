@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\GetAccountForAppRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class payload extends Model
 {
     /**
-     * @example 188*777
-     *
      * @var string
      */
     public $phone;
 
     /**
-     * @example 731D5F********DC3B
-     *
      * @var string
      */
     public $originUuid;
     protected $_name = [
-        'phone'      => 'Phone',
+        'phone' => 'Phone',
         'originUuid' => 'originUuid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
         }
+
         if (null !== $this->originUuid) {
             $res['originUuid'] = $this->originUuid;
         }
@@ -43,17 +41,18 @@ class payload extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return payload
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
         }
+
         if (isset($map['originUuid'])) {
             $model->originUuid = $map['originUuid'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PushNotificationsShrinkRequest extends Model
 {
@@ -19,19 +19,21 @@ class PushNotificationsShrinkRequest extends Model
     public $tenantInfoShrink;
     protected $_name = [
         'notificationUnicastRequestShrink' => 'NotificationUnicastRequest',
-        'tenantInfoShrink'                 => 'TenantInfo',
+        'tenantInfoShrink' => 'TenantInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->notificationUnicastRequestShrink) {
             $res['NotificationUnicastRequest'] = $this->notificationUnicastRequestShrink;
         }
+
         if (null !== $this->tenantInfoShrink) {
             $res['TenantInfo'] = $this->tenantInfoShrink;
         }
@@ -39,17 +41,18 @@ class PushNotificationsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushNotificationsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NotificationUnicastRequest'])) {
             $model->notificationUnicastRequestShrink = $map['NotificationUnicastRequest'];
         }
+
         if (isset($map['TenantInfo'])) {
             $model->tenantInfoShrink = $map['TenantInfo'];
         }

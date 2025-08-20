@@ -5,12 +5,12 @@
 namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\ListRemindersResponseBody\model_;
+use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\ThirdImmediateMsgPushResponseBody\model_;
 
-class ListRemindersResponseBody extends Model
+class ThirdImmediateMsgPushResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $errorCode;
 

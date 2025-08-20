@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\DeleteReminderRequest;
+namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\ThirdImmediateMsgPushResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class payload extends Model
+class model_ extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $id;
+    public $requestId;
 
     /**
      * @var bool
      */
-    public $isDebug;
+    public $success;
     protected $_name = [
-        'id' => 'Id',
-        'isDebug' => 'IsDebug',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class payload extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
-        if (null !== $this->isDebug) {
-            $res['IsDebug'] = $this->isDebug;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class payload extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
-        if (isset($map['IsDebug'])) {
-            $model->isDebug = $map['IsDebug'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

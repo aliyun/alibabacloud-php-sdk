@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\CheckThirdRightSendPlanResponseBody\retValue;
-use AlibabaCloud\Tea\Model;
 
 class CheckThirdRightSendPlanResponseBody extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $retCode;
 
     /**
-     * @example 系统异常
-     *
      * @var string
      */
     public $retMsg;
@@ -28,45 +24,53 @@ class CheckThirdRightSendPlanResponseBody extends Model
      */
     public $retValue;
     protected $_name = [
-        'retCode'  => 'RetCode',
-        'retMsg'   => 'RetMsg',
+        'retCode' => 'RetCode',
+        'retMsg' => 'RetMsg',
         'retValue' => 'RetValue',
     ];
 
     public function validate()
     {
+        if (null !== $this->retValue) {
+            $this->retValue->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->retCode) {
             $res['RetCode'] = $this->retCode;
         }
+
         if (null !== $this->retMsg) {
             $res['RetMsg'] = $this->retMsg;
         }
+
         if (null !== $this->retValue) {
-            $res['RetValue'] = null !== $this->retValue ? $this->retValue->toMap() : null;
+            $res['RetValue'] = null !== $this->retValue ? $this->retValue->toArray($noStream) : $this->retValue;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckThirdRightSendPlanResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RetCode'])) {
             $model->retCode = $map['RetCode'];
         }
+
         if (isset($map['RetMsg'])) {
             $model->retMsg = $map['RetMsg'];
         }
+
         if (isset($map['RetValue'])) {
             $model->retValue = retValue::fromMap($map['RetValue']);
         }

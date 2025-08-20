@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\GetBusAppConfigRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class payload extends Model
 {
     /**
-     * @example 731D5F********DC3B
-     *
      * @var string
      */
     public $originUuid;
 
     /**
-     * @example 136****1111
-     *
      * @var string
      */
     public $phone;
     protected $_name = [
         'originUuid' => 'originUuid',
-        'phone'      => 'phone',
+        'phone' => 'phone',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->originUuid) {
             $res['originUuid'] = $this->originUuid;
         }
+
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
         }
@@ -43,17 +41,18 @@ class payload extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return payload
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['originUuid'])) {
             $model->originUuid = $map['originUuid'];
         }
+
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\ListRemindersResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\ListRemindersResponseBody\model\remindResponses;
-use AlibabaCloud\Tea\Model;
 
 class model_ extends Model
 {
@@ -19,17 +19,22 @@ class model_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->remindResponses)) {
+            Model::validateArray($this->remindResponses);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->remindResponses) {
-            $res['RemindResponses'] = [];
-            if (null !== $this->remindResponses && \is_array($this->remindResponses)) {
-                $n = 0;
-                foreach ($this->remindResponses as $item) {
-                    $res['RemindResponses'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->remindResponses)) {
+                $res['RemindResponses'] = [];
+                $n1 = 0;
+                foreach ($this->remindResponses as $item1) {
+                    $res['RemindResponses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class model_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return model_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RemindResponses'])) {
             if (!empty($map['RemindResponses'])) {
                 $model->remindResponses = [];
-                $n                      = 0;
-                foreach ($map['RemindResponses'] as $item) {
-                    $model->remindResponses[$n++] = null !== $item ? remindResponses::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RemindResponses'] as $item1) {
+                    $model->remindResponses[$n1] = remindResponses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

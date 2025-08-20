@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\SendNotificationsRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\SendNotificationsRequest\notificationUnicastRequest\sendTarget;
-use AlibabaCloud\Tea\Model;
 
 class notificationUnicastRequest extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $isDebug;
 
     /**
-     * @example 2iU81*****G9elJ
-     *
      * @var string
      */
     public $messageTemplateId;
 
     /**
-     * @example {"nick":"张三"}
-     *
      * @var string[]
      */
     public $placeHolder;
@@ -35,52 +29,75 @@ class notificationUnicastRequest extends Model
      */
     public $sendTarget;
     protected $_name = [
-        'isDebug'           => 'IsDebug',
+        'isDebug' => 'IsDebug',
         'messageTemplateId' => 'MessageTemplateId',
-        'placeHolder'       => 'PlaceHolder',
-        'sendTarget'        => 'SendTarget',
+        'placeHolder' => 'PlaceHolder',
+        'sendTarget' => 'SendTarget',
     ];
 
     public function validate()
     {
+        if (\is_array($this->placeHolder)) {
+            Model::validateArray($this->placeHolder);
+        }
+        if (null !== $this->sendTarget) {
+            $this->sendTarget->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isDebug) {
             $res['IsDebug'] = $this->isDebug;
         }
+
         if (null !== $this->messageTemplateId) {
             $res['MessageTemplateId'] = $this->messageTemplateId;
         }
+
         if (null !== $this->placeHolder) {
-            $res['PlaceHolder'] = $this->placeHolder;
+            if (\is_array($this->placeHolder)) {
+                $res['PlaceHolder'] = [];
+                foreach ($this->placeHolder as $key1 => $value1) {
+                    $res['PlaceHolder'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->sendTarget) {
-            $res['SendTarget'] = null !== $this->sendTarget ? $this->sendTarget->toMap() : null;
+            $res['SendTarget'] = null !== $this->sendTarget ? $this->sendTarget->toArray($noStream) : $this->sendTarget;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notificationUnicastRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsDebug'])) {
             $model->isDebug = $map['IsDebug'];
         }
+
         if (isset($map['MessageTemplateId'])) {
             $model->messageTemplateId = $map['MessageTemplateId'];
         }
+
         if (isset($map['PlaceHolder'])) {
-            $model->placeHolder = $map['PlaceHolder'];
+            if (!empty($map['PlaceHolder'])) {
+                $model->placeHolder = [];
+                foreach ($map['PlaceHolder'] as $key1 => $value1) {
+                    $model->placeHolder[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['SendTarget'])) {
             $model->sendTarget = sendTarget::fromMap($map['SendTarget']);
         }

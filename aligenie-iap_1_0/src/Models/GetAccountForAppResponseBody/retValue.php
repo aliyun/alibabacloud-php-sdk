@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\GetAccountForAppResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class retValue extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isVip;
 
     /**
-     * @example 2022-05-12 15:22:18
-     *
      * @var string
      */
     public $strVipExpire;
 
     /**
-     * @example 1652340138347
-     *
      * @var int
      */
     public $vipExpireAt;
     protected $_name = [
-        'isVip'        => 'IsVip',
+        'isVip' => 'IsVip',
         'strVipExpire' => 'StrVipExpire',
-        'vipExpireAt'  => 'VipExpireAt',
+        'vipExpireAt' => 'VipExpireAt',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isVip) {
             $res['IsVip'] = $this->isVip;
         }
+
         if (null !== $this->strVipExpire) {
             $res['StrVipExpire'] = $this->strVipExpire;
         }
+
         if (null !== $this->vipExpireAt) {
             $res['VipExpireAt'] = $this->vipExpireAt;
         }
@@ -54,20 +51,22 @@ class retValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return retValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsVip'])) {
             $model->isVip = $map['IsVip'];
         }
+
         if (isset($map['StrVipExpire'])) {
             $model->strVipExpire = $map['StrVipExpire'];
         }
+
         if (isset($map['VipExpireAt'])) {
             $model->vipExpireAt = $map['VipExpireAt'];
         }

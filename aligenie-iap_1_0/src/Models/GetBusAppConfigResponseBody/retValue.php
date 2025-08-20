@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\GetBusAppConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class retValue extends Model
 {
     /**
-     * @example https://******.com/*****\/******?appId=xxxxx
-     *
      * @var string
      */
     public $cashier;
 
     /**
-     * @example https://******.com/design/******?imageId=xxxxx
-     *
      * @var string
      */
     public $shoppingBar;
 
     /**
-     * @example https://******.com/design/******?imageId=xxxxx
-     *
      * @var string
      */
     public $shoppingWindow;
 
     /**
-     * @example https://******.com/design/******?imageId=xxxxx
-     *
      * @var string
      */
     public $vipLabel;
     protected $_name = [
-        'cashier'        => 'Cashier',
-        'shoppingBar'    => 'ShoppingBar',
+        'cashier' => 'Cashier',
+        'shoppingBar' => 'ShoppingBar',
         'shoppingWindow' => 'ShoppingWindow',
-        'vipLabel'       => 'VipLabel',
+        'vipLabel' => 'VipLabel',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cashier) {
             $res['Cashier'] = $this->cashier;
         }
+
         if (null !== $this->shoppingBar) {
             $res['ShoppingBar'] = $this->shoppingBar;
         }
+
         if (null !== $this->shoppingWindow) {
             $res['ShoppingWindow'] = $this->shoppingWindow;
         }
+
         if (null !== $this->vipLabel) {
             $res['VipLabel'] = $this->vipLabel;
         }
@@ -65,23 +61,26 @@ class retValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return retValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cashier'])) {
             $model->cashier = $map['Cashier'];
         }
+
         if (isset($map['ShoppingBar'])) {
             $model->shoppingBar = $map['ShoppingBar'];
         }
+
         if (isset($map['ShoppingWindow'])) {
             $model->shoppingWindow = $map['ShoppingWindow'];
         }
+
         if (isset($map['VipLabel'])) {
             $model->vipLabel = $map['VipLabel'];
         }

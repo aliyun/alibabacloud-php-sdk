@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Viap_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendNotificationsShrinkRequest extends Model
 {
@@ -28,28 +28,32 @@ class SendNotificationsShrinkRequest extends Model
      */
     public $userInfoShrink;
     protected $_name = [
-        'deviceInfoShrink'                 => 'DeviceInfo',
+        'deviceInfoShrink' => 'DeviceInfo',
         'notificationUnicastRequestShrink' => 'NotificationUnicastRequest',
-        'tenantInfoShrink'                 => 'TenantInfo',
-        'userInfoShrink'                   => 'UserInfo',
+        'tenantInfoShrink' => 'TenantInfo',
+        'userInfoShrink' => 'UserInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceInfoShrink) {
             $res['DeviceInfo'] = $this->deviceInfoShrink;
         }
+
         if (null !== $this->notificationUnicastRequestShrink) {
             $res['NotificationUnicastRequest'] = $this->notificationUnicastRequestShrink;
         }
+
         if (null !== $this->tenantInfoShrink) {
             $res['TenantInfo'] = $this->tenantInfoShrink;
         }
+
         if (null !== $this->userInfoShrink) {
             $res['UserInfo'] = $this->userInfoShrink;
         }
@@ -57,23 +61,26 @@ class SendNotificationsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendNotificationsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceInfo'])) {
             $model->deviceInfoShrink = $map['DeviceInfo'];
         }
+
         if (isset($map['NotificationUnicastRequest'])) {
             $model->notificationUnicastRequestShrink = $map['NotificationUnicastRequest'];
         }
+
         if (isset($map['TenantInfo'])) {
             $model->tenantInfoShrink = $map['TenantInfo'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfoShrink = $map['UserInfo'];
         }
