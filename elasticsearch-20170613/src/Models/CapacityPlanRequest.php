@@ -59,7 +59,8 @@ class CapacityPlanRequest extends Model
                 $res['dataInfo'] = [];
                 $n1 = 0;
                 foreach ($this->dataInfo as $item1) {
-                    $res['dataInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dataInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,7 +70,8 @@ class CapacityPlanRequest extends Model
                 $res['metric'] = [];
                 $n1 = 0;
                 foreach ($this->metric as $item1) {
-                    $res['metric'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['metric'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +100,8 @@ class CapacityPlanRequest extends Model
                 $model->dataInfo = [];
                 $n1 = 0;
                 foreach ($map['dataInfo'] as $item1) {
-                    $model->dataInfo[$n1++] = dataInfo::fromMap($item1);
+                    $model->dataInfo[$n1] = dataInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +111,8 @@ class CapacityPlanRequest extends Model
                 $model->metric = [];
                 $n1 = 0;
                 foreach ($map['metric'] as $item1) {
-                    $model->metric[$n1++] = metric::fromMap($item1);
+                    $model->metric[$n1] = metric::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

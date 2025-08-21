@@ -48,7 +48,8 @@ class UpdateKibanaPvlNetworkRequest extends Model
                 $res['securityGroups'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroups as $item1) {
-                    $res['securityGroups'][$n1++] = $item1;
+                    $res['securityGroups'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class UpdateKibanaPvlNetworkRequest extends Model
                 $model->securityGroups = [];
                 $n1 = 0;
                 foreach ($map['securityGroups'] as $item1) {
-                    $model->securityGroups[$n1++] = $item1;
+                    $model->securityGroups[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

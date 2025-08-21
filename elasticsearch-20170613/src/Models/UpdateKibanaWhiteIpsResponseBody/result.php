@@ -51,7 +51,8 @@ class result extends Model
                 $res['kibanaIPWhitelist'] = [];
                 $n1 = 0;
                 foreach ($this->kibanaIPWhitelist as $item1) {
-                    $res['kibanaIPWhitelist'][$n1++] = $item1;
+                    $res['kibanaIPWhitelist'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,7 +62,8 @@ class result extends Model
                 $res['kibanaPrivateIPWhitelist'] = [];
                 $n1 = 0;
                 foreach ($this->kibanaPrivateIPWhitelist as $item1) {
-                    $res['kibanaPrivateIPWhitelist'][$n1++] = $item1;
+                    $res['kibanaPrivateIPWhitelist'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,7 +88,8 @@ class result extends Model
                 $model->kibanaIPWhitelist = [];
                 $n1 = 0;
                 foreach ($map['kibanaIPWhitelist'] as $item1) {
-                    $model->kibanaIPWhitelist[$n1++] = $item1;
+                    $model->kibanaIPWhitelist[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +99,8 @@ class result extends Model
                 $model->kibanaPrivateIPWhitelist = [];
                 $n1 = 0;
                 foreach ($map['kibanaPrivateIPWhitelist'] as $item1) {
-                    $model->kibanaPrivateIPWhitelist[$n1++] = $item1;
+                    $model->kibanaPrivateIPWhitelist[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

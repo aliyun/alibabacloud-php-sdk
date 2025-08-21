@@ -98,7 +98,8 @@ class result extends Model
                 $res['securityGroups'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroups as $item1) {
-                    $res['securityGroups'][$n1++] = $item1;
+                    $res['securityGroups'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +109,8 @@ class result extends Model
                 $res['vSwitchIdsZone'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitchIdsZone as $item1) {
-                    $res['vSwitchIdsZone'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['vSwitchIdsZone'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +155,8 @@ class result extends Model
                 $model->securityGroups = [];
                 $n1 = 0;
                 foreach ($map['securityGroups'] as $item1) {
-                    $model->securityGroups[$n1++] = $item1;
+                    $model->securityGroups[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +166,8 @@ class result extends Model
                 $model->vSwitchIdsZone = [];
                 $n1 = 0;
                 foreach ($map['vSwitchIdsZone'] as $item1) {
-                    $model->vSwitchIdsZone[$n1++] = vSwitchIdsZone::fromMap($item1);
+                    $model->vSwitchIdsZone[$n1] = vSwitchIdsZone::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

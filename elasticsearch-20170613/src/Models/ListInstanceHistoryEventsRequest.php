@@ -120,7 +120,8 @@ class ListInstanceHistoryEventsRequest extends Model
                 $res['body'] = [];
                 $n1 = 0;
                 foreach ($this->body as $item1) {
-                    $res['body'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['body'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class ListInstanceHistoryEventsRequest extends Model
                 $res['eventCycleStatus'] = [];
                 $n1 = 0;
                 foreach ($this->eventCycleStatus as $item1) {
-                    $res['eventCycleStatus'][$n1++] = $item1;
+                    $res['eventCycleStatus'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +166,8 @@ class ListInstanceHistoryEventsRequest extends Model
                 $res['eventLevel'] = [];
                 $n1 = 0;
                 foreach ($this->eventLevel as $item1) {
-                    $res['eventLevel'][$n1++] = $item1;
+                    $res['eventLevel'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +177,8 @@ class ListInstanceHistoryEventsRequest extends Model
                 $res['eventType'] = [];
                 $n1 = 0;
                 foreach ($this->eventType as $item1) {
-                    $res['eventType'][$n1++] = $item1;
+                    $res['eventType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -211,7 +215,8 @@ class ListInstanceHistoryEventsRequest extends Model
                 $model->body = [];
                 $n1 = 0;
                 foreach ($map['body'] as $item1) {
-                    $model->body[$n1++] = body::fromMap($item1);
+                    $model->body[$n1] = body::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -229,7 +234,8 @@ class ListInstanceHistoryEventsRequest extends Model
                 $model->eventCycleStatus = [];
                 $n1 = 0;
                 foreach ($map['eventCycleStatus'] as $item1) {
-                    $model->eventCycleStatus[$n1++] = $item1;
+                    $model->eventCycleStatus[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +261,8 @@ class ListInstanceHistoryEventsRequest extends Model
                 $model->eventLevel = [];
                 $n1 = 0;
                 foreach ($map['eventLevel'] as $item1) {
-                    $model->eventLevel[$n1++] = $item1;
+                    $model->eventLevel[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -265,7 +272,8 @@ class ListInstanceHistoryEventsRequest extends Model
                 $model->eventType = [];
                 $n1 = 0;
                 foreach ($map['eventType'] as $item1) {
-                    $model->eventType[$n1++] = $item1;
+                    $model->eventType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -62,7 +62,8 @@ class metaInfo extends Model
                 $res['fields'] = [];
                 $n1 = 0;
                 foreach ($this->fields as $item1) {
-                    $res['fields'][$n1++] = $item1;
+                    $res['fields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class metaInfo extends Model
                 $res['indices'] = [];
                 $n1 = 0;
                 foreach ($this->indices as $item1) {
-                    $res['indices'][$n1++] = $item1;
+                    $res['indices'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -90,7 +92,8 @@ class metaInfo extends Model
                 $res['typeName'] = [];
                 $n1 = 0;
                 foreach ($this->typeName as $item1) {
-                    $res['typeName'][$n1++] = $item1;
+                    $res['typeName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +114,8 @@ class metaInfo extends Model
                 $model->fields = [];
                 $n1 = 0;
                 foreach ($map['fields'] as $item1) {
-                    $model->fields[$n1++] = $item1;
+                    $model->fields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +125,8 @@ class metaInfo extends Model
                 $model->indices = [];
                 $n1 = 0;
                 foreach ($map['indices'] as $item1) {
-                    $model->indices[$n1++] = $item1;
+                    $model->indices[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,7 +144,8 @@ class metaInfo extends Model
                 $model->typeName = [];
                 $n1 = 0;
                 foreach ($map['typeName'] as $item1) {
-                    $model->typeName[$n1++] = $item1;
+                    $model->typeName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

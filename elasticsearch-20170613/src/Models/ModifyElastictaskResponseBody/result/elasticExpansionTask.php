@@ -68,7 +68,8 @@ class elasticExpansionTask extends Model
                 $res['targetIndices'] = [];
                 $n1 = 0;
                 foreach ($this->targetIndices as $item1) {
-                    $res['targetIndices'][$n1++] = $item1;
+                    $res['targetIndices'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class elasticExpansionTask extends Model
                 $model->targetIndices = [];
                 $n1 = 0;
                 foreach ($map['targetIndices'] as $item1) {
-                    $model->targetIndices[$n1++] = $item1;
+                    $model->targetIndices[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

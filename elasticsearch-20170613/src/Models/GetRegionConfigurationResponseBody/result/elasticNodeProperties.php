@@ -56,7 +56,8 @@ class elasticNodeProperties extends Model
                 $res['diskList'] = [];
                 $n1 = 0;
                 foreach ($this->diskList as $item1) {
-                    $res['diskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['diskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -66,7 +67,8 @@ class elasticNodeProperties extends Model
                 $res['spec'] = [];
                 $n1 = 0;
                 foreach ($this->spec as $item1) {
-                    $res['spec'][$n1++] = $item1;
+                    $res['spec'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +93,8 @@ class elasticNodeProperties extends Model
                 $model->diskList = [];
                 $n1 = 0;
                 foreach ($map['diskList'] as $item1) {
-                    $model->diskList[$n1++] = diskList::fromMap($item1);
+                    $model->diskList[$n1] = diskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +104,8 @@ class elasticNodeProperties extends Model
                 $model->spec = [];
                 $n1 = 0;
                 foreach ($map['spec'] as $item1) {
-                    $model->spec[$n1++] = $item1;
+                    $model->spec[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

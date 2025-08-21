@@ -46,7 +46,8 @@ class kibanaNodeProperties extends Model
                 $res['spec'] = [];
                 $n1 = 0;
                 foreach ($this->spec as $item1) {
-                    $res['spec'][$n1++] = $item1;
+                    $res['spec'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class kibanaNodeProperties extends Model
                 $model->spec = [];
                 $n1 = 0;
                 foreach ($map['spec'] as $item1) {
-                    $model->spec[$n1++] = $item1;
+                    $model->spec[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

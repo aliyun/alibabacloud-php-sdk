@@ -64,7 +64,8 @@ class UpdateXpackMonitorConfigRequest extends Model
                 $res['endpoints'] = [];
                 $n1 = 0;
                 foreach ($this->endpoints as $item1) {
-                    $res['endpoints'][$n1++] = $item1;
+                    $res['endpoints'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class UpdateXpackMonitorConfigRequest extends Model
                 $model->endpoints = [];
                 $n1 = 0;
                 foreach ($map['endpoints'] as $item1) {
-                    $model->endpoints[$n1++] = $item1;
+                    $model->endpoints[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -48,7 +48,8 @@ class result extends Model
                 $res['composed'] = [];
                 $n1 = 0;
                 foreach ($this->composed as $item1) {
-                    $res['composed'][$n1++] = $item1;
+                    $res['composed'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class result extends Model
                 $model->composed = [];
                 $n1 = 0;
                 foreach ($map['composed'] as $item1) {
-                    $model->composed[$n1++] = $item1;
+                    $model->composed[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

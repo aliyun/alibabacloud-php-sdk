@@ -42,7 +42,8 @@ class result extends Model
                 $res['esIPWhitelist'] = [];
                 $n1 = 0;
                 foreach ($this->esIPWhitelist as $item1) {
-                    $res['esIPWhitelist'][$n1++] = $item1;
+                    $res['esIPWhitelist'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class result extends Model
                 $model->esIPWhitelist = [];
                 $n1 = 0;
                 foreach ($map['esIPWhitelist'] as $item1) {
-                    $model->esIPWhitelist[$n1++] = $item1;
+                    $model->esIPWhitelist[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

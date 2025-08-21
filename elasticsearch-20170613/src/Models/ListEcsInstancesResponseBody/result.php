@@ -83,7 +83,8 @@ class result extends Model
                 $res['collectors'] = [];
                 $n1 = 0;
                 foreach ($this->collectors as $item1) {
-                    $res['collectors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['collectors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class result extends Model
                 $res['ipAddress'] = [];
                 $n1 = 0;
                 foreach ($this->ipAddress as $item1) {
-                    $res['ipAddress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ipAddress'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +140,8 @@ class result extends Model
                 $model->collectors = [];
                 $n1 = 0;
                 foreach ($map['collectors'] as $item1) {
-                    $model->collectors[$n1++] = collectors::fromMap($item1);
+                    $model->collectors[$n1] = collectors::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +159,8 @@ class result extends Model
                 $model->ipAddress = [];
                 $n1 = 0;
                 foreach ($map['ipAddress'] as $item1) {
-                    $model->ipAddress[$n1++] = ipAddress::fromMap($item1);
+                    $model->ipAddress[$n1] = ipAddress::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -428,7 +428,8 @@ class Elasticsearch extends Model
                 $res['aliwsDicts'] = [];
                 $n1 = 0;
                 foreach ($this->aliwsDicts as $item1) {
-                    $res['aliwsDicts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['aliwsDicts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -458,7 +459,8 @@ class Elasticsearch extends Model
                 $res['dictList'] = [];
                 $n1 = 0;
                 foreach ($this->dictList as $item1) {
-                    $res['dictList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dictList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -501,7 +503,8 @@ class Elasticsearch extends Model
                 $res['esIPWhitelist'] = [];
                 $n1 = 0;
                 foreach ($this->esIPWhitelist as $item1) {
-                    $res['esIPWhitelist'][$n1++] = $item1;
+                    $res['esIPWhitelist'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -516,11 +519,12 @@ class Elasticsearch extends Model
                 $n1 = 0;
                 foreach ($this->extendConfigs as $item1) {
                     if (\is_array($item1)) {
-                        $res['extendConfigs'][$n1++] = [];
+                        $res['extendConfigs'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['extendConfigs'][$n1++][$key2] = $value2;
+                            $res['extendConfigs'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -542,7 +546,8 @@ class Elasticsearch extends Model
                 $res['ikHotDicts'] = [];
                 $n1 = 0;
                 foreach ($this->ikHotDicts as $item1) {
-                    $res['ikHotDicts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ikHotDicts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -564,7 +569,8 @@ class Elasticsearch extends Model
                 $res['kibanaIPWhitelist'] = [];
                 $n1 = 0;
                 foreach ($this->kibanaIPWhitelist as $item1) {
-                    $res['kibanaIPWhitelist'][$n1++] = $item1;
+                    $res['kibanaIPWhitelist'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -582,7 +588,8 @@ class Elasticsearch extends Model
                 $res['kibanaPrivateIPWhitelist'] = [];
                 $n1 = 0;
                 foreach ($this->kibanaPrivateIPWhitelist as $item1) {
-                    $res['kibanaPrivateIPWhitelist'][$n1++] = $item1;
+                    $res['kibanaPrivateIPWhitelist'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -624,7 +631,8 @@ class Elasticsearch extends Model
                 $res['privateNetworkIpWhiteList'] = [];
                 $n1 = 0;
                 foreach ($this->privateNetworkIpWhiteList as $item1) {
-                    $res['privateNetworkIpWhiteList'][$n1++] = $item1;
+                    $res['privateNetworkIpWhiteList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -646,7 +654,8 @@ class Elasticsearch extends Model
                 $res['publicIpWhitelist'] = [];
                 $n1 = 0;
                 foreach ($this->publicIpWhitelist as $item1) {
-                    $res['publicIpWhitelist'][$n1++] = $item1;
+                    $res['publicIpWhitelist'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -676,7 +685,8 @@ class Elasticsearch extends Model
                 $res['synonymsDicts'] = [];
                 $n1 = 0;
                 foreach ($this->synonymsDicts as $item1) {
-                    $res['synonymsDicts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['synonymsDicts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -686,7 +696,8 @@ class Elasticsearch extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -712,7 +723,8 @@ class Elasticsearch extends Model
                 $res['zoneInfos'] = [];
                 $n1 = 0;
                 foreach ($this->zoneInfos as $item1) {
-                    $res['zoneInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['zoneInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -741,7 +753,8 @@ class Elasticsearch extends Model
                 $model->aliwsDicts = [];
                 $n1 = 0;
                 foreach ($map['aliwsDicts'] as $item1) {
-                    $model->aliwsDicts[$n1++] = DictInfo::fromMap($item1);
+                    $model->aliwsDicts[$n1] = DictInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -771,7 +784,8 @@ class Elasticsearch extends Model
                 $model->dictList = [];
                 $n1 = 0;
                 foreach ($map['dictList'] as $item1) {
-                    $model->dictList[$n1++] = DictInfo::fromMap($item1);
+                    $model->dictList[$n1] = DictInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -814,7 +828,8 @@ class Elasticsearch extends Model
                 $model->esIPWhitelist = [];
                 $n1 = 0;
                 foreach ($map['esIPWhitelist'] as $item1) {
-                    $model->esIPWhitelist[$n1++] = $item1;
+                    $model->esIPWhitelist[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -829,11 +844,12 @@ class Elasticsearch extends Model
                 $n1 = 0;
                 foreach ($map['extendConfigs'] as $item1) {
                     if (!empty($item1)) {
-                        $model->extendConfigs[$n1++] = [];
+                        $model->extendConfigs[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->extendConfigs[$n1++][$key2] = $value2;
+                            $model->extendConfigs[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -855,7 +871,8 @@ class Elasticsearch extends Model
                 $model->ikHotDicts = [];
                 $n1 = 0;
                 foreach ($map['ikHotDicts'] as $item1) {
-                    $model->ikHotDicts[$n1++] = DictInfo::fromMap($item1);
+                    $model->ikHotDicts[$n1] = DictInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -877,7 +894,8 @@ class Elasticsearch extends Model
                 $model->kibanaIPWhitelist = [];
                 $n1 = 0;
                 foreach ($map['kibanaIPWhitelist'] as $item1) {
-                    $model->kibanaIPWhitelist[$n1++] = $item1;
+                    $model->kibanaIPWhitelist[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -895,7 +913,8 @@ class Elasticsearch extends Model
                 $model->kibanaPrivateIPWhitelist = [];
                 $n1 = 0;
                 foreach ($map['kibanaPrivateIPWhitelist'] as $item1) {
-                    $model->kibanaPrivateIPWhitelist[$n1++] = $item1;
+                    $model->kibanaPrivateIPWhitelist[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -937,7 +956,8 @@ class Elasticsearch extends Model
                 $model->privateNetworkIpWhiteList = [];
                 $n1 = 0;
                 foreach ($map['privateNetworkIpWhiteList'] as $item1) {
-                    $model->privateNetworkIpWhiteList[$n1++] = $item1;
+                    $model->privateNetworkIpWhiteList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -959,7 +979,8 @@ class Elasticsearch extends Model
                 $model->publicIpWhitelist = [];
                 $n1 = 0;
                 foreach ($map['publicIpWhitelist'] as $item1) {
-                    $model->publicIpWhitelist[$n1++] = $item1;
+                    $model->publicIpWhitelist[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -989,7 +1010,8 @@ class Elasticsearch extends Model
                 $model->synonymsDicts = [];
                 $n1 = 0;
                 foreach ($map['synonymsDicts'] as $item1) {
-                    $model->synonymsDicts[$n1++] = DictInfo::fromMap($item1);
+                    $model->synonymsDicts[$n1] = DictInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -999,7 +1021,8 @@ class Elasticsearch extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = Tag::fromMap($item1);
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1025,7 +1048,8 @@ class Elasticsearch extends Model
                 $model->zoneInfos = [];
                 $n1 = 0;
                 foreach ($map['zoneInfos'] as $item1) {
-                    $model->zoneInfos[$n1++] = ZoneInfo::fromMap($item1);
+                    $model->zoneInfos[$n1] = ZoneInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

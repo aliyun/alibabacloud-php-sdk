@@ -123,7 +123,8 @@ class statusInfo extends Model
                 $res['subStatusInfo'] = [];
                 $n1 = 0;
                 foreach ($this->subStatusInfo as $item1) {
-                    $res['subStatusInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['subStatusInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +181,8 @@ class statusInfo extends Model
                 $model->subStatusInfo = [];
                 $n1 = 0;
                 foreach ($map['subStatusInfo'] as $item1) {
-                    $model->subStatusInfo[$n1++] = subStatusInfo::fromMap($item1);
+                    $model->subStatusInfo[$n1] = subStatusInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

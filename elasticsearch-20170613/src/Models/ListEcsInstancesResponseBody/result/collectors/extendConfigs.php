@@ -102,7 +102,8 @@ class extendConfigs extends Model
                 $res['hosts'] = [];
                 $n1 = 0;
                 foreach ($this->hosts as $item1) {
-                    $res['hosts'][$n1++] = $item1;
+                    $res['hosts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class extendConfigs extends Model
                 $res['machines'] = [];
                 $n1 = 0;
                 foreach ($this->machines as $item1) {
-                    $res['machines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['machines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +167,8 @@ class extendConfigs extends Model
                 $model->hosts = [];
                 $n1 = 0;
                 foreach ($map['hosts'] as $item1) {
-                    $model->hosts[$n1++] = $item1;
+                    $model->hosts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +186,8 @@ class extendConfigs extends Model
                 $model->machines = [];
                 $n1 = 0;
                 foreach ($map['machines'] as $item1) {
-                    $model->machines[$n1++] = machines::fromMap($item1);
+                    $model->machines[$n1] = machines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

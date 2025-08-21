@@ -52,7 +52,8 @@ class WhiteIpGroup extends Model
                 $res['ips'] = [];
                 $n1 = 0;
                 foreach ($this->ips as $item1) {
-                    $res['ips'][$n1++] = $item1;
+                    $res['ips'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class WhiteIpGroup extends Model
                 $model->ips = [];
                 $n1 = 0;
                 foreach ($map['ips'] as $item1) {
-                    $model->ips[$n1++] = $item1;
+                    $model->ips[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

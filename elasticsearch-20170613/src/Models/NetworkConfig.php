@@ -72,7 +72,8 @@ class NetworkConfig extends Model
                 $res['whiteIpGroupList'] = [];
                 $n1 = 0;
                 foreach ($this->whiteIpGroupList as $item1) {
-                    $res['whiteIpGroupList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['whiteIpGroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class NetworkConfig extends Model
                 $model->whiteIpGroupList = [];
                 $n1 = 0;
                 foreach ($map['whiteIpGroupList'] as $item1) {
-                    $model->whiteIpGroupList[$n1++] = WhiteIpGroup::fromMap($item1);
+                    $model->whiteIpGroupList[$n1] = WhiteIpGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

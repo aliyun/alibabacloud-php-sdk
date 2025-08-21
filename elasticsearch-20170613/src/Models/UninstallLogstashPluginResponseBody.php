@@ -60,7 +60,8 @@ class UninstallLogstashPluginResponseBody extends Model
                 $res['Result'] = [];
                 $n1 = 0;
                 foreach ($this->result as $item1) {
-                    $res['Result'][$n1++] = $item1;
+                    $res['Result'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class UninstallLogstashPluginResponseBody extends Model
                 $model->result = [];
                 $n1 = 0;
                 foreach ($map['Result'] as $item1) {
-                    $model->result[$n1++] = $item1;
+                    $model->result[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

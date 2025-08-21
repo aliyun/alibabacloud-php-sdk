@@ -74,7 +74,8 @@ class result extends Model
                 $res['indexPatterns'] = [];
                 $n1 = 0;
                 foreach ($this->indexPatterns as $item1) {
-                    $res['indexPatterns'][$n1++] = $item1;
+                    $res['indexPatterns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class result extends Model
                 $model->indexPatterns = [];
                 $n1 = 0;
                 foreach ($map['indexPatterns'] as $item1) {
-                    $model->indexPatterns[$n1++] = $item1;
+                    $model->indexPatterns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

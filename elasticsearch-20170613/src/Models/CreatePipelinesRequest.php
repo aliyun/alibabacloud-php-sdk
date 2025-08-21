@@ -49,7 +49,8 @@ class CreatePipelinesRequest extends Model
                 $res['body'] = [];
                 $n1 = 0;
                 foreach ($this->body as $item1) {
-                    $res['body'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['body'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class CreatePipelinesRequest extends Model
                 $model->body = [];
                 $n1 = 0;
                 foreach ($map['body'] as $item1) {
-                    $model->body[$n1++] = body::fromMap($item1);
+                    $model->body[$n1] = body::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

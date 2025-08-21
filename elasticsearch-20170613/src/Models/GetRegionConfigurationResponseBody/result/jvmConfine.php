@@ -51,7 +51,8 @@ class jvmConfine extends Model
                 $res['supportEsVersions'] = [];
                 $n1 = 0;
                 foreach ($this->supportEsVersions as $item1) {
-                    $res['supportEsVersions'][$n1++] = $item1;
+                    $res['supportEsVersions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,7 +62,8 @@ class jvmConfine extends Model
                 $res['supportGcs'] = [];
                 $n1 = 0;
                 foreach ($this->supportGcs as $item1) {
-                    $res['supportGcs'][$n1++] = $item1;
+                    $res['supportGcs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,7 +88,8 @@ class jvmConfine extends Model
                 $model->supportEsVersions = [];
                 $n1 = 0;
                 foreach ($map['supportEsVersions'] as $item1) {
-                    $model->supportEsVersions[$n1++] = $item1;
+                    $model->supportEsVersions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +99,8 @@ class jvmConfine extends Model
                 $model->supportGcs = [];
                 $n1 = 0;
                 foreach ($map['supportGcs'] as $item1) {
-                    $model->supportGcs[$n1++] = $item1;
+                    $model->supportGcs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

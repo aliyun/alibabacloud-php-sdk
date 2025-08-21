@@ -152,11 +152,12 @@ class result extends Model
                 $n1 = 0;
                 foreach ($this->extendConfigs as $item1) {
                     if (\is_array($item1)) {
-                        $res['ExtendConfigs'][$n1++] = [];
+                        $res['ExtendConfigs'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['ExtendConfigs'][$n1++][$key2] = $value2;
+                            $res['ExtendConfigs'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +171,8 @@ class result extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +182,8 @@ class result extends Model
                 $res['ZoneInfos'] = [];
                 $n1 = 0;
                 foreach ($this->zoneInfos as $item1) {
-                    $res['ZoneInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ZoneInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -207,7 +210,8 @@ class result extends Model
                 $res['endpointList'] = [];
                 $n1 = 0;
                 foreach ($this->endpointList as $item1) {
-                    $res['endpointList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['endpointList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -265,11 +269,12 @@ class result extends Model
                 $n1 = 0;
                 foreach ($map['ExtendConfigs'] as $item1) {
                     if (!empty($item1)) {
-                        $model->extendConfigs[$n1++] = [];
+                        $model->extendConfigs[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->extendConfigs[$n1++][$key2] = $value2;
+                            $model->extendConfigs[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -283,7 +288,8 @@ class result extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -293,7 +299,8 @@ class result extends Model
                 $model->zoneInfos = [];
                 $n1 = 0;
                 foreach ($map['ZoneInfos'] as $item1) {
-                    $model->zoneInfos[$n1++] = zoneInfos::fromMap($item1);
+                    $model->zoneInfos[$n1] = zoneInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -320,7 +327,8 @@ class result extends Model
                 $model->endpointList = [];
                 $n1 = 0;
                 foreach ($map['endpointList'] as $item1) {
-                    $model->endpointList[$n1++] = endpointList::fromMap($item1);
+                    $model->endpointList[$n1] = endpointList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

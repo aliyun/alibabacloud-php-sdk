@@ -81,7 +81,8 @@ class result extends Model
                 $res['indices'] = [];
                 $n1 = 0;
                 foreach ($this->indices as $item1) {
-                    $res['indices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['indices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +127,8 @@ class result extends Model
                 $model->indices = [];
                 $n1 = 0;
                 foreach ($map['indices'] as $item1) {
-                    $model->indices[$n1++] = indices::fromMap($item1);
+                    $model->indices[$n1] = indices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

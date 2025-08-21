@@ -55,7 +55,8 @@ class result extends Model
                 $res['ExtendConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->extendConfigs as $item1) {
-                    $res['ExtendConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ExtendConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,7 +70,8 @@ class result extends Model
                 $res['NodeConfigurations'] = [];
                 $n1 = 0;
                 foreach ($this->nodeConfigurations as $item1) {
-                    $res['NodeConfigurations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeConfigurations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +96,8 @@ class result extends Model
                 $model->extendConfigs = [];
                 $n1 = 0;
                 foreach ($map['ExtendConfigs'] as $item1) {
-                    $model->extendConfigs[$n1++] = extendConfigs::fromMap($item1);
+                    $model->extendConfigs[$n1] = extendConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +111,8 @@ class result extends Model
                 $model->nodeConfigurations = [];
                 $n1 = 0;
                 foreach ($map['NodeConfigurations'] as $item1) {
-                    $model->nodeConfigurations[$n1++] = nodeConfigurations::fromMap($item1);
+                    $model->nodeConfigurations[$n1] = nodeConfigurations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

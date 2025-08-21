@@ -112,7 +112,8 @@ class collectors extends Model
                 $res['collectorPaths'] = [];
                 $n1 = 0;
                 foreach ($this->collectorPaths as $item1) {
-                    $res['collectorPaths'][$n1++] = $item1;
+                    $res['collectorPaths'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class collectors extends Model
                 $res['configs'] = [];
                 $n1 = 0;
                 foreach ($this->configs as $item1) {
-                    $res['configs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['configs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +138,8 @@ class collectors extends Model
                 $res['extendConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->extendConfigs as $item1) {
-                    $res['extendConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['extendConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -193,7 +196,8 @@ class collectors extends Model
                 $model->collectorPaths = [];
                 $n1 = 0;
                 foreach ($map['collectorPaths'] as $item1) {
-                    $model->collectorPaths[$n1++] = $item1;
+                    $model->collectorPaths[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +207,8 @@ class collectors extends Model
                 $model->configs = [];
                 $n1 = 0;
                 foreach ($map['configs'] as $item1) {
-                    $model->configs[$n1++] = configs::fromMap($item1);
+                    $model->configs[$n1] = configs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -217,7 +222,8 @@ class collectors extends Model
                 $model->extendConfigs = [];
                 $n1 = 0;
                 foreach ($map['extendConfigs'] as $item1) {
-                    $model->extendConfigs[$n1++] = extendConfigs::fromMap($item1);
+                    $model->extendConfigs[$n1] = extendConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

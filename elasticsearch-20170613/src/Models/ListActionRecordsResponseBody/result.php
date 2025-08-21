@@ -160,7 +160,8 @@ class result extends Model
                 $res['actionResultAccessList'] = [];
                 $n1 = 0;
                 foreach ($this->actionResultAccessList as $item1) {
-                    $res['actionResultAccessList'][$n1++] = $item1;
+                    $res['actionResultAccessList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +204,8 @@ class result extends Model
                 $res['recordIds'] = [];
                 $n1 = 0;
                 foreach ($this->recordIds as $item1) {
-                    $res['recordIds'][$n1++] = $item1;
+                    $res['recordIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -225,7 +227,8 @@ class result extends Model
                 $res['statusInfo'] = [];
                 $n1 = 0;
                 foreach ($this->statusInfo as $item1) {
-                    $res['statusInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['statusInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -271,7 +274,8 @@ class result extends Model
                 $model->actionResultAccessList = [];
                 $n1 = 0;
                 foreach ($map['actionResultAccessList'] as $item1) {
-                    $model->actionResultAccessList[$n1++] = $item1;
+                    $model->actionResultAccessList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -314,7 +318,8 @@ class result extends Model
                 $model->recordIds = [];
                 $n1 = 0;
                 foreach ($map['recordIds'] as $item1) {
-                    $model->recordIds[$n1++] = $item1;
+                    $model->recordIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -336,7 +341,8 @@ class result extends Model
                 $model->statusInfo = [];
                 $n1 = 0;
                 foreach ($map['statusInfo'] as $item1) {
-                    $model->statusInfo[$n1++] = statusInfo::fromMap($item1);
+                    $model->statusInfo[$n1] = statusInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

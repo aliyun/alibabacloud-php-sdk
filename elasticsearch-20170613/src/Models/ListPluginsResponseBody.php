@@ -57,7 +57,8 @@ class ListPluginsResponseBody extends Model
                 $res['Result'] = [];
                 $n1 = 0;
                 foreach ($this->result as $item1) {
-                    $res['Result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Result'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,7 +87,8 @@ class ListPluginsResponseBody extends Model
                 $model->result = [];
                 $n1 = 0;
                 foreach ($map['Result'] as $item1) {
-                    $model->result[$n1++] = result::fromMap($item1);
+                    $model->result[$n1] = result::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

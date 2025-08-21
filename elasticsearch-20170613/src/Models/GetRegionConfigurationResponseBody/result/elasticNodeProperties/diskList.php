@@ -82,7 +82,8 @@ class diskList extends Model
                 $res['valueLimitSet'] = [];
                 $n1 = 0;
                 foreach ($this->valueLimitSet as $item1) {
-                    $res['valueLimitSet'][$n1++] = $item1;
+                    $res['valueLimitSet'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class diskList extends Model
                 $model->valueLimitSet = [];
                 $n1 = 0;
                 foreach ($map['valueLimitSet'] as $item1) {
-                    $model->valueLimitSet[$n1++] = $item1;
+                    $model->valueLimitSet[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

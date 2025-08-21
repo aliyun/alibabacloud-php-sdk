@@ -82,7 +82,8 @@ class ModifyWhiteIpsRequest extends Model
                 $res['whiteIpList'] = [];
                 $n1 = 0;
                 foreach ($this->whiteIpList as $item1) {
-                    $res['whiteIpList'][$n1++] = $item1;
+                    $res['whiteIpList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class ModifyWhiteIpsRequest extends Model
                 $model->whiteIpList = [];
                 $n1 = 0;
                 foreach ($map['whiteIpList'] as $item1) {
-                    $model->whiteIpList[$n1++] = $item1;
+                    $model->whiteIpList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -170,7 +170,8 @@ class result extends Model
                 $res['clientNodeDiskList'] = [];
                 $n1 = 0;
                 foreach ($this->clientNodeDiskList as $item1) {
-                    $res['clientNodeDiskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['clientNodeDiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +181,8 @@ class result extends Model
                 $res['clientSpecs'] = [];
                 $n1 = 0;
                 foreach ($this->clientSpecs as $item1) {
-                    $res['clientSpecs'][$n1++] = $item1;
+                    $res['clientSpecs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +196,8 @@ class result extends Model
                 $res['dataNodeDiskList'] = [];
                 $n1 = 0;
                 foreach ($this->dataNodeDiskList as $item1) {
-                    $res['dataNodeDiskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dataNodeDiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -204,7 +207,8 @@ class result extends Model
                 $res['dataNodeSpecs'] = [];
                 $n1 = 0;
                 foreach ($this->dataNodeSpecs as $item1) {
-                    $res['dataNodeSpecs'][$n1++] = $item1;
+                    $res['dataNodeSpecs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -214,7 +218,8 @@ class result extends Model
                 $res['kibanaSpecs'] = [];
                 $n1 = 0;
                 foreach ($this->kibanaSpecs as $item1) {
-                    $res['kibanaSpecs'][$n1++] = $item1;
+                    $res['kibanaSpecs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -224,7 +229,8 @@ class result extends Model
                 $res['masterAmountRange'] = [];
                 $n1 = 0;
                 foreach ($this->masterAmountRange as $item1) {
-                    $res['masterAmountRange'][$n1++] = $item1;
+                    $res['masterAmountRange'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -234,7 +240,8 @@ class result extends Model
                 $res['masterDiskList'] = [];
                 $n1 = 0;
                 foreach ($this->masterDiskList as $item1) {
-                    $res['masterDiskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['masterDiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -244,7 +251,8 @@ class result extends Model
                 $res['masterSpecs'] = [];
                 $n1 = 0;
                 foreach ($this->masterSpecs as $item1) {
-                    $res['masterSpecs'][$n1++] = $item1;
+                    $res['masterSpecs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -263,7 +271,8 @@ class result extends Model
                 $res['versions'] = [];
                 $n1 = 0;
                 foreach ($this->versions as $item1) {
-                    $res['versions'][$n1++] = $item1;
+                    $res['versions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -277,7 +286,8 @@ class result extends Model
                 $res['warmNodeDiskList'] = [];
                 $n1 = 0;
                 foreach ($this->warmNodeDiskList as $item1) {
-                    $res['warmNodeDiskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['warmNodeDiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -287,7 +297,8 @@ class result extends Model
                 $res['warmNodeSpecs'] = [];
                 $n1 = 0;
                 foreach ($this->warmNodeSpecs as $item1) {
-                    $res['warmNodeSpecs'][$n1++] = $item1;
+                    $res['warmNodeSpecs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -312,7 +323,8 @@ class result extends Model
                 $model->clientNodeDiskList = [];
                 $n1 = 0;
                 foreach ($map['clientNodeDiskList'] as $item1) {
-                    $model->clientNodeDiskList[$n1++] = clientNodeDiskList::fromMap($item1);
+                    $model->clientNodeDiskList[$n1] = clientNodeDiskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -322,7 +334,8 @@ class result extends Model
                 $model->clientSpecs = [];
                 $n1 = 0;
                 foreach ($map['clientSpecs'] as $item1) {
-                    $model->clientSpecs[$n1++] = $item1;
+                    $model->clientSpecs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -336,7 +349,8 @@ class result extends Model
                 $model->dataNodeDiskList = [];
                 $n1 = 0;
                 foreach ($map['dataNodeDiskList'] as $item1) {
-                    $model->dataNodeDiskList[$n1++] = dataNodeDiskList::fromMap($item1);
+                    $model->dataNodeDiskList[$n1] = dataNodeDiskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -346,7 +360,8 @@ class result extends Model
                 $model->dataNodeSpecs = [];
                 $n1 = 0;
                 foreach ($map['dataNodeSpecs'] as $item1) {
-                    $model->dataNodeSpecs[$n1++] = $item1;
+                    $model->dataNodeSpecs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -356,7 +371,8 @@ class result extends Model
                 $model->kibanaSpecs = [];
                 $n1 = 0;
                 foreach ($map['kibanaSpecs'] as $item1) {
-                    $model->kibanaSpecs[$n1++] = $item1;
+                    $model->kibanaSpecs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -366,7 +382,8 @@ class result extends Model
                 $model->masterAmountRange = [];
                 $n1 = 0;
                 foreach ($map['masterAmountRange'] as $item1) {
-                    $model->masterAmountRange[$n1++] = $item1;
+                    $model->masterAmountRange[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -376,7 +393,8 @@ class result extends Model
                 $model->masterDiskList = [];
                 $n1 = 0;
                 foreach ($map['masterDiskList'] as $item1) {
-                    $model->masterDiskList[$n1++] = masterDiskList::fromMap($item1);
+                    $model->masterDiskList[$n1] = masterDiskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -386,7 +404,8 @@ class result extends Model
                 $model->masterSpecs = [];
                 $n1 = 0;
                 foreach ($map['masterSpecs'] as $item1) {
-                    $model->masterSpecs[$n1++] = $item1;
+                    $model->masterSpecs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -405,7 +424,8 @@ class result extends Model
                 $model->versions = [];
                 $n1 = 0;
                 foreach ($map['versions'] as $item1) {
-                    $model->versions[$n1++] = $item1;
+                    $model->versions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -419,7 +439,8 @@ class result extends Model
                 $model->warmNodeDiskList = [];
                 $n1 = 0;
                 foreach ($map['warmNodeDiskList'] as $item1) {
-                    $model->warmNodeDiskList[$n1++] = warmNodeDiskList::fromMap($item1);
+                    $model->warmNodeDiskList[$n1] = warmNodeDiskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -429,7 +450,8 @@ class result extends Model
                 $model->warmNodeSpecs = [];
                 $n1 = 0;
                 foreach ($map['warmNodeSpecs'] as $item1) {
-                    $model->warmNodeSpecs[$n1++] = $item1;
+                    $model->warmNodeSpecs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

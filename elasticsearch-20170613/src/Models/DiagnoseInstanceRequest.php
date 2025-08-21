@@ -63,7 +63,8 @@ class DiagnoseInstanceRequest extends Model
                 $res['diagnoseItems'] = [];
                 $n1 = 0;
                 foreach ($this->diagnoseItems as $item1) {
-                    $res['diagnoseItems'][$n1++] = $item1;
+                    $res['diagnoseItems'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class DiagnoseInstanceRequest extends Model
                 $res['indices'] = [];
                 $n1 = 0;
                 foreach ($this->indices as $item1) {
-                    $res['indices'][$n1++] = $item1;
+                    $res['indices'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +108,8 @@ class DiagnoseInstanceRequest extends Model
                 $model->diagnoseItems = [];
                 $n1 = 0;
                 foreach ($map['diagnoseItems'] as $item1) {
-                    $model->diagnoseItems[$n1++] = $item1;
+                    $model->diagnoseItems[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +119,8 @@ class DiagnoseInstanceRequest extends Model
                 $model->indices = [];
                 $n1 = 0;
                 foreach ($map['indices'] as $item1) {
-                    $model->indices[$n1++] = $item1;
+                    $model->indices[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

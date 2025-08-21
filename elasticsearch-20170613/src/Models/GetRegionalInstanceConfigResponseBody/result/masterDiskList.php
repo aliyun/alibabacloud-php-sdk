@@ -73,7 +73,8 @@ class masterDiskList extends Model
                 $res['subClassificationConfines'] = [];
                 $n1 = 0;
                 foreach ($this->subClassificationConfines as $item1) {
-                    $res['subClassificationConfines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['subClassificationConfines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class masterDiskList extends Model
                 $model->subClassificationConfines = [];
                 $n1 = 0;
                 foreach ($map['subClassificationConfines'] as $item1) {
-                    $model->subClassificationConfines[$n1++] = subClassificationConfines::fromMap($item1);
+                    $model->subClassificationConfines[$n1] = subClassificationConfines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

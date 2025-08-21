@@ -82,7 +82,8 @@ class CollectorTargetInstance extends Model
                 $res['hosts'] = [];
                 $n1 = 0;
                 foreach ($this->hosts as $item1) {
-                    $res['hosts'][$n1++] = $item1;
+                    $res['hosts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class CollectorTargetInstance extends Model
                 $model->hosts = [];
                 $n1 = 0;
                 foreach ($map['hosts'] as $item1) {
-                    $model->hosts[$n1++] = $item1;
+                    $model->hosts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

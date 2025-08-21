@@ -107,6 +107,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\EstimatedRestartTimeResponse
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetClusterDataInformationRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetClusterDataInformationResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetElastictaskResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonAlarmRecordStatisticsDistributeRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonAlarmRecordStatisticsDistributeResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonGrafanaAlertsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonGrafanaAlertsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonGrafanaDashboardsRequest;
@@ -377,7 +379,6 @@ class Elasticsearch extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('elasticsearch', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -833,7 +834,7 @@ class Elasticsearch extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return CapacityPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CapacityPlanResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -3556,6 +3557,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 查看备份设置.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3588,6 +3591,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 查看备份设置.
+     *
      * @returns DescribeSnapshotSettingResponse
      *
      * @param string $InstanceId
@@ -4139,6 +4144,79 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * GetEmonAlarmRecordStatisticsDistribute.
+     *
+     * @param request - GetEmonAlarmRecordStatisticsDistributeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEmonAlarmRecordStatisticsDistributeResponse
+     *
+     * @param GetEmonAlarmRecordStatisticsDistributeRequest $request
+     * @param string[]                                      $headers
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return GetEmonAlarmRecordStatisticsDistributeResponse
+     */
+    public function getEmonAlarmRecordStatisticsDistributeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->body) {
+            @$query['body'] = $request->body;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->timeEnd) {
+            @$query['timeEnd'] = $request->timeEnd;
+        }
+
+        if (null !== $request->timeStart) {
+            @$query['timeStart'] = $request->timeStart;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetEmonAlarmRecordStatisticsDistribute',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/emon/alarm-record-statistics/distribute',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetEmonAlarmRecordStatisticsDistributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetEmonAlarmRecordStatisticsDistribute.
+     *
+     * @param request - GetEmonAlarmRecordStatisticsDistributeRequest
+     *
+     * @returns GetEmonAlarmRecordStatisticsDistributeResponse
+     *
+     * @param GetEmonAlarmRecordStatisticsDistributeRequest $request
+     *
+     * @return GetEmonAlarmRecordStatisticsDistributeResponse
+     */
+    public function getEmonAlarmRecordStatisticsDistribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getEmonAlarmRecordStatisticsDistributeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 获取高级监控报警自定义Grafana监控报警项.
      *
      * @param request - GetEmonGrafanaAlertsRequest
@@ -4157,9 +4235,14 @@ class Elasticsearch extends OpenApiClient
     public function getEmonGrafanaAlertsWithOptions($ProjectId, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->body) {
+            @$query['body'] = $request->body;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => $request->body,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetEmonGrafanaAlerts',
@@ -4215,9 +4298,14 @@ class Elasticsearch extends OpenApiClient
     public function getEmonGrafanaDashboardsWithOptions($ProjectId, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->body) {
+            @$query['body'] = $request->body;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => $request->body,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetEmonGrafanaDashboards',
@@ -4255,6 +4343,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * GetEmonMonitorData.
+     *
      * @param request - GetEmonMonitorDataRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4271,9 +4361,14 @@ class Elasticsearch extends OpenApiClient
     public function getEmonMonitorDataWithOptions($ProjectId, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->body) {
+            @$query['body'] = $request->body;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => $request->body,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetEmonMonitorData',
@@ -4291,6 +4386,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * GetEmonMonitorData.
+     *
      * @param request - GetEmonMonitorDataRequest
      *
      * @returns GetEmonMonitorDataResponse
@@ -5819,6 +5916,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 查询数据流
+     *
      * @param request - ListDataStreamsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5864,6 +5963,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 查询数据流
+     *
      * @param request - ListDataStreamsRequest
      *
      * @returns ListDataStreamsResponse
@@ -6497,6 +6598,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 查询ecs实例.
+     *
      * @remarks
      * *Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
      *
@@ -6560,6 +6663,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 查询ecs实例.
+     *
      * @remarks
      * *Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
      *
@@ -7509,6 +7614,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * ListPipeline.
+     *
      * @param request - ListPipelineRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7558,6 +7665,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * ListPipeline.
+     *
      * @param request - ListPipelineRequest
      *
      * @returns ListPipelineResponse
@@ -8708,6 +8817,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * PostEmonTryAlarmRule.
+     *
      * @param request - PostEmonTryAlarmRuleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8725,9 +8836,14 @@ class Elasticsearch extends OpenApiClient
     public function postEmonTryAlarmRuleWithOptions($ProjectId, $AlarmGroupId, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->body) {
+            @$query['body'] = $request->body;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => $request->body,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'PostEmonTryAlarmRule',
@@ -8745,6 +8861,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * PostEmonTryAlarmRule.
+     *
      * @param request - PostEmonTryAlarmRuleRequest
      *
      * @returns PostEmonTryAlarmRuleResponse
@@ -10361,10 +10479,13 @@ class Elasticsearch extends OpenApiClient
             @$query['TagKeys'] = $request->tagKeys;
         }
 
+        if (null !== $request->body) {
+            @$query['body'] = $request->body;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
-            'body' => $request->body,
         ]);
         $params = new Params([
             'action' => 'UntagResources',
@@ -10700,7 +10821,6 @@ class Elasticsearch extends OpenApiClient
         return $this->updateApmWithOptions($instanceId, $request, $headers, $runtime);
     }
 
-    // Deprecated
     /**
      * 修改ES实例访问黑名单，已废弃.
      *

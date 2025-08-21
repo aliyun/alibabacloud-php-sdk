@@ -185,7 +185,8 @@ class Logstash extends Model
                 $res['endpointList'] = [];
                 $n1 = 0;
                 foreach ($this->endpointList as $item1) {
-                    $res['endpointList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['endpointList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -227,7 +228,8 @@ class Logstash extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -249,7 +251,8 @@ class Logstash extends Model
                 $res['zoneInfos'] = [];
                 $n1 = 0;
                 foreach ($this->zoneInfos as $item1) {
-                    $res['zoneInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['zoneInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -295,7 +298,8 @@ class Logstash extends Model
                 $model->endpointList = [];
                 $n1 = 0;
                 foreach ($map['endpointList'] as $item1) {
-                    $model->endpointList[$n1++] = endpointList::fromMap($item1);
+                    $model->endpointList[$n1] = endpointList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -337,7 +341,8 @@ class Logstash extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -359,7 +364,8 @@ class Logstash extends Model
                 $model->zoneInfos = [];
                 $n1 = 0;
                 foreach ($map['zoneInfos'] as $item1) {
-                    $model->zoneInfos[$n1++] = zoneInfos::fromMap($item1);
+                    $model->zoneInfos[$n1] = zoneInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

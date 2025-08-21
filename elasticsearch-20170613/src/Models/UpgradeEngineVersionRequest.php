@@ -63,7 +63,8 @@ class UpgradeEngineVersionRequest extends Model
                 $res['plugins'] = [];
                 $n1 = 0;
                 foreach ($this->plugins as $item1) {
-                    $res['plugins'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['plugins'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class UpgradeEngineVersionRequest extends Model
                 $model->plugins = [];
                 $n1 = 0;
                 foreach ($map['plugins'] as $item1) {
-                    $model->plugins[$n1++] = plugins::fromMap($item1);
+                    $model->plugins[$n1] = plugins::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

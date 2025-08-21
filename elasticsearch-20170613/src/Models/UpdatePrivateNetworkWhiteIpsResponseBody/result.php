@@ -32,7 +32,8 @@ class result extends Model
                 $res['privateNetworkIpWhiteList'] = [];
                 $n1 = 0;
                 foreach ($this->privateNetworkIpWhiteList as $item1) {
-                    $res['privateNetworkIpWhiteList'][$n1++] = $item1;
+                    $res['privateNetworkIpWhiteList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class result extends Model
                 $model->privateNetworkIpWhiteList = [];
                 $n1 = 0;
                 foreach ($map['privateNetworkIpWhiteList'] as $item1) {
-                    $model->privateNetworkIpWhiteList[$n1++] = $item1;
+                    $model->privateNetworkIpWhiteList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

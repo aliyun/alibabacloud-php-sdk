@@ -71,7 +71,8 @@ class UpdatePipelineManagementConfigRequest extends Model
                 $res['endpoints'] = [];
                 $n1 = 0;
                 foreach ($this->endpoints as $item1) {
-                    $res['endpoints'][$n1++] = $item1;
+                    $res['endpoints'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class UpdatePipelineManagementConfigRequest extends Model
                 $res['pipelineIds'] = [];
                 $n1 = 0;
                 foreach ($this->pipelineIds as $item1) {
-                    $res['pipelineIds'][$n1++] = $item1;
+                    $res['pipelineIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +124,8 @@ class UpdatePipelineManagementConfigRequest extends Model
                 $model->endpoints = [];
                 $n1 = 0;
                 foreach ($map['endpoints'] as $item1) {
-                    $model->endpoints[$n1++] = $item1;
+                    $model->endpoints[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +143,8 @@ class UpdatePipelineManagementConfigRequest extends Model
                 $model->pipelineIds = [];
                 $n1 = 0;
                 foreach ($map['pipelineIds'] as $item1) {
-                    $model->pipelineIds[$n1++] = $item1;
+                    $model->pipelineIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

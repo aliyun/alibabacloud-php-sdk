@@ -219,7 +219,8 @@ class result extends Model
                 $res['clientNodeDiskList'] = [];
                 $n1 = 0;
                 foreach ($this->clientNodeDiskList as $item1) {
-                    $res['clientNodeDiskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['clientNodeDiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -229,7 +230,8 @@ class result extends Model
                 $res['clientNodeSpec'] = [];
                 $n1 = 0;
                 foreach ($this->clientNodeSpec as $item1) {
-                    $res['clientNodeSpec'][$n1++] = $item1;
+                    $res['clientNodeSpec'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -243,7 +245,8 @@ class result extends Model
                 $res['dataDiskList'] = [];
                 $n1 = 0;
                 foreach ($this->dataDiskList as $item1) {
-                    $res['dataDiskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dataDiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -261,7 +264,8 @@ class result extends Model
                 $res['esVersions'] = [];
                 $n1 = 0;
                 foreach ($this->esVersions as $item1) {
-                    $res['esVersions'][$n1++] = $item1;
+                    $res['esVersions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -271,7 +275,8 @@ class result extends Model
                 $res['esVersionsLatestList'] = [];
                 $n1 = 0;
                 foreach ($this->esVersionsLatestList as $item1) {
-                    $res['esVersionsLatestList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['esVersionsLatestList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -281,7 +286,8 @@ class result extends Model
                 $res['instanceSupportNodes'] = [];
                 $n1 = 0;
                 foreach ($this->instanceSupportNodes as $item1) {
-                    $res['instanceSupportNodes'][$n1++] = $item1;
+                    $res['instanceSupportNodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -299,7 +305,8 @@ class result extends Model
                 $res['logstashZones'] = [];
                 $n1 = 0;
                 foreach ($this->logstashZones as $item1) {
-                    $res['logstashZones'][$n1++] = $item1;
+                    $res['logstashZones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -309,7 +316,8 @@ class result extends Model
                 $res['masterDiskList'] = [];
                 $n1 = 0;
                 foreach ($this->masterDiskList as $item1) {
-                    $res['masterDiskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['masterDiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -319,7 +327,8 @@ class result extends Model
                 $res['masterSpec'] = [];
                 $n1 = 0;
                 foreach ($this->masterSpec as $item1) {
-                    $res['masterSpec'][$n1++] = $item1;
+                    $res['masterSpec'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -333,7 +342,8 @@ class result extends Model
                 $res['nodeSpecList'] = [];
                 $n1 = 0;
                 foreach ($this->nodeSpecList as $item1) {
-                    $res['nodeSpecList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['nodeSpecList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -347,7 +357,8 @@ class result extends Model
                 $res['supportVersions'] = [];
                 $n1 = 0;
                 foreach ($this->supportVersions as $item1) {
-                    $res['supportVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['supportVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -361,7 +372,8 @@ class result extends Model
                 $res['zones'] = [];
                 $n1 = 0;
                 foreach ($this->zones as $item1) {
-                    $res['zones'][$n1++] = $item1;
+                    $res['zones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -386,7 +398,8 @@ class result extends Model
                 $model->clientNodeDiskList = [];
                 $n1 = 0;
                 foreach ($map['clientNodeDiskList'] as $item1) {
-                    $model->clientNodeDiskList[$n1++] = clientNodeDiskList::fromMap($item1);
+                    $model->clientNodeDiskList[$n1] = clientNodeDiskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -396,7 +409,8 @@ class result extends Model
                 $model->clientNodeSpec = [];
                 $n1 = 0;
                 foreach ($map['clientNodeSpec'] as $item1) {
-                    $model->clientNodeSpec[$n1++] = $item1;
+                    $model->clientNodeSpec[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -410,7 +424,8 @@ class result extends Model
                 $model->dataDiskList = [];
                 $n1 = 0;
                 foreach ($map['dataDiskList'] as $item1) {
-                    $model->dataDiskList[$n1++] = dataDiskList::fromMap($item1);
+                    $model->dataDiskList[$n1] = dataDiskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -428,7 +443,8 @@ class result extends Model
                 $model->esVersions = [];
                 $n1 = 0;
                 foreach ($map['esVersions'] as $item1) {
-                    $model->esVersions[$n1++] = $item1;
+                    $model->esVersions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -438,7 +454,8 @@ class result extends Model
                 $model->esVersionsLatestList = [];
                 $n1 = 0;
                 foreach ($map['esVersionsLatestList'] as $item1) {
-                    $model->esVersionsLatestList[$n1++] = esVersionsLatestList::fromMap($item1);
+                    $model->esVersionsLatestList[$n1] = esVersionsLatestList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -448,7 +465,8 @@ class result extends Model
                 $model->instanceSupportNodes = [];
                 $n1 = 0;
                 foreach ($map['instanceSupportNodes'] as $item1) {
-                    $model->instanceSupportNodes[$n1++] = $item1;
+                    $model->instanceSupportNodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -466,7 +484,8 @@ class result extends Model
                 $model->logstashZones = [];
                 $n1 = 0;
                 foreach ($map['logstashZones'] as $item1) {
-                    $model->logstashZones[$n1++] = $item1;
+                    $model->logstashZones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -476,7 +495,8 @@ class result extends Model
                 $model->masterDiskList = [];
                 $n1 = 0;
                 foreach ($map['masterDiskList'] as $item1) {
-                    $model->masterDiskList[$n1++] = masterDiskList::fromMap($item1);
+                    $model->masterDiskList[$n1] = masterDiskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -486,7 +506,8 @@ class result extends Model
                 $model->masterSpec = [];
                 $n1 = 0;
                 foreach ($map['masterSpec'] as $item1) {
-                    $model->masterSpec[$n1++] = $item1;
+                    $model->masterSpec[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -500,7 +521,8 @@ class result extends Model
                 $model->nodeSpecList = [];
                 $n1 = 0;
                 foreach ($map['nodeSpecList'] as $item1) {
-                    $model->nodeSpecList[$n1++] = nodeSpecList::fromMap($item1);
+                    $model->nodeSpecList[$n1] = nodeSpecList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -514,7 +536,8 @@ class result extends Model
                 $model->supportVersions = [];
                 $n1 = 0;
                 foreach ($map['supportVersions'] as $item1) {
-                    $model->supportVersions[$n1++] = supportVersions::fromMap($item1);
+                    $model->supportVersions[$n1] = supportVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -528,7 +551,8 @@ class result extends Model
                 $model->zones = [];
                 $n1 = 0;
                 foreach ($map['zones'] as $item1) {
-                    $model->zones[$n1++] = $item1;
+                    $model->zones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

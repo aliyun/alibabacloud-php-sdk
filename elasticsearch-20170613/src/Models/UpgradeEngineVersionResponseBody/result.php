@@ -49,7 +49,8 @@ class result extends Model
                 $res['validateResult'] = [];
                 $n1 = 0;
                 foreach ($this->validateResult as $item1) {
-                    $res['validateResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['validateResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class result extends Model
                 $model->validateResult = [];
                 $n1 = 0;
                 foreach ($map['validateResult'] as $item1) {
-                    $model->validateResult[$n1++] = validateResult::fromMap($item1);
+                    $model->validateResult[$n1] = validateResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

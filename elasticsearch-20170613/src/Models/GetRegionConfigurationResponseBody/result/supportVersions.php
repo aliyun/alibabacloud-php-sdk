@@ -43,7 +43,8 @@ class supportVersions extends Model
                 $res['supportVersionList'] = [];
                 $n1 = 0;
                 foreach ($this->supportVersionList as $item1) {
-                    $res['supportVersionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['supportVersionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class supportVersions extends Model
                 $model->supportVersionList = [];
                 $n1 = 0;
                 foreach ($map['supportVersionList'] as $item1) {
-                    $model->supportVersionList[$n1++] = supportVersionList::fromMap($item1);
+                    $model->supportVersionList[$n1] = supportVersionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

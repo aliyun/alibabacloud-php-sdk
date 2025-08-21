@@ -169,7 +169,8 @@ class result extends Model
                 $res['dictList'] = [];
                 $n1 = 0;
                 foreach ($this->dictList as $item1) {
-                    $res['dictList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dictList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -235,7 +236,8 @@ class result extends Model
                 $res['synonymsDicts'] = [];
                 $n1 = 0;
                 foreach ($this->synonymsDicts as $item1) {
-                    $res['synonymsDicts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['synonymsDicts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -268,7 +270,8 @@ class result extends Model
                 $model->dictList = [];
                 $n1 = 0;
                 foreach ($map['dictList'] as $item1) {
-                    $model->dictList[$n1++] = dictList::fromMap($item1);
+                    $model->dictList[$n1] = dictList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -334,7 +337,8 @@ class result extends Model
                 $model->synonymsDicts = [];
                 $n1 = 0;
                 foreach ($map['synonymsDicts'] as $item1) {
-                    $model->synonymsDicts[$n1++] = synonymsDicts::fromMap($item1);
+                    $model->synonymsDicts[$n1] = synonymsDicts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

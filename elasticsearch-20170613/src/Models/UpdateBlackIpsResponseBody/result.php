@@ -32,7 +32,8 @@ class result extends Model
                 $res['esIPBlacklist'] = [];
                 $n1 = 0;
                 foreach ($this->esIPBlacklist as $item1) {
-                    $res['esIPBlacklist'][$n1++] = $item1;
+                    $res['esIPBlacklist'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class result extends Model
                 $model->esIPBlacklist = [];
                 $n1 = 0;
                 foreach ($map['esIPBlacklist'] as $item1) {
-                    $model->esIPBlacklist[$n1++] = $item1;
+                    $model->esIPBlacklist[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
