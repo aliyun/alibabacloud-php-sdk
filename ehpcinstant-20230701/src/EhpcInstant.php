@@ -8,12 +8,17 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\AddImageRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\AddImageResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\AddImageShrinkRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateActionPlanRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateActionPlanResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateActionPlanShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreatePoolRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreatePoolResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreatePoolShrinkRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteActionPlanRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteActionPlanResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsShrinkRequest;
@@ -25,6 +30,8 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricDataShrinkReq
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricLastRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricLastResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricLastShrinkRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetActionPlanRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetActionPlanResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetAppVersionsRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetAppVersionsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageRequest;
@@ -34,6 +41,11 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetPoolRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetPoolResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListActionPlanActivitiesRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListActionPlanActivitiesResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListActionPlansRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListActionPlansResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListActionPlansShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorsRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorsShrinkRequest;
@@ -59,6 +71,8 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UnTagResourcesRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UnTagResourcesResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdateActionPlanRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdateActionPlanResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolShrinkRequest;
@@ -186,6 +200,109 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建执行计划创建执行计划.
+     *
+     * @param tmpReq - CreateActionPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateActionPlanResponse
+     *
+     * @param CreateActionPlanRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateActionPlanResponse
+     */
+    public function createActionPlanWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateActionPlanShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->regions) {
+            $request->regionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->regions, 'Regions', 'json');
+        }
+
+        if (null !== $tmpReq->resources) {
+            $request->resourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->actionPlanName) {
+            @$query['ActionPlanName'] = $request->actionPlanName;
+        }
+
+        if (null !== $request->allocationSpec) {
+            @$query['AllocationSpec'] = $request->allocationSpec;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->desiredCapacity) {
+            @$query['DesiredCapacity'] = $request->desiredCapacity;
+        }
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
+        }
+
+        if (null !== $request->prologScript) {
+            @$query['PrologScript'] = $request->prologScript;
+        }
+
+        if (null !== $request->regionsShrink) {
+            @$query['Regions'] = $request->regionsShrink;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->resourcesShrink) {
+            @$query['Resources'] = $request->resourcesShrink;
+        }
+
+        if (null !== $request->script) {
+            @$query['Script'] = $request->script;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateActionPlan',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateActionPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建执行计划创建执行计划.
+     *
+     * @param request - CreateActionPlanRequest
+     *
+     * @returns CreateActionPlanResponse
+     *
+     * @param CreateActionPlanRequest $request
+     *
+     * @return CreateActionPlanResponse
+     */
+    public function createActionPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createActionPlanWithOptions($request, $runtime);
     }
 
     /**
@@ -356,6 +473,63 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPoolWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除执行计划.
+     *
+     * @param request - DeleteActionPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteActionPlanResponse
+     *
+     * @param DeleteActionPlanRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteActionPlanResponse
+     */
+    public function deleteActionPlanWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->actionPlanId) {
+            @$query['ActionPlanId'] = $request->actionPlanId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteActionPlan',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteActionPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除执行计划.
+     *
+     * @param request - DeleteActionPlanRequest
+     *
+     * @returns DeleteActionPlanResponse
+     *
+     * @param DeleteActionPlanRequest $request
+     *
+     * @return DeleteActionPlanResponse
+     */
+    public function deleteActionPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteActionPlanWithOptions($request, $runtime);
     }
 
     /**
@@ -637,6 +811,63 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
+     * 查询执行计划详情.
+     *
+     * @param request - GetActionPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetActionPlanResponse
+     *
+     * @param GetActionPlanRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetActionPlanResponse
+     */
+    public function getActionPlanWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->actionPlanId) {
+            @$query['ActionPlanId'] = $request->actionPlanId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetActionPlan',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetActionPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询执行计划详情.
+     *
+     * @param request - GetActionPlanRequest
+     *
+     * @returns GetActionPlanResponse
+     *
+     * @param GetActionPlanRequest $request
+     *
+     * @return GetActionPlanResponse
+     */
+    public function getActionPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getActionPlanWithOptions($request, $runtime);
+    }
+
+    /**
      * 查看应用版本列表.
      *
      * @param request - GetAppVersionsRequest
@@ -896,6 +1127,142 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPoolWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询执行计划的执行情况。
+     *
+     * @param request - ListActionPlanActivitiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListActionPlanActivitiesResponse
+     *
+     * @param ListActionPlanActivitiesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListActionPlanActivitiesResponse
+     */
+    public function listActionPlanActivitiesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->actionPlanId) {
+            @$query['ActionPlanId'] = $request->actionPlanId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListActionPlanActivities',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListActionPlanActivitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询执行计划的执行情况。
+     *
+     * @param request - ListActionPlanActivitiesRequest
+     *
+     * @returns ListActionPlanActivitiesResponse
+     *
+     * @param ListActionPlanActivitiesRequest $request
+     *
+     * @return ListActionPlanActivitiesResponse
+     */
+    public function listActionPlanActivities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listActionPlanActivitiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询执行计划列表.
+     *
+     * @param tmpReq - ListActionPlansRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListActionPlansResponse
+     *
+     * @param ListActionPlansRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListActionPlansResponse
+     */
+    public function listActionPlansWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListActionPlansShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->actionPlanIds) {
+            $request->actionPlanIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actionPlanIds, 'ActionPlanIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->actionPlanIdsShrink) {
+            @$query['ActionPlanIds'] = $request->actionPlanIdsShrink;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListActionPlans',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListActionPlansResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询执行计划列表.
+     *
+     * @param request - ListActionPlansRequest
+     *
+     * @returns ListActionPlansResponse
+     *
+     * @param ListActionPlansRequest $request
+     *
+     * @return ListActionPlansResponse
+     */
+    public function listActionPlans($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listActionPlansWithOptions($request, $runtime);
     }
 
     /**
@@ -1612,6 +1979,71 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新执行计划.
+     *
+     * @param request - UpdateActionPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateActionPlanResponse
+     *
+     * @param UpdateActionPlanRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateActionPlanResponse
+     */
+    public function updateActionPlanWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->actionPlanId) {
+            @$query['ActionPlanId'] = $request->actionPlanId;
+        }
+
+        if (null !== $request->desiredCapacity) {
+            @$query['DesiredCapacity'] = $request->desiredCapacity;
+        }
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateActionPlan',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateActionPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新执行计划.
+     *
+     * @param request - UpdateActionPlanRequest
+     *
+     * @returns UpdateActionPlanResponse
+     *
+     * @param UpdateActionPlanRequest $request
+     *
+     * @return UpdateActionPlanResponse
+     */
+    public function updateActionPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateActionPlanWithOptions($request, $runtime);
     }
 
     /**
