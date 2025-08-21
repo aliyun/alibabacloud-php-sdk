@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CompleteContinuouslyPushResponseBody extends Model
 {
     /**
-     * @example 4010290149170430
-     *
      * @var string
      */
     public $messageId;
 
     /**
-     * @example 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-     *
      * @var string
      */
     public $requestId;
@@ -26,14 +22,18 @@ class CompleteContinuouslyPushResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->messageId) {
             $res['MessageId'] = $this->messageId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +41,18 @@ class CompleteContinuouslyPushResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CompleteContinuouslyPushResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MessageId'])) {
             $model->messageId = $map['MessageId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

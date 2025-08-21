@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryTagsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 23267207
-     *
      * @var int
      */
     public $appKey;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example e2ba19de97604f55b165576****
-     *
      * @var string
      */
     public $clientKey;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example DEVICE
-     *
      * @var string
      */
     public $keyType;
@@ -40,17 +28,22 @@ class QueryTagsRequest extends Model
         'keyType' => 'KeyType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+
         if (null !== $this->clientKey) {
             $res['ClientKey'] = $this->clientKey;
         }
+
         if (null !== $this->keyType) {
             $res['KeyType'] = $this->keyType;
         }
@@ -58,20 +51,22 @@ class QueryTagsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryTagsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+
         if (isset($map['ClientKey'])) {
             $model->clientKey = $map['ClientKey'];
         }
+
         if (isset($map['KeyType'])) {
             $model->keyType = $map['KeyType'];
         }

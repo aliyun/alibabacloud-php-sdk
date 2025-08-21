@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models\ListTagsResponseBody\tagInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tagInfo extends Model
 {
     /**
-     * @example test_tag2
-     *
      * @var string
      */
     public $tagName;
@@ -18,9 +16,12 @@ class tagInfo extends Model
         'tagName' => 'TagName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagName) {
@@ -30,11 +31,11 @@ class tagInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

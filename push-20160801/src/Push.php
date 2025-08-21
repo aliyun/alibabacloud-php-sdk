@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Push\V20160801\Models\BindAliasRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\BindAliasResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\BindPhoneRequest;
@@ -67,11 +66,10 @@ use AlibabaCloud\SDK\Push\V20160801\Models\UnbindPhoneRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\UnbindPhoneResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\UnbindTagRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\UnbindTagResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Push extends OpenApiClient
 {
@@ -152,39 +150,48 @@ class Push extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 绑定别名
-     *  *
-     * @param BindAliasRequest $request BindAliasRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 绑定别名.
      *
-     * @return BindAliasResponse BindAliasResponse
+     * @param request - BindAliasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindAliasResponse
+     *
+     * @param BindAliasRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return BindAliasResponse
      */
     public function bindAliasWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliasName)) {
-            $query['AliasName'] = $request->aliasName;
+        if (null !== $request->aliasName) {
+            @$query['AliasName'] = $request->aliasName;
         }
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'BindAlias',
@@ -197,19 +204,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BindAliasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BindAliasResponse::fromMap($this->execute($params, $req, $runtime));
+        return BindAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 绑定别名
-     *  *
-     * @param BindAliasRequest $request BindAliasRequest
+     * 绑定别名.
      *
-     * @return BindAliasResponse BindAliasResponse
+     * @param request - BindAliasRequest
+     *
+     * @returns BindAliasResponse
+     *
+     * @param BindAliasRequest $request
+     *
+     * @return BindAliasResponse
      */
     public function bindAlias($request)
     {
@@ -219,28 +227,36 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 绑定手机号码
-     *  *
-     * @param BindPhoneRequest $request BindPhoneRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 绑定手机号码
      *
-     * @return BindPhoneResponse BindPhoneResponse
+     * @param request - BindPhoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindPhoneResponse
+     *
+     * @param BindPhoneRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return BindPhoneResponse
      */
     public function bindPhoneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'BindPhone',
@@ -253,19 +269,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BindPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BindPhoneResponse::fromMap($this->execute($params, $req, $runtime));
+        return BindPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 绑定手机号码
-     *  *
-     * @param BindPhoneRequest $request BindPhoneRequest
+     * 绑定手机号码
      *
-     * @return BindPhoneResponse BindPhoneResponse
+     * @param request - BindPhoneRequest
+     *
+     * @returns BindPhoneResponse
+     *
+     * @param BindPhoneRequest $request
+     *
+     * @return BindPhoneResponse
      */
     public function bindPhone($request)
     {
@@ -275,31 +292,40 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 绑定标签
-     *  *
-     * @param BindTagRequest $request BindTagRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 绑定标签.
      *
-     * @return BindTagResponse BindTagResponse
+     * @param request - BindTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindTagResponse
+     *
+     * @param BindTagRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return BindTagResponse
      */
     public function bindTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->clientKey)) {
-            $query['ClientKey'] = $request->clientKey;
+
+        if (null !== $request->clientKey) {
+            @$query['ClientKey'] = $request->clientKey;
         }
-        if (!Utils::isUnset($request->keyType)) {
-            $query['KeyType'] = $request->keyType;
+
+        if (null !== $request->keyType) {
+            @$query['KeyType'] = $request->keyType;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $query['TagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$query['TagName'] = $request->tagName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'BindTag',
@@ -312,19 +338,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BindTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BindTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return BindTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 绑定标签
-     *  *
-     * @param BindTagRequest $request BindTagRequest
+     * 绑定标签.
      *
-     * @return BindTagResponse BindTagResponse
+     * @param request - BindTagRequest
+     *
+     * @returns BindTagResponse
+     *
+     * @param BindTagRequest $request
+     *
+     * @return BindTagResponse
      */
     public function bindTag($request)
     {
@@ -334,25 +361,32 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 取消定时推送任务
-     *  *
-     * @param CancelPushRequest $request CancelPushRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 取消定时推送任务
      *
-     * @return CancelPushResponse CancelPushResponse
+     * @param request - CancelPushRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelPushResponse
+     *
+     * @param CancelPushRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CancelPushResponse
      */
     public function cancelPushWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->messageId)) {
-            $query['MessageId'] = $request->messageId;
+
+        if (null !== $request->messageId) {
+            @$query['MessageId'] = $request->messageId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CancelPush',
@@ -365,19 +399,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CancelPushResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelPushResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelPushResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 取消定时推送任务
-     *  *
-     * @param CancelPushRequest $request CancelPushRequest
+     * 取消定时推送任务
      *
-     * @return CancelPushResponse CancelPushResponse
+     * @param request - CancelPushRequest
+     *
+     * @returns CancelPushResponse
+     *
+     * @param CancelPushRequest $request
+     *
+     * @return CancelPushResponse
      */
     public function cancelPush($request)
     {
@@ -387,20 +422,26 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param CheckCertificateRequest $request CheckCertificateRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - CheckCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CheckCertificateResponse CheckCertificateResponse
+     * @returns CheckCertificateResponse
+     *
+     * @param CheckCertificateRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CheckCertificateResponse
      */
     public function checkCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckCertificate',
@@ -413,17 +454,18 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CheckCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckCertificateRequest $request CheckCertificateRequest
+     * @param request - CheckCertificateRequest
      *
-     * @return CheckCertificateResponse CheckCertificateResponse
+     * @returns CheckCertificateResponse
+     *
+     * @param CheckCertificateRequest $request
+     *
+     * @return CheckCertificateResponse
      */
     public function checkCertificate($request)
     {
@@ -433,29 +475,34 @@ class Push extends OpenApiClient
     }
 
     /**
+     * 【废弃】验证设备有效性.
+     *
      * @deprecated openAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead
-     *  *
-     * @summary 【废弃】验证设备有效性
-     *  *
-     * Deprecated
      *
-     * @param CheckDeviceRequest $request CheckDeviceRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - CheckDeviceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CheckDeviceResponse CheckDeviceResponse
+     * @returns CheckDeviceResponse
+     *
+     * @param CheckDeviceRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CheckDeviceResponse
      */
     public function checkDeviceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckDevice',
@@ -468,23 +515,23 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CheckDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckDeviceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * 【废弃】验证设备有效性.
+     *
      * @deprecated openAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead
-     *  *
-     * @summary 【废弃】验证设备有效性
-     *  *
-     * Deprecated
      *
-     * @param CheckDeviceRequest $request CheckDeviceRequest
+     * @param request - CheckDeviceRequest
      *
-     * @return CheckDeviceResponse CheckDeviceResponse
+     * @returns CheckDeviceResponse
+     *
+     * @param CheckDeviceRequest $request
+     *
+     * @return CheckDeviceResponse
      */
     public function checkDevice($request)
     {
@@ -494,25 +541,32 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 批量检查设备有效性
-     *  *
-     * @param CheckDevicesRequest $request CheckDevicesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 批量检查设备有效性.
      *
-     * @return CheckDevicesResponse CheckDevicesResponse
+     * @param request - CheckDevicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckDevicesResponse
+     *
+     * @param CheckDevicesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CheckDevicesResponse
      */
     public function checkDevicesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->deviceIds)) {
-            $query['DeviceIds'] = $request->deviceIds;
+
+        if (null !== $request->deviceIds) {
+            @$query['DeviceIds'] = $request->deviceIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckDevices',
@@ -525,19 +579,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CheckDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckDevicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量检查设备有效性
-     *  *
-     * @param CheckDevicesRequest $request CheckDevicesRequest
+     * 批量检查设备有效性.
      *
-     * @return CheckDevicesResponse CheckDevicesResponse
+     * @param request - CheckDevicesRequest
+     *
+     * @returns CheckDevicesResponse
+     *
+     * @param CheckDevicesRequest $request
+     *
+     * @return CheckDevicesResponse
      */
     public function checkDevices($request)
     {
@@ -547,25 +602,32 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 完成持续推送任务
-     *  *
-     * @param CompleteContinuouslyPushRequest $request CompleteContinuouslyPushRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 完成持续推送任务
      *
-     * @return CompleteContinuouslyPushResponse CompleteContinuouslyPushResponse
+     * @param request - CompleteContinuouslyPushRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CompleteContinuouslyPushResponse
+     *
+     * @param CompleteContinuouslyPushRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CompleteContinuouslyPushResponse
      */
     public function completeContinuouslyPushWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->messageId)) {
-            $query['MessageId'] = $request->messageId;
+
+        if (null !== $request->messageId) {
+            @$query['MessageId'] = $request->messageId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CompleteContinuouslyPush',
@@ -578,19 +640,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CompleteContinuouslyPushResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CompleteContinuouslyPushResponse::fromMap($this->execute($params, $req, $runtime));
+        return CompleteContinuouslyPushResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 完成持续推送任务
-     *  *
-     * @param CompleteContinuouslyPushRequest $request CompleteContinuouslyPushRequest
+     * 完成持续推送任务
      *
-     * @return CompleteContinuouslyPushResponse CompleteContinuouslyPushResponse
+     * @param request - CompleteContinuouslyPushRequest
+     *
+     * @returns CompleteContinuouslyPushResponse
+     *
+     * @param CompleteContinuouslyPushRequest $request
+     *
+     * @return CompleteContinuouslyPushResponse
      */
     public function completeContinuouslyPush($request)
     {
@@ -600,31 +663,40 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 持续推送
-     *  *
-     * @param ContinuouslyPushRequest $request ContinuouslyPushRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 持续推送
      *
-     * @return ContinuouslyPushResponse ContinuouslyPushResponse
+     * @param request - ContinuouslyPushRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ContinuouslyPushResponse
+     *
+     * @param ContinuouslyPushRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ContinuouslyPushResponse
      */
     public function continuouslyPushWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->messageId)) {
-            $query['MessageId'] = $request->messageId;
+
+        if (null !== $request->messageId) {
+            @$query['MessageId'] = $request->messageId;
         }
-        if (!Utils::isUnset($request->target)) {
-            $query['Target'] = $request->target;
+
+        if (null !== $request->target) {
+            @$query['Target'] = $request->target;
         }
-        if (!Utils::isUnset($request->targetValue)) {
-            $query['TargetValue'] = $request->targetValue;
+
+        if (null !== $request->targetValue) {
+            @$query['TargetValue'] = $request->targetValue;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ContinuouslyPush',
@@ -637,19 +709,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ContinuouslyPushResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ContinuouslyPushResponse::fromMap($this->execute($params, $req, $runtime));
+        return ContinuouslyPushResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 持续推送
-     *  *
-     * @param ContinuouslyPushRequest $request ContinuouslyPushRequest
+     * 持续推送
      *
-     * @return ContinuouslyPushResponse ContinuouslyPushResponse
+     * @param request - ContinuouslyPushRequest
+     *
+     * @returns ContinuouslyPushResponse
+     *
+     * @param ContinuouslyPushRequest $request
+     *
+     * @return ContinuouslyPushResponse
      */
     public function continuouslyPush($request)
     {
@@ -658,16 +731,20 @@ class Push extends OpenApiClient
         return $this->continuouslyPushWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
+     * 【废弃】查询用户已创建的app列表.
+     *
      * @deprecated openAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead
-     *  *
-     * @summary 【废弃】查询用户已创建的app列表
-     *  *
-     * Deprecated
      *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param request - ListSummaryAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListSummaryAppsResponse ListSummaryAppsResponse
+     * @returns ListSummaryAppsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListSummaryAppsResponse
      */
     public function listSummaryAppsWithOptions($runtime)
     {
@@ -683,21 +760,19 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSummaryAppsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSummaryAppsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSummaryAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * @deprecated openAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead
-     *  *
-     * @summary 【废弃】查询用户已创建的app列表
-     *  *
-     * Deprecated
+     * 【废弃】查询用户已创建的app列表.
      *
-     * @return ListSummaryAppsResponse ListSummaryAppsResponse
+     * @deprecated openAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead
+     *
+     * @returns ListSummaryAppsResponse
+     *
+     * @return ListSummaryAppsResponse
      */
     public function listSummaryApps()
     {
@@ -707,22 +782,28 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 获取标签列表
-     *  *
-     * @param ListTagsRequest $request ListTagsRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 获取标签列表.
      *
-     * @return ListTagsResponse ListTagsResponse
+     * @param request - ListTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagsResponse
+     *
+     * @param ListTagsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListTagsResponse
      */
     public function listTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTags',
@@ -735,19 +816,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取标签列表
-     *  *
-     * @param ListTagsRequest $request ListTagsRequest
+     * 获取标签列表.
      *
-     * @return ListTagsResponse ListTagsResponse
+     * @param request - ListTagsRequest
+     *
+     * @returns ListTagsResponse
+     *
+     * @param ListTagsRequest $request
+     *
+     * @return ListTagsResponse
      */
     public function listTags($request)
     {
@@ -757,30 +839,38 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 批量推送
-     *  *
-     * @param MassPushRequest $request MassPushRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 批量推送
      *
-     * @return MassPushResponse MassPushResponse
+     * @param request - MassPushRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MassPushResponse
+     *
+     * @param MassPushRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return MassPushResponse
      */
     public function massPushWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->idempotentToken)) {
-            $query['IdempotentToken'] = $request->idempotentToken;
+
+        if (null !== $request->idempotentToken) {
+            @$query['IdempotentToken'] = $request->idempotentToken;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->pushTask)) {
-            $body['PushTask'] = $request->pushTask;
+        if (null !== $request->pushTask) {
+            @$body['PushTask'] = $request->pushTask;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'MassPush',
@@ -793,19 +883,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return MassPushResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MassPushResponse::fromMap($this->execute($params, $req, $runtime));
+        return MassPushResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量推送
-     *  *
-     * @param MassPushRequest $request MassPushRequest
+     * 批量推送
      *
-     * @return MassPushResponse MassPushResponse
+     * @param request - MassPushRequest
+     *
+     * @returns MassPushResponse
+     *
+     * @param MassPushRequest $request
+     *
+     * @return MassPushResponse
      */
     public function massPush($request)
     {
@@ -815,337 +906,452 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 高级推送接口
-     *  *
-     * @param PushRequest    $request PushRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 高级推送接口.
      *
-     * @return PushResponse PushResponse
+     * @param request - PushRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushResponse
+     *
+     * @param PushRequest    $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return PushResponse
      */
     public function pushWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidActivity)) {
-            $query['AndroidActivity'] = $request->androidActivity;
+        if (null !== $request->androidActivity) {
+            @$query['AndroidActivity'] = $request->androidActivity;
+        }
+
+        if (null !== $request->androidBadgeAddNum) {
+            @$query['AndroidBadgeAddNum'] = $request->androidBadgeAddNum;
+        }
+
+        if (null !== $request->androidBadgeClass) {
+            @$query['AndroidBadgeClass'] = $request->androidBadgeClass;
+        }
+
+        if (null !== $request->androidBadgeSetNum) {
+            @$query['AndroidBadgeSetNum'] = $request->androidBadgeSetNum;
+        }
+
+        if (null !== $request->androidBigBody) {
+            @$query['AndroidBigBody'] = $request->androidBigBody;
+        }
+
+        if (null !== $request->androidBigPictureUrl) {
+            @$query['AndroidBigPictureUrl'] = $request->androidBigPictureUrl;
+        }
+
+        if (null !== $request->androidBigTitle) {
+            @$query['AndroidBigTitle'] = $request->androidBigTitle;
+        }
+
+        if (null !== $request->androidExtParameters) {
+            @$query['AndroidExtParameters'] = $request->androidExtParameters;
+        }
+
+        if (null !== $request->androidHonorTargetUserType) {
+            @$query['AndroidHonorTargetUserType'] = $request->androidHonorTargetUserType;
+        }
+
+        if (null !== $request->androidHuaweiReceiptId) {
+            @$query['AndroidHuaweiReceiptId'] = $request->androidHuaweiReceiptId;
+        }
+
+        if (null !== $request->androidHuaweiTargetUserType) {
+            @$query['AndroidHuaweiTargetUserType'] = $request->androidHuaweiTargetUserType;
+        }
+
+        if (null !== $request->androidImageUrl) {
+            @$query['AndroidImageUrl'] = $request->androidImageUrl;
+        }
+
+        if (null !== $request->androidInboxBody) {
+            @$query['AndroidInboxBody'] = $request->androidInboxBody;
+        }
+
+        if (null !== $request->androidMeizuNoticeMsgType) {
+            @$query['AndroidMeizuNoticeMsgType'] = $request->androidMeizuNoticeMsgType;
+        }
+
+        if (null !== $request->androidMessageHuaweiCategory) {
+            @$query['AndroidMessageHuaweiCategory'] = $request->androidMessageHuaweiCategory;
+        }
+
+        if (null !== $request->androidMessageHuaweiUrgency) {
+            @$query['AndroidMessageHuaweiUrgency'] = $request->androidMessageHuaweiUrgency;
+        }
+
+        if (null !== $request->androidMessageOppoCategory) {
+            @$query['AndroidMessageOppoCategory'] = $request->androidMessageOppoCategory;
+        }
+
+        if (null !== $request->androidMessageOppoNotifyLevel) {
+            @$query['AndroidMessageOppoNotifyLevel'] = $request->androidMessageOppoNotifyLevel;
+        }
+
+        if (null !== $request->androidMessageVivoCategory) {
+            @$query['AndroidMessageVivoCategory'] = $request->androidMessageVivoCategory;
+        }
+
+        if (null !== $request->androidMusic) {
+            @$query['AndroidMusic'] = $request->androidMusic;
+        }
+
+        if (null !== $request->androidNotificationBarPriority) {
+            @$query['AndroidNotificationBarPriority'] = $request->androidNotificationBarPriority;
+        }
+
+        if (null !== $request->androidNotificationBarType) {
+            @$query['AndroidNotificationBarType'] = $request->androidNotificationBarType;
+        }
+
+        if (null !== $request->androidNotificationChannel) {
+            @$query['AndroidNotificationChannel'] = $request->androidNotificationChannel;
+        }
+
+        if (null !== $request->androidNotificationGroup) {
+            @$query['AndroidNotificationGroup'] = $request->androidNotificationGroup;
+        }
+
+        if (null !== $request->androidNotificationHonorChannel) {
+            @$query['AndroidNotificationHonorChannel'] = $request->androidNotificationHonorChannel;
+        }
+
+        if (null !== $request->androidNotificationHuaweiChannel) {
+            @$query['AndroidNotificationHuaweiChannel'] = $request->androidNotificationHuaweiChannel;
+        }
+
+        if (null !== $request->androidNotificationNotifyId) {
+            @$query['AndroidNotificationNotifyId'] = $request->androidNotificationNotifyId;
+        }
+
+        if (null !== $request->androidNotificationThreadId) {
+            @$query['AndroidNotificationThreadId'] = $request->androidNotificationThreadId;
+        }
+
+        if (null !== $request->androidNotificationVivoChannel) {
+            @$query['AndroidNotificationVivoChannel'] = $request->androidNotificationVivoChannel;
+        }
+
+        if (null !== $request->androidNotificationXiaomiChannel) {
+            @$query['AndroidNotificationXiaomiChannel'] = $request->androidNotificationXiaomiChannel;
+        }
+
+        if (null !== $request->androidNotifyType) {
+            @$query['AndroidNotifyType'] = $request->androidNotifyType;
+        }
+
+        if (null !== $request->androidOpenType) {
+            @$query['AndroidOpenType'] = $request->androidOpenType;
+        }
+
+        if (null !== $request->androidOpenUrl) {
+            @$query['AndroidOpenUrl'] = $request->androidOpenUrl;
+        }
+
+        if (null !== $request->androidPopupActivity) {
+            @$query['AndroidPopupActivity'] = $request->androidPopupActivity;
+        }
+
+        if (null !== $request->androidPopupBody) {
+            @$query['AndroidPopupBody'] = $request->androidPopupBody;
+        }
+
+        if (null !== $request->androidPopupTitle) {
+            @$query['AndroidPopupTitle'] = $request->androidPopupTitle;
+        }
+
+        if (null !== $request->androidRemind) {
+            @$query['AndroidRemind'] = $request->androidRemind;
+        }
+
+        if (null !== $request->androidRenderStyle) {
+            @$query['AndroidRenderStyle'] = $request->androidRenderStyle;
+        }
+
+        if (null !== $request->androidTargetUserType) {
+            @$query['AndroidTargetUserType'] = $request->androidTargetUserType;
+        }
+
+        if (null !== $request->androidVivoPushMode) {
+            @$query['AndroidVivoPushMode'] = $request->androidVivoPushMode;
+        }
+
+        if (null !== $request->androidVivoReceiptId) {
+            @$query['AndroidVivoReceiptId'] = $request->androidVivoReceiptId;
+        }
+
+        if (null !== $request->androidXiaoMiActivity) {
+            @$query['AndroidXiaoMiActivity'] = $request->androidXiaoMiActivity;
+        }
+
+        if (null !== $request->androidXiaoMiNotifyBody) {
+            @$query['AndroidXiaoMiNotifyBody'] = $request->androidXiaoMiNotifyBody;
+        }
+
+        if (null !== $request->androidXiaoMiNotifyTitle) {
+            @$query['AndroidXiaoMiNotifyTitle'] = $request->androidXiaoMiNotifyTitle;
+        }
+
+        if (null !== $request->androidXiaomiBigPictureUrl) {
+            @$query['AndroidXiaomiBigPictureUrl'] = $request->androidXiaomiBigPictureUrl;
+        }
+
+        if (null !== $request->androidXiaomiImageUrl) {
+            @$query['AndroidXiaomiImageUrl'] = $request->androidXiaomiImageUrl;
+        }
+
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
+        }
+
+        if (null !== $request->body) {
+            @$query['Body'] = $request->body;
+        }
+
+        if (null !== $request->deviceType) {
+            @$query['DeviceType'] = $request->deviceType;
+        }
+
+        if (null !== $request->expireTime) {
+            @$query['ExpireTime'] = $request->expireTime;
+        }
+
+        if (null !== $request->harmonyAction) {
+            @$query['HarmonyAction'] = $request->harmonyAction;
+        }
+
+        if (null !== $request->harmonyActionType) {
+            @$query['HarmonyActionType'] = $request->harmonyActionType;
+        }
+
+        if (null !== $request->harmonyBadgeAddNum) {
+            @$query['HarmonyBadgeAddNum'] = $request->harmonyBadgeAddNum;
+        }
+
+        if (null !== $request->harmonyBadgeSetNum) {
+            @$query['HarmonyBadgeSetNum'] = $request->harmonyBadgeSetNum;
+        }
+
+        if (null !== $request->harmonyCategory) {
+            @$query['HarmonyCategory'] = $request->harmonyCategory;
+        }
+
+        if (null !== $request->harmonyExtParameters) {
+            @$query['HarmonyExtParameters'] = $request->harmonyExtParameters;
+        }
+
+        if (null !== $request->harmonyExtensionExtraData) {
+            @$query['HarmonyExtensionExtraData'] = $request->harmonyExtensionExtraData;
+        }
+
+        if (null !== $request->harmonyExtensionPush) {
+            @$query['HarmonyExtensionPush'] = $request->harmonyExtensionPush;
+        }
+
+        if (null !== $request->harmonyImageUrl) {
+            @$query['HarmonyImageUrl'] = $request->harmonyImageUrl;
+        }
+
+        if (null !== $request->harmonyInboxContent) {
+            @$query['HarmonyInboxContent'] = $request->harmonyInboxContent;
+        }
+
+        if (null !== $request->harmonyNotificationSlotType) {
+            @$query['HarmonyNotificationSlotType'] = $request->harmonyNotificationSlotType;
+        }
+
+        if (null !== $request->harmonyNotifyId) {
+            @$query['HarmonyNotifyId'] = $request->harmonyNotifyId;
+        }
+
+        if (null !== $request->harmonyReceiptId) {
+            @$query['HarmonyReceiptId'] = $request->harmonyReceiptId;
+        }
+
+        if (null !== $request->harmonyRemind) {
+            @$query['HarmonyRemind'] = $request->harmonyRemind;
+        }
+
+        if (null !== $request->harmonyRemindBody) {
+            @$query['HarmonyRemindBody'] = $request->harmonyRemindBody;
+        }
+
+        if (null !== $request->harmonyRemindTitle) {
+            @$query['HarmonyRemindTitle'] = $request->harmonyRemindTitle;
+        }
+
+        if (null !== $request->harmonyRenderStyle) {
+            @$query['HarmonyRenderStyle'] = $request->harmonyRenderStyle;
+        }
+
+        if (null !== $request->harmonyTestMessage) {
+            @$query['HarmonyTestMessage'] = $request->harmonyTestMessage;
+        }
+
+        if (null !== $request->harmonyUri) {
+            @$query['HarmonyUri'] = $request->harmonyUri;
+        }
+
+        if (null !== $request->idempotentToken) {
+            @$query['IdempotentToken'] = $request->idempotentToken;
+        }
+
+        if (null !== $request->jobKey) {
+            @$query['JobKey'] = $request->jobKey;
+        }
+
+        if (null !== $request->pushTime) {
+            @$query['PushTime'] = $request->pushTime;
+        }
+
+        if (null !== $request->pushType) {
+            @$query['PushType'] = $request->pushType;
+        }
+
+        if (null !== $request->sendChannels) {
+            @$query['SendChannels'] = $request->sendChannels;
+        }
+
+        if (null !== $request->sendSpeed) {
+            @$query['SendSpeed'] = $request->sendSpeed;
+        }
+
+        if (null !== $request->smsDelaySecs) {
+            @$query['SmsDelaySecs'] = $request->smsDelaySecs;
+        }
+
+        if (null !== $request->smsParams) {
+            @$query['SmsParams'] = $request->smsParams;
+        }
+
+        if (null !== $request->smsSendPolicy) {
+            @$query['SmsSendPolicy'] = $request->smsSendPolicy;
+        }
+
+        if (null !== $request->smsSignName) {
+            @$query['SmsSignName'] = $request->smsSignName;
+        }
+
+        if (null !== $request->smsTemplateName) {
+            @$query['SmsTemplateName'] = $request->smsTemplateName;
+        }
+
+        if (null !== $request->storeOffline) {
+            @$query['StoreOffline'] = $request->storeOffline;
+        }
+
+        if (null !== $request->target) {
+            @$query['Target'] = $request->target;
+        }
+
+        if (null !== $request->targetValue) {
+            @$query['TargetValue'] = $request->targetValue;
         }
-        if (!Utils::isUnset($request->androidBadgeAddNum)) {
-            $query['AndroidBadgeAddNum'] = $request->androidBadgeAddNum;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->androidBadgeClass)) {
-            $query['AndroidBadgeClass'] = $request->androidBadgeClass;
+
+        if (null !== $request->trim) {
+            @$query['Trim'] = $request->trim;
         }
-        if (!Utils::isUnset($request->androidBadgeSetNum)) {
-            $query['AndroidBadgeSetNum'] = $request->androidBadgeSetNum;
+
+        if (null !== $request->iOSApnsEnv) {
+            @$query['iOSApnsEnv'] = $request->iOSApnsEnv;
         }
-        if (!Utils::isUnset($request->androidBigBody)) {
-            $query['AndroidBigBody'] = $request->androidBigBody;
+
+        if (null !== $request->iOSBadge) {
+            @$query['iOSBadge'] = $request->iOSBadge;
         }
-        if (!Utils::isUnset($request->androidBigPictureUrl)) {
-            $query['AndroidBigPictureUrl'] = $request->androidBigPictureUrl;
+
+        if (null !== $request->iOSBadgeAutoIncrement) {
+            @$query['iOSBadgeAutoIncrement'] = $request->iOSBadgeAutoIncrement;
         }
-        if (!Utils::isUnset($request->androidBigTitle)) {
-            $query['AndroidBigTitle'] = $request->androidBigTitle;
+
+        if (null !== $request->iOSExtParameters) {
+            @$query['iOSExtParameters'] = $request->iOSExtParameters;
         }
-        if (!Utils::isUnset($request->androidExtParameters)) {
-            $query['AndroidExtParameters'] = $request->androidExtParameters;
+
+        if (null !== $request->iOSInterruptionLevel) {
+            @$query['iOSInterruptionLevel'] = $request->iOSInterruptionLevel;
         }
-        if (!Utils::isUnset($request->androidHonorTargetUserType)) {
-            $query['AndroidHonorTargetUserType'] = $request->androidHonorTargetUserType;
+
+        if (null !== $request->iOSLiveActivityAttributes) {
+            @$query['iOSLiveActivityAttributes'] = $request->iOSLiveActivityAttributes;
         }
-        if (!Utils::isUnset($request->androidHuaweiReceiptId)) {
-            $query['AndroidHuaweiReceiptId'] = $request->androidHuaweiReceiptId;
+
+        if (null !== $request->iOSLiveActivityAttributesType) {
+            @$query['iOSLiveActivityAttributesType'] = $request->iOSLiveActivityAttributesType;
         }
-        if (!Utils::isUnset($request->androidHuaweiTargetUserType)) {
-            $query['AndroidHuaweiTargetUserType'] = $request->androidHuaweiTargetUserType;
+
+        if (null !== $request->iOSLiveActivityContentState) {
+            @$query['iOSLiveActivityContentState'] = $request->iOSLiveActivityContentState;
         }
-        if (!Utils::isUnset($request->androidImageUrl)) {
-            $query['AndroidImageUrl'] = $request->androidImageUrl;
+
+        if (null !== $request->iOSLiveActivityDismissalDate) {
+            @$query['iOSLiveActivityDismissalDate'] = $request->iOSLiveActivityDismissalDate;
         }
-        if (!Utils::isUnset($request->androidInboxBody)) {
-            $query['AndroidInboxBody'] = $request->androidInboxBody;
+
+        if (null !== $request->iOSLiveActivityEvent) {
+            @$query['iOSLiveActivityEvent'] = $request->iOSLiveActivityEvent;
         }
-        if (!Utils::isUnset($request->androidMessageHuaweiCategory)) {
-            $query['AndroidMessageHuaweiCategory'] = $request->androidMessageHuaweiCategory;
+
+        if (null !== $request->iOSLiveActivityId) {
+            @$query['iOSLiveActivityId'] = $request->iOSLiveActivityId;
         }
-        if (!Utils::isUnset($request->androidMessageHuaweiUrgency)) {
-            $query['AndroidMessageHuaweiUrgency'] = $request->androidMessageHuaweiUrgency;
+
+        if (null !== $request->iOSLiveActivityStaleDate) {
+            @$query['iOSLiveActivityStaleDate'] = $request->iOSLiveActivityStaleDate;
         }
-        if (!Utils::isUnset($request->androidMessageOppoCategory)) {
-            $query['AndroidMessageOppoCategory'] = $request->androidMessageOppoCategory;
+
+        if (null !== $request->iOSMusic) {
+            @$query['iOSMusic'] = $request->iOSMusic;
         }
-        if (!Utils::isUnset($request->androidMessageOppoNotifyLevel)) {
-            $query['AndroidMessageOppoNotifyLevel'] = $request->androidMessageOppoNotifyLevel;
+
+        if (null !== $request->iOSMutableContent) {
+            @$query['iOSMutableContent'] = $request->iOSMutableContent;
         }
-        if (!Utils::isUnset($request->androidMessageVivoCategory)) {
-            $query['AndroidMessageVivoCategory'] = $request->androidMessageVivoCategory;
+
+        if (null !== $request->iOSNotificationCategory) {
+            @$query['iOSNotificationCategory'] = $request->iOSNotificationCategory;
         }
-        if (!Utils::isUnset($request->androidMusic)) {
-            $query['AndroidMusic'] = $request->androidMusic;
+
+        if (null !== $request->iOSNotificationCollapseId) {
+            @$query['iOSNotificationCollapseId'] = $request->iOSNotificationCollapseId;
         }
-        if (!Utils::isUnset($request->androidNotificationBarPriority)) {
-            $query['AndroidNotificationBarPriority'] = $request->androidNotificationBarPriority;
+
+        if (null !== $request->iOSNotificationThreadId) {
+            @$query['iOSNotificationThreadId'] = $request->iOSNotificationThreadId;
         }
-        if (!Utils::isUnset($request->androidNotificationBarType)) {
-            $query['AndroidNotificationBarType'] = $request->androidNotificationBarType;
+
+        if (null !== $request->iOSRelevanceScore) {
+            @$query['iOSRelevanceScore'] = $request->iOSRelevanceScore;
         }
-        if (!Utils::isUnset($request->androidNotificationChannel)) {
-            $query['AndroidNotificationChannel'] = $request->androidNotificationChannel;
+
+        if (null !== $request->iOSRemind) {
+            @$query['iOSRemind'] = $request->iOSRemind;
         }
-        if (!Utils::isUnset($request->androidNotificationGroup)) {
-            $query['AndroidNotificationGroup'] = $request->androidNotificationGroup;
+
+        if (null !== $request->iOSRemindBody) {
+            @$query['iOSRemindBody'] = $request->iOSRemindBody;
         }
-        if (!Utils::isUnset($request->androidNotificationHonorChannel)) {
-            $query['AndroidNotificationHonorChannel'] = $request->androidNotificationHonorChannel;
+
+        if (null !== $request->iOSSilentNotification) {
+            @$query['iOSSilentNotification'] = $request->iOSSilentNotification;
         }
-        if (!Utils::isUnset($request->androidNotificationHuaweiChannel)) {
-            $query['AndroidNotificationHuaweiChannel'] = $request->androidNotificationHuaweiChannel;
+
+        if (null !== $request->iOSSubtitle) {
+            @$query['iOSSubtitle'] = $request->iOSSubtitle;
         }
-        if (!Utils::isUnset($request->androidNotificationNotifyId)) {
-            $query['AndroidNotificationNotifyId'] = $request->androidNotificationNotifyId;
-        }
-        if (!Utils::isUnset($request->androidNotificationThreadId)) {
-            $query['AndroidNotificationThreadId'] = $request->androidNotificationThreadId;
-        }
-        if (!Utils::isUnset($request->androidNotificationVivoChannel)) {
-            $query['AndroidNotificationVivoChannel'] = $request->androidNotificationVivoChannel;
-        }
-        if (!Utils::isUnset($request->androidNotificationXiaomiChannel)) {
-            $query['AndroidNotificationXiaomiChannel'] = $request->androidNotificationXiaomiChannel;
-        }
-        if (!Utils::isUnset($request->androidNotifyType)) {
-            $query['AndroidNotifyType'] = $request->androidNotifyType;
-        }
-        if (!Utils::isUnset($request->androidOpenType)) {
-            $query['AndroidOpenType'] = $request->androidOpenType;
-        }
-        if (!Utils::isUnset($request->androidOpenUrl)) {
-            $query['AndroidOpenUrl'] = $request->androidOpenUrl;
-        }
-        if (!Utils::isUnset($request->androidPopupActivity)) {
-            $query['AndroidPopupActivity'] = $request->androidPopupActivity;
-        }
-        if (!Utils::isUnset($request->androidPopupBody)) {
-            $query['AndroidPopupBody'] = $request->androidPopupBody;
-        }
-        if (!Utils::isUnset($request->androidPopupTitle)) {
-            $query['AndroidPopupTitle'] = $request->androidPopupTitle;
-        }
-        if (!Utils::isUnset($request->androidRemind)) {
-            $query['AndroidRemind'] = $request->androidRemind;
-        }
-        if (!Utils::isUnset($request->androidRenderStyle)) {
-            $query['AndroidRenderStyle'] = $request->androidRenderStyle;
-        }
-        if (!Utils::isUnset($request->androidTargetUserType)) {
-            $query['AndroidTargetUserType'] = $request->androidTargetUserType;
-        }
-        if (!Utils::isUnset($request->androidVivoPushMode)) {
-            $query['AndroidVivoPushMode'] = $request->androidVivoPushMode;
-        }
-        if (!Utils::isUnset($request->androidVivoReceiptId)) {
-            $query['AndroidVivoReceiptId'] = $request->androidVivoReceiptId;
-        }
-        if (!Utils::isUnset($request->androidXiaoMiActivity)) {
-            $query['AndroidXiaoMiActivity'] = $request->androidXiaoMiActivity;
-        }
-        if (!Utils::isUnset($request->androidXiaoMiNotifyBody)) {
-            $query['AndroidXiaoMiNotifyBody'] = $request->androidXiaoMiNotifyBody;
-        }
-        if (!Utils::isUnset($request->androidXiaoMiNotifyTitle)) {
-            $query['AndroidXiaoMiNotifyTitle'] = $request->androidXiaoMiNotifyTitle;
-        }
-        if (!Utils::isUnset($request->androidXiaomiBigPictureUrl)) {
-            $query['AndroidXiaomiBigPictureUrl'] = $request->androidXiaomiBigPictureUrl;
-        }
-        if (!Utils::isUnset($request->androidXiaomiImageUrl)) {
-            $query['AndroidXiaomiImageUrl'] = $request->androidXiaomiImageUrl;
-        }
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
-        }
-        if (!Utils::isUnset($request->body)) {
-            $query['Body'] = $request->body;
-        }
-        if (!Utils::isUnset($request->deviceType)) {
-            $query['DeviceType'] = $request->deviceType;
-        }
-        if (!Utils::isUnset($request->expireTime)) {
-            $query['ExpireTime'] = $request->expireTime;
-        }
-        if (!Utils::isUnset($request->harmonyAction)) {
-            $query['HarmonyAction'] = $request->harmonyAction;
-        }
-        if (!Utils::isUnset($request->harmonyActionType)) {
-            $query['HarmonyActionType'] = $request->harmonyActionType;
-        }
-        if (!Utils::isUnset($request->harmonyBadgeAddNum)) {
-            $query['HarmonyBadgeAddNum'] = $request->harmonyBadgeAddNum;
-        }
-        if (!Utils::isUnset($request->harmonyBadgeSetNum)) {
-            $query['HarmonyBadgeSetNum'] = $request->harmonyBadgeSetNum;
-        }
-        if (!Utils::isUnset($request->harmonyCategory)) {
-            $query['HarmonyCategory'] = $request->harmonyCategory;
-        }
-        if (!Utils::isUnset($request->harmonyExtParameters)) {
-            $query['HarmonyExtParameters'] = $request->harmonyExtParameters;
-        }
-        if (!Utils::isUnset($request->harmonyExtensionExtraData)) {
-            $query['HarmonyExtensionExtraData'] = $request->harmonyExtensionExtraData;
-        }
-        if (!Utils::isUnset($request->harmonyExtensionPush)) {
-            $query['HarmonyExtensionPush'] = $request->harmonyExtensionPush;
-        }
-        if (!Utils::isUnset($request->harmonyImageUrl)) {
-            $query['HarmonyImageUrl'] = $request->harmonyImageUrl;
-        }
-        if (!Utils::isUnset($request->harmonyInboxContent)) {
-            $query['HarmonyInboxContent'] = $request->harmonyInboxContent;
-        }
-        if (!Utils::isUnset($request->harmonyNotificationSlotType)) {
-            $query['HarmonyNotificationSlotType'] = $request->harmonyNotificationSlotType;
-        }
-        if (!Utils::isUnset($request->harmonyNotifyId)) {
-            $query['HarmonyNotifyId'] = $request->harmonyNotifyId;
-        }
-        if (!Utils::isUnset($request->harmonyReceiptId)) {
-            $query['HarmonyReceiptId'] = $request->harmonyReceiptId;
-        }
-        if (!Utils::isUnset($request->harmonyRemind)) {
-            $query['HarmonyRemind'] = $request->harmonyRemind;
-        }
-        if (!Utils::isUnset($request->harmonyRemindBody)) {
-            $query['HarmonyRemindBody'] = $request->harmonyRemindBody;
-        }
-        if (!Utils::isUnset($request->harmonyRemindTitle)) {
-            $query['HarmonyRemindTitle'] = $request->harmonyRemindTitle;
-        }
-        if (!Utils::isUnset($request->harmonyRenderStyle)) {
-            $query['HarmonyRenderStyle'] = $request->harmonyRenderStyle;
-        }
-        if (!Utils::isUnset($request->harmonyTestMessage)) {
-            $query['HarmonyTestMessage'] = $request->harmonyTestMessage;
-        }
-        if (!Utils::isUnset($request->harmonyUri)) {
-            $query['HarmonyUri'] = $request->harmonyUri;
-        }
-        if (!Utils::isUnset($request->idempotentToken)) {
-            $query['IdempotentToken'] = $request->idempotentToken;
-        }
-        if (!Utils::isUnset($request->jobKey)) {
-            $query['JobKey'] = $request->jobKey;
-        }
-        if (!Utils::isUnset($request->pushTime)) {
-            $query['PushTime'] = $request->pushTime;
-        }
-        if (!Utils::isUnset($request->pushType)) {
-            $query['PushType'] = $request->pushType;
-        }
-        if (!Utils::isUnset($request->sendChannels)) {
-            $query['SendChannels'] = $request->sendChannels;
-        }
-        if (!Utils::isUnset($request->sendSpeed)) {
-            $query['SendSpeed'] = $request->sendSpeed;
-        }
-        if (!Utils::isUnset($request->smsDelaySecs)) {
-            $query['SmsDelaySecs'] = $request->smsDelaySecs;
-        }
-        if (!Utils::isUnset($request->smsParams)) {
-            $query['SmsParams'] = $request->smsParams;
-        }
-        if (!Utils::isUnset($request->smsSendPolicy)) {
-            $query['SmsSendPolicy'] = $request->smsSendPolicy;
-        }
-        if (!Utils::isUnset($request->smsSignName)) {
-            $query['SmsSignName'] = $request->smsSignName;
-        }
-        if (!Utils::isUnset($request->smsTemplateName)) {
-            $query['SmsTemplateName'] = $request->smsTemplateName;
-        }
-        if (!Utils::isUnset($request->storeOffline)) {
-            $query['StoreOffline'] = $request->storeOffline;
-        }
-        if (!Utils::isUnset($request->target)) {
-            $query['Target'] = $request->target;
-        }
-        if (!Utils::isUnset($request->targetValue)) {
-            $query['TargetValue'] = $request->targetValue;
-        }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
-        }
-        if (!Utils::isUnset($request->trim)) {
-            $query['Trim'] = $request->trim;
-        }
-        if (!Utils::isUnset($request->iOSApnsEnv)) {
-            $query['iOSApnsEnv'] = $request->iOSApnsEnv;
-        }
-        if (!Utils::isUnset($request->iOSBadge)) {
-            $query['iOSBadge'] = $request->iOSBadge;
-        }
-        if (!Utils::isUnset($request->iOSBadgeAutoIncrement)) {
-            $query['iOSBadgeAutoIncrement'] = $request->iOSBadgeAutoIncrement;
-        }
-        if (!Utils::isUnset($request->iOSExtParameters)) {
-            $query['iOSExtParameters'] = $request->iOSExtParameters;
-        }
-        if (!Utils::isUnset($request->iOSInterruptionLevel)) {
-            $query['iOSInterruptionLevel'] = $request->iOSInterruptionLevel;
-        }
-        if (!Utils::isUnset($request->iOSLiveActivityAttributes)) {
-            $query['iOSLiveActivityAttributes'] = $request->iOSLiveActivityAttributes;
-        }
-        if (!Utils::isUnset($request->iOSLiveActivityAttributesType)) {
-            $query['iOSLiveActivityAttributesType'] = $request->iOSLiveActivityAttributesType;
-        }
-        if (!Utils::isUnset($request->iOSLiveActivityContentState)) {
-            $query['iOSLiveActivityContentState'] = $request->iOSLiveActivityContentState;
-        }
-        if (!Utils::isUnset($request->iOSLiveActivityDismissalDate)) {
-            $query['iOSLiveActivityDismissalDate'] = $request->iOSLiveActivityDismissalDate;
-        }
-        if (!Utils::isUnset($request->iOSLiveActivityEvent)) {
-            $query['iOSLiveActivityEvent'] = $request->iOSLiveActivityEvent;
-        }
-        if (!Utils::isUnset($request->iOSLiveActivityId)) {
-            $query['iOSLiveActivityId'] = $request->iOSLiveActivityId;
-        }
-        if (!Utils::isUnset($request->iOSLiveActivityStaleDate)) {
-            $query['iOSLiveActivityStaleDate'] = $request->iOSLiveActivityStaleDate;
-        }
-        if (!Utils::isUnset($request->iOSMusic)) {
-            $query['iOSMusic'] = $request->iOSMusic;
-        }
-        if (!Utils::isUnset($request->iOSMutableContent)) {
-            $query['iOSMutableContent'] = $request->iOSMutableContent;
-        }
-        if (!Utils::isUnset($request->iOSNotificationCategory)) {
-            $query['iOSNotificationCategory'] = $request->iOSNotificationCategory;
-        }
-        if (!Utils::isUnset($request->iOSNotificationCollapseId)) {
-            $query['iOSNotificationCollapseId'] = $request->iOSNotificationCollapseId;
-        }
-        if (!Utils::isUnset($request->iOSNotificationThreadId)) {
-            $query['iOSNotificationThreadId'] = $request->iOSNotificationThreadId;
-        }
-        if (!Utils::isUnset($request->iOSRelevanceScore)) {
-            $query['iOSRelevanceScore'] = $request->iOSRelevanceScore;
-        }
-        if (!Utils::isUnset($request->iOSRemind)) {
-            $query['iOSRemind'] = $request->iOSRemind;
-        }
-        if (!Utils::isUnset($request->iOSRemindBody)) {
-            $query['iOSRemindBody'] = $request->iOSRemindBody;
-        }
-        if (!Utils::isUnset($request->iOSSilentNotification)) {
-            $query['iOSSilentNotification'] = $request->iOSSilentNotification;
-        }
-        if (!Utils::isUnset($request->iOSSubtitle)) {
-            $query['iOSSubtitle'] = $request->iOSSubtitle;
-        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'Push',
@@ -1158,19 +1364,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PushResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PushResponse::fromMap($this->execute($params, $req, $runtime));
+        return PushResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 高级推送接口
-     *  *
-     * @param PushRequest $request PushRequest
+     * 高级推送接口.
      *
-     * @return PushResponse PushResponse
+     * @param request - PushRequest
+     *
+     * @returns PushResponse
+     *
+     * @param PushRequest $request
+     *
+     * @return PushResponse
      */
     public function push($request)
     {
@@ -1180,40 +1387,52 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 推送消息给Android设备
-     *  *
-     * @param PushMessageToAndroidRequest $request PushMessageToAndroidRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 推送消息给Android设备.
      *
-     * @return PushMessageToAndroidResponse PushMessageToAndroidResponse
+     * @param request - PushMessageToAndroidRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushMessageToAndroidResponse
+     *
+     * @param PushMessageToAndroidRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PushMessageToAndroidResponse
      */
     public function pushMessageToAndroidWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->body)) {
-            $query['Body'] = $request->body;
+
+        if (null !== $request->body) {
+            @$query['Body'] = $request->body;
         }
-        if (!Utils::isUnset($request->jobKey)) {
-            $query['JobKey'] = $request->jobKey;
+
+        if (null !== $request->jobKey) {
+            @$query['JobKey'] = $request->jobKey;
         }
-        if (!Utils::isUnset($request->storeOffline)) {
-            $query['StoreOffline'] = $request->storeOffline;
+
+        if (null !== $request->storeOffline) {
+            @$query['StoreOffline'] = $request->storeOffline;
         }
-        if (!Utils::isUnset($request->target)) {
-            $query['Target'] = $request->target;
+
+        if (null !== $request->target) {
+            @$query['Target'] = $request->target;
         }
-        if (!Utils::isUnset($request->targetValue)) {
-            $query['TargetValue'] = $request->targetValue;
+
+        if (null !== $request->targetValue) {
+            @$query['TargetValue'] = $request->targetValue;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'PushMessageToAndroid',
@@ -1226,19 +1445,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PushMessageToAndroidResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PushMessageToAndroidResponse::fromMap($this->execute($params, $req, $runtime));
+        return PushMessageToAndroidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 推送消息给Android设备
-     *  *
-     * @param PushMessageToAndroidRequest $request PushMessageToAndroidRequest
+     * 推送消息给Android设备.
      *
-     * @return PushMessageToAndroidResponse PushMessageToAndroidResponse
+     * @param request - PushMessageToAndroidRequest
+     *
+     * @returns PushMessageToAndroidResponse
+     *
+     * @param PushMessageToAndroidRequest $request
+     *
+     * @return PushMessageToAndroidResponse
      */
     public function pushMessageToAndroid($request)
     {
@@ -1248,40 +1468,52 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 推送消息给iOS设备
-     *  *
-     * @param PushMessageToiOSRequest $request PushMessageToiOSRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 推送消息给iOS设备.
      *
-     * @return PushMessageToiOSResponse PushMessageToiOSResponse
+     * @param request - PushMessageToiOSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushMessageToiOSResponse
+     *
+     * @param PushMessageToiOSRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PushMessageToiOSResponse
      */
     public function pushMessageToiOSWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->body)) {
-            $query['Body'] = $request->body;
+
+        if (null !== $request->body) {
+            @$query['Body'] = $request->body;
         }
-        if (!Utils::isUnset($request->jobKey)) {
-            $query['JobKey'] = $request->jobKey;
+
+        if (null !== $request->jobKey) {
+            @$query['JobKey'] = $request->jobKey;
         }
-        if (!Utils::isUnset($request->storeOffline)) {
-            $query['StoreOffline'] = $request->storeOffline;
+
+        if (null !== $request->storeOffline) {
+            @$query['StoreOffline'] = $request->storeOffline;
         }
-        if (!Utils::isUnset($request->target)) {
-            $query['Target'] = $request->target;
+
+        if (null !== $request->target) {
+            @$query['Target'] = $request->target;
         }
-        if (!Utils::isUnset($request->targetValue)) {
-            $query['TargetValue'] = $request->targetValue;
+
+        if (null !== $request->targetValue) {
+            @$query['TargetValue'] = $request->targetValue;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'PushMessageToiOS',
@@ -1294,19 +1526,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PushMessageToiOSResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PushMessageToiOSResponse::fromMap($this->execute($params, $req, $runtime));
+        return PushMessageToiOSResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 推送消息给iOS设备
-     *  *
-     * @param PushMessageToiOSRequest $request PushMessageToiOSRequest
+     * 推送消息给iOS设备.
      *
-     * @return PushMessageToiOSResponse PushMessageToiOSResponse
+     * @param request - PushMessageToiOSRequest
+     *
+     * @returns PushMessageToiOSResponse
+     *
+     * @param PushMessageToiOSRequest $request
+     *
+     * @return PushMessageToiOSResponse
      */
     public function pushMessageToiOS($request)
     {
@@ -1316,43 +1549,56 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 推送通知给Android设备
-     *  *
-     * @param PushNoticeToAndroidRequest $request PushNoticeToAndroidRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 推送通知给Android设备.
      *
-     * @return PushNoticeToAndroidResponse PushNoticeToAndroidResponse
+     * @param request - PushNoticeToAndroidRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushNoticeToAndroidResponse
+     *
+     * @param PushNoticeToAndroidRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PushNoticeToAndroidResponse
      */
     public function pushNoticeToAndroidWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->body)) {
-            $query['Body'] = $request->body;
+
+        if (null !== $request->body) {
+            @$query['Body'] = $request->body;
         }
-        if (!Utils::isUnset($request->extParameters)) {
-            $query['ExtParameters'] = $request->extParameters;
+
+        if (null !== $request->extParameters) {
+            @$query['ExtParameters'] = $request->extParameters;
         }
-        if (!Utils::isUnset($request->jobKey)) {
-            $query['JobKey'] = $request->jobKey;
+
+        if (null !== $request->jobKey) {
+            @$query['JobKey'] = $request->jobKey;
         }
-        if (!Utils::isUnset($request->storeOffline)) {
-            $query['StoreOffline'] = $request->storeOffline;
+
+        if (null !== $request->storeOffline) {
+            @$query['StoreOffline'] = $request->storeOffline;
         }
-        if (!Utils::isUnset($request->target)) {
-            $query['Target'] = $request->target;
+
+        if (null !== $request->target) {
+            @$query['Target'] = $request->target;
         }
-        if (!Utils::isUnset($request->targetValue)) {
-            $query['TargetValue'] = $request->targetValue;
+
+        if (null !== $request->targetValue) {
+            @$query['TargetValue'] = $request->targetValue;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'PushNoticeToAndroid',
@@ -1365,19 +1611,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PushNoticeToAndroidResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PushNoticeToAndroidResponse::fromMap($this->execute($params, $req, $runtime));
+        return PushNoticeToAndroidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 推送通知给Android设备
-     *  *
-     * @param PushNoticeToAndroidRequest $request PushNoticeToAndroidRequest
+     * 推送通知给Android设备.
      *
-     * @return PushNoticeToAndroidResponse PushNoticeToAndroidResponse
+     * @param request - PushNoticeToAndroidRequest
+     *
+     * @returns PushNoticeToAndroidResponse
+     *
+     * @param PushNoticeToAndroidRequest $request
+     *
+     * @return PushNoticeToAndroidResponse
      */
     public function pushNoticeToAndroid($request)
     {
@@ -1387,43 +1634,56 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 推送通知给iOS设备
-     *  *
-     * @param PushNoticeToiOSRequest $request PushNoticeToiOSRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 推送通知给iOS设备.
      *
-     * @return PushNoticeToiOSResponse PushNoticeToiOSResponse
+     * @param request - PushNoticeToiOSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushNoticeToiOSResponse
+     *
+     * @param PushNoticeToiOSRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return PushNoticeToiOSResponse
      */
     public function pushNoticeToiOSWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apnsEnv)) {
-            $query['ApnsEnv'] = $request->apnsEnv;
+        if (null !== $request->apnsEnv) {
+            @$query['ApnsEnv'] = $request->apnsEnv;
         }
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->body)) {
-            $query['Body'] = $request->body;
+
+        if (null !== $request->body) {
+            @$query['Body'] = $request->body;
         }
-        if (!Utils::isUnset($request->extParameters)) {
-            $query['ExtParameters'] = $request->extParameters;
+
+        if (null !== $request->extParameters) {
+            @$query['ExtParameters'] = $request->extParameters;
         }
-        if (!Utils::isUnset($request->jobKey)) {
-            $query['JobKey'] = $request->jobKey;
+
+        if (null !== $request->jobKey) {
+            @$query['JobKey'] = $request->jobKey;
         }
-        if (!Utils::isUnset($request->target)) {
-            $query['Target'] = $request->target;
+
+        if (null !== $request->target) {
+            @$query['Target'] = $request->target;
         }
-        if (!Utils::isUnset($request->targetValue)) {
-            $query['TargetValue'] = $request->targetValue;
+
+        if (null !== $request->targetValue) {
+            @$query['TargetValue'] = $request->targetValue;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'PushNoticeToiOS',
@@ -1436,19 +1696,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PushNoticeToiOSResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PushNoticeToiOSResponse::fromMap($this->execute($params, $req, $runtime));
+        return PushNoticeToiOSResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 推送通知给iOS设备
-     *  *
-     * @param PushNoticeToiOSRequest $request PushNoticeToiOSRequest
+     * 推送通知给iOS设备.
      *
-     * @return PushNoticeToiOSResponse PushNoticeToiOSResponse
+     * @param request - PushNoticeToiOSRequest
+     *
+     * @returns PushNoticeToiOSResponse
+     *
+     * @param PushNoticeToiOSRequest $request
+     *
+     * @return PushNoticeToiOSResponse
      */
     public function pushNoticeToiOS($request)
     {
@@ -1458,25 +1719,32 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 查询别名
-     *  *
-     * @param QueryAliasesRequest $request QueryAliasesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 查询别名.
      *
-     * @return QueryAliasesResponse QueryAliasesResponse
+     * @param request - QueryAliasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAliasesResponse
+     *
+     * @param QueryAliasesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryAliasesResponse
      */
     public function queryAliasesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryAliases',
@@ -1489,19 +1757,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryAliasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询别名
-     *  *
-     * @param QueryAliasesRequest $request QueryAliasesRequest
+     * 查询别名.
      *
-     * @return QueryAliasesResponse QueryAliasesResponse
+     * @param request - QueryAliasesRequest
+     *
+     * @returns QueryAliasesResponse
+     *
+     * @param QueryAliasesRequest $request
+     *
+     * @return QueryAliasesResponse
      */
     public function queryAliases($request)
     {
@@ -1511,25 +1780,32 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 查询设备详情
-     *  *
-     * @param QueryDeviceInfoRequest $request QueryDeviceInfoRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询设备详情.
      *
-     * @return QueryDeviceInfoResponse QueryDeviceInfoResponse
+     * @param request - QueryDeviceInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDeviceInfoResponse
+     *
+     * @param QueryDeviceInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryDeviceInfoResponse
      */
     public function queryDeviceInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryDeviceInfo',
@@ -1542,19 +1818,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDeviceInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询设备详情
-     *  *
-     * @param QueryDeviceInfoRequest $request QueryDeviceInfoRequest
+     * 查询设备详情.
      *
-     * @return QueryDeviceInfoResponse QueryDeviceInfoResponse
+     * @param request - QueryDeviceInfoRequest
+     *
+     * @returns QueryDeviceInfoResponse
+     *
+     * @param QueryDeviceInfoRequest $request
+     *
+     * @return QueryDeviceInfoResponse
      */
     public function queryDeviceInfo($request)
     {
@@ -1564,34 +1841,44 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 设备新增与留存
-     *  *
-     * @param QueryDeviceStatRequest $request QueryDeviceStatRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 设备新增与留存.
      *
-     * @return QueryDeviceStatResponse QueryDeviceStatResponse
+     * @param request - QueryDeviceStatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDeviceStatResponse
+     *
+     * @param QueryDeviceStatRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryDeviceStatResponse
      */
     public function queryDeviceStatWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->deviceType)) {
-            $query['DeviceType'] = $request->deviceType;
+
+        if (null !== $request->deviceType) {
+            @$query['DeviceType'] = $request->deviceType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->queryType)) {
-            $query['QueryType'] = $request->queryType;
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryDeviceStat',
@@ -1604,19 +1891,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryDeviceStatResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDeviceStatResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDeviceStatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 设备新增与留存
-     *  *
-     * @param QueryDeviceStatRequest $request QueryDeviceStatRequest
+     * 设备新增与留存.
      *
-     * @return QueryDeviceStatResponse QueryDeviceStatResponse
+     * @param request - QueryDeviceStatRequest
+     *
+     * @returns QueryDeviceStatResponse
+     *
+     * @param QueryDeviceStatRequest $request
+     *
+     * @return QueryDeviceStatResponse
      */
     public function queryDeviceStat($request)
     {
@@ -1626,25 +1914,32 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 通过账户查询设备列表
-     *  *
-     * @param QueryDevicesByAccountRequest $request QueryDevicesByAccountRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 通过账户查询设备列表.
      *
-     * @return QueryDevicesByAccountResponse QueryDevicesByAccountResponse
+     * @param request - QueryDevicesByAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDevicesByAccountResponse
+     *
+     * @param QueryDevicesByAccountRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryDevicesByAccountResponse
      */
     public function queryDevicesByAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->account)) {
-            $query['Account'] = $request->account;
+        if (null !== $request->account) {
+            @$query['Account'] = $request->account;
         }
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryDevicesByAccount',
@@ -1657,19 +1952,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryDevicesByAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDevicesByAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDevicesByAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过账户查询设备列表
-     *  *
-     * @param QueryDevicesByAccountRequest $request QueryDevicesByAccountRequest
+     * 通过账户查询设备列表.
      *
-     * @return QueryDevicesByAccountResponse QueryDevicesByAccountResponse
+     * @param request - QueryDevicesByAccountRequest
+     *
+     * @returns QueryDevicesByAccountResponse
+     *
+     * @param QueryDevicesByAccountRequest $request
+     *
+     * @return QueryDevicesByAccountResponse
      */
     public function queryDevicesByAccount($request)
     {
@@ -1679,25 +1975,32 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 通过别名查询设备列表
-     *  *
-     * @param QueryDevicesByAliasRequest $request QueryDevicesByAliasRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 通过别名查询设备列表.
      *
-     * @return QueryDevicesByAliasResponse QueryDevicesByAliasResponse
+     * @param request - QueryDevicesByAliasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDevicesByAliasResponse
+     *
+     * @param QueryDevicesByAliasRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryDevicesByAliasResponse
      */
     public function queryDevicesByAliasWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alias)) {
-            $query['Alias'] = $request->alias;
+        if (null !== $request->alias) {
+            @$query['Alias'] = $request->alias;
         }
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryDevicesByAlias',
@@ -1710,19 +2013,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryDevicesByAliasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDevicesByAliasResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDevicesByAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过别名查询设备列表
-     *  *
-     * @param QueryDevicesByAliasRequest $request QueryDevicesByAliasRequest
+     * 通过别名查询设备列表.
      *
-     * @return QueryDevicesByAliasResponse QueryDevicesByAliasResponse
+     * @param request - QueryDevicesByAliasRequest
+     *
+     * @returns QueryDevicesByAliasResponse
+     *
+     * @param QueryDevicesByAliasRequest $request
+     *
+     * @return QueryDevicesByAliasResponse
      */
     public function queryDevicesByAlias($request)
     {
@@ -1732,47 +2036,62 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryPushRecordsRequest $request QueryPushRecordsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryPushRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryPushRecordsResponse QueryPushRecordsResponse
+     * @returns QueryPushRecordsResponse
+     *
+     * @param QueryPushRecordsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryPushRecordsResponse
      */
     public function queryPushRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pushType)) {
-            $query['PushType'] = $request->pushType;
+
+        if (null !== $request->pushType) {
+            @$query['PushType'] = $request->pushType;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->target)) {
-            $query['Target'] = $request->target;
+
+        if (null !== $request->target) {
+            @$query['Target'] = $request->target;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryPushRecords',
@@ -1785,17 +2104,18 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryPushRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryPushRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryPushRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryPushRecordsRequest $request QueryPushRecordsRequest
+     * @param request - QueryPushRecordsRequest
      *
-     * @return QueryPushRecordsResponse QueryPushRecordsResponse
+     * @returns QueryPushRecordsResponse
+     *
+     * @param QueryPushRecordsRequest $request
+     *
+     * @return QueryPushRecordsResponse
      */
     public function queryPushRecords($request)
     {
@@ -1805,31 +2125,40 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary App维度推送统计
-     *  *
-     * @param QueryPushStatByAppRequest $request QueryPushStatByAppRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * App维度推送统计
      *
-     * @return QueryPushStatByAppResponse QueryPushStatByAppResponse
+     * @param request - QueryPushStatByAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPushStatByAppResponse
+     *
+     * @param QueryPushStatByAppRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryPushStatByAppResponse
      */
     public function queryPushStatByAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->granularity)) {
-            $query['Granularity'] = $request->granularity;
+
+        if (null !== $request->granularity) {
+            @$query['Granularity'] = $request->granularity;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryPushStatByApp',
@@ -1842,19 +2171,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryPushStatByAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryPushStatByAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryPushStatByAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary App维度推送统计
-     *  *
-     * @param QueryPushStatByAppRequest $request QueryPushStatByAppRequest
+     * App维度推送统计
      *
-     * @return QueryPushStatByAppResponse QueryPushStatByAppResponse
+     * @param request - QueryPushStatByAppRequest
+     *
+     * @returns QueryPushStatByAppResponse
+     *
+     * @param QueryPushStatByAppRequest $request
+     *
+     * @return QueryPushStatByAppResponse
      */
     public function queryPushStatByApp($request)
     {
@@ -1864,25 +2194,32 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 任务维度推送统计
-     *  *
-     * @param QueryPushStatByMsgRequest $request QueryPushStatByMsgRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 任务维度推送统计
      *
-     * @return QueryPushStatByMsgResponse QueryPushStatByMsgResponse
+     * @param request - QueryPushStatByMsgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPushStatByMsgResponse
+     *
+     * @param QueryPushStatByMsgRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryPushStatByMsgResponse
      */
     public function queryPushStatByMsgWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->messageId)) {
-            $query['MessageId'] = $request->messageId;
+
+        if (null !== $request->messageId) {
+            @$query['MessageId'] = $request->messageId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryPushStatByMsg',
@@ -1895,19 +2232,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryPushStatByMsgResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryPushStatByMsgResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryPushStatByMsgResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 任务维度推送统计
-     *  *
-     * @param QueryPushStatByMsgRequest $request QueryPushStatByMsgRequest
+     * 任务维度推送统计
      *
-     * @return QueryPushStatByMsgResponse QueryPushStatByMsgResponse
+     * @param request - QueryPushStatByMsgRequest
+     *
+     * @returns QueryPushStatByMsgResponse
+     *
+     * @param QueryPushStatByMsgRequest $request
+     *
+     * @return QueryPushStatByMsgResponse
      */
     public function queryPushStatByMsg($request)
     {
@@ -1917,28 +2255,36 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 查询标签列表
-     *  *
-     * @param QueryTagsRequest $request QueryTagsRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 查询标签列表.
      *
-     * @return QueryTagsResponse QueryTagsResponse
+     * @param request - QueryTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTagsResponse
+     *
+     * @param QueryTagsRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return QueryTagsResponse
      */
     public function queryTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->clientKey)) {
-            $query['ClientKey'] = $request->clientKey;
+
+        if (null !== $request->clientKey) {
+            @$query['ClientKey'] = $request->clientKey;
         }
-        if (!Utils::isUnset($request->keyType)) {
-            $query['KeyType'] = $request->keyType;
+
+        if (null !== $request->keyType) {
+            @$query['KeyType'] = $request->keyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryTags',
@@ -1951,19 +2297,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询标签列表
-     *  *
-     * @param QueryTagsRequest $request QueryTagsRequest
+     * 查询标签列表.
      *
-     * @return QueryTagsResponse QueryTagsResponse
+     * @param request - QueryTagsRequest
+     *
+     * @returns QueryTagsResponse
+     *
+     * @param QueryTagsRequest $request
+     *
+     * @return QueryTagsResponse
      */
     public function queryTags($request)
     {
@@ -1973,31 +2320,40 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 去重设备统计
-     *  *
-     * @param QueryUniqueDeviceStatRequest $request QueryUniqueDeviceStatRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 去重设备统计
      *
-     * @return QueryUniqueDeviceStatResponse QueryUniqueDeviceStatResponse
+     * @param request - QueryUniqueDeviceStatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryUniqueDeviceStatResponse
+     *
+     * @param QueryUniqueDeviceStatRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryUniqueDeviceStatResponse
      */
     public function queryUniqueDeviceStatWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->granularity)) {
-            $query['Granularity'] = $request->granularity;
+
+        if (null !== $request->granularity) {
+            @$query['Granularity'] = $request->granularity;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryUniqueDeviceStat',
@@ -2010,19 +2366,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryUniqueDeviceStatResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryUniqueDeviceStatResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryUniqueDeviceStatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 去重设备统计
-     *  *
-     * @param QueryUniqueDeviceStatRequest $request QueryUniqueDeviceStatRequest
+     * 去重设备统计
      *
-     * @return QueryUniqueDeviceStatResponse QueryUniqueDeviceStatResponse
+     * @param request - QueryUniqueDeviceStatRequest
+     *
+     * @returns QueryUniqueDeviceStatResponse
+     *
+     * @param QueryUniqueDeviceStatRequest $request
+     *
+     * @return QueryUniqueDeviceStatResponse
      */
     public function queryUniqueDeviceStat($request)
     {
@@ -2032,25 +2389,32 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 删除标签
-     *  *
-     * @param RemoveTagRequest $request RemoveTagRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 删除标签.
      *
-     * @return RemoveTagResponse RemoveTagResponse
+     * @param request - RemoveTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveTagResponse
+     *
+     * @param RemoveTagRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return RemoveTagResponse
      */
     public function removeTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $query['TagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$query['TagName'] = $request->tagName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RemoveTag',
@@ -2063,19 +2427,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除标签
-     *  *
-     * @param RemoveTagRequest $request RemoveTagRequest
+     * 删除标签.
      *
-     * @return RemoveTagResponse RemoveTagResponse
+     * @param request - RemoveTagRequest
+     *
+     * @returns RemoveTagResponse
+     *
+     * @param RemoveTagRequest $request
+     *
+     * @return RemoveTagResponse
      */
     public function removeTag($request)
     {
@@ -2085,31 +2450,40 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 解绑别名
-     *  *
-     * @param UnbindAliasRequest $request UnbindAliasRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 解绑别名.
      *
-     * @return UnbindAliasResponse UnbindAliasResponse
+     * @param request - UnbindAliasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindAliasResponse
+     *
+     * @param UnbindAliasRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UnbindAliasResponse
      */
     public function unbindAliasWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliasName)) {
-            $query['AliasName'] = $request->aliasName;
+        if (null !== $request->aliasName) {
+            @$query['AliasName'] = $request->aliasName;
         }
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
         }
-        if (!Utils::isUnset($request->unbindAll)) {
-            $query['UnbindAll'] = $request->unbindAll;
+
+        if (null !== $request->unbindAll) {
+            @$query['UnbindAll'] = $request->unbindAll;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UnbindAlias',
@@ -2122,19 +2496,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UnbindAliasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnbindAliasResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnbindAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 解绑别名
-     *  *
-     * @param UnbindAliasRequest $request UnbindAliasRequest
+     * 解绑别名.
      *
-     * @return UnbindAliasResponse UnbindAliasResponse
+     * @param request - UnbindAliasRequest
+     *
+     * @returns UnbindAliasResponse
+     *
+     * @param UnbindAliasRequest $request
+     *
+     * @return UnbindAliasResponse
      */
     public function unbindAlias($request)
     {
@@ -2144,25 +2519,32 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 解绑手机号码
-     *  *
-     * @param UnbindPhoneRequest $request UnbindPhoneRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 解绑手机号码
      *
-     * @return UnbindPhoneResponse UnbindPhoneResponse
+     * @param request - UnbindPhoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindPhoneResponse
+     *
+     * @param UnbindPhoneRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UnbindPhoneResponse
      */
     public function unbindPhoneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UnbindPhone',
@@ -2175,19 +2557,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UnbindPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnbindPhoneResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnbindPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 解绑手机号码
-     *  *
-     * @param UnbindPhoneRequest $request UnbindPhoneRequest
+     * 解绑手机号码
      *
-     * @return UnbindPhoneResponse UnbindPhoneResponse
+     * @param request - UnbindPhoneRequest
+     *
+     * @returns UnbindPhoneResponse
+     *
+     * @param UnbindPhoneRequest $request
+     *
+     * @return UnbindPhoneResponse
      */
     public function unbindPhone($request)
     {
@@ -2197,31 +2580,40 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @summary 绑定标签
-     *  *
-     * @param UnbindTagRequest $request UnbindTagRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 绑定标签.
      *
-     * @return UnbindTagResponse UnbindTagResponse
+     * @param request - UnbindTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindTagResponse
+     *
+     * @param UnbindTagRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UnbindTagResponse
      */
     public function unbindTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->clientKey)) {
-            $query['ClientKey'] = $request->clientKey;
+
+        if (null !== $request->clientKey) {
+            @$query['ClientKey'] = $request->clientKey;
         }
-        if (!Utils::isUnset($request->keyType)) {
-            $query['KeyType'] = $request->keyType;
+
+        if (null !== $request->keyType) {
+            @$query['KeyType'] = $request->keyType;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $query['TagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$query['TagName'] = $request->tagName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UnbindTag',
@@ -2234,19 +2626,20 @@ class Push extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UnbindTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnbindTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnbindTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 绑定标签
-     *  *
-     * @param UnbindTagRequest $request UnbindTagRequest
+     * 绑定标签.
      *
-     * @return UnbindTagResponse UnbindTagResponse
+     * @param request - UnbindTagRequest
+     *
+     * @returns UnbindTagResponse
+     *
+     * @param UnbindTagRequest $request
+     *
+     * @return UnbindTagResponse
      */
     public function unbindTag($request)
     {

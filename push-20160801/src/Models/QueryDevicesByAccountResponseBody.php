@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryDevicesByAccountResponseBody\deviceIds;
-use AlibabaCloud\Tea\Model;
 
 class QueryDevicesByAccountResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class QueryDevicesByAccountResponseBody extends Model
     public $deviceIds;
 
     /**
-     * @example A8A24108-2AD0-4F6E-81C7-A8A24C2C2AD0
-     *
      * @var string
      */
     public $requestId;
@@ -25,14 +23,21 @@ class QueryDevicesByAccountResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->deviceIds) {
+            $this->deviceIds->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceIds) {
-            $res['DeviceIds'] = null !== $this->deviceIds ? $this->deviceIds->toMap() : null;
+            $res['DeviceIds'] = null !== $this->deviceIds ? $this->deviceIds->toArray($noStream) : $this->deviceIds;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class QueryDevicesByAccountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDevicesByAccountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceIds'])) {
             $model->deviceIds = deviceIds::fromMap($map['DeviceIds']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

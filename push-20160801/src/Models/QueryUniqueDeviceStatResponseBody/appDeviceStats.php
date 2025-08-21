@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models\QueryUniqueDeviceStatResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryUniqueDeviceStatResponseBody\appDeviceStats\appDeviceStat;
-use AlibabaCloud\Tea\Model;
 
 class appDeviceStats extends Model
 {
@@ -17,17 +17,24 @@ class appDeviceStats extends Model
         'appDeviceStat' => 'AppDeviceStat',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->appDeviceStat)) {
+            Model::validateArray($this->appDeviceStat);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appDeviceStat) {
-            $res['AppDeviceStat'] = [];
-            if (null !== $this->appDeviceStat && \is_array($this->appDeviceStat)) {
-                $n = 0;
-                foreach ($this->appDeviceStat as $item) {
-                    $res['AppDeviceStat'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->appDeviceStat)) {
+                $res['AppDeviceStat'] = [];
+                $n1 = 0;
+                foreach ($this->appDeviceStat as $item1) {
+                    $res['AppDeviceStat'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class appDeviceStats extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return appDeviceStats
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppDeviceStat'])) {
             if (!empty($map['AppDeviceStat'])) {
                 $model->appDeviceStat = [];
-                $n = 0;
-                foreach ($map['AppDeviceStat'] as $item) {
-                    $model->appDeviceStat[$n++] = null !== $item ? appDeviceStat::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AppDeviceStat'] as $item1) {
+                    $model->appDeviceStat[$n1] = appDeviceStat::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

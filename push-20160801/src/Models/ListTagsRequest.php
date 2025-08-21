@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTagsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 23267207
-     *
      * @var int
      */
     public $appKey;
@@ -20,9 +16,12 @@ class ListTagsRequest extends Model
         'appKey' => 'AppKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKey) {
@@ -32,11 +31,11 @@ class ListTagsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTagsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

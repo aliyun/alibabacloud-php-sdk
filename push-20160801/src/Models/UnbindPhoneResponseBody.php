@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnbindPhoneResponseBody extends Model
 {
     /**
-     * @example 0D1126F0-F8FF-513D-BAFA-F140447BDED4
-     *
      * @var string
      */
     public $requestId;
@@ -18,9 +16,12 @@ class UnbindPhoneResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -30,11 +31,11 @@ class UnbindPhoneResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnbindPhoneResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

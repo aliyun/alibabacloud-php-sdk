@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models\QueryPushStatByMsgResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryPushStatByMsgResponseBody\pushStats\pushStat;
-use AlibabaCloud\Tea\Model;
 
 class pushStats extends Model
 {
@@ -17,17 +17,24 @@ class pushStats extends Model
         'pushStat' => 'PushStat',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->pushStat)) {
+            Model::validateArray($this->pushStat);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pushStat) {
-            $res['PushStat'] = [];
-            if (null !== $this->pushStat && \is_array($this->pushStat)) {
-                $n = 0;
-                foreach ($this->pushStat as $item) {
-                    $res['PushStat'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->pushStat)) {
+                $res['PushStat'] = [];
+                $n1 = 0;
+                foreach ($this->pushStat as $item1) {
+                    $res['PushStat'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class pushStats extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pushStats
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PushStat'])) {
             if (!empty($map['PushStat'])) {
                 $model->pushStat = [];
-                $n = 0;
-                foreach ($map['PushStat'] as $item) {
-                    $model->pushStat[$n++] = null !== $item ? pushStat::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PushStat'] as $item1) {
+                    $model->pushStat[$n1] = pushStat::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BindPhoneRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 27725900
-     *
      * @var int
      */
     public $appKey;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example eb5f741d83d04d34807d229999eefa52
-     *
      * @var string
      */
     public $deviceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1381111****
-     *
      * @var string
      */
     public $phoneNumber;
@@ -40,17 +28,22 @@ class BindPhoneRequest extends Model
         'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
+
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
@@ -58,20 +51,22 @@ class BindPhoneRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BindPhoneRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
+
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }

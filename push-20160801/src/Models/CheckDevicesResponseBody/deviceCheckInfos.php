@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models\CheckDevicesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Push\V20160801\Models\CheckDevicesResponseBody\deviceCheckInfos\deviceCheckInfo;
-use AlibabaCloud\Tea\Model;
 
 class deviceCheckInfos extends Model
 {
@@ -17,17 +17,24 @@ class deviceCheckInfos extends Model
         'deviceCheckInfo' => 'DeviceCheckInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->deviceCheckInfo)) {
+            Model::validateArray($this->deviceCheckInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceCheckInfo) {
-            $res['DeviceCheckInfo'] = [];
-            if (null !== $this->deviceCheckInfo && \is_array($this->deviceCheckInfo)) {
-                $n = 0;
-                foreach ($this->deviceCheckInfo as $item) {
-                    $res['DeviceCheckInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deviceCheckInfo)) {
+                $res['DeviceCheckInfo'] = [];
+                $n1 = 0;
+                foreach ($this->deviceCheckInfo as $item1) {
+                    $res['DeviceCheckInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class deviceCheckInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deviceCheckInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceCheckInfo'])) {
             if (!empty($map['DeviceCheckInfo'])) {
                 $model->deviceCheckInfo = [];
-                $n = 0;
-                foreach ($map['DeviceCheckInfo'] as $item) {
-                    $model->deviceCheckInfo[$n++] = null !== $item ? deviceCheckInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DeviceCheckInfo'] as $item1) {
+                    $model->deviceCheckInfo[$n1] = deviceCheckInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

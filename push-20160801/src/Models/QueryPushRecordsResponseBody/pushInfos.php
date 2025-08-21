@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models\QueryPushRecordsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryPushRecordsResponseBody\pushInfos\pushInfo;
-use AlibabaCloud\Tea\Model;
 
 class pushInfos extends Model
 {
@@ -17,17 +17,24 @@ class pushInfos extends Model
         'pushInfo' => 'PushInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->pushInfo)) {
+            Model::validateArray($this->pushInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pushInfo) {
-            $res['PushInfo'] = [];
-            if (null !== $this->pushInfo && \is_array($this->pushInfo)) {
-                $n = 0;
-                foreach ($this->pushInfo as $item) {
-                    $res['PushInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->pushInfo)) {
+                $res['PushInfo'] = [];
+                $n1 = 0;
+                foreach ($this->pushInfo as $item1) {
+                    $res['PushInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class pushInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pushInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PushInfo'])) {
             if (!empty($map['PushInfo'])) {
                 $model->pushInfo = [];
-                $n = 0;
-                foreach ($map['PushInfo'] as $item) {
-                    $model->pushInfo[$n++] = null !== $item ? pushInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PushInfo'] as $item1) {
+                    $model->pushInfo[$n1] = pushInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

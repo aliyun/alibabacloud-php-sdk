@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryTagsResponseBody\tagInfos;
-use AlibabaCloud\Tea\Model;
 
 class QueryTagsResponseBody extends Model
 {
     /**
-     * @example D68AE5C6-8AAF-46C9-B627-3FDACD1A4168
-     *
      * @var string
      */
     public $requestId;
@@ -25,32 +23,40 @@ class QueryTagsResponseBody extends Model
         'tagInfos' => 'TagInfos',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tagInfos) {
+            $this->tagInfos->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tagInfos) {
-            $res['TagInfos'] = null !== $this->tagInfos ? $this->tagInfos->toMap() : null;
+            $res['TagInfos'] = null !== $this->tagInfos ? $this->tagInfos->toArray($noStream) : $this->tagInfos;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryTagsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TagInfos'])) {
             $model->tagInfos = tagInfos::fromMap($map['TagInfos']);
         }

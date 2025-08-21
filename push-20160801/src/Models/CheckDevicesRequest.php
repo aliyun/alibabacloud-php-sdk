@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckDevicesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 23419851
-     *
      * @var int
      */
     public $appKey;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ae296f3b04a58a05b30c95f****,ae296f3b04a58a05b30c95f****,ae296f3b04a58a05b30c95f****
-     *
      * @var string
      */
     public $deviceIds;
@@ -30,14 +22,18 @@ class CheckDevicesRequest extends Model
         'deviceIds' => 'DeviceIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+
         if (null !== $this->deviceIds) {
             $res['DeviceIds'] = $this->deviceIds;
         }
@@ -45,17 +41,18 @@ class CheckDevicesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckDevicesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+
         if (isset($map['DeviceIds'])) {
             $model->deviceIds = $map['DeviceIds'];
         }

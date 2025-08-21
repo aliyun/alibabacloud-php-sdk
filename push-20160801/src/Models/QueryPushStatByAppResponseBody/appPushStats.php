@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models\QueryPushStatByAppResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryPushStatByAppResponseBody\appPushStats\appPushStat;
-use AlibabaCloud\Tea\Model;
 
 class appPushStats extends Model
 {
@@ -17,17 +17,24 @@ class appPushStats extends Model
         'appPushStat' => 'AppPushStat',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->appPushStat)) {
+            Model::validateArray($this->appPushStat);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appPushStat) {
-            $res['AppPushStat'] = [];
-            if (null !== $this->appPushStat && \is_array($this->appPushStat)) {
-                $n = 0;
-                foreach ($this->appPushStat as $item) {
-                    $res['AppPushStat'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->appPushStat)) {
+                $res['AppPushStat'] = [];
+                $n1 = 0;
+                foreach ($this->appPushStat as $item1) {
+                    $res['AppPushStat'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class appPushStats extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return appPushStats
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppPushStat'])) {
             if (!empty($map['AppPushStat'])) {
                 $model->appPushStat = [];
-                $n = 0;
-                foreach ($map['AppPushStat'] as $item) {
-                    $model->appPushStat[$n++] = null !== $item ? appPushStat::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AppPushStat'] as $item1) {
+                    $model->appPushStat[$n1] = appPushStat::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

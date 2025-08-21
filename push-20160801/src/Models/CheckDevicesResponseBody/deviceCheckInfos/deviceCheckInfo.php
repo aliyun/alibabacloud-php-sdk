@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models\CheckDevicesResponseBody\deviceCheckInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deviceCheckInfo extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $available;
 
     /**
-     * @example ae296f3b04a58a05b30c95f****
-     *
      * @var string
      */
     public $deviceId;
@@ -26,14 +22,18 @@ class deviceCheckInfo extends Model
         'deviceId' => 'DeviceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->available) {
             $res['Available'] = $this->available;
         }
+
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
@@ -41,17 +41,18 @@ class deviceCheckInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deviceCheckInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Available'])) {
             $model->available = $map['Available'];
         }
+
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }

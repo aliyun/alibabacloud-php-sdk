@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models\ListSummaryAppsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Push\V20160801\Models\ListSummaryAppsResponseBody\summaryAppInfos\summaryAppInfo;
-use AlibabaCloud\Tea\Model;
 
 class summaryAppInfos extends Model
 {
@@ -17,17 +17,24 @@ class summaryAppInfos extends Model
         'summaryAppInfo' => 'SummaryAppInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->summaryAppInfo)) {
+            Model::validateArray($this->summaryAppInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->summaryAppInfo) {
-            $res['SummaryAppInfo'] = [];
-            if (null !== $this->summaryAppInfo && \is_array($this->summaryAppInfo)) {
-                $n = 0;
-                foreach ($this->summaryAppInfo as $item) {
-                    $res['SummaryAppInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->summaryAppInfo)) {
+                $res['SummaryAppInfo'] = [];
+                $n1 = 0;
+                foreach ($this->summaryAppInfo as $item1) {
+                    $res['SummaryAppInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class summaryAppInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return summaryAppInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SummaryAppInfo'])) {
             if (!empty($map['SummaryAppInfo'])) {
                 $model->summaryAppInfo = [];
-                $n = 0;
-                foreach ($map['SummaryAppInfo'] as $item) {
-                    $model->summaryAppInfo[$n++] = null !== $item ? summaryAppInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SummaryAppInfo'] as $item1) {
+                    $model->summaryAppInfo[$n1] = summaryAppInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

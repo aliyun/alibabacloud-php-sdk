@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models\QueryAliasesResponseBody\aliasInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class aliasInfo extends Model
 {
     /**
-     * @example test_alias1
-     *
      * @var string
      */
     public $aliasName;
@@ -18,9 +16,12 @@ class aliasInfo extends Model
         'aliasName' => 'AliasName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliasName) {
@@ -30,11 +31,11 @@ class aliasInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aliasInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

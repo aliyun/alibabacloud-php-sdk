@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models\ListSummaryAppsResponseBody\summaryAppInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class summaryAppInfo extends Model
 {
     /**
-     * @example 23****07
-     *
      * @var int
      */
     public $appKey;
 
     /**
-     * @example abc
-     *
      * @var string
      */
     public $appName;
@@ -26,14 +22,18 @@ class summaryAppInfo extends Model
         'appName' => 'AppName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -41,17 +41,18 @@ class summaryAppInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return summaryAppInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

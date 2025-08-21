@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Push\V20160801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Push\V20160801\Models\CheckCertificateResponseBody\developmentCertInfo;
 use AlibabaCloud\SDK\Push\V20160801\Models\CheckCertificateResponseBody\productionCertInfo;
-use AlibabaCloud\Tea\Model;
 
 class CheckCertificateResponseBody extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $android;
@@ -23,8 +21,6 @@ class CheckCertificateResponseBody extends Model
     public $developmentCertInfo;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $IOS;
@@ -35,8 +31,6 @@ class CheckCertificateResponseBody extends Model
     public $productionCertInfo;
 
     /**
-     * @example 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-     *
      * @var string
      */
     public $requestId;
@@ -48,23 +42,36 @@ class CheckCertificateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->developmentCertInfo) {
+            $this->developmentCertInfo->validate();
+        }
+        if (null !== $this->productionCertInfo) {
+            $this->productionCertInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->android) {
             $res['Android'] = $this->android;
         }
+
         if (null !== $this->developmentCertInfo) {
-            $res['DevelopmentCertInfo'] = null !== $this->developmentCertInfo ? $this->developmentCertInfo->toMap() : null;
+            $res['DevelopmentCertInfo'] = null !== $this->developmentCertInfo ? $this->developmentCertInfo->toArray($noStream) : $this->developmentCertInfo;
         }
+
         if (null !== $this->IOS) {
             $res['IOS'] = $this->IOS;
         }
+
         if (null !== $this->productionCertInfo) {
-            $res['ProductionCertInfo'] = null !== $this->productionCertInfo ? $this->productionCertInfo->toMap() : null;
+            $res['ProductionCertInfo'] = null !== $this->productionCertInfo ? $this->productionCertInfo->toArray($noStream) : $this->productionCertInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -72,26 +79,30 @@ class CheckCertificateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckCertificateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Android'])) {
             $model->android = $map['Android'];
         }
+
         if (isset($map['DevelopmentCertInfo'])) {
             $model->developmentCertInfo = developmentCertInfo::fromMap($map['DevelopmentCertInfo']);
         }
+
         if (isset($map['IOS'])) {
             $model->IOS = $map['IOS'];
         }
+
         if (isset($map['ProductionCertInfo'])) {
             $model->productionCertInfo = productionCertInfo::fromMap($map['ProductionCertInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
