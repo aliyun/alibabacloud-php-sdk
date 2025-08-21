@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstanceDasProRequest extends Model
 {
     /**
-     * @description The database instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example rm-2ze8g2am97624****
-     *
      * @var string
      */
     public $instanceId;
@@ -22,9 +16,12 @@ class DescribeInstanceDasProRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -34,11 +31,11 @@ class DescribeInstanceDasProRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceDasProRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

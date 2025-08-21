@@ -4,86 +4,54 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetAutoResourceOptimizeRulesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetAutoResourceOptimizeRulesResponseBody\data\enableAutoResourceOptimizeList;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetAutoResourceOptimizeRulesResponseBody\data\hasEnableRuleButNotDasProList;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetAutoResourceOptimizeRulesResponseBody\data\turnOffAutoResourceOptimizeList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The number of database instances for which the automatic fragment recycling feature is currently enabled.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $enableAutoResourceOptimizeCount;
 
     /**
-     * @description The database instances for which the automatic fragment recycling feature is currently enabled.
-     *
      * @var enableAutoResourceOptimizeList[]
      */
     public $enableAutoResourceOptimizeList;
 
     /**
-     * @description The number of database instances for which the automatic fragment recycling feature is enabled and DAS Enterprise Edition is disabled.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $hasEnableRuleButNotDasProCount;
 
     /**
-     * @description The database instances for which the automatic fragment recycling feature is enabled and DAS Enterprise Edition is disabled.
-     *
-     * >  Automatic fragment recycling tasks are run on this type of database instances only if DAS Enterprise Edition is enabled for the database instances again.
-     *
      * @var hasEnableRuleButNotDasProList[]
      */
     public $hasEnableRuleButNotDasProList;
 
     /**
-     * @description The number of database instances that do not exist or for which the automatic fragment recycling feature has never been enabled.
-     *
-     * >  If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $neverEnableAutoResourceOptimizeOrReleasedInstanceCount;
 
     /**
-     * @description The database instances that do not exist or for which the automatic fragment recycling feature has never been enabled.
-     *
      * @var string[]
      */
     public $neverEnableAutoResourceOptimizeOrReleasedInstanceIdList;
 
     /**
-     * @description The number of database instances for which the automatic fragment recycling feature has been enabled.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $totalAutoResourceOptimizeRulesCount;
 
     /**
-     * @description The number of database instances for which the automatic fragment recycling feature was once enabled but is currently disabled.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $turnOffAutoResourceOptimizeCount;
 
     /**
-     * @description The database instances for which the automatic fragment recycling feature was once enabled but is currently disabled.
-     *
      * @var turnOffAutoResourceOptimizeList[]
      */
     public $turnOffAutoResourceOptimizeList;
@@ -99,53 +67,86 @@ class data extends Model
         'turnOffAutoResourceOptimizeList' => 'TurnOffAutoResourceOptimizeList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->enableAutoResourceOptimizeList)) {
+            Model::validateArray($this->enableAutoResourceOptimizeList);
+        }
+        if (\is_array($this->hasEnableRuleButNotDasProList)) {
+            Model::validateArray($this->hasEnableRuleButNotDasProList);
+        }
+        if (\is_array($this->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList)) {
+            Model::validateArray($this->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList);
+        }
+        if (\is_array($this->turnOffAutoResourceOptimizeList)) {
+            Model::validateArray($this->turnOffAutoResourceOptimizeList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableAutoResourceOptimizeCount) {
             $res['EnableAutoResourceOptimizeCount'] = $this->enableAutoResourceOptimizeCount;
         }
+
         if (null !== $this->enableAutoResourceOptimizeList) {
-            $res['EnableAutoResourceOptimizeList'] = [];
-            if (null !== $this->enableAutoResourceOptimizeList && \is_array($this->enableAutoResourceOptimizeList)) {
-                $n = 0;
-                foreach ($this->enableAutoResourceOptimizeList as $item) {
-                    $res['EnableAutoResourceOptimizeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->enableAutoResourceOptimizeList)) {
+                $res['EnableAutoResourceOptimizeList'] = [];
+                $n1 = 0;
+                foreach ($this->enableAutoResourceOptimizeList as $item1) {
+                    $res['EnableAutoResourceOptimizeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->hasEnableRuleButNotDasProCount) {
             $res['HasEnableRuleButNotDasProCount'] = $this->hasEnableRuleButNotDasProCount;
         }
+
         if (null !== $this->hasEnableRuleButNotDasProList) {
-            $res['HasEnableRuleButNotDasProList'] = [];
-            if (null !== $this->hasEnableRuleButNotDasProList && \is_array($this->hasEnableRuleButNotDasProList)) {
-                $n = 0;
-                foreach ($this->hasEnableRuleButNotDasProList as $item) {
-                    $res['HasEnableRuleButNotDasProList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hasEnableRuleButNotDasProList)) {
+                $res['HasEnableRuleButNotDasProList'] = [];
+                $n1 = 0;
+                foreach ($this->hasEnableRuleButNotDasProList as $item1) {
+                    $res['HasEnableRuleButNotDasProList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->neverEnableAutoResourceOptimizeOrReleasedInstanceCount) {
             $res['NeverEnableAutoResourceOptimizeOrReleasedInstanceCount'] = $this->neverEnableAutoResourceOptimizeOrReleasedInstanceCount;
         }
+
         if (null !== $this->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList) {
-            $res['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'] = $this->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList;
+            if (\is_array($this->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList)) {
+                $res['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'] = [];
+                $n1 = 0;
+                foreach ($this->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList as $item1) {
+                    $res['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->totalAutoResourceOptimizeRulesCount) {
             $res['TotalAutoResourceOptimizeRulesCount'] = $this->totalAutoResourceOptimizeRulesCount;
         }
+
         if (null !== $this->turnOffAutoResourceOptimizeCount) {
             $res['TurnOffAutoResourceOptimizeCount'] = $this->turnOffAutoResourceOptimizeCount;
         }
+
         if (null !== $this->turnOffAutoResourceOptimizeList) {
-            $res['TurnOffAutoResourceOptimizeList'] = [];
-            if (null !== $this->turnOffAutoResourceOptimizeList && \is_array($this->turnOffAutoResourceOptimizeList)) {
-                $n = 0;
-                foreach ($this->turnOffAutoResourceOptimizeList as $item) {
-                    $res['TurnOffAutoResourceOptimizeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->turnOffAutoResourceOptimizeList)) {
+                $res['TurnOffAutoResourceOptimizeList'] = [];
+                $n1 = 0;
+                foreach ($this->turnOffAutoResourceOptimizeList as $item1) {
+                    $res['TurnOffAutoResourceOptimizeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -153,58 +154,74 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableAutoResourceOptimizeCount'])) {
             $model->enableAutoResourceOptimizeCount = $map['EnableAutoResourceOptimizeCount'];
         }
+
         if (isset($map['EnableAutoResourceOptimizeList'])) {
             if (!empty($map['EnableAutoResourceOptimizeList'])) {
                 $model->enableAutoResourceOptimizeList = [];
-                $n = 0;
-                foreach ($map['EnableAutoResourceOptimizeList'] as $item) {
-                    $model->enableAutoResourceOptimizeList[$n++] = null !== $item ? enableAutoResourceOptimizeList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EnableAutoResourceOptimizeList'] as $item1) {
+                    $model->enableAutoResourceOptimizeList[$n1] = enableAutoResourceOptimizeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['HasEnableRuleButNotDasProCount'])) {
             $model->hasEnableRuleButNotDasProCount = $map['HasEnableRuleButNotDasProCount'];
         }
+
         if (isset($map['HasEnableRuleButNotDasProList'])) {
             if (!empty($map['HasEnableRuleButNotDasProList'])) {
                 $model->hasEnableRuleButNotDasProList = [];
-                $n = 0;
-                foreach ($map['HasEnableRuleButNotDasProList'] as $item) {
-                    $model->hasEnableRuleButNotDasProList[$n++] = null !== $item ? hasEnableRuleButNotDasProList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HasEnableRuleButNotDasProList'] as $item1) {
+                    $model->hasEnableRuleButNotDasProList[$n1] = hasEnableRuleButNotDasProList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['NeverEnableAutoResourceOptimizeOrReleasedInstanceCount'])) {
             $model->neverEnableAutoResourceOptimizeOrReleasedInstanceCount = $map['NeverEnableAutoResourceOptimizeOrReleasedInstanceCount'];
         }
+
         if (isset($map['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'])) {
             if (!empty($map['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'])) {
-                $model->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList = $map['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'];
+                $model->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList = [];
+                $n1 = 0;
+                foreach ($map['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'] as $item1) {
+                    $model->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TotalAutoResourceOptimizeRulesCount'])) {
             $model->totalAutoResourceOptimizeRulesCount = $map['TotalAutoResourceOptimizeRulesCount'];
         }
+
         if (isset($map['TurnOffAutoResourceOptimizeCount'])) {
             $model->turnOffAutoResourceOptimizeCount = $map['TurnOffAutoResourceOptimizeCount'];
         }
+
         if (isset($map['TurnOffAutoResourceOptimizeList'])) {
             if (!empty($map['TurnOffAutoResourceOptimizeList'])) {
                 $model->turnOffAutoResourceOptimizeList = [];
-                $n = 0;
-                foreach ($map['TurnOffAutoResourceOptimizeList'] as $item) {
-                    $model->turnOffAutoResourceOptimizeList[$n++] = null !== $item ? turnOffAutoResourceOptimizeList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TurnOffAutoResourceOptimizeList'] as $item1) {
+                    $model->turnOffAutoResourceOptimizeList[$n1] = turnOffAutoResourceOptimizeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\CreateCacheAnalysisJobResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateCacheAnalysisJobResponseBody\data\bigKeys\keyInfo;
-use AlibabaCloud\Tea\Model;
 
 class bigKeys extends Model
 {
@@ -17,17 +17,24 @@ class bigKeys extends Model
         'keyInfo' => 'KeyInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->keyInfo)) {
+            Model::validateArray($this->keyInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyInfo) {
-            $res['KeyInfo'] = [];
-            if (null !== $this->keyInfo && \is_array($this->keyInfo)) {
-                $n = 0;
-                foreach ($this->keyInfo as $item) {
-                    $res['KeyInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->keyInfo)) {
+                $res['KeyInfo'] = [];
+                $n1 = 0;
+                foreach ($this->keyInfo as $item1) {
+                    $res['KeyInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class bigKeys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bigKeys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyInfo'])) {
             if (!empty($map['KeyInfo'])) {
                 $model->keyInfo = [];
-                $n = 0;
-                foreach ($map['KeyInfo'] as $item) {
-                    $model->keyInfo[$n++] = null !== $item ? keyInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['KeyInfo'] as $item1) {
+                    $model->keyInfo[$n1] = keyInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

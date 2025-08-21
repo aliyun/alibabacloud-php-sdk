@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetAsyncErrorRequestListByCodeResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The instance ID
-     *
-     * @example rm-2ze8g2am97624****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description SQL ID.
-     *
-     * @example ad78a4e7d3ce81590c9dc2d5f4bc****
-     *
      * @var string
      */
     public $sqlId;
@@ -30,14 +22,18 @@ class result extends Model
         'sqlId' => 'sqlId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
+
         if (null !== $this->sqlId) {
             $res['sqlId'] = $this->sqlId;
         }
@@ -45,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
+
         if (isset($map['sqlId'])) {
             $model->sqlId = $map['sqlId'];
         }

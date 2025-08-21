@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetMongoDBCurrentOpResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetMongoDBCurrentOpResponseBody\data\sessionList;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetMongoDBCurrentOpResponseBody\data\sessionStat;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The sessions.
-     *
      * @var sessionList[]
      */
     public $sessionList;
 
     /**
-     * @description The statistics on the sessions.
-     *
      * @var sessionStat
      */
     public $sessionStat;
 
     /**
-     * @description The time when the database sessions were returned. The value is in the UNIX timestamp format. Unit: milliseconds.
-     *
-     * @example 1692029584428
-     *
      * @var int
      */
     public $timestamp;
@@ -38,23 +30,35 @@ class data extends Model
         'timestamp' => 'Timestamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sessionList)) {
+            Model::validateArray($this->sessionList);
+        }
+        if (null !== $this->sessionStat) {
+            $this->sessionStat->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sessionList) {
-            $res['SessionList'] = [];
-            if (null !== $this->sessionList && \is_array($this->sessionList)) {
-                $n = 0;
-                foreach ($this->sessionList as $item) {
-                    $res['SessionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sessionList)) {
+                $res['SessionList'] = [];
+                $n1 = 0;
+                foreach ($this->sessionList as $item1) {
+                    $res['SessionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->sessionStat) {
-            $res['SessionStat'] = null !== $this->sessionStat ? $this->sessionStat->toMap() : null;
+            $res['SessionStat'] = null !== $this->sessionStat ? $this->sessionStat->toArray($noStream) : $this->sessionStat;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -62,26 +66,29 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SessionList'])) {
             if (!empty($map['SessionList'])) {
                 $model->sessionList = [];
-                $n = 0;
-                foreach ($map['SessionList'] as $item) {
-                    $model->sessionList[$n++] = null !== $item ? sessionList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SessionList'] as $item1) {
+                    $model->sessionList[$n1] = sessionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SessionStat'])) {
             $model->sessionStat = sessionStat::fromMap($map['SessionStat']);
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

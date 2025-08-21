@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class KillInstanceAllSessionRequest extends Model
 {
     /**
-     * @description The reserved parameter.
-     *
-     * @example None
-     *
      * @var string
      */
     public $consoleContext;
 
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example r-8vbcyr4sw0c4yc****
-     *
      * @var string
      */
     public $instanceId;
@@ -32,14 +22,18 @@ class KillInstanceAllSessionRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->consoleContext) {
             $res['ConsoleContext'] = $this->consoleContext;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -47,17 +41,18 @@ class KillInstanceAllSessionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return KillInstanceAllSessionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConsoleContext'])) {
             $model->consoleContext = $map['ConsoleContext'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -4,65 +4,31 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeTopHotKeysRequest extends Model
 {
     /**
-     * @description The reserved parameter.
-     *
-     * @example None
-     *
      * @var string
      */
     public $consoleContext;
 
     /**
-     * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * >
-     *
-     *   The end time must be later than the start time.
-     *
-     *   Only data within the last four days can be queried.
-     *
-     *   The maximum interval between the **start time** and the** end time** is 3 hours.
-     *
-     * This parameter is required.
-     *
-     * @example 1596177993001
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The ID of the ApsaraDB for Redis instance.
-     *
-     * This parameter is required.
-     *
-     * @example r-bp18ff4a195d****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the data shard on the ApsaraDB for Redis instance.
-     *
-     * @example r-****-db-0
-     *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * This parameter is required.
-     *
-     * @example 1596177993000
-     *
      * @var string
      */
     public $startTime;
@@ -74,23 +40,30 @@ class DescribeTopHotKeysRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->consoleContext) {
             $res['ConsoleContext'] = $this->consoleContext;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -98,26 +71,30 @@ class DescribeTopHotKeysRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTopHotKeysRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConsoleContext'])) {
             $model->consoleContext = $map['ConsoleContext'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

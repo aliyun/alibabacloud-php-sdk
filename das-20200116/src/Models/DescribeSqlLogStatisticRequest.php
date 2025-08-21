@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSqlLogStatisticRequest extends Model
 {
     /**
-     * @description The ID of the database instance.
-     *
-     * This parameter is required.
-     *
-     * @example rm-2ze1jdv45i7l6****
-     *
      * @var string
      */
     public $instanceId;
@@ -22,9 +16,12 @@ class DescribeSqlLogStatisticRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -34,11 +31,11 @@ class DescribeSqlLogStatisticRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSqlLogStatisticRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

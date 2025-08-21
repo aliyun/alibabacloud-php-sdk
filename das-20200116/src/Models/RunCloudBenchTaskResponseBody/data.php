@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\RunCloudBenchTaskResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\RunCloudBenchTaskResponseBody\data\preCheckItem;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,17 +17,24 @@ class data extends Model
         'preCheckItem' => 'PreCheckItem',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->preCheckItem)) {
+            Model::validateArray($this->preCheckItem);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->preCheckItem) {
-            $res['PreCheckItem'] = [];
-            if (null !== $this->preCheckItem && \is_array($this->preCheckItem)) {
-                $n = 0;
-                foreach ($this->preCheckItem as $item) {
-                    $res['PreCheckItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->preCheckItem)) {
+                $res['PreCheckItem'] = [];
+                $n1 = 0;
+                foreach ($this->preCheckItem as $item1) {
+                    $res['PreCheckItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PreCheckItem'])) {
             if (!empty($map['PreCheckItem'])) {
                 $model->preCheckItem = [];
-                $n = 0;
-                foreach ($map['PreCheckItem'] as $item) {
-                    $model->preCheckItem[$n++] = null !== $item ? preCheckItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PreCheckItem'] as $item1) {
+                    $model->preCheckItem[$n1] = preCheckItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

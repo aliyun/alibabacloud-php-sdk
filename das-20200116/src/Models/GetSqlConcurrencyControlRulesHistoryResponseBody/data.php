@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetSqlConcurrencyControlRulesHistoryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetSqlConcurrencyControlRulesHistoryResponseBody\data\list_;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The list of the queried throttling rules.
-     *
      * @var list_
      */
     public $list;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $total;
@@ -29,14 +23,21 @@ class data extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->list) {
+            $this->list->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->list) {
-            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
+            $res['List'] = null !== $this->list ? $this->list->toArray($noStream) : $this->list;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -44,17 +45,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['List'])) {
             $model->list = list_::fromMap($map['List']);
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

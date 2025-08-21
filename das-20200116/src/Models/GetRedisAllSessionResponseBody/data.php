@@ -4,40 +4,28 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetRedisAllSessionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetRedisAllSessionResponseBody\data\sessions;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetRedisAllSessionResponseBody\data\sourceStats;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The information about the sessions.
-     *
      * @var sessions[]
      */
     public $sessions;
 
     /**
-     * @description The statistics on the access source.
-     *
      * @var sourceStats[]
      */
     public $sourceStats;
 
     /**
-     * @description The time when the instance sessions were returned. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * @example 1660100753556
-     *
      * @var int
      */
     public $timestamp;
 
     /**
-     * @description The total number of sessions.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $total;
@@ -48,32 +36,46 @@ class data extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sessions)) {
+            Model::validateArray($this->sessions);
+        }
+        if (\is_array($this->sourceStats)) {
+            Model::validateArray($this->sourceStats);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sessions) {
-            $res['Sessions'] = [];
-            if (null !== $this->sessions && \is_array($this->sessions)) {
-                $n = 0;
-                foreach ($this->sessions as $item) {
-                    $res['Sessions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sessions)) {
+                $res['Sessions'] = [];
+                $n1 = 0;
+                foreach ($this->sessions as $item1) {
+                    $res['Sessions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->sourceStats) {
-            $res['SourceStats'] = [];
-            if (null !== $this->sourceStats && \is_array($this->sourceStats)) {
-                $n = 0;
-                foreach ($this->sourceStats as $item) {
-                    $res['SourceStats'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sourceStats)) {
+                $res['SourceStats'] = [];
+                $n1 = 0;
+                foreach ($this->sourceStats as $item1) {
+                    $res['SourceStats'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -81,35 +83,40 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Sessions'])) {
             if (!empty($map['Sessions'])) {
                 $model->sessions = [];
-                $n = 0;
-                foreach ($map['Sessions'] as $item) {
-                    $model->sessions[$n++] = null !== $item ? sessions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Sessions'] as $item1) {
+                    $model->sessions[$n1] = sessions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SourceStats'])) {
             if (!empty($map['SourceStats'])) {
                 $model->sourceStats = [];
-                $n = 0;
-                foreach ($map['SourceStats'] as $item) {
-                    $model->sourceStats[$n++] = null !== $item ? sourceStats::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SourceStats'] as $item1) {
+                    $model->sourceStats[$n1] = sourceStats::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

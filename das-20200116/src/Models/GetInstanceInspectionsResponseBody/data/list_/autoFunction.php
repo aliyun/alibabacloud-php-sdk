@@ -4,71 +4,31 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceInspectionsResponseBody\data\list_;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class autoFunction extends Model
 {
     /**
-     * @description Indicates whether the feature of automatically creating and deleting indexes is enabled. Valid values:
-     *
-     *   **0**: disabled.
-     *   **1**: enabled.
-     *   **2**: not supported.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $autoIndex;
 
     /**
-     * @description Indicates whether the automatic throttling feature is enabled. Valid values:
-     *
-     *   **0**: disabled.
-     *   **1**: enabled.
-     *   **2**: not supported.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $autoLimitedSql;
 
     /**
-     * @description Indicates whether the automatic fragment recycling feature is enabled. Valid values:
-     *
-     *   **0**: disabled.
-     *   **1**: enabled.
-     *   **2**: not supported.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $autoResourceOptimize;
 
     /**
-     * @description Indicates whether the auto scaling feature is enabled. Valid values:
-     *
-     *   **0**: disabled.
-     *   **1**: enabled.
-     *   **2**: not supported.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $autoScale;
 
     /**
-     * @description Indicates whether the event subscription feature is enabled. Valid values:
-     *
-     *   **0**: disabled.
-     *   **1**: enabled.
-     *   **2**: not supported.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $eventSubscription;
@@ -80,23 +40,30 @@ class autoFunction extends Model
         'eventSubscription' => 'EventSubscription',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoIndex) {
             $res['AutoIndex'] = $this->autoIndex;
         }
+
         if (null !== $this->autoLimitedSql) {
             $res['AutoLimitedSql'] = $this->autoLimitedSql;
         }
+
         if (null !== $this->autoResourceOptimize) {
             $res['AutoResourceOptimize'] = $this->autoResourceOptimize;
         }
+
         if (null !== $this->autoScale) {
             $res['AutoScale'] = $this->autoScale;
         }
+
         if (null !== $this->eventSubscription) {
             $res['EventSubscription'] = $this->eventSubscription;
         }
@@ -104,26 +71,30 @@ class autoFunction extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return autoFunction
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoIndex'])) {
             $model->autoIndex = $map['AutoIndex'];
         }
+
         if (isset($map['AutoLimitedSql'])) {
             $model->autoLimitedSql = $map['AutoLimitedSql'];
         }
+
         if (isset($map['AutoResourceOptimize'])) {
             $model->autoResourceOptimize = $map['AutoResourceOptimize'];
         }
+
         if (isset($map['AutoScale'])) {
             $model->autoScale = $map['AutoScale'];
         }
+
         if (isset($map['EventSubscription'])) {
             $model->eventSubscription = $map['EventSubscription'];
         }

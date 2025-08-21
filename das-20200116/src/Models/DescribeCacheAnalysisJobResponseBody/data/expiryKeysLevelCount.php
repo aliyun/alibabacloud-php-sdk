@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCacheAnalysisJobResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCacheAnalysisJobResponseBody\data\expiryKeysLevelCount\expiryLevel;
-use AlibabaCloud\Tea\Model;
 
 class expiryKeysLevelCount extends Model
 {
@@ -17,17 +17,24 @@ class expiryKeysLevelCount extends Model
         'expiryLevel' => 'ExpiryLevel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->expiryLevel)) {
+            Model::validateArray($this->expiryLevel);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expiryLevel) {
-            $res['ExpiryLevel'] = [];
-            if (null !== $this->expiryLevel && \is_array($this->expiryLevel)) {
-                $n = 0;
-                foreach ($this->expiryLevel as $item) {
-                    $res['ExpiryLevel'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->expiryLevel)) {
+                $res['ExpiryLevel'] = [];
+                $n1 = 0;
+                foreach ($this->expiryLevel as $item1) {
+                    $res['ExpiryLevel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class expiryKeysLevelCount extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return expiryKeysLevelCount
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpiryLevel'])) {
             if (!empty($map['ExpiryLevel'])) {
                 $model->expiryLevel = [];
-                $n = 0;
-                foreach ($map['ExpiryLevel'] as $item) {
-                    $model->expiryLevel[$n++] = null !== $item ? expiryLevel::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ExpiryLevel'] as $item1) {
+                    $model->expiryLevel[$n1] = expiryLevel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

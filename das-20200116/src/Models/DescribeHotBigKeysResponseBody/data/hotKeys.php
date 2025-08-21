@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\DescribeHotBigKeysResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeHotBigKeysResponseBody\data\hotKeys\hotKey;
-use AlibabaCloud\Tea\Model;
 
 class hotKeys extends Model
 {
@@ -17,17 +17,24 @@ class hotKeys extends Model
         'hotKey' => 'HotKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->hotKey)) {
+            Model::validateArray($this->hotKey);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotKey) {
-            $res['HotKey'] = [];
-            if (null !== $this->hotKey && \is_array($this->hotKey)) {
-                $n = 0;
-                foreach ($this->hotKey as $item) {
-                    $res['HotKey'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hotKey)) {
+                $res['HotKey'] = [];
+                $n1 = 0;
+                foreach ($this->hotKey as $item1) {
+                    $res['HotKey'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class hotKeys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hotKeys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotKey'])) {
             if (!empty($map['HotKey'])) {
                 $model->hotKey = [];
-                $n = 0;
-                foreach ($map['HotKey'] as $item) {
-                    $model->hotKey[$n++] = null !== $item ? hotKey::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HotKey'] as $item1) {
+                    $model->hotKey[$n1] = hotKey::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,49 +4,33 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\UpdateAutoResourceOptimizeRulesAsyncResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\UpdateAutoResourceOptimizeRulesAsyncResponseBody\data\configResponse\configFailInstanceList;
 use AlibabaCloud\SDK\DAS\V20200116\Models\UpdateAutoResourceOptimizeRulesAsyncResponseBody\data\configResponse\configSuccessInstanceList;
-use AlibabaCloud\Tea\Model;
 
 class configResponse extends Model
 {
     /**
-     * @description The number of database instances for which the parameters failed to be configured.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $configFailInstanceCount;
 
     /**
-     * @description The database instances for which the parameters failed to be configured.
-     *
      * @var configFailInstanceList[]
      */
     public $configFailInstanceList;
 
     /**
-     * @description The number of database instances for which the parameters are configured.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $configSuccessInstanceCount;
 
     /**
-     * @description The database instances for which the parameters are configured.
-     *
      * @var configSuccessInstanceList[]
      */
     public $configSuccessInstanceList;
 
     /**
-     * @description The total number of database instances.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalInstanceCount;
@@ -58,35 +42,50 @@ class configResponse extends Model
         'totalInstanceCount' => 'TotalInstanceCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->configFailInstanceList)) {
+            Model::validateArray($this->configFailInstanceList);
+        }
+        if (\is_array($this->configSuccessInstanceList)) {
+            Model::validateArray($this->configSuccessInstanceList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configFailInstanceCount) {
             $res['ConfigFailInstanceCount'] = $this->configFailInstanceCount;
         }
+
         if (null !== $this->configFailInstanceList) {
-            $res['ConfigFailInstanceList'] = [];
-            if (null !== $this->configFailInstanceList && \is_array($this->configFailInstanceList)) {
-                $n = 0;
-                foreach ($this->configFailInstanceList as $item) {
-                    $res['ConfigFailInstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configFailInstanceList)) {
+                $res['ConfigFailInstanceList'] = [];
+                $n1 = 0;
+                foreach ($this->configFailInstanceList as $item1) {
+                    $res['ConfigFailInstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->configSuccessInstanceCount) {
             $res['ConfigSuccessInstanceCount'] = $this->configSuccessInstanceCount;
         }
+
         if (null !== $this->configSuccessInstanceList) {
-            $res['ConfigSuccessInstanceList'] = [];
-            if (null !== $this->configSuccessInstanceList && \is_array($this->configSuccessInstanceList)) {
-                $n = 0;
-                foreach ($this->configSuccessInstanceList as $item) {
-                    $res['ConfigSuccessInstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configSuccessInstanceList)) {
+                $res['ConfigSuccessInstanceList'] = [];
+                $n1 = 0;
+                foreach ($this->configSuccessInstanceList as $item1) {
+                    $res['ConfigSuccessInstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalInstanceCount) {
             $res['TotalInstanceCount'] = $this->totalInstanceCount;
         }
@@ -94,38 +93,44 @@ class configResponse extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigFailInstanceCount'])) {
             $model->configFailInstanceCount = $map['ConfigFailInstanceCount'];
         }
+
         if (isset($map['ConfigFailInstanceList'])) {
             if (!empty($map['ConfigFailInstanceList'])) {
                 $model->configFailInstanceList = [];
-                $n = 0;
-                foreach ($map['ConfigFailInstanceList'] as $item) {
-                    $model->configFailInstanceList[$n++] = null !== $item ? configFailInstanceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConfigFailInstanceList'] as $item1) {
+                    $model->configFailInstanceList[$n1] = configFailInstanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ConfigSuccessInstanceCount'])) {
             $model->configSuccessInstanceCount = $map['ConfigSuccessInstanceCount'];
         }
+
         if (isset($map['ConfigSuccessInstanceList'])) {
             if (!empty($map['ConfigSuccessInstanceList'])) {
                 $model->configSuccessInstanceList = [];
-                $n = 0;
-                foreach ($map['ConfigSuccessInstanceList'] as $item) {
-                    $model->configSuccessInstanceList[$n++] = null !== $item ? configSuccessInstanceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConfigSuccessInstanceList'] as $item1) {
+                    $model->configSuccessInstanceList[$n1] = configSuccessInstanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalInstanceCount'])) {
             $model->totalInstanceCount = $map['TotalInstanceCount'];
         }
