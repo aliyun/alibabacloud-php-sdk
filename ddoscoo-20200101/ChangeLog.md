@@ -1,3 +1,9 @@
+2025-08-21 Version: 2.6.3
+- Update API DescribeAttackAnalysisMaxQps: add request parameters Ip.
+- Update API DescribeDDosAllEventList: add request parameters Ip.
+- Update API DescribeDDosEventMax: add request parameters Ip.
+
+
 2025-06-23 Version: 2.6.2
 - Update API DescribeDomainTopAttackList: add request parameters Interval.
 

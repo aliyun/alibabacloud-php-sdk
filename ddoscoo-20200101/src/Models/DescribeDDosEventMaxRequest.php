@@ -14,11 +14,17 @@ class DescribeDDosEventMaxRequest extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $ip;
+
+    /**
      * @var int
      */
     public $startTime;
     protected $_name = [
         'endTime' => 'EndTime',
+        'ip' => 'Ip',
         'startTime' => 'StartTime',
     ];
 
@@ -32,6 +38,10 @@ class DescribeDDosEventMaxRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
 
         if (null !== $this->startTime) {
@@ -51,6 +61,10 @@ class DescribeDDosEventMaxRequest extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
 
         if (isset($map['StartTime'])) {

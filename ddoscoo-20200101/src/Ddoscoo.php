@@ -2109,7 +2109,6 @@ class Ddoscoo extends OpenApiClient
         return $this->createTagResourcesWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Creates a custom frequency control rule for a website.
      *
@@ -2874,7 +2873,6 @@ class Ddoscoo extends OpenApiClient
         return $this->deleteTagResourcesWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Deletes a custom frequency control rule of a website.
      *
@@ -3305,6 +3303,10 @@ class Ddoscoo extends OpenApiClient
         $query = [];
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
 
         if (null !== $request->startTime) {
@@ -3978,6 +3980,10 @@ class Ddoscoo extends OpenApiClient
             @$query['EventType'] = $request->eventType;
         }
 
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -4271,6 +4277,10 @@ class Ddoscoo extends OpenApiClient
         $query = [];
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
 
         if (null !== $request->startTime) {
@@ -9565,7 +9575,6 @@ class Ddoscoo extends OpenApiClient
         return $this->describeWebAreaBlockConfigsWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the custom frequency control rules that are created for a website.
      *
@@ -12858,7 +12867,6 @@ class Ddoscoo extends OpenApiClient
         return $this->modifyWebCCGlobalSwitchWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Modifies the custom frequency control rule of a website.
      *

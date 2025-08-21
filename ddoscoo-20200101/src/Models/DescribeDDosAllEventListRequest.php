@@ -19,6 +19,11 @@ class DescribeDDosAllEventListRequest extends Model
     public $eventType;
 
     /**
+     * @var string
+     */
+    public $ip;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -35,6 +40,7 @@ class DescribeDDosAllEventListRequest extends Model
     protected $_name = [
         'endTime' => 'EndTime',
         'eventType' => 'EventType',
+        'ip' => 'Ip',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'startTime' => 'StartTime',
@@ -54,6 +60,10 @@ class DescribeDDosAllEventListRequest extends Model
 
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
+        }
+
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
 
         if (null !== $this->pageNumber) {
@@ -85,6 +95,10 @@ class DescribeDDosAllEventListRequest extends Model
 
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
+        }
+
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
 
         if (isset($map['PageNumber'])) {
