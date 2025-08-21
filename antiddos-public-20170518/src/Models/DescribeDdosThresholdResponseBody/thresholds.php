@@ -33,7 +33,8 @@ class thresholds extends Model
                 $res['Threshold'] = [];
                 $n1 = 0;
                 foreach ($this->threshold as $item1) {
-                    $res['Threshold'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Threshold'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class thresholds extends Model
                 $model->threshold = [];
                 $n1 = 0;
                 foreach ($map['Threshold'] as $item1) {
-                    $model->threshold[$n1++] = threshold::fromMap($item1);
+                    $model->threshold[$n1] = threshold::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -37,6 +37,11 @@ class DescribeDdosEventListRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $queryDays;
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'ddosRegionId' => 'DdosRegionId',
@@ -44,6 +49,7 @@ class DescribeDdosEventListRequest extends Model
         'instanceType' => 'InstanceType',
         'internetIp' => 'InternetIp',
         'pageSize' => 'PageSize',
+        'queryDays' => 'QueryDays',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class DescribeDdosEventListRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->queryDays) {
+            $res['QueryDays'] = $this->queryDays;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class DescribeDdosEventListRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['QueryDays'])) {
+            $model->queryDays = $map['QueryDays'];
         }
 
         return $model;

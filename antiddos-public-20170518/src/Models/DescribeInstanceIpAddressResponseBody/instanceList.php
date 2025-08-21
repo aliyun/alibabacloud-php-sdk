@@ -73,7 +73,8 @@ class instanceList extends Model
                 $res['IpAddressConfig'] = [];
                 $n1 = 0;
                 foreach ($this->ipAddressConfig as $item1) {
-                    $res['IpAddressConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpAddressConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class instanceList extends Model
                 $model->ipAddressConfig = [];
                 $n1 = 0;
                 foreach ($map['IpAddressConfig'] as $item1) {
-                    $model->ipAddressConfig[$n1++] = ipAddressConfig::fromMap($item1);
+                    $model->ipAddressConfig[$n1] = ipAddressConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

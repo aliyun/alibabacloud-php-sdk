@@ -177,11 +177,8 @@ class Antiddospublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBgpPackByIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBgpPackByIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBgpPackByIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -263,11 +260,8 @@ class Antiddospublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCapResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCapResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -336,11 +330,8 @@ class Antiddospublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDdosCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDdosCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDdosCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -405,11 +396,8 @@ class Antiddospublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDdosCreditResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDdosCreditResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDdosCreditResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -481,6 +469,10 @@ class Antiddospublic extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->queryDays) {
+            @$query['QueryDays'] = $request->queryDays;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -495,11 +487,8 @@ class Antiddospublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDdosEventListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDdosEventListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDdosEventListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -577,11 +566,8 @@ class Antiddospublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDdosThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDdosThresholdResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDdosThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -675,11 +661,8 @@ class Antiddospublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -773,11 +756,8 @@ class Antiddospublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -859,11 +839,8 @@ class Antiddospublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIpDdosThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIpDdosThresholdResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIpDdosThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -929,11 +906,8 @@ class Antiddospublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIpLocationServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIpLocationServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIpLocationServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -990,11 +964,8 @@ class Antiddospublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1083,11 +1054,8 @@ class Antiddospublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDefenseThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDefenseThresholdResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDefenseThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1175,11 +1143,8 @@ class Antiddospublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyIpDefenseThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIpDefenseThresholdResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIpDefenseThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

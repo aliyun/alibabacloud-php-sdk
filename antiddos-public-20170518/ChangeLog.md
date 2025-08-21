@@ -1,3 +1,7 @@
+2025-08-21 Version: 1.0.10
+- Update API DescribeDdosEventList: add request parameters QueryDays.
+
+
 2025-03-27 Version: 1.0.9
 - Generated php 2017-05-18 for antiddos-public.
 

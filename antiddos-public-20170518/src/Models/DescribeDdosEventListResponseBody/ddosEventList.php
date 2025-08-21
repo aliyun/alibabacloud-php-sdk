@@ -33,7 +33,8 @@ class ddosEventList extends Model
                 $res['DdosEvent'] = [];
                 $n1 = 0;
                 foreach ($this->ddosEvent as $item1) {
-                    $res['DdosEvent'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DdosEvent'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ddosEventList extends Model
                 $model->ddosEvent = [];
                 $n1 = 0;
                 foreach ($map['DdosEvent'] as $item1) {
-                    $model->ddosEvent[$n1++] = ddosEvent::fromMap($item1);
+                    $model->ddosEvent[$n1] = ddosEvent::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
