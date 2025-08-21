@@ -59,6 +59,11 @@ class data extends Model
     public $tag;
 
     /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
      * @var int
      */
     public $type;
@@ -88,6 +93,7 @@ class data extends Model
         'priority' => 'Priority',
         'selector' => 'Selector',
         'tag' => 'Tag',
+        'tags' => 'Tags',
         'type' => 'Type',
         'usage' => 'Usage',
         'value' => 'Value',
@@ -96,6 +102,9 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -140,6 +149,15 @@ class data extends Model
 
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                foreach ($this->tags as $key1 => $value1) {
+                    $res['Tags'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->type) {
@@ -207,6 +225,15 @@ class data extends Model
 
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                foreach ($map['Tags'] as $key1 => $value1) {
+                    $model->tags[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['Type'])) {
