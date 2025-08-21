@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingSessionResponseBody\additionalIngresses;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingSessionResponseBody\location;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingSessionResponseBody\portMappings;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingSessionResponseBody\stateInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRenderingSessionResponseBody extends Model
 {
@@ -18,22 +18,16 @@ class DescribeRenderingSessionResponseBody extends Model
     public $additionalIngresses;
 
     /**
-     * @example cap-b06b26edfhytbn b94a75ae1a79efc90eb
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @example c91263a0-f9ac-45bd-bbe9-6e293ad32d91
-     *
      * @var string
      */
     public $clientId;
 
     /**
-     * @example 111.45.29.96
-     *
      * @var string
      */
     public $hostname;
@@ -49,6 +43,11 @@ class DescribeRenderingSessionResponseBody extends Model
     public $location;
 
     /**
+     * @var string
+     */
+    public $patchId;
+
+    /**
      * @var portMappings[]
      */
     public $portMappings;
@@ -59,22 +58,16 @@ class DescribeRenderingSessionResponseBody extends Model
     public $renderingInstanceId;
 
     /**
-     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example session-i205217481741918129226
-     *
      * @var string
      */
     public $sessionId;
 
     /**
-     * @example 2025-05-18T02:20:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -90,6 +83,7 @@ class DescribeRenderingSessionResponseBody extends Model
         'hostname' => 'Hostname',
         'isp' => 'Isp',
         'location' => 'Location',
+        'patchId' => 'PatchId',
         'portMappings' => 'PortMappings',
         'renderingInstanceId' => 'RenderingInstanceId',
         'requestId' => 'RequestId',
@@ -98,116 +92,165 @@ class DescribeRenderingSessionResponseBody extends Model
         'stateInfo' => 'StateInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->additionalIngresses)) {
+            Model::validateArray($this->additionalIngresses);
+        }
+        if (null !== $this->location) {
+            $this->location->validate();
+        }
+        if (\is_array($this->portMappings)) {
+            Model::validateArray($this->portMappings);
+        }
+        if (null !== $this->stateInfo) {
+            $this->stateInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->additionalIngresses) {
-            $res['AdditionalIngresses'] = [];
-            if (null !== $this->additionalIngresses && \is_array($this->additionalIngresses)) {
-                $n = 0;
-                foreach ($this->additionalIngresses as $item) {
-                    $res['AdditionalIngresses'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->additionalIngresses)) {
+                $res['AdditionalIngresses'] = [];
+                $n1 = 0;
+                foreach ($this->additionalIngresses as $item1) {
+                    $res['AdditionalIngresses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
+
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
         }
+
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
         }
+
         if (null !== $this->location) {
-            $res['Location'] = null !== $this->location ? $this->location->toMap() : null;
+            $res['Location'] = null !== $this->location ? $this->location->toArray($noStream) : $this->location;
         }
+
+        if (null !== $this->patchId) {
+            $res['PatchId'] = $this->patchId;
+        }
+
         if (null !== $this->portMappings) {
-            $res['PortMappings'] = [];
-            if (null !== $this->portMappings && \is_array($this->portMappings)) {
-                $n = 0;
-                foreach ($this->portMappings as $item) {
-                    $res['PortMappings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->portMappings)) {
+                $res['PortMappings'] = [];
+                $n1 = 0;
+                foreach ($this->portMappings as $item1) {
+                    $res['PortMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->stateInfo) {
-            $res['StateInfo'] = null !== $this->stateInfo ? $this->stateInfo->toMap() : null;
+            $res['StateInfo'] = null !== $this->stateInfo ? $this->stateInfo->toArray($noStream) : $this->stateInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRenderingSessionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdditionalIngresses'])) {
             if (!empty($map['AdditionalIngresses'])) {
                 $model->additionalIngresses = [];
-                $n = 0;
-                foreach ($map['AdditionalIngresses'] as $item) {
-                    $model->additionalIngresses[$n++] = null !== $item ? additionalIngresses::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AdditionalIngresses'] as $item1) {
+                    $model->additionalIngresses[$n1] = additionalIngresses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
+
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
         }
+
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
         }
+
         if (isset($map['Location'])) {
             $model->location = location::fromMap($map['Location']);
         }
+
+        if (isset($map['PatchId'])) {
+            $model->patchId = $map['PatchId'];
+        }
+
         if (isset($map['PortMappings'])) {
             if (!empty($map['PortMappings'])) {
                 $model->portMappings = [];
-                $n = 0;
-                foreach ($map['PortMappings'] as $item) {
-                    $model->portMappings[$n++] = null !== $item ? portMappings::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PortMappings'] as $item1) {
+                    $model->portMappings[$n1] = portMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['StateInfo'])) {
             $model->stateInfo = stateInfo::fromMap($map['StateInfo']);
         }

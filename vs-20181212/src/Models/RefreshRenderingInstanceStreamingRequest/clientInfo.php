@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\RefreshRenderingInstanceStreamingRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class clientInfo extends Model
 {
     /**
-     * @example 172.21.128.110
-     *
      * @var string
      */
     public $clientIp;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $newClient;
@@ -26,14 +22,18 @@ class clientInfo extends Model
         'newClient' => 'NewClient',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
         }
+
         if (null !== $this->newClient) {
             $res['NewClient'] = $this->newClient;
         }
@@ -41,17 +41,18 @@ class clientInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clientInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
         }
+
         if (isset($map['NewClient'])) {
             $model->newClient = $map['NewClient'];
         }

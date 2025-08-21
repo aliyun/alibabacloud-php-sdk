@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StartRenderingSessionRequest\clientParams;
-use AlibabaCloud\Tea\Model;
 
 class StartRenderingSessionRequest extends Model
 {
     /**
-     * @example cap-b06b26edfhytbn b94a75ae1a79efc90eb
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 04c30850-1d91-4da1-b811-66d0ee94af7d
-     *
      * @var string
      */
     public $clientId;
@@ -31,10 +25,11 @@ class StartRenderingSessionRequest extends Model
     public $clientParams;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example project-422bc38dfgh5eb44149f135ef76304f63b
-     *
+     * @var string
+     */
+    public $patchId;
+
+    /**
      * @var string
      */
     public $projectId;
@@ -42,23 +37,37 @@ class StartRenderingSessionRequest extends Model
         'appId' => 'AppId',
         'clientId' => 'ClientId',
         'clientParams' => 'ClientParams',
+        'patchId' => 'PatchId',
         'projectId' => 'ProjectId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->clientParams) {
+            $this->clientParams->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
+
         if (null !== $this->clientParams) {
-            $res['ClientParams'] = null !== $this->clientParams ? $this->clientParams->toMap() : null;
+            $res['ClientParams'] = null !== $this->clientParams ? $this->clientParams->toArray($noStream) : $this->clientParams;
         }
+
+        if (null !== $this->patchId) {
+            $res['PatchId'] = $this->patchId;
+        }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -66,23 +75,30 @@ class StartRenderingSessionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartRenderingSessionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
+
         if (isset($map['ClientParams'])) {
             $model->clientParams = clientParams::fromMap($map['ClientParams']);
         }
+
+        if (isset($map['PatchId'])) {
+            $model->patchId = $map['PatchId'];
+        }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

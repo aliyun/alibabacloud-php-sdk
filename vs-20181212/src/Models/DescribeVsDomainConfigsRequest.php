@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVsDomainConfigsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example example.aliyundoc.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example path_based_ttl_set,oss_auth
-     *
      * @var string
      */
     public $functionNames;
@@ -36,17 +28,22 @@ class DescribeVsDomainConfigsRequest extends Model
         'ownerId' => 'OwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->functionNames) {
             $res['FunctionNames'] = $this->functionNames;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -54,20 +51,22 @@ class DescribeVsDomainConfigsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVsDomainConfigsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['FunctionNames'])) {
             $model->functionNames = $map['FunctionNames'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

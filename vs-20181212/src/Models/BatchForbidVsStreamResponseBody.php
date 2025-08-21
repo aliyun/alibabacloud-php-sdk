@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BatchForbidVsStreamResponseBody\forbidResult;
-use AlibabaCloud\Tea\Model;
 
 class BatchForbidVsStreamResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class BatchForbidVsStreamResponseBody extends Model
     public $forbidResult;
 
     /**
-     * @example B058D71B-76EA-5DF6-ACAF-A617C1E7937F
-     *
      * @var string
      */
     public $requestId;
@@ -25,14 +23,21 @@ class BatchForbidVsStreamResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->forbidResult) {
+            $this->forbidResult->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->forbidResult) {
-            $res['ForbidResult'] = null !== $this->forbidResult ? $this->forbidResult->toMap() : null;
+            $res['ForbidResult'] = null !== $this->forbidResult ? $this->forbidResult->toArray($noStream) : $this->forbidResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class BatchForbidVsStreamResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchForbidVsStreamResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForbidResult'])) {
             $model->forbidResult = forbidResult::fromMap($map['ForbidResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

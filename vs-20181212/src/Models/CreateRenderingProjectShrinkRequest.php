@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateRenderingProjectShrinkRequest extends Model
 {
@@ -14,10 +14,6 @@ class CreateRenderingProjectShrinkRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example du_merchant_d
-     *
      * @var string
      */
     public $projectName;
@@ -32,17 +28,22 @@ class CreateRenderingProjectShrinkRequest extends Model
         'sessionAttribsShrink' => 'SessionAttribs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->sessionAttribsShrink) {
             $res['SessionAttribs'] = $this->sessionAttribsShrink;
         }
@@ -50,20 +51,22 @@ class CreateRenderingProjectShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRenderingProjectShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['SessionAttribs'])) {
             $model->sessionAttribsShrink = $map['SessionAttribs'];
         }

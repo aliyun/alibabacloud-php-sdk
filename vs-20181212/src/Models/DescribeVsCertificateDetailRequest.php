@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVsCertificateDetailRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example cert-539xxxx
-     *
      * @var string
      */
     public $certName;
@@ -26,14 +22,18 @@ class DescribeVsCertificateDetailRequest extends Model
         'ownerId' => 'OwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -41,17 +41,18 @@ class DescribeVsCertificateDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVsCertificateDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

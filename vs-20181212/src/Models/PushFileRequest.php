@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PushFileRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example f-1671accd4dafdag3er256cvgewt13f7141db2f7
-     *
      * @var string
      */
     public $fileId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example render-9f8c57355d224ad7beaf95e145f22111
-     *
      * @var string
      */
     public $renderingInstanceId;
@@ -30,14 +22,18 @@ class PushFileRequest extends Model
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
+
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
@@ -45,17 +41,18 @@ class PushFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
+
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
         }

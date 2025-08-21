@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DisassociateRenderingProjectInstancesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class failedInstances extends Model
 {
@@ -14,8 +14,6 @@ class failedInstances extends Model
     public $message;
 
     /**
-     * @example render-421cd2a1125947c19fcd5c7dd2c7d31e
-     *
      * @var string
      */
     public $renderingInstanceId;
@@ -24,14 +22,18 @@ class failedInstances extends Model
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
@@ -39,17 +41,18 @@ class failedInstances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failedInstances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
         }

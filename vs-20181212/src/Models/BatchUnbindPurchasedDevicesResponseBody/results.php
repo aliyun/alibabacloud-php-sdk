@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\BatchUnbindPurchasedDevicesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class results extends Model
 {
     /**
-     * @example 348*****380-cn-qingdao
-     *
      * @var string
      */
     public $deviceId;
 
     /**
-     * @example some error
-     *
      * @var string
      */
     public $error;
@@ -26,14 +22,18 @@ class results extends Model
         'error' => 'Error',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
+
         if (null !== $this->error) {
             $res['Error'] = $this->error;
         }
@@ -41,17 +41,18 @@ class results extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
+
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
         }

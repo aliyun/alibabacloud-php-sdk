@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDeviceChannelsResponseBody\channels;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDeviceChannelsResponseBody extends Model
 {
@@ -15,36 +15,26 @@ class DescribeDeviceChannelsResponseBody extends Model
     public $channels;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageCount;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 4641C72D-462E-4AEA-8485-FC267AF90B0A
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -57,32 +47,44 @@ class DescribeDeviceChannelsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->channels)) {
+            Model::validateArray($this->channels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channels) {
-            $res['Channels'] = [];
-            if (null !== $this->channels && \is_array($this->channels)) {
-                $n = 0;
-                foreach ($this->channels as $item) {
-                    $res['Channels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->channels)) {
+                $res['Channels'] = [];
+                $n1 = 0;
+                foreach ($this->channels as $item1) {
+                    $res['Channels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageCount) {
             $res['PageCount'] = $this->pageCount;
         }
+
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -90,35 +92,41 @@ class DescribeDeviceChannelsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDeviceChannelsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Channels'])) {
             if (!empty($map['Channels'])) {
                 $model->channels = [];
-                $n = 0;
-                foreach ($map['Channels'] as $item) {
-                    $model->channels[$n++] = null !== $item ? channels::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Channels'] as $item1) {
+                    $model->channels[$n1] = channels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageCount'])) {
             $model->pageCount = $map['PageCount'];
         }
+
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

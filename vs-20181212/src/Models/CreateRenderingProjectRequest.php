@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingProjectRequest\sessionAttribs;
-use AlibabaCloud\Tea\Model;
 
 class CreateRenderingProjectRequest extends Model
 {
@@ -15,10 +15,6 @@ class CreateRenderingProjectRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example du_merchant_d
-     *
      * @var string
      */
     public $projectName;
@@ -33,38 +29,48 @@ class CreateRenderingProjectRequest extends Model
         'sessionAttribs' => 'SessionAttribs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->sessionAttribs) {
+            $this->sessionAttribs->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->sessionAttribs) {
-            $res['SessionAttribs'] = null !== $this->sessionAttribs ? $this->sessionAttribs->toMap() : null;
+            $res['SessionAttribs'] = null !== $this->sessionAttribs ? $this->sessionAttribs->toArray($noStream) : $this->sessionAttribs;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRenderingProjectRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['SessionAttribs'])) {
             $model->sessionAttribs = sessionAttribs::fromMap($map['SessionAttribs']);
         }

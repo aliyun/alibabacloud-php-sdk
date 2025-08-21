@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsUserResourcePackageResponseBody\resourcePackageInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVsUserResourcePackageResponseBody extends Model
 {
@@ -23,32 +23,40 @@ class DescribeVsUserResourcePackageResponseBody extends Model
         'resourcePackageInfos' => 'ResourcePackageInfos',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->resourcePackageInfos) {
+            $this->resourcePackageInfos->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourcePackageInfos) {
-            $res['ResourcePackageInfos'] = null !== $this->resourcePackageInfos ? $this->resourcePackageInfos->toMap() : null;
+            $res['ResourcePackageInfos'] = null !== $this->resourcePackageInfos ? $this->resourcePackageInfos->toArray($noStream) : $this->resourcePackageInfos;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVsUserResourcePackageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourcePackageInfos'])) {
             $model->resourcePackageInfos = resourcePackageInfos::fromMap($map['ResourcePackageInfos']);
         }

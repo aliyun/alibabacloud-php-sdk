@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\BatchForbidVsStreamResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BatchForbidVsStreamResponseBody\forbidResult\forbidResultInfo;
-use AlibabaCloud\Tea\Model;
 
 class forbidResult extends Model
 {
@@ -17,17 +17,24 @@ class forbidResult extends Model
         'forbidResultInfo' => 'ForbidResultInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->forbidResultInfo)) {
+            Model::validateArray($this->forbidResultInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->forbidResultInfo) {
-            $res['ForbidResultInfo'] = [];
-            if (null !== $this->forbidResultInfo && \is_array($this->forbidResultInfo)) {
-                $n = 0;
-                foreach ($this->forbidResultInfo as $item) {
-                    $res['ForbidResultInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->forbidResultInfo)) {
+                $res['ForbidResultInfo'] = [];
+                $n1 = 0;
+                foreach ($this->forbidResultInfo as $item1) {
+                    $res['ForbidResultInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class forbidResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return forbidResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForbidResultInfo'])) {
             if (!empty($map['ForbidResultInfo'])) {
                 $model->forbidResultInfo = [];
-                $n = 0;
-                foreach ($map['ForbidResultInfo'] as $item) {
-                    $model->forbidResultInfo[$n++] = null !== $item ? forbidResultInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ForbidResultInfo'] as $item1) {
+                    $model->forbidResultInfo[$n1] = forbidResultInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

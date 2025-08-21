@@ -4,25 +4,36 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateCloudAppInfoResponseBody extends Model
 {
     /**
-     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
-     *
+     * @var string
+     */
+    public $patchId;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'patchId' => 'PatchId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->patchId) {
+            $res['PatchId'] = $this->patchId;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -30,14 +41,18 @@ class UpdateCloudAppInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateCloudAppInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PatchId'])) {
+            $model->patchId = $map['PatchId'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

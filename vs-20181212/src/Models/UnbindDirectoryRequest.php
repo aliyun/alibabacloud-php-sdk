@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnbindDirectoryRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 34871************3380-cn-qingdao
-     *
      * @var string
      */
     public $deviceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 3998**************9488-cn-qingdao
-     *
      * @var string
      */
     public $directoryId;
@@ -36,17 +28,22 @@ class UnbindDirectoryRequest extends Model
         'ownerId' => 'OwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
+
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -54,20 +51,22 @@ class UnbindDirectoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnbindDirectoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
+
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

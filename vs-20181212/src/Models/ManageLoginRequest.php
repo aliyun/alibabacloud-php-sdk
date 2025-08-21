@@ -4,36 +4,26 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ManageLoginRequest extends Model
 {
     /**
-     * @example open
-     *
      * @var string
      */
     public $actionName;
 
     /**
-     * @example mygroup
-     *
      * @var string
      */
     public $keyGroup;
 
     /**
-     * @example mykey
-     *
      * @var string
      */
     public $keyName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example render-9f8c57355d224ad7beaf95e145f22111
-     *
      * @var string
      */
     public $renderingInstanceId;
@@ -44,20 +34,26 @@ class ManageLoginRequest extends Model
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionName) {
             $res['ActionName'] = $this->actionName;
         }
+
         if (null !== $this->keyGroup) {
             $res['KeyGroup'] = $this->keyGroup;
         }
+
         if (null !== $this->keyName) {
             $res['KeyName'] = $this->keyName;
         }
+
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
@@ -65,23 +61,26 @@ class ManageLoginRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ManageLoginRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionName'])) {
             $model->actionName = $map['ActionName'];
         }
+
         if (isset($map['KeyGroup'])) {
             $model->keyGroup = $map['KeyGroup'];
         }
+
         if (isset($map['KeyName'])) {
             $model->keyName = $map['KeyName'];
         }
+
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
         }

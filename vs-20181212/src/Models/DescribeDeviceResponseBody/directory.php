@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDeviceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class directory extends Model
 {
     /**
-     * @example 2019-02-28T17:00:17Z
-     *
      * @var string
      */
     public $createdTime;
@@ -21,15 +19,11 @@ class directory extends Model
     public $description;
 
     /**
-     * @example 3238848****092994-cn-qingdao
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @example 3238848****092994-cn-qingdao
-     *
      * @var string
      */
     public $id;
@@ -40,8 +34,6 @@ class directory extends Model
     public $name;
 
     /**
-     * @example 3238848****092995-cn-qingdao
-     *
      * @var string
      */
     public $parentId;
@@ -54,26 +46,34 @@ class directory extends Model
         'parentId' => 'ParentId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
         }
@@ -81,29 +81,34 @@ class directory extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return directory
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
         }

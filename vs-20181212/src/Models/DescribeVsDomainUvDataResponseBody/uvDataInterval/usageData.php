@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainUvDataResponseBody\uvDataInterval;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class usageData extends Model
 {
     /**
-     * @example 2015-11-29T15:00:00Z
-     *
      * @var string
      */
     public $timeStamp;
 
     /**
-     * @example 100
-     *
      * @var string
      */
     public $value;
@@ -26,14 +22,18 @@ class usageData extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,17 +41,18 @@ class usageData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return usageData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

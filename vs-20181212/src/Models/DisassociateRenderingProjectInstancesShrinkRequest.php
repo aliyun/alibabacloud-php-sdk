@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisassociateRenderingProjectInstancesShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example project-422bc38dfgh5eb44149f135ef76304f63b
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $renderingInstanceIdsShrink;
@@ -28,14 +22,18 @@ class DisassociateRenderingProjectInstancesShrinkRequest extends Model
         'renderingInstanceIdsShrink' => 'RenderingInstanceIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->renderingInstanceIdsShrink) {
             $res['RenderingInstanceIds'] = $this->renderingInstanceIdsShrink;
         }
@@ -43,17 +41,18 @@ class DisassociateRenderingProjectInstancesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisassociateRenderingProjectInstancesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['RenderingInstanceIds'])) {
             $model->renderingInstanceIdsShrink = $map['RenderingInstanceIds'];
         }

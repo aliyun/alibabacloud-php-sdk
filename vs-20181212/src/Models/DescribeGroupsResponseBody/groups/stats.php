@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeGroupsResponseBody\groups;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class stats extends Model
 {
     /**
-     * @example 200
-     *
      * @var int
      */
     public $deviceNum;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $iedNum;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $ipcNum;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $platformNum;
@@ -42,20 +34,26 @@ class stats extends Model
         'platformNum' => 'PlatformNum',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceNum) {
             $res['DeviceNum'] = $this->deviceNum;
         }
+
         if (null !== $this->iedNum) {
             $res['IedNum'] = $this->iedNum;
         }
+
         if (null !== $this->ipcNum) {
             $res['IpcNum'] = $this->ipcNum;
         }
+
         if (null !== $this->platformNum) {
             $res['PlatformNum'] = $this->platformNum;
         }
@@ -63,23 +61,26 @@ class stats extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stats
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceNum'])) {
             $model->deviceNum = $map['DeviceNum'];
         }
+
         if (isset($map['IedNum'])) {
             $model->iedNum = $map['IedNum'];
         }
+
         if (isset($map['IpcNum'])) {
             $model->ipcNum = $map['IpcNum'];
         }
+
         if (isset($map['PlatformNum'])) {
             $model->platformNum = $map['PlatformNum'];
         }

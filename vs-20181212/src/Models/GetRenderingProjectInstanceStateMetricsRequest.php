@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRenderingProjectInstanceStateMetricsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example project-422bc38dfgh5eb44149f135ef76304f63b
-     *
      * @var string
      */
     public $projectId;
@@ -20,9 +16,12 @@ class GetRenderingProjectInstanceStateMetricsRequest extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectId) {
@@ -32,11 +31,11 @@ class GetRenderingProjectInstanceStateMetricsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRenderingProjectInstanceStateMetricsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

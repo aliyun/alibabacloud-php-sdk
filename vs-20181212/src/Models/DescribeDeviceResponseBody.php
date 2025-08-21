@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDeviceResponseBody\directory;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDeviceResponseBody\stats;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDeviceResponseBody extends Model
 {
     /**
-     * @example 5
-     *
      * @var string
      */
     public $alarmMethod;
@@ -23,29 +21,21 @@ class DescribeDeviceResponseBody extends Model
     public $autoDirectory;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $autoPos;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $autoStart;
 
     /**
-     * @example 2019-02-28T17:01:17Z
-     *
      * @var string
      */
     public $channelSyncTime;
 
     /**
-     * @example 2019-02-28T17:00:17Z
-     *
      * @var string
      */
     public $createdTime;
@@ -61,64 +51,46 @@ class DescribeDeviceResponseBody extends Model
     public $directory;
 
     /**
-     * @example 3238848****092994-cn-qingdao
-     *
      * @var string
      */
     public $directoryId;
 
     /**
-     * @example 7D0*****4C0
-     *
      * @var string
      */
     public $dsn;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @example 31000000****00000002
-     *
      * @var string
      */
     public $gbId;
 
     /**
-     * @example 3238848****092994-cn-qingdao
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @example 3238848****092996-cn-qingdao
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example 10.10.10.10
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @example 119.20
-     *
      * @var string
      */
     public $latitude;
 
     /**
-     * @example 45.00
-     *
      * @var string
      */
     public $longitude;
@@ -129,57 +101,41 @@ class DescribeDeviceResponseBody extends Model
     public $name;
 
     /**
-     * @example {}
-     *
      * @var string
      */
     public $params;
 
     /**
-     * @example 3238848****092995-cn-qingdao
-     *
      * @var string
      */
     public $parentId;
 
     /**
-     * @example admin
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @example 8080
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @example 300
-     *
      * @var int
      */
     public $posInterval;
 
     /**
-     * @example gb28181
-     *
      * @var string
      */
     public $protocol;
 
     /**
-     * @example 2019-02-28T17:00:17Z
-     *
      * @var string
      */
     public $registeredTime;
 
     /**
-     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
-     *
      * @var string
      */
     public $requestId;
@@ -190,29 +146,21 @@ class DescribeDeviceResponseBody extends Model
     public $stats;
 
     /**
-     * @example on
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example ipc
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example rtmp://xxx/xxx
-     *
      * @var string
      */
     public $url;
 
     /**
-     * @example admin
-     *
      * @var string
      */
     public $username;
@@ -256,104 +204,144 @@ class DescribeDeviceResponseBody extends Model
         'vendor' => 'Vendor',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->directory) {
+            $this->directory->validate();
+        }
+        if (null !== $this->stats) {
+            $this->stats->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarmMethod) {
             $res['AlarmMethod'] = $this->alarmMethod;
         }
+
         if (null !== $this->autoDirectory) {
             $res['AutoDirectory'] = $this->autoDirectory;
         }
+
         if (null !== $this->autoPos) {
             $res['AutoPos'] = $this->autoPos;
         }
+
         if (null !== $this->autoStart) {
             $res['AutoStart'] = $this->autoStart;
         }
+
         if (null !== $this->channelSyncTime) {
             $res['ChannelSyncTime'] = $this->channelSyncTime;
         }
+
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->directory) {
-            $res['Directory'] = null !== $this->directory ? $this->directory->toMap() : null;
+            $res['Directory'] = null !== $this->directory ? $this->directory->toArray($noStream) : $this->directory;
         }
+
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+
         if (null !== $this->dsn) {
             $res['Dsn'] = $this->dsn;
         }
+
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->gbId) {
             $res['GbId'] = $this->gbId;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->latitude) {
             $res['Latitude'] = $this->latitude;
         }
+
         if (null !== $this->longitude) {
             $res['Longitude'] = $this->longitude;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->params) {
             $res['Params'] = $this->params;
         }
+
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->posInterval) {
             $res['PosInterval'] = $this->posInterval;
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
+
         if (null !== $this->registeredTime) {
             $res['RegisteredTime'] = $this->registeredTime;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->stats) {
-            $res['Stats'] = null !== $this->stats ? $this->stats->toMap() : null;
+            $res['Stats'] = null !== $this->stats ? $this->stats->toArray($noStream) : $this->stats;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
+
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
+
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
         }
@@ -361,107 +349,138 @@ class DescribeDeviceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDeviceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlarmMethod'])) {
             $model->alarmMethod = $map['AlarmMethod'];
         }
+
         if (isset($map['AutoDirectory'])) {
             $model->autoDirectory = $map['AutoDirectory'];
         }
+
         if (isset($map['AutoPos'])) {
             $model->autoPos = $map['AutoPos'];
         }
+
         if (isset($map['AutoStart'])) {
             $model->autoStart = $map['AutoStart'];
         }
+
         if (isset($map['ChannelSyncTime'])) {
             $model->channelSyncTime = $map['ChannelSyncTime'];
         }
+
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Directory'])) {
             $model->directory = directory::fromMap($map['Directory']);
         }
+
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
+
         if (isset($map['Dsn'])) {
             $model->dsn = $map['Dsn'];
         }
+
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['GbId'])) {
             $model->gbId = $map['GbId'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['Latitude'])) {
             $model->latitude = $map['Latitude'];
         }
+
         if (isset($map['Longitude'])) {
             $model->longitude = $map['Longitude'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Params'])) {
             $model->params = $map['Params'];
         }
+
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['PosInterval'])) {
             $model->posInterval = $map['PosInterval'];
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
+
         if (isset($map['RegisteredTime'])) {
             $model->registeredTime = $map['RegisteredTime'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Stats'])) {
             $model->stats = stats::fromMap($map['Stats']);
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
+
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }
+
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
         }

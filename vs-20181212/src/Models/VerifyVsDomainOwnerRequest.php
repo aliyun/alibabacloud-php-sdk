@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VerifyVsDomainOwnerRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example example.aliyundoc.com
-     *
      * @var string
      */
     public $domainName;
@@ -23,10 +19,6 @@ class VerifyVsDomainOwnerRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example dnsCheck
-     *
      * @var string
      */
     public $verifyType;
@@ -36,17 +28,22 @@ class VerifyVsDomainOwnerRequest extends Model
         'verifyType' => 'VerifyType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->verifyType) {
             $res['VerifyType'] = $this->verifyType;
         }
@@ -54,20 +51,22 @@ class VerifyVsDomainOwnerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifyVsDomainOwnerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['VerifyType'])) {
             $model->verifyType = $map['VerifyType'];
         }

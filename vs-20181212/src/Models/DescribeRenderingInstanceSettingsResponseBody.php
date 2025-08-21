@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceSettingsResponseBody\settings;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRenderingInstanceSettingsResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
-     *
      * @var string
      */
     public $requestId;
@@ -27,20 +23,28 @@ class DescribeRenderingInstanceSettingsResponseBody extends Model
         'settings' => 'Settings',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->settings)) {
+            Model::validateArray($this->settings);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->settings) {
-            $res['Settings'] = [];
-            if (null !== $this->settings && \is_array($this->settings)) {
-                $n = 0;
-                foreach ($this->settings as $item) {
-                    $res['Settings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->settings)) {
+                $res['Settings'] = [];
+                $n1 = 0;
+                foreach ($this->settings as $item1) {
+                    $res['Settings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,23 +52,25 @@ class DescribeRenderingInstanceSettingsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRenderingInstanceSettingsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Settings'])) {
             if (!empty($map['Settings'])) {
                 $model->settings = [];
-                $n = 0;
-                foreach ($map['Settings'] as $item) {
-                    $model->settings[$n++] = null !== $item ? settings::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Settings'] as $item1) {
+                    $model->settings[$n1] = settings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
