@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\NluResponseBody\messages\dialogHubNluInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class globalDictList extends Model
 {
     /**
-     * @example 天气
-     *
      * @var string
      */
     public $standardWord;
 
     /**
-     * @example 天气
-     *
      * @var string
      */
     public $word;
     protected $_name = [
         'standardWord' => 'StandardWord',
-        'word'         => 'Word',
+        'word' => 'Word',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->standardWord) {
             $res['StandardWord'] = $this->standardWord;
         }
+
         if (null !== $this->word) {
             $res['Word'] = $this->word;
         }
@@ -43,17 +41,18 @@ class globalDictList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return globalDictList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StandardWord'])) {
             $model->standardWord = $map['StandardWord'];
         }
+
         if (isset($map['Word'])) {
             $model->word = $map['Word'];
         }

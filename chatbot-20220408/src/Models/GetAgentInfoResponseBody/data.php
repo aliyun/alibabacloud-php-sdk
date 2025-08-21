@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\GetAgentInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 4e7400028e6f4a7393ed3acf6a7b8927_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
@@ -20,20 +18,22 @@ class data extends Model
      */
     public $agentName;
     protected $_name = [
-        'agentKey'  => 'AgentKey',
+        'agentKey' => 'AgentKey',
         'agentName' => 'AgentName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
@@ -41,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }

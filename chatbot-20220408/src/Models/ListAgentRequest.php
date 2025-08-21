@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAgentRequest extends Model
 {
@@ -19,41 +19,41 @@ class ListAgentRequest extends Model
     public $goodsCodes;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'agentName'  => 'AgentName',
+        'agentName' => 'AgentName',
         'goodsCodes' => 'GoodsCodes',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
+
         if (null !== $this->goodsCodes) {
             $res['GoodsCodes'] = $this->goodsCodes;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -61,23 +61,26 @@ class ListAgentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAgentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
+
         if (isset($map['GoodsCodes'])) {
             $model->goodsCodes = $map['GoodsCodes'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

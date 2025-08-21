@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateConnQuestionRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30002654628
-     *
      * @var int
      */
     public $connQuestionId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30002174773
-     *
      * @var int
      */
     public $knowledgeId;
     protected $_name = [
-        'agentKey'       => 'AgentKey',
+        'agentKey' => 'AgentKey',
         'connQuestionId' => 'ConnQuestionId',
-        'knowledgeId'    => 'KnowledgeId',
+        'knowledgeId' => 'KnowledgeId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->connQuestionId) {
             $res['ConnQuestionId'] = $this->connQuestionId;
         }
+
         if (null !== $this->knowledgeId) {
             $res['KnowledgeId'] = $this->knowledgeId;
         }
@@ -58,20 +51,22 @@ class CreateConnQuestionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateConnQuestionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['ConnQuestionId'])) {
             $model->connQuestionId = $map['ConnQuestionId'];
         }
+
         if (isset($map['KnowledgeId'])) {
             $model->knowledgeId = $map['KnowledgeId'];
         }

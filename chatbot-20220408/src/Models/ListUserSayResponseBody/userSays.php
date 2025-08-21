@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\ListUserSayResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListUserSayResponseBody\userSays\slotInfos;
-use AlibabaCloud\Tea\Model;
 
 class userSays extends Model
 {
@@ -15,22 +15,16 @@ class userSays extends Model
     public $content;
 
     /**
-     * @example 2021-08-12T16:00:01Z
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @example 235564564
-     *
      * @var int
      */
     public $intentId;
 
     /**
-     * @example 2021-08-12T16:00:01Z
-     *
      * @var string
      */
     public $modifyTime;
@@ -41,48 +35,56 @@ class userSays extends Model
     public $slotInfos;
 
     /**
-     * @example 3453452138
-     *
      * @var int
      */
     public $userSayId;
     protected $_name = [
-        'content'    => 'Content',
+        'content' => 'Content',
         'createTime' => 'CreateTime',
-        'intentId'   => 'IntentId',
+        'intentId' => 'IntentId',
         'modifyTime' => 'ModifyTime',
-        'slotInfos'  => 'SlotInfos',
-        'userSayId'  => 'UserSayId',
+        'slotInfos' => 'SlotInfos',
+        'userSayId' => 'UserSayId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->slotInfos)) {
+            Model::validateArray($this->slotInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->intentId) {
             $res['IntentId'] = $this->intentId;
         }
+
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
+
         if (null !== $this->slotInfos) {
-            $res['SlotInfos'] = [];
-            if (null !== $this->slotInfos && \is_array($this->slotInfos)) {
-                $n = 0;
-                foreach ($this->slotInfos as $item) {
-                    $res['SlotInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->slotInfos)) {
+                $res['SlotInfos'] = [];
+                $n1 = 0;
+                foreach ($this->slotInfos as $item1) {
+                    $res['SlotInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->userSayId) {
             $res['UserSayId'] = $this->userSayId;
         }
@@ -90,35 +92,41 @@ class userSays extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userSays
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['IntentId'])) {
             $model->intentId = $map['IntentId'];
         }
+
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
+
         if (isset($map['SlotInfos'])) {
             if (!empty($map['SlotInfos'])) {
                 $model->slotInfos = [];
-                $n                = 0;
-                foreach ($map['SlotInfos'] as $item) {
-                    $model->slotInfos[$n++] = null !== $item ? slotInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SlotInfos'] as $item1) {
+                    $model->slotInfos[$n1] = slotInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['UserSayId'])) {
             $model->userSayId = $map['UserSayId'];
         }

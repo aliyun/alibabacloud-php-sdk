@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSaasPermissionGroupInfosResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class pgInfos extends Model
 {
     /**
-     * @example FAQ
-     *
      * @var string
      */
     public $pgCode;
 
     /**
-     * @example FAQ
-     *
      * @var string
      */
     public $pgEnName;
@@ -27,24 +23,27 @@ class pgInfos extends Model
      */
     public $pgName;
     protected $_name = [
-        'pgCode'   => 'PgCode',
+        'pgCode' => 'PgCode',
         'pgEnName' => 'PgEnName',
-        'pgName'   => 'PgName',
+        'pgName' => 'PgName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pgCode) {
             $res['PgCode'] = $this->pgCode;
         }
+
         if (null !== $this->pgEnName) {
             $res['PgEnName'] = $this->pgEnName;
         }
+
         if (null !== $this->pgName) {
             $res['PgName'] = $this->pgName;
         }
@@ -52,20 +51,22 @@ class pgInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pgInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PgCode'])) {
             $model->pgCode = $map['PgCode'];
         }
+
         if (isset($map['PgEnName'])) {
             $model->pgEnName = $map['PgEnName'];
         }
+
         if (isset($map['PgName'])) {
             $model->pgName = $map['PgName'];
         }

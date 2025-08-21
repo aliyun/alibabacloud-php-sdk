@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeDocResponseBody\docInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class docParas extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $paraLevel;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $paraNo;
@@ -28,34 +24,36 @@ class docParas extends Model
     public $paraText;
 
     /**
-     * @example text
-     *
      * @var string
      */
     public $paraType;
     protected $_name = [
         'paraLevel' => 'ParaLevel',
-        'paraNo'    => 'ParaNo',
-        'paraText'  => 'ParaText',
-        'paraType'  => 'ParaType',
+        'paraNo' => 'ParaNo',
+        'paraText' => 'ParaText',
+        'paraType' => 'ParaType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->paraLevel) {
             $res['ParaLevel'] = $this->paraLevel;
         }
+
         if (null !== $this->paraNo) {
             $res['ParaNo'] = $this->paraNo;
         }
+
         if (null !== $this->paraText) {
             $res['ParaText'] = $this->paraText;
         }
+
         if (null !== $this->paraType) {
             $res['ParaType'] = $this->paraType;
         }
@@ -63,23 +61,26 @@ class docParas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return docParas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParaLevel'])) {
             $model->paraLevel = $map['ParaLevel'];
         }
+
         if (isset($map['ParaNo'])) {
             $model->paraNo = $map['ParaNo'];
         }
+
         if (isset($map['ParaText'])) {
             $model->paraText = $map['ParaText'];
         }
+
         if (isset($map['ParaType'])) {
             $model->paraType = $map['ParaType'];
         }

@@ -4,103 +4,115 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSolutionRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $contentType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001905617
-     *
      * @var int
      */
     public $knowledgeId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $perspectiveCodes;
     protected $_name = [
-        'agentKey'         => 'AgentKey',
-        'content'          => 'Content',
-        'contentType'      => 'ContentType',
-        'knowledgeId'      => 'KnowledgeId',
+        'agentKey' => 'AgentKey',
+        'content' => 'Content',
+        'contentType' => 'ContentType',
+        'knowledgeId' => 'KnowledgeId',
         'perspectiveCodes' => 'PerspectiveCodes',
     ];
 
     public function validate()
     {
+        if (\is_array($this->perspectiveCodes)) {
+            Model::validateArray($this->perspectiveCodes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
         }
+
         if (null !== $this->knowledgeId) {
             $res['KnowledgeId'] = $this->knowledgeId;
         }
+
         if (null !== $this->perspectiveCodes) {
-            $res['PerspectiveCodes'] = $this->perspectiveCodes;
+            if (\is_array($this->perspectiveCodes)) {
+                $res['PerspectiveCodes'] = [];
+                $n1 = 0;
+                foreach ($this->perspectiveCodes as $item1) {
+                    $res['PerspectiveCodes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSolutionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
         }
+
         if (isset($map['KnowledgeId'])) {
             $model->knowledgeId = $map['KnowledgeId'];
         }
+
         if (isset($map['PerspectiveCodes'])) {
             if (!empty($map['PerspectiveCodes'])) {
-                $model->perspectiveCodes = $map['PerspectiveCodes'];
+                $model->perspectiveCodes = [];
+                $n1 = 0;
+                foreach ($map['PerspectiveCodes'] as $item1) {
+                    $model->perspectiveCodes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

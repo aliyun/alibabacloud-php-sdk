@@ -4,66 +4,56 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteUserSayRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 343df2sdf23
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 5564564546
-     *
      * @var int
      */
     public $intentId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 4562121234
-     *
      * @var int
      */
     public $userSayId;
     protected $_name = [
-        'agentKey'   => 'AgentKey',
+        'agentKey' => 'AgentKey',
         'instanceId' => 'InstanceId',
-        'intentId'   => 'IntentId',
-        'userSayId'  => 'UserSayId',
+        'intentId' => 'IntentId',
+        'userSayId' => 'UserSayId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->intentId) {
             $res['IntentId'] = $this->intentId;
         }
+
         if (null !== $this->userSayId) {
             $res['UserSayId'] = $this->userSayId;
         }
@@ -71,23 +61,26 @@ class DeleteUserSayRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteUserSayRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['IntentId'])) {
             $model->intentId = $map['IntentId'];
         }
+
         if (isset($map['UserSayId'])) {
             $model->userSayId = $map['UserSayId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDocRequest\docMetadata;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class metaCellInfoDTOList extends Model
 {
@@ -25,22 +25,25 @@ class metaCellInfoDTOList extends Model
     protected $_name = [
         'fieldCode' => 'FieldCode',
         'fieldName' => 'FieldName',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldCode) {
             $res['FieldCode'] = $this->fieldCode;
         }
+
         if (null !== $this->fieldName) {
             $res['FieldName'] = $this->fieldName;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -48,20 +51,22 @@ class metaCellInfoDTOList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metaCellInfoDTOList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FieldCode'])) {
             $model->fieldCode = $map['FieldCode'];
         }
+
         if (isset($map['FieldName'])) {
             $model->fieldName = $map['FieldName'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

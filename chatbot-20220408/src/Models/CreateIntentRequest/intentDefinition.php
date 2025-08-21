@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateIntentRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateIntentRequest\intentDefinition\slotInfos;
-use AlibabaCloud\Tea\Model;
 
 class intentDefinition extends Model
 {
@@ -15,8 +15,6 @@ class intentDefinition extends Model
     public $aliasName;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $intentName;
@@ -26,30 +24,37 @@ class intentDefinition extends Model
      */
     public $slotInfos;
     protected $_name = [
-        'aliasName'  => 'AliasName',
+        'aliasName' => 'AliasName',
         'intentName' => 'IntentName',
-        'slotInfos'  => 'SlotInfos',
+        'slotInfos' => 'SlotInfos',
     ];
 
     public function validate()
     {
+        if (\is_array($this->slotInfos)) {
+            Model::validateArray($this->slotInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
+
         if (null !== $this->intentName) {
             $res['IntentName'] = $this->intentName;
         }
+
         if (null !== $this->slotInfos) {
-            $res['SlotInfos'] = [];
-            if (null !== $this->slotInfos && \is_array($this->slotInfos)) {
-                $n = 0;
-                foreach ($this->slotInfos as $item) {
-                    $res['SlotInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->slotInfos)) {
+                $res['SlotInfos'] = [];
+                $n1 = 0;
+                foreach ($this->slotInfos as $item1) {
+                    $res['SlotInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,26 +62,29 @@ class intentDefinition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return intentDefinition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
+
         if (isset($map['IntentName'])) {
             $model->intentName = $map['IntentName'];
         }
+
         if (isset($map['SlotInfos'])) {
             if (!empty($map['SlotInfos'])) {
                 $model->slotInfos = [];
-                $n                = 0;
-                foreach ($map['SlotInfos'] as $item) {
-                    $model->slotInfos[$n++] = null !== $item ? slotInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SlotInfos'] as $item1) {
+                    $model->slotInfos[$n1] = slotInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

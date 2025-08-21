@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateLgfRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class lgfDefinition extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 4675678567
-     *
      * @var int
      */
     public $intentId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $ruleText;
@@ -30,14 +24,16 @@ class lgfDefinition extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->intentId) {
             $res['IntentId'] = $this->intentId;
         }
+
         if (null !== $this->ruleText) {
             $res['RuleText'] = $this->ruleText;
         }
@@ -45,17 +41,18 @@ class lgfDefinition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return lgfDefinition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IntentId'])) {
             $model->intentId = $map['IntentId'];
         }
+
         if (isset($map['RuleText'])) {
             $model->ruleText = $map['RuleText'];
         }

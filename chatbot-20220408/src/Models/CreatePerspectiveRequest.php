@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePerspectiveRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @example 用于购物APP的移动端视角
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example 移动端视角
-     *
      * @var string
      */
     public $name;
     protected $_name = [
-        'agentKey'    => 'AgentKey',
+        'agentKey' => 'AgentKey',
         'description' => 'Description',
-        'name'        => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -54,20 +51,22 @@ class CreatePerspectiveRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePerspectiveRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

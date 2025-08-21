@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSimQuestionResponseBody\simQuestions;
-use AlibabaCloud\Tea\Model;
 
 class ListSimQuestionResponseBody extends Model
 {
     /**
-     * @example 15CD94CC-CBEB-4189-806C-A132D1F45D51
-     *
      * @var string
      */
     public $requestId;
@@ -21,26 +19,32 @@ class ListSimQuestionResponseBody extends Model
      */
     public $simQuestions;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'simQuestions' => 'SimQuestions',
     ];
 
     public function validate()
     {
+        if (\is_array($this->simQuestions)) {
+            Model::validateArray($this->simQuestions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->simQuestions) {
-            $res['SimQuestions'] = [];
-            if (null !== $this->simQuestions && \is_array($this->simQuestions)) {
-                $n = 0;
-                foreach ($this->simQuestions as $item) {
-                    $res['SimQuestions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->simQuestions)) {
+                $res['SimQuestions'] = [];
+                $n1 = 0;
+                foreach ($this->simQuestions as $item1) {
+                    $res['SimQuestions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,23 +52,25 @@ class ListSimQuestionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSimQuestionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SimQuestions'])) {
             if (!empty($map['SimQuestions'])) {
                 $model->simQuestions = [];
-                $n                   = 0;
-                foreach ($map['SimQuestions'] as $item) {
-                    $model->simQuestions[$n++] = null !== $item ? simQuestions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SimQuestions'] as $item1) {
+                    $model->simQuestions[$n1] = simQuestions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

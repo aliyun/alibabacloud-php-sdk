@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSolutionResponseBody\solutions;
-use AlibabaCloud\Tea\Model;
 
 class ListSolutionResponseBody extends Model
 {
     /**
-     * @example 5B29DB5E-251D-5A73-84B5-A12DF795F231
-     *
      * @var string
      */
     public $requestId;
@@ -27,20 +25,26 @@ class ListSolutionResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->solutions)) {
+            Model::validateArray($this->solutions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->solutions) {
-            $res['Solutions'] = [];
-            if (null !== $this->solutions && \is_array($this->solutions)) {
-                $n = 0;
-                foreach ($this->solutions as $item) {
-                    $res['Solutions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->solutions)) {
+                $res['Solutions'] = [];
+                $n1 = 0;
+                foreach ($this->solutions as $item1) {
+                    $res['Solutions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,23 +52,25 @@ class ListSolutionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSolutionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Solutions'])) {
             if (!empty($map['Solutions'])) {
                 $model->solutions = [];
-                $n                = 0;
-                foreach ($map['Solutions'] as $item) {
-                    $model->solutions[$n++] = null !== $item ? solutions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Solutions'] as $item1) {
+                    $model->solutions[$n1] = solutions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

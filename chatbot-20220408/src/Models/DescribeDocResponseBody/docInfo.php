@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeDocResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeDocResponseBody\docInfo\docParas;
-use AlibabaCloud\Tea\Model;
 
 class docInfo extends Model
 {
@@ -19,17 +19,22 @@ class docInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->docParas)) {
+            Model::validateArray($this->docParas);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->docParas) {
-            $res['DocParas'] = [];
-            if (null !== $this->docParas && \is_array($this->docParas)) {
-                $n = 0;
-                foreach ($this->docParas as $item) {
-                    $res['DocParas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->docParas)) {
+                $res['DocParas'] = [];
+                $n1 = 0;
+                foreach ($this->docParas as $item1) {
+                    $res['DocParas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class docInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return docInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocParas'])) {
             if (!empty($map['DocParas'])) {
                 $model->docParas = [];
-                $n               = 0;
-                foreach ($map['DocParas'] as $item) {
-                    $model->docParas[$n++] = null !== $item ? docParas::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DocParas'] as $item1) {
+                    $model->docParas[$n1] = docParas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

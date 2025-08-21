@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateUserSayRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateUserSayRequest\userSayDefinition\slotInfos;
-use AlibabaCloud\Tea\Model;
 
 class userSayDefinition extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $intentId;
@@ -30,30 +24,37 @@ class userSayDefinition extends Model
      */
     public $slotInfos;
     protected $_name = [
-        'content'   => 'Content',
-        'intentId'  => 'IntentId',
+        'content' => 'Content',
+        'intentId' => 'IntentId',
         'slotInfos' => 'SlotInfos',
     ];
 
     public function validate()
     {
+        if (\is_array($this->slotInfos)) {
+            Model::validateArray($this->slotInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->intentId) {
             $res['IntentId'] = $this->intentId;
         }
+
         if (null !== $this->slotInfos) {
-            $res['SlotInfos'] = [];
-            if (null !== $this->slotInfos && \is_array($this->slotInfos)) {
-                $n = 0;
-                foreach ($this->slotInfos as $item) {
-                    $res['SlotInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->slotInfos)) {
+                $res['SlotInfos'] = [];
+                $n1 = 0;
+                foreach ($this->slotInfos as $item1) {
+                    $res['SlotInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,26 +62,29 @@ class userSayDefinition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userSayDefinition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['IntentId'])) {
             $model->intentId = $map['IntentId'];
         }
+
         if (isset($map['SlotInfos'])) {
             if (!empty($map['SlotInfos'])) {
                 $model->slotInfos = [];
-                $n                = 0;
-                foreach ($map['SlotInfos'] as $item) {
-                    $model->slotInfos[$n++] = null !== $item ? slotInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SlotInfos'] as $item1) {
+                    $model->slotInfos[$n1] = slotInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteConnQuestionRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 877397683
-     *
      * @var int
      */
     public $outlineId;
     protected $_name = [
-        'agentKey'  => 'AgentKey',
+        'agentKey' => 'AgentKey',
         'outlineId' => 'OutlineId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->outlineId) {
             $res['OutlineId'] = $this->outlineId;
         }
@@ -45,17 +41,18 @@ class DeleteConnQuestionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteConnQuestionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['OutlineId'])) {
             $model->outlineId = $map['OutlineId'];
         }

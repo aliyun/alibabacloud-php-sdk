@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\NluResponseBody\messages;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\NluResponseBody\messages\dsNluInfo\entityList;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\NluResponseBody\messages\dsNluInfo\intentList;
-use AlibabaCloud\Tea\Model;
 
 class dsNluInfo extends Model
 {
@@ -26,26 +26,36 @@ class dsNluInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->entityList)) {
+            Model::validateArray($this->entityList);
+        }
+        if (\is_array($this->intentList)) {
+            Model::validateArray($this->intentList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entityList) {
-            $res['EntityList'] = [];
-            if (null !== $this->entityList && \is_array($this->entityList)) {
-                $n = 0;
-                foreach ($this->entityList as $item) {
-                    $res['EntityList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->entityList)) {
+                $res['EntityList'] = [];
+                $n1 = 0;
+                foreach ($this->entityList as $item1) {
+                    $res['EntityList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->intentList) {
-            $res['IntentList'] = [];
-            if (null !== $this->intentList && \is_array($this->intentList)) {
-                $n = 0;
-                foreach ($this->intentList as $item) {
-                    $res['IntentList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->intentList)) {
+                $res['IntentList'] = [];
+                $n1 = 0;
+                foreach ($this->intentList as $item1) {
+                    $res['IntentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,29 +63,32 @@ class dsNluInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dsNluInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntityList'])) {
             if (!empty($map['EntityList'])) {
                 $model->entityList = [];
-                $n                 = 0;
-                foreach ($map['EntityList'] as $item) {
-                    $model->entityList[$n++] = null !== $item ? entityList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EntityList'] as $item1) {
+                    $model->entityList[$n1] = entityList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['IntentList'])) {
             if (!empty($map['IntentList'])) {
                 $model->intentList = [];
-                $n                 = 0;
-                foreach ($map['IntentList'] as $item) {
-                    $model->intentList[$n++] = null !== $item ? intentList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IntentList'] as $item1) {
+                    $model->intentList[$n1] = intentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

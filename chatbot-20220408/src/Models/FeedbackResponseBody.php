@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FeedbackResponseBody extends Model
 {
     /**
-     * @example good
-     *
      * @var string
      */
     public $feedback;
 
     /**
-     * @example 5ca40988-4f99-47ad-ac96-9060d0f81db9
-     *
      * @var string
      */
     public $messageId;
 
     /**
-     * @example 4e5eea71-f326-450c-8849-49515473ef64
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'feedback'  => 'Feedback',
+        'feedback' => 'Feedback',
         'messageId' => 'MessageId',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->feedback) {
             $res['Feedback'] = $this->feedback;
         }
+
         if (null !== $this->messageId) {
             $res['MessageId'] = $this->messageId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,20 +51,22 @@ class FeedbackResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FeedbackResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Feedback'])) {
             $model->feedback = $map['Feedback'];
         }
+
         if (isset($map['MessageId'])) {
             $model->messageId = $map['MessageId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

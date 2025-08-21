@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChatRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @example chatbot-cn-mp90s2lrk00050
-     *
      * @var string
      */
     public $instanceId;
@@ -28,8 +24,6 @@ class ChatRequest extends Model
     public $intentName;
 
     /**
-     * @example 30002406051
-     *
      * @var string
      */
     public $knowledgeId;
@@ -40,15 +34,11 @@ class ChatRequest extends Model
     public $perspective;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $sandBox;
 
     /**
-     * @example custumer_123456
-     *
      * @var string
      */
     public $senderId;
@@ -59,8 +49,6 @@ class ChatRequest extends Model
     public $senderNick;
 
     /**
-     * @example 9c6ebdc6e66f46ecadab3434314f6959
-     *
      * @var string
      */
     public $sessionId;
@@ -71,62 +59,81 @@ class ChatRequest extends Model
     public $utterance;
 
     /**
-     * @example {"phone":123456789}
-     *
      * @var string
      */
     public $vendorParam;
     protected $_name = [
-        'agentKey'    => 'AgentKey',
-        'instanceId'  => 'InstanceId',
-        'intentName'  => 'IntentName',
+        'agentKey' => 'AgentKey',
+        'instanceId' => 'InstanceId',
+        'intentName' => 'IntentName',
         'knowledgeId' => 'KnowledgeId',
         'perspective' => 'Perspective',
-        'sandBox'     => 'SandBox',
-        'senderId'    => 'SenderId',
-        'senderNick'  => 'SenderNick',
-        'sessionId'   => 'SessionId',
-        'utterance'   => 'Utterance',
+        'sandBox' => 'SandBox',
+        'senderId' => 'SenderId',
+        'senderNick' => 'SenderNick',
+        'sessionId' => 'SessionId',
+        'utterance' => 'Utterance',
         'vendorParam' => 'VendorParam',
     ];
 
     public function validate()
     {
+        if (\is_array($this->perspective)) {
+            Model::validateArray($this->perspective);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->intentName) {
             $res['IntentName'] = $this->intentName;
         }
+
         if (null !== $this->knowledgeId) {
             $res['KnowledgeId'] = $this->knowledgeId;
         }
+
         if (null !== $this->perspective) {
-            $res['Perspective'] = $this->perspective;
+            if (\is_array($this->perspective)) {
+                $res['Perspective'] = [];
+                $n1 = 0;
+                foreach ($this->perspective as $item1) {
+                    $res['Perspective'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->sandBox) {
             $res['SandBox'] = $this->sandBox;
         }
+
         if (null !== $this->senderId) {
             $res['SenderId'] = $this->senderId;
         }
+
         if (null !== $this->senderNick) {
             $res['SenderNick'] = $this->senderNick;
         }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
+
         if (null !== $this->utterance) {
             $res['Utterance'] = $this->utterance;
         }
+
         if (null !== $this->vendorParam) {
             $res['VendorParam'] = $this->vendorParam;
         }
@@ -134,46 +141,61 @@ class ChatRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChatRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['IntentName'])) {
             $model->intentName = $map['IntentName'];
         }
+
         if (isset($map['KnowledgeId'])) {
             $model->knowledgeId = $map['KnowledgeId'];
         }
+
         if (isset($map['Perspective'])) {
             if (!empty($map['Perspective'])) {
-                $model->perspective = $map['Perspective'];
+                $model->perspective = [];
+                $n1 = 0;
+                foreach ($map['Perspective'] as $item1) {
+                    $model->perspective[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SandBox'])) {
             $model->sandBox = $map['SandBox'];
         }
+
         if (isset($map['SenderId'])) {
             $model->senderId = $map['SenderId'];
         }
+
         if (isset($map['SenderNick'])) {
             $model->senderNick = $map['SenderNick'];
         }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
+
         if (isset($map['Utterance'])) {
             $model->utterance = $map['Utterance'];
         }
+
         if (isset($map['VendorParam'])) {
             $model->vendorParam = $map['VendorParam'];
         }

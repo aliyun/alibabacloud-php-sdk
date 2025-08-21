@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\AssociateResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class associate extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
     public $meta;
 
     /**
-     * @example 公积金提取的政策
-     *
      * @var string
      */
     public $title;
     protected $_name = [
-        'meta'  => 'Meta',
+        'meta' => 'Meta',
         'title' => 'Title',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->meta) {
             $res['Meta'] = $this->meta;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -43,17 +41,18 @@ class associate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return associate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Meta'])) {
             $model->meta = $map['Meta'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

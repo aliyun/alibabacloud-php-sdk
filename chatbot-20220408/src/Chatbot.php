@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ApplyForStreamAccessTokenRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ApplyForStreamAccessTokenResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\AssociateRequest;
@@ -158,6 +157,8 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\SearchDocShrinkRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\SearchFaqRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\SearchFaqResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\SearchFaqShrinkRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\TongyiChatDebugInfoRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\TongyiChatDebugInfoResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateCategoryRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateCategoryResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateConnQuestionRequest;
@@ -189,11 +190,10 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateSolutionResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateUserSayRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateUserSayResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateUserSayShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Chatbot extends OpenApiClient
 {
@@ -218,55 +218,66 @@ class Chatbot extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 申请流式网关AccessToken
-     *  *
-     * @param ApplyForStreamAccessTokenRequest $request ApplyForStreamAccessTokenRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 申请流式网关AccessToken.
      *
-     * @return ApplyForStreamAccessTokenResponse ApplyForStreamAccessTokenResponse
+     * @param request - ApplyForStreamAccessTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyForStreamAccessTokenResponse
+     *
+     * @param ApplyForStreamAccessTokenRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ApplyForStreamAccessTokenResponse
      */
     public function applyForStreamAccessTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ApplyForStreamAccessToken',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ApplyForStreamAccessToken',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ApplyForStreamAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 申请流式网关AccessToken
-     *  *
-     * @param ApplyForStreamAccessTokenRequest $request ApplyForStreamAccessTokenRequest
+     * 申请流式网关AccessToken.
      *
-     * @return ApplyForStreamAccessTokenResponse ApplyForStreamAccessTokenResponse
+     * @param request - ApplyForStreamAccessTokenRequest
+     *
+     * @returns ApplyForStreamAccessTokenResponse
+     *
+     * @param ApplyForStreamAccessTokenRequest $request
+     *
+     * @return ApplyForStreamAccessTokenResponse
      */
     public function applyForStreamAccessToken($request)
     {
@@ -276,64 +287,80 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 会话-联想API
-     *  *
-     * @param AssociateRequest $tmpReq  AssociateRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 会话-联想API.
      *
-     * @return AssociateResponse AssociateResponse
+     * @param tmpReq - AssociateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssociateResponse
+     *
+     * @param AssociateRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return AssociateResponse
      */
     public function associateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AssociateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->perspective)) {
-            $request->perspectiveShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->perspective, 'Perspective', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->perspective) {
+            $request->perspectiveShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->perspective, 'Perspective', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->perspectiveShrink)) {
-            $query['Perspective'] = $request->perspectiveShrink;
+
+        if (null !== $request->perspectiveShrink) {
+            @$query['Perspective'] = $request->perspectiveShrink;
         }
-        if (!Utils::isUnset($request->recommendNum)) {
-            $query['RecommendNum'] = $request->recommendNum;
+
+        if (null !== $request->recommendNum) {
+            @$query['RecommendNum'] = $request->recommendNum;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->utterance)) {
-            $query['Utterance'] = $request->utterance;
+
+        if (null !== $request->utterance) {
+            @$query['Utterance'] = $request->utterance;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Associate',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Associate',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AssociateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 会话-联想API
-     *  *
-     * @param AssociateRequest $request AssociateRequest
+     * 会话-联想API.
      *
-     * @return AssociateResponse AssociateResponse
+     * @param request - AssociateRequest
+     *
+     * @returns AssociateResponse
+     *
+     * @param AssociateRequest $request
+     *
+     * @return AssociateResponse
      */
     public function associate($request)
     {
@@ -343,47 +370,58 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 获取欢迎语
-     *  *
-     * @param BeginSessionRequest $request BeginSessionRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取欢迎语.
      *
-     * @return BeginSessionResponse BeginSessionResponse
+     * @param request - BeginSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BeginSessionResponse
+     *
+     * @param BeginSessionRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return BeginSessionResponse
      */
     public function beginSessionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BeginSession',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BeginSession',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BeginSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取欢迎语
-     *  *
-     * @param BeginSessionRequest $request BeginSessionRequest
+     * 获取欢迎语.
      *
-     * @return BeginSessionResponse BeginSessionResponse
+     * @param request - BeginSessionRequest
+     *
+     * @returns BeginSessionResponse
+     *
+     * @param BeginSessionRequest $request
+     *
+     * @return BeginSessionResponse
      */
     public function beginSession($request)
     {
@@ -393,50 +431,62 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 取消机器人发布
-     *  *
-     * @param CancelInstancePublishTaskRequest $request CancelInstancePublishTaskRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 取消机器人发布.
      *
-     * @return CancelInstancePublishTaskResponse CancelInstancePublishTaskResponse
+     * @param request - CancelInstancePublishTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelInstancePublishTaskResponse
+     *
+     * @param CancelInstancePublishTaskRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CancelInstancePublishTaskResponse
      */
     public function cancelInstancePublishTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelInstancePublishTask',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelInstancePublishTask',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelInstancePublishTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 取消机器人发布
-     *  *
-     * @param CancelInstancePublishTaskRequest $request CancelInstancePublishTaskRequest
+     * 取消机器人发布.
      *
-     * @return CancelInstancePublishTaskResponse CancelInstancePublishTaskResponse
+     * @param request - CancelInstancePublishTaskRequest
+     *
+     * @returns CancelInstancePublishTaskResponse
+     *
+     * @param CancelInstancePublishTaskRequest $request
+     *
+     * @return CancelInstancePublishTaskResponse
      */
     public function cancelInstancePublishTask($request)
     {
@@ -446,47 +496,58 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 取消发布任务
-     *  *
-     * @param CancelPublishTaskRequest $request CancelPublishTaskRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 取消发布任务
      *
-     * @return CancelPublishTaskResponse CancelPublishTaskResponse
+     * @param request - CancelPublishTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelPublishTaskResponse
+     *
+     * @param CancelPublishTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CancelPublishTaskResponse
      */
     public function cancelPublishTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelPublishTask',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelPublishTask',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelPublishTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 取消发布任务
-     *  *
-     * @param CancelPublishTaskRequest $request CancelPublishTaskRequest
+     * 取消发布任务
      *
-     * @return CancelPublishTaskResponse CancelPublishTaskResponse
+     * @param request - CancelPublishTaskRequest
+     *
+     * @returns CancelPublishTaskResponse
+     *
+     * @param CancelPublishTaskRequest $request
+     *
+     * @return CancelPublishTaskResponse
      */
     public function cancelPublishTask($request)
     {
@@ -496,79 +557,100 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 会话API
-     *  *
-     * @param ChatRequest    $tmpReq  ChatRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 会话API.
      *
-     * @return ChatResponse ChatResponse
+     * @param tmpReq - ChatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatResponse
+     *
+     * @param ChatRequest    $tmpReq
+     * @param RuntimeOptions $runtime
+     *
+     * @return ChatResponse
      */
     public function chatWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ChatShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->perspective)) {
-            $request->perspectiveShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->perspective, 'Perspective', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->perspective) {
+            $request->perspectiveShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->perspective, 'Perspective', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentName)) {
-            $query['IntentName'] = $request->intentName;
+
+        if (null !== $request->intentName) {
+            @$query['IntentName'] = $request->intentName;
         }
-        if (!Utils::isUnset($request->knowledgeId)) {
-            $query['KnowledgeId'] = $request->knowledgeId;
+
+        if (null !== $request->knowledgeId) {
+            @$query['KnowledgeId'] = $request->knowledgeId;
         }
-        if (!Utils::isUnset($request->perspectiveShrink)) {
-            $query['Perspective'] = $request->perspectiveShrink;
+
+        if (null !== $request->perspectiveShrink) {
+            @$query['Perspective'] = $request->perspectiveShrink;
         }
-        if (!Utils::isUnset($request->sandBox)) {
-            $query['SandBox'] = $request->sandBox;
+
+        if (null !== $request->sandBox) {
+            @$query['SandBox'] = $request->sandBox;
         }
-        if (!Utils::isUnset($request->senderId)) {
-            $query['SenderId'] = $request->senderId;
+
+        if (null !== $request->senderId) {
+            @$query['SenderId'] = $request->senderId;
         }
-        if (!Utils::isUnset($request->senderNick)) {
-            $query['SenderNick'] = $request->senderNick;
+
+        if (null !== $request->senderNick) {
+            @$query['SenderNick'] = $request->senderNick;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->utterance)) {
-            $query['Utterance'] = $request->utterance;
+
+        if (null !== $request->utterance) {
+            @$query['Utterance'] = $request->utterance;
         }
-        if (!Utils::isUnset($request->vendorParam)) {
-            $query['VendorParam'] = $request->vendorParam;
+
+        if (null !== $request->vendorParam) {
+            @$query['VendorParam'] = $request->vendorParam;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Chat',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Chat',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ChatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 会话API
-     *  *
-     * @param ChatRequest $request ChatRequest
+     * 会话API.
      *
-     * @return ChatResponse ChatResponse
+     * @param request - ChatRequest
+     *
+     * @returns ChatResponse
+     *
+     * @param ChatRequest $request
+     *
+     * @return ChatResponse
      */
     public function chat($request)
     {
@@ -578,50 +660,62 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 继续机器人发布
-     *  *
-     * @param ContinueInstancePublishTaskRequest $request ContinueInstancePublishTaskRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 继续机器人发布.
      *
-     * @return ContinueInstancePublishTaskResponse ContinueInstancePublishTaskResponse
+     * @param request - ContinueInstancePublishTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ContinueInstancePublishTaskResponse
+     *
+     * @param ContinueInstancePublishTaskRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ContinueInstancePublishTaskResponse
      */
     public function continueInstancePublishTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ContinueInstancePublishTask',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ContinueInstancePublishTask',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ContinueInstancePublishTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 继续机器人发布
-     *  *
-     * @param ContinueInstancePublishTaskRequest $request ContinueInstancePublishTaskRequest
+     * 继续机器人发布.
      *
-     * @return ContinueInstancePublishTaskResponse ContinueInstancePublishTaskResponse
+     * @param request - ContinueInstancePublishTaskRequest
+     *
+     * @returns ContinueInstancePublishTaskResponse
+     *
+     * @param ContinueInstancePublishTaskRequest $request
+     *
+     * @return ContinueInstancePublishTaskResponse
      */
     public function continueInstancePublishTask($request)
     {
@@ -631,58 +725,72 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 新增类目
-     *  *
-     * @param CreateCategoryRequest $request CreateCategoryRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 新增类目.
      *
-     * @return CreateCategoryResponse CreateCategoryResponse
+     * @param request - CreateCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCategoryResponse
+     *
+     * @param CreateCategoryRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateCategoryResponse
      */
     public function createCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->bizCode)) {
-            $body['BizCode'] = $request->bizCode;
+        if (null !== $request->bizCode) {
+            @$body['BizCode'] = $request->bizCode;
         }
-        if (!Utils::isUnset($request->knowledgeType)) {
-            $body['KnowledgeType'] = $request->knowledgeType;
+
+        if (null !== $request->knowledgeType) {
+            @$body['KnowledgeType'] = $request->knowledgeType;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->parentCategoryId)) {
-            $body['ParentCategoryId'] = $request->parentCategoryId;
+
+        if (null !== $request->parentCategoryId) {
+            @$body['ParentCategoryId'] = $request->parentCategoryId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateCategory',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCategory',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新增类目
-     *  *
-     * @param CreateCategoryRequest $request CreateCategoryRequest
+     * 新增类目.
      *
-     * @return CreateCategoryResponse CreateCategoryResponse
+     * @param request - CreateCategoryRequest
+     *
+     * @returns CreateCategoryResponse
+     *
+     * @param CreateCategoryRequest $request
+     *
+     * @return CreateCategoryResponse
      */
     public function createCategory($request)
     {
@@ -692,52 +800,64 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 新建FAQ关联问
-     *  *
-     * @param CreateConnQuestionRequest $request CreateConnQuestionRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 新建FAQ关联问.
      *
-     * @return CreateConnQuestionResponse CreateConnQuestionResponse
+     * @param request - CreateConnQuestionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConnQuestionResponse
+     *
+     * @param CreateConnQuestionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateConnQuestionResponse
      */
     public function createConnQuestionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->connQuestionId)) {
-            $body['ConnQuestionId'] = $request->connQuestionId;
+        if (null !== $request->connQuestionId) {
+            @$body['ConnQuestionId'] = $request->connQuestionId;
         }
-        if (!Utils::isUnset($request->knowledgeId)) {
-            $body['KnowledgeId'] = $request->knowledgeId;
+
+        if (null !== $request->knowledgeId) {
+            @$body['KnowledgeId'] = $request->knowledgeId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateConnQuestion',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateConnQuestion',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateConnQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新建FAQ关联问
-     *  *
-     * @param CreateConnQuestionRequest $request CreateConnQuestionRequest
+     * 新建FAQ关联问.
      *
-     * @return CreateConnQuestionResponse CreateConnQuestionResponse
+     * @param request - CreateConnQuestionRequest
+     *
+     * @returns CreateConnQuestionResponse
+     *
+     * @param CreateConnQuestionRequest $request
+     *
+     * @return CreateConnQuestionResponse
      */
     public function createConnQuestion($request)
     {
@@ -747,53 +867,66 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 实体-创建
-     *  *
-     * @param CreateDSEntityRequest $request CreateDSEntityRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 实体-创建.
      *
-     * @return CreateDSEntityResponse CreateDSEntityResponse
+     * @param request - CreateDSEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDSEntityResponse
+     *
+     * @param CreateDSEntityRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateDSEntityResponse
      */
     public function createDSEntityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->entityName)) {
-            $query['EntityName'] = $request->entityName;
+
+        if (null !== $request->entityName) {
+            @$query['EntityName'] = $request->entityName;
         }
-        if (!Utils::isUnset($request->entityType)) {
-            $query['EntityType'] = $request->entityType;
+
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDSEntity',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDSEntity',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDSEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 实体-创建
-     *  *
-     * @param CreateDSEntityRequest $request CreateDSEntityRequest
+     * 实体-创建.
      *
-     * @return CreateDSEntityResponse CreateDSEntityResponse
+     * @param request - CreateDSEntityRequest
+     *
+     * @returns CreateDSEntityResponse
+     *
+     * @param CreateDSEntityRequest $request
+     *
+     * @return CreateDSEntityResponse
      */
     public function createDSEntity($request)
     {
@@ -803,63 +936,78 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 实体成员-创建
-     *  *
-     * @param CreateDSEntityValueRequest $tmpReq  CreateDSEntityValueRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 实体成员-创建.
      *
-     * @return CreateDSEntityValueResponse CreateDSEntityValueResponse
+     * @param tmpReq - CreateDSEntityValueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDSEntityValueResponse
+     *
+     * @param CreateDSEntityValueRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateDSEntityValueResponse
      */
     public function createDSEntityValueWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDSEntityValueShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->synonyms)) {
-            $request->synonymsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->synonyms, 'Synonyms', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->synonyms) {
+            $request->synonymsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->synonyms, 'Synonyms', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->entityId)) {
-            $query['EntityId'] = $request->entityId;
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->synonymsShrink)) {
-            $body['Synonyms'] = $request->synonymsShrink;
+        if (null !== $request->synonymsShrink) {
+            @$body['Synonyms'] = $request->synonymsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDSEntityValue',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDSEntityValue',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDSEntityValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 实体成员-创建
-     *  *
-     * @param CreateDSEntityValueRequest $request CreateDSEntityValueRequest
+     * 实体成员-创建.
      *
-     * @return CreateDSEntityValueResponse CreateDSEntityValueResponse
+     * @param request - CreateDSEntityValueRequest
+     *
+     * @returns CreateDSEntityValueResponse
+     *
+     * @param CreateDSEntityValueRequest $request
+     *
+     * @return CreateDSEntityValueResponse
      */
     public function createDSEntityValue($request)
     {
@@ -869,82 +1017,104 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 创建文档
-     *  *
-     * @param CreateDocRequest $tmpReq  CreateDocRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 创建文档.
      *
-     * @return CreateDocResponse CreateDocResponse
+     * @param tmpReq - CreateDocRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDocResponse
+     *
+     * @param CreateDocRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateDocResponse
      */
     public function createDocWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDocShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->docMetadata)) {
-            $request->docMetadataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docMetadata, 'DocMetadata', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->docMetadata) {
+            $request->docMetadataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docMetadata, 'DocMetadata', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tagIds)) {
-            $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
+
+        if (null !== $tmpReq->tagIds) {
+            $request->tagIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->categoryId)) {
-            $query['CategoryId'] = $request->categoryId;
+
+        if (null !== $request->categoryId) {
+            @$query['CategoryId'] = $request->categoryId;
         }
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->docMetadataShrink)) {
-            $query['DocMetadata'] = $request->docMetadataShrink;
+
+        if (null !== $request->docMetadataShrink) {
+            @$query['DocMetadata'] = $request->docMetadataShrink;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->meta)) {
-            $query['Meta'] = $request->meta;
+
+        if (null !== $request->meta) {
+            @$query['Meta'] = $request->meta;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->tagIdsShrink)) {
-            $query['TagIds'] = $request->tagIdsShrink;
+
+        if (null !== $request->tagIdsShrink) {
+            @$query['TagIds'] = $request->tagIdsShrink;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDoc',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDoc',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDocResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建文档
-     *  *
-     * @param CreateDocRequest $request CreateDocRequest
+     * 创建文档.
      *
-     * @return CreateDocResponse CreateDocResponse
+     * @param request - CreateDocRequest
+     *
+     * @returns CreateDocResponse
+     *
+     * @param CreateDocRequest $request
+     *
+     * @return CreateDocResponse
      */
     public function createDoc($request)
     {
@@ -954,64 +1124,80 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 新建FAQ
-     *  *
-     * @param CreateFaqRequest $request CreateFaqRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 新建FAQ.
      *
-     * @return CreateFaqResponse CreateFaqResponse
+     * @param request - CreateFaqRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFaqResponse
+     *
+     * @param CreateFaqRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateFaqResponse
      */
     public function createFaqWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            $body['CategoryId'] = $request->categoryId;
+        if (null !== $request->categoryId) {
+            @$body['CategoryId'] = $request->categoryId;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $body['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->solutionContent)) {
-            $body['SolutionContent'] = $request->solutionContent;
+
+        if (null !== $request->solutionContent) {
+            @$body['SolutionContent'] = $request->solutionContent;
         }
-        if (!Utils::isUnset($request->solutionType)) {
-            $body['SolutionType'] = $request->solutionType;
+
+        if (null !== $request->solutionType) {
+            @$body['SolutionType'] = $request->solutionType;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateFaq',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFaq',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFaqResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新建FAQ
-     *  *
-     * @param CreateFaqRequest $request CreateFaqRequest
+     * 新建FAQ.
      *
-     * @return CreateFaqResponse CreateFaqResponse
+     * @param request - CreateFaqRequest
+     *
+     * @returns CreateFaqResponse
+     *
+     * @param CreateFaqRequest $request
+     *
+     * @return CreateFaqResponse
      */
     public function createFaq($request)
     {
@@ -1021,56 +1207,70 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 机器人-创建
-     *  *
-     * @param CreateInstanceRequest $request CreateInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 机器人-创建.
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param request - CreateInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->introduction)) {
-            $query['Introduction'] = $request->introduction;
+
+        if (null !== $request->introduction) {
+            @$query['Introduction'] = $request->introduction;
         }
-        if (!Utils::isUnset($request->languageCode)) {
-            $query['LanguageCode'] = $request->languageCode;
+
+        if (null !== $request->languageCode) {
+            @$query['LanguageCode'] = $request->languageCode;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->robotType)) {
-            $query['RobotType'] = $request->robotType;
+
+        if (null !== $request->robotType) {
+            @$query['RobotType'] = $request->robotType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstance',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateInstance',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机器人-创建
-     *  *
-     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * 机器人-创建.
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param request - CreateInstanceRequest
+     *
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -1080,47 +1280,58 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 创建机器人发布任务
-     *  *
-     * @param CreateInstancePublishTaskRequest $request CreateInstancePublishTaskRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 创建机器人发布任务
      *
-     * @return CreateInstancePublishTaskResponse CreateInstancePublishTaskResponse
+     * @param request - CreateInstancePublishTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstancePublishTaskResponse
+     *
+     * @param CreateInstancePublishTaskRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateInstancePublishTaskResponse
      */
     public function createInstancePublishTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstancePublishTask',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateInstancePublishTask',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateInstancePublishTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建机器人发布任务
-     *  *
-     * @param CreateInstancePublishTaskRequest $request CreateInstancePublishTaskRequest
+     * 创建机器人发布任务
      *
-     * @return CreateInstancePublishTaskResponse CreateInstancePublishTaskResponse
+     * @param request - CreateInstancePublishTaskRequest
+     *
+     * @returns CreateInstancePublishTaskResponse
+     *
+     * @param CreateInstancePublishTaskRequest $request
+     *
+     * @return CreateInstancePublishTaskResponse
      */
     public function createInstancePublishTask($request)
     {
@@ -1130,55 +1341,68 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 意图-创建
-     *  *
-     * @param CreateIntentRequest $tmpReq  CreateIntentRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 意图-创建.
      *
-     * @return CreateIntentResponse CreateIntentResponse
+     * @param tmpReq - CreateIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateIntentResponse
+     *
+     * @param CreateIntentRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateIntentResponse
      */
     public function createIntentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateIntentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->intentDefinition)) {
-            $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->intentDefinition, 'IntentDefinition', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->intentDefinition) {
+            $request->intentDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->intentDefinition, 'IntentDefinition', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentDefinitionShrink)) {
-            $query['IntentDefinition'] = $request->intentDefinitionShrink;
+
+        if (null !== $request->intentDefinitionShrink) {
+            @$query['IntentDefinition'] = $request->intentDefinitionShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIntent',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIntent',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateIntentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 意图-创建
-     *  *
-     * @param CreateIntentRequest $request CreateIntentRequest
+     * 意图-创建.
      *
-     * @return CreateIntentResponse CreateIntentResponse
+     * @param request - CreateIntentRequest
+     *
+     * @returns CreateIntentResponse
+     *
+     * @param CreateIntentRequest $request
+     *
+     * @return CreateIntentResponse
      */
     public function createIntent($request)
     {
@@ -1188,55 +1412,68 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 意图-LGF-创建
-     *  *
-     * @param CreateLgfRequest $tmpReq  CreateLgfRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 意图-LGF-创建.
      *
-     * @return CreateLgfResponse CreateLgfResponse
+     * @param tmpReq - CreateLgfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLgfResponse
+     *
+     * @param CreateLgfRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateLgfResponse
      */
     public function createLgfWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateLgfShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->lgfDefinition)) {
-            $request->lgfDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lgfDefinition, 'LgfDefinition', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->lgfDefinition) {
+            $request->lgfDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->lgfDefinition, 'LgfDefinition', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lgfDefinitionShrink)) {
-            $query['LgfDefinition'] = $request->lgfDefinitionShrink;
+
+        if (null !== $request->lgfDefinitionShrink) {
+            @$query['LgfDefinition'] = $request->lgfDefinitionShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateLgf',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateLgf',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateLgfResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 意图-LGF-创建
-     *  *
-     * @param CreateLgfRequest $request CreateLgfRequest
+     * 意图-LGF-创建.
      *
-     * @return CreateLgfResponse CreateLgfResponse
+     * @param request - CreateLgfRequest
+     *
+     * @returns CreateLgfResponse
+     *
+     * @param CreateLgfRequest $request
+     *
+     * @return CreateLgfResponse
      */
     public function createLgf($request)
     {
@@ -1246,50 +1483,62 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 视角-创建
-     *  *
-     * @param CreatePerspectiveRequest $request CreatePerspectiveRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 视角-创建.
      *
-     * @return CreatePerspectiveResponse CreatePerspectiveResponse
+     * @param request - CreatePerspectiveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePerspectiveResponse
+     *
+     * @param CreatePerspectiveRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreatePerspectiveResponse
      */
     public function createPerspectiveWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePerspective',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePerspective',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreatePerspectiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 视角-创建
-     *  *
-     * @param CreatePerspectiveRequest $request CreatePerspectiveRequest
+     * 视角-创建.
      *
-     * @return CreatePerspectiveResponse CreatePerspectiveResponse
+     * @param request - CreatePerspectiveRequest
+     *
+     * @returns CreatePerspectiveResponse
+     *
+     * @param CreatePerspectiveRequest $request
+     *
+     * @return CreatePerspectiveResponse
      */
     public function createPerspective($request)
     {
@@ -1299,55 +1548,68 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 创建发布任务
-     *  *
-     * @param CreatePublishTaskRequest $tmpReq  CreatePublishTaskRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 创建发布任务
      *
-     * @return CreatePublishTaskResponse CreatePublishTaskResponse
+     * @param tmpReq - CreatePublishTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePublishTaskResponse
+     *
+     * @param CreatePublishTaskRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreatePublishTaskResponse
      */
     public function createPublishTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePublishTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dataIdList)) {
-            $request->dataIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataIdList, 'DataIdList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataIdList) {
+            $request->dataIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataIdList, 'DataIdList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->dataIdListShrink)) {
-            $query['DataIdList'] = $request->dataIdListShrink;
+
+        if (null !== $request->dataIdListShrink) {
+            @$query['DataIdList'] = $request->dataIdListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePublishTask',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePublishTask',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreatePublishTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建发布任务
-     *  *
-     * @param CreatePublishTaskRequest $request CreatePublishTaskRequest
+     * 创建发布任务
      *
-     * @return CreatePublishTaskResponse CreatePublishTaskResponse
+     * @param request - CreatePublishTaskRequest
+     *
+     * @returns CreatePublishTaskResponse
+     *
+     * @param CreatePublishTaskRequest $request
+     *
+     * @return CreatePublishTaskResponse
      */
     public function createPublishTask($request)
     {
@@ -1357,52 +1619,64 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 新建FAQ相似问
-     *  *
-     * @param CreateSimQuestionRequest $request CreateSimQuestionRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 新建FAQ相似问.
      *
-     * @return CreateSimQuestionResponse CreateSimQuestionResponse
+     * @param request - CreateSimQuestionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSimQuestionResponse
+     *
+     * @param CreateSimQuestionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateSimQuestionResponse
      */
     public function createSimQuestionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->knowledgeId)) {
-            $body['KnowledgeId'] = $request->knowledgeId;
+        if (null !== $request->knowledgeId) {
+            @$body['KnowledgeId'] = $request->knowledgeId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSimQuestion',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSimQuestion',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSimQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新建FAQ相似问
-     *  *
-     * @param CreateSimQuestionRequest $request CreateSimQuestionRequest
+     * 新建FAQ相似问.
      *
-     * @return CreateSimQuestionResponse CreateSimQuestionResponse
+     * @param request - CreateSimQuestionRequest
+     *
+     * @returns CreateSimQuestionResponse
+     *
+     * @param CreateSimQuestionRequest $request
+     *
+     * @return CreateSimQuestionResponse
      */
     public function createSimQuestion($request)
     {
@@ -1412,56 +1686,70 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 新建FAQ答案
-     *  *
-     * @param CreateSolutionRequest $request CreateSolutionRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 新建FAQ答案.
      *
-     * @return CreateSolutionResponse CreateSolutionResponse
+     * @param request - CreateSolutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSolutionResponse
+     *
+     * @param CreateSolutionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateSolutionResponse
      */
     public function createSolutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->contentType)) {
-            $query['ContentType'] = $request->contentType;
+
+        if (null !== $request->contentType) {
+            @$query['ContentType'] = $request->contentType;
         }
-        if (!Utils::isUnset($request->knowledgeId)) {
-            $query['KnowledgeId'] = $request->knowledgeId;
+
+        if (null !== $request->knowledgeId) {
+            @$query['KnowledgeId'] = $request->knowledgeId;
         }
-        if (!Utils::isUnset($request->perspectiveCodes)) {
-            $query['PerspectiveCodes'] = $request->perspectiveCodes;
+
+        if (null !== $request->perspectiveCodes) {
+            @$query['PerspectiveCodes'] = $request->perspectiveCodes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSolution',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSolution',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSolutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新建FAQ答案
-     *  *
-     * @param CreateSolutionRequest $request CreateSolutionRequest
+     * 新建FAQ答案.
      *
-     * @return CreateSolutionResponse CreateSolutionResponse
+     * @param request - CreateSolutionRequest
+     *
+     * @returns CreateSolutionResponse
+     *
+     * @param CreateSolutionRequest $request
+     *
+     * @return CreateSolutionResponse
      */
     public function createSolution($request)
     {
@@ -1471,55 +1759,68 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 意图-话术-创建
-     *  *
-     * @param CreateUserSayRequest $tmpReq  CreateUserSayRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 意图-话术-创建.
      *
-     * @return CreateUserSayResponse CreateUserSayResponse
+     * @param tmpReq - CreateUserSayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserSayResponse
+     *
+     * @param CreateUserSayRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateUserSayResponse
      */
     public function createUserSayWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateUserSayShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userSayDefinition)) {
-            $request->userSayDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userSayDefinition, 'UserSayDefinition', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userSayDefinition) {
+            $request->userSayDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userSayDefinition, 'UserSayDefinition', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->userSayDefinitionShrink)) {
-            $query['UserSayDefinition'] = $request->userSayDefinitionShrink;
+
+        if (null !== $request->userSayDefinitionShrink) {
+            @$query['UserSayDefinition'] = $request->userSayDefinitionShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateUserSay',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateUserSay',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateUserSayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 意图-话术-创建
-     *  *
-     * @param CreateUserSayRequest $request CreateUserSayRequest
+     * 意图-话术-创建.
      *
-     * @return CreateUserSayResponse CreateUserSayResponse
+     * @param request - CreateUserSayRequest
+     *
+     * @returns CreateUserSayResponse
+     *
+     * @param CreateUserSayRequest $request
+     *
+     * @return CreateUserSayResponse
      */
     public function createUserSay($request)
     {
@@ -1529,49 +1830,60 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 删除类目
-     *  *
-     * @param DeleteCategoryRequest $request DeleteCategoryRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 删除类目.
      *
-     * @return DeleteCategoryResponse DeleteCategoryResponse
+     * @param request - DeleteCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCategoryResponse
+     *
+     * @param DeleteCategoryRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteCategoryResponse
      */
     public function deleteCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            $body['CategoryId'] = $request->categoryId;
+        if (null !== $request->categoryId) {
+            @$body['CategoryId'] = $request->categoryId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCategory',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCategory',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除类目
-     *  *
-     * @param DeleteCategoryRequest $request DeleteCategoryRequest
+     * 删除类目.
      *
-     * @return DeleteCategoryResponse DeleteCategoryResponse
+     * @param request - DeleteCategoryRequest
+     *
+     * @returns DeleteCategoryResponse
+     *
+     * @param DeleteCategoryRequest $request
+     *
+     * @return DeleteCategoryResponse
      */
     public function deleteCategory($request)
     {
@@ -1581,49 +1893,60 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 删除FAQ关联问
-     *  *
-     * @param DeleteConnQuestionRequest $request DeleteConnQuestionRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 删除FAQ关联问.
      *
-     * @return DeleteConnQuestionResponse DeleteConnQuestionResponse
+     * @param request - DeleteConnQuestionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConnQuestionResponse
+     *
+     * @param DeleteConnQuestionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteConnQuestionResponse
      */
     public function deleteConnQuestionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->outlineId)) {
-            $body['OutlineId'] = $request->outlineId;
+        if (null !== $request->outlineId) {
+            @$body['OutlineId'] = $request->outlineId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteConnQuestion',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteConnQuestion',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteConnQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除FAQ关联问
-     *  *
-     * @param DeleteConnQuestionRequest $request DeleteConnQuestionRequest
+     * 删除FAQ关联问.
      *
-     * @return DeleteConnQuestionResponse DeleteConnQuestionResponse
+     * @param request - DeleteConnQuestionRequest
+     *
+     * @returns DeleteConnQuestionResponse
+     *
+     * @param DeleteConnQuestionRequest $request
+     *
+     * @return DeleteConnQuestionResponse
      */
     public function deleteConnQuestion($request)
     {
@@ -1633,50 +1956,62 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 实体-删除
-     *  *
-     * @param DeleteDSEntityRequest $request DeleteDSEntityRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 实体-删除.
      *
-     * @return DeleteDSEntityResponse DeleteDSEntityResponse
+     * @param request - DeleteDSEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDSEntityResponse
+     *
+     * @param DeleteDSEntityRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteDSEntityResponse
      */
     public function deleteDSEntityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->entityId)) {
-            $query['EntityId'] = $request->entityId;
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDSEntity',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDSEntity',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDSEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 实体-删除
-     *  *
-     * @param DeleteDSEntityRequest $request DeleteDSEntityRequest
+     * 实体-删除.
      *
-     * @return DeleteDSEntityResponse DeleteDSEntityResponse
+     * @param request - DeleteDSEntityRequest
+     *
+     * @returns DeleteDSEntityResponse
+     *
+     * @param DeleteDSEntityRequest $request
+     *
+     * @return DeleteDSEntityResponse
      */
     public function deleteDSEntity($request)
     {
@@ -1686,53 +2021,66 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 实体成员-删除
-     *  *
-     * @param DeleteDSEntityValueRequest $request DeleteDSEntityValueRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 实体成员-删除.
      *
-     * @return DeleteDSEntityValueResponse DeleteDSEntityValueResponse
+     * @param request - DeleteDSEntityValueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDSEntityValueResponse
+     *
+     * @param DeleteDSEntityValueRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteDSEntityValueResponse
      */
     public function deleteDSEntityValueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->entityId)) {
-            $query['EntityId'] = $request->entityId;
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->entityValueId)) {
-            $query['EntityValueId'] = $request->entityValueId;
+
+        if (null !== $request->entityValueId) {
+            @$query['EntityValueId'] = $request->entityValueId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDSEntityValue',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDSEntityValue',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDSEntityValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 实体成员-删除
-     *  *
-     * @param DeleteDSEntityValueRequest $request DeleteDSEntityValueRequest
+     * 实体成员-删除.
      *
-     * @return DeleteDSEntityValueResponse DeleteDSEntityValueResponse
+     * @param request - DeleteDSEntityValueRequest
+     *
+     * @returns DeleteDSEntityValueResponse
+     *
+     * @param DeleteDSEntityValueRequest $request
+     *
+     * @return DeleteDSEntityValueResponse
      */
     public function deleteDSEntityValue($request)
     {
@@ -1742,47 +2090,58 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 文档删除
-     *  *
-     * @param DeleteDocRequest $request DeleteDocRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 文档删除.
      *
-     * @return DeleteDocResponse DeleteDocResponse
+     * @param request - DeleteDocRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDocResponse
+     *
+     * @param DeleteDocRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteDocResponse
      */
     public function deleteDocWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->knowledgeId)) {
-            $query['KnowledgeId'] = $request->knowledgeId;
+
+        if (null !== $request->knowledgeId) {
+            @$query['KnowledgeId'] = $request->knowledgeId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDoc',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDoc',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDocResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 文档删除
-     *  *
-     * @param DeleteDocRequest $request DeleteDocRequest
+     * 文档删除.
      *
-     * @return DeleteDocResponse DeleteDocResponse
+     * @param request - DeleteDocRequest
+     *
+     * @returns DeleteDocResponse
+     *
+     * @param DeleteDocRequest $request
+     *
+     * @return DeleteDocResponse
      */
     public function deleteDoc($request)
     {
@@ -1792,49 +2151,60 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除
-     *  *
-     * @param DeleteFaqRequest $request DeleteFaqRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除.
      *
-     * @return DeleteFaqResponse DeleteFaqResponse
+     * @param request - DeleteFaqRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFaqResponse
+     *
+     * @param DeleteFaqRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteFaqResponse
      */
     public function deleteFaqWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->knowledgeId)) {
-            $body['KnowledgeId'] = $request->knowledgeId;
+        if (null !== $request->knowledgeId) {
+            @$body['KnowledgeId'] = $request->knowledgeId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFaq',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFaq',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteFaqResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除
-     *  *
-     * @param DeleteFaqRequest $request DeleteFaqRequest
+     * 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除.
      *
-     * @return DeleteFaqResponse DeleteFaqResponse
+     * @param request - DeleteFaqRequest
+     *
+     * @returns DeleteFaqResponse
+     *
+     * @param DeleteFaqRequest $request
+     *
+     * @return DeleteFaqResponse
      */
     public function deleteFaq($request)
     {
@@ -1844,47 +2214,58 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 机器人-删除
-     *  *
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 机器人-删除.
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @param request - DeleteInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstance',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteInstance',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机器人-删除
-     *  *
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * 机器人-删除.
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @param request - DeleteInstanceRequest
+     *
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -1894,50 +2275,62 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 意图-删除
-     *  *
-     * @param DeleteIntentRequest $request DeleteIntentRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 意图-删除.
      *
-     * @return DeleteIntentResponse DeleteIntentResponse
+     * @param request - DeleteIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteIntentResponse
+     *
+     * @param DeleteIntentRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteIntentResponse
      */
     public function deleteIntentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIntent',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIntent',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteIntentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 意图-删除
-     *  *
-     * @param DeleteIntentRequest $request DeleteIntentRequest
+     * 意图-删除.
      *
-     * @return DeleteIntentResponse DeleteIntentResponse
+     * @param request - DeleteIntentRequest
+     *
+     * @returns DeleteIntentResponse
+     *
+     * @param DeleteIntentRequest $request
+     *
+     * @return DeleteIntentResponse
      */
     public function deleteIntent($request)
     {
@@ -1947,53 +2340,66 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 意图-LGF-删除
-     *  *
-     * @param DeleteLgfRequest $request DeleteLgfRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 意图-LGF-删除.
      *
-     * @return DeleteLgfResponse DeleteLgfResponse
+     * @param request - DeleteLgfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLgfResponse
+     *
+     * @param DeleteLgfRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteLgfResponse
      */
     public function deleteLgfWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->lgfId)) {
-            $query['LgfId'] = $request->lgfId;
+
+        if (null !== $request->lgfId) {
+            @$query['LgfId'] = $request->lgfId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteLgf',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteLgf',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteLgfResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 意图-LGF-删除
-     *  *
-     * @param DeleteLgfRequest $request DeleteLgfRequest
+     * 意图-LGF-删除.
      *
-     * @return DeleteLgfResponse DeleteLgfResponse
+     * @param request - DeleteLgfRequest
+     *
+     * @returns DeleteLgfResponse
+     *
+     * @param DeleteLgfRequest $request
+     *
+     * @return DeleteLgfResponse
      */
     public function deleteLgf($request)
     {
@@ -2003,47 +2409,58 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 视角-删除
-     *  *
-     * @param DeletePerspectiveRequest $request DeletePerspectiveRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 视角-删除.
      *
-     * @return DeletePerspectiveResponse DeletePerspectiveResponse
+     * @param request - DeletePerspectiveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePerspectiveResponse
+     *
+     * @param DeletePerspectiveRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeletePerspectiveResponse
      */
     public function deletePerspectiveWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->perspectiveId)) {
-            $query['PerspectiveId'] = $request->perspectiveId;
+
+        if (null !== $request->perspectiveId) {
+            @$query['PerspectiveId'] = $request->perspectiveId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePerspective',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePerspective',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeletePerspectiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 视角-删除
-     *  *
-     * @param DeletePerspectiveRequest $request DeletePerspectiveRequest
+     * 视角-删除.
      *
-     * @return DeletePerspectiveResponse DeletePerspectiveResponse
+     * @param request - DeletePerspectiveRequest
+     *
+     * @returns DeletePerspectiveResponse
+     *
+     * @param DeletePerspectiveRequest $request
+     *
+     * @return DeletePerspectiveResponse
      */
     public function deletePerspective($request)
     {
@@ -2053,49 +2470,60 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 删除FAQ相似问
-     *  *
-     * @param DeleteSimQuestionRequest $request DeleteSimQuestionRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 删除FAQ相似问.
      *
-     * @return DeleteSimQuestionResponse DeleteSimQuestionResponse
+     * @param request - DeleteSimQuestionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSimQuestionResponse
+     *
+     * @param DeleteSimQuestionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteSimQuestionResponse
      */
     public function deleteSimQuestionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->simQuestionId)) {
-            $body['SimQuestionId'] = $request->simQuestionId;
+        if (null !== $request->simQuestionId) {
+            @$body['SimQuestionId'] = $request->simQuestionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSimQuestion',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSimQuestion',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteSimQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除FAQ相似问
-     *  *
-     * @param DeleteSimQuestionRequest $request DeleteSimQuestionRequest
+     * 删除FAQ相似问.
      *
-     * @return DeleteSimQuestionResponse DeleteSimQuestionResponse
+     * @param request - DeleteSimQuestionRequest
+     *
+     * @returns DeleteSimQuestionResponse
+     *
+     * @param DeleteSimQuestionRequest $request
+     *
+     * @return DeleteSimQuestionResponse
      */
     public function deleteSimQuestion($request)
     {
@@ -2105,49 +2533,60 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 删除FAQ答案
-     *  *
-     * @param DeleteSolutionRequest $request DeleteSolutionRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 删除FAQ答案.
      *
-     * @return DeleteSolutionResponse DeleteSolutionResponse
+     * @param request - DeleteSolutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSolutionResponse
+     *
+     * @param DeleteSolutionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteSolutionResponse
      */
     public function deleteSolutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->solutionId)) {
-            $body['SolutionId'] = $request->solutionId;
+        if (null !== $request->solutionId) {
+            @$body['SolutionId'] = $request->solutionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSolution',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSolution',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteSolutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除FAQ答案
-     *  *
-     * @param DeleteSolutionRequest $request DeleteSolutionRequest
+     * 删除FAQ答案.
      *
-     * @return DeleteSolutionResponse DeleteSolutionResponse
+     * @param request - DeleteSolutionRequest
+     *
+     * @returns DeleteSolutionResponse
+     *
+     * @param DeleteSolutionRequest $request
+     *
+     * @return DeleteSolutionResponse
      */
     public function deleteSolution($request)
     {
@@ -2157,53 +2596,66 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 意图-用户话术-删除
-     *  *
-     * @param DeleteUserSayRequest $request DeleteUserSayRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 意图-用户话术-删除.
      *
-     * @return DeleteUserSayResponse DeleteUserSayResponse
+     * @param request - DeleteUserSayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUserSayResponse
+     *
+     * @param DeleteUserSayRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteUserSayResponse
      */
     public function deleteUserSayWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->userSayId)) {
-            $query['UserSayId'] = $request->userSayId;
+
+        if (null !== $request->userSayId) {
+            @$query['UserSayId'] = $request->userSayId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUserSay',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUserSay',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteUserSayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 意图-用户话术-删除
-     *  *
-     * @param DeleteUserSayRequest $request DeleteUserSayRequest
+     * 意图-用户话术-删除.
      *
-     * @return DeleteUserSayResponse DeleteUserSayResponse
+     * @param request - DeleteUserSayRequest
+     *
+     * @returns DeleteUserSayResponse
+     *
+     * @param DeleteUserSayRequest $request
+     *
+     * @return DeleteUserSayResponse
      */
     public function deleteUserSay($request)
     {
@@ -2213,49 +2665,60 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 查看单个类目信息
-     *  *
-     * @param DescribeCategoryRequest $request DescribeCategoryRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查看单个类目信息.
      *
-     * @return DescribeCategoryResponse DescribeCategoryResponse
+     * @param request - DescribeCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCategoryResponse
+     *
+     * @param DescribeCategoryRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeCategoryResponse
      */
     public function describeCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            $body['CategoryId'] = $request->categoryId;
+        if (null !== $request->categoryId) {
+            @$body['CategoryId'] = $request->categoryId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCategory',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCategory',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看单个类目信息
-     *  *
-     * @param DescribeCategoryRequest $request DescribeCategoryRequest
+     * 查看单个类目信息.
      *
-     * @return DescribeCategoryResponse DescribeCategoryResponse
+     * @param request - DescribeCategoryRequest
+     *
+     * @returns DescribeCategoryResponse
+     *
+     * @param DescribeCategoryRequest $request
+     *
+     * @return DescribeCategoryResponse
      */
     public function describeCategory($request)
     {
@@ -2265,50 +2728,62 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 实体-详情
-     *  *
-     * @param DescribeDSEntityRequest $request DescribeDSEntityRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 实体-详情.
      *
-     * @return DescribeDSEntityResponse DescribeDSEntityResponse
+     * @param request - DescribeDSEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDSEntityResponse
+     *
+     * @param DescribeDSEntityRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeDSEntityResponse
      */
     public function describeDSEntityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->entityId)) {
-            $query['EntityId'] = $request->entityId;
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDSEntity',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDSEntity',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDSEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 实体-详情
-     *  *
-     * @param DescribeDSEntityRequest $request DescribeDSEntityRequest
+     * 实体-详情.
      *
-     * @return DescribeDSEntityResponse DescribeDSEntityResponse
+     * @param request - DescribeDSEntityRequest
+     *
+     * @returns DescribeDSEntityResponse
+     *
+     * @param DescribeDSEntityRequest $request
+     *
+     * @return DescribeDSEntityResponse
      */
     public function describeDSEntity($request)
     {
@@ -2318,50 +2793,62 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 文档详情
-     *  *
-     * @param DescribeDocRequest $request DescribeDocRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 文档详情.
      *
-     * @return DescribeDocResponse DescribeDocResponse
+     * @param request - DescribeDocRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDocResponse
+     *
+     * @param DescribeDocRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DescribeDocResponse
      */
     public function describeDocWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->knowledgeId)) {
-            $query['KnowledgeId'] = $request->knowledgeId;
+
+        if (null !== $request->knowledgeId) {
+            @$query['KnowledgeId'] = $request->knowledgeId;
         }
-        if (!Utils::isUnset($request->showDetail)) {
-            $query['ShowDetail'] = $request->showDetail;
+
+        if (null !== $request->showDetail) {
+            @$query['ShowDetail'] = $request->showDetail;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDoc',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDoc',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDocResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 文档详情
-     *  *
-     * @param DescribeDocRequest $request DescribeDocRequest
+     * 文档详情.
      *
-     * @return DescribeDocResponse DescribeDocResponse
+     * @param request - DescribeDocRequest
+     *
+     * @returns DescribeDocResponse
+     *
+     * @param DescribeDocRequest $request
+     *
+     * @return DescribeDocResponse
      */
     public function describeDoc($request)
     {
@@ -2371,49 +2858,60 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 知识详情
-     *  *
-     * @param DescribeFaqRequest $request DescribeFaqRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 知识详情.
      *
-     * @return DescribeFaqResponse DescribeFaqResponse
+     * @param request - DescribeFaqRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFaqResponse
+     *
+     * @param DescribeFaqRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DescribeFaqResponse
      */
     public function describeFaqWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->knowledgeId)) {
-            $body['KnowledgeId'] = $request->knowledgeId;
+        if (null !== $request->knowledgeId) {
+            @$body['KnowledgeId'] = $request->knowledgeId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFaq',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFaq',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeFaqResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 知识详情
-     *  *
-     * @param DescribeFaqRequest $request DescribeFaqRequest
+     * 知识详情.
      *
-     * @return DescribeFaqResponse DescribeFaqResponse
+     * @param request - DescribeFaqRequest
+     *
+     * @returns DescribeFaqResponse
+     *
+     * @param DescribeFaqRequest $request
+     *
+     * @return DescribeFaqResponse
      */
     public function describeFaq($request)
     {
@@ -2423,47 +2921,58 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 机器人-详情
-     *  *
-     * @param DescribeInstanceRequest $request DescribeInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 机器人-详情.
      *
-     * @return DescribeInstanceResponse DescribeInstanceResponse
+     * @param request - DescribeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceResponse
+     *
+     * @param DescribeInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeInstanceResponse
      */
     public function describeInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstance',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstance',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机器人-详情
-     *  *
-     * @param DescribeInstanceRequest $request DescribeInstanceRequest
+     * 机器人-详情.
      *
-     * @return DescribeInstanceResponse DescribeInstanceResponse
+     * @param request - DescribeInstanceRequest
+     *
+     * @returns DescribeInstanceResponse
+     *
+     * @param DescribeInstanceRequest $request
+     *
+     * @return DescribeInstanceResponse
      */
     public function describeInstance($request)
     {
@@ -2473,52 +2982,64 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 意图-详情
-     *  *
-     * @param DescribeIntentRequest $request DescribeIntentRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 意图-详情.
      *
-     * @return DescribeIntentResponse DescribeIntentResponse
+     * @param request - DescribeIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeIntentResponse
+     *
+     * @param DescribeIntentRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeIntentResponse
      */
     public function describeIntentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->intentId)) {
-            $body['IntentId'] = $request->intentId;
+        if (null !== $request->intentId) {
+            @$body['IntentId'] = $request->intentId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIntent',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIntent',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeIntentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 意图-详情
-     *  *
-     * @param DescribeIntentRequest $request DescribeIntentRequest
+     * 意图-详情.
      *
-     * @return DescribeIntentResponse DescribeIntentResponse
+     * @param request - DescribeIntentRequest
+     *
+     * @returns DescribeIntentResponse
+     *
+     * @param DescribeIntentRequest $request
+     *
+     * @return DescribeIntentResponse
      */
     public function describeIntent($request)
     {
@@ -2528,47 +3049,58 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 视角-详情
-     *  *
-     * @param DescribePerspectiveRequest $request DescribePerspectiveRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 视角-详情.
      *
-     * @return DescribePerspectiveResponse DescribePerspectiveResponse
+     * @param request - DescribePerspectiveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePerspectiveResponse
+     *
+     * @param DescribePerspectiveRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribePerspectiveResponse
      */
     public function describePerspectiveWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->perspectiveId)) {
-            $query['PerspectiveId'] = $request->perspectiveId;
+
+        if (null !== $request->perspectiveId) {
+            @$query['PerspectiveId'] = $request->perspectiveId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePerspective',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePerspective',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePerspectiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 视角-详情
-     *  *
-     * @param DescribePerspectiveRequest $request DescribePerspectiveRequest
+     * 视角-详情.
      *
-     * @return DescribePerspectiveResponse DescribePerspectiveResponse
+     * @param request - DescribePerspectiveRequest
+     *
+     * @returns DescribePerspectiveResponse
+     *
+     * @param DescribePerspectiveRequest $request
+     *
+     * @return DescribePerspectiveResponse
      */
     public function describePerspective($request)
     {
@@ -2578,59 +3110,74 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 问答点赞、点踩API
-     *  *
-     * @param FeedbackRequest $request FeedbackRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 问答点赞、点踩API.
      *
-     * @return FeedbackResponse FeedbackResponse
+     * @param request - FeedbackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FeedbackResponse
+     *
+     * @param FeedbackRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return FeedbackResponse
      */
     public function feedbackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->feedback)) {
-            $query['Feedback'] = $request->feedback;
+
+        if (null !== $request->feedback) {
+            @$query['Feedback'] = $request->feedback;
         }
-        if (!Utils::isUnset($request->feedbackContent)) {
-            $query['FeedbackContent'] = $request->feedbackContent;
+
+        if (null !== $request->feedbackContent) {
+            @$query['FeedbackContent'] = $request->feedbackContent;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->messageId)) {
-            $query['MessageId'] = $request->messageId;
+
+        if (null !== $request->messageId) {
+            @$query['MessageId'] = $request->messageId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Feedback',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Feedback',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 问答点赞、点踩API
-     *  *
-     * @param FeedbackRequest $request FeedbackRequest
+     * 问答点赞、点踩API.
      *
-     * @return FeedbackResponse FeedbackResponse
+     * @param request - FeedbackRequest
+     *
+     * @returns FeedbackResponse
+     *
+     * @param FeedbackRequest $request
+     *
+     * @return FeedbackResponse
      */
     public function feedback($request)
     {
@@ -2640,62 +3187,78 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 生成用户免登Token
-     *  *
-     * @param GenerateUserAccessTokenRequest $request GenerateUserAccessTokenRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 生成用户免登Token.
      *
-     * @return GenerateUserAccessTokenResponse GenerateUserAccessTokenResponse
+     * @param request - GenerateUserAccessTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateUserAccessTokenResponse
+     *
+     * @param GenerateUserAccessTokenRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GenerateUserAccessTokenResponse
      */
     public function generateUserAccessTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->expireTime)) {
-            $query['ExpireTime'] = $request->expireTime;
+
+        if (null !== $request->expireTime) {
+            @$query['ExpireTime'] = $request->expireTime;
         }
-        if (!Utils::isUnset($request->extraInfo)) {
-            $query['ExtraInfo'] = $request->extraInfo;
+
+        if (null !== $request->extraInfo) {
+            @$query['ExtraInfo'] = $request->extraInfo;
         }
-        if (!Utils::isUnset($request->foreignId)) {
-            $query['ForeignId'] = $request->foreignId;
+
+        if (null !== $request->foreignId) {
+            @$query['ForeignId'] = $request->foreignId;
         }
-        if (!Utils::isUnset($request->nick)) {
-            $query['Nick'] = $request->nick;
+
+        if (null !== $request->nick) {
+            @$query['Nick'] = $request->nick;
         }
-        if (!Utils::isUnset($request->telephone)) {
-            $query['Telephone'] = $request->telephone;
+
+        if (null !== $request->telephone) {
+            @$query['Telephone'] = $request->telephone;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateUserAccessToken',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateUserAccessToken',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GenerateUserAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 生成用户免登Token
-     *  *
-     * @param GenerateUserAccessTokenRequest $request GenerateUserAccessTokenRequest
+     * 生成用户免登Token.
      *
-     * @return GenerateUserAccessTokenResponse GenerateUserAccessTokenResponse
+     * @param request - GenerateUserAccessTokenRequest
+     *
+     * @returns GenerateUserAccessTokenResponse
+     *
+     * @param GenerateUserAccessTokenRequest $request
+     *
+     * @return GenerateUserAccessTokenResponse
      */
     public function generateUserAccessToken($request)
     {
@@ -2705,44 +3268,54 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 获取业务空间信息
-     *  *
-     * @param GetAgentInfoRequest $request GetAgentInfoRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取业务空间信息.
      *
-     * @return GetAgentInfoResponse GetAgentInfoResponse
+     * @param request - GetAgentInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentInfoResponse
+     *
+     * @param GetAgentInfoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAgentInfoResponse
      */
     public function getAgentInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAgentInfo',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAgentInfo',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAgentInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取业务空间信息
-     *  *
-     * @param GetAgentInfoRequest $request GetAgentInfoRequest
+     * 获取业务空间信息.
      *
-     * @return GetAgentInfoResponse GetAgentInfoResponse
+     * @param request - GetAgentInfoRequest
+     *
+     * @returns GetAgentInfoResponse
+     *
+     * @param GetAgentInfoRequest $request
+     *
+     * @return GetAgentInfoResponse
      */
     public function getAgentInfo($request)
     {
@@ -2752,47 +3325,58 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 获取异步函数执行结果接口
-     *  *
-     * @param GetAsyncResultRequest $request GetAsyncResultRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取异步函数执行结果接口.
      *
-     * @return GetAsyncResultResponse GetAsyncResultResponse
+     * @param request - GetAsyncResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAsyncResultResponse
+     *
+     * @param GetAsyncResultRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAsyncResultResponse
      */
     public function getAsyncResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAsyncResult',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAsyncResult',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAsyncResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取异步函数执行结果接口
-     *  *
-     * @param GetAsyncResultRequest $request GetAsyncResultRequest
+     * 获取异步函数执行结果接口.
      *
-     * @return GetAsyncResultResponse GetAsyncResultResponse
+     * @param request - GetAsyncResultRequest
+     *
+     * @returns GetAsyncResultResponse
+     *
+     * @param GetAsyncResultRequest $request
+     *
+     * @return GetAsyncResultResponse
      */
     public function getAsyncResult($request)
     {
@@ -2802,53 +3386,66 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 查询机器人接待人次和对话轮次
-     *  *
-     * @param GetBotSessionDataRequest $request GetBotSessionDataRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询机器人接待人次和对话轮次
      *
-     * @return GetBotSessionDataResponse GetBotSessionDataResponse
+     * @param request - GetBotSessionDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBotSessionDataResponse
+     *
+     * @param GetBotSessionDataRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetBotSessionDataResponse
      */
     public function getBotSessionDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->robotInstanceId)) {
-            $query['RobotInstanceId'] = $request->robotInstanceId;
+
+        if (null !== $request->robotInstanceId) {
+            @$query['RobotInstanceId'] = $request->robotInstanceId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetBotSessionData',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBotSessionData',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetBotSessionDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询机器人接待人次和对话轮次
-     *  *
-     * @param GetBotSessionDataRequest $request GetBotSessionDataRequest
+     * 查询机器人接待人次和对话轮次
      *
-     * @return GetBotSessionDataResponse GetBotSessionDataResponse
+     * @param request - GetBotSessionDataRequest
+     *
+     * @returns GetBotSessionDataResponse
+     *
+     * @param GetBotSessionDataRequest $request
+     *
+     * @return GetBotSessionDataResponse
      */
     public function getBotSessionData($request)
     {
@@ -2858,50 +3455,62 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 查询机器人发布进度
-     *  *
-     * @param GetInstancePublishTaskStateRequest $request GetInstancePublishTaskStateRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 查询机器人发布进度.
      *
-     * @return GetInstancePublishTaskStateResponse GetInstancePublishTaskStateResponse
+     * @param request - GetInstancePublishTaskStateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstancePublishTaskStateResponse
+     *
+     * @param GetInstancePublishTaskStateRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetInstancePublishTaskStateResponse
      */
     public function getInstancePublishTaskStateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstancePublishTaskState',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstancePublishTaskState',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetInstancePublishTaskStateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询机器人发布进度
-     *  *
-     * @param GetInstancePublishTaskStateRequest $request GetInstancePublishTaskStateRequest
+     * 查询机器人发布进度.
      *
-     * @return GetInstancePublishTaskStateResponse GetInstancePublishTaskStateResponse
+     * @param request - GetInstancePublishTaskStateRequest
+     *
+     * @returns GetInstancePublishTaskStateResponse
+     *
+     * @param GetInstancePublishTaskStateRequest $request
+     *
+     * @return GetInstancePublishTaskStateResponse
      */
     public function getInstancePublishTaskState($request)
     {
@@ -2911,47 +3520,58 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 查询发布进度
-     *  *
-     * @param GetPublishTaskStateRequest $request GetPublishTaskStateRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询发布进度.
      *
-     * @return GetPublishTaskStateResponse GetPublishTaskStateResponse
+     * @param request - GetPublishTaskStateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPublishTaskStateResponse
+     *
+     * @param GetPublishTaskStateRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetPublishTaskStateResponse
      */
     public function getPublishTaskStateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPublishTaskState',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPublishTaskState',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPublishTaskStateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询发布进度
-     *  *
-     * @param GetPublishTaskStateRequest $request GetPublishTaskStateRequest
+     * 查询发布进度.
      *
-     * @return GetPublishTaskStateResponse GetPublishTaskStateResponse
+     * @param request - GetPublishTaskStateRequest
+     *
+     * @returns GetPublishTaskStateResponse
+     *
+     * @param GetPublishTaskStateRequest $request
+     *
+     * @return GetPublishTaskStateResponse
      */
     public function getPublishTaskState($request)
     {
@@ -2961,50 +3581,62 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 初始化im连接信息
-     *  *
-     * @param InitIMConnectRequest $request InitIMConnectRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 初始化im连接信息.
      *
-     * @return InitIMConnectResponse InitIMConnectResponse
+     * @param request - InitIMConnectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitIMConnectResponse
+     *
+     * @param InitIMConnectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InitIMConnectResponse
      */
     public function initIMConnectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->from)) {
-            $query['From'] = $request->from;
+
+        if (null !== $request->from) {
+            @$query['From'] = $request->from;
         }
-        if (!Utils::isUnset($request->userAccessToken)) {
-            $query['UserAccessToken'] = $request->userAccessToken;
+
+        if (null !== $request->userAccessToken) {
+            @$query['UserAccessToken'] = $request->userAccessToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InitIMConnect',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InitIMConnect',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InitIMConnectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 初始化im连接信息
-     *  *
-     * @param InitIMConnectRequest $request InitIMConnectRequest
+     * 初始化im连接信息.
      *
-     * @return InitIMConnectResponse InitIMConnectResponse
+     * @param request - InitIMConnectRequest
+     *
+     * @returns InitIMConnectResponse
+     *
+     * @param InitIMConnectRequest $request
+     *
+     * @return InitIMConnectResponse
      */
     public function initIMConnect($request)
     {
@@ -3014,52 +3646,68 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 机器人-绑定类目
-     *  *
-     * @param LinkInstanceCategoryRequest $request LinkInstanceCategoryRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 机器人-绑定类目.
      *
-     * @return LinkInstanceCategoryResponse LinkInstanceCategoryResponse
+     * @param request - LinkInstanceCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LinkInstanceCategoryResponse
+     *
+     * @param LinkInstanceCategoryRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return LinkInstanceCategoryResponse
      */
     public function linkInstanceCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->abilityType) {
+            @$query['AbilityType'] = $request->abilityType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->categoryIds)) {
-            $body['CategoryIds'] = $request->categoryIds;
+        if (null !== $request->categoryIds) {
+            @$body['CategoryIds'] = $request->categoryIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'LinkInstanceCategory',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LinkInstanceCategory',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return LinkInstanceCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机器人-绑定类目
-     *  *
-     * @param LinkInstanceCategoryRequest $request LinkInstanceCategoryRequest
+     * 机器人-绑定类目.
      *
-     * @return LinkInstanceCategoryResponse LinkInstanceCategoryResponse
+     * @param request - LinkInstanceCategoryRequest
+     *
+     * @returns LinkInstanceCategoryResponse
+     *
+     * @param LinkInstanceCategoryRequest $request
+     *
+     * @return LinkInstanceCategoryResponse
      */
     public function linkInstanceCategory($request)
     {
@@ -3069,53 +3717,66 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 获取业务空间列表
-     *  *
-     * @param ListAgentRequest $request ListAgentRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 获取业务空间列表.
      *
-     * @return ListAgentResponse ListAgentResponse
+     * @param request - ListAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentResponse
+     *
+     * @param ListAgentRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListAgentResponse
      */
     public function listAgentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentName)) {
-            $query['AgentName'] = $request->agentName;
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
         }
-        if (!Utils::isUnset($request->goodsCodes)) {
-            $query['GoodsCodes'] = $request->goodsCodes;
+
+        if (null !== $request->goodsCodes) {
+            @$query['GoodsCodes'] = $request->goodsCodes;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAgent',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAgent',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取业务空间列表
-     *  *
-     * @param ListAgentRequest $request ListAgentRequest
+     * 获取业务空间列表.
      *
-     * @return ListAgentResponse ListAgentResponse
+     * @param request - ListAgentRequest
+     *
+     * @returns ListAgentResponse
+     *
+     * @param ListAgentRequest $request
+     *
+     * @return ListAgentResponse
      */
     public function listAgent($request)
     {
@@ -3125,52 +3786,64 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 类目列表
-     *  *
-     * @param ListCategoryRequest $request ListCategoryRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 类目列表.
      *
-     * @return ListCategoryResponse ListCategoryResponse
+     * @param request - ListCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCategoryResponse
+     *
+     * @param ListCategoryRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListCategoryResponse
      */
     public function listCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->knowledgeType)) {
-            $body['KnowledgeType'] = $request->knowledgeType;
+        if (null !== $request->knowledgeType) {
+            @$body['KnowledgeType'] = $request->knowledgeType;
         }
-        if (!Utils::isUnset($request->parentCategoryId)) {
-            $body['ParentCategoryId'] = $request->parentCategoryId;
+
+        if (null !== $request->parentCategoryId) {
+            @$body['ParentCategoryId'] = $request->parentCategoryId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListCategory',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCategory',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 类目列表
-     *  *
-     * @param ListCategoryRequest $request ListCategoryRequest
+     * 类目列表.
      *
-     * @return ListCategoryResponse ListCategoryResponse
+     * @param request - ListCategoryRequest
+     *
+     * @returns ListCategoryResponse
+     *
+     * @param ListCategoryRequest $request
+     *
+     * @return ListCategoryResponse
      */
     public function listCategory($request)
     {
@@ -3180,49 +3853,60 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 查询FAQ关联问列表
-     *  *
-     * @param ListConnQuestionRequest $request ListConnQuestionRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询FAQ关联问列表.
      *
-     * @return ListConnQuestionResponse ListConnQuestionResponse
+     * @param request - ListConnQuestionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConnQuestionResponse
+     *
+     * @param ListConnQuestionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListConnQuestionResponse
      */
     public function listConnQuestionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->knowledgeId)) {
-            $body['KnowledgeId'] = $request->knowledgeId;
+        if (null !== $request->knowledgeId) {
+            @$body['KnowledgeId'] = $request->knowledgeId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListConnQuestion',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListConnQuestion',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListConnQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询FAQ关联问列表
-     *  *
-     * @param ListConnQuestionRequest $request ListConnQuestionRequest
+     * 查询FAQ关联问列表.
      *
-     * @return ListConnQuestionResponse ListConnQuestionResponse
+     * @param request - ListConnQuestionRequest
+     *
+     * @returns ListConnQuestionResponse
+     *
+     * @param ListConnQuestionRequest $request
+     *
+     * @return ListConnQuestionResponse
      */
     public function listConnQuestion($request)
     {
@@ -3232,59 +3916,74 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 实体-列表
-     *  *
-     * @param ListDSEntityRequest $request ListDSEntityRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 实体-列表.
      *
-     * @return ListDSEntityResponse ListDSEntityResponse
+     * @param request - ListDSEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDSEntityResponse
+     *
+     * @param ListDSEntityRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListDSEntityResponse
      */
     public function listDSEntityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->entityType)) {
-            $query['EntityType'] = $request->entityType;
+
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDSEntity',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDSEntity',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDSEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 实体-列表
-     *  *
-     * @param ListDSEntityRequest $request ListDSEntityRequest
+     * 实体-列表.
      *
-     * @return ListDSEntityResponse ListDSEntityResponse
+     * @param request - ListDSEntityRequest
+     *
+     * @returns ListDSEntityResponse
+     *
+     * @param ListDSEntityRequest $request
+     *
+     * @return ListDSEntityResponse
      */
     public function listDSEntity($request)
     {
@@ -3294,64 +3993,80 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 实体成员-列表
-     *  *
-     * @param ListDSEntityValueRequest $request ListDSEntityValueRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 实体成员-列表.
      *
-     * @return ListDSEntityValueResponse ListDSEntityValueResponse
+     * @param request - ListDSEntityValueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDSEntityValueResponse
+     *
+     * @param ListDSEntityValueRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListDSEntityValueResponse
      */
     public function listDSEntityValueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->entityId)) {
-            $body['EntityId'] = $request->entityId;
+        if (null !== $request->entityId) {
+            @$body['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->entityValueId)) {
-            $body['EntityValueId'] = $request->entityValueId;
+
+        if (null !== $request->entityValueId) {
+            @$body['EntityValueId'] = $request->entityValueId;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $body['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDSEntityValue',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDSEntityValue',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDSEntityValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 实体成员-列表
-     *  *
-     * @param ListDSEntityValueRequest $request ListDSEntityValueRequest
+     * 实体成员-列表.
      *
-     * @return ListDSEntityValueResponse ListDSEntityValueResponse
+     * @param request - ListDSEntityValueRequest
+     *
+     * @returns ListDSEntityValueResponse
+     *
+     * @param ListDSEntityValueRequest $request
+     *
+     * @return ListDSEntityValueResponse
      */
     public function listDSEntityValue($request)
     {
@@ -3361,56 +4076,70 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 机器人-修改
-     *  *
-     * @param ListInstanceRequest $request ListInstanceRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 机器人-修改.
      *
-     * @return ListInstanceResponse ListInstanceResponse
+     * @param request - ListInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceResponse
+     *
+     * @param ListInstanceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListInstanceResponse
      */
     public function listInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->robotType)) {
-            $query['RobotType'] = $request->robotType;
+
+        if (null !== $request->robotType) {
+            @$query['RobotType'] = $request->robotType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstance',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstance',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机器人-修改
-     *  *
-     * @param ListInstanceRequest $request ListInstanceRequest
+     * 机器人-修改.
      *
-     * @return ListInstanceResponse ListInstanceResponse
+     * @param request - ListInstanceRequest
+     *
+     * @returns ListInstanceResponse
+     *
+     * @param ListInstanceRequest $request
+     *
+     * @return ListInstanceResponse
      */
     public function listInstance($request)
     {
@@ -3420,56 +4149,70 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 意图-列表
-     *  *
-     * @param ListIntentRequest $request ListIntentRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 意图-列表.
      *
-     * @return ListIntentResponse ListIntentResponse
+     * @param request - ListIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIntentResponse
+     *
+     * @param ListIntentRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListIntentResponse
      */
     public function listIntentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentName)) {
-            $query['IntentName'] = $request->intentName;
+
+        if (null !== $request->intentName) {
+            @$query['IntentName'] = $request->intentName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIntent',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIntent',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListIntentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 意图-列表
-     *  *
-     * @param ListIntentRequest $request ListIntentRequest
+     * 意图-列表.
      *
-     * @return ListIntentResponse ListIntentResponse
+     * @param request - ListIntentRequest
+     *
+     * @returns ListIntentResponse
+     *
+     * @param ListIntentRequest $request
+     *
+     * @return ListIntentResponse
      */
     public function listIntent($request)
     {
@@ -3479,59 +4222,74 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 意图-LGF-列表
-     *  *
-     * @param ListLgfRequest $request ListLgfRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 意图-LGF-列表.
      *
-     * @return ListLgfResponse ListLgfResponse
+     * @param request - ListLgfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLgfResponse
+     *
+     * @param ListLgfRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListLgfResponse
      */
     public function listLgfWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->lgfText)) {
-            $query['LgfText'] = $request->lgfText;
+
+        if (null !== $request->lgfText) {
+            @$query['LgfText'] = $request->lgfText;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListLgf',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListLgf',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListLgfResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 意图-LGF-列表
-     *  *
-     * @param ListLgfRequest $request ListLgfRequest
+     * 意图-LGF-列表.
      *
-     * @return ListLgfResponse ListLgfResponse
+     * @param request - ListLgfRequest
+     *
+     * @returns ListLgfResponse
+     *
+     * @param ListLgfRequest $request
+     *
+     * @return ListLgfResponse
      */
     public function listLgf($request)
     {
@@ -3541,50 +4299,62 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 获取业务空间下可集成的SaaS信息列表
-     *  *
-     * @param ListSaasInfoRequest $request ListSaasInfoRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取业务空间下可集成的SaaS信息列表.
      *
-     * @return ListSaasInfoResponse ListSaasInfoResponse
+     * @param request - ListSaasInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSaasInfoResponse
+     *
+     * @param ListSaasInfoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListSaasInfoResponse
      */
     public function listSaasInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->saasGroupCodes)) {
-            $query['SaasGroupCodes'] = $request->saasGroupCodes;
+
+        if (null !== $request->saasGroupCodes) {
+            @$query['SaasGroupCodes'] = $request->saasGroupCodes;
         }
-        if (!Utils::isUnset($request->saasName)) {
-            $query['SaasName'] = $request->saasName;
+
+        if (null !== $request->saasName) {
+            @$query['SaasName'] = $request->saasName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSaasInfo',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSaasInfo',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSaasInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取业务空间下可集成的SaaS信息列表
-     *  *
-     * @param ListSaasInfoRequest $request ListSaasInfoRequest
+     * 获取业务空间下可集成的SaaS信息列表.
      *
-     * @return ListSaasInfoResponse ListSaasInfoResponse
+     * @param request - ListSaasInfoRequest
+     *
+     * @returns ListSaasInfoResponse
+     *
+     * @param ListSaasInfoRequest $request
+     *
+     * @return ListSaasInfoResponse
      */
     public function listSaasInfo($request)
     {
@@ -3594,44 +4364,54 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 获取业务空间下可集成的权限组信息
-     *  *
-     * @param ListSaasPermissionGroupInfosRequest $request ListSaasPermissionGroupInfosRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 获取业务空间下可集成的权限组信息.
      *
-     * @return ListSaasPermissionGroupInfosResponse ListSaasPermissionGroupInfosResponse
+     * @param request - ListSaasPermissionGroupInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSaasPermissionGroupInfosResponse
+     *
+     * @param ListSaasPermissionGroupInfosRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListSaasPermissionGroupInfosResponse
      */
     public function listSaasPermissionGroupInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSaasPermissionGroupInfos',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSaasPermissionGroupInfos',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSaasPermissionGroupInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取业务空间下可集成的权限组信息
-     *  *
-     * @param ListSaasPermissionGroupInfosRequest $request ListSaasPermissionGroupInfosRequest
+     * 获取业务空间下可集成的权限组信息.
      *
-     * @return ListSaasPermissionGroupInfosResponse ListSaasPermissionGroupInfosResponse
+     * @param request - ListSaasPermissionGroupInfosRequest
+     *
+     * @returns ListSaasPermissionGroupInfosResponse
+     *
+     * @param ListSaasPermissionGroupInfosRequest $request
+     *
+     * @return ListSaasPermissionGroupInfosResponse
      */
     public function listSaasPermissionGroupInfos($request)
     {
@@ -3641,49 +4421,60 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary FAQ相似问列表
-     *  *
-     * @param ListSimQuestionRequest $request ListSimQuestionRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * FAQ相似问列表.
      *
-     * @return ListSimQuestionResponse ListSimQuestionResponse
+     * @param request - ListSimQuestionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSimQuestionResponse
+     *
+     * @param ListSimQuestionRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListSimQuestionResponse
      */
     public function listSimQuestionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->knowledgeId)) {
-            $body['KnowledgeId'] = $request->knowledgeId;
+        if (null !== $request->knowledgeId) {
+            @$body['KnowledgeId'] = $request->knowledgeId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListSimQuestion',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSimQuestion',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSimQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary FAQ相似问列表
-     *  *
-     * @param ListSimQuestionRequest $request ListSimQuestionRequest
+     * FAQ相似问列表.
      *
-     * @return ListSimQuestionResponse ListSimQuestionResponse
+     * @param request - ListSimQuestionRequest
+     *
+     * @returns ListSimQuestionResponse
+     *
+     * @param ListSimQuestionRequest $request
+     *
+     * @return ListSimQuestionResponse
      */
     public function listSimQuestion($request)
     {
@@ -3693,49 +4484,60 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary FAQ答案列表
-     *  *
-     * @param ListSolutionRequest $request ListSolutionRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * FAQ答案列表.
      *
-     * @return ListSolutionResponse ListSolutionResponse
+     * @param request - ListSolutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSolutionResponse
+     *
+     * @param ListSolutionRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListSolutionResponse
      */
     public function listSolutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->knowledgeId)) {
-            $body['KnowledgeId'] = $request->knowledgeId;
+        if (null !== $request->knowledgeId) {
+            @$body['KnowledgeId'] = $request->knowledgeId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListSolution',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSolution',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSolutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary FAQ答案列表
-     *  *
-     * @param ListSolutionRequest $request ListSolutionRequest
+     * FAQ答案列表.
      *
-     * @return ListSolutionResponse ListSolutionResponse
+     * @param request - ListSolutionRequest
+     *
+     * @returns ListSolutionResponse
+     *
+     * @param ListSolutionRequest $request
+     *
+     * @return ListSolutionResponse
      */
     public function listSolution($request)
     {
@@ -3745,56 +4547,70 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary Tongyi对话明细查询接口
-     *  *
-     * @param ListTongyiChatHistorysRequest $request ListTongyiChatHistorysRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Tongyi对话明细查询接口.
      *
-     * @return ListTongyiChatHistorysResponse ListTongyiChatHistorysResponse
+     * @param request - ListTongyiChatHistorysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTongyiChatHistorysResponse
+     *
+     * @param ListTongyiChatHistorysRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListTongyiChatHistorysResponse
      */
     public function listTongyiChatHistorysWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->robotInstanceId)) {
-            $query['RobotInstanceId'] = $request->robotInstanceId;
+
+        if (null !== $request->robotInstanceId) {
+            @$query['RobotInstanceId'] = $request->robotInstanceId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTongyiChatHistorys',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTongyiChatHistorys',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTongyiChatHistorysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Tongyi对话明细查询接口
-     *  *
-     * @param ListTongyiChatHistorysRequest $request ListTongyiChatHistorysRequest
+     * Tongyi对话明细查询接口.
      *
-     * @return ListTongyiChatHistorysResponse ListTongyiChatHistorysResponse
+     * @param request - ListTongyiChatHistorysRequest
+     *
+     * @returns ListTongyiChatHistorysResponse
+     *
+     * @param ListTongyiChatHistorysRequest $request
+     *
+     * @return ListTongyiChatHistorysResponse
      */
     public function listTongyiChatHistorys($request)
     {
@@ -3804,50 +4620,62 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 查询通义晓蜜的单个会话对话记录
-     *  *
-     * @param ListTongyiConversationLogsRequest $request ListTongyiConversationLogsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 查询通义晓蜜的单个会话对话记录.
      *
-     * @return ListTongyiConversationLogsResponse ListTongyiConversationLogsResponse
+     * @param request - ListTongyiConversationLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTongyiConversationLogsResponse
+     *
+     * @param ListTongyiConversationLogsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListTongyiConversationLogsResponse
      */
     public function listTongyiConversationLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->robotInstanceId)) {
-            $query['RobotInstanceId'] = $request->robotInstanceId;
+
+        if (null !== $request->robotInstanceId) {
+            @$query['RobotInstanceId'] = $request->robotInstanceId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTongyiConversationLogs',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTongyiConversationLogs',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTongyiConversationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询通义晓蜜的单个会话对话记录
-     *  *
-     * @param ListTongyiConversationLogsRequest $request ListTongyiConversationLogsRequest
+     * 查询通义晓蜜的单个会话对话记录.
      *
-     * @return ListTongyiConversationLogsResponse ListTongyiConversationLogsResponse
+     * @param request - ListTongyiConversationLogsRequest
+     *
+     * @returns ListTongyiConversationLogsResponse
+     *
+     * @param ListTongyiConversationLogsRequest $request
+     *
+     * @return ListTongyiConversationLogsResponse
      */
     public function listTongyiConversationLogs($request)
     {
@@ -3857,59 +4685,74 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 话术-列表
-     *  *
-     * @param ListUserSayRequest $request ListUserSayRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 话术-列表.
      *
-     * @return ListUserSayResponse ListUserSayResponse
+     * @param request - ListUserSayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserSayResponse
+     *
+     * @param ListUserSayRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListUserSayResponse
      */
     public function listUserSayWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserSay',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserSay',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUserSayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 话术-列表
-     *  *
-     * @param ListUserSayRequest $request ListUserSayRequest
+     * 话术-列表.
      *
-     * @return ListUserSayResponse ListUserSayResponse
+     * @param request - ListUserSayRequest
+     *
+     * @returns ListUserSayResponse
+     *
+     * @param ListUserSayRequest $request
+     *
+     * @return ListUserSayResponse
      */
     public function listUserSay($request)
     {
@@ -3919,50 +4762,62 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 统一NLU接口
-     *  *
-     * @param NluRequest     $request NluRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 统一NLU接口.
      *
-     * @return NluResponse NluResponse
+     * @param request - NluRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns NluResponse
+     *
+     * @param NluRequest     $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return NluResponse
      */
     public function nluWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->utterance)) {
-            $query['Utterance'] = $request->utterance;
+
+        if (null !== $request->utterance) {
+            @$query['Utterance'] = $request->utterance;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Nlu',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Nlu',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return NluResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 统一NLU接口
-     *  *
-     * @param NluRequest $request NluRequest
+     * 统一NLU接口.
      *
-     * @return NluResponse NluResponse
+     * @param request - NluRequest
+     *
+     * @returns NluResponse
+     *
+     * @param NluRequest $request
+     *
+     * @return NluResponse
      */
     public function nlu($request)
     {
@@ -3972,44 +4827,54 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 视角-列表
-     *  *
-     * @param QueryPerspectivesRequest $request QueryPerspectivesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 视角-列表.
      *
-     * @return QueryPerspectivesResponse QueryPerspectivesResponse
+     * @param request - QueryPerspectivesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPerspectivesResponse
+     *
+     * @param QueryPerspectivesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryPerspectivesResponse
      */
     public function queryPerspectivesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryPerspectives',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPerspectives',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryPerspectivesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 视角-列表
-     *  *
-     * @param QueryPerspectivesRequest $request QueryPerspectivesRequest
+     * 视角-列表.
      *
-     * @return QueryPerspectivesResponse QueryPerspectivesResponse
+     * @param request - QueryPerspectivesRequest
+     *
+     * @returns QueryPerspectivesResponse
+     *
+     * @param QueryPerspectivesRequest $request
+     *
+     * @return QueryPerspectivesResponse
      */
     public function queryPerspectives($request)
     {
@@ -4019,47 +4884,58 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 文档重试
-     *  *
-     * @param RetryDocRequest $request RetryDocRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 文档重试.
      *
-     * @return RetryDocResponse RetryDocResponse
+     * @param request - RetryDocRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RetryDocResponse
+     *
+     * @param RetryDocRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return RetryDocResponse
      */
     public function retryDocWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->knowledgeId)) {
-            $query['KnowledgeId'] = $request->knowledgeId;
+
+        if (null !== $request->knowledgeId) {
+            @$query['KnowledgeId'] = $request->knowledgeId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RetryDoc',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RetryDoc',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RetryDocResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 文档重试
-     *  *
-     * @param RetryDocRequest $request RetryDocRequest
+     * 文档重试.
      *
-     * @return RetryDocResponse RetryDocResponse
+     * @param request - RetryDocRequest
+     *
+     * @returns RetryDocResponse
+     *
+     * @param RetryDocRequest $request
+     *
+     * @return RetryDocResponse
      */
     public function retryDoc($request)
     {
@@ -4069,106 +4945,136 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 文档搜索
-     *  *
-     * @param SearchDocRequest $tmpReq  SearchDocRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 文档搜索.
      *
-     * @return SearchDocResponse SearchDocResponse
+     * @param tmpReq - SearchDocRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchDocResponse
+     *
+     * @param SearchDocRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return SearchDocResponse
      */
     public function searchDocWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SearchDocShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->categoryIds)) {
-            $request->categoryIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->categoryIds) {
+            $request->categoryIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tagIds)) {
-            $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
+
+        if (null !== $tmpReq->tagIds) {
+            $request->tagIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->categoryIdsShrink)) {
-            $query['CategoryIds'] = $request->categoryIdsShrink;
+
+        if (null !== $request->categoryIdsShrink) {
+            @$query['CategoryIds'] = $request->categoryIdsShrink;
         }
-        if (!Utils::isUnset($request->createTimeBegin)) {
-            $query['CreateTimeBegin'] = $request->createTimeBegin;
+
+        if (null !== $request->createTimeBegin) {
+            @$query['CreateTimeBegin'] = $request->createTimeBegin;
         }
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            $query['CreateTimeEnd'] = $request->createTimeEnd;
+
+        if (null !== $request->createTimeEnd) {
+            @$query['CreateTimeEnd'] = $request->createTimeEnd;
         }
-        if (!Utils::isUnset($request->createUserName)) {
-            $query['CreateUserName'] = $request->createUserName;
+
+        if (null !== $request->createUserName) {
+            @$query['CreateUserName'] = $request->createUserName;
         }
-        if (!Utils::isUnset($request->endTimeBegin)) {
-            $query['EndTimeBegin'] = $request->endTimeBegin;
+
+        if (null !== $request->endTimeBegin) {
+            @$query['EndTimeBegin'] = $request->endTimeBegin;
         }
-        if (!Utils::isUnset($request->endTimeEnd)) {
-            $query['EndTimeEnd'] = $request->endTimeEnd;
+
+        if (null !== $request->endTimeEnd) {
+            @$query['EndTimeEnd'] = $request->endTimeEnd;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->modifyTimeBegin)) {
-            $query['ModifyTimeBegin'] = $request->modifyTimeBegin;
+
+        if (null !== $request->modifyTimeBegin) {
+            @$query['ModifyTimeBegin'] = $request->modifyTimeBegin;
         }
-        if (!Utils::isUnset($request->modifyTimeEnd)) {
-            $query['ModifyTimeEnd'] = $request->modifyTimeEnd;
+
+        if (null !== $request->modifyTimeEnd) {
+            @$query['ModifyTimeEnd'] = $request->modifyTimeEnd;
         }
-        if (!Utils::isUnset($request->modifyUserName)) {
-            $query['ModifyUserName'] = $request->modifyUserName;
+
+        if (null !== $request->modifyUserName) {
+            @$query['ModifyUserName'] = $request->modifyUserName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->processStatus)) {
-            $query['ProcessStatus'] = $request->processStatus;
+
+        if (null !== $request->processStatus) {
+            @$query['ProcessStatus'] = $request->processStatus;
         }
-        if (!Utils::isUnset($request->searchScope)) {
-            $query['SearchScope'] = $request->searchScope;
+
+        if (null !== $request->searchScope) {
+            @$query['SearchScope'] = $request->searchScope;
         }
-        if (!Utils::isUnset($request->startTimeBegin)) {
-            $query['StartTimeBegin'] = $request->startTimeBegin;
+
+        if (null !== $request->startTimeBegin) {
+            @$query['StartTimeBegin'] = $request->startTimeBegin;
         }
-        if (!Utils::isUnset($request->startTimeEnd)) {
-            $query['StartTimeEnd'] = $request->startTimeEnd;
+
+        if (null !== $request->startTimeEnd) {
+            @$query['StartTimeEnd'] = $request->startTimeEnd;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tagIdsShrink)) {
-            $query['TagIds'] = $request->tagIdsShrink;
+
+        if (null !== $request->tagIdsShrink) {
+            @$query['TagIds'] = $request->tagIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchDoc',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchDoc',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchDocResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 文档搜索
-     *  *
-     * @param SearchDocRequest $request SearchDocRequest
+     * 文档搜索.
      *
-     * @return SearchDocResponse SearchDocResponse
+     * @param request - SearchDocRequest
+     *
+     * @returns SearchDocResponse
+     *
+     * @param SearchDocRequest $request
+     *
+     * @return SearchDocResponse
      */
     public function searchDoc($request)
     {
@@ -4178,99 +5084,126 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 知识搜索
-     *  *
-     * @param SearchFaqRequest $tmpReq  SearchFaqRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 知识搜索.
      *
-     * @return SearchFaqResponse SearchFaqResponse
+     * @param tmpReq - SearchFaqRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchFaqResponse
+     *
+     * @param SearchFaqRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return SearchFaqResponse
      */
     public function searchFaqWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SearchFaqShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->categoryIds)) {
-            $request->categoryIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->categoryIds) {
+            $request->categoryIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->categoryIdsShrink)) {
-            $body['CategoryIds'] = $request->categoryIdsShrink;
+        if (null !== $request->categoryIdsShrink) {
+            @$body['CategoryIds'] = $request->categoryIdsShrink;
         }
-        if (!Utils::isUnset($request->createTimeBegin)) {
-            $body['CreateTimeBegin'] = $request->createTimeBegin;
+
+        if (null !== $request->createTimeBegin) {
+            @$body['CreateTimeBegin'] = $request->createTimeBegin;
         }
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            $body['CreateTimeEnd'] = $request->createTimeEnd;
+
+        if (null !== $request->createTimeEnd) {
+            @$body['CreateTimeEnd'] = $request->createTimeEnd;
         }
-        if (!Utils::isUnset($request->createUserName)) {
-            $body['CreateUserName'] = $request->createUserName;
+
+        if (null !== $request->createUserName) {
+            @$body['CreateUserName'] = $request->createUserName;
         }
-        if (!Utils::isUnset($request->endTimeBegin)) {
-            $body['EndTimeBegin'] = $request->endTimeBegin;
+
+        if (null !== $request->endTimeBegin) {
+            @$body['EndTimeBegin'] = $request->endTimeBegin;
         }
-        if (!Utils::isUnset($request->endTimeEnd)) {
-            $body['EndTimeEnd'] = $request->endTimeEnd;
+
+        if (null !== $request->endTimeEnd) {
+            @$body['EndTimeEnd'] = $request->endTimeEnd;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $body['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->modifyTimeBegin)) {
-            $body['ModifyTimeBegin'] = $request->modifyTimeBegin;
+
+        if (null !== $request->modifyTimeBegin) {
+            @$body['ModifyTimeBegin'] = $request->modifyTimeBegin;
         }
-        if (!Utils::isUnset($request->modifyTimeEnd)) {
-            $body['ModifyTimeEnd'] = $request->modifyTimeEnd;
+
+        if (null !== $request->modifyTimeEnd) {
+            @$body['ModifyTimeEnd'] = $request->modifyTimeEnd;
         }
-        if (!Utils::isUnset($request->modifyUserName)) {
-            $body['ModifyUserName'] = $request->modifyUserName;
+
+        if (null !== $request->modifyUserName) {
+            @$body['ModifyUserName'] = $request->modifyUserName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchScope)) {
-            $body['SearchScope'] = $request->searchScope;
+
+        if (null !== $request->searchScope) {
+            @$body['SearchScope'] = $request->searchScope;
         }
-        if (!Utils::isUnset($request->startTimeBegin)) {
-            $body['StartTimeBegin'] = $request->startTimeBegin;
+
+        if (null !== $request->startTimeBegin) {
+            @$body['StartTimeBegin'] = $request->startTimeBegin;
         }
-        if (!Utils::isUnset($request->startTimeEnd)) {
-            $body['StartTimeEnd'] = $request->startTimeEnd;
+
+        if (null !== $request->startTimeEnd) {
+            @$body['StartTimeEnd'] = $request->startTimeEnd;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchFaq',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchFaq',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchFaqResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 知识搜索
-     *  *
-     * @param SearchFaqRequest $request SearchFaqRequest
+     * 知识搜索.
      *
-     * @return SearchFaqResponse SearchFaqResponse
+     * @param request - SearchFaqRequest
+     *
+     * @returns SearchFaqResponse
+     *
+     * @param SearchFaqRequest $request
+     *
+     * @return SearchFaqResponse
      */
     public function searchFaq($request)
     {
@@ -4280,55 +5213,133 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 编辑类目
-     *  *
-     * @param UpdateCategoryRequest $request UpdateCategoryRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 大模型问答调试信息.
      *
-     * @return UpdateCategoryResponse UpdateCategoryResponse
+     * @param request - TongyiChatDebugInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TongyiChatDebugInfoResponse
+     *
+     * @param TongyiChatDebugInfoRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return TongyiChatDebugInfoResponse
+     */
+    public function tongyiChatDebugInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->messageId) {
+            @$query['MessageId'] = $request->messageId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TongyiChatDebugInfo',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TongyiChatDebugInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 大模型问答调试信息.
+     *
+     * @param request - TongyiChatDebugInfoRequest
+     *
+     * @returns TongyiChatDebugInfoResponse
+     *
+     * @param TongyiChatDebugInfoRequest $request
+     *
+     * @return TongyiChatDebugInfoResponse
+     */
+    public function tongyiChatDebugInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tongyiChatDebugInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 编辑类目.
+     *
+     * @param request - UpdateCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCategoryResponse
+     *
+     * @param UpdateCategoryRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateCategoryResponse
      */
     public function updateCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->bizCode)) {
-            $body['BizCode'] = $request->bizCode;
+        if (null !== $request->bizCode) {
+            @$body['BizCode'] = $request->bizCode;
         }
-        if (!Utils::isUnset($request->categoryId)) {
-            $body['CategoryId'] = $request->categoryId;
+
+        if (null !== $request->categoryId) {
+            @$body['CategoryId'] = $request->categoryId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCategory',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCategory',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑类目
-     *  *
-     * @param UpdateCategoryRequest $request UpdateCategoryRequest
+     * 编辑类目.
      *
-     * @return UpdateCategoryResponse UpdateCategoryResponse
+     * @param request - UpdateCategoryRequest
+     *
+     * @returns UpdateCategoryResponse
+     *
+     * @param UpdateCategoryRequest $request
+     *
+     * @return UpdateCategoryResponse
      */
     public function updateCategory($request)
     {
@@ -4338,52 +5349,64 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 更新FAQ关联问
-     *  *
-     * @param UpdateConnQuestionRequest $request UpdateConnQuestionRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 更新FAQ关联问.
      *
-     * @return UpdateConnQuestionResponse UpdateConnQuestionResponse
+     * @param request - UpdateConnQuestionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConnQuestionResponse
+     *
+     * @param UpdateConnQuestionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateConnQuestionResponse
      */
     public function updateConnQuestionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->connQuestionId)) {
-            $body['ConnQuestionId'] = $request->connQuestionId;
+        if (null !== $request->connQuestionId) {
+            @$body['ConnQuestionId'] = $request->connQuestionId;
         }
-        if (!Utils::isUnset($request->outlineId)) {
-            $body['OutlineId'] = $request->outlineId;
+
+        if (null !== $request->outlineId) {
+            @$body['OutlineId'] = $request->outlineId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateConnQuestion',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateConnQuestion',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateConnQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新FAQ关联问
-     *  *
-     * @param UpdateConnQuestionRequest $request UpdateConnQuestionRequest
+     * 更新FAQ关联问.
      *
-     * @return UpdateConnQuestionResponse UpdateConnQuestionResponse
+     * @param request - UpdateConnQuestionRequest
+     *
+     * @returns UpdateConnQuestionResponse
+     *
+     * @param UpdateConnQuestionRequest $request
+     *
+     * @return UpdateConnQuestionResponse
      */
     public function updateConnQuestion($request)
     {
@@ -4393,56 +5416,70 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 实体-更新
-     *  *
-     * @param UpdateDSEntityRequest $request UpdateDSEntityRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 实体-更新.
      *
-     * @return UpdateDSEntityResponse UpdateDSEntityResponse
+     * @param request - UpdateDSEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDSEntityResponse
+     *
+     * @param UpdateDSEntityRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateDSEntityResponse
      */
     public function updateDSEntityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->entityId)) {
-            $query['EntityId'] = $request->entityId;
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->entityName)) {
-            $query['EntityName'] = $request->entityName;
+
+        if (null !== $request->entityName) {
+            @$query['EntityName'] = $request->entityName;
         }
-        if (!Utils::isUnset($request->entityType)) {
-            $query['EntityType'] = $request->entityType;
+
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDSEntity',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDSEntity',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDSEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 实体-更新
-     *  *
-     * @param UpdateDSEntityRequest $request UpdateDSEntityRequest
+     * 实体-更新.
      *
-     * @return UpdateDSEntityResponse UpdateDSEntityResponse
+     * @param request - UpdateDSEntityRequest
+     *
+     * @returns UpdateDSEntityResponse
+     *
+     * @param UpdateDSEntityRequest $request
+     *
+     * @return UpdateDSEntityResponse
      */
     public function updateDSEntity($request)
     {
@@ -4452,66 +5489,82 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 实体成员-更新
-     *  *
-     * @param UpdateDSEntityValueRequest $tmpReq  UpdateDSEntityValueRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 实体成员-更新.
      *
-     * @return UpdateDSEntityValueResponse UpdateDSEntityValueResponse
+     * @param tmpReq - UpdateDSEntityValueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDSEntityValueResponse
+     *
+     * @param UpdateDSEntityValueRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateDSEntityValueResponse
      */
     public function updateDSEntityValueWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDSEntityValueShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->synonyms)) {
-            $request->synonymsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->synonyms, 'Synonyms', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->synonyms) {
+            $request->synonymsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->synonyms, 'Synonyms', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->entityId)) {
-            $query['EntityId'] = $request->entityId;
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->entityValueId)) {
-            $query['EntityValueId'] = $request->entityValueId;
+
+        if (null !== $request->entityValueId) {
+            @$query['EntityValueId'] = $request->entityValueId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->synonymsShrink)) {
-            $body['Synonyms'] = $request->synonymsShrink;
+        if (null !== $request->synonymsShrink) {
+            @$body['Synonyms'] = $request->synonymsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDSEntityValue',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDSEntityValue',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDSEntityValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 实体成员-更新
-     *  *
-     * @param UpdateDSEntityValueRequest $request UpdateDSEntityValueRequest
+     * 实体成员-更新.
      *
-     * @return UpdateDSEntityValueResponse UpdateDSEntityValueResponse
+     * @param request - UpdateDSEntityValueRequest
+     *
+     * @returns UpdateDSEntityValueResponse
+     *
+     * @param UpdateDSEntityValueRequest $request
+     *
+     * @return UpdateDSEntityValueResponse
      */
     public function updateDSEntityValue($request)
     {
@@ -4521,85 +5574,108 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 文档变更
-     *  *
-     * @param UpdateDocRequest $tmpReq  UpdateDocRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 文档变更.
      *
-     * @return UpdateDocResponse UpdateDocResponse
+     * @param tmpReq - UpdateDocRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDocResponse
+     *
+     * @param UpdateDocRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateDocResponse
      */
     public function updateDocWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDocShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->docMetadata)) {
-            $request->docMetadataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docMetadata, 'DocMetadata', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->docMetadata) {
+            $request->docMetadataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docMetadata, 'DocMetadata', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tagIds)) {
-            $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
+
+        if (null !== $tmpReq->tagIds) {
+            $request->tagIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->categoryId)) {
-            $query['CategoryId'] = $request->categoryId;
+
+        if (null !== $request->categoryId) {
+            @$query['CategoryId'] = $request->categoryId;
         }
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->docMetadataShrink)) {
-            $query['DocMetadata'] = $request->docMetadataShrink;
+
+        if (null !== $request->docMetadataShrink) {
+            @$query['DocMetadata'] = $request->docMetadataShrink;
         }
-        if (!Utils::isUnset($request->docName)) {
-            $query['DocName'] = $request->docName;
+
+        if (null !== $request->docName) {
+            @$query['DocName'] = $request->docName;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->knowledgeId)) {
-            $query['KnowledgeId'] = $request->knowledgeId;
+
+        if (null !== $request->knowledgeId) {
+            @$query['KnowledgeId'] = $request->knowledgeId;
         }
-        if (!Utils::isUnset($request->meta)) {
-            $query['Meta'] = $request->meta;
+
+        if (null !== $request->meta) {
+            @$query['Meta'] = $request->meta;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->tagIdsShrink)) {
-            $query['TagIds'] = $request->tagIdsShrink;
+
+        if (null !== $request->tagIdsShrink) {
+            @$query['TagIds'] = $request->tagIdsShrink;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDoc',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDoc',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDocResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 文档变更
-     *  *
-     * @param UpdateDocRequest $request UpdateDocRequest
+     * 文档变更.
      *
-     * @return UpdateDocResponse UpdateDocResponse
+     * @param request - UpdateDocRequest
+     *
+     * @returns UpdateDocResponse
+     *
+     * @param UpdateDocRequest $request
+     *
+     * @return UpdateDocResponse
      */
     public function updateDoc($request)
     {
@@ -4609,61 +5685,76 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 更新FAQ
-     *  *
-     * @param UpdateFaqRequest $request UpdateFaqRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 更新FAQ.
      *
-     * @return UpdateFaqResponse UpdateFaqResponse
+     * @param request - UpdateFaqRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFaqResponse
+     *
+     * @param UpdateFaqRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateFaqResponse
      */
     public function updateFaqWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            $body['CategoryId'] = $request->categoryId;
+        if (null !== $request->categoryId) {
+            @$body['CategoryId'] = $request->categoryId;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $body['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->knowledgeId)) {
-            $body['KnowledgeId'] = $request->knowledgeId;
+
+        if (null !== $request->knowledgeId) {
+            @$body['KnowledgeId'] = $request->knowledgeId;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFaq',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateFaq',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateFaqResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新FAQ
-     *  *
-     * @param UpdateFaqRequest $request UpdateFaqRequest
+     * 更新FAQ.
      *
-     * @return UpdateFaqResponse UpdateFaqResponse
+     * @param request - UpdateFaqRequest
+     *
+     * @returns UpdateFaqResponse
+     *
+     * @param UpdateFaqRequest $request
+     *
+     * @return UpdateFaqResponse
      */
     public function updateFaq($request)
     {
@@ -4673,53 +5764,66 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 机器人-修改
-     *  *
-     * @param UpdateInstanceRequest $request UpdateInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 机器人-修改.
      *
-     * @return UpdateInstanceResponse UpdateInstanceResponse
+     * @param request - UpdateInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceResponse
+     *
+     * @param UpdateInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateInstanceResponse
      */
     public function updateInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->introduction)) {
-            $query['Introduction'] = $request->introduction;
+
+        if (null !== $request->introduction) {
+            @$query['Introduction'] = $request->introduction;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstance',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateInstance',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机器人-修改
-     *  *
-     * @param UpdateInstanceRequest $request UpdateInstanceRequest
+     * 机器人-修改.
      *
-     * @return UpdateInstanceResponse UpdateInstanceResponse
+     * @param request - UpdateInstanceRequest
+     *
+     * @returns UpdateInstanceResponse
+     *
+     * @param UpdateInstanceRequest $request
+     *
+     * @return UpdateInstanceResponse
      */
     public function updateInstance($request)
     {
@@ -4729,58 +5833,72 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 意图-更新
-     *  *
-     * @param UpdateIntentRequest $tmpReq  UpdateIntentRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 意图-更新.
      *
-     * @return UpdateIntentResponse UpdateIntentResponse
+     * @param tmpReq - UpdateIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateIntentResponse
+     *
+     * @param UpdateIntentRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateIntentResponse
      */
     public function updateIntentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateIntentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->intentDefinition)) {
-            $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->intentDefinition, 'IntentDefinition', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->intentDefinition) {
+            $request->intentDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->intentDefinition, 'IntentDefinition', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentDefinitionShrink)) {
-            $query['IntentDefinition'] = $request->intentDefinitionShrink;
+
+        if (null !== $request->intentDefinitionShrink) {
+            @$query['IntentDefinition'] = $request->intentDefinitionShrink;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateIntent',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateIntent',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateIntentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 意图-更新
-     *  *
-     * @param UpdateIntentRequest $request UpdateIntentRequest
+     * 意图-更新.
      *
-     * @return UpdateIntentResponse UpdateIntentResponse
+     * @param request - UpdateIntentRequest
+     *
+     * @returns UpdateIntentResponse
+     *
+     * @param UpdateIntentRequest $request
+     *
+     * @return UpdateIntentResponse
      */
     public function updateIntent($request)
     {
@@ -4790,58 +5908,72 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 意图-LGF-更新
-     *  *
-     * @param UpdateLgfRequest $tmpReq  UpdateLgfRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 意图-LGF-更新.
      *
-     * @return UpdateLgfResponse UpdateLgfResponse
+     * @param tmpReq - UpdateLgfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLgfResponse
+     *
+     * @param UpdateLgfRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateLgfResponse
      */
     public function updateLgfWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateLgfShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->lgfDefinition)) {
-            $request->lgfDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lgfDefinition, 'LgfDefinition', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->lgfDefinition) {
+            $request->lgfDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->lgfDefinition, 'LgfDefinition', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lgfDefinitionShrink)) {
-            $query['LgfDefinition'] = $request->lgfDefinitionShrink;
+
+        if (null !== $request->lgfDefinitionShrink) {
+            @$query['LgfDefinition'] = $request->lgfDefinitionShrink;
         }
-        if (!Utils::isUnset($request->lgfId)) {
-            $query['LgfId'] = $request->lgfId;
+
+        if (null !== $request->lgfId) {
+            @$query['LgfId'] = $request->lgfId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLgf',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateLgf',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateLgfResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 意图-LGF-更新
-     *  *
-     * @param UpdateLgfRequest $request UpdateLgfRequest
+     * 意图-LGF-更新.
      *
-     * @return UpdateLgfResponse UpdateLgfResponse
+     * @param request - UpdateLgfRequest
+     *
+     * @returns UpdateLgfResponse
+     *
+     * @param UpdateLgfRequest $request
+     *
+     * @return UpdateLgfResponse
      */
     public function updateLgf($request)
     {
@@ -4851,50 +5983,62 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 视角-修改
-     *  *
-     * @param UpdatePerspectiveRequest $request UpdatePerspectiveRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 视角-修改.
      *
-     * @return UpdatePerspectiveResponse UpdatePerspectiveResponse
+     * @param request - UpdatePerspectiveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePerspectiveResponse
+     *
+     * @param UpdatePerspectiveRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdatePerspectiveResponse
      */
     public function updatePerspectiveWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->perspectiveId)) {
-            $query['PerspectiveId'] = $request->perspectiveId;
+
+        if (null !== $request->perspectiveId) {
+            @$query['PerspectiveId'] = $request->perspectiveId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePerspective',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePerspective',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdatePerspectiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 视角-修改
-     *  *
-     * @param UpdatePerspectiveRequest $request UpdatePerspectiveRequest
+     * 视角-修改.
      *
-     * @return UpdatePerspectiveResponse UpdatePerspectiveResponse
+     * @param request - UpdatePerspectiveRequest
+     *
+     * @returns UpdatePerspectiveResponse
+     *
+     * @param UpdatePerspectiveRequest $request
+     *
+     * @return UpdatePerspectiveResponse
      */
     public function updatePerspective($request)
     {
@@ -4904,52 +6048,64 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 更新FAQ相似问
-     *  *
-     * @param UpdateSimQuestionRequest $request UpdateSimQuestionRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 更新FAQ相似问.
      *
-     * @return UpdateSimQuestionResponse UpdateSimQuestionResponse
+     * @param request - UpdateSimQuestionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSimQuestionResponse
+     *
+     * @param UpdateSimQuestionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateSimQuestionResponse
      */
     public function updateSimQuestionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->simQuestionId)) {
-            $body['SimQuestionId'] = $request->simQuestionId;
+        if (null !== $request->simQuestionId) {
+            @$body['SimQuestionId'] = $request->simQuestionId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSimQuestion',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSimQuestion',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateSimQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新FAQ相似问
-     *  *
-     * @param UpdateSimQuestionRequest $request UpdateSimQuestionRequest
+     * 更新FAQ相似问.
      *
-     * @return UpdateSimQuestionResponse UpdateSimQuestionResponse
+     * @param request - UpdateSimQuestionRequest
+     *
+     * @returns UpdateSimQuestionResponse
+     *
+     * @param UpdateSimQuestionRequest $request
+     *
+     * @return UpdateSimQuestionResponse
      */
     public function updateSimQuestion($request)
     {
@@ -4959,58 +6115,72 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 更新FAQ答案
-     *  *
-     * @param UpdateSolutionRequest $request UpdateSolutionRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 更新FAQ答案.
      *
-     * @return UpdateSolutionResponse UpdateSolutionResponse
+     * @param request - UpdateSolutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSolutionResponse
+     *
+     * @param UpdateSolutionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateSolutionResponse
      */
     public function updateSolutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->contentType)) {
-            $body['ContentType'] = $request->contentType;
+
+        if (null !== $request->contentType) {
+            @$body['ContentType'] = $request->contentType;
         }
-        if (!Utils::isUnset($request->perspectiveCodes)) {
-            $body['PerspectiveCodes'] = $request->perspectiveCodes;
+
+        if (null !== $request->perspectiveCodes) {
+            @$body['PerspectiveCodes'] = $request->perspectiveCodes;
         }
-        if (!Utils::isUnset($request->solutionId)) {
-            $body['SolutionId'] = $request->solutionId;
+
+        if (null !== $request->solutionId) {
+            @$body['SolutionId'] = $request->solutionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSolution',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSolution',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateSolutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新FAQ答案
-     *  *
-     * @param UpdateSolutionRequest $request UpdateSolutionRequest
+     * 更新FAQ答案.
      *
-     * @return UpdateSolutionResponse UpdateSolutionResponse
+     * @param request - UpdateSolutionRequest
+     *
+     * @returns UpdateSolutionResponse
+     *
+     * @param UpdateSolutionRequest $request
+     *
+     * @return UpdateSolutionResponse
      */
     public function updateSolution($request)
     {
@@ -5020,58 +6190,72 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @summary 意图-话术-更新
-     *  *
-     * @param UpdateUserSayRequest $tmpReq  UpdateUserSayRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 意图-话术-更新.
      *
-     * @return UpdateUserSayResponse UpdateUserSayResponse
+     * @param tmpReq - UpdateUserSayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUserSayResponse
+     *
+     * @param UpdateUserSayRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateUserSayResponse
      */
     public function updateUserSayWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateUserSayShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userSayDefinition)) {
-            $request->userSayDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userSayDefinition, 'UserSayDefinition', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userSayDefinition) {
+            $request->userSayDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userSayDefinition, 'UserSayDefinition', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->userSayDefinitionShrink)) {
-            $query['UserSayDefinition'] = $request->userSayDefinitionShrink;
+
+        if (null !== $request->userSayDefinitionShrink) {
+            @$query['UserSayDefinition'] = $request->userSayDefinitionShrink;
         }
-        if (!Utils::isUnset($request->userSayId)) {
-            $query['UserSayId'] = $request->userSayId;
+
+        if (null !== $request->userSayId) {
+            @$query['UserSayId'] = $request->userSayId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUserSay',
-            'version'     => '2022-04-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUserSay',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateUserSayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 意图-话术-更新
-     *  *
-     * @param UpdateUserSayRequest $request UpdateUserSayRequest
+     * 意图-话术-更新.
      *
-     * @return UpdateUserSayResponse UpdateUserSayResponse
+     * @param request - UpdateUserSayRequest
+     *
+     * @returns UpdateUserSayResponse
+     *
+     * @param UpdateUserSayRequest $request
+     *
+     * @return UpdateUserSayResponse
      */
     public function updateUserSay($request)
     {

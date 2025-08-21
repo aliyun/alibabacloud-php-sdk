@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateCategoryResponseBody\category;
-use AlibabaCloud\Tea\Model;
 
 class CreateCategoryResponseBody extends Model
 {
@@ -15,26 +15,29 @@ class CreateCategoryResponseBody extends Model
     public $category;
 
     /**
-     * @example A629A28F-F25E-5572-A679-FA46FB0151D6
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'category'  => 'Category',
+        'category' => 'Category',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->category) {
+            $this->category->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
-            $res['Category'] = null !== $this->category ? $this->category->toMap() : null;
+            $res['Category'] = null !== $this->category ? $this->category->toArray($noStream) : $this->category;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class CreateCategoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCategoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = category::fromMap($map['Category']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

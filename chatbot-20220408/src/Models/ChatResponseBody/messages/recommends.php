@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\ChatResponseBody\messages;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class recommends extends Model
 {
     /**
-     * @example KNOWLEDGE
-     *
      * @var string
      */
     public $answerSource;
 
     /**
-     * @example 4548
-     *
      * @var string
      */
     public $knowledgeId;
 
     /**
-     * @example 0.46
-     *
      * @var float
      */
     public $score;
@@ -35,27 +29,31 @@ class recommends extends Model
     public $title;
     protected $_name = [
         'answerSource' => 'AnswerSource',
-        'knowledgeId'  => 'KnowledgeId',
-        'score'        => 'Score',
-        'title'        => 'Title',
+        'knowledgeId' => 'KnowledgeId',
+        'score' => 'Score',
+        'title' => 'Title',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->answerSource) {
             $res['AnswerSource'] = $this->answerSource;
         }
+
         if (null !== $this->knowledgeId) {
             $res['KnowledgeId'] = $this->knowledgeId;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -63,23 +61,26 @@ class recommends extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recommends
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnswerSource'])) {
             $model->answerSource = $map['AnswerSource'];
         }
+
         if (isset($map['KnowledgeId'])) {
             $model->knowledgeId = $map['KnowledgeId'];
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

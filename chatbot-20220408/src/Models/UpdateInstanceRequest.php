@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateInstanceRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @example chatbot-cn-mp90s2lrk00050
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 用于C端问答的机器人
-     *
      * @var string
      */
     public $introduction;
 
     /**
-     * @example 智能客服-小C
-     *
      * @var string
      */
     public $name;
     protected $_name = [
-        'agentKey'     => 'AgentKey',
-        'instanceId'   => 'InstanceId',
+        'agentKey' => 'AgentKey',
+        'instanceId' => 'InstanceId',
         'introduction' => 'Introduction',
-        'name'         => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->introduction) {
             $res['Introduction'] = $this->introduction;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -65,23 +61,26 @@ class UpdateInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Introduction'])) {
             $model->introduction = $map['Introduction'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

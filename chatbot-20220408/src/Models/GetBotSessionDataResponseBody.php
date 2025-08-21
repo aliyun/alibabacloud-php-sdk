@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetBotSessionDataResponseBody extends Model
 {
     /**
-     * @example 116
-     *
      * @var string
      */
     public $costTime;
@@ -21,30 +19,46 @@ class GetBotSessionDataResponseBody extends Model
     public $datas;
 
     /**
-     * @example 15CD94CC-CBEB-4189-806C-A132D1F45D51
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'costTime'  => 'CostTime',
-        'datas'     => 'Datas',
+        'costTime' => 'CostTime',
+        'datas' => 'Datas',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->datas)) {
+            Model::validateArray($this->datas);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->costTime) {
             $res['CostTime'] = $this->costTime;
         }
+
         if (null !== $this->datas) {
-            $res['Datas'] = $this->datas;
+            if (\is_array($this->datas)) {
+                $res['Datas'] = [];
+                $n1 = 0;
+                foreach ($this->datas as $item1) {
+                    if (\is_array($item1)) {
+                        $res['Datas'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['Datas'][$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,22 +66,34 @@ class GetBotSessionDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetBotSessionDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostTime'])) {
             $model->costTime = $map['CostTime'];
         }
+
         if (isset($map['Datas'])) {
             if (!empty($map['Datas'])) {
-                $model->datas = $map['Datas'];
+                $model->datas = [];
+                $n1 = 0;
+                foreach ($map['Datas'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->datas[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->datas[$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDocRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDocRequest\docMetadata\metaCellInfoDTOList;
-use AlibabaCloud\Tea\Model;
 
 class docMetadata extends Model
 {
@@ -24,30 +24,37 @@ class docMetadata extends Model
      */
     public $metaCellInfoDTOList;
     protected $_name = [
-        'businessViewId'      => 'BusinessViewId',
-        'businessViewName'    => 'BusinessViewName',
+        'businessViewId' => 'BusinessViewId',
+        'businessViewName' => 'BusinessViewName',
         'metaCellInfoDTOList' => 'MetaCellInfoDTOList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->metaCellInfoDTOList)) {
+            Model::validateArray($this->metaCellInfoDTOList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->businessViewId) {
             $res['BusinessViewId'] = $this->businessViewId;
         }
+
         if (null !== $this->businessViewName) {
             $res['BusinessViewName'] = $this->businessViewName;
         }
+
         if (null !== $this->metaCellInfoDTOList) {
-            $res['MetaCellInfoDTOList'] = [];
-            if (null !== $this->metaCellInfoDTOList && \is_array($this->metaCellInfoDTOList)) {
-                $n = 0;
-                foreach ($this->metaCellInfoDTOList as $item) {
-                    $res['MetaCellInfoDTOList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->metaCellInfoDTOList)) {
+                $res['MetaCellInfoDTOList'] = [];
+                $n1 = 0;
+                foreach ($this->metaCellInfoDTOList as $item1) {
+                    $res['MetaCellInfoDTOList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -55,26 +62,29 @@ class docMetadata extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return docMetadata
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessViewId'])) {
             $model->businessViewId = $map['BusinessViewId'];
         }
+
         if (isset($map['BusinessViewName'])) {
             $model->businessViewName = $map['BusinessViewName'];
         }
+
         if (isset($map['MetaCellInfoDTOList'])) {
             if (!empty($map['MetaCellInfoDTOList'])) {
                 $model->metaCellInfoDTOList = [];
-                $n                          = 0;
-                foreach ($map['MetaCellInfoDTOList'] as $item) {
-                    $model->metaCellInfoDTOList[$n++] = null !== $item ? metaCellInfoDTOList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MetaCellInfoDTOList'] as $item1) {
+                    $model->metaCellInfoDTOList[$n1] = metaCellInfoDTOList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

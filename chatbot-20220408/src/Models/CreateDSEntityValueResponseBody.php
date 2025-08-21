@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDSEntityValueResponseBody extends Model
 {
     /**
-     * @example 2434543453
-     *
      * @var int
      */
     public $entityValueId;
 
     /**
-     * @example g763hg48j3f3
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'entityValueId' => 'EntityValueId',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entityValueId) {
             $res['EntityValueId'] = $this->entityValueId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class CreateDSEntityValueResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDSEntityValueResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntityValueId'])) {
             $model->entityValueId = $map['EntityValueId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateLgfShrinkRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example chatbot-cn-yjzbyrEvqd
-     *
      * @var string
      */
     public $instanceId;
@@ -29,24 +23,27 @@ class CreateLgfShrinkRequest extends Model
      */
     public $lgfDefinitionShrink;
     protected $_name = [
-        'agentKey'            => 'AgentKey',
-        'instanceId'          => 'InstanceId',
+        'agentKey' => 'AgentKey',
+        'instanceId' => 'InstanceId',
         'lgfDefinitionShrink' => 'LgfDefinition',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lgfDefinitionShrink) {
             $res['LgfDefinition'] = $this->lgfDefinitionShrink;
         }
@@ -54,20 +51,22 @@ class CreateLgfShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateLgfShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['LgfDefinition'])) {
             $model->lgfDefinitionShrink = $map['LgfDefinition'];
         }

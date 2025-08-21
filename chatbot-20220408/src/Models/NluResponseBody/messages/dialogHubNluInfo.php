@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\NluResponseBody\messages;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\NluResponseBody\messages\dialogHubNluInfo\globalDictList;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\NluResponseBody\messages\dialogHubNluInfo\globalSensitiveWordList;
-use AlibabaCloud\Tea\Model;
 
 class dialogHubNluInfo extends Model
 {
@@ -20,32 +20,42 @@ class dialogHubNluInfo extends Model
      */
     public $globalSensitiveWordList;
     protected $_name = [
-        'globalDictList'          => 'GlobalDictList',
+        'globalDictList' => 'GlobalDictList',
         'globalSensitiveWordList' => 'GlobalSensitiveWordList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->globalDictList)) {
+            Model::validateArray($this->globalDictList);
+        }
+        if (\is_array($this->globalSensitiveWordList)) {
+            Model::validateArray($this->globalSensitiveWordList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->globalDictList) {
-            $res['GlobalDictList'] = [];
-            if (null !== $this->globalDictList && \is_array($this->globalDictList)) {
-                $n = 0;
-                foreach ($this->globalDictList as $item) {
-                    $res['GlobalDictList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->globalDictList)) {
+                $res['GlobalDictList'] = [];
+                $n1 = 0;
+                foreach ($this->globalDictList as $item1) {
+                    $res['GlobalDictList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->globalSensitiveWordList) {
-            $res['GlobalSensitiveWordList'] = [];
-            if (null !== $this->globalSensitiveWordList && \is_array($this->globalSensitiveWordList)) {
-                $n = 0;
-                foreach ($this->globalSensitiveWordList as $item) {
-                    $res['GlobalSensitiveWordList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->globalSensitiveWordList)) {
+                $res['GlobalSensitiveWordList'] = [];
+                $n1 = 0;
+                foreach ($this->globalSensitiveWordList as $item1) {
+                    $res['GlobalSensitiveWordList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,29 +63,32 @@ class dialogHubNluInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dialogHubNluInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GlobalDictList'])) {
             if (!empty($map['GlobalDictList'])) {
                 $model->globalDictList = [];
-                $n                     = 0;
-                foreach ($map['GlobalDictList'] as $item) {
-                    $model->globalDictList[$n++] = null !== $item ? globalDictList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GlobalDictList'] as $item1) {
+                    $model->globalDictList[$n1] = globalDictList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['GlobalSensitiveWordList'])) {
             if (!empty($map['GlobalSensitiveWordList'])) {
                 $model->globalSensitiveWordList = [];
-                $n                              = 0;
-                foreach ($map['GlobalSensitiveWordList'] as $item) {
-                    $model->globalSensitiveWordList[$n++] = null !== $item ? globalSensitiveWordList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GlobalSensitiveWordList'] as $item1) {
+                    $model->globalSensitiveWordList[$n1] = globalSensitiveWordList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

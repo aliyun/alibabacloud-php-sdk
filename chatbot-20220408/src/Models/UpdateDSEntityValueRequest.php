@@ -4,47 +4,31 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDSEntityValueRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 223423423
-     *
      * @var int
      */
     public $entityId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2342377423
-     *
      * @var int
      */
     public $entityValueId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example chatbot-cn-yjzbyrEvqd
-     *
      * @var string
      */
     public $instanceId;
@@ -54,69 +38,95 @@ class UpdateDSEntityValueRequest extends Model
      */
     public $synonyms;
     protected $_name = [
-        'agentKey'      => 'AgentKey',
-        'content'       => 'Content',
-        'entityId'      => 'EntityId',
+        'agentKey' => 'AgentKey',
+        'content' => 'Content',
+        'entityId' => 'EntityId',
         'entityValueId' => 'EntityValueId',
-        'instanceId'    => 'InstanceId',
-        'synonyms'      => 'Synonyms',
+        'instanceId' => 'InstanceId',
+        'synonyms' => 'Synonyms',
     ];
 
     public function validate()
     {
+        if (\is_array($this->synonyms)) {
+            Model::validateArray($this->synonyms);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
+
         if (null !== $this->entityValueId) {
             $res['EntityValueId'] = $this->entityValueId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->synonyms) {
-            $res['Synonyms'] = $this->synonyms;
+            if (\is_array($this->synonyms)) {
+                $res['Synonyms'] = [];
+                $n1 = 0;
+                foreach ($this->synonyms as $item1) {
+                    $res['Synonyms'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDSEntityValueRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
+
         if (isset($map['EntityValueId'])) {
             $model->entityValueId = $map['EntityValueId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Synonyms'])) {
             if (!empty($map['Synonyms'])) {
-                $model->synonyms = $map['Synonyms'];
+                $model->synonyms = [];
+                $n1 = 0;
+                foreach ($map['Synonyms'] as $item1) {
+                    $model->synonyms[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

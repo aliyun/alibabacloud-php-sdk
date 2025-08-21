@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\NluResponseBody\messages;
-use AlibabaCloud\Tea\Model;
 
 class NluResponseBody extends Model
 {
     /**
-     * @example 2828708A-2C7A-1BAE-B810-87DB9DA9C661
-     *
      * @var string
      */
     public $messageId;
@@ -22,36 +20,41 @@ class NluResponseBody extends Model
     public $messages;
 
     /**
-     * @example A6357C1B-1D79-1382-B259-BD9E80751B42
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'messageId' => 'MessageId',
-        'messages'  => 'Messages',
+        'messages' => 'Messages',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->messageId) {
             $res['MessageId'] = $this->messageId;
         }
+
         if (null !== $this->messages) {
-            $res['Messages'] = [];
-            if (null !== $this->messages && \is_array($this->messages)) {
-                $n = 0;
-                foreach ($this->messages as $item) {
-                    $res['Messages'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->messages)) {
+                $res['Messages'] = [];
+                $n1 = 0;
+                foreach ($this->messages as $item1) {
+                    $res['Messages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,26 +62,29 @@ class NluResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return NluResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MessageId'])) {
             $model->messageId = $map['MessageId'];
         }
+
         if (isset($map['Messages'])) {
             if (!empty($map['Messages'])) {
                 $model->messages = [];
-                $n               = 0;
-                foreach ($map['Messages'] as $item) {
-                    $model->messages[$n++] = null !== $item ? messages::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Messages'] as $item1) {
+                    $model->messages[$n1] = messages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

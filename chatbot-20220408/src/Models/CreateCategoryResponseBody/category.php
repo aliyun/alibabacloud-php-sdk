@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateCategoryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class category extends Model
 {
@@ -14,8 +14,6 @@ class category extends Model
     public $bizCode;
 
     /**
-     * @example 30000049006
-     *
      * @var int
      */
     public $categoryId;
@@ -26,45 +24,46 @@ class category extends Model
     public $name;
 
     /**
-     * @example -1
-     *
      * @var int
      */
     public $parentCategoryId;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $status;
     protected $_name = [
-        'bizCode'          => 'BizCode',
-        'categoryId'       => 'CategoryId',
-        'name'             => 'Name',
+        'bizCode' => 'BizCode',
+        'categoryId' => 'CategoryId',
+        'name' => 'Name',
         'parentCategoryId' => 'ParentCategoryId',
-        'status'           => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
         }
+
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->parentCategoryId) {
             $res['ParentCategoryId'] = $this->parentCategoryId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -72,26 +71,30 @@ class category extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return category
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
         }
+
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ParentCategoryId'])) {
             $model->parentCategoryId = $map['ParentCategoryId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

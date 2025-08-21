@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LinkInstanceCategoryResponseBody extends Model
 {
     /**
-     * @example D8C96601-E645-1BD7-99F3-04EADAB84E29
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class LinkInstanceCategoryResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class LinkInstanceCategoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LinkInstanceCategoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RetryDocResponseBody extends Model
 {
     /**
-     * @example 30001905617
-     *
      * @var int
      */
     public $knowledgeId;
 
     /**
-     * @description Id of the request
-     *
-     * @example 6419BA93-D111-5225-8998-13E63E6D3940
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'knowledgeId' => 'KnowledgeId',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->knowledgeId) {
             $res['KnowledgeId'] = $this->knowledgeId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class RetryDocResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RetryDocResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KnowledgeId'])) {
             $model->knowledgeId = $map['KnowledgeId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

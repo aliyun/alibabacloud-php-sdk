@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPublishTaskStateRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @example 8521
-     *
      * @var int
      */
     public $id;
     protected $_name = [
         'agentKey' => 'AgentKey',
-        'id'       => 'Id',
+        'id' => 'Id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -43,17 +41,18 @@ class GetPublishTaskStateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPublishTaskStateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

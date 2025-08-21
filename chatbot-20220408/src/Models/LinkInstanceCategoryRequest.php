@@ -4,49 +4,56 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LinkInstanceCategoryRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
+     * @var string
+     */
+    public $abilityType;
+
+    /**
      * @var string
      */
     public $agentKey;
 
     /**
-     * @example [\\"30000065789\\"]
-     *
      * @var string
      */
     public $categoryIds;
 
     /**
-     * @example chatbot-cn-mp90s2lrk00050
-     *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'agentKey'    => 'AgentKey',
+        'abilityType' => 'AbilityType',
+        'agentKey' => 'AgentKey',
         'categoryIds' => 'CategoryIds',
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->abilityType) {
+            $res['AbilityType'] = $this->abilityType;
+        }
+
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->categoryIds) {
             $res['CategoryIds'] = $this->categoryIds;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -54,20 +61,26 @@ class LinkInstanceCategoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LinkInstanceCategoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AbilityType'])) {
+            $model->abilityType = $map['AbilityType'];
+        }
+
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['CategoryIds'])) {
             $model->categoryIds = $map['CategoryIds'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

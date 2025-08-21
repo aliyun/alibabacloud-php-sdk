@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePerspectiveResponseBody extends Model
 {
     /**
-     * @example 3001
-     *
      * @var string
      */
     public $perspectiveId;
 
     /**
-     * @example F285D735-D580-18A8-B97F-B2E72B00F101
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'perspectiveId' => 'PerspectiveId',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->perspectiveId) {
             $res['PerspectiveId'] = $this->perspectiveId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class CreatePerspectiveResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePerspectiveResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PerspectiveId'])) {
             $model->perspectiveId = $map['PerspectiveId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

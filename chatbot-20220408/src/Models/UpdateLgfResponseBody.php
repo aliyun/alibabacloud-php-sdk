@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateLgfResponseBody extends Model
 {
     /**
-     * @example 2342556223532
-     *
      * @var int
      */
     public $lgfId;
 
     /**
-     * @example 289dfa131adf23wqe2r
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'lgfId'     => 'LgfId',
+        'lgfId' => 'LgfId',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lgfId) {
             $res['LgfId'] = $this->lgfId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class UpdateLgfResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLgfResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LgfId'])) {
             $model->lgfId = $map['LgfId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

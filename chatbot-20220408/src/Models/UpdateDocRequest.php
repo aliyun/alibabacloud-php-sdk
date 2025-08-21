@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDocRequest\docMetadata;
-use AlibabaCloud\Tea\Model;
 
 class UpdateDocRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @example 231001028593
-     *
      * @var int
      */
     public $categoryId;
 
     /**
-     * @example {"Splitter":"treeSplitter","ChunkSize":500,"TreePatterns":["^# .*","^## .*","^### .*","^#### .*"],"TitleSource":""}
-     *
      * @var string
      */
     public $config;
@@ -46,31 +40,21 @@ class UpdateDocRequest extends Model
     public $docName;
 
     /**
-     * @example 2023-03-11T23:59:59Z
-     *
      * @var string
      */
     public $endDate;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001905617
-     *
      * @var int
      */
     public $knowledgeId;
 
     /**
-     * @example {"code":"xxx"}
-     *
      * @var string
      */
     public $meta;
 
     /**
-     * @example 2022-05-25T16:28:36Z
-     *
      * @var string
      */
     public $startDate;
@@ -85,66 +69,92 @@ class UpdateDocRequest extends Model
      */
     public $title;
     protected $_name = [
-        'agentKey'    => 'AgentKey',
-        'categoryId'  => 'CategoryId',
-        'config'      => 'Config',
-        'content'     => 'Content',
+        'agentKey' => 'AgentKey',
+        'categoryId' => 'CategoryId',
+        'config' => 'Config',
+        'content' => 'Content',
         'docMetadata' => 'DocMetadata',
-        'docName'     => 'DocName',
-        'endDate'     => 'EndDate',
+        'docName' => 'DocName',
+        'endDate' => 'EndDate',
         'knowledgeId' => 'KnowledgeId',
-        'meta'        => 'Meta',
-        'startDate'   => 'StartDate',
-        'tagIds'      => 'TagIds',
-        'title'       => 'Title',
+        'meta' => 'Meta',
+        'startDate' => 'StartDate',
+        'tagIds' => 'TagIds',
+        'title' => 'Title',
     ];
 
     public function validate()
     {
+        if (\is_array($this->docMetadata)) {
+            Model::validateArray($this->docMetadata);
+        }
+        if (\is_array($this->tagIds)) {
+            Model::validateArray($this->tagIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
+
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->docMetadata) {
-            $res['DocMetadata'] = [];
-            if (null !== $this->docMetadata && \is_array($this->docMetadata)) {
-                $n = 0;
-                foreach ($this->docMetadata as $item) {
-                    $res['DocMetadata'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->docMetadata)) {
+                $res['DocMetadata'] = [];
+                $n1 = 0;
+                foreach ($this->docMetadata as $item1) {
+                    $res['DocMetadata'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->docName) {
             $res['DocName'] = $this->docName;
         }
+
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->knowledgeId) {
             $res['KnowledgeId'] = $this->knowledgeId;
         }
+
         if (null !== $this->meta) {
             $res['Meta'] = $this->meta;
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
+
         if (null !== $this->tagIds) {
-            $res['TagIds'] = $this->tagIds;
+            if (\is_array($this->tagIds)) {
+                $res['TagIds'] = [];
+                $n1 = 0;
+                foreach ($this->tagIds as $item1) {
+                    $res['TagIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -152,55 +162,72 @@ class UpdateDocRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDocRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
+
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['DocMetadata'])) {
             if (!empty($map['DocMetadata'])) {
                 $model->docMetadata = [];
-                $n                  = 0;
-                foreach ($map['DocMetadata'] as $item) {
-                    $model->docMetadata[$n++] = null !== $item ? docMetadata::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DocMetadata'] as $item1) {
+                    $model->docMetadata[$n1] = docMetadata::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['DocName'])) {
             $model->docName = $map['DocName'];
         }
+
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['KnowledgeId'])) {
             $model->knowledgeId = $map['KnowledgeId'];
         }
+
         if (isset($map['Meta'])) {
             $model->meta = $map['Meta'];
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
+
         if (isset($map['TagIds'])) {
             if (!empty($map['TagIds'])) {
-                $model->tagIds = $map['TagIds'];
+                $model->tagIds = [];
+                $n1 = 0;
+                foreach ($map['TagIds'] as $item1) {
+                    $model->tagIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

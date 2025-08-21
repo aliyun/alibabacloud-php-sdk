@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateUserSayResponseBody extends Model
 {
     /**
-     * @example 2356fg3wf34634vdt23wef2
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 34512323
-     *
      * @var int
      */
     public $userSayId;
@@ -28,14 +24,16 @@ class UpdateUserSayResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->userSayId) {
             $res['UserSayId'] = $this->userSayId;
         }
@@ -43,17 +41,18 @@ class UpdateUserSayResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateUserSayResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UserSayId'])) {
             $model->userSayId = $map['UserSayId'];
         }

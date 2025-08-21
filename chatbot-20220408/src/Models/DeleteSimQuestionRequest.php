@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSimQuestionRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1000002788
-     *
      * @var int
      */
     public $simQuestionId;
     protected $_name = [
-        'agentKey'      => 'AgentKey',
+        'agentKey' => 'AgentKey',
         'simQuestionId' => 'SimQuestionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->simQuestionId) {
             $res['SimQuestionId'] = $this->simQuestionId;
         }
@@ -45,17 +41,18 @@ class DeleteSimQuestionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSimQuestionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['SimQuestionId'])) {
             $model->simQuestionId = $map['SimQuestionId'];
         }

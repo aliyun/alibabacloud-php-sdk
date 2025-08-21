@@ -4,36 +4,26 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\ListLgfResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class lgfs extends Model
 {
     /**
-     * @example 2021-08-12T16:00:01Z
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @example 256756734345
-     *
      * @var int
      */
     public $intentId;
 
     /**
-     * @description LGF ID
-     *
-     * @example 123
-     *
      * @var int
      */
     public $lgfId;
 
     /**
-     * @example 2021-08-12T16:00:01Z
-     *
      * @var string
      */
     public $modifyTime;
@@ -44,31 +34,36 @@ class lgfs extends Model
     public $ruleText;
     protected $_name = [
         'createTime' => 'CreateTime',
-        'intentId'   => 'IntentId',
-        'lgfId'      => 'LgfId',
+        'intentId' => 'IntentId',
+        'lgfId' => 'LgfId',
         'modifyTime' => 'ModifyTime',
-        'ruleText'   => 'RuleText',
+        'ruleText' => 'RuleText',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->intentId) {
             $res['IntentId'] = $this->intentId;
         }
+
         if (null !== $this->lgfId) {
             $res['LgfId'] = $this->lgfId;
         }
+
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
+
         if (null !== $this->ruleText) {
             $res['RuleText'] = $this->ruleText;
         }
@@ -76,26 +71,30 @@ class lgfs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return lgfs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['IntentId'])) {
             $model->intentId = $map['IntentId'];
         }
+
         if (isset($map['LgfId'])) {
             $model->lgfId = $map['LgfId'];
         }
+
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
+
         if (isset($map['RuleText'])) {
             $model->ruleText = $map['RuleText'];
         }

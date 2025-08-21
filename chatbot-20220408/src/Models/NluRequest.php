@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class NluRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @example chatbot-cn-mp90s2lrk00050
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 北京的天气怎么样
-     *
      * @var string
      */
     public $utterance;
     protected $_name = [
-        'agentKey'   => 'AgentKey',
+        'agentKey' => 'AgentKey',
         'instanceId' => 'InstanceId',
-        'utterance'  => 'Utterance',
+        'utterance' => 'Utterance',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->utterance) {
             $res['Utterance'] = $this->utterance;
         }
@@ -54,20 +51,22 @@ class NluRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return NluRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Utterance'])) {
             $model->utterance = $map['Utterance'];
         }

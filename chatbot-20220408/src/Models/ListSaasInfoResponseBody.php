@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSaasInfoResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class ListSaasInfoResponseBody extends Model
 {
@@ -15,45 +15,46 @@ class ListSaasInfoResponseBody extends Model
     public $data;
 
     /**
-     * @description Id of the request
-     *
-     * @example A629A28F-F25E-5572-A679-FA46FB0151D6
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 06614fdb-c72f-436e-8003-dfe8a2854a15
-     *
      * @var string
      */
     public $saasToken;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
         'saasToken' => 'SaasToken',
     ];
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->data)) {
+                $res['Data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->saasToken) {
             $res['SaasToken'] = $this->saasToken;
         }
@@ -61,26 +62,29 @@ class ListSaasInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSaasInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Data'] as $item1) {
+                    $model->data[$n1] = data::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SaasToken'])) {
             $model->saasToken = $map['SaasToken'];
         }

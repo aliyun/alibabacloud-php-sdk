@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateIntentRequest\intentDefinition;
-use AlibabaCloud\Tea\Model;
 
 class CreateIntentRequest extends Model
 {
     /**
-     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example chatbot-cn-yjzbyrEvqd
-     *
      * @var string
      */
     public $instanceId;
@@ -30,45 +24,53 @@ class CreateIntentRequest extends Model
      */
     public $intentDefinition;
     protected $_name = [
-        'agentKey'         => 'AgentKey',
-        'instanceId'       => 'InstanceId',
+        'agentKey' => 'AgentKey',
+        'instanceId' => 'InstanceId',
         'intentDefinition' => 'IntentDefinition',
     ];
 
     public function validate()
     {
+        if (null !== $this->intentDefinition) {
+            $this->intentDefinition->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->intentDefinition) {
-            $res['IntentDefinition'] = null !== $this->intentDefinition ? $this->intentDefinition->toMap() : null;
+            $res['IntentDefinition'] = null !== $this->intentDefinition ? $this->intentDefinition->toArray($noStream) : $this->intentDefinition;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateIntentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['IntentDefinition'])) {
             $model->intentDefinition = intentDefinition::fromMap($map['IntentDefinition']);
         }

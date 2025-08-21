@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAsyncResultResponseBody extends Model
 {
@@ -14,37 +14,36 @@ class GetAsyncResultResponseBody extends Model
     public $data;
 
     /**
-     * @example F79E7305-5314-5069-A701-9591AD051902
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example Success
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -52,20 +51,22 @@ class GetAsyncResultResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAsyncResultResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDSEntityResponseBody extends Model
 {
     /**
-     * @example 123
-     *
      * @var int
      */
     public $entityId;
 
     /**
-     * @example 4dfghf56235asdf452
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'entityId'  => 'EntityId',
+        'entityId' => 'EntityId',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class DeleteDSEntityResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDSEntityResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
