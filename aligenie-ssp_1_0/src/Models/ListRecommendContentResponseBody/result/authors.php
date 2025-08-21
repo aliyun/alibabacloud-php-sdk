@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListRecommendContentResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListRecommendContentResponseBody\result\authors\cover;
-use AlibabaCloud\Tea\Model;
 
 class authors extends Model
 {
@@ -25,36 +25,26 @@ class authors extends Model
     public $description;
 
     /**
-     * @example MALE
-     *
      * @var string
      */
     public $gender;
 
     /**
-     * @example 13597709
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $online;
 
     /**
-     * @example 12311
-     *
      * @var string
      */
     public $rawId;
 
     /**
-     * @example qingting
-     *
      * @var string
      */
     public $source;
@@ -65,47 +55,69 @@ class authors extends Model
     public $title;
     protected $_name = [
         'authorTypes' => 'AuthorTypes',
-        'cover'       => 'Cover',
+        'cover' => 'Cover',
         'description' => 'Description',
-        'gender'      => 'Gender',
-        'id'          => 'Id',
-        'online'      => 'Online',
-        'rawId'       => 'RawId',
-        'source'      => 'Source',
-        'title'       => 'Title',
+        'gender' => 'Gender',
+        'id' => 'Id',
+        'online' => 'Online',
+        'rawId' => 'RawId',
+        'source' => 'Source',
+        'title' => 'Title',
     ];
 
     public function validate()
     {
+        if (\is_array($this->authorTypes)) {
+            Model::validateArray($this->authorTypes);
+        }
+        if (null !== $this->cover) {
+            $this->cover->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authorTypes) {
-            $res['AuthorTypes'] = $this->authorTypes;
+            if (\is_array($this->authorTypes)) {
+                $res['AuthorTypes'] = [];
+                $n1 = 0;
+                foreach ($this->authorTypes as $item1) {
+                    $res['AuthorTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->cover) {
-            $res['Cover'] = null !== $this->cover ? $this->cover->toMap() : null;
+            $res['Cover'] = null !== $this->cover ? $this->cover->toArray($noStream) : $this->cover;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->gender) {
             $res['Gender'] = $this->gender;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->online) {
             $res['Online'] = $this->online;
         }
+
         if (null !== $this->rawId) {
             $res['RawId'] = $this->rawId;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -113,40 +125,53 @@ class authors extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authors
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthorTypes'])) {
             if (!empty($map['AuthorTypes'])) {
-                $model->authorTypes = $map['AuthorTypes'];
+                $model->authorTypes = [];
+                $n1 = 0;
+                foreach ($map['AuthorTypes'] as $item1) {
+                    $model->authorTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Cover'])) {
             $model->cover = cover::fromMap($map['Cover']);
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Gender'])) {
             $model->gender = $map['Gender'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Online'])) {
             $model->online = $map['Online'];
         }
+
         if (isset($map['RawId'])) {
             $model->rawId = $map['RawId'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

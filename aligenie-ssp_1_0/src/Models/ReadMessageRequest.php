@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ReadMessageRequest\userInfo;
-use AlibabaCloud\Tea\Model;
 
 class ReadMessageRequest extends Model
 {
     /**
-     * @example 12345
-     *
      * @var int
      */
     public $messageId;
@@ -22,37 +20,43 @@ class ReadMessageRequest extends Model
     public $userInfo;
     protected $_name = [
         'messageId' => 'MessageId',
-        'userInfo'  => 'UserInfo',
+        'userInfo' => 'UserInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->messageId) {
             $res['MessageId'] = $this->messageId;
         }
+
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReadMessageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MessageId'])) {
             $model->messageId = $map['MessageId'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }

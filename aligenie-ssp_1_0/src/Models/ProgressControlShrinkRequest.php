@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ProgressControlShrinkRequest extends Model
 {
@@ -23,24 +23,27 @@ class ProgressControlShrinkRequest extends Model
      */
     public $userInfoShrink;
     protected $_name = [
-        'deviceInfoShrink'                 => 'DeviceInfo',
+        'deviceInfoShrink' => 'DeviceInfo',
         'openProgressControlRequestShrink' => 'OpenProgressControlRequest',
-        'userInfoShrink'                   => 'UserInfo',
+        'userInfoShrink' => 'UserInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceInfoShrink) {
             $res['DeviceInfo'] = $this->deviceInfoShrink;
         }
+
         if (null !== $this->openProgressControlRequestShrink) {
             $res['OpenProgressControlRequest'] = $this->openProgressControlRequestShrink;
         }
+
         if (null !== $this->userInfoShrink) {
             $res['UserInfo'] = $this->userInfoShrink;
         }
@@ -48,20 +51,22 @@ class ProgressControlShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ProgressControlShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceInfo'])) {
             $model->deviceInfoShrink = $map['DeviceInfo'];
         }
+
         if (isset($map['OpenProgressControlRequest'])) {
             $model->openProgressControlRequestShrink = $map['OpenProgressControlRequest'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfoShrink = $map['UserInfo'];
         }

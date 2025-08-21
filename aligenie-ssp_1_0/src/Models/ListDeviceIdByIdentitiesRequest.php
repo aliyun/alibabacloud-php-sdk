@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDeviceIdByIdentitiesRequest extends Model
 {
     /**
-     * @example 125****0946
-     *
      * @var string
      */
     public $encodeKey;
 
     /**
-     * @example PROJECT_ID
-     *
      * @var string
      */
     public $encodeType;
@@ -28,45 +24,56 @@ class ListDeviceIdByIdentitiesRequest extends Model
     public $identityIds;
 
     /**
-     * @example MAC
-     *
      * @var string
      */
     public $identityType;
 
     /**
-     * @example Mm*****XnZ8
-     *
      * @var string
      */
     public $productKey;
     protected $_name = [
-        'encodeKey'    => 'EncodeKey',
-        'encodeType'   => 'EncodeType',
-        'identityIds'  => 'IdentityIds',
+        'encodeKey' => 'EncodeKey',
+        'encodeType' => 'EncodeType',
+        'identityIds' => 'IdentityIds',
         'identityType' => 'IdentityType',
-        'productKey'   => 'ProductKey',
+        'productKey' => 'ProductKey',
     ];
 
     public function validate()
     {
+        if (\is_array($this->identityIds)) {
+            Model::validateArray($this->identityIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->encodeKey) {
             $res['EncodeKey'] = $this->encodeKey;
         }
+
         if (null !== $this->encodeType) {
             $res['EncodeType'] = $this->encodeType;
         }
+
         if (null !== $this->identityIds) {
-            $res['IdentityIds'] = $this->identityIds;
+            if (\is_array($this->identityIds)) {
+                $res['IdentityIds'] = [];
+                $n1 = 0;
+                foreach ($this->identityIds as $item1) {
+                    $res['IdentityIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->identityType) {
             $res['IdentityType'] = $this->identityType;
         }
+
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
@@ -74,28 +81,37 @@ class ListDeviceIdByIdentitiesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDeviceIdByIdentitiesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EncodeKey'])) {
             $model->encodeKey = $map['EncodeKey'];
         }
+
         if (isset($map['EncodeType'])) {
             $model->encodeType = $map['EncodeType'];
         }
+
         if (isset($map['IdentityIds'])) {
             if (!empty($map['IdentityIds'])) {
-                $model->identityIds = $map['IdentityIds'];
+                $model->identityIds = [];
+                $n1 = 0;
+                foreach ($map['IdentityIds'] as $item1) {
+                    $model->identityIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['IdentityType'])) {
             $model->identityType = $map['IdentityType'];
         }
+
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }

@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ScanCodeBindRequest\bindReq;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ScanCodeBindRequest\userInfo;
-use AlibabaCloud\Tea\Model;
 
 class ScanCodeBindRequest extends Model
 {
@@ -20,38 +20,47 @@ class ScanCodeBindRequest extends Model
      */
     public $userInfo;
     protected $_name = [
-        'bindReq'  => 'BindReq',
+        'bindReq' => 'BindReq',
         'userInfo' => 'UserInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->bindReq) {
+            $this->bindReq->validate();
+        }
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindReq) {
-            $res['BindReq'] = null !== $this->bindReq ? $this->bindReq->toMap() : null;
+            $res['BindReq'] = null !== $this->bindReq ? $this->bindReq->toArray($noStream) : $this->bindReq;
         }
+
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ScanCodeBindRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindReq'])) {
             $model->bindReq = bindReq::fromMap($map['BindReq']);
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }

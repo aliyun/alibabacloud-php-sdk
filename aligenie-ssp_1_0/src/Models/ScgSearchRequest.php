@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ScgSearchRequest\scgFilter;
-use AlibabaCloud\Tea\Model;
 
 class ScgSearchRequest extends Model
 {
@@ -15,26 +15,29 @@ class ScgSearchRequest extends Model
     public $scgFilter;
 
     /**
-     * @example MC201132
-     *
      * @var string
      */
     public $topicId;
     protected $_name = [
         'scgFilter' => 'ScgFilter',
-        'topicId'   => 'TopicId',
+        'topicId' => 'TopicId',
     ];
 
     public function validate()
     {
+        if (null !== $this->scgFilter) {
+            $this->scgFilter->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scgFilter) {
-            $res['ScgFilter'] = null !== $this->scgFilter ? $this->scgFilter->toMap() : null;
+            $res['ScgFilter'] = null !== $this->scgFilter ? $this->scgFilter->toArray($noStream) : $this->scgFilter;
         }
+
         if (null !== $this->topicId) {
             $res['TopicId'] = $this->topicId;
         }
@@ -42,17 +45,18 @@ class ScgSearchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ScgSearchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ScgFilter'])) {
             $model->scgFilter = scgFilter::fromMap($map['ScgFilter']);
         }
+
         if (isset($map['TopicId'])) {
             $model->topicId = $map['TopicId'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListCommonCateSecondFloorRequest extends Model
 {
     /**
-     * @example 80010
-     *
      * @var int
      */
     public $parentCateId;
@@ -20,9 +18,10 @@ class ListCommonCateSecondFloorRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parentCateId) {
@@ -32,11 +31,11 @@ class ListCommonCateSecondFloorRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCommonCateSecondFloorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ScanCodeBindShrinkRequest extends Model
 {
@@ -18,20 +18,22 @@ class ScanCodeBindShrinkRequest extends Model
      */
     public $userInfoShrink;
     protected $_name = [
-        'bindReqShrink'  => 'BindReq',
+        'bindReqShrink' => 'BindReq',
         'userInfoShrink' => 'UserInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindReqShrink) {
             $res['BindReq'] = $this->bindReqShrink;
         }
+
         if (null !== $this->userInfoShrink) {
             $res['UserInfo'] = $this->userInfoShrink;
         }
@@ -39,17 +41,18 @@ class ScanCodeBindShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ScanCodeBindShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindReq'])) {
             $model->bindReqShrink = $map['BindReq'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfoShrink = $map['UserInfo'];
         }

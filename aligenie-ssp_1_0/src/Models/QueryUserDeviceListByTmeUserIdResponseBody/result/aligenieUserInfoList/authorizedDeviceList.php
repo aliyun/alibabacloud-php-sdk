@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\QueryUserDeviceListByTmeUserIdResponseBody\result\aligenieUserInfoList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class authorizedDeviceList extends Model
 {
@@ -14,8 +14,6 @@ class authorizedDeviceList extends Model
     public $deviceName;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $online;
@@ -35,32 +33,37 @@ class authorizedDeviceList extends Model
      */
     public $tmeProductId;
     protected $_name = [
-        'deviceName'   => 'DeviceName',
-        'online'       => 'Online',
+        'deviceName' => 'DeviceName',
+        'online' => 'Online',
         'openDeviceId' => 'OpenDeviceId',
-        'tmeDeviceId'  => 'TmeDeviceId',
+        'tmeDeviceId' => 'TmeDeviceId',
         'tmeProductId' => 'TmeProductId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+
         if (null !== $this->online) {
             $res['Online'] = $this->online;
         }
+
         if (null !== $this->openDeviceId) {
             $res['OpenDeviceId'] = $this->openDeviceId;
         }
+
         if (null !== $this->tmeDeviceId) {
             $res['TmeDeviceId'] = $this->tmeDeviceId;
         }
+
         if (null !== $this->tmeProductId) {
             $res['TmeProductId'] = $this->tmeProductId;
         }
@@ -68,26 +71,30 @@ class authorizedDeviceList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authorizedDeviceList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
+
         if (isset($map['Online'])) {
             $model->online = $map['Online'];
         }
+
         if (isset($map['OpenDeviceId'])) {
             $model->openDeviceId = $map['OpenDeviceId'];
         }
+
         if (isset($map['TmeDeviceId'])) {
             $model->tmeDeviceId = $map['TmeDeviceId'];
         }
+
         if (isset($map['TmeProductId'])) {
             $model->tmeProductId = $map['TmeProductId'];
         }

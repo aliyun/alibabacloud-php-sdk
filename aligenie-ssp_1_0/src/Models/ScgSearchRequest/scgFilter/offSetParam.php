@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ScgSearchRequest\scgFilter;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class offSetParam extends Model
 {
     /**
-     * @example 20
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $offset;
     protected $_name = [
-        'limit'  => 'Limit',
+        'limit' => 'Limit',
         'offset' => 'Offset',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
+
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
         }
@@ -43,17 +41,18 @@ class offSetParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return offSetParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
+
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];
         }

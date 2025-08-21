@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\QueryMusicTypeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $musicType;
 
     /**
-     * @example xx
-     *
      * @var string
      */
     public $musicTypeName;
     protected $_name = [
-        'musicType'     => 'MusicType',
+        'musicType' => 'MusicType',
         'musicTypeName' => 'MusicTypeName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->musicType) {
             $res['MusicType'] = $this->musicType;
         }
+
         if (null !== $this->musicTypeName) {
             $res['MusicTypeName'] = $this->musicTypeName;
         }
@@ -43,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MusicType'])) {
             $model->musicType = $map['MusicType'];
         }
+
         if (isset($map['MusicTypeName'])) {
             $model->musicTypeName = $map['MusicTypeName'];
         }

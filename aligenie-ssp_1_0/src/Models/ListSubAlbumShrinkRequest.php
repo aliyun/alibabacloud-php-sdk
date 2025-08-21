@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSubAlbumShrinkRequest extends Model
 {
@@ -14,8 +14,6 @@ class ListSubAlbumShrinkRequest extends Model
     public $deviceInfoShrink;
 
     /**
-     * @description request
-     *
      * @var string
      */
     public $querySubscriptionAlbumRequestShrink;
@@ -25,24 +23,27 @@ class ListSubAlbumShrinkRequest extends Model
      */
     public $userInfoShrink;
     protected $_name = [
-        'deviceInfoShrink'                    => 'DeviceInfo',
+        'deviceInfoShrink' => 'DeviceInfo',
         'querySubscriptionAlbumRequestShrink' => 'QuerySubscriptionAlbumRequest',
-        'userInfoShrink'                      => 'UserInfo',
+        'userInfoShrink' => 'UserInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceInfoShrink) {
             $res['DeviceInfo'] = $this->deviceInfoShrink;
         }
+
         if (null !== $this->querySubscriptionAlbumRequestShrink) {
             $res['QuerySubscriptionAlbumRequest'] = $this->querySubscriptionAlbumRequestShrink;
         }
+
         if (null !== $this->userInfoShrink) {
             $res['UserInfo'] = $this->userInfoShrink;
         }
@@ -50,20 +51,22 @@ class ListSubAlbumShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSubAlbumShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceInfo'])) {
             $model->deviceInfoShrink = $map['DeviceInfo'];
         }
+
         if (isset($map['QuerySubscriptionAlbumRequest'])) {
             $model->querySubscriptionAlbumRequestShrink = $map['QuerySubscriptionAlbumRequest'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfoShrink = $map['UserInfo'];
         }

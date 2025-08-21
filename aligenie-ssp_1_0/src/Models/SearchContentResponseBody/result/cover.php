@@ -4,82 +4,76 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\SearchContentResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cover extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $canResize;
 
     /**
-     * @example http://pic.qtfm.cn/2017/0207/2017020718285.jpg
-     *
      * @var string
      */
     public $img;
 
     /**
-     * @example http://pic.qtfm.cn/2017/0207/2017020718285.jpg
-     *
      * @var string
      */
     public $large;
 
     /**
-     * @example http://pic.qtfm.cn/2017/0207/2017020718285.jpg
-     *
      * @var string
      */
     public $mediam;
 
     /**
-     * @example http://pic.qtfm.cn/2017/0207/2017020718285.jpg
-     *
      * @var string
      */
     public $medium;
 
     /**
-     * @example http://pic.qtfm.cn/2017/0207/2017020718285.jpg
-     *
      * @var string
      */
     public $small;
     protected $_name = [
         'canResize' => 'CanResize',
-        'img'       => 'Img',
-        'large'     => 'Large',
-        'mediam'    => 'Mediam',
-        'medium'    => 'Medium',
-        'small'     => 'Small',
+        'img' => 'Img',
+        'large' => 'Large',
+        'mediam' => 'Mediam',
+        'medium' => 'Medium',
+        'small' => 'Small',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->canResize) {
             $res['CanResize'] = $this->canResize;
         }
+
         if (null !== $this->img) {
             $res['Img'] = $this->img;
         }
+
         if (null !== $this->large) {
             $res['Large'] = $this->large;
         }
+
         if (null !== $this->mediam) {
             $res['Mediam'] = $this->mediam;
         }
+
         if (null !== $this->medium) {
             $res['Medium'] = $this->medium;
         }
+
         if (null !== $this->small) {
             $res['Small'] = $this->small;
         }
@@ -87,29 +81,34 @@ class cover extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cover
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CanResize'])) {
             $model->canResize = $map['CanResize'];
         }
+
         if (isset($map['Img'])) {
             $model->img = $map['Img'];
         }
+
         if (isset($map['Large'])) {
             $model->large = $map['Large'];
         }
+
         if (isset($map['Mediam'])) {
             $model->mediam = $map['Mediam'];
         }
+
         if (isset($map['Medium'])) {
             $model->medium = $map['Medium'];
         }
+
         if (isset($map['Small'])) {
             $model->small = $map['Small'];
         }

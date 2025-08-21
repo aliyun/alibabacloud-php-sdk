@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListDeviceByUserIdAndChanelRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class channelInfo extends Model
 {
     /**
-     * @example WeChat、ThirdApp
-     *
      * @var string
      */
     public $channel;
 
     /**
-     * @example {}
-     *
      * @var string
      */
     public $extInfo;
@@ -28,14 +24,16 @@ class channelInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channel) {
             $res['Channel'] = $this->channel;
         }
+
         if (null !== $this->extInfo) {
             $res['ExtInfo'] = $this->extInfo;
         }
@@ -43,17 +41,18 @@ class channelInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return channelInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Channel'])) {
             $model->channel = $map['Channel'];
         }
+
         if (isset($map['ExtInfo'])) {
             $model->extInfo = $map['ExtInfo'];
         }

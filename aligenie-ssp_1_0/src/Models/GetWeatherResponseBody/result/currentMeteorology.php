@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetWeatherResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetWeatherResponseBody\result\currentMeteorology\temperature;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetWeatherResponseBody\result\currentMeteorology\weather;
-use AlibabaCloud\Tea\Model;
 
 class currentMeteorology extends Model
 {
@@ -21,37 +21,46 @@ class currentMeteorology extends Model
     public $weather;
     protected $_name = [
         'temperature' => 'Temperature',
-        'weather'     => 'Weather',
+        'weather' => 'Weather',
     ];
 
     public function validate()
     {
+        if (null !== $this->temperature) {
+            $this->temperature->validate();
+        }
+        if (null !== $this->weather) {
+            $this->weather->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->temperature) {
-            $res['Temperature'] = null !== $this->temperature ? $this->temperature->toMap() : null;
+            $res['Temperature'] = null !== $this->temperature ? $this->temperature->toArray($noStream) : $this->temperature;
         }
+
         if (null !== $this->weather) {
-            $res['Weather'] = null !== $this->weather ? $this->weather->toMap() : null;
+            $res['Weather'] = null !== $this->weather ? $this->weather->toArray($noStream) : $this->weather;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return currentMeteorology
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Temperature'])) {
             $model->temperature = temperature::fromMap($map['Temperature']);
         }
+
         if (isset($map['Weather'])) {
             $model->weather = weather::fromMap($map['Weather']);
         }

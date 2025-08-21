@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDeviceSettingShrinkRequest extends Model
 {
@@ -19,19 +19,21 @@ class GetDeviceSettingShrinkRequest extends Model
     public $keysShrink;
     protected $_name = [
         'deviceInfoShrink' => 'DeviceInfo',
-        'keysShrink'       => 'Keys',
+        'keysShrink' => 'Keys',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceInfoShrink) {
             $res['DeviceInfo'] = $this->deviceInfoShrink;
         }
+
         if (null !== $this->keysShrink) {
             $res['Keys'] = $this->keysShrink;
         }
@@ -39,17 +41,18 @@ class GetDeviceSettingShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDeviceSettingShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceInfo'])) {
             $model->deviceInfoShrink = $map['DeviceInfo'];
         }
+
         if (isset($map['Keys'])) {
             $model->keysShrink = $map['Keys'];
         }

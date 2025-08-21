@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetWeatherRequest\deviceInfo;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetWeatherRequest\payload;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetWeatherRequest\userInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetWeatherRequest extends Model
 {
@@ -27,44 +27,58 @@ class GetWeatherRequest extends Model
     public $userInfo;
     protected $_name = [
         'deviceInfo' => 'DeviceInfo',
-        'payload'    => 'Payload',
-        'userInfo'   => 'UserInfo',
+        'payload' => 'Payload',
+        'userInfo' => 'UserInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->deviceInfo) {
+            $this->deviceInfo->validate();
+        }
+        if (null !== $this->payload) {
+            $this->payload->validate();
+        }
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceInfo) {
-            $res['DeviceInfo'] = null !== $this->deviceInfo ? $this->deviceInfo->toMap() : null;
+            $res['DeviceInfo'] = null !== $this->deviceInfo ? $this->deviceInfo->toArray($noStream) : $this->deviceInfo;
         }
+
         if (null !== $this->payload) {
-            $res['Payload'] = null !== $this->payload ? $this->payload->toMap() : null;
+            $res['Payload'] = null !== $this->payload ? $this->payload->toArray($noStream) : $this->payload;
         }
+
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetWeatherRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceInfo'])) {
             $model->deviceInfo = deviceInfo::fromMap($map['DeviceInfo']);
         }
+
         if (isset($map['Payload'])) {
             $model->payload = payload::fromMap($map['Payload']);
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }

@@ -4,82 +4,76 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\EcologyOpennessAuthenticateResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example 12****7
-     *
      * @var string
      */
     public $encodeKey;
 
     /**
-     * @example PROJECT_ID
-     *
      * @var string
      */
     public $encodeType;
 
     /**
-     * @example ******
-     *
      * @var string
      */
     public $sceneCode;
 
     /**
-     * @example ******
-     *
      * @var string
      */
     public $thirdUserIdentifier;
 
     /**
-     * @example ******
-     *
      * @var string
      */
     public $thirdUserType;
 
     /**
-     * @example o****RnNAW/smBNX9By7Zlc3J7iQUXPiUj/6OizU+ifLSzn1vpQL9ZgSp22u7hsxj0UZ2i6urbv9HQ==
-     *
      * @var string
      */
     public $userOpenId;
     protected $_name = [
-        'encodeKey'           => 'EncodeKey',
-        'encodeType'          => 'EncodeType',
-        'sceneCode'           => 'SceneCode',
+        'encodeKey' => 'EncodeKey',
+        'encodeType' => 'EncodeType',
+        'sceneCode' => 'SceneCode',
         'thirdUserIdentifier' => 'ThirdUserIdentifier',
-        'thirdUserType'       => 'ThirdUserType',
-        'userOpenId'          => 'UserOpenId',
+        'thirdUserType' => 'ThirdUserType',
+        'userOpenId' => 'UserOpenId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->encodeKey) {
             $res['EncodeKey'] = $this->encodeKey;
         }
+
         if (null !== $this->encodeType) {
             $res['EncodeType'] = $this->encodeType;
         }
+
         if (null !== $this->sceneCode) {
             $res['SceneCode'] = $this->sceneCode;
         }
+
         if (null !== $this->thirdUserIdentifier) {
             $res['ThirdUserIdentifier'] = $this->thirdUserIdentifier;
         }
+
         if (null !== $this->thirdUserType) {
             $res['ThirdUserType'] = $this->thirdUserType;
         }
+
         if (null !== $this->userOpenId) {
             $res['UserOpenId'] = $this->userOpenId;
         }
@@ -87,29 +81,34 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EncodeKey'])) {
             $model->encodeKey = $map['EncodeKey'];
         }
+
         if (isset($map['EncodeType'])) {
             $model->encodeType = $map['EncodeType'];
         }
+
         if (isset($map['SceneCode'])) {
             $model->sceneCode = $map['SceneCode'];
         }
+
         if (isset($map['ThirdUserIdentifier'])) {
             $model->thirdUserIdentifier = $map['ThirdUserIdentifier'];
         }
+
         if (isset($map['ThirdUserType'])) {
             $model->thirdUserType = $map['ThirdUserType'];
         }
+
         if (isset($map['UserOpenId'])) {
             $model->userOpenId = $map['UserOpenId'];
         }

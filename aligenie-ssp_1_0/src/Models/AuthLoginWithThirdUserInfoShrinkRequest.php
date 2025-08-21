@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AuthLoginWithThirdUserInfoShrinkRequest extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
     public $extInfoShrink;
 
     /**
-     * @example wechat_ecology_openness
-     *
      * @var string
      */
     public $sceneCode;
 
     /**
-     * @example o5qxy6EItZBasv2VZAf-MGwllHL4
-     *
      * @var string
      */
     public $thirdUserIdentifier;
 
     /**
-     * @example weChatUser
-     *
      * @var string
      */
     public $thirdUserType;
     protected $_name = [
-        'extInfoShrink'       => 'ExtInfo',
-        'sceneCode'           => 'SceneCode',
+        'extInfoShrink' => 'ExtInfo',
+        'sceneCode' => 'SceneCode',
         'thirdUserIdentifier' => 'ThirdUserIdentifier',
-        'thirdUserType'       => 'ThirdUserType',
+        'thirdUserType' => 'ThirdUserType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extInfoShrink) {
             $res['ExtInfo'] = $this->extInfoShrink;
         }
+
         if (null !== $this->sceneCode) {
             $res['SceneCode'] = $this->sceneCode;
         }
+
         if (null !== $this->thirdUserIdentifier) {
             $res['ThirdUserIdentifier'] = $this->thirdUserIdentifier;
         }
+
         if (null !== $this->thirdUserType) {
             $res['ThirdUserType'] = $this->thirdUserType;
         }
@@ -65,23 +61,26 @@ class AuthLoginWithThirdUserInfoShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AuthLoginWithThirdUserInfoShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExtInfo'])) {
             $model->extInfoShrink = $map['ExtInfo'];
         }
+
         if (isset($map['SceneCode'])) {
             $model->sceneCode = $map['SceneCode'];
         }
+
         if (isset($map['ThirdUserIdentifier'])) {
             $model->thirdUserIdentifier = $map['ThirdUserIdentifier'];
         }
+
         if (isset($map['ThirdUserType'])) {
             $model->thirdUserType = $map['ThirdUserType'];
         }

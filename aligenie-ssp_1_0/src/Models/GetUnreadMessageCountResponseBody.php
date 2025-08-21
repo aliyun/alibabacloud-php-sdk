@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUnreadMessageCountResponseBody extends Model
 {
     /**
-     * @example SUCCESS
-     *
      * @var string
      */
     public $code;
@@ -21,30 +19,31 @@ class GetUnreadMessageCountResponseBody extends Model
     public $message;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $result;
     protected $_name = [
-        'code'    => 'Code',
+        'code' => 'Code',
         'message' => 'Message',
-        'result'  => 'Result',
+        'result' => 'Result',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
@@ -52,20 +51,22 @@ class GetUnreadMessageCountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUnreadMessageCountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }

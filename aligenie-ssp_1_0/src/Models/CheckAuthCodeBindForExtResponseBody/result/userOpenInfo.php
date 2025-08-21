@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CheckAuthCodeBindForExtResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userOpenInfo extends Model
 {
     /**
-     * @example 0963*0158
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description USER_ID
-     *
-     * @example USER_ID
-     *
      * @var string
      */
     public $idType;
     protected $_name = [
-        'id'     => 'Id',
+        'id' => 'Id',
         'idType' => 'IdType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->idType) {
             $res['IdType'] = $this->idType;
         }
@@ -45,17 +41,18 @@ class userOpenInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userOpenInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['IdType'])) {
             $model->idType = $map['IdType'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CheckAndDoVoipCallForHotelResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class startCallResult extends Model
 {
@@ -33,32 +33,37 @@ class startCallResult extends Model
      */
     public $traceId;
     protected $_name = [
-        'message'  => 'Message',
-        'retCode'  => 'RetCode',
+        'message' => 'Message',
+        'retCode' => 'RetCode',
         'retValue' => 'RetValue',
-        'success'  => 'Success',
-        'traceId'  => 'TraceId',
+        'success' => 'Success',
+        'traceId' => 'TraceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->retCode) {
             $res['RetCode'] = $this->retCode;
         }
+
         if (null !== $this->retValue) {
             $res['RetValue'] = $this->retValue;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->traceId) {
             $res['TraceId'] = $this->traceId;
         }
@@ -66,26 +71,30 @@ class startCallResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return startCallResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RetCode'])) {
             $model->retCode = $map['RetCode'];
         }
+
         if (isset($map['RetValue'])) {
             $model->retValue = $map['RetValue'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['TraceId'])) {
             $model->traceId = $map['TraceId'];
         }

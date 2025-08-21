@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckAuthCodeBindForExtShrinkRequest extends Model
 {
     /**
-     * @example Aexfgc
-     *
      * @var string
      */
     public $authCode;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $encodeKey;
 
     /**
-     * @example PROJECT_ID
-     *
      * @var string
      */
     public $encodeType;
@@ -34,28 +28,32 @@ class CheckAuthCodeBindForExtShrinkRequest extends Model
      */
     public $userInfoShrink;
     protected $_name = [
-        'authCode'       => 'AuthCode',
-        'encodeKey'      => 'EncodeKey',
-        'encodeType'     => 'EncodeType',
+        'authCode' => 'AuthCode',
+        'encodeKey' => 'EncodeKey',
+        'encodeType' => 'EncodeType',
         'userInfoShrink' => 'UserInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authCode) {
             $res['AuthCode'] = $this->authCode;
         }
+
         if (null !== $this->encodeKey) {
             $res['EncodeKey'] = $this->encodeKey;
         }
+
         if (null !== $this->encodeType) {
             $res['EncodeType'] = $this->encodeType;
         }
+
         if (null !== $this->userInfoShrink) {
             $res['UserInfo'] = $this->userInfoShrink;
         }
@@ -63,23 +61,26 @@ class CheckAuthCodeBindForExtShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckAuthCodeBindForExtShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthCode'])) {
             $model->authCode = $map['AuthCode'];
         }
+
         if (isset($map['EncodeKey'])) {
             $model->encodeKey = $map['EncodeKey'];
         }
+
         if (isset($map['EncodeType'])) {
             $model->encodeType = $map['EncodeType'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfoShrink = $map['UserInfo'];
         }

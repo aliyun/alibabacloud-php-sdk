@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListCommonCateFirstFloorRequest extends Model
 {
     /**
-     * @example song
-     *
      * @var string
      */
     public $type;
@@ -20,9 +18,10 @@ class ListCommonCateFirstFloorRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
@@ -32,11 +31,11 @@ class ListCommonCateFirstFloorRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCommonCateFirstFloorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

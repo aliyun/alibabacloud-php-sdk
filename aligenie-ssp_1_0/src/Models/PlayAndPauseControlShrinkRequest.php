@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PlayAndPauseControlShrinkRequest extends Model
 {
@@ -23,24 +23,27 @@ class PlayAndPauseControlShrinkRequest extends Model
      */
     public $userInfoShrink;
     protected $_name = [
-        'deviceInfoShrink'                   => 'DeviceInfo',
+        'deviceInfoShrink' => 'DeviceInfo',
         'openPlayAndPauseControlParamShrink' => 'OpenPlayAndPauseControlParam',
-        'userInfoShrink'                     => 'UserInfo',
+        'userInfoShrink' => 'UserInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceInfoShrink) {
             $res['DeviceInfo'] = $this->deviceInfoShrink;
         }
+
         if (null !== $this->openPlayAndPauseControlParamShrink) {
             $res['OpenPlayAndPauseControlParam'] = $this->openPlayAndPauseControlParamShrink;
         }
+
         if (null !== $this->userInfoShrink) {
             $res['UserInfo'] = $this->userInfoShrink;
         }
@@ -48,20 +51,22 @@ class PlayAndPauseControlShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PlayAndPauseControlShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceInfo'])) {
             $model->deviceInfoShrink = $map['DeviceInfo'];
         }
+
         if (isset($map['OpenPlayAndPauseControlParam'])) {
             $model->openPlayAndPauseControlParamShrink = $map['OpenPlayAndPauseControlParam'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfoShrink = $map['UserInfo'];
         }

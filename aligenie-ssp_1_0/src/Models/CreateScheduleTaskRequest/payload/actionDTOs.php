@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreateScheduleTaskRequest\payload;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class actionDTOs extends Model
 {
     /**
-     * @example {"k1":"v1","k2":{"key":1}}
-     *
      * @var mixed[]
      */
     public $customAction;
@@ -20,28 +18,42 @@ class actionDTOs extends Model
 
     public function validate()
     {
+        if (\is_array($this->customAction)) {
+            Model::validateArray($this->customAction);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customAction) {
-            $res['customAction'] = $this->customAction;
+            if (\is_array($this->customAction)) {
+                $res['customAction'] = [];
+                foreach ($this->customAction as $key1 => $value1) {
+                    $res['customAction'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return actionDTOs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['customAction'])) {
-            $model->customAction = $map['customAction'];
+            if (!empty($map['customAction'])) {
+                $model->customAction = [];
+                foreach ($map['customAction'] as $key1 => $value1) {
+                    $model->customAction[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetScheduleTaskResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetScheduleTaskResponseBody\result\actionTopicList;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -15,76 +15,76 @@ class result extends Model
     public $actionTopicList;
 
     /**
-     * @example 0 10 20 30 6 ? 2022
-     *
      * @var string
      */
     public $cron;
 
     /**
-     * @example 1659169473000
-     *
      * @var string
      */
     public $scheduleEndTime;
 
     /**
-     * @example 1234567
-     *
      * @var int
      */
     public $scheduleId;
 
     /**
-     * @example 1656577473000
-     *
      * @var string
      */
     public $scheduleStartTime;
 
     /**
-     * @example ONCE
-     *
      * @var string
      */
     public $scheduleType;
     protected $_name = [
-        'actionTopicList'   => 'ActionTopicList',
-        'cron'              => 'Cron',
-        'scheduleEndTime'   => 'ScheduleEndTime',
-        'scheduleId'        => 'ScheduleId',
+        'actionTopicList' => 'ActionTopicList',
+        'cron' => 'Cron',
+        'scheduleEndTime' => 'ScheduleEndTime',
+        'scheduleId' => 'ScheduleId',
         'scheduleStartTime' => 'ScheduleStartTime',
-        'scheduleType'      => 'ScheduleType',
+        'scheduleType' => 'ScheduleType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->actionTopicList)) {
+            Model::validateArray($this->actionTopicList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionTopicList) {
-            $res['ActionTopicList'] = [];
-            if (null !== $this->actionTopicList && \is_array($this->actionTopicList)) {
-                $n = 0;
-                foreach ($this->actionTopicList as $item) {
-                    $res['ActionTopicList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->actionTopicList)) {
+                $res['ActionTopicList'] = [];
+                $n1 = 0;
+                foreach ($this->actionTopicList as $item1) {
+                    $res['ActionTopicList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->cron) {
             $res['Cron'] = $this->cron;
         }
+
         if (null !== $this->scheduleEndTime) {
             $res['ScheduleEndTime'] = $this->scheduleEndTime;
         }
+
         if (null !== $this->scheduleId) {
             $res['ScheduleId'] = $this->scheduleId;
         }
+
         if (null !== $this->scheduleStartTime) {
             $res['ScheduleStartTime'] = $this->scheduleStartTime;
         }
+
         if (null !== $this->scheduleType) {
             $res['ScheduleType'] = $this->scheduleType;
         }
@@ -92,35 +92,41 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionTopicList'])) {
             if (!empty($map['ActionTopicList'])) {
                 $model->actionTopicList = [];
-                $n                      = 0;
-                foreach ($map['ActionTopicList'] as $item) {
-                    $model->actionTopicList[$n++] = null !== $item ? actionTopicList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ActionTopicList'] as $item1) {
+                    $model->actionTopicList[$n1] = actionTopicList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Cron'])) {
             $model->cron = $map['Cron'];
         }
+
         if (isset($map['ScheduleEndTime'])) {
             $model->scheduleEndTime = $map['ScheduleEndTime'];
         }
+
         if (isset($map['ScheduleId'])) {
             $model->scheduleId = $map['ScheduleId'];
         }
+
         if (isset($map['ScheduleStartTime'])) {
             $model->scheduleStartTime = $map['ScheduleStartTime'];
         }
+
         if (isset($map['ScheduleType'])) {
             $model->scheduleType = $map['ScheduleType'];
         }

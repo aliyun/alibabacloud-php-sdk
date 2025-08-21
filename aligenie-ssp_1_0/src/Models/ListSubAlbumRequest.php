@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListSubAlbumRequest\deviceInfo;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListSubAlbumRequest\querySubscriptionAlbumRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListSubAlbumRequest\userInfo;
-use AlibabaCloud\Tea\Model;
 
 class ListSubAlbumRequest extends Model
 {
@@ -17,8 +17,6 @@ class ListSubAlbumRequest extends Model
     public $deviceInfo;
 
     /**
-     * @description request
-     *
      * @var querySubscriptionAlbumRequest
      */
     public $querySubscriptionAlbumRequest;
@@ -28,45 +26,59 @@ class ListSubAlbumRequest extends Model
      */
     public $userInfo;
     protected $_name = [
-        'deviceInfo'                    => 'DeviceInfo',
+        'deviceInfo' => 'DeviceInfo',
         'querySubscriptionAlbumRequest' => 'QuerySubscriptionAlbumRequest',
-        'userInfo'                      => 'UserInfo',
+        'userInfo' => 'UserInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->deviceInfo) {
+            $this->deviceInfo->validate();
+        }
+        if (null !== $this->querySubscriptionAlbumRequest) {
+            $this->querySubscriptionAlbumRequest->validate();
+        }
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceInfo) {
-            $res['DeviceInfo'] = null !== $this->deviceInfo ? $this->deviceInfo->toMap() : null;
+            $res['DeviceInfo'] = null !== $this->deviceInfo ? $this->deviceInfo->toArray($noStream) : $this->deviceInfo;
         }
+
         if (null !== $this->querySubscriptionAlbumRequest) {
-            $res['QuerySubscriptionAlbumRequest'] = null !== $this->querySubscriptionAlbumRequest ? $this->querySubscriptionAlbumRequest->toMap() : null;
+            $res['QuerySubscriptionAlbumRequest'] = null !== $this->querySubscriptionAlbumRequest ? $this->querySubscriptionAlbumRequest->toArray($noStream) : $this->querySubscriptionAlbumRequest;
         }
+
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSubAlbumRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceInfo'])) {
             $model->deviceInfo = deviceInfo::fromMap($map['DeviceInfo']);
         }
+
         if (isset($map['QuerySubscriptionAlbumRequest'])) {
             $model->querySubscriptionAlbumRequest = querySubscriptionAlbumRequest::fromMap($map['QuerySubscriptionAlbumRequest']);
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }

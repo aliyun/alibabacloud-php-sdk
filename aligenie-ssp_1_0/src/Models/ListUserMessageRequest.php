@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListUserMessageRequest\userInfo;
-use AlibabaCloud\Tea\Model;
 
 class ListUserMessageRequest extends Model
 {
     /**
-     * @example 2022-07-27 14:06:55.984
-     *
      * @var string
      */
     public $beforeTime;
@@ -22,30 +20,34 @@ class ListUserMessageRequest extends Model
     public $userInfo;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $limit;
     protected $_name = [
         'beforeTime' => 'BeforeTime',
-        'userInfo'   => 'UserInfo',
-        'limit'      => 'limit',
+        'userInfo' => 'UserInfo',
+        'limit' => 'limit',
     ];
 
     public function validate()
     {
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beforeTime) {
             $res['BeforeTime'] = $this->beforeTime;
         }
+
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
+
         if (null !== $this->limit) {
             $res['limit'] = $this->limit;
         }
@@ -53,20 +55,22 @@ class ListUserMessageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUserMessageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BeforeTime'])) {
             $model->beforeTime = $map['BeforeTime'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }
+
         if (isset($map['limit'])) {
             $model->limit = $map['limit'];
         }

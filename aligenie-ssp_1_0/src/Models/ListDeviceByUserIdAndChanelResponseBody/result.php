@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListDeviceByUserIdAndChanelResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListDeviceByUserIdAndChanelResponseBody\result\deviceUnionIds;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @example A963*0158
-     *
      * @var string
      */
     public $deviceOpenId;
@@ -21,26 +19,32 @@ class result extends Model
      */
     public $deviceUnionIds;
     protected $_name = [
-        'deviceOpenId'   => 'DeviceOpenId',
+        'deviceOpenId' => 'DeviceOpenId',
         'deviceUnionIds' => 'DeviceUnionIds',
     ];
 
     public function validate()
     {
+        if (\is_array($this->deviceUnionIds)) {
+            Model::validateArray($this->deviceUnionIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceOpenId) {
             $res['DeviceOpenId'] = $this->deviceOpenId;
         }
+
         if (null !== $this->deviceUnionIds) {
-            $res['DeviceUnionIds'] = [];
-            if (null !== $this->deviceUnionIds && \is_array($this->deviceUnionIds)) {
-                $n = 0;
-                foreach ($this->deviceUnionIds as $item) {
-                    $res['DeviceUnionIds'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deviceUnionIds)) {
+                $res['DeviceUnionIds'] = [];
+                $n1 = 0;
+                foreach ($this->deviceUnionIds as $item1) {
+                    $res['DeviceUnionIds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,23 +52,25 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceOpenId'])) {
             $model->deviceOpenId = $map['DeviceOpenId'];
         }
+
         if (isset($map['DeviceUnionIds'])) {
             if (!empty($map['DeviceUnionIds'])) {
                 $model->deviceUnionIds = [];
-                $n                     = 0;
-                foreach ($map['DeviceUnionIds'] as $item) {
-                    $model->deviceUnionIds[$n++] = null !== $item ? deviceUnionIds::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DeviceUnionIds'] as $item1) {
+                    $model->deviceUnionIds[$n1] = deviceUnionIds::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

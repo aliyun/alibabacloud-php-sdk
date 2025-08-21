@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckAndDoVoipCallForHotelShrinkRequest extends Model
 {
@@ -33,32 +33,37 @@ class CheckAndDoVoipCallForHotelShrinkRequest extends Model
      */
     public $userInfoShrink;
     protected $_name = [
-        'bizData'          => 'BizData',
-        'calleeNick'       => 'CalleeNick',
-        'calleePhoneNum'   => 'CalleePhoneNum',
+        'bizData' => 'BizData',
+        'calleeNick' => 'CalleeNick',
+        'calleePhoneNum' => 'CalleePhoneNum',
         'deviceInfoShrink' => 'DeviceInfo',
-        'userInfoShrink'   => 'UserInfo',
+        'userInfoShrink' => 'UserInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizData) {
             $res['BizData'] = $this->bizData;
         }
+
         if (null !== $this->calleeNick) {
             $res['CalleeNick'] = $this->calleeNick;
         }
+
         if (null !== $this->calleePhoneNum) {
             $res['CalleePhoneNum'] = $this->calleePhoneNum;
         }
+
         if (null !== $this->deviceInfoShrink) {
             $res['DeviceInfo'] = $this->deviceInfoShrink;
         }
+
         if (null !== $this->userInfoShrink) {
             $res['UserInfo'] = $this->userInfoShrink;
         }
@@ -66,26 +71,30 @@ class CheckAndDoVoipCallForHotelShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckAndDoVoipCallForHotelShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizData'])) {
             $model->bizData = $map['BizData'];
         }
+
         if (isset($map['CalleeNick'])) {
             $model->calleeNick = $map['CalleeNick'];
         }
+
         if (isset($map['CalleePhoneNum'])) {
             $model->calleePhoneNum = $map['CalleePhoneNum'];
         }
+
         if (isset($map['DeviceInfo'])) {
             $model->deviceInfoShrink = $map['DeviceInfo'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfoShrink = $map['UserInfo'];
         }

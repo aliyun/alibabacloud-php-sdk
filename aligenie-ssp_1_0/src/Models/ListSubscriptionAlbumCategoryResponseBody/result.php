@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListSubscriptionAlbumCategoryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example 80011
-     *
      * @var string
      */
     public $categoryId;
 
     /**
-     * @example 儿童
-     *
      * @var string
      */
     public $categoryName;
     protected $_name = [
-        'categoryId'   => 'CategoryId',
+        'categoryId' => 'CategoryId',
         'categoryName' => 'CategoryName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
+
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
         }
@@ -43,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
+
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
         }

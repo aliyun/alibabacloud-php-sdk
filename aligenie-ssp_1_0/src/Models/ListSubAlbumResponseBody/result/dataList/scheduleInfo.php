@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListSubAlbumResponseBody\result\dataList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class scheduleInfo extends Model
 {
@@ -14,15 +14,11 @@ class scheduleInfo extends Model
     public $daysOfWeek;
 
     /**
-     * @example 12
-     *
      * @var int
      */
     public $hour;
 
     /**
-     * @example 23
-     *
      * @var int
      */
     public $minute;
@@ -33,27 +29,41 @@ class scheduleInfo extends Model
     public $scheduleId;
     protected $_name = [
         'daysOfWeek' => 'DaysOfWeek',
-        'hour'       => 'Hour',
-        'minute'     => 'Minute',
+        'hour' => 'Hour',
+        'minute' => 'Minute',
         'scheduleId' => 'ScheduleId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->daysOfWeek)) {
+            Model::validateArray($this->daysOfWeek);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->daysOfWeek) {
-            $res['DaysOfWeek'] = $this->daysOfWeek;
+            if (\is_array($this->daysOfWeek)) {
+                $res['DaysOfWeek'] = [];
+                $n1 = 0;
+                foreach ($this->daysOfWeek as $item1) {
+                    $res['DaysOfWeek'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->hour) {
             $res['Hour'] = $this->hour;
         }
+
         if (null !== $this->minute) {
             $res['Minute'] = $this->minute;
         }
+
         if (null !== $this->scheduleId) {
             $res['ScheduleId'] = $this->scheduleId;
         }
@@ -61,25 +71,33 @@ class scheduleInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scheduleInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DaysOfWeek'])) {
             if (!empty($map['DaysOfWeek'])) {
-                $model->daysOfWeek = $map['DaysOfWeek'];
+                $model->daysOfWeek = [];
+                $n1 = 0;
+                foreach ($map['DaysOfWeek'] as $item1) {
+                    $model->daysOfWeek[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Hour'])) {
             $model->hour = $map['Hour'];
         }
+
         if (isset($map['Minute'])) {
             $model->minute = $map['Minute'];
         }
+
         if (isset($map['ScheduleId'])) {
             $model->scheduleId = $map['ScheduleId'];
         }

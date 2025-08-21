@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\DeleteAlarmsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class payload extends Model
 {
@@ -18,29 +18,45 @@ class payload extends Model
 
     public function validate()
     {
+        if (\is_array($this->alarmIds)) {
+            Model::validateArray($this->alarmIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarmIds) {
-            $res['AlarmIds'] = $this->alarmIds;
+            if (\is_array($this->alarmIds)) {
+                $res['AlarmIds'] = [];
+                $n1 = 0;
+                foreach ($this->alarmIds as $item1) {
+                    $res['AlarmIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return payload
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlarmIds'])) {
             if (!empty($map['AlarmIds'])) {
-                $model->alarmIds = $map['AlarmIds'];
+                $model->alarmIds = [];
+                $n1 = 0;
+                foreach ($map['AlarmIds'] as $item1) {
+                    $model->alarmIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

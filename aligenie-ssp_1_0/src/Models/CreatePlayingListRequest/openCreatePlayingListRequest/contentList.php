@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreatePlayingListRequest\openCreatePlayingListRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contentList extends Model
 {
     /**
-     * @example 12345
-     *
      * @var string
      */
     public $rawId;
 
     /**
-     * @example xiami
-     *
      * @var string
      */
     public $source;
     protected $_name = [
-        'rawId'  => 'RawId',
+        'rawId' => 'RawId',
         'source' => 'Source',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rawId) {
             $res['RawId'] = $this->rawId;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -43,17 +41,18 @@ class contentList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contentList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RawId'])) {
             $model->rawId = $map['RawId'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

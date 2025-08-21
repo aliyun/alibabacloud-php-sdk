@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListDeviceByUserIdAndChanelRequest\channelInfo;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListDeviceByUserIdAndChanelRequest\userInfo;
-use AlibabaCloud\Tea\Model;
 
 class ListDeviceByUserIdAndChanelRequest extends Model
 {
@@ -21,37 +21,46 @@ class ListDeviceByUserIdAndChanelRequest extends Model
     public $userInfo;
     protected $_name = [
         'channelInfo' => 'ChannelInfo',
-        'userInfo'    => 'UserInfo',
+        'userInfo' => 'UserInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->channelInfo) {
+            $this->channelInfo->validate();
+        }
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelInfo) {
-            $res['ChannelInfo'] = null !== $this->channelInfo ? $this->channelInfo->toMap() : null;
+            $res['ChannelInfo'] = null !== $this->channelInfo ? $this->channelInfo->toArray($noStream) : $this->channelInfo;
         }
+
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDeviceByUserIdAndChanelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelInfo'])) {
             $model->channelInfo = channelInfo::fromMap($map['ChannelInfo']);
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }

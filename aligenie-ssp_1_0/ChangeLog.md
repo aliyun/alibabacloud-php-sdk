@@ -1,3 +1,8 @@
+2025-08-21 Version: 1.2.0
+- Support API CreatePlayingListOAuth2.
+- Support API ThirdImmediateMsgPush.
+
+
 2024-01-04 Version: 1.1.0
 - Generated php ssp_1.0 for AliGenie.
 

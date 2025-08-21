@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreateScheduleTaskRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreateScheduleTaskRequest\payload\actionDTOs;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreateScheduleTaskRequest\payload\scheduleDTO;
-use AlibabaCloud\Tea\Model;
 
 class payload extends Model
 {
@@ -16,8 +16,6 @@ class payload extends Model
     public $actionDTOs;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $idempotentId;
@@ -27,57 +25,70 @@ class payload extends Model
      */
     public $scheduleDTO;
     protected $_name = [
-        'actionDTOs'   => 'ActionDTOs',
+        'actionDTOs' => 'ActionDTOs',
         'idempotentId' => 'IdempotentId',
-        'scheduleDTO'  => 'ScheduleDTO',
+        'scheduleDTO' => 'ScheduleDTO',
     ];
 
     public function validate()
     {
+        if (\is_array($this->actionDTOs)) {
+            Model::validateArray($this->actionDTOs);
+        }
+        if (null !== $this->scheduleDTO) {
+            $this->scheduleDTO->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionDTOs) {
-            $res['ActionDTOs'] = [];
-            if (null !== $this->actionDTOs && \is_array($this->actionDTOs)) {
-                $n = 0;
-                foreach ($this->actionDTOs as $item) {
-                    $res['ActionDTOs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->actionDTOs)) {
+                $res['ActionDTOs'] = [];
+                $n1 = 0;
+                foreach ($this->actionDTOs as $item1) {
+                    $res['ActionDTOs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->idempotentId) {
             $res['IdempotentId'] = $this->idempotentId;
         }
+
         if (null !== $this->scheduleDTO) {
-            $res['ScheduleDTO'] = null !== $this->scheduleDTO ? $this->scheduleDTO->toMap() : null;
+            $res['ScheduleDTO'] = null !== $this->scheduleDTO ? $this->scheduleDTO->toArray($noStream) : $this->scheduleDTO;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return payload
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionDTOs'])) {
             if (!empty($map['ActionDTOs'])) {
                 $model->actionDTOs = [];
-                $n                 = 0;
-                foreach ($map['ActionDTOs'] as $item) {
-                    $model->actionDTOs[$n++] = null !== $item ? actionDTOs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ActionDTOs'] as $item1) {
+                    $model->actionDTOs[$n1] = actionDTOs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['IdempotentId'])) {
             $model->idempotentId = $map['IdempotentId'];
         }
+
         if (isset($map['ScheduleDTO'])) {
             $model->scheduleDTO = scheduleDTO::fromMap($map['ScheduleDTO']);
         }

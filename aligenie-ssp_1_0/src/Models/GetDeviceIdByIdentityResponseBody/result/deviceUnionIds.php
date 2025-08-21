@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetDeviceIdByIdentityResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deviceUnionIds extends Model
 {
     /**
-     * @example 1553*B0C3
-     *
      * @var string
      */
     public $deviceUnionId;
 
     /**
-     * @example 1**2
-     *
      * @var string
      */
     public $organizationId;
     protected $_name = [
-        'deviceUnionId'  => 'DeviceUnionId',
+        'deviceUnionId' => 'DeviceUnionId',
         'organizationId' => 'OrganizationId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceUnionId) {
             $res['DeviceUnionId'] = $this->deviceUnionId;
         }
+
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
         }
@@ -43,17 +41,18 @@ class deviceUnionIds extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deviceUnionIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceUnionId'])) {
             $model->deviceUnionId = $map['DeviceUnionId'];
         }
+
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
         }

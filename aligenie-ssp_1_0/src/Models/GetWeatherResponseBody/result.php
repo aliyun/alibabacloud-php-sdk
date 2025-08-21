@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetWeatherResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetWeatherResponseBody\result\currentMeteorology;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -19,23 +19,27 @@ class result extends Model
 
     public function validate()
     {
+        if (null !== $this->currentMeteorology) {
+            $this->currentMeteorology->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentMeteorology) {
-            $res['CurrentMeteorology'] = null !== $this->currentMeteorology ? $this->currentMeteorology->toMap() : null;
+            $res['CurrentMeteorology'] = null !== $this->currentMeteorology ? $this->currentMeteorology->toArray($noStream) : $this->currentMeteorology;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryUserDeviceListByTmeUserIdRequest extends Model
 {
@@ -18,20 +18,22 @@ class QueryUserDeviceListByTmeUserIdRequest extends Model
      */
     public $tmeUserId;
     protected $_name = [
-        'sp'        => 'Sp',
+        'sp' => 'Sp',
         'tmeUserId' => 'TmeUserId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sp) {
             $res['Sp'] = $this->sp;
         }
+
         if (null !== $this->tmeUserId) {
             $res['TmeUserId'] = $this->tmeUserId;
         }
@@ -39,17 +41,18 @@ class QueryUserDeviceListByTmeUserIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryUserDeviceListByTmeUserIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Sp'])) {
             $model->sp = $map['Sp'];
         }
+
         if (isset($map['TmeUserId'])) {
             $model->tmeUserId = $map['TmeUserId'];
         }

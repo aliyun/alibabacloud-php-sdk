@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListDeviceBasicInfoRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deviceInfos extends Model
 {
     /**
-     * @example 12**45
-     *
      * @var string
      */
     public $encodeKey;
 
     /**
-     * @example PROJECT_ID
-     *
      * @var string
      */
     public $encodeType;
 
     /**
-     * @example OPEN_ID
-     *
      * @var string
      */
     public $idType;
@@ -35,38 +29,51 @@ class deviceInfos extends Model
     public $ids;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $organizationId;
     protected $_name = [
-        'encodeKey'      => 'EncodeKey',
-        'encodeType'     => 'EncodeType',
-        'idType'         => 'IdType',
-        'ids'            => 'Ids',
+        'encodeKey' => 'EncodeKey',
+        'encodeType' => 'EncodeType',
+        'idType' => 'IdType',
+        'ids' => 'Ids',
         'organizationId' => 'OrganizationId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ids)) {
+            Model::validateArray($this->ids);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->encodeKey) {
             $res['EncodeKey'] = $this->encodeKey;
         }
+
         if (null !== $this->encodeType) {
             $res['EncodeType'] = $this->encodeType;
         }
+
         if (null !== $this->idType) {
             $res['IdType'] = $this->idType;
         }
+
         if (null !== $this->ids) {
-            $res['Ids'] = $this->ids;
+            if (\is_array($this->ids)) {
+                $res['Ids'] = [];
+                $n1 = 0;
+                foreach ($this->ids as $item1) {
+                    $res['Ids'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
         }
@@ -74,28 +81,37 @@ class deviceInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deviceInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EncodeKey'])) {
             $model->encodeKey = $map['EncodeKey'];
         }
+
         if (isset($map['EncodeType'])) {
             $model->encodeType = $map['EncodeType'];
         }
+
         if (isset($map['IdType'])) {
             $model->idType = $map['IdType'];
         }
+
         if (isset($map['Ids'])) {
             if (!empty($map['Ids'])) {
-                $model->ids = $map['Ids'];
+                $model->ids = [];
+                $n1 = 0;
+                foreach ($map['Ids'] as $item1) {
+                    $model->ids[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
         }

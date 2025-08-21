@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetAligenieUserInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example XXX
-     *
      * @var string
      */
     public $aligenieNickname;
 
     /**
-     * @example http://img.alicdn.com/xxx.jpg
-     *
      * @var string
      */
     public $avatar;
@@ -28,23 +24,26 @@ class result extends Model
     public $deletable;
     protected $_name = [
         'aligenieNickname' => 'AligenieNickname',
-        'avatar'           => 'Avatar',
-        'deletable'        => 'Deletable',
+        'avatar' => 'Avatar',
+        'deletable' => 'Deletable',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aligenieNickname) {
             $res['AligenieNickname'] = $this->aligenieNickname;
         }
+
         if (null !== $this->avatar) {
             $res['Avatar'] = $this->avatar;
         }
+
         if (null !== $this->deletable) {
             $res['Deletable'] = $this->deletable;
         }
@@ -52,20 +51,22 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AligenieNickname'])) {
             $model->aligenieNickname = $map['AligenieNickname'];
         }
+
         if (isset($map['Avatar'])) {
             $model->avatar = $map['Avatar'];
         }
+
         if (isset($map['Deletable'])) {
             $model->deletable = $map['Deletable'];
         }

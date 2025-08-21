@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetUserByDeviceIdRequest\deviceInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetUserByDeviceIdRequest extends Model
 {
@@ -19,23 +19,27 @@ class GetUserByDeviceIdRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->deviceInfo) {
+            $this->deviceInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceInfo) {
-            $res['DeviceInfo'] = null !== $this->deviceInfo ? $this->deviceInfo->toMap() : null;
+            $res['DeviceInfo'] = null !== $this->deviceInfo ? $this->deviceInfo->toArray($noStream) : $this->deviceInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserByDeviceIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

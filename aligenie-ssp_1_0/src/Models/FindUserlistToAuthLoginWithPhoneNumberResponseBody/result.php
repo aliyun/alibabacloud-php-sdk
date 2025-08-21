@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\FindUserlistToAuthLoginWithPhoneNumberResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\FindUserlistToAuthLoginWithPhoneNumberResponseBody\result\userListToAuthLogin;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -19,17 +19,22 @@ class result extends Model
 
     public function validate()
     {
+        if (\is_array($this->userListToAuthLogin)) {
+            Model::validateArray($this->userListToAuthLogin);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userListToAuthLogin) {
-            $res['UserListToAuthLogin'] = [];
-            if (null !== $this->userListToAuthLogin && \is_array($this->userListToAuthLogin)) {
-                $n = 0;
-                foreach ($this->userListToAuthLogin as $item) {
-                    $res['UserListToAuthLogin'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userListToAuthLogin)) {
+                $res['UserListToAuthLogin'] = [];
+                $n1 = 0;
+                foreach ($this->userListToAuthLogin as $item1) {
+                    $res['UserListToAuthLogin'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserListToAuthLogin'])) {
             if (!empty($map['UserListToAuthLogin'])) {
                 $model->userListToAuthLogin = [];
-                $n                          = 0;
-                foreach ($map['UserListToAuthLogin'] as $item) {
-                    $model->userListToAuthLogin[$n++] = null !== $item ? userListToAuthLogin::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UserListToAuthLogin'] as $item1) {
+                    $model->userListToAuthLogin[$n1] = userListToAuthLogin::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,51 +4,46 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ScanCodeBindRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bindReq extends Model
 {
     /**
-     * @example RnY8v0W0ZVn58ZrUAOr2RD
-     *
      * @var string
      */
     public $clientId;
 
     /**
-     * @description authCode
-     *
-     * @example ASdfre
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example {"key":"value"}
-     *
      * @var string
      */
     public $extInfo;
     protected $_name = [
         'clientId' => 'ClientId',
-        'code'     => 'Code',
-        'extInfo'  => 'ExtInfo',
+        'code' => 'Code',
+        'extInfo' => 'ExtInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->extInfo) {
             $res['ExtInfo'] = $this->extInfo;
         }
@@ -56,20 +51,22 @@ class bindReq extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bindReq
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['ExtInfo'])) {
             $model->extInfo = $map['ExtInfo'];
         }

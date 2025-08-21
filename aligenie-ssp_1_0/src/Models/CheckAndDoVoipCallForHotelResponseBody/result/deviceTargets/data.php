@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CheckAndDoVoipCallForHotelResponseBody\result\deviceTargets;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -36,29 +36,34 @@ class data extends Model
         'deviceIcon' => 'DeviceIcon',
         'deviceName' => 'DeviceName',
         'deviceType' => 'DeviceType',
-        'online'     => 'Online',
-        'uuid'       => 'Uuid',
+        'online' => 'Online',
+        'uuid' => 'Uuid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceIcon) {
             $res['DeviceIcon'] = $this->deviceIcon;
         }
+
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+
         if (null !== $this->deviceType) {
             $res['DeviceType'] = $this->deviceType;
         }
+
         if (null !== $this->online) {
             $res['Online'] = $this->online;
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -66,26 +71,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceIcon'])) {
             $model->deviceIcon = $map['DeviceIcon'];
         }
+
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
+
         if (isset($map['DeviceType'])) {
             $model->deviceType = $map['DeviceType'];
         }
+
         if (isset($map['Online'])) {
             $model->online = $map['Online'];
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

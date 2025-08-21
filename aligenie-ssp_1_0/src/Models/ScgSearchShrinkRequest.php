@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ScgSearchShrinkRequest extends Model
 {
@@ -14,26 +14,26 @@ class ScgSearchShrinkRequest extends Model
     public $scgFilterShrink;
 
     /**
-     * @example MC201132
-     *
      * @var string
      */
     public $topicId;
     protected $_name = [
         'scgFilterShrink' => 'ScgFilter',
-        'topicId'         => 'TopicId',
+        'topicId' => 'TopicId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scgFilterShrink) {
             $res['ScgFilter'] = $this->scgFilterShrink;
         }
+
         if (null !== $this->topicId) {
             $res['TopicId'] = $this->topicId;
         }
@@ -41,17 +41,18 @@ class ScgSearchShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ScgSearchShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ScgFilter'])) {
             $model->scgFilterShrink = $map['ScgFilter'];
         }
+
         if (isset($map['TopicId'])) {
             $model->topicId = $map['TopicId'];
         }

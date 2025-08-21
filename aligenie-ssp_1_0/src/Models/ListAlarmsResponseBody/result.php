@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListAlarmsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListAlarmsResponseBody\result\model_;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
@@ -22,58 +20,61 @@ class result extends Model
     public $model;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageCount;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'model'       => 'Model',
-        'pageCount'   => 'PageCount',
-        'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
+        'model' => 'Model',
+        'pageCount' => 'PageCount',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->model)) {
+            Model::validateArray($this->model);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->model) {
-            $res['Model'] = [];
-            if (null !== $this->model && \is_array($this->model)) {
-                $n = 0;
-                foreach ($this->model as $item) {
-                    $res['Model'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->model)) {
+                $res['Model'] = [];
+                $n1 = 0;
+                foreach ($this->model as $item1) {
+                    $res['Model'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageCount) {
             $res['PageCount'] = $this->pageCount;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -81,32 +82,37 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Model'])) {
             if (!empty($map['Model'])) {
                 $model->model = [];
-                $n            = 0;
-                foreach ($map['Model'] as $item) {
-                    $model->model[$n++] = null !== $item ? model_::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Model'] as $item1) {
+                    $model->model[$n1] = model_::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageCount'])) {
             $model->pageCount = $map['PageCount'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

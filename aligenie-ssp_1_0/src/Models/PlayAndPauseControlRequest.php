@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\PlayAndPauseControlRequest\deviceInfo;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\PlayAndPauseControlRequest\openPlayAndPauseControlParam;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\PlayAndPauseControlRequest\userInfo;
-use AlibabaCloud\Tea\Model;
 
 class PlayAndPauseControlRequest extends Model
 {
@@ -26,45 +26,59 @@ class PlayAndPauseControlRequest extends Model
      */
     public $userInfo;
     protected $_name = [
-        'deviceInfo'                   => 'DeviceInfo',
+        'deviceInfo' => 'DeviceInfo',
         'openPlayAndPauseControlParam' => 'OpenPlayAndPauseControlParam',
-        'userInfo'                     => 'UserInfo',
+        'userInfo' => 'UserInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->deviceInfo) {
+            $this->deviceInfo->validate();
+        }
+        if (null !== $this->openPlayAndPauseControlParam) {
+            $this->openPlayAndPauseControlParam->validate();
+        }
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceInfo) {
-            $res['DeviceInfo'] = null !== $this->deviceInfo ? $this->deviceInfo->toMap() : null;
+            $res['DeviceInfo'] = null !== $this->deviceInfo ? $this->deviceInfo->toArray($noStream) : $this->deviceInfo;
         }
+
         if (null !== $this->openPlayAndPauseControlParam) {
-            $res['OpenPlayAndPauseControlParam'] = null !== $this->openPlayAndPauseControlParam ? $this->openPlayAndPauseControlParam->toMap() : null;
+            $res['OpenPlayAndPauseControlParam'] = null !== $this->openPlayAndPauseControlParam ? $this->openPlayAndPauseControlParam->toArray($noStream) : $this->openPlayAndPauseControlParam;
         }
+
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PlayAndPauseControlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceInfo'])) {
             $model->deviceInfo = deviceInfo::fromMap($map['DeviceInfo']);
         }
+
         if (isset($map['OpenPlayAndPauseControlParam'])) {
             $model->openPlayAndPauseControlParam = openPlayAndPauseControlParam::fromMap($map['OpenPlayAndPauseControlParam']);
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }

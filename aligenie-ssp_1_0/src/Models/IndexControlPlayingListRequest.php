@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\IndexControlPlayingListRequest\deviceInfo;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\IndexControlPlayingListRequest\openIndexControlRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\IndexControlPlayingListRequest\userInfo;
-use AlibabaCloud\Tea\Model;
 
 class IndexControlPlayingListRequest extends Model
 {
@@ -26,45 +26,59 @@ class IndexControlPlayingListRequest extends Model
      */
     public $userInfo;
     protected $_name = [
-        'deviceInfo'              => 'DeviceInfo',
+        'deviceInfo' => 'DeviceInfo',
         'openIndexControlRequest' => 'OpenIndexControlRequest',
-        'userInfo'                => 'UserInfo',
+        'userInfo' => 'UserInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->deviceInfo) {
+            $this->deviceInfo->validate();
+        }
+        if (null !== $this->openIndexControlRequest) {
+            $this->openIndexControlRequest->validate();
+        }
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceInfo) {
-            $res['DeviceInfo'] = null !== $this->deviceInfo ? $this->deviceInfo->toMap() : null;
+            $res['DeviceInfo'] = null !== $this->deviceInfo ? $this->deviceInfo->toArray($noStream) : $this->deviceInfo;
         }
+
         if (null !== $this->openIndexControlRequest) {
-            $res['OpenIndexControlRequest'] = null !== $this->openIndexControlRequest ? $this->openIndexControlRequest->toMap() : null;
+            $res['OpenIndexControlRequest'] = null !== $this->openIndexControlRequest ? $this->openIndexControlRequest->toArray($noStream) : $this->openIndexControlRequest;
         }
+
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IndexControlPlayingListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceInfo'])) {
             $model->deviceInfo = deviceInfo::fromMap($map['DeviceInfo']);
         }
+
         if (isset($map['OpenIndexControlRequest'])) {
             $model->openIndexControlRequest = openIndexControlRequest::fromMap($map['OpenIndexControlRequest']);
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }

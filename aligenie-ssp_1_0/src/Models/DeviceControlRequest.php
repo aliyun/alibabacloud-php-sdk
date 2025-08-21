@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\DeviceControlRequest\controlRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\DeviceControlRequest\deviceInfo;
-use AlibabaCloud\Tea\Model;
 
 class DeviceControlRequest extends Model
 {
@@ -21,37 +21,46 @@ class DeviceControlRequest extends Model
     public $deviceInfo;
     protected $_name = [
         'controlRequest' => 'ControlRequest',
-        'deviceInfo'     => 'DeviceInfo',
+        'deviceInfo' => 'DeviceInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->controlRequest) {
+            $this->controlRequest->validate();
+        }
+        if (null !== $this->deviceInfo) {
+            $this->deviceInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->controlRequest) {
-            $res['ControlRequest'] = null !== $this->controlRequest ? $this->controlRequest->toMap() : null;
+            $res['ControlRequest'] = null !== $this->controlRequest ? $this->controlRequest->toArray($noStream) : $this->controlRequest;
         }
+
         if (null !== $this->deviceInfo) {
-            $res['DeviceInfo'] = null !== $this->deviceInfo ? $this->deviceInfo->toMap() : null;
+            $res['DeviceInfo'] = null !== $this->deviceInfo ? $this->deviceInfo->toArray($noStream) : $this->deviceInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeviceControlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ControlRequest'])) {
             $model->controlRequest = controlRequest::fromMap($map['ControlRequest']);
         }
+
         if (isset($map['DeviceInfo'])) {
             $model->deviceInfo = deviceInfo::fromMap($map['DeviceInfo']);
         }

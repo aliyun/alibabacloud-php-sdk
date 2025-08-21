@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ScgSearchRequest\scgFilter;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sortParam extends Model
 {
     /**
-     * @example internal_id
-     *
      * @var string
      */
     public $sortKey;
 
     /**
-     * @example ASC
-     *
      * @var string
      */
     public $sortOrder;
 
     /**
-     * @example “”
-     *
      * @var string
      */
     public $sortText;
     protected $_name = [
-        'sortKey'   => 'SortKey',
+        'sortKey' => 'SortKey',
         'sortOrder' => 'SortOrder',
-        'sortText'  => 'SortText',
+        'sortText' => 'SortText',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sortKey) {
             $res['SortKey'] = $this->sortKey;
         }
+
         if (null !== $this->sortOrder) {
             $res['SortOrder'] = $this->sortOrder;
         }
+
         if (null !== $this->sortText) {
             $res['SortText'] = $this->sortText;
         }
@@ -54,20 +51,22 @@ class sortParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sortParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SortKey'])) {
             $model->sortKey = $map['SortKey'];
         }
+
         if (isset($map['SortOrder'])) {
             $model->sortOrder = $map['SortOrder'];
         }
+
         if (isset($map['SortText'])) {
             $model->sortText = $map['SortText'];
         }

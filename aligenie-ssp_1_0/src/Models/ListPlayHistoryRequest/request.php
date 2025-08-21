@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListPlayHistoryRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class request extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example music
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'pageNum'  => 'PageNum',
+        'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -54,20 +51,22 @@ class request extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return request
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

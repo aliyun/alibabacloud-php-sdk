@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListAlbumIsAddedResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example 51999575
-     *
      * @var string
      */
     public $albumId;
 
     /**
-     * @example false
-     *
      * @var string
      */
     public $isAdded;
@@ -28,14 +24,16 @@ class result extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->albumId) {
             $res['AlbumId'] = $this->albumId;
         }
+
         if (null !== $this->isAdded) {
             $res['IsAdded'] = $this->isAdded;
         }
@@ -43,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlbumId'])) {
             $model->albumId = $map['AlbumId'];
         }
+
         if (isset($map['IsAdded'])) {
             $model->isAdded = $map['IsAdded'];
         }

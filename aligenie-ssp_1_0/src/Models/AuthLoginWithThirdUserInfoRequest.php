@@ -4,60 +4,64 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AuthLoginWithThirdUserInfoRequest extends Model
 {
     /**
-     * @example {}
-     *
      * @var mixed[]
      */
     public $extInfo;
 
     /**
-     * @example wechat_ecology_openness
-     *
      * @var string
      */
     public $sceneCode;
 
     /**
-     * @example o5qxy6EItZBasv2VZAf-MGwllHL4
-     *
      * @var string
      */
     public $thirdUserIdentifier;
 
     /**
-     * @example weChatUser
-     *
      * @var string
      */
     public $thirdUserType;
     protected $_name = [
-        'extInfo'             => 'ExtInfo',
-        'sceneCode'           => 'SceneCode',
+        'extInfo' => 'ExtInfo',
+        'sceneCode' => 'SceneCode',
         'thirdUserIdentifier' => 'ThirdUserIdentifier',
-        'thirdUserType'       => 'ThirdUserType',
+        'thirdUserType' => 'ThirdUserType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->extInfo)) {
+            Model::validateArray($this->extInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extInfo) {
-            $res['ExtInfo'] = $this->extInfo;
+            if (\is_array($this->extInfo)) {
+                $res['ExtInfo'] = [];
+                foreach ($this->extInfo as $key1 => $value1) {
+                    $res['ExtInfo'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->sceneCode) {
             $res['SceneCode'] = $this->sceneCode;
         }
+
         if (null !== $this->thirdUserIdentifier) {
             $res['ThirdUserIdentifier'] = $this->thirdUserIdentifier;
         }
+
         if (null !== $this->thirdUserType) {
             $res['ThirdUserType'] = $this->thirdUserType;
         }
@@ -65,23 +69,31 @@ class AuthLoginWithThirdUserInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AuthLoginWithThirdUserInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExtInfo'])) {
-            $model->extInfo = $map['ExtInfo'];
+            if (!empty($map['ExtInfo'])) {
+                $model->extInfo = [];
+                foreach ($map['ExtInfo'] as $key1 => $value1) {
+                    $model->extInfo[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['SceneCode'])) {
             $model->sceneCode = $map['SceneCode'];
         }
+
         if (isset($map['ThirdUserIdentifier'])) {
             $model->thirdUserIdentifier = $map['ThirdUserIdentifier'];
         }
+
         if (isset($map['ThirdUserType'])) {
             $model->thirdUserType = $map['ThirdUserType'];
         }

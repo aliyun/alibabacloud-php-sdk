@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AddAndRemoveFavoriteContentHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AddAndRemoveFavoriteContentRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AddAndRemoveFavoriteContentResponse;
@@ -44,6 +43,9 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreateAlarmRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreateAlarmResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreateAlarmShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreatePlayingListHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreatePlayingListOAuth2Request;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreatePlayingListOAuth2Response;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreatePlayingListOAuth2ShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreatePlayingListRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreatePlayingListResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreatePlayingListShrinkRequest;
@@ -126,6 +128,9 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetDeviceTagHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetDeviceTagRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetDeviceTagResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetDeviceTagShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetJiangSuTelecomDataHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetJiangSuTelecomDataRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetJiangSuTelecomDataResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetScheduleTaskHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetScheduleTaskRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetScheduleTaskResponse;
@@ -146,6 +151,10 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\IndexControlPlayingListHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\IndexControlPlayingListRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\IndexControlPlayingListResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\IndexControlPlayingListShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\InvalidateThirdPartyAppLoginStateHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\InvalidateThirdPartyAppLoginStateRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\InvalidateThirdPartyAppLoginStateResponse;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\InvalidateThirdPartyAppLoginStateShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListAlarmsHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListAlarmsRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListAlarmsResponse;
@@ -264,6 +273,9 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\SetDeviceSettingHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\SetDeviceSettingRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\SetDeviceSettingResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\SetDeviceSettingShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ThirdImmediateMsgPushHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ThirdImmediateMsgPushRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ThirdImmediateMsgPushResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UnbindAligenieUserHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UnbindAligenieUserRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UnbindAligenieUserResponse;
@@ -275,11 +287,10 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class AliGenie extends OpenApiClient
 {
@@ -304,17 +315,26 @@ class AliGenie extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * 收藏/取消收藏.
+     *
+     * @param tmpReq - AddAndRemoveFavoriteContentRequest
+     * @param headers - AddAndRemoveFavoriteContentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddAndRemoveFavoriteContentResponse
+     *
      * @param AddAndRemoveFavoriteContentRequest $tmpReq
      * @param AddAndRemoveFavoriteContentHeaders $headers
      * @param RuntimeOptions                     $runtime
@@ -323,60 +343,75 @@ class AliGenie extends OpenApiClient
      */
     public function addAndRemoveFavoriteContentWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddAndRemoveFavoriteContentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->openAddAndRemoveFavoriteContentRequest)) {
-            $request->openAddAndRemoveFavoriteContentRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openAddAndRemoveFavoriteContentRequest, 'OpenAddAndRemoveFavoriteContentRequest', 'json');
+
+        if (null !== $tmpReq->openAddAndRemoveFavoriteContentRequest) {
+            $request->openAddAndRemoveFavoriteContentRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->openAddAndRemoveFavoriteContentRequest, 'OpenAddAndRemoveFavoriteContentRequest', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->openAddAndRemoveFavoriteContentRequestShrink)) {
-            $body['OpenAddAndRemoveFavoriteContentRequest'] = $request->openAddAndRemoveFavoriteContentRequestShrink;
+        if (null !== $request->openAddAndRemoveFavoriteContentRequestShrink) {
+            @$body['OpenAddAndRemoveFavoriteContentRequest'] = $request->openAddAndRemoveFavoriteContentRequestShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddAndRemoveFavoriteContent',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/AddAndRemoveFavoriteContent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddAndRemoveFavoriteContent',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/AddAndRemoveFavoriteContent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddAndRemoveFavoriteContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 收藏/取消收藏.
+     *
+     * @param request - AddAndRemoveFavoriteContentRequest
+     *
+     * @returns AddAndRemoveFavoriteContentResponse
+     *
      * @param AddAndRemoveFavoriteContentRequest $request
      *
      * @return AddAndRemoveFavoriteContentResponse
@@ -390,6 +425,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 新增订阅.
+     *
+     * @param tmpReq - AddSubRequest
+     * @param headers - AddSubHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddSubResponse
+     *
      * @param AddSubRequest  $tmpReq
      * @param AddSubHeaders  $headers
      * @param RuntimeOptions $runtime
@@ -398,58 +441,73 @@ class AliGenie extends OpenApiClient
      */
     public function addSubWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddSubShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->addSubscriptionInfoRequest)) {
-            $request->addSubscriptionInfoRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addSubscriptionInfoRequest, 'AddSubscriptionInfoRequest', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addSubscriptionInfoRequest) {
+            $request->addSubscriptionInfoRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addSubscriptionInfoRequest, 'AddSubscriptionInfoRequest', 'json');
         }
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->addSubscriptionInfoRequestShrink)) {
-            $query['AddSubscriptionInfoRequest'] = $request->addSubscriptionInfoRequestShrink;
+        if (null !== $request->addSubscriptionInfoRequestShrink) {
+            @$query['AddSubscriptionInfoRequest'] = $request->addSubscriptionInfoRequestShrink;
         }
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddSub',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/addSub',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddSub',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/addSub',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddSubResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 新增订阅.
+     *
+     * @param request - AddSubRequest
+     *
+     * @returns AddSubResponse
+     *
      * @param AddSubRequest $request
      *
      * @return AddSubResponse
@@ -463,6 +521,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 通过指定精灵账号进行授权登录.
+     *
+     * @param request - AuthLoginWithAligenieUserInfoRequest
+     * @param headers - AuthLoginWithAligenieUserInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthLoginWithAligenieUserInfoResponse
+     *
      * @param AuthLoginWithAligenieUserInfoRequest $request
      * @param AuthLoginWithAligenieUserInfoHeaders $headers
      * @param RuntimeOptions                       $runtime
@@ -471,44 +537,55 @@ class AliGenie extends OpenApiClient
      */
     public function authLoginWithAligenieUserInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->encryptedAligenieUserIdentifier)) {
-            $body['EncryptedAligenieUserIdentifier'] = $request->encryptedAligenieUserIdentifier;
+        if (null !== $request->encryptedAligenieUserIdentifier) {
+            @$body['EncryptedAligenieUserIdentifier'] = $request->encryptedAligenieUserIdentifier;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AuthLoginWithAligenieUserInfo',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/authLoginWithAligenieUserInfo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AuthLoginWithAligenieUserInfo',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/authLoginWithAligenieUserInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AuthLoginWithAligenieUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 通过指定精灵账号进行授权登录.
+     *
+     * @param request - AuthLoginWithAligenieUserInfoRequest
+     *
+     * @returns AuthLoginWithAligenieUserInfoResponse
+     *
      * @param AuthLoginWithAligenieUserInfoRequest $request
      *
      * @return AuthLoginWithAligenieUserInfoResponse
@@ -522,6 +599,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 通过手机号生成精灵账号进行授权登录.
+     *
+     * @param request - AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest
+     * @param headers - AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse
+     *
      * @param AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest $request
      * @param AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders $headers
      * @param RuntimeOptions                                             $runtime
@@ -530,41 +615,51 @@ class AliGenie extends OpenApiClient
      */
     public function authLoginWithAligenieUserInfoGeneratedByPhoneNumberWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AuthLoginWithAligenieUserInfoGeneratedByPhoneNumber',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/authLoginWithAligenieUserInfoGeneratedByPhoneNumber',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AuthLoginWithAligenieUserInfoGeneratedByPhoneNumber',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/authLoginWithAligenieUserInfoGeneratedByPhoneNumber',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 通过手机号生成精灵账号进行授权登录.
+     *
+     * @param request - AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest
+     *
+     * @returns AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse
+     *
      * @param AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest $request
      *
      * @return AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse
@@ -578,6 +673,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 通过指定淘宝账号进行授权登录.
+     *
+     * @param request - AuthLoginWithTaobaoUserInfoRequest
+     * @param headers - AuthLoginWithTaobaoUserInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthLoginWithTaobaoUserInfoResponse
+     *
      * @param AuthLoginWithTaobaoUserInfoRequest $request
      * @param AuthLoginWithTaobaoUserInfoHeaders $headers
      * @param RuntimeOptions                     $runtime
@@ -586,44 +689,55 @@ class AliGenie extends OpenApiClient
      */
     public function authLoginWithTaobaoUserInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->encryptedTaobaoUserIdentifier)) {
-            $body['EncryptedTaobaoUserIdentifier'] = $request->encryptedTaobaoUserIdentifier;
+        if (null !== $request->encryptedTaobaoUserIdentifier) {
+            @$body['EncryptedTaobaoUserIdentifier'] = $request->encryptedTaobaoUserIdentifier;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AuthLoginWithTaobaoUserInfo',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/authLoginWithTaobaoUserInfo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AuthLoginWithTaobaoUserInfo',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/authLoginWithTaobaoUserInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AuthLoginWithTaobaoUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 通过指定淘宝账号进行授权登录.
+     *
+     * @param request - AuthLoginWithTaobaoUserInfoRequest
+     *
+     * @returns AuthLoginWithTaobaoUserInfoResponse
+     *
      * @param AuthLoginWithTaobaoUserInfoRequest $request
      *
      * @return AuthLoginWithTaobaoUserInfoResponse
@@ -637,6 +751,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 通过三方用户信息进行授权登录.
+     *
+     * @param tmpReq - AuthLoginWithThirdUserInfoRequest
+     * @param headers - AuthLoginWithThirdUserInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthLoginWithThirdUserInfoResponse
+     *
      * @param AuthLoginWithThirdUserInfoRequest $tmpReq
      * @param AuthLoginWithThirdUserInfoHeaders $headers
      * @param RuntimeOptions                    $runtime
@@ -645,55 +767,69 @@ class AliGenie extends OpenApiClient
      */
     public function authLoginWithThirdUserInfoWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AuthLoginWithThirdUserInfoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->extInfo)) {
-            $request->extInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extInfo, 'ExtInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extInfo) {
+            $request->extInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extInfo, 'ExtInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->extInfoShrink)) {
-            $body['ExtInfo'] = $request->extInfoShrink;
+        if (null !== $request->extInfoShrink) {
+            @$body['ExtInfo'] = $request->extInfoShrink;
         }
-        if (!Utils::isUnset($request->sceneCode)) {
-            $body['SceneCode'] = $request->sceneCode;
+
+        if (null !== $request->sceneCode) {
+            @$body['SceneCode'] = $request->sceneCode;
         }
-        if (!Utils::isUnset($request->thirdUserIdentifier)) {
-            $body['ThirdUserIdentifier'] = $request->thirdUserIdentifier;
+
+        if (null !== $request->thirdUserIdentifier) {
+            @$body['ThirdUserIdentifier'] = $request->thirdUserIdentifier;
         }
-        if (!Utils::isUnset($request->thirdUserType)) {
-            $body['ThirdUserType'] = $request->thirdUserType;
+
+        if (null !== $request->thirdUserType) {
+            @$body['ThirdUserType'] = $request->thirdUserType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AuthLoginWithThirdUserInfo',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/authLoginWithThirdUserInfo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AuthLoginWithThirdUserInfo',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/authLoginWithThirdUserInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AuthLoginWithThirdUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 通过三方用户信息进行授权登录.
+     *
+     * @param request - AuthLoginWithThirdUserInfoRequest
+     *
+     * @returns AuthLoginWithThirdUserInfoResponse
+     *
      * @param AuthLoginWithThirdUserInfoRequest $request
      *
      * @return AuthLoginWithThirdUserInfoResponse
@@ -707,6 +843,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 检查并拨打voip电话【酒店业务】.
+     *
+     * @param tmpReq - CheckAndDoVoipCallForHotelRequest
+     * @param headers - CheckAndDoVoipCallForHotelHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckAndDoVoipCallForHotelResponse
+     *
      * @param CheckAndDoVoipCallForHotelRequest $tmpReq
      * @param CheckAndDoVoipCallForHotelHeaders $headers
      * @param RuntimeOptions                    $runtime
@@ -715,61 +859,77 @@ class AliGenie extends OpenApiClient
      */
     public function checkAndDoVoipCallForHotelWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CheckAndDoVoipCallForHotelShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->bizData)) {
-            $body['BizData'] = $request->bizData;
+        if (null !== $request->bizData) {
+            @$body['BizData'] = $request->bizData;
         }
-        if (!Utils::isUnset($request->calleeNick)) {
-            $body['CalleeNick'] = $request->calleeNick;
+
+        if (null !== $request->calleeNick) {
+            @$body['CalleeNick'] = $request->calleeNick;
         }
-        if (!Utils::isUnset($request->calleePhoneNum)) {
-            $body['CalleePhoneNum'] = $request->calleePhoneNum;
+
+        if (null !== $request->calleePhoneNum) {
+            @$body['CalleePhoneNum'] = $request->calleePhoneNum;
         }
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $body['DeviceInfo'] = $request->deviceInfoShrink;
+
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $body['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CheckAndDoVoipCallForHotel',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/checkAndDoVoipCallForHotel',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CheckAndDoVoipCallForHotel',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/checkAndDoVoipCallForHotel',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckAndDoVoipCallForHotelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 检查并拨打voip电话【酒店业务】.
+     *
+     * @param request - CheckAndDoVoipCallForHotelRequest
+     *
+     * @returns CheckAndDoVoipCallForHotelResponse
+     *
      * @param CheckAndDoVoipCallForHotelRequest $request
      *
      * @return CheckAndDoVoipCallForHotelResponse
@@ -783,6 +943,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 轮询激活绑定结果.
+     *
+     * @param tmpReq - CheckAuthCodeBindForExtRequest
+     * @param headers - CheckAuthCodeBindForExtHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckAuthCodeBindForExtResponse
+     *
      * @param CheckAuthCodeBindForExtRequest $tmpReq
      * @param CheckAuthCodeBindForExtHeaders $headers
      * @param RuntimeOptions                 $runtime
@@ -791,55 +959,69 @@ class AliGenie extends OpenApiClient
      */
     public function checkAuthCodeBindForExtWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CheckAuthCodeBindForExtShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->authCode)) {
-            $query['AuthCode'] = $request->authCode;
+        if (null !== $request->authCode) {
+            @$query['AuthCode'] = $request->authCode;
         }
-        if (!Utils::isUnset($request->encodeKey)) {
-            $query['EncodeKey'] = $request->encodeKey;
+
+        if (null !== $request->encodeKey) {
+            @$query['EncodeKey'] = $request->encodeKey;
         }
-        if (!Utils::isUnset($request->encodeType)) {
-            $query['EncodeType'] = $request->encodeType;
+
+        if (null !== $request->encodeType) {
+            @$query['EncodeType'] = $request->encodeType;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckAuthCodeBindForExt',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/checkAuthCodeBindForExt',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CheckAuthCodeBindForExt',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/checkAuthCodeBindForExt',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckAuthCodeBindForExtResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 轮询激活绑定结果.
+     *
+     * @param request - CheckAuthCodeBindForExtRequest
+     *
+     * @returns CheckAuthCodeBindForExtResponse
+     *
      * @param CheckAuthCodeBindForExtRequest $request
      *
      * @return CheckAuthCodeBindForExtResponse
@@ -853,6 +1035,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 云播放器：对外.
+     *
+     * @param tmpReq - CloudPlayerRequest
+     * @param headers - CloudPlayerHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudPlayerResponse
+     *
      * @param CloudPlayerRequest $tmpReq
      * @param CloudPlayerHeaders $headers
      * @param RuntimeOptions     $runtime
@@ -861,70 +1051,89 @@ class AliGenie extends OpenApiClient
      */
     public function cloudPlayerWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CloudPlayerShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->songIdList)) {
-            $request->songIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->songIdList, 'SongIdList', 'json');
+
+        if (null !== $tmpReq->songIdList) {
+            $request->songIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->songIdList, 'SongIdList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->curPlayIndex)) {
-            $query['CurPlayIndex'] = $request->curPlayIndex;
+        if (null !== $request->curPlayIndex) {
+            @$query['CurPlayIndex'] = $request->curPlayIndex;
         }
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->playMode)) {
-            $query['PlayMode'] = $request->playMode;
+
+        if (null !== $request->playMode) {
+            @$query['PlayMode'] = $request->playMode;
         }
-        if (!Utils::isUnset($request->songId)) {
-            $query['SongId'] = $request->songId;
+
+        if (null !== $request->songId) {
+            @$query['SongId'] = $request->songId;
         }
-        if (!Utils::isUnset($request->songIdListShrink)) {
-            $query['SongIdList'] = $request->songIdListShrink;
+
+        if (null !== $request->songIdListShrink) {
+            @$query['SongIdList'] = $request->songIdListShrink;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CloudPlayer',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/cloud/player',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CloudPlayer',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/cloud/player',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CloudPlayerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 云播放器：对外.
+     *
+     * @param request - CloudPlayerRequest
+     *
+     * @returns CloudPlayerResponse
+     *
      * @param CloudPlayerRequest $request
      *
      * @return CloudPlayerResponse
@@ -938,6 +1147,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 创建闹钟
+     *
+     * @param tmpReq - CreateAlarmRequest
+     * @param headers - CreateAlarmHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAlarmResponse
+     *
      * @param CreateAlarmRequest $tmpReq
      * @param CreateAlarmHeaders $headers
      * @param RuntimeOptions     $runtime
@@ -946,58 +1163,73 @@ class AliGenie extends OpenApiClient
      */
     public function createAlarmWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateAlarmShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $body['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $body['Payload'] = $request->payloadShrink;
+
+        if (null !== $request->payloadShrink) {
+            @$body['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $body['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAlarm',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/createAlarm',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAlarm',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/createAlarm',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建闹钟
+     *
+     * @param request - CreateAlarmRequest
+     *
+     * @returns CreateAlarmResponse
+     *
      * @param CreateAlarmRequest $request
      *
      * @return CreateAlarmResponse
@@ -1011,6 +1243,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 播放列表创建.
+     *
+     * @param tmpReq - CreatePlayingListRequest
+     * @param headers - CreatePlayingListHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePlayingListResponse
+     *
      * @param CreatePlayingListRequest $tmpReq
      * @param CreatePlayingListHeaders $headers
      * @param RuntimeOptions           $runtime
@@ -1019,60 +1259,75 @@ class AliGenie extends OpenApiClient
      */
     public function createPlayingListWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePlayingListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->openCreatePlayingListRequest)) {
-            $request->openCreatePlayingListRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openCreatePlayingListRequest, 'OpenCreatePlayingListRequest', 'json');
+
+        if (null !== $tmpReq->openCreatePlayingListRequest) {
+            $request->openCreatePlayingListRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->openCreatePlayingListRequest, 'OpenCreatePlayingListRequest', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->openCreatePlayingListRequestShrink)) {
-            $body['OpenCreatePlayingListRequest'] = $request->openCreatePlayingListRequestShrink;
+        if (null !== $request->openCreatePlayingListRequestShrink) {
+            @$body['OpenCreatePlayingListRequest'] = $request->openCreatePlayingListRequestShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreatePlayingList',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/CreatePlayingList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreatePlayingList',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/CreatePlayingList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreatePlayingListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 播放列表创建.
+     *
+     * @param request - CreatePlayingListRequest
+     *
+     * @returns CreatePlayingListResponse
+     *
      * @param CreatePlayingListRequest $request
      *
      * @return CreatePlayingListResponse
@@ -1086,6 +1341,91 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 播放列表创建走OAuth2授权.
+     *
+     * @param tmpReq - CreatePlayingListOAuth2Request
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePlayingListOAuth2Response
+     *
+     * @param CreatePlayingListOAuth2Request $tmpReq
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreatePlayingListOAuth2Response
+     */
+    public function createPlayingListOAuth2WithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreatePlayingListOAuth2ShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        }
+
+        if (null !== $tmpReq->openCreatePlayingListRequest) {
+            $request->openCreatePlayingListRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->openCreatePlayingListRequest, 'OpenCreatePlayingListRequest', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
+        }
+
+        $body = [];
+        if (null !== $request->openCreatePlayingListRequestShrink) {
+            @$body['OpenCreatePlayingListRequest'] = $request->openCreatePlayingListRequestShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePlayingListOAuth2',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/CreatePlayingListOAuth2',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePlayingListOAuth2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 播放列表创建走OAuth2授权.
+     *
+     * @param request - CreatePlayingListOAuth2Request
+     *
+     * @returns CreatePlayingListOAuth2Response
+     *
+     * @param CreatePlayingListOAuth2Request $request
+     *
+     * @return CreatePlayingListOAuth2Response
+     */
+    public function createPlayingListOAuth2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPlayingListOAuth2WithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建定时任务
+     *
+     * @param tmpReq - CreateScheduleTaskRequest
+     * @param headers - CreateScheduleTaskHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateScheduleTaskResponse
+     *
      * @param CreateScheduleTaskRequest $tmpReq
      * @param CreateScheduleTaskHeaders $headers
      * @param RuntimeOptions            $runtime
@@ -1094,58 +1434,73 @@ class AliGenie extends OpenApiClient
      */
     public function createScheduleTaskWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateScheduleTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $body['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $body['Payload'] = $request->payloadShrink;
+
+        if (null !== $request->payloadShrink) {
+            @$body['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $body['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateScheduleTask',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/CreateScheduleTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateScheduleTask',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/CreateScheduleTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateScheduleTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建定时任务
+     *
+     * @param request - CreateScheduleTaskRequest
+     *
+     * @returns CreateScheduleTaskResponse
+     *
      * @param CreateScheduleTaskRequest $request
      *
      * @return CreateScheduleTaskResponse
@@ -1159,6 +1514,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 闹钟批量删除.
+     *
+     * @param tmpReq - DeleteAlarmsRequest
+     * @param headers - DeleteAlarmsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAlarmsResponse
+     *
      * @param DeleteAlarmsRequest $tmpReq
      * @param DeleteAlarmsHeaders $headers
      * @param RuntimeOptions      $runtime
@@ -1167,58 +1530,73 @@ class AliGenie extends OpenApiClient
      */
     public function deleteAlarmsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteAlarmsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $body['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $body['Payload'] = $request->payloadShrink;
+
+        if (null !== $request->payloadShrink) {
+            @$body['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $body['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAlarms',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/deleteAlarms',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteAlarms',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/deleteAlarms',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteAlarmsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 闹钟批量删除.
+     *
+     * @param request - DeleteAlarmsRequest
+     *
+     * @returns DeleteAlarmsResponse
+     *
      * @param DeleteAlarmsRequest $request
      *
      * @return DeleteAlarmsResponse
@@ -1232,6 +1610,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 删除定时任务
+     *
+     * @param tmpReq - DeleteScheduleTaskRequest
+     * @param headers - DeleteScheduleTaskHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteScheduleTaskResponse
+     *
      * @param DeleteScheduleTaskRequest $tmpReq
      * @param DeleteScheduleTaskHeaders $headers
      * @param RuntimeOptions            $runtime
@@ -1240,58 +1626,73 @@ class AliGenie extends OpenApiClient
      */
     public function deleteScheduleTaskWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteScheduleTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $body['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $body['Payload'] = $request->payloadShrink;
+
+        if (null !== $request->payloadShrink) {
+            @$body['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $body['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteScheduleTask',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/DeleteScheduleTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteScheduleTask',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/DeleteScheduleTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteScheduleTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除定时任务
+     *
+     * @param request - DeleteScheduleTaskRequest
+     *
+     * @returns DeleteScheduleTaskResponse
+     *
      * @param DeleteScheduleTaskRequest $request
      *
      * @return DeleteScheduleTaskResponse
@@ -1305,6 +1706,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 删除订阅.
+     *
+     * @param request - DeleteSubRequest
+     * @param headers - DeleteSubHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSubResponse
+     *
      * @param DeleteSubRequest $request
      * @param DeleteSubHeaders $headers
      * @param RuntimeOptions   $runtime
@@ -1313,41 +1722,51 @@ class AliGenie extends OpenApiClient
      */
     public function deleteSubWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->subId)) {
-            $query['SubId'] = $request->subId;
+        if (null !== $request->subId) {
+            @$query['SubId'] = $request->subId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSub',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/deleteSub',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteSub',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/deleteSub',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteSubResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除订阅.
+     *
+     * @param request - DeleteSubRequest
+     *
+     * @returns DeleteSubResponse
+     *
      * @param DeleteSubRequest $request
      *
      * @return DeleteSubResponse
@@ -1361,6 +1780,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 设备控制.
+     *
+     * @param tmpReq - DeviceControlRequest
+     * @param headers - DeviceControlHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeviceControlResponse
+     *
      * @param DeviceControlRequest $tmpReq
      * @param DeviceControlHeaders $headers
      * @param RuntimeOptions       $runtime
@@ -1369,54 +1796,67 @@ class AliGenie extends OpenApiClient
      */
     public function deviceControlWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeviceControlShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->controlRequest)) {
-            $request->controlRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->controlRequest, 'ControlRequest', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->controlRequest) {
+            $request->controlRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->controlRequest, 'ControlRequest', 'json');
         }
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->controlRequestShrink)) {
-            $body['ControlRequest'] = $request->controlRequestShrink;
+        if (null !== $request->controlRequestShrink) {
+            @$body['ControlRequest'] = $request->controlRequestShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeviceControl',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/control',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeviceControl',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/control',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeviceControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 设备控制.
+     *
+     * @param request - DeviceControlRequest
+     *
+     * @returns DeviceControlResponse
+     *
      * @param DeviceControlRequest $request
      *
      * @return DeviceControlResponse
@@ -1430,6 +1870,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 生态开放鉴权.
+     *
+     * @param request - EcologyOpennessAuthenticateRequest
+     * @param headers - EcologyOpennessAuthenticateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EcologyOpennessAuthenticateResponse
+     *
      * @param EcologyOpennessAuthenticateRequest $request
      * @param EcologyOpennessAuthenticateHeaders $headers
      * @param RuntimeOptions                     $runtime
@@ -1438,47 +1886,59 @@ class AliGenie extends OpenApiClient
      */
     public function ecologyOpennessAuthenticateWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->encodeKey)) {
-            $body['EncodeKey'] = $request->encodeKey;
+        if (null !== $request->encodeKey) {
+            @$body['EncodeKey'] = $request->encodeKey;
         }
-        if (!Utils::isUnset($request->encodeType)) {
-            $body['EncodeType'] = $request->encodeType;
+
+        if (null !== $request->encodeType) {
+            @$body['EncodeType'] = $request->encodeType;
         }
-        if (!Utils::isUnset($request->loginStateAccessToken)) {
-            $body['LoginStateAccessToken'] = $request->loginStateAccessToken;
+
+        if (null !== $request->loginStateAccessToken) {
+            @$body['LoginStateAccessToken'] = $request->loginStateAccessToken;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EcologyOpennessAuthenticate',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/ecologyOpennessAuthenticate',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'EcologyOpennessAuthenticate',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/ecologyOpennessAuthenticate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EcologyOpennessAuthenticateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 生态开放鉴权.
+     *
+     * @param request - EcologyOpennessAuthenticateRequest
+     *
+     * @returns EcologyOpennessAuthenticateResponse
+     *
      * @param EcologyOpennessAuthenticateRequest $request
      *
      * @return EcologyOpennessAuthenticateResponse
@@ -1492,6 +1952,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 生态开放发送短信验证码
+     *
+     * @param request - EcologyOpennessSendVerificationCodeRequest
+     * @param headers - EcologyOpennessSendVerificationCodeHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EcologyOpennessSendVerificationCodeResponse
+     *
      * @param EcologyOpennessSendVerificationCodeRequest $request
      * @param EcologyOpennessSendVerificationCodeHeaders $headers
      * @param RuntimeOptions                             $runtime
@@ -1500,47 +1968,59 @@ class AliGenie extends OpenApiClient
      */
     public function ecologyOpennessSendVerificationCodeWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $body['PhoneNumber'] = $request->phoneNumber;
+        if (null !== $request->phoneNumber) {
+            @$body['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EcologyOpennessSendVerificationCode',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/ecologyOpennessSendVerificationCode',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'EcologyOpennessSendVerificationCode',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/ecologyOpennessSendVerificationCode',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EcologyOpennessSendVerificationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 生态开放发送短信验证码
+     *
+     * @param request - EcologyOpennessSendVerificationCodeRequest
+     *
+     * @returns EcologyOpennessSendVerificationCodeResponse
+     *
      * @param EcologyOpennessSendVerificationCodeRequest $request
      *
      * @return EcologyOpennessSendVerificationCodeResponse
@@ -1554,6 +2034,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 通过手机号寻找可授权登录的账号列表.
+     *
+     * @param request - FindUserlistToAuthLoginWithPhoneNumberRequest
+     * @param headers - FindUserlistToAuthLoginWithPhoneNumberHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FindUserlistToAuthLoginWithPhoneNumberResponse
+     *
      * @param FindUserlistToAuthLoginWithPhoneNumberRequest $request
      * @param FindUserlistToAuthLoginWithPhoneNumberHeaders $headers
      * @param RuntimeOptions                                $runtime
@@ -1562,50 +2050,63 @@ class AliGenie extends OpenApiClient
      */
     public function findUserlistToAuthLoginWithPhoneNumberWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->code)) {
-            $query['Code'] = $request->code;
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FindUserlistToAuthLoginWithPhoneNumber',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/findUserlistToAuthLoginWithPhoneNumber',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FindUserlistToAuthLoginWithPhoneNumber',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/findUserlistToAuthLoginWithPhoneNumber',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FindUserlistToAuthLoginWithPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 通过手机号寻找可授权登录的账号列表.
+     *
+     * @param request - FindUserlistToAuthLoginWithPhoneNumberRequest
+     *
+     * @returns FindUserlistToAuthLoginWithPhoneNumberResponse
+     *
      * @param FindUserlistToAuthLoginWithPhoneNumberRequest $request
      *
      * @return FindUserlistToAuthLoginWithPhoneNumberResponse
@@ -1619,6 +2120,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取单个闹钟
+     *
+     * @param tmpReq - GetAlarmRequest
+     * @param headers - GetAlarmHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlarmResponse
+     *
      * @param GetAlarmRequest $tmpReq
      * @param GetAlarmHeaders $headers
      * @param RuntimeOptions  $runtime
@@ -1627,58 +2136,73 @@ class AliGenie extends OpenApiClient
      */
     public function getAlarmWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetAlarmShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $body['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $body['Payload'] = $request->payloadShrink;
+
+        if (null !== $request->payloadShrink) {
+            @$body['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $body['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetAlarm',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/getAlarm',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAlarm',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/getAlarm',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取单个闹钟
+     *
+     * @param request - GetAlarmRequest
+     *
+     * @returns GetAlarmResponse
+     *
      * @param GetAlarmRequest $request
      *
      * @return GetAlarmResponse
@@ -1692,6 +2216,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 根据id获取专辑信息.
+     *
+     * @param request - GetAlbumRequest
+     * @param headers - GetAlbumHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlbumResponse
+     *
      * @param GetAlbumRequest $request
      * @param GetAlbumHeaders $headers
      * @param RuntimeOptions  $runtime
@@ -1700,44 +2232,55 @@ class AliGenie extends OpenApiClient
      */
     public function getAlbumWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAlbum',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/GetAlbum',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAlbum',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/GetAlbum',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAlbumResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 根据id获取专辑信息.
+     *
+     * @param request - GetAlbumRequest
+     *
+     * @returns GetAlbumResponse
+     *
      * @param GetAlbumRequest $request
      *
      * @return GetAlbumResponse
@@ -1751,6 +2294,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取专辑数据.
+     *
+     * @param request - GetAlbumDetailByIdRequest
+     * @param headers - GetAlbumDetailByIdHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlbumDetailByIdResponse
+     *
      * @param GetAlbumDetailByIdRequest $request
      * @param GetAlbumDetailByIdHeaders $headers
      * @param RuntimeOptions            $runtime
@@ -1759,41 +2310,51 @@ class AliGenie extends OpenApiClient
      */
     public function getAlbumDetailByIdWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->albumId)) {
-            $query['AlbumId'] = $request->albumId;
+        if (null !== $request->albumId) {
+            @$query['AlbumId'] = $request->albumId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAlbumDetailById',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/getAlbumDetailById',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAlbumDetailById',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/getAlbumDetailById',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAlbumDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取专辑数据.
+     *
+     * @param request - GetAlbumDetailByIdRequest
+     *
+     * @returns GetAlbumDetailByIdResponse
+     *
      * @param GetAlbumDetailByIdRequest $request
      *
      * @return GetAlbumDetailByIdResponse
@@ -1807,6 +2368,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取三方绑定的精灵账号信息.
+     *
+     * @param request - GetAligenieUserInfoRequest
+     * @param headers - GetAligenieUserInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAligenieUserInfoResponse
+     *
      * @param GetAligenieUserInfoRequest $request
      * @param GetAligenieUserInfoHeaders $headers
      * @param RuntimeOptions             $runtime
@@ -1815,41 +2384,51 @@ class AliGenie extends OpenApiClient
      */
     public function getAligenieUserInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->loginStateAccessToken)) {
-            $query['LoginStateAccessToken'] = $request->loginStateAccessToken;
+        if (null !== $request->loginStateAccessToken) {
+            @$query['LoginStateAccessToken'] = $request->loginStateAccessToken;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAligenieUserInfo',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/getAligenieUserInfo',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAligenieUserInfo',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/getAligenieUserInfo',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAligenieUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取三方绑定的精灵账号信息.
+     *
+     * @param request - GetAligenieUserInfoRequest
+     *
+     * @returns GetAligenieUserInfoResponse
+     *
      * @param GetAligenieUserInfoRequest $request
      *
      * @return GetAligenieUserInfoResponse
@@ -1863,6 +2442,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取authCode.
+     *
+     * @param tmpReq - GetCodeEnhanceRequest
+     * @param headers - GetCodeEnhanceHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCodeEnhanceResponse
+     *
      * @param GetCodeEnhanceRequest $tmpReq
      * @param GetCodeEnhanceHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -1871,52 +2458,65 @@ class AliGenie extends OpenApiClient
      */
     public function getCodeEnhanceWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetCodeEnhanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->channelInfo)) {
-            $request->channelInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelInfo, 'ChannelInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->channelInfo) {
+            $request->channelInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->channelInfo, 'ChannelInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->channelInfoShrink)) {
-            $query['ChannelInfo'] = $request->channelInfoShrink;
+        if (null !== $request->channelInfoShrink) {
+            @$query['ChannelInfo'] = $request->channelInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCodeEnhance',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/getCodeEnhance',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetCodeEnhance',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/getCodeEnhance',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCodeEnhanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取authCode.
+     *
+     * @param request - GetCodeEnhanceRequest
+     *
+     * @returns GetCodeEnhanceResponse
+     *
      * @param GetCodeEnhanceRequest $request
      *
      * @return GetCodeEnhanceResponse
@@ -1930,6 +2530,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 按照特定的id获取内容信息.
+     *
+     * @param request - GetContentRequest
+     * @param headers - GetContentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContentResponse
+     *
      * @param GetContentRequest $request
      * @param GetContentHeaders $headers
      * @param RuntimeOptions    $runtime
@@ -1938,44 +2546,55 @@ class AliGenie extends OpenApiClient
      */
     public function getContentWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetContent',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/GetContent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetContent',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/GetContent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 按照特定的id获取内容信息.
+     *
+     * @param request - GetContentRequest
+     *
+     * @returns GetContentResponse
+     *
      * @param GetContentRequest $request
      *
      * @return GetContentResponse
@@ -1989,6 +2608,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取当前播放项.
+     *
+     * @param tmpReq - GetCurrentPlayingItemRequest
+     * @param headers - GetCurrentPlayingItemHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCurrentPlayingItemResponse
+     *
      * @param GetCurrentPlayingItemRequest $tmpReq
      * @param GetCurrentPlayingItemHeaders $headers
      * @param RuntimeOptions               $runtime
@@ -1997,52 +2624,65 @@ class AliGenie extends OpenApiClient
      */
     public function getCurrentPlayingItemWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetCurrentPlayingItemShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCurrentPlayingItem',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/GetCurrentPlayingItem',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetCurrentPlayingItem',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/GetCurrentPlayingItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCurrentPlayingItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取当前播放项.
+     *
+     * @param request - GetCurrentPlayingItemRequest
+     *
+     * @returns GetCurrentPlayingItemResponse
+     *
      * @param GetCurrentPlayingItemRequest $request
      *
      * @return GetCurrentPlayingItemResponse
@@ -2056,6 +2696,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取当前播放列表.
+     *
+     * @param tmpReq - GetCurrentPlayingListRequest
+     * @param headers - GetCurrentPlayingListHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCurrentPlayingListResponse
+     *
      * @param GetCurrentPlayingListRequest $tmpReq
      * @param GetCurrentPlayingListHeaders $headers
      * @param RuntimeOptions               $runtime
@@ -2064,60 +2712,75 @@ class AliGenie extends OpenApiClient
      */
     public function getCurrentPlayingListWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetCurrentPlayingListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->openQueryPlayListRequest)) {
-            $request->openQueryPlayListRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openQueryPlayListRequest, 'OpenQueryPlayListRequest', 'json');
+
+        if (null !== $tmpReq->openQueryPlayListRequest) {
+            $request->openQueryPlayListRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->openQueryPlayListRequest, 'OpenQueryPlayListRequest', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->openQueryPlayListRequestShrink)) {
-            $body['OpenQueryPlayListRequest'] = $request->openQueryPlayListRequestShrink;
+        if (null !== $request->openQueryPlayListRequestShrink) {
+            @$body['OpenQueryPlayListRequest'] = $request->openQueryPlayListRequestShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetCurrentPlayingList',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/GetCurrentPlayingList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetCurrentPlayingList',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/GetCurrentPlayingList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCurrentPlayingListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取当前播放列表.
+     *
+     * @param request - GetCurrentPlayingListRequest
+     *
+     * @returns GetCurrentPlayingListResponse
+     *
      * @param GetCurrentPlayingListRequest $request
      *
      * @return GetCurrentPlayingListResponse
@@ -2131,6 +2794,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取设备认证信息.
+     *
+     * @param tmpReq - GetDeviceBasicInfoRequest
+     * @param headers - GetDeviceBasicInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeviceBasicInfoResponse
+     *
      * @param GetDeviceBasicInfoRequest $tmpReq
      * @param GetDeviceBasicInfoHeaders $headers
      * @param RuntimeOptions            $runtime
@@ -2139,46 +2810,57 @@ class AliGenie extends OpenApiClient
      */
     public function getDeviceBasicInfoWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetDeviceBasicInfoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDeviceBasicInfo',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/getDeviceBasicInfo',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDeviceBasicInfo',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/getDeviceBasicInfo',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDeviceBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取设备认证信息.
+     *
+     * @param request - GetDeviceBasicInfoRequest
+     *
+     * @returns GetDeviceBasicInfoResponse
+     *
      * @param GetDeviceBasicInfoRequest $request
      *
      * @return GetDeviceBasicInfoResponse
@@ -2192,6 +2874,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取设备信息.
+     *
+     * @param request - GetDeviceIdByIdentityRequest
+     * @param headers - GetDeviceIdByIdentityHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeviceIdByIdentityResponse
+     *
      * @param GetDeviceIdByIdentityRequest $request
      * @param GetDeviceIdByIdentityHeaders $headers
      * @param RuntimeOptions               $runtime
@@ -2200,53 +2890,67 @@ class AliGenie extends OpenApiClient
      */
     public function getDeviceIdByIdentityWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->encodeKey)) {
-            $query['EncodeKey'] = $request->encodeKey;
+        if (null !== $request->encodeKey) {
+            @$query['EncodeKey'] = $request->encodeKey;
         }
-        if (!Utils::isUnset($request->encodeType)) {
-            $query['EncodeType'] = $request->encodeType;
+
+        if (null !== $request->encodeType) {
+            @$query['EncodeType'] = $request->encodeType;
         }
-        if (!Utils::isUnset($request->identityId)) {
-            $query['IdentityId'] = $request->identityId;
+
+        if (null !== $request->identityId) {
+            @$query['IdentityId'] = $request->identityId;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $query['IdentityType'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$query['IdentityType'] = $request->identityType;
         }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
+
+        if (null !== $request->productKey) {
+            @$query['ProductKey'] = $request->productKey;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDeviceIdByIdentity',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/getDeviceIdByIdentity',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDeviceIdByIdentity',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/getDeviceIdByIdentity',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDeviceIdByIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取设备信息.
+     *
+     * @param request - GetDeviceIdByIdentityRequest
+     *
+     * @returns GetDeviceIdByIdentityResponse
+     *
      * @param GetDeviceIdByIdentityRequest $request
      *
      * @return GetDeviceIdByIdentityResponse
@@ -2260,6 +2964,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取设备的用户设置.
+     *
+     * @param tmpReq - GetDeviceSettingRequest
+     * @param headers - GetDeviceSettingHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeviceSettingResponse
+     *
      * @param GetDeviceSettingRequest $tmpReq
      * @param GetDeviceSettingHeaders $headers
      * @param RuntimeOptions          $runtime
@@ -2268,52 +2980,65 @@ class AliGenie extends OpenApiClient
      */
     public function getDeviceSettingWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetDeviceSettingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->keys)) {
-            $request->keysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'json');
+
+        if (null !== $tmpReq->keys) {
+            $request->keysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->keysShrink)) {
-            $query['Keys'] = $request->keysShrink;
+
+        if (null !== $request->keysShrink) {
+            @$query['Keys'] = $request->keysShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDeviceSetting',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/getDeviceSetting',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDeviceSetting',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/getDeviceSetting',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDeviceSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取设备的用户设置.
+     *
+     * @param request - GetDeviceSettingRequest
+     *
+     * @returns GetDeviceSettingResponse
+     *
      * @param GetDeviceSettingRequest $request
      *
      * @return GetDeviceSettingResponse
@@ -2327,6 +3052,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取设备状态详情.
+     *
+     * @param tmpReq - GetDeviceStatusDetailRequest
+     * @param headers - GetDeviceStatusDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeviceStatusDetailResponse
+     *
      * @param GetDeviceStatusDetailRequest $tmpReq
      * @param GetDeviceStatusDetailHeaders $headers
      * @param RuntimeOptions               $runtime
@@ -2335,52 +3068,65 @@ class AliGenie extends OpenApiClient
      */
     public function getDeviceStatusDetailWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetDeviceStatusDetailShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->keys)) {
-            $request->keysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'json');
+
+        if (null !== $tmpReq->keys) {
+            $request->keysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->keysShrink)) {
-            $query['Keys'] = $request->keysShrink;
+
+        if (null !== $request->keysShrink) {
+            @$query['Keys'] = $request->keysShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDeviceStatusDetail',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/getDeviceStatusDetail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDeviceStatusDetail',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/getDeviceStatusDetail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDeviceStatusDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取设备状态详情.
+     *
+     * @param request - GetDeviceStatusDetailRequest
+     *
+     * @returns GetDeviceStatusDetailResponse
+     *
      * @param GetDeviceStatusDetailRequest $request
      *
      * @return GetDeviceStatusDetailResponse
@@ -2394,6 +3140,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取设备状态信息.
+     *
+     * @param tmpReq - GetDeviceStatusInfoRequest
+     * @param headers - GetDeviceStatusInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeviceStatusInfoResponse
+     *
      * @param GetDeviceStatusInfoRequest $tmpReq
      * @param GetDeviceStatusInfoHeaders $headers
      * @param RuntimeOptions             $runtime
@@ -2402,46 +3156,57 @@ class AliGenie extends OpenApiClient
      */
     public function getDeviceStatusInfoWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetDeviceStatusInfoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDeviceStatusInfo',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/getDeviceStatusInfo',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDeviceStatusInfo',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/getDeviceStatusInfo',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDeviceStatusInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取设备状态信息.
+     *
+     * @param request - GetDeviceStatusInfoRequest
+     *
+     * @returns GetDeviceStatusInfoResponse
+     *
      * @param GetDeviceStatusInfoRequest $request
      *
      * @return GetDeviceStatusInfoResponse
@@ -2455,6 +3220,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取设备标签.
+     *
+     * @param tmpReq - GetDeviceTagRequest
+     * @param headers - GetDeviceTagHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeviceTagResponse
+     *
      * @param GetDeviceTagRequest $tmpReq
      * @param GetDeviceTagHeaders $headers
      * @param RuntimeOptions      $runtime
@@ -2463,46 +3236,57 @@ class AliGenie extends OpenApiClient
      */
     public function getDeviceTagWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetDeviceTagShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDeviceTag',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/getDeviceTag',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDeviceTag',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/getDeviceTag',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDeviceTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取设备标签.
+     *
+     * @param request - GetDeviceTagRequest
+     *
+     * @returns GetDeviceTagResponse
+     *
      * @param GetDeviceTagRequest $request
      *
      * @return GetDeviceTagResponse
@@ -2516,6 +3300,88 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 江苏电信号百.
+     *
+     * @param request - GetJiangSuTelecomDataRequest
+     * @param headers - GetJiangSuTelecomDataHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJiangSuTelecomDataResponse
+     *
+     * @param GetJiangSuTelecomDataRequest $request
+     * @param GetJiangSuTelecomDataHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetJiangSuTelecomDataResponse
+     */
+    public function getJiangSuTelecomDataWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->date) {
+            @$query['Date'] = $request->date;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetJiangSuTelecomData',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/GetJiangSuTelecomData',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetJiangSuTelecomDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 江苏电信号百.
+     *
+     * @param request - GetJiangSuTelecomDataRequest
+     *
+     * @returns GetJiangSuTelecomDataResponse
+     *
+     * @param GetJiangSuTelecomDataRequest $request
+     *
+     * @return GetJiangSuTelecomDataResponse
+     */
+    public function getJiangSuTelecomData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetJiangSuTelecomDataHeaders([]);
+
+        return $this->getJiangSuTelecomDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询定时任务
+     *
+     * @param tmpReq - GetScheduleTaskRequest
+     * @param headers - GetScheduleTaskHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScheduleTaskResponse
+     *
      * @param GetScheduleTaskRequest $tmpReq
      * @param GetScheduleTaskHeaders $headers
      * @param RuntimeOptions         $runtime
@@ -2524,58 +3390,73 @@ class AliGenie extends OpenApiClient
      */
     public function getScheduleTaskWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetScheduleTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $body['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $body['Payload'] = $request->payloadShrink;
+
+        if (null !== $request->payloadShrink) {
+            @$body['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $body['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetScheduleTask',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/GetScheduleTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetScheduleTask',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/GetScheduleTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetScheduleTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询定时任务
+     *
+     * @param request - GetScheduleTaskRequest
+     *
+     * @returns GetScheduleTaskResponse
+     *
      * @param GetScheduleTaskRequest $request
      *
      * @return GetScheduleTaskResponse
@@ -2589,6 +3470,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询未读留言数量.
+     *
+     * @param tmpReq - GetUnreadMessageCountRequest
+     * @param headers - GetUnreadMessageCountHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUnreadMessageCountResponse
+     *
      * @param GetUnreadMessageCountRequest $tmpReq
      * @param GetUnreadMessageCountHeaders $headers
      * @param RuntimeOptions               $runtime
@@ -2597,46 +3486,57 @@ class AliGenie extends OpenApiClient
      */
     public function getUnreadMessageCountWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetUnreadMessageCountShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUnreadMessageCount',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/getUnreadMessageCount',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetUnreadMessageCount',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/getUnreadMessageCount',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUnreadMessageCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询未读留言数量.
+     *
+     * @param request - GetUnreadMessageCountRequest
+     *
+     * @returns GetUnreadMessageCountResponse
+     *
      * @param GetUnreadMessageCountRequest $request
      *
      * @return GetUnreadMessageCountResponse
@@ -2650,6 +3550,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询设备绑定的用户.
+     *
+     * @param tmpReq - GetUserByDeviceIdRequest
+     * @param headers - GetUserByDeviceIdHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserByDeviceIdResponse
+     *
      * @param GetUserByDeviceIdRequest $tmpReq
      * @param GetUserByDeviceIdHeaders $headers
      * @param RuntimeOptions           $runtime
@@ -2658,46 +3566,57 @@ class AliGenie extends OpenApiClient
      */
     public function getUserByDeviceIdWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetUserByDeviceIdShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUserByDeviceId',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/getUserByDeviceId',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetUserByDeviceId',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/getUserByDeviceId',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUserByDeviceIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询设备绑定的用户.
+     *
+     * @param request - GetUserByDeviceIdRequest
+     *
+     * @returns GetUserByDeviceIdResponse
+     *
      * @param GetUserByDeviceIdRequest $request
      *
      * @return GetUserByDeviceIdResponse
@@ -2711,6 +3630,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询天气.
+     *
+     * @param tmpReq - GetWeatherRequest
+     * @param headers - GetWeatherHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWeatherResponse
+     *
      * @param GetWeatherRequest $tmpReq
      * @param GetWeatherHeaders $headers
      * @param RuntimeOptions    $runtime
@@ -2719,58 +3646,73 @@ class AliGenie extends OpenApiClient
      */
     public function getWeatherWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetWeatherShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $body['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $body['Payload'] = $request->payloadShrink;
+
+        if (null !== $request->payloadShrink) {
+            @$body['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $body['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetWeather',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/GetWeather',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetWeather',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/GetWeather',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetWeatherResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询天气.
+     *
+     * @param request - GetWeatherRequest
+     *
+     * @returns GetWeatherResponse
+     *
      * @param GetWeatherRequest $request
      *
      * @return GetWeatherResponse
@@ -2784,6 +3726,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 播放列表点击播放.
+     *
+     * @param tmpReq - IndexControlPlayingListRequest
+     * @param headers - IndexControlPlayingListHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IndexControlPlayingListResponse
+     *
      * @param IndexControlPlayingListRequest $tmpReq
      * @param IndexControlPlayingListHeaders $headers
      * @param RuntimeOptions                 $runtime
@@ -2792,60 +3742,75 @@ class AliGenie extends OpenApiClient
      */
     public function indexControlPlayingListWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new IndexControlPlayingListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->openIndexControlRequest)) {
-            $request->openIndexControlRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openIndexControlRequest, 'OpenIndexControlRequest', 'json');
+
+        if (null !== $tmpReq->openIndexControlRequest) {
+            $request->openIndexControlRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->openIndexControlRequest, 'OpenIndexControlRequest', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->openIndexControlRequestShrink)) {
-            $body['OpenIndexControlRequest'] = $request->openIndexControlRequestShrink;
+        if (null !== $request->openIndexControlRequestShrink) {
+            @$body['OpenIndexControlRequest'] = $request->openIndexControlRequestShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'IndexControlPlayingList',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/IndexControlPlayingList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IndexControlPlayingList',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/IndexControlPlayingList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IndexControlPlayingListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 播放列表点击播放.
+     *
+     * @param request - IndexControlPlayingListRequest
+     *
+     * @returns IndexControlPlayingListResponse
+     *
      * @param IndexControlPlayingListRequest $request
      *
      * @return IndexControlPlayingListResponse
@@ -2859,6 +3824,98 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 失效三方应用登录态
+     *
+     * @param tmpReq - InvalidateThirdPartyAppLoginStateRequest
+     * @param headers - InvalidateThirdPartyAppLoginStateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvalidateThirdPartyAppLoginStateResponse
+     *
+     * @param InvalidateThirdPartyAppLoginStateRequest $tmpReq
+     * @param InvalidateThirdPartyAppLoginStateHeaders $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return InvalidateThirdPartyAppLoginStateResponse
+     */
+    public function invalidateThirdPartyAppLoginStateWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new InvalidateThirdPartyAppLoginStateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
+        }
+
+        if (null !== $request->thirdPartyAppId) {
+            @$body['ThirdPartyAppId'] = $request->thirdPartyAppId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InvalidateThirdPartyAppLoginState',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/invalidateThirdPartyAppLoginState',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InvalidateThirdPartyAppLoginStateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 失效三方应用登录态
+     *
+     * @param request - InvalidateThirdPartyAppLoginStateRequest
+     *
+     * @returns InvalidateThirdPartyAppLoginStateResponse
+     *
+     * @param InvalidateThirdPartyAppLoginStateRequest $request
+     *
+     * @return InvalidateThirdPartyAppLoginStateResponse
+     */
+    public function invalidateThirdPartyAppLoginState($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InvalidateThirdPartyAppLoginStateHeaders([]);
+
+        return $this->invalidateThirdPartyAppLoginStateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询闹钟列表.
+     *
+     * @param tmpReq - ListAlarmsRequest
+     * @param headers - ListAlarmsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlarmsResponse
+     *
      * @param ListAlarmsRequest $tmpReq
      * @param ListAlarmsHeaders $headers
      * @param RuntimeOptions    $runtime
@@ -2867,58 +3924,73 @@ class AliGenie extends OpenApiClient
      */
     public function listAlarmsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAlarmsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $body['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $body['Payload'] = $request->payloadShrink;
+
+        if (null !== $request->payloadShrink) {
+            @$body['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $body['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListAlarms',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/listAlarm',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAlarms',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/listAlarm',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAlarmsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询闹钟列表.
+     *
+     * @param request - ListAlarmsRequest
+     *
+     * @returns ListAlarmsResponse
+     *
      * @param ListAlarmsRequest $request
      *
      * @return ListAlarmsResponse
@@ -2932,6 +4004,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取音乐音频专辑里面的内容列表.
+     *
+     * @param request - ListAlbumDetailRequest
+     * @param headers - ListAlbumDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlbumDetailResponse
+     *
      * @param ListAlbumDetailRequest $request
      * @param ListAlbumDetailHeaders $headers
      * @param RuntimeOptions         $runtime
@@ -2940,47 +4020,59 @@ class AliGenie extends OpenApiClient
      */
     public function listAlbumDetailWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAlbumDetail',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/ListAlbumDetail',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAlbumDetail',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/ListAlbumDetail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAlbumDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取音乐音频专辑里面的内容列表.
+     *
+     * @param request - ListAlbumDetailRequest
+     *
+     * @returns ListAlbumDetailResponse
+     *
      * @param ListAlbumDetailRequest $request
      *
      * @return ListAlbumDetailResponse
@@ -2994,6 +4086,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 专辑是否被订阅.
+     *
+     * @param tmpReq - ListAlbumIsAddedRequest
+     * @param headers - ListAlbumIsAddedHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlbumIsAddedResponse
+     *
      * @param ListAlbumIsAddedRequest $tmpReq
      * @param ListAlbumIsAddedHeaders $headers
      * @param RuntimeOptions          $runtime
@@ -3002,58 +4102,73 @@ class AliGenie extends OpenApiClient
      */
     public function listAlbumIsAddedWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAlbumIsAddedShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->albumIdList)) {
-            $request->albumIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->albumIdList, 'AlbumIdList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->albumIdList) {
+            $request->albumIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->albumIdList, 'AlbumIdList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->albumIdListShrink)) {
-            $query['AlbumIdList'] = $request->albumIdListShrink;
+        if (null !== $request->albumIdListShrink) {
+            @$query['AlbumIdList'] = $request->albumIdListShrink;
         }
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAlbumIsAdded',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/listAlbumIsAdded',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAlbumIsAdded',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/listAlbumIsAdded',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAlbumIsAddedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 专辑是否被订阅.
+     *
+     * @param request - ListAlbumIsAddedRequest
+     *
+     * @returns ListAlbumIsAddedResponse
+     *
      * @param ListAlbumIsAddedRequest $request
      *
      * @return ListAlbumIsAddedResponse
@@ -3067,6 +4182,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 根据特定的类目,按照指定的排序顺序获取该类目下的内容.
+     *
+     * @param tmpReq - ListCateContentRequest
+     * @param headers - ListCateContentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCateContentResponse
+     *
      * @param ListCateContentRequest $tmpReq
      * @param ListCateContentHeaders $headers
      * @param RuntimeOptions         $runtime
@@ -3075,60 +4198,75 @@ class AliGenie extends OpenApiClient
      */
     public function listCateContentWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListCateContentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->request)) {
-            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
+
+        if (null !== $tmpReq->request) {
+            $request->requestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->requestShrink)) {
-            $body['Request'] = $request->requestShrink;
+        if (null !== $request->requestShrink) {
+            @$body['Request'] = $request->requestShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListCateContent',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/ListCateContent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListCateContent',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/ListCateContent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCateContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 根据特定的类目,按照指定的排序顺序获取该类目下的内容.
+     *
+     * @param request - ListCateContentRequest
+     *
+     * @returns ListCateContentResponse
+     *
      * @param ListCateContentRequest $request
      *
      * @return ListCateContentResponse
@@ -3142,6 +4280,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取音乐音频类目列表.
+     *
+     * @param request - ListCateInfoRequest
+     * @param headers - ListCateInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCateInfoResponse
+     *
      * @param ListCateInfoRequest $request
      * @param ListCateInfoHeaders $headers
      * @param RuntimeOptions      $runtime
@@ -3150,41 +4296,51 @@ class AliGenie extends OpenApiClient
      */
     public function listCateInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCateInfo',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/ListCateInfo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListCateInfo',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/ListCateInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取音乐音频类目列表.
+     *
+     * @param request - ListCateInfoRequest
+     *
+     * @returns ListCateInfoResponse
+     *
      * @param ListCateInfoRequest $request
      *
      * @return ListCateInfoResponse
@@ -3198,6 +4354,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取音乐/音频的一级类目列表.
+     *
+     * @param request - ListCommonCateFirstFloorRequest
+     * @param headers - ListCommonCateFirstFloorHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCommonCateFirstFloorResponse
+     *
      * @param ListCommonCateFirstFloorRequest $request
      * @param ListCommonCateFirstFloorHeaders $headers
      * @param RuntimeOptions                  $runtime
@@ -3206,41 +4370,51 @@ class AliGenie extends OpenApiClient
      */
     public function listCommonCateFirstFloorWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCommonCateFirstFloor',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/ListCommonCateFirstFloor',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListCommonCateFirstFloor',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/ListCommonCateFirstFloor',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCommonCateFirstFloorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取音乐/音频的一级类目列表.
+     *
+     * @param request - ListCommonCateFirstFloorRequest
+     *
+     * @returns ListCommonCateFirstFloorResponse
+     *
      * @param ListCommonCateFirstFloorRequest $request
      *
      * @return ListCommonCateFirstFloorResponse
@@ -3254,6 +4428,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取指定一级类目下面的二级类目列表.
+     *
+     * @param request - ListCommonCateSecondFloorRequest
+     * @param headers - ListCommonCateSecondFloorHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCommonCateSecondFloorResponse
+     *
      * @param ListCommonCateSecondFloorRequest $request
      * @param ListCommonCateSecondFloorHeaders $headers
      * @param RuntimeOptions                   $runtime
@@ -3262,41 +4444,51 @@ class AliGenie extends OpenApiClient
      */
     public function listCommonCateSecondFloorWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->parentCateId)) {
-            $query['ParentCateId'] = $request->parentCateId;
+        if (null !== $request->parentCateId) {
+            @$query['ParentCateId'] = $request->parentCateId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCommonCateSecondFloor',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/ListCommonCateSecondFloor',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListCommonCateSecondFloor',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/ListCommonCateSecondFloor',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCommonCateSecondFloorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取指定一级类目下面的二级类目列表.
+     *
+     * @param request - ListCommonCateSecondFloorRequest
+     *
+     * @returns ListCommonCateSecondFloorResponse
+     *
      * @param ListCommonCateSecondFloorRequest $request
      *
      * @return ListCommonCateSecondFloorResponse
@@ -3310,6 +4502,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 批量获取设备基本信息.
+     *
+     * @param tmpReq - ListDeviceBasicInfoRequest
+     * @param headers - ListDeviceBasicInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDeviceBasicInfoResponse
+     *
      * @param ListDeviceBasicInfoRequest $tmpReq
      * @param ListDeviceBasicInfoHeaders $headers
      * @param RuntimeOptions             $runtime
@@ -3318,46 +4518,57 @@ class AliGenie extends OpenApiClient
      */
     public function listDeviceBasicInfoWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDeviceBasicInfoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfos)) {
-            $request->deviceInfosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfos, 'DeviceInfos', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfos) {
+            $request->deviceInfosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfos, 'DeviceInfos', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfosShrink)) {
-            $query['DeviceInfos'] = $request->deviceInfosShrink;
+        if (null !== $request->deviceInfosShrink) {
+            @$query['DeviceInfos'] = $request->deviceInfosShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDeviceBasicInfo',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/listDeviceBasicInfo',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDeviceBasicInfo',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/listDeviceBasicInfo',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDeviceBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 批量获取设备基本信息.
+     *
+     * @param request - ListDeviceBasicInfoRequest
+     *
+     * @returns ListDeviceBasicInfoResponse
+     *
      * @param ListDeviceBasicInfoRequest $request
      *
      * @return ListDeviceBasicInfoResponse
@@ -3371,6 +4582,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询用户名下的设备.
+     *
+     * @param tmpReq - ListDeviceByUserIdRequest
+     * @param headers - ListDeviceByUserIdHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDeviceByUserIdResponse
+     *
      * @param ListDeviceByUserIdRequest $tmpReq
      * @param ListDeviceByUserIdHeaders $headers
      * @param RuntimeOptions            $runtime
@@ -3379,46 +4598,57 @@ class AliGenie extends OpenApiClient
      */
     public function listDeviceByUserIdWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDeviceByUserIdShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDeviceByUserId',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/listDeviceByUserId',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDeviceByUserId',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/listDeviceByUserId',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDeviceByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询用户名下的设备.
+     *
+     * @param request - ListDeviceByUserIdRequest
+     *
+     * @returns ListDeviceByUserIdResponse
+     *
      * @param ListDeviceByUserIdRequest $request
      *
      * @return ListDeviceByUserIdResponse
@@ -3432,6 +4662,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取指定渠道的设备列表.
+     *
+     * @param tmpReq - ListDeviceByUserIdAndChanelRequest
+     * @param headers - ListDeviceByUserIdAndChanelHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDeviceByUserIdAndChanelResponse
+     *
      * @param ListDeviceByUserIdAndChanelRequest $tmpReq
      * @param ListDeviceByUserIdAndChanelHeaders $headers
      * @param RuntimeOptions                     $runtime
@@ -3440,52 +4678,65 @@ class AliGenie extends OpenApiClient
      */
     public function listDeviceByUserIdAndChanelWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDeviceByUserIdAndChanelShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->channelInfo)) {
-            $request->channelInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelInfo, 'ChannelInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->channelInfo) {
+            $request->channelInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->channelInfo, 'ChannelInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->channelInfoShrink)) {
-            $query['ChannelInfo'] = $request->channelInfoShrink;
+        if (null !== $request->channelInfoShrink) {
+            @$query['ChannelInfo'] = $request->channelInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDeviceByUserIdAndChanel',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/listDeviceByUserIdAndChanel',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDeviceByUserIdAndChanel',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/listDeviceByUserIdAndChanel',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDeviceByUserIdAndChanelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取指定渠道的设备列表.
+     *
+     * @param request - ListDeviceByUserIdAndChanelRequest
+     *
+     * @returns ListDeviceByUserIdAndChanelResponse
+     *
      * @param ListDeviceByUserIdAndChanelRequest $request
      *
      * @return ListDeviceByUserIdAndChanelResponse
@@ -3499,6 +4750,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 批量获取设备openId.
+     *
+     * @param tmpReq - ListDeviceIdByIdentitiesRequest
+     * @param headers - ListDeviceIdByIdentitiesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDeviceIdByIdentitiesResponse
+     *
      * @param ListDeviceIdByIdentitiesRequest $tmpReq
      * @param ListDeviceIdByIdentitiesHeaders $headers
      * @param RuntimeOptions                  $runtime
@@ -3507,58 +4766,73 @@ class AliGenie extends OpenApiClient
      */
     public function listDeviceIdByIdentitiesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDeviceIdByIdentitiesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->identityIds)) {
-            $request->identityIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->identityIds, 'IdentityIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->identityIds) {
+            $request->identityIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->identityIds, 'IdentityIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->encodeKey)) {
-            $query['EncodeKey'] = $request->encodeKey;
+        if (null !== $request->encodeKey) {
+            @$query['EncodeKey'] = $request->encodeKey;
         }
-        if (!Utils::isUnset($request->encodeType)) {
-            $query['EncodeType'] = $request->encodeType;
+
+        if (null !== $request->encodeType) {
+            @$query['EncodeType'] = $request->encodeType;
         }
-        if (!Utils::isUnset($request->identityIdsShrink)) {
-            $query['IdentityIds'] = $request->identityIdsShrink;
+
+        if (null !== $request->identityIdsShrink) {
+            @$query['IdentityIds'] = $request->identityIdsShrink;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $query['IdentityType'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$query['IdentityType'] = $request->identityType;
         }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
+
+        if (null !== $request->productKey) {
+            @$query['ProductKey'] = $request->productKey;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDeviceIdByIdentities',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/listDeviceIdByIdentities',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDeviceIdByIdentities',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/listDeviceIdByIdentities',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDeviceIdByIdentitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 批量获取设备openId.
+     *
+     * @param request - ListDeviceIdByIdentitiesRequest
+     *
+     * @returns ListDeviceIdByIdentitiesResponse
+     *
      * @param ListDeviceIdByIdentitiesRequest $request
      *
      * @return ListDeviceIdByIdentitiesResponse
@@ -3572,6 +4846,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 基于音乐类型查询铃声列表（分页）.
+     *
+     * @param tmpReq - ListMusicRequest
+     * @param headers - ListMusicHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMusicResponse
+     *
      * @param ListMusicRequest $tmpReq
      * @param ListMusicHeaders $headers
      * @param RuntimeOptions   $runtime
@@ -3580,58 +4862,73 @@ class AliGenie extends OpenApiClient
      */
     public function listMusicWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListMusicShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $body['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $body['Payload'] = $request->payloadShrink;
+
+        if (null !== $request->payloadShrink) {
+            @$body['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $body['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMusic',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/listMusic',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListMusic',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/listMusic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMusicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 基于音乐类型查询铃声列表（分页）.
+     *
+     * @param request - ListMusicRequest
+     *
+     * @returns ListMusicResponse
+     *
      * @param ListMusicRequest $request
      *
      * @return ListMusicResponse
@@ -3645,6 +4942,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取用户的播放历史.
+     *
+     * @param tmpReq - ListPlayHistoryRequest
+     * @param headers - ListPlayHistoryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPlayHistoryResponse
+     *
      * @param ListPlayHistoryRequest $tmpReq
      * @param ListPlayHistoryHeaders $headers
      * @param RuntimeOptions         $runtime
@@ -3653,60 +4958,75 @@ class AliGenie extends OpenApiClient
      */
     public function listPlayHistoryWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListPlayHistoryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->request)) {
-            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
+
+        if (null !== $tmpReq->request) {
+            $request->requestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->requestShrink)) {
-            $body['Request'] = $request->requestShrink;
+        if (null !== $request->requestShrink) {
+            @$body['Request'] = $request->requestShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListPlayHistory',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/ListPlayHistory',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListPlayHistory',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/ListPlayHistory',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPlayHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取用户的播放历史.
+     *
+     * @param request - ListPlayHistoryRequest
+     *
+     * @returns ListPlayHistoryResponse
+     *
      * @param ListPlayHistoryRequest $request
      *
      * @return ListPlayHistoryResponse
@@ -3720,6 +5040,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取每日推荐的音乐或者音频.
+     *
+     * @param tmpReq - ListRecommendContentRequest
+     * @param headers - ListRecommendContentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecommendContentResponse
+     *
      * @param ListRecommendContentRequest $tmpReq
      * @param ListRecommendContentHeaders $headers
      * @param RuntimeOptions              $runtime
@@ -3728,60 +5056,75 @@ class AliGenie extends OpenApiClient
      */
     public function listRecommendContentWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListRecommendContentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->request)) {
-            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
+
+        if (null !== $tmpReq->request) {
+            $request->requestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->requestShrink)) {
-            $body['Request'] = $request->requestShrink;
+        if (null !== $request->requestShrink) {
+            @$body['Request'] = $request->requestShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListRecommendContent',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/ListRecommendContent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListRecommendContent',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/ListRecommendContent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListRecommendContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取每日推荐的音乐或者音频.
+     *
+     * @param request - ListRecommendContentRequest
+     *
+     * @returns ListRecommendContentResponse
+     *
      * @param ListRecommendContentRequest $request
      *
      * @return ListRecommendContentResponse
@@ -3795,6 +5138,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 订阅列表.
+     *
+     * @param tmpReq - ListSubRequest
+     * @param headers - ListSubHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSubResponse
+     *
      * @param ListSubRequest $tmpReq
      * @param ListSubHeaders $headers
      * @param RuntimeOptions $runtime
@@ -3803,58 +5154,73 @@ class AliGenie extends OpenApiClient
      */
     public function listSubWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListSubShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->page)) {
-            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+
+        if (null !== $tmpReq->page) {
+            $request->pageShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->pageShrink)) {
-            $query['Page'] = $request->pageShrink;
+
+        if (null !== $request->pageShrink) {
+            @$query['Page'] = $request->pageShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSub',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/listSub',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSub',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/listSub',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSubResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 订阅列表.
+     *
+     * @param request - ListSubRequest
+     *
+     * @returns ListSubResponse
+     *
      * @param ListSubRequest $request
      *
      * @return ListSubResponse
@@ -3868,6 +5234,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 订阅专辑元数据列表.
+     *
+     * @param tmpReq - ListSubAlbumRequest
+     * @param headers - ListSubAlbumHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSubAlbumResponse
+     *
      * @param ListSubAlbumRequest $tmpReq
      * @param ListSubAlbumHeaders $headers
      * @param RuntimeOptions      $runtime
@@ -3876,58 +5250,73 @@ class AliGenie extends OpenApiClient
      */
     public function listSubAlbumWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListSubAlbumShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->querySubscriptionAlbumRequest)) {
-            $request->querySubscriptionAlbumRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->querySubscriptionAlbumRequest, 'QuerySubscriptionAlbumRequest', 'json');
+
+        if (null !== $tmpReq->querySubscriptionAlbumRequest) {
+            $request->querySubscriptionAlbumRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->querySubscriptionAlbumRequest, 'QuerySubscriptionAlbumRequest', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->querySubscriptionAlbumRequestShrink)) {
-            $query['QuerySubscriptionAlbumRequest'] = $request->querySubscriptionAlbumRequestShrink;
+
+        if (null !== $request->querySubscriptionAlbumRequestShrink) {
+            @$query['QuerySubscriptionAlbumRequest'] = $request->querySubscriptionAlbumRequestShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSubAlbum',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/listSubAlbum',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSubAlbum',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/listSubAlbum',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSubAlbumResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 订阅专辑元数据列表.
+     *
+     * @param request - ListSubAlbumRequest
+     *
+     * @returns ListSubAlbumResponse
+     *
      * @param ListSubAlbumRequest $request
      *
      * @return ListSubAlbumResponse
@@ -3941,6 +5330,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 内容订阅元数据分类.
+     *
+     * @param request - ListSubscriptionAlbumCategoryRequest
+     * @param headers - ListSubscriptionAlbumCategoryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSubscriptionAlbumCategoryResponse
+     *
      * @param ListSubscriptionAlbumCategoryRequest $request
      * @param ListSubscriptionAlbumCategoryHeaders $headers
      * @param RuntimeOptions                       $runtime
@@ -3949,41 +5346,51 @@ class AliGenie extends OpenApiClient
      */
     public function listSubscriptionAlbumCategoryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->categoryName)) {
-            $query['CategoryName'] = $request->categoryName;
+        if (null !== $request->categoryName) {
+            @$query['CategoryName'] = $request->categoryName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSubscriptionAlbumCategory',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/listSubscriptionAlbumCategory',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSubscriptionAlbumCategory',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/listSubscriptionAlbumCategory',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSubscriptionAlbumCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 内容订阅元数据分类.
+     *
+     * @param request - ListSubscriptionAlbumCategoryRequest
+     *
+     * @returns ListSubscriptionAlbumCategoryResponse
+     *
      * @param ListSubscriptionAlbumCategoryRequest $request
      *
      * @return ListSubscriptionAlbumCategoryResponse
@@ -3997,6 +5404,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取留言列表.
+     *
+     * @param tmpReq - ListUserMessageRequest
+     * @param headers - ListUserMessageHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserMessageResponse
+     *
      * @param ListUserMessageRequest $tmpReq
      * @param ListUserMessageHeaders $headers
      * @param RuntimeOptions         $runtime
@@ -4005,52 +5420,65 @@ class AliGenie extends OpenApiClient
      */
     public function listUserMessageWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListUserMessageShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->beforeTime)) {
-            $query['BeforeTime'] = $request->beforeTime;
+        if (null !== $request->beforeTime) {
+            @$query['BeforeTime'] = $request->beforeTime;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserMessage',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/listUserMessage',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListUserMessage',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/listUserMessage',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUserMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取留言列表.
+     *
+     * @param request - ListUserMessageRequest
+     *
+     * @returns ListUserMessageResponse
+     *
      * @param ListUserMessageRequest $request
      *
      * @return ListUserMessageResponse
@@ -4064,6 +5492,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 移动轻纳管
+     *
+     * @param tmpReq - MobileRecommendRequest
+     * @param headers - MobileRecommendHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MobileRecommendResponse
+     *
      * @param MobileRecommendRequest $tmpReq
      * @param MobileRecommendHeaders $headers
      * @param RuntimeOptions         $runtime
@@ -4072,64 +5508,81 @@ class AliGenie extends OpenApiClient
      */
     public function mobileRecommendWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new MobileRecommendShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->botId)) {
-            $query['BotId'] = $request->botId;
+        if (null !== $request->botId) {
+            @$query['BotId'] = $request->botId;
         }
-        if (!Utils::isUnset($request->count)) {
-            $query['Count'] = $request->count;
+
+        if (null !== $request->count) {
+            @$query['Count'] = $request->count;
         }
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->style)) {
-            $query['Style'] = $request->style;
+
+        if (null !== $request->style) {
+            @$query['Style'] = $request->style;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MobileRecommend',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/mobile/recommend/music',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'MobileRecommend',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/mobile/recommend/music',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MobileRecommendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 移动轻纳管
+     *
+     * @param request - MobileRecommendRequest
+     *
+     * @returns MobileRecommendResponse
+     *
      * @param MobileRecommendRequest $request
      *
      * @return MobileRecommendResponse
@@ -4143,6 +5596,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 播放暂停控制.
+     *
+     * @param tmpReq - PlayAndPauseControlRequest
+     * @param headers - PlayAndPauseControlHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PlayAndPauseControlResponse
+     *
      * @param PlayAndPauseControlRequest $tmpReq
      * @param PlayAndPauseControlHeaders $headers
      * @param RuntimeOptions             $runtime
@@ -4151,60 +5612,75 @@ class AliGenie extends OpenApiClient
      */
     public function playAndPauseControlWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PlayAndPauseControlShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->openPlayAndPauseControlParam)) {
-            $request->openPlayAndPauseControlParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openPlayAndPauseControlParam, 'OpenPlayAndPauseControlParam', 'json');
+
+        if (null !== $tmpReq->openPlayAndPauseControlParam) {
+            $request->openPlayAndPauseControlParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->openPlayAndPauseControlParam, 'OpenPlayAndPauseControlParam', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->openPlayAndPauseControlParamShrink)) {
-            $body['OpenPlayAndPauseControlParam'] = $request->openPlayAndPauseControlParamShrink;
+        if (null !== $request->openPlayAndPauseControlParamShrink) {
+            @$body['OpenPlayAndPauseControlParam'] = $request->openPlayAndPauseControlParamShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PlayAndPauseControl',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/PlayAndPauseControl',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PlayAndPauseControl',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/PlayAndPauseControl',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PlayAndPauseControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 播放暂停控制.
+     *
+     * @param request - PlayAndPauseControlRequest
+     *
+     * @returns PlayAndPauseControlResponse
+     *
      * @param PlayAndPauseControlRequest $request
      *
      * @return PlayAndPauseControlResponse
@@ -4218,6 +5694,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 播放模式切换.
+     *
+     * @param tmpReq - PlayModeControlRequest
+     * @param headers - PlayModeControlHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PlayModeControlResponse
+     *
      * @param PlayModeControlRequest $tmpReq
      * @param PlayModeControlHeaders $headers
      * @param RuntimeOptions         $runtime
@@ -4226,60 +5710,75 @@ class AliGenie extends OpenApiClient
      */
     public function playModeControlWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PlayModeControlShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->openPlayModeControlRequest)) {
-            $request->openPlayModeControlRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openPlayModeControlRequest, 'OpenPlayModeControlRequest', 'json');
+
+        if (null !== $tmpReq->openPlayModeControlRequest) {
+            $request->openPlayModeControlRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->openPlayModeControlRequest, 'OpenPlayModeControlRequest', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->openPlayModeControlRequestShrink)) {
-            $body['OpenPlayModeControlRequest'] = $request->openPlayModeControlRequestShrink;
+        if (null !== $request->openPlayModeControlRequestShrink) {
+            @$body['OpenPlayModeControlRequest'] = $request->openPlayModeControlRequestShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PlayModeControl',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/PlayModeControl',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PlayModeControl',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/PlayModeControl',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PlayModeControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 播放模式切换.
+     *
+     * @param request - PlayModeControlRequest
+     *
+     * @returns PlayModeControlResponse
+     *
      * @param PlayModeControlRequest $request
      *
      * @return PlayModeControlResponse
@@ -4293,6 +5792,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 上下首控制.
+     *
+     * @param tmpReq - PreviousAndNextControlRequest
+     * @param headers - PreviousAndNextControlHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreviousAndNextControlResponse
+     *
      * @param PreviousAndNextControlRequest $tmpReq
      * @param PreviousAndNextControlHeaders $headers
      * @param RuntimeOptions                $runtime
@@ -4301,60 +5808,75 @@ class AliGenie extends OpenApiClient
      */
     public function previousAndNextControlWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PreviousAndNextControlShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->openControlPlayingListRequest)) {
-            $request->openControlPlayingListRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openControlPlayingListRequest, 'OpenControlPlayingListRequest', 'json');
+
+        if (null !== $tmpReq->openControlPlayingListRequest) {
+            $request->openControlPlayingListRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->openControlPlayingListRequest, 'OpenControlPlayingListRequest', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->openControlPlayingListRequestShrink)) {
-            $body['OpenControlPlayingListRequest'] = $request->openControlPlayingListRequestShrink;
+        if (null !== $request->openControlPlayingListRequestShrink) {
+            @$body['OpenControlPlayingListRequest'] = $request->openControlPlayingListRequestShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PreviousAndNextControl',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/PreviousAndNextControl',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PreviousAndNextControl',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/PreviousAndNextControl',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PreviousAndNextControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 上下首控制.
+     *
+     * @param request - PreviousAndNextControlRequest
+     *
+     * @returns PreviousAndNextControlResponse
+     *
      * @param PreviousAndNextControlRequest $request
      *
      * @return PreviousAndNextControlResponse
@@ -4368,6 +5890,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 进度控制.
+     *
+     * @param tmpReq - ProgressControlRequest
+     * @param headers - ProgressControlHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ProgressControlResponse
+     *
      * @param ProgressControlRequest $tmpReq
      * @param ProgressControlHeaders $headers
      * @param RuntimeOptions         $runtime
@@ -4376,60 +5906,75 @@ class AliGenie extends OpenApiClient
      */
     public function progressControlWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ProgressControlShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->openProgressControlRequest)) {
-            $request->openProgressControlRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openProgressControlRequest, 'OpenProgressControlRequest', 'json');
+
+        if (null !== $tmpReq->openProgressControlRequest) {
+            $request->openProgressControlRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->openProgressControlRequest, 'OpenProgressControlRequest', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->openProgressControlRequestShrink)) {
-            $body['OpenProgressControlRequest'] = $request->openProgressControlRequestShrink;
+        if (null !== $request->openProgressControlRequestShrink) {
+            @$body['OpenProgressControlRequest'] = $request->openProgressControlRequestShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ProgressControl',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/ProgressControl',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ProgressControl',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/ProgressControl',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ProgressControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 进度控制.
+     *
+     * @param request - ProgressControlRequest
+     *
+     * @returns ProgressControlResponse
+     *
      * @param ProgressControlRequest $request
      *
      * @return ProgressControlResponse
@@ -4443,6 +5988,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取闹钟音乐类型列表.
+     *
+     * @param tmpReq - QueryMusicTypeRequest
+     * @param headers - QueryMusicTypeHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMusicTypeResponse
+     *
      * @param QueryMusicTypeRequest $tmpReq
      * @param QueryMusicTypeHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -4451,58 +6004,73 @@ class AliGenie extends OpenApiClient
      */
     public function queryMusicTypeWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QueryMusicTypeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $body['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $body['Payload'] = $request->payloadShrink;
+
+        if (null !== $request->payloadShrink) {
+            @$body['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $body['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMusicType',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/queryMusicType',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryMusicType',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/queryMusicType',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMusicTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取闹钟音乐类型列表.
+     *
+     * @param request - QueryMusicTypeRequest
+     *
+     * @returns QueryMusicTypeResponse
+     *
      * @param QueryMusicTypeRequest $request
      *
      * @return QueryMusicTypeResponse
@@ -4516,6 +6084,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 通过tme用户id获取授权的天猫精灵用户+设备列表.
+     *
+     * @param request - QueryUserDeviceListByTmeUserIdRequest
+     * @param headers - QueryUserDeviceListByTmeUserIdHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryUserDeviceListByTmeUserIdResponse
+     *
      * @param QueryUserDeviceListByTmeUserIdRequest $request
      * @param QueryUserDeviceListByTmeUserIdHeaders $headers
      * @param RuntimeOptions                        $runtime
@@ -4524,44 +6100,55 @@ class AliGenie extends OpenApiClient
      */
     public function queryUserDeviceListByTmeUserIdWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sp)) {
-            $query['Sp'] = $request->sp;
+        if (null !== $request->sp) {
+            @$query['Sp'] = $request->sp;
         }
-        if (!Utils::isUnset($request->tmeUserId)) {
-            $query['TmeUserId'] = $request->tmeUserId;
+
+        if (null !== $request->tmeUserId) {
+            @$query['TmeUserId'] = $request->tmeUserId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryUserDeviceListByTmeUserId',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/queryUserDeviceListByTmeUserId',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryUserDeviceListByTmeUserId',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/queryUserDeviceListByTmeUserId',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryUserDeviceListByTmeUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 通过tme用户id获取授权的天猫精灵用户+设备列表.
+     *
+     * @param request - QueryUserDeviceListByTmeUserIdRequest
+     *
+     * @returns QueryUserDeviceListByTmeUserIdResponse
+     *
      * @param QueryUserDeviceListByTmeUserIdRequest $request
      *
      * @return QueryUserDeviceListByTmeUserIdResponse
@@ -4575,6 +6162,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 读取留言
+     *
+     * @param tmpReq - ReadMessageRequest
+     * @param headers - ReadMessageHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadMessageResponse
+     *
      * @param ReadMessageRequest $tmpReq
      * @param ReadMessageHeaders $headers
      * @param RuntimeOptions     $runtime
@@ -4583,49 +6178,61 @@ class AliGenie extends OpenApiClient
      */
     public function readMessageWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ReadMessageShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->messageId)) {
-            $query['MessageId'] = $request->messageId;
+        if (null !== $request->messageId) {
+            @$query['MessageId'] = $request->messageId;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReadMessage',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/readMessage',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ReadMessage',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/readMessage',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReadMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 读取留言
+     *
+     * @param request - ReadMessageRequest
+     *
+     * @returns ReadMessageResponse
+     *
      * @param ReadMessageRequest $request
      *
      * @return ReadMessageResponse
@@ -4639,6 +6246,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 扫描二维码激活绑定设备.
+     *
+     * @param tmpReq - ScanCodeBindRequest
+     * @param headers - ScanCodeBindHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ScanCodeBindResponse
+     *
      * @param ScanCodeBindRequest $tmpReq
      * @param ScanCodeBindHeaders $headers
      * @param RuntimeOptions      $runtime
@@ -4647,52 +6262,65 @@ class AliGenie extends OpenApiClient
      */
     public function scanCodeBindWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ScanCodeBindShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->bindReq)) {
-            $request->bindReqShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bindReq, 'BindReq', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bindReq) {
+            $request->bindReqShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bindReq, 'BindReq', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->bindReqShrink)) {
-            $body['BindReq'] = $request->bindReqShrink;
+        if (null !== $request->bindReqShrink) {
+            @$body['BindReq'] = $request->bindReqShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $body['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ScanCodeBind',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/scanCode',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ScanCodeBind',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/scanCode',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ScanCodeBindResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 扫描二维码激活绑定设备.
+     *
+     * @param request - ScanCodeBindRequest
+     *
+     * @returns ScanCodeBindResponse
+     *
      * @param ScanCodeBindRequest $request
      *
      * @return ScanCodeBindResponse
@@ -4706,6 +6334,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 选品池投放能力.
+     *
+     * @param tmpReq - ScgSearchRequest
+     * @param headers - ScgSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ScgSearchResponse
+     *
      * @param ScgSearchRequest $tmpReq
      * @param ScgSearchHeaders $headers
      * @param RuntimeOptions   $runtime
@@ -4714,49 +6350,61 @@ class AliGenie extends OpenApiClient
      */
     public function scgSearchWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ScgSearchShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->scgFilter)) {
-            $request->scgFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scgFilter, 'ScgFilter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->scgFilter) {
+            $request->scgFilterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scgFilter, 'ScgFilter', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->scgFilterShrink)) {
-            $query['ScgFilter'] = $request->scgFilterShrink;
+        if (null !== $request->scgFilterShrink) {
+            @$query['ScgFilter'] = $request->scgFilterShrink;
         }
-        if (!Utils::isUnset($request->topicId)) {
-            $query['TopicId'] = $request->topicId;
+
+        if (null !== $request->topicId) {
+            @$query['TopicId'] = $request->topicId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ScgSearch',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/scgSearch',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ScgSearch',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/scgSearch',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ScgSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 选品池投放能力.
+     *
+     * @param request - ScgSearchRequest
+     *
+     * @returns ScgSearchResponse
+     *
      * @param ScgSearchRequest $request
      *
      * @return ScgSearchResponse
@@ -4770,6 +6418,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 按照特定的搜索条件搜索.
+     *
+     * @param tmpReq - SearchContentRequest
+     * @param headers - SearchContentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchContentResponse
+     *
      * @param SearchContentRequest $tmpReq
      * @param SearchContentHeaders $headers
      * @param RuntimeOptions       $runtime
@@ -4778,60 +6434,75 @@ class AliGenie extends OpenApiClient
      */
     public function searchContentWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SearchContentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->request)) {
-            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
+
+        if (null !== $tmpReq->request) {
+            $request->requestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->requestShrink)) {
-            $body['Request'] = $request->requestShrink;
+        if (null !== $request->requestShrink) {
+            @$body['Request'] = $request->requestShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchContent',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/SearchContent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchContent',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/SearchContent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 按照特定的搜索条件搜索.
+     *
+     * @param request - SearchContentRequest
+     *
+     * @returns SearchContentResponse
+     *
      * @param SearchContentRequest $request
      *
      * @return SearchContentResponse
@@ -4845,6 +6516,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 发送留言
+     *
+     * @param tmpReq - SendMessageRequest
+     * @param headers - SendMessageHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendMessageResponse
+     *
      * @param SendMessageRequest $tmpReq
      * @param SendMessageHeaders $headers
      * @param RuntimeOptions     $runtime
@@ -4853,49 +6532,61 @@ class AliGenie extends OpenApiClient
      */
     public function sendMessageWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SendMessageShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendMessage',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/sendMessage',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SendMessage',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/sendMessage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SendMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 发送留言
+     *
+     * @param request - SendMessageRequest
+     *
+     * @returns SendMessageResponse
+     *
      * @param SendMessageRequest $request
      *
      * @return SendMessageResponse
@@ -4909,6 +6600,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 修改设备设置.
+     *
+     * @param tmpReq - SetDeviceSettingRequest
+     * @param headers - SetDeviceSettingHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetDeviceSettingResponse
+     *
      * @param SetDeviceSettingRequest $tmpReq
      * @param SetDeviceSettingHeaders $headers
      * @param RuntimeOptions          $runtime
@@ -4917,54 +6616,67 @@ class AliGenie extends OpenApiClient
      */
     public function setDeviceSettingWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SetDeviceSettingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->key)) {
-            $body['Key'] = $request->key;
+        if (null !== $request->key) {
+            @$body['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->value)) {
-            $body['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$body['Value'] = $request->value;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetDeviceSetting',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/setDeviceSetting',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SetDeviceSetting',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/setDeviceSetting',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetDeviceSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 修改设备设置.
+     *
+     * @param request - SetDeviceSettingRequest
+     *
+     * @returns SetDeviceSettingResponse
+     *
      * @param SetDeviceSettingRequest $request
      *
      * @return SetDeviceSettingResponse
@@ -4978,6 +6690,120 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 三方即时信息数据变更事件推送
+     *
+     * @param request - ThirdImmediateMsgPushRequest
+     * @param headers - ThirdImmediateMsgPushHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ThirdImmediateMsgPushResponse
+     *
+     * @param ThirdImmediateMsgPushRequest $request
+     * @param ThirdImmediateMsgPushHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ThirdImmediateMsgPushResponse
+     */
+    public function thirdImmediateMsgPushWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->changeDetail) {
+            @$query['ChangeDetail'] = $request->changeDetail;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->psgIds) {
+            @$query['PsgIds'] = $request->psgIds;
+        }
+
+        if (null !== $request->trafficChangeType) {
+            @$query['TrafficChangeType'] = $request->trafficChangeType;
+        }
+
+        if (null !== $request->trafficChangeTypeDesc) {
+            @$query['TrafficChangeTypeDesc'] = $request->trafficChangeTypeDesc;
+        }
+
+        if (null !== $request->trafficJourneyIds) {
+            @$query['TrafficJourneyIds'] = $request->trafficJourneyIds;
+        }
+
+        if (null !== $request->trafficSubOrderIds) {
+            @$query['TrafficSubOrderIds'] = $request->trafficSubOrderIds;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ThirdImmediateMsgPush',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/thirdImmediateMsgPush',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ThirdImmediateMsgPushResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 三方即时信息数据变更事件推送
+     *
+     * @param request - ThirdImmediateMsgPushRequest
+     *
+     * @returns ThirdImmediateMsgPushResponse
+     *
+     * @param ThirdImmediateMsgPushRequest $request
+     *
+     * @return ThirdImmediateMsgPushResponse
+     */
+    public function thirdImmediateMsgPush($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ThirdImmediateMsgPushHeaders([]);
+
+        return $this->thirdImmediateMsgPushWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 解除三方和精灵账号的关系.
+     *
+     * @param request - UnbindAligenieUserRequest
+     * @param headers - UnbindAligenieUserHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindAligenieUserResponse
+     *
      * @param UnbindAligenieUserRequest $request
      * @param UnbindAligenieUserHeaders $headers
      * @param RuntimeOptions            $runtime
@@ -4986,41 +6812,51 @@ class AliGenie extends OpenApiClient
      */
     public function unbindAligenieUserWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->loginStateAccessToken)) {
-            $body['LoginStateAccessToken'] = $request->loginStateAccessToken;
+        if (null !== $request->loginStateAccessToken) {
+            @$body['LoginStateAccessToken'] = $request->loginStateAccessToken;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UnbindAligenieUser',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/unbindAligenieUser',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UnbindAligenieUser',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/unbindAligenieUser',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UnbindAligenieUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 解除三方和精灵账号的关系.
+     *
+     * @param request - UnbindAligenieUserRequest
+     *
+     * @returns UnbindAligenieUserResponse
+     *
      * @param UnbindAligenieUserRequest $request
      *
      * @return UnbindAligenieUserResponse
@@ -5034,6 +6870,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 解绑设备.
+     *
+     * @param tmpReq - UnbindDeviceRequest
+     * @param headers - UnbindDeviceHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindDeviceResponse
+     *
      * @param UnbindDeviceRequest $tmpReq
      * @param UnbindDeviceHeaders $headers
      * @param RuntimeOptions      $runtime
@@ -5042,52 +6886,65 @@ class AliGenie extends OpenApiClient
      */
     public function unbindDeviceWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UnbindDeviceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $body['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $body['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UnbindDevice',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/unbindDevice',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UnbindDevice',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/unbindDevice',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UnbindDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 解绑设备.
+     *
+     * @param request - UnbindDeviceRequest
+     *
+     * @returns UnbindDeviceResponse
+     *
      * @param UnbindDeviceRequest $request
      *
      * @return UnbindDeviceResponse
@@ -5101,6 +6958,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 更新闹钟
+     *
+     * @param tmpReq - UpdateAlarmRequest
+     * @param headers - UpdateAlarmHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAlarmResponse
+     *
      * @param UpdateAlarmRequest $tmpReq
      * @param UpdateAlarmHeaders $headers
      * @param RuntimeOptions     $runtime
@@ -5109,58 +6974,73 @@ class AliGenie extends OpenApiClient
      */
     public function updateAlarmWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateAlarmShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $body['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $body['Payload'] = $request->payloadShrink;
+
+        if (null !== $request->payloadShrink) {
+            @$body['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $body['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAlarm',
-            'version'     => 'ssp_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ssp/updateAlarm',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateAlarm',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/updateAlarm',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 更新闹钟
+     *
+     * @param request - UpdateAlarmRequest
+     *
+     * @returns UpdateAlarmResponse
+     *
      * @param UpdateAlarmRequest $request
      *
      * @return UpdateAlarmResponse

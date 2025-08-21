@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAligenieUserInfoRequest extends Model
 {
     /**
-     * @example 99ce8a70c23a94f8569e1a525bef6e85
-     *
      * @var string
      */
     public $loginStateAccessToken;
@@ -20,9 +18,10 @@ class GetAligenieUserInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loginStateAccessToken) {
@@ -32,11 +31,11 @@ class GetAligenieUserInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAligenieUserInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

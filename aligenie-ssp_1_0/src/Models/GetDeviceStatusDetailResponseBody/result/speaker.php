@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetDeviceStatusDetailResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class speaker extends Model
 {
@@ -14,26 +14,26 @@ class speaker extends Model
     public $muted;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $volume;
     protected $_name = [
-        'muted'  => 'Muted',
+        'muted' => 'Muted',
         'volume' => 'Volume',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->muted) {
             $res['Muted'] = $this->muted;
         }
+
         if (null !== $this->volume) {
             $res['Volume'] = $this->volume;
         }
@@ -41,17 +41,18 @@ class speaker extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return speaker
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Muted'])) {
             $model->muted = $map['Muted'];
         }
+
         if (isset($map['Volume'])) {
             $model->volume = $map['Volume'];
         }

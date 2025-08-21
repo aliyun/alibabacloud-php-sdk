@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmRequest\payload\musicInfo;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmRequest\payload\scheduleInfo;
-use AlibabaCloud\Tea\Model;
 
 class payload extends Model
 {
     /**
-     * @example 1234567
-     *
      * @var int
      */
     public $alarmId;
@@ -28,34 +26,42 @@ class payload extends Model
     public $scheduleInfo;
 
     /**
-     * @example 40
-     *
      * @var int
      */
     public $volume;
     protected $_name = [
-        'alarmId'      => 'AlarmId',
-        'musicInfo'    => 'MusicInfo',
+        'alarmId' => 'AlarmId',
+        'musicInfo' => 'MusicInfo',
         'scheduleInfo' => 'ScheduleInfo',
-        'volume'       => 'Volume',
+        'volume' => 'Volume',
     ];
 
     public function validate()
     {
+        if (null !== $this->musicInfo) {
+            $this->musicInfo->validate();
+        }
+        if (null !== $this->scheduleInfo) {
+            $this->scheduleInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarmId) {
             $res['AlarmId'] = $this->alarmId;
         }
+
         if (null !== $this->musicInfo) {
-            $res['MusicInfo'] = null !== $this->musicInfo ? $this->musicInfo->toMap() : null;
+            $res['MusicInfo'] = null !== $this->musicInfo ? $this->musicInfo->toArray($noStream) : $this->musicInfo;
         }
+
         if (null !== $this->scheduleInfo) {
-            $res['ScheduleInfo'] = null !== $this->scheduleInfo ? $this->scheduleInfo->toMap() : null;
+            $res['ScheduleInfo'] = null !== $this->scheduleInfo ? $this->scheduleInfo->toArray($noStream) : $this->scheduleInfo;
         }
+
         if (null !== $this->volume) {
             $res['Volume'] = $this->volume;
         }
@@ -63,23 +69,26 @@ class payload extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return payload
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlarmId'])) {
             $model->alarmId = $map['AlarmId'];
         }
+
         if (isset($map['MusicInfo'])) {
             $model->musicInfo = musicInfo::fromMap($map['MusicInfo']);
         }
+
         if (isset($map['ScheduleInfo'])) {
             $model->scheduleInfo = scheduleInfo::fromMap($map['ScheduleInfo']);
         }
+
         if (isset($map['Volume'])) {
             $model->volume = $map['Volume'];
         }

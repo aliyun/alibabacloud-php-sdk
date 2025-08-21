@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListCommonCateSecondFloorResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example 80018009
-     *
      * @var int
      */
     public $cateId;
@@ -21,30 +19,31 @@ class result extends Model
     public $cateName;
 
     /**
-     * @example 80018
-     *
      * @var int
      */
     public $parentCateId;
     protected $_name = [
-        'cateId'       => 'CateId',
-        'cateName'     => 'CateName',
+        'cateId' => 'CateId',
+        'cateName' => 'CateName',
         'parentCateId' => 'ParentCateId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cateId) {
             $res['CateId'] = $this->cateId;
         }
+
         if (null !== $this->cateName) {
             $res['CateName'] = $this->cateName;
         }
+
         if (null !== $this->parentCateId) {
             $res['ParentCateId'] = $this->parentCateId;
         }
@@ -52,20 +51,22 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CateId'])) {
             $model->cateId = $map['CateId'];
         }
+
         if (isset($map['CateName'])) {
             $model->cateName = $map['CateName'];
         }
+
         if (isset($map['ParentCateId'])) {
             $model->parentCateId = $map['ParentCateId'];
         }
