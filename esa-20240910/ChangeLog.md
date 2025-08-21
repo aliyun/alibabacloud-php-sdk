@@ -3,6 +3,11 @@
 - Update API ListRecords: add response parameters Body.Records.$.Data.Tags.
 
 
+2025-08-21 Version: 2.26.2
+- Update API GetRecord: add response parameters Body.RecordModel.Data.Tags.
+- Update API ListRecords: add response parameters Body.Records.$.Data.Tags.
+
+
 2025-08-18 Version: 2.26.1
 - Generated php 2024-09-10 for ESA.
 
