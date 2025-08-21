@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeL2VipsByDomainResponseBody\vips;
-use AlibabaCloud\Tea\Model;
 
 class DescribeL2VipsByDomainResponseBody extends Model
 {
     /**
-     * @description The domain name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The list of VIPs.
-     *
      * @var vips
      */
     public $vips;
@@ -39,38 +29,48 @@ class DescribeL2VipsByDomainResponseBody extends Model
         'vips' => 'Vips',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->vips) {
+            $this->vips->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->vips) {
-            $res['Vips'] = null !== $this->vips ? $this->vips->toMap() : null;
+            $res['Vips'] = null !== $this->vips ? $this->vips->toArray($noStream) : $this->vips;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeL2VipsByDomainResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Vips'])) {
             $model->vips = vips::fromMap($map['Vips']);
         }

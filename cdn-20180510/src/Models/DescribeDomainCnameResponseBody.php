@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainCnameResponseBody\cnameDatas;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDomainCnameResponseBody extends Model
 {
     /**
-     * @description Details about the CNAME detection results.
-     *
      * @var cnameDatas
      */
     public $cnameDatas;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 06D29681-B7CD-4034-A8CC-28AFFA213539
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeDomainCnameResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->cnameDatas) {
+            $this->cnameDatas->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cnameDatas) {
-            $res['CnameDatas'] = null !== $this->cnameDatas ? $this->cnameDatas->toMap() : null;
+            $res['CnameDatas'] = null !== $this->cnameDatas ? $this->cnameDatas->toArray($noStream) : $this->cnameDatas;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeDomainCnameResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainCnameResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CnameDatas'])) {
             $model->cnameDatas = cnameDatas::fromMap($map['CnameDatas']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

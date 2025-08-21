@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRealtimeDeliveryAccResponseBody\reatTimeDeliveryAccData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRealtimeDeliveryAccResponseBody extends Model
 {
     /**
-     * @description The statistics about real-time log deliveries.
-     *
      * @var reatTimeDeliveryAccData
      */
     public $reatTimeDeliveryAccData;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 684306D2-2511-4977-991D-CE97E91FD7C0
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeRealtimeDeliveryAccResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->reatTimeDeliveryAccData) {
+            $this->reatTimeDeliveryAccData->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reatTimeDeliveryAccData) {
-            $res['ReatTimeDeliveryAccData'] = null !== $this->reatTimeDeliveryAccData ? $this->reatTimeDeliveryAccData->toMap() : null;
+            $res['ReatTimeDeliveryAccData'] = null !== $this->reatTimeDeliveryAccData ? $this->reatTimeDeliveryAccData->toArray($noStream) : $this->reatTimeDeliveryAccData;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeRealtimeDeliveryAccResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRealtimeDeliveryAccResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReatTimeDeliveryAccData'])) {
             $model->reatTimeDeliveryAccData = reatTimeDeliveryAccData::fromMap($map['ReatTimeDeliveryAccData']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

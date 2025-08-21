@@ -4,77 +4,47 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainBpsDataResponseBody\bpsDataPerInterval;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDomainBpsDataResponseBody extends Model
 {
     /**
-     * @description The list of bandwidth data entries returned at each interval.
-     *
      * @var bpsDataPerInterval
      */
     public $bpsDataPerInterval;
 
     /**
-     * @description The time interval between the data entries returned. Unit: seconds.
-     *
-     * @example 300
-     *
      * @var string
      */
     public $dataInterval;
 
     /**
-     * @description The accelerated domain name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The end of the time range during which data was queried.
-     *
-     * @example 2015-12-10T20:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The name of the ISP.
-     *
-     * @example unicom
-     *
      * @var string
      */
     public $ispNameEn;
 
     /**
-     * @description The name of the region.
-     *
-     * @example beijing
-     *
      * @var string
      */
     public $locationNameEn;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The start of the time range during which data was queried.
-     *
-     * @example 2020-05-14T09:50:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -89,32 +59,45 @@ class DescribeDomainBpsDataResponseBody extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->bpsDataPerInterval) {
+            $this->bpsDataPerInterval->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bpsDataPerInterval) {
-            $res['BpsDataPerInterval'] = null !== $this->bpsDataPerInterval ? $this->bpsDataPerInterval->toMap() : null;
+            $res['BpsDataPerInterval'] = null !== $this->bpsDataPerInterval ? $this->bpsDataPerInterval->toArray($noStream) : $this->bpsDataPerInterval;
         }
+
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->ispNameEn) {
             $res['IspNameEn'] = $this->ispNameEn;
         }
+
         if (null !== $this->locationNameEn) {
             $res['LocationNameEn'] = $this->locationNameEn;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -122,35 +105,42 @@ class DescribeDomainBpsDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainBpsDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BpsDataPerInterval'])) {
             $model->bpsDataPerInterval = bpsDataPerInterval::fromMap($map['BpsDataPerInterval']);
         }
+
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['IspNameEn'])) {
             $model->ispNameEn = $map['IspNameEn'];
         }
+
         if (isset($map['LocationNameEn'])) {
             $model->locationNameEn = $map['LocationNameEn'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

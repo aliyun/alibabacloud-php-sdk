@@ -4,21 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeBlockedRegionsRequest extends Model
 {
     /**
-     * @description The language. Valid values:
-     *
-     *   **zh**: simplified Chinese
-     *   **en**: English
-     *   **jp**: Japanese
-     *
-     * This parameter is required.
-     *
-     * @example zh
-     *
      * @var string
      */
     public $language;
@@ -26,9 +16,12 @@ class DescribeBlockedRegionsRequest extends Model
         'language' => 'Language',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->language) {
@@ -38,11 +31,11 @@ class DescribeBlockedRegionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBlockedRegionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

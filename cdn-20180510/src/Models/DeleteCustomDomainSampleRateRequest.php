@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCustomDomainSampleRateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $domainNames;
@@ -18,9 +16,12 @@ class DeleteCustomDomainSampleRateRequest extends Model
         'domainNames' => 'DomainNames',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainNames) {
@@ -30,11 +31,11 @@ class DeleteCustomDomainSampleRateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCustomDomainSampleRateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

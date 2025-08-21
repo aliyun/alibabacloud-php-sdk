@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeStagingIpResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IPV4s extends Model
 {
@@ -16,29 +16,47 @@ class IPV4s extends Model
         'IPV4' => 'IPV4',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->IPV4)) {
+            Model::validateArray($this->IPV4);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->IPV4) {
-            $res['IPV4'] = $this->IPV4;
+            if (\is_array($this->IPV4)) {
+                $res['IPV4'] = [];
+                $n1 = 0;
+                foreach ($this->IPV4 as $item1) {
+                    $res['IPV4'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IPV4s
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IPV4'])) {
             if (!empty($map['IPV4'])) {
-                $model->IPV4 = $map['IPV4'];
+                $model->IPV4 = [];
+                $n1 = 0;
+                foreach ($map['IPV4'] as $item1) {
+                    $model->IPV4[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

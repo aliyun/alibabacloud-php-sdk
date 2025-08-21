@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnUserBillTypeResponseBody\billTypeData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCdnUserBillTypeResponseBody extends Model
 {
     /**
-     * @description Details about the metering methods returned.
-     *
      * @var billTypeData
      */
     public $billTypeData;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example C370DAF1-C838-4288-A1A0-9A87633D248E
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeCdnUserBillTypeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->billTypeData) {
+            $this->billTypeData->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->billTypeData) {
-            $res['BillTypeData'] = null !== $this->billTypeData ? $this->billTypeData->toMap() : null;
+            $res['BillTypeData'] = null !== $this->billTypeData ? $this->billTypeData->toArray($noStream) : $this->billTypeData;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeCdnUserBillTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCdnUserBillTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BillTypeData'])) {
             $model->billTypeData = billTypeData::fromMap($map['BillTypeData']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

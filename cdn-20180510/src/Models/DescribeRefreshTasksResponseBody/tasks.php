@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRefreshTasksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRefreshTasksResponseBody\tasks\CDNTask;
-use AlibabaCloud\Tea\Model;
 
 class tasks extends Model
 {
@@ -17,17 +17,24 @@ class tasks extends Model
         'CDNTask' => 'CDNTask',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->CDNTask)) {
+            Model::validateArray($this->CDNTask);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->CDNTask) {
-            $res['CDNTask'] = [];
-            if (null !== $this->CDNTask && \is_array($this->CDNTask)) {
-                $n = 0;
-                foreach ($this->CDNTask as $item) {
-                    $res['CDNTask'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->CDNTask)) {
+                $res['CDNTask'] = [];
+                $n1 = 0;
+                foreach ($this->CDNTask as $item1) {
+                    $res['CDNTask'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class tasks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CDNTask'])) {
             if (!empty($map['CDNTask'])) {
                 $model->CDNTask = [];
-                $n = 0;
-                foreach ($map['CDNTask'] as $item) {
-                    $model->CDNTask[$n++] = null !== $item ? CDNTask::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CDNTask'] as $item1) {
+                    $model->CDNTask[$n1] = CDNTask::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

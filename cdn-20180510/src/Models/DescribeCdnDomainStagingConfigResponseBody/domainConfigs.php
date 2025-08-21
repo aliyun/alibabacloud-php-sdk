@@ -4,55 +4,32 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainStagingConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainStagingConfigResponseBody\domainConfigs\functionArgs;
-use AlibabaCloud\Tea\Model;
 
 class domainConfigs extends Model
 {
     /**
-     * @description The configuration ID.
-     *
-     * @example 6xx5
-     *
      * @var string
      */
     public $configId;
 
     /**
-     * @description The description of each feature.
-     *
      * @var functionArgs[]
      */
     public $functionArgs;
 
     /**
-     * @description The feature name.
-     *
-     * @example aliauth
-     *
      * @var string
      */
     public $functionName;
 
     /**
-     * @description The rule condition ID. This parameter is optional. To create a rule condition, you can configure the **condition** feature that is described in the [Parameters for configuring features for domain names](https://help.aliyun.com/document_detail/388460.html) topic. A rule condition can identify parameters that are included in requests and filter requests based on the identified parameters. Each rule condition has a [ConfigId](https://help.aliyun.com/document_detail/388994.html). You can reference ConfigId instead of ParentId in other features. This way, you can combine rule conditions and features for flexible configurations. For more information, see [BatchSetCdnDomainConfig](https://help.aliyun.com/document_detail/90915.html) or ParentId configuration example in this topic.
-     *
-     * @example 222728944812032
-     *
      * @var string
      */
     public $parentId;
 
     /**
-     * @description The configuration status. Valid values:
-     *
-     *   **testing**
-     *   **configuring**
-     *   **success**
-     *   **failed**
-     *
-     * @example success
-     *
      * @var string
      */
     public $status;
@@ -64,29 +41,40 @@ class domainConfigs extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->functionArgs)) {
+            Model::validateArray($this->functionArgs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
+
         if (null !== $this->functionArgs) {
-            $res['FunctionArgs'] = [];
-            if (null !== $this->functionArgs && \is_array($this->functionArgs)) {
-                $n = 0;
-                foreach ($this->functionArgs as $item) {
-                    $res['FunctionArgs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->functionArgs)) {
+                $res['FunctionArgs'] = [];
+                $n1 = 0;
+                foreach ($this->functionArgs as $item1) {
+                    $res['FunctionArgs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
         }
+
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -94,32 +82,37 @@ class domainConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
+
         if (isset($map['FunctionArgs'])) {
             if (!empty($map['FunctionArgs'])) {
                 $model->functionArgs = [];
-                $n = 0;
-                foreach ($map['FunctionArgs'] as $item) {
-                    $model->functionArgs[$n++] = null !== $item ? functionArgs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FunctionArgs'] as $item1) {
+                    $model->functionArgs[$n1] = functionArgs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
         }
+
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

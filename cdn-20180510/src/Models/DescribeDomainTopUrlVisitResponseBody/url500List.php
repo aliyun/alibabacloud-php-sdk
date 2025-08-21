@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainTopUrlVisitResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainTopUrlVisitResponseBody\url500List\urlList;
-use AlibabaCloud\Tea\Model;
 
 class url500List extends Model
 {
@@ -17,17 +17,24 @@ class url500List extends Model
         'urlList' => 'UrlList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->urlList)) {
+            Model::validateArray($this->urlList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->urlList) {
-            $res['UrlList'] = [];
-            if (null !== $this->urlList && \is_array($this->urlList)) {
-                $n = 0;
-                foreach ($this->urlList as $item) {
-                    $res['UrlList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->urlList)) {
+                $res['UrlList'] = [];
+                $n1 = 0;
+                foreach ($this->urlList as $item1) {
+                    $res['UrlList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class url500List extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return url500List
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UrlList'])) {
             if (!empty($map['UrlList'])) {
                 $model->urlList = [];
-                $n = 0;
-                foreach ($map['UrlList'] as $item) {
-                    $model->urlList[$n++] = null !== $item ? urlList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UrlList'] as $item1) {
+                    $model->urlList[$n1] = urlList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

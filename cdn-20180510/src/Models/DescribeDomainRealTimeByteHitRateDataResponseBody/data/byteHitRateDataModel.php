@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainRealTimeByteHitRateDataResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class byteHitRateDataModel extends Model
 {
     /**
-     * @description The byte hit ratio. The byte hit ratio is measured in percentage.
-     *
-     * @example 0.8956940476262277
-     *
      * @var float
      */
     public $byteHitRate;
 
     /**
-     * @description The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-     *
-     * @example 2019-11-30T05:40:00Z
-     *
      * @var string
      */
     public $timeStamp;
@@ -30,14 +22,18 @@ class byteHitRateDataModel extends Model
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->byteHitRate) {
             $res['ByteHitRate'] = $this->byteHitRate;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -45,17 +41,18 @@ class byteHitRateDataModel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return byteHitRateDataModel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ByteHitRate'])) {
             $model->byteHitRate = $map['ByteHitRate'];
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

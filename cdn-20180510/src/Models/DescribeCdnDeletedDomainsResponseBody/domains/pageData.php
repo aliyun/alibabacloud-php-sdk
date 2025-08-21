@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeletedDomainsResponseBody\domains;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class pageData extends Model
 {
     /**
-     * @description The accelerated domain name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The time when the accelerated domain name was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-     *
-     * @example 2015-10-28T11:05:52Z
-     *
      * @var string
      */
     public $gmtModified;
@@ -30,14 +22,18 @@ class pageData extends Model
         'gmtModified' => 'GmtModified',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
@@ -45,17 +41,18 @@ class pageData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }

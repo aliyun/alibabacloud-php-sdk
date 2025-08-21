@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCdnDomainStagingConfigRequest extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify only one domain name in each request.
-     *
-     * This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The list of feature names. Separate multiple values with commas (,). For more information, see [A list of features](https://help.aliyun.com/document_detail/388460.html).
-     *
-     * @example aliauth
-     *
      * @var string
      */
     public $functionNames;
@@ -32,14 +22,18 @@ class DescribeCdnDomainStagingConfigRequest extends Model
         'functionNames' => 'FunctionNames',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->functionNames) {
             $res['FunctionNames'] = $this->functionNames;
         }
@@ -47,17 +41,18 @@ class DescribeCdnDomainStagingConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCdnDomainStagingConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['FunctionNames'])) {
             $model->functionNames = $map['FunctionNames'];
         }

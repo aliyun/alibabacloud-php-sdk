@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyCustomDomainSampleRateRequest extends Model
 {
@@ -14,15 +14,11 @@ class ModifyCustomDomainSampleRateRequest extends Model
     public $baseConfigID;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $domainNames;
 
     /**
-     * @description This parameter is required.
-     *
      * @var float
      */
     public $sampleRate;
@@ -38,20 +34,26 @@ class ModifyCustomDomainSampleRateRequest extends Model
         'sinkID' => 'SinkID',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseConfigID) {
             $res['BaseConfigID'] = $this->baseConfigID;
         }
+
         if (null !== $this->domainNames) {
             $res['DomainNames'] = $this->domainNames;
         }
+
         if (null !== $this->sampleRate) {
             $res['SampleRate'] = $this->sampleRate;
         }
+
         if (null !== $this->sinkID) {
             $res['SinkID'] = $this->sinkID;
         }
@@ -59,23 +61,26 @@ class ModifyCustomDomainSampleRateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyCustomDomainSampleRateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseConfigID'])) {
             $model->baseConfigID = $map['BaseConfigID'];
         }
+
         if (isset($map['DomainNames'])) {
             $model->domainNames = $map['DomainNames'];
         }
+
         if (isset($map['SampleRate'])) {
             $model->sampleRate = $map['SampleRate'];
         }
+
         if (isset($map['SinkID'])) {
             $model->sinkID = $map['SinkID'];
         }

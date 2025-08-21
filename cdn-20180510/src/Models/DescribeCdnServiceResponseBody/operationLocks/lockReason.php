@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnServiceResponseBody\operationLocks;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class lockReason extends Model
 {
     /**
-     * @description The reason why the service is locked. A value of financial indicates that the service is locked due to overdue payments.
-     *
-     * @example financial
-     *
      * @var string
      */
     public $lockReason;
@@ -20,9 +16,12 @@ class lockReason extends Model
         'lockReason' => 'LockReason',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lockReason) {
@@ -32,11 +31,11 @@ class lockReason extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return lockReason
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

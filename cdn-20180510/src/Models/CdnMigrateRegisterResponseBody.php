@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CdnMigrateRegisterResponseBody extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify only one domain name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The request ID.
-     *
-     * @example 64D28B53-5902-409B-94F6-FD46680144FE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The registration status. Valid values:
-     *
-     *   **running**
-     *   **succeed**
-     *   **failed**
-     *
-     * @example succeed
-     *
      * @var string
      */
     public $status;
@@ -44,17 +28,22 @@ class CdnMigrateRegisterResponseBody extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -62,20 +51,22 @@ class CdnMigrateRegisterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CdnMigrateRegisterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

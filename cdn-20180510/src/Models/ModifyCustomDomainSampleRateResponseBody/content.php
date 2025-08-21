@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCustomDomainSampleRateResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
@@ -16,17 +16,24 @@ class content extends Model
         'content' => 'content',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->content)) {
+            Model::validateArray($this->content);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
-            $res['content'] = [];
-            if (null !== $this->content && \is_array($this->content)) {
-                $n = 0;
-                foreach ($this->content as $item) {
-                    $res['content'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->content)) {
+                $res['content'] = [];
+                $n1 = 0;
+                foreach ($this->content as $item1) {
+                    $res['content'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +41,21 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             if (!empty($map['content'])) {
                 $model->content = [];
-                $n = 0;
-                foreach ($map['content'] as $item) {
-                    $model->content[$n++] = null !== $item ? content\content::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['content'] as $item1) {
+                    $model->content[$n1] = content\content::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

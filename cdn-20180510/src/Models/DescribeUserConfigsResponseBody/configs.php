@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserConfigsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserConfigsResponseBody\configs\ossLogConfig;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserConfigsResponseBody\configs\wafConfig;
-use AlibabaCloud\Tea\Model;
 
 class configs extends Model
 {
     /**
-     * @description The configurations of Object Storage Service (OSS).
-     *
      * @var ossLogConfig
      */
     public $ossLogConfig;
 
     /**
-     * @description The configurations of Web Application Firewall (WAF).
-     *
      * @var wafConfig
      */
     public $wafConfig;
@@ -28,32 +24,43 @@ class configs extends Model
         'wafConfig' => 'WafConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->ossLogConfig) {
+            $this->ossLogConfig->validate();
+        }
+        if (null !== $this->wafConfig) {
+            $this->wafConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ossLogConfig) {
-            $res['OssLogConfig'] = null !== $this->ossLogConfig ? $this->ossLogConfig->toMap() : null;
+            $res['OssLogConfig'] = null !== $this->ossLogConfig ? $this->ossLogConfig->toArray($noStream) : $this->ossLogConfig;
         }
+
         if (null !== $this->wafConfig) {
-            $res['WafConfig'] = null !== $this->wafConfig ? $this->wafConfig->toMap() : null;
+            $res['WafConfig'] = null !== $this->wafConfig ? $this->wafConfig->toArray($noStream) : $this->wafConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OssLogConfig'])) {
             $model->ossLogConfig = ossLogConfig::fromMap($map['OssLogConfig']);
         }
+
         if (isset($map['WafConfig'])) {
             $model->wafConfig = wafConfig::fromMap($map['WafConfig']);
         }

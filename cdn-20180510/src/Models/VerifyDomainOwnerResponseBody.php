@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VerifyDomainOwnerResponseBody extends Model
 {
     /**
-     * @description The verification result.
-     *
-     * > This parameter is returned only if the operation fails.
-     *
-     * @example verify_dffeb6610035dcb77b413a59c32c****
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The request ID.
-     *
-     * @example 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +22,18 @@ class VerifyDomainOwnerResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class VerifyDomainOwnerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifyDomainOwnerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCustomLogConfigRequest extends Model
 {
     /**
-     * @description The ID of the custom configuration.
-     *
-     * This parameter is required.
-     *
-     * @example 123
-     *
      * @var string
      */
     public $configId;
@@ -22,9 +16,12 @@ class DescribeCustomLogConfigRequest extends Model
         'configId' => 'ConfigId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configId) {
@@ -34,11 +31,11 @@ class DescribeCustomLogConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCustomLogConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

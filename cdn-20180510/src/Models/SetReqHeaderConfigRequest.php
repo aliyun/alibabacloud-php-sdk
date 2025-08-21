@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetReqHeaderConfigRequest extends Model
 {
     /**
-     * @description The ID of the configuration.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $configId;
 
     /**
-     * @description The accelerated domain name. Separate multiple domain names with commas (,).
-     *
-     * This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The name of the custom header.
-     *
-     * This parameter is required.
-     *
-     * @example testkey
-     *
      * @var string
      */
     public $key;
@@ -50,12 +34,6 @@ class SetReqHeaderConfigRequest extends Model
     public $securityToken;
 
     /**
-     * @description The value of the custom header.
-     *
-     * This parameter is required.
-     *
-     * @example testvalue
-     *
      * @var string
      */
     public $value;
@@ -68,26 +46,34 @@ class SetReqHeaderConfigRequest extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -95,29 +81,34 @@ class SetReqHeaderConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetReqHeaderConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

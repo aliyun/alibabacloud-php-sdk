@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateUsageDetailDataExportTaskResponseBody extends Model
 {
     /**
-     * @description The end of the time range for which the data was queried.
-     *
-     * @example 2015-12-10T21:00:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example ED61C6C3-8241-4187-AAA7-5157AE175CEC
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The beginning of the time range for which the data was queried.
-     *
-     * @example 2015-12-10T20:00:00Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The ID of the task.
-     *
-     * @example 123456
-     *
      * @var string
      */
     public $taskId;
@@ -50,20 +34,26 @@ class CreateUsageDetailDataExportTaskResponseBody extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -71,23 +61,26 @@ class CreateUsageDetailDataExportTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateUsageDetailDataExportTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

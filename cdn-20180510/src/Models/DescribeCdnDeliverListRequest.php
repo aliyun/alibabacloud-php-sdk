@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCdnDeliverListRequest extends Model
 {
     /**
-     * @description The ID of the tracking task that you want to query. If you do not specify an ID, all tracking tasks are queried.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $deliverId;
@@ -20,9 +16,12 @@ class DescribeCdnDeliverListRequest extends Model
         'deliverId' => 'DeliverId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deliverId) {
@@ -32,11 +31,11 @@ class DescribeCdnDeliverListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCdnDeliverListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

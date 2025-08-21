@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListFCTriggerRequest extends Model
 {
     /**
-     * @description The name of the event. You can specify only one name.
-     *
-     * This parameter is required.
-     *
-     * @example LogFileCreated
-     *
      * @var string
      */
     public $eventMetaName;
 
     /**
-     * @description The version number of the event. You can specify only one version number.
-     *
-     * This parameter is required.
-     *
-     * @example 1.0.0
-     *
      * @var string
      */
     public $eventMetaVersion;
@@ -34,14 +22,18 @@ class ListFCTriggerRequest extends Model
         'eventMetaVersion' => 'EventMetaVersion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventMetaName) {
             $res['EventMetaName'] = $this->eventMetaName;
         }
+
         if (null !== $this->eventMetaVersion) {
             $res['EventMetaVersion'] = $this->eventMetaVersion;
         }
@@ -49,17 +41,18 @@ class ListFCTriggerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFCTriggerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventMetaName'])) {
             $model->eventMetaName = $map['EventMetaName'];
         }
+
         if (isset($map['EventMetaVersion'])) {
             $model->eventMetaVersion = $map['EventMetaVersion'];
         }

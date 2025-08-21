@@ -4,55 +4,26 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDomainSrcTopUrlVisitRequest extends Model
 {
     /**
-     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
-     *
-     * This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The end of the time range to query.
-     *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-     *
-     * > The end time must be later than the start time. The duration between the end time and the start time cannot exceed seven days.
-     *
-     * @example 2018-10-03T20:00:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The method that is used to sort the returned URLs. Default value: **pv**. Valid values:
-     *
-     *   **traf**: by network traffic
-     *   **pv**: by the number of visits
-     *
-     * @example pv
-     *
      * @var string
      */
     public $sortBy;
 
     /**
-     * @description The beginning of the time range to query.
-     *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-     *
-     * > If you leave this parameter empty, data within the previous day is queried.
-     *
-     * @example 2018-10-03T16:00:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -63,20 +34,26 @@ class DescribeDomainSrcTopUrlVisitRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -84,23 +61,26 @@ class DescribeDomainSrcTopUrlVisitRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainSrcTopUrlVisitRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

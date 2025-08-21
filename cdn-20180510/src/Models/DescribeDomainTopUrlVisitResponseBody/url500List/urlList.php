@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainTopUrlVisitResponseBody\url500List;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class urlList extends Model
 {
     /**
-     * @description The amount of network traffic. Unit: bytes.
-     *
-     * @example 460486880
-     *
      * @var string
      */
     public $flow;
 
     /**
-     * @description The proportion of network traffic consumed to access the URL.
-     *
-     * @example 0.35
-     *
      * @var float
      */
     public $flowProportion;
 
     /**
-     * @description The complete URL.
-     *
-     * @example http://example.com/nn_live/nn_x64/aWQ9SE5KU0GNfbGl2ZQ,,/HNJSMPP360.m3u8
-     *
      * @var string
      */
     public $urlDetail;
 
     /**
-     * @description The number of visits to the URL.
-     *
-     * @example 161673
-     *
      * @var string
      */
     public $visitData;
 
     /**
-     * @description The proportion of visits to the URL.
-     *
-     * @example 0.35
-     *
      * @var float
      */
     public $visitProportion;
@@ -60,23 +40,30 @@ class urlList extends Model
         'visitProportion' => 'VisitProportion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flow) {
             $res['Flow'] = $this->flow;
         }
+
         if (null !== $this->flowProportion) {
             $res['FlowProportion'] = $this->flowProportion;
         }
+
         if (null !== $this->urlDetail) {
             $res['UrlDetail'] = $this->urlDetail;
         }
+
         if (null !== $this->visitData) {
             $res['VisitData'] = $this->visitData;
         }
+
         if (null !== $this->visitProportion) {
             $res['VisitProportion'] = $this->visitProportion;
         }
@@ -84,26 +71,30 @@ class urlList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return urlList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Flow'])) {
             $model->flow = $map['Flow'];
         }
+
         if (isset($map['FlowProportion'])) {
             $model->flowProportion = $map['FlowProportion'];
         }
+
         if (isset($map['UrlDetail'])) {
             $model->urlDetail = $map['UrlDetail'];
         }
+
         if (isset($map['VisitData'])) {
             $model->visitData = $map['VisitData'];
         }
+
         if (isset($map['VisitProportion'])) {
             $model->visitProportion = $map['VisitProportion'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCustomDomainSampleRateResponseBody\content;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainContent extends Model
 {
@@ -22,14 +22,18 @@ class domainContent extends Model
         'sampleRate' => 'SampleRate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->sampleRate) {
             $res['SampleRate'] = $this->sampleRate;
         }
@@ -37,17 +41,18 @@ class domainContent extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainContent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['SampleRate'])) {
             $model->sampleRate = $map['SampleRate'];
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainSrcBpsDataResponseBody\srcBpsDataPerInterval;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataModule extends Model
 {
     /**
-     * @description The bandwidth values of origin HTTPS requests.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $httpsValue;
 
     /**
-     * @description The timestamp of the returned data.
-     *
-     * @example 2019-12-10T20:00:00Z
-     *
      * @var string
      */
     public $timeStamp;
 
     /**
-     * @description The traffic value at each time interval.
-     *
-     * @example 500
-     *
      * @var string
      */
     public $value;
@@ -40,17 +28,22 @@ class dataModule extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->httpsValue) {
             $res['HttpsValue'] = $this->httpsValue;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -58,20 +51,22 @@ class dataModule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataModule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HttpsValue'])) {
             $model->httpsValue = $map['HttpsValue'];
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

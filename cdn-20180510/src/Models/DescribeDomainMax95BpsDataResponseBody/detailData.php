@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainMax95BpsDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainMax95BpsDataResponseBody\detailData\max95Detail;
-use AlibabaCloud\Tea\Model;
 
 class detailData extends Model
 {
@@ -17,17 +17,24 @@ class detailData extends Model
         'max95Detail' => 'Max95Detail',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->max95Detail)) {
+            Model::validateArray($this->max95Detail);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->max95Detail) {
-            $res['Max95Detail'] = [];
-            if (null !== $this->max95Detail && \is_array($this->max95Detail)) {
-                $n = 0;
-                foreach ($this->max95Detail as $item) {
-                    $res['Max95Detail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->max95Detail)) {
+                $res['Max95Detail'] = [];
+                $n1 = 0;
+                foreach ($this->max95Detail as $item1) {
+                    $res['Max95Detail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class detailData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detailData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Max95Detail'])) {
             if (!empty($map['Max95Detail'])) {
                 $model->max95Detail = [];
-                $n = 0;
-                foreach ($map['Max95Detail'] as $item) {
-                    $model->max95Detail[$n++] = null !== $item ? max95Detail::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Max95Detail'] as $item1) {
+                    $model->max95Detail[$n1] = max95Detail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

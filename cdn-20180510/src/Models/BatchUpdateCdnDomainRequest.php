@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchUpdateCdnDomainRequest extends Model
 {
     /**
-     * @description The accelerated domain names. You can specify one or more accelerated domain names. Separate domain names with commas (,).
-     *
-     * This parameter is required.
-     *
-     * @example example.com,example.org
-     *
      * @var string
      */
     public $domainName;
@@ -25,10 +19,6 @@ class BatchUpdateCdnDomainRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfmyuji4b6r4**
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -39,23 +29,11 @@ class BatchUpdateCdnDomainRequest extends Model
     public $securityToken;
 
     /**
-     * @description The information about the addresses of origin servers.
-     *
-     * > Do not set **Sources** and **TopLevelDomain** at the same time. If you set **Sources** and **TopLevelDomain** at the same time, **TopLevelDomain** does not take effect.
-     *
-     * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
-     *
      * @var string
      */
     public $sources;
 
     /**
-     * @description The root domain.
-     *
-     * > Do not set **Sources** and **TopLevelDomain** at the same time. If you set **Sources** and **TopLevelDomain** at the same time, **TopLevelDomain** does not take effect.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $topLevelDomain;
@@ -68,26 +46,34 @@ class BatchUpdateCdnDomainRequest extends Model
         'topLevelDomain' => 'TopLevelDomain',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->sources) {
             $res['Sources'] = $this->sources;
         }
+
         if (null !== $this->topLevelDomain) {
             $res['TopLevelDomain'] = $this->topLevelDomain;
         }
@@ -95,29 +81,34 @@ class BatchUpdateCdnDomainRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchUpdateCdnDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['Sources'])) {
             $model->sources = $map['Sources'];
         }
+
         if (isset($map['TopLevelDomain'])) {
             $model->topLevelDomain = $map['TopLevelDomain'];
         }
