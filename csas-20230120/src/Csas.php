@@ -1488,6 +1488,10 @@ class Csas extends OpenApiClient
             $request->documentControlShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->documentControl, 'DocumentControl', 'json');
         }
 
+        if (null !== $tmpReq->imageControl) {
+            $request->imageControlShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageControl, 'ImageControl', 'json');
+        }
+
         $query = [];
         if (null !== $request->csvControlShrink) {
             @$query['CsvControl'] = $request->csvControlShrink;
@@ -1504,6 +1508,10 @@ class Csas extends OpenApiClient
 
         if (null !== $request->filename) {
             @$body['Filename'] = $request->filename;
+        }
+
+        if (null !== $request->imageControlShrink) {
+            @$body['ImageControl'] = $request->imageControlShrink;
         }
 
         if (null !== $request->imageEmbedJpegQuality) {

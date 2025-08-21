@@ -29,6 +29,11 @@ class CreateWmEmbedTaskShrinkRequest extends Model
     public $filename;
 
     /**
+     * @var string
+     */
+    public $imageControlShrink;
+
+    /**
      * @var int
      */
     public $imageEmbedJpegQuality;
@@ -72,6 +77,7 @@ class CreateWmEmbedTaskShrinkRequest extends Model
         'documentControlShrink' => 'DocumentControl',
         'fileUrl' => 'FileUrl',
         'filename' => 'Filename',
+        'imageControlShrink' => 'ImageControl',
         'imageEmbedJpegQuality' => 'ImageEmbedJpegQuality',
         'imageEmbedLevel' => 'ImageEmbedLevel',
         'videoBitrate' => 'VideoBitrate',
@@ -104,6 +110,10 @@ class CreateWmEmbedTaskShrinkRequest extends Model
 
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
+        }
+
+        if (null !== $this->imageControlShrink) {
+            $res['ImageControl'] = $this->imageControlShrink;
         }
 
         if (null !== $this->imageEmbedJpegQuality) {
@@ -163,6 +173,10 @@ class CreateWmEmbedTaskShrinkRequest extends Model
 
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
+        }
+
+        if (isset($map['ImageControl'])) {
+            $model->imageControlShrink = $map['ImageControl'];
         }
 
         if (isset($map['ImageEmbedJpegQuality'])) {

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest\csvControl;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest\documentControl;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest\imageControl;
 
 class CreateWmEmbedTaskRequest extends Model
 {
@@ -29,6 +30,11 @@ class CreateWmEmbedTaskRequest extends Model
      * @var string
      */
     public $filename;
+
+    /**
+     * @var imageControl
+     */
+    public $imageControl;
 
     /**
      * @var int
@@ -74,6 +80,7 @@ class CreateWmEmbedTaskRequest extends Model
         'documentControl' => 'DocumentControl',
         'fileUrl' => 'FileUrl',
         'filename' => 'Filename',
+        'imageControl' => 'ImageControl',
         'imageEmbedJpegQuality' => 'ImageEmbedJpegQuality',
         'imageEmbedLevel' => 'ImageEmbedLevel',
         'videoBitrate' => 'VideoBitrate',
@@ -91,6 +98,9 @@ class CreateWmEmbedTaskRequest extends Model
         }
         if (null !== $this->documentControl) {
             $this->documentControl->validate();
+        }
+        if (null !== $this->imageControl) {
+            $this->imageControl->validate();
         }
         parent::validate();
     }
@@ -112,6 +122,10 @@ class CreateWmEmbedTaskRequest extends Model
 
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
+        }
+
+        if (null !== $this->imageControl) {
+            $res['ImageControl'] = null !== $this->imageControl ? $this->imageControl->toArray($noStream) : $this->imageControl;
         }
 
         if (null !== $this->imageEmbedJpegQuality) {
@@ -171,6 +185,10 @@ class CreateWmEmbedTaskRequest extends Model
 
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
+        }
+
+        if (isset($map['ImageControl'])) {
+            $model->imageControl = imageControl::fromMap($map['ImageControl']);
         }
 
         if (isset($map['ImageEmbedJpegQuality'])) {
