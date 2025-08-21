@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAccessKeyInRecycleBinResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 4507D1CD-526A-4E2B-A1E2-3AB045D1EE0B
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class DeleteAccessKeyInRecycleBinResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DeleteAccessKeyInRecycleBinResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAccessKeyInRecycleBinResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

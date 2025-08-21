@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\UnbindMFADeviceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MFADevice extends Model
 {
     /**
-     * @description The serial number of the MFA device.
-     *
-     * @example acs:ram::151298381312****:mfa/device001
-     *
      * @var string
      */
     public $serialNumber;
@@ -20,9 +16,12 @@ class MFADevice extends Model
         'serialNumber' => 'SerialNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serialNumber) {
@@ -32,11 +31,11 @@ class MFADevice extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MFADevice
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

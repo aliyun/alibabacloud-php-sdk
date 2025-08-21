@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAccountMFAInfoResponseBody extends Model
 {
     /**
-     * @description Indicates whether MFA devices are enabled. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example false
-     *
      * @var bool
      */
     public $isMFAEnable;
 
     /**
-     * @description The request ID.
-     *
-     * @example 4BE83135-0B08-467C-B3A2-27B312FD0F57
-     *
      * @var string
      */
     public $requestId;
@@ -33,14 +22,18 @@ class GetAccountMFAInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isMFAEnable) {
             $res['IsMFAEnable'] = $this->isMFAEnable;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,17 +41,18 @@ class GetAccountMFAInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccountMFAInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsMFAEnable'])) {
             $model->isMFAEnable = $map['IsMFAEnable'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

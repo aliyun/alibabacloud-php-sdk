@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSAMLProviderRequest extends Model
 {
     /**
-     * @description The description.
-     *
-     * @example This is a provider.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The metadata file which is Base64-encoded.
-     *
-     * The file is provided by an IdP that supports Security Assertion Markup Language (SAML) 2.0.
-     *
-     * @example PD94bWwgdmVy****
-     *
      * @var string
      */
     public $encodedSAMLMetadataDocument;
 
     /**
-     * @description The name of the IdP.
-     *
-     * The name can be up to 128 characters in length. The name can contain letters, digits, `periods (.), hyphens (-), and underscores (_)`. The name cannot start or end with `periods (.), hyphens (-), or underscores (_)`.
-     *
-     * This parameter is required.
-     *
-     * @example test-provider
-     *
      * @var string
      */
     public $SAMLProviderName;
@@ -46,17 +28,22 @@ class CreateSAMLProviderRequest extends Model
         'SAMLProviderName' => 'SAMLProviderName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->encodedSAMLMetadataDocument) {
             $res['EncodedSAMLMetadataDocument'] = $this->encodedSAMLMetadataDocument;
         }
+
         if (null !== $this->SAMLProviderName) {
             $res['SAMLProviderName'] = $this->SAMLProviderName;
         }
@@ -64,20 +51,22 @@ class CreateSAMLProviderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSAMLProviderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EncodedSAMLMetadataDocument'])) {
             $model->encodedSAMLMetadataDocument = $map['EncodedSAMLMetadataDocument'];
         }
+
         if (isset($map['SAMLProviderName'])) {
             $model->SAMLProviderName = $map['SAMLProviderName'];
         }

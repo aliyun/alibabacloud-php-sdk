@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\GetGovernanceItemReportResponseBody\columnsValue;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class columnRow extends Model
 {
@@ -16,29 +16,47 @@ class columnRow extends Model
         'columnValue' => 'ColumnValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->columnValue)) {
+            Model::validateArray($this->columnValue);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnValue) {
-            $res['ColumnValue'] = $this->columnValue;
+            if (\is_array($this->columnValue)) {
+                $res['ColumnValue'] = [];
+                $n1 = 0;
+                foreach ($this->columnValue as $item1) {
+                    $res['ColumnValue'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return columnRow
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnValue'])) {
             if (!empty($map['ColumnValue'])) {
-                $model->columnValue = $map['ColumnValue'];
+                $model->columnValue = [];
+                $n1 = 0;
+                foreach ($map['ColumnValue'] as $item1) {
+                    $model->columnValue[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

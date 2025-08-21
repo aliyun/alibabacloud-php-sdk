@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateAppSecretResponseBody\appSecret;
-use AlibabaCloud\Tea\Model;
 
 class CreateAppSecretResponseBody extends Model
 {
     /**
-     * @description The details of the application secret.
-     *
      * @var appSecret
      */
     public $appSecret;
 
     /**
-     * @description The request ID.
-     *
-     * @example EE46FC3C-3BDE-4771-B531-27B7B6EB533D
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class CreateAppSecretResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->appSecret) {
+            $this->appSecret->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appSecret) {
-            $res['AppSecret'] = null !== $this->appSecret ? $this->appSecret->toMap() : null;
+            $res['AppSecret'] = null !== $this->appSecret ? $this->appSecret->toArray($noStream) : $this->appSecret;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class CreateAppSecretResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAppSecretResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppSecret'])) {
             $model->appSecret = appSecret::fromMap($map['AppSecret']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

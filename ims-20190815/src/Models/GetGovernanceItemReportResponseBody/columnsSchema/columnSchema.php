@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\GetGovernanceItemReportResponseBody\columnsSchema;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class columnSchema extends Model
 {
     /**
-     * @example UserPrincipalName
-     *
      * @var string
      */
     public $columnName;
 
     /**
-     * @example String
-     *
      * @var string
      */
     public $columnType;
@@ -26,14 +22,18 @@ class columnSchema extends Model
         'columnType' => 'ColumnType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
+
         if (null !== $this->columnType) {
             $res['ColumnType'] = $this->columnType;
         }
@@ -41,17 +41,18 @@ class columnSchema extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return columnSchema
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
+
         if (isset($map['ColumnType'])) {
             $model->columnType = $map['ColumnType'];
         }

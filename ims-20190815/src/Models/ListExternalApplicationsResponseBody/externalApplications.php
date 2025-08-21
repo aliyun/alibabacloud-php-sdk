@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\ListExternalApplicationsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListExternalApplicationsResponseBody\externalApplications\externalApplication;
-use AlibabaCloud\Tea\Model;
 
 class externalApplications extends Model
 {
@@ -17,17 +17,24 @@ class externalApplications extends Model
         'externalApplication' => 'ExternalApplication',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->externalApplication)) {
+            Model::validateArray($this->externalApplication);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->externalApplication) {
-            $res['ExternalApplication'] = [];
-            if (null !== $this->externalApplication && \is_array($this->externalApplication)) {
-                $n = 0;
-                foreach ($this->externalApplication as $item) {
-                    $res['ExternalApplication'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->externalApplication)) {
+                $res['ExternalApplication'] = [];
+                $n1 = 0;
+                foreach ($this->externalApplication as $item1) {
+                    $res['ExternalApplication'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class externalApplications extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return externalApplications
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExternalApplication'])) {
             if (!empty($map['ExternalApplication'])) {
                 $model->externalApplication = [];
-                $n = 0;
-                foreach ($map['ExternalApplication'] as $item) {
-                    $model->externalApplication[$n++] = null !== $item ? externalApplication::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ExternalApplication'] as $item1) {
+                    $model->externalApplication[$n1] = externalApplication::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

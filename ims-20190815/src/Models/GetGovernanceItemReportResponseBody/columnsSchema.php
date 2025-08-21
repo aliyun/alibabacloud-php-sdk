@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\GetGovernanceItemReportResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetGovernanceItemReportResponseBody\columnsSchema\columnSchema;
-use AlibabaCloud\Tea\Model;
 
 class columnsSchema extends Model
 {
@@ -17,17 +17,24 @@ class columnsSchema extends Model
         'columnSchema' => 'ColumnSchema',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->columnSchema)) {
+            Model::validateArray($this->columnSchema);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnSchema) {
-            $res['ColumnSchema'] = [];
-            if (null !== $this->columnSchema && \is_array($this->columnSchema)) {
-                $n = 0;
-                foreach ($this->columnSchema as $item) {
-                    $res['ColumnSchema'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->columnSchema)) {
+                $res['ColumnSchema'] = [];
+                $n1 = 0;
+                foreach ($this->columnSchema as $item1) {
+                    $res['ColumnSchema'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class columnsSchema extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return columnsSchema
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnSchema'])) {
             if (!empty($map['ColumnSchema'])) {
                 $model->columnSchema = [];
-                $n = 0;
-                foreach ($map['ColumnSchema'] as $item) {
-                    $model->columnSchema[$n++] = null !== $item ? columnSchema::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ColumnSchema'] as $item1) {
+                    $model->columnSchema[$n1] = columnSchema::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

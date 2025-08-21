@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetGovernanceItemReportRequest extends Model
 {
     /**
-     * @example SSOLoginEnabled
-     *
      * @var string
      */
     public $governanceItemType;
 
     /**
-     * @example EXAMPLE
-     *
      * @var string
      */
     public $marker;
 
     /**
-     * @example 1000
-     *
      * @var string
      */
     public $maxItems;
@@ -34,17 +28,22 @@ class GetGovernanceItemReportRequest extends Model
         'maxItems' => 'MaxItems',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->governanceItemType) {
             $res['GovernanceItemType'] = $this->governanceItemType;
         }
+
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
         }
+
         if (null !== $this->maxItems) {
             $res['MaxItems'] = $this->maxItems;
         }
@@ -52,20 +51,22 @@ class GetGovernanceItemReportRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetGovernanceItemReportRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GovernanceItemType'])) {
             $model->governanceItemType = $map['GovernanceItemType'];
         }
+
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];
         }
+
         if (isset($map['MaxItems'])) {
             $model->maxItems = $map['MaxItems'];
         }

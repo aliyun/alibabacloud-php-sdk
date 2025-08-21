@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetGovernanceItemReportResponseBody\columnsSchema;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetGovernanceItemReportResponseBody\columnsValue;
-use AlibabaCloud\Tea\Model;
 
 class GetGovernanceItemReportResponseBody extends Model
 {
@@ -21,43 +21,31 @@ class GetGovernanceItemReportResponseBody extends Model
     public $columnsValue;
 
     /**
-     * @example 2020-10-19T15:06:52Z
-     *
      * @var string
      */
     public $generateTime;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isTruncated;
 
     /**
-     * @example EXAMPLE
-     *
      * @var string
      */
     public $marker;
 
     /**
-     * @example Number
-     *
      * @var string
      */
     public $metricType;
 
     /**
-     * @example 100
-     *
      * @var mixed
      */
     public $metricValue;
 
     /**
-     * @example F2CE9688-AA85-5F23-8C22-0EC23473405F
-     *
      * @var string
      */
     public $requestId;
@@ -72,32 +60,48 @@ class GetGovernanceItemReportResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->columnsSchema) {
+            $this->columnsSchema->validate();
+        }
+        if (null !== $this->columnsValue) {
+            $this->columnsValue->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnsSchema) {
-            $res['ColumnsSchema'] = null !== $this->columnsSchema ? $this->columnsSchema->toMap() : null;
+            $res['ColumnsSchema'] = null !== $this->columnsSchema ? $this->columnsSchema->toArray($noStream) : $this->columnsSchema;
         }
+
         if (null !== $this->columnsValue) {
-            $res['ColumnsValue'] = null !== $this->columnsValue ? $this->columnsValue->toMap() : null;
+            $res['ColumnsValue'] = null !== $this->columnsValue ? $this->columnsValue->toArray($noStream) : $this->columnsValue;
         }
+
         if (null !== $this->generateTime) {
             $res['GenerateTime'] = $this->generateTime;
         }
+
         if (null !== $this->isTruncated) {
             $res['IsTruncated'] = $this->isTruncated;
         }
+
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
         }
+
         if (null !== $this->metricType) {
             $res['MetricType'] = $this->metricType;
         }
+
         if (null !== $this->metricValue) {
             $res['MetricValue'] = $this->metricValue;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -105,35 +109,42 @@ class GetGovernanceItemReportResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetGovernanceItemReportResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnsSchema'])) {
             $model->columnsSchema = columnsSchema::fromMap($map['ColumnsSchema']);
         }
+
         if (isset($map['ColumnsValue'])) {
             $model->columnsValue = columnsValue::fromMap($map['ColumnsValue']);
         }
+
         if (isset($map['GenerateTime'])) {
             $model->generateTime = $map['GenerateTime'];
         }
+
         if (isset($map['IsTruncated'])) {
             $model->isTruncated = $map['IsTruncated'];
         }
+
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];
         }
+
         if (isset($map['MetricType'])) {
             $model->metricType = $map['MetricType'];
         }
+
         if (isset($map['MetricValue'])) {
             $model->metricValue = $map['MetricValue'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

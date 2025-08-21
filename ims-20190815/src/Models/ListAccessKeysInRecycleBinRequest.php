@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAccessKeysInRecycleBinRequest extends Model
 {
     /**
-     * @description The ID of the Resource Access Management (RAM) user.
-     *
-     * @example 20732900249392****
-     *
      * @var string
      */
     public $userId;
@@ -20,9 +16,12 @@ class ListAccessKeysInRecycleBinRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
@@ -32,11 +31,11 @@ class ListAccessKeysInRecycleBinRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAccessKeysInRecycleBinRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

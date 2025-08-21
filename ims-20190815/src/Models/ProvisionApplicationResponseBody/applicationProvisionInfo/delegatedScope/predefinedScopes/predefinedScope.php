@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\ProvisionApplicationResponseBody\applicationProvisionInfo\delegatedScope\predefinedScopes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class predefinedScope extends Model
 {
     /**
-     * @description The description of the permission.
-     *
-     * @example Obtains the OpenID of the user. This is the default scope and cannot be deleted.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the permission.
-     *
-     * @example openid
-     *
      * @var string
      */
     public $name;
@@ -30,14 +22,18 @@ class predefinedScope extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -45,17 +41,18 @@ class predefinedScope extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return predefinedScope
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

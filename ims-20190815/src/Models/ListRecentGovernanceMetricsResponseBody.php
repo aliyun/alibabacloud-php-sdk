@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListRecentGovernanceMetricsResponseBody\governanceMetrics;
-use AlibabaCloud\Tea\Model;
 
 class ListRecentGovernanceMetricsResponseBody extends Model
 {
     /**
-     * @description The time when the report was generated.
-     *
-     * @example 2025-02-10T02:11:23Z
-     *
      * @var string
      */
     public $generateTime;
 
     /**
-     * @description The metric values of all governance items. The value of the parameter is an array, and each row in the array contains the metric value of a governance item.
-     *
      * @var governanceMetrics
      */
     public $governanceMetrics;
 
     /**
-     * @description The request ID.
-     *
-     * @example 49846A91-C1C5-5C2B-BC64-8B0B7BADB4C0
-     *
      * @var string
      */
     public $requestId;
@@ -39,17 +29,25 @@ class ListRecentGovernanceMetricsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->governanceMetrics) {
+            $this->governanceMetrics->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->generateTime) {
             $res['GenerateTime'] = $this->generateTime;
         }
+
         if (null !== $this->governanceMetrics) {
-            $res['GovernanceMetrics'] = null !== $this->governanceMetrics ? $this->governanceMetrics->toMap() : null;
+            $res['GovernanceMetrics'] = null !== $this->governanceMetrics ? $this->governanceMetrics->toArray($noStream) : $this->governanceMetrics;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -57,20 +55,22 @@ class ListRecentGovernanceMetricsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRecentGovernanceMetricsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GenerateTime'])) {
             $model->generateTime = $map['GenerateTime'];
         }
+
         if (isset($map['GovernanceMetrics'])) {
             $model->governanceMetrics = governanceMetrics::fromMap($map['GovernanceMetrics']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

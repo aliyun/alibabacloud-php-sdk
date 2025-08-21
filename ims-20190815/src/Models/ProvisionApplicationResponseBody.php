@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ProvisionApplicationResponseBody\applicationProvisionInfo;
-use AlibabaCloud\Tea\Model;
 
 class ProvisionApplicationResponseBody extends Model
 {
     /**
-     * @description The installation information of the application.
-     *
      * @var applicationProvisionInfo
      */
     public $applicationProvisionInfo;
 
     /**
-     * @description The request ID.
-     *
-     * @example C8AE06ED-9593-5BF9-8D4A-68D5DDCC90AB
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class ProvisionApplicationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->applicationProvisionInfo) {
+            $this->applicationProvisionInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationProvisionInfo) {
-            $res['ApplicationProvisionInfo'] = null !== $this->applicationProvisionInfo ? $this->applicationProvisionInfo->toMap() : null;
+            $res['ApplicationProvisionInfo'] = null !== $this->applicationProvisionInfo ? $this->applicationProvisionInfo->toArray($noStream) : $this->applicationProvisionInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class ProvisionApplicationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ProvisionApplicationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationProvisionInfo'])) {
             $model->applicationProvisionInfo = applicationProvisionInfo::fromMap($map['ApplicationProvisionInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

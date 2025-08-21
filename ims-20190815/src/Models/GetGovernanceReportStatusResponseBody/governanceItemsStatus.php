@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\GetGovernanceReportStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetGovernanceReportStatusResponseBody\governanceItemsStatus\governanceItemStatus;
-use AlibabaCloud\Tea\Model;
 
 class governanceItemsStatus extends Model
 {
@@ -17,17 +17,24 @@ class governanceItemsStatus extends Model
         'governanceItemStatus' => 'GovernanceItemStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->governanceItemStatus)) {
+            Model::validateArray($this->governanceItemStatus);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->governanceItemStatus) {
-            $res['GovernanceItemStatus'] = [];
-            if (null !== $this->governanceItemStatus && \is_array($this->governanceItemStatus)) {
-                $n = 0;
-                foreach ($this->governanceItemStatus as $item) {
-                    $res['GovernanceItemStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->governanceItemStatus)) {
+                $res['GovernanceItemStatus'] = [];
+                $n1 = 0;
+                foreach ($this->governanceItemStatus as $item1) {
+                    $res['GovernanceItemStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class governanceItemsStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return governanceItemsStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GovernanceItemStatus'])) {
             if (!empty($map['GovernanceItemStatus'])) {
                 $model->governanceItemStatus = [];
-                $n = 0;
-                foreach ($map['GovernanceItemStatus'] as $item) {
-                    $model->governanceItemStatus[$n++] = null !== $item ? governanceItemStatus::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GovernanceItemStatus'] as $item1) {
+                    $model->governanceItemStatus[$n1] = governanceItemStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

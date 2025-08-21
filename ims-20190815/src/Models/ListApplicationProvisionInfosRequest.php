@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListApplicationProvisionInfosRequest extends Model
 {
     /**
-     * @description The source of the applications. Valid values:
-     *
-     *   inner: The applications are from the current account.
-     *   external: The applications are from other accounts.
-     *
-     * @example external
-     *
      * @var string
      */
     public $sourceType;
@@ -23,9 +16,12 @@ class ListApplicationProvisionInfosRequest extends Model
         'sourceType' => 'SourceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceType) {
@@ -35,11 +31,11 @@ class ListApplicationProvisionInfosRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListApplicationProvisionInfosRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\ListRecentGovernanceMetricsResponseBody\governanceMetrics;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class governanceMetric extends Model
 {
     /**
-     * @description The name of the governance item.
-     *
-     * @example RecentAccountLoginTimes
-     *
      * @var string
      */
     public $governanceItem;
 
     /**
-     * @description The type of the metric value. Valid values:
-     *
-     *   Number
-     *   String
-     *   Boolean
-     *
-     * @example Number
-     *
      * @var string
      */
     public $metricType;
 
     /**
-     * @description The metric value. The type of the metric value is determined by `MetricType`.
-     *
-     * @example 5
-     *
      * @var mixed
      */
     public $metricValue;
@@ -44,17 +28,22 @@ class governanceMetric extends Model
         'metricValue' => 'MetricValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->governanceItem) {
             $res['GovernanceItem'] = $this->governanceItem;
         }
+
         if (null !== $this->metricType) {
             $res['MetricType'] = $this->metricType;
         }
+
         if (null !== $this->metricValue) {
             $res['MetricValue'] = $this->metricValue;
         }
@@ -62,20 +51,22 @@ class governanceMetric extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return governanceMetric
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GovernanceItem'])) {
             $model->governanceItem = $map['GovernanceItem'];
         }
+
         if (isset($map['MetricType'])) {
             $model->metricType = $map['MetricType'];
         }
+
         if (isset($map['MetricValue'])) {
             $model->metricValue = $map['MetricValue'];
         }

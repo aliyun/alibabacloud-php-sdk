@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RestoreAccessKeyFromRecycleBinRequest extends Model
 {
     /**
-     * @description The AccessKey ID of the RAM user.
-     *
-     * @example LTAI*******************
-     *
      * @var string
      */
     public $userAccessKeyId;
 
     /**
-     * @description The ID of the Resource Access Management (RAM) user.
-     *
-     * @example 20732900249392****
-     *
      * @var string
      */
     public $userId;
@@ -30,14 +22,18 @@ class RestoreAccessKeyFromRecycleBinRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userAccessKeyId) {
             $res['UserAccessKeyId'] = $this->userAccessKeyId;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -45,17 +41,18 @@ class RestoreAccessKeyFromRecycleBinRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RestoreAccessKeyFromRecycleBinRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserAccessKeyId'])) {
             $model->userAccessKeyId = $map['UserAccessKeyId'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
