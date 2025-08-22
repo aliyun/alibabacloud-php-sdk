@@ -30,11 +30,6 @@ class ListTerraformProviderVersionsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @var string[]
-     */
-    public $verisonList;
-
-    /**
      * @var versions[]
      */
     public $versions;
@@ -43,15 +38,11 @@ class ListTerraformProviderVersionsResponseBody extends Model
         'nextToken' => 'nextToken',
         'requestId' => 'requestId',
         'totalCount' => 'totalCount',
-        'verisonList' => 'verisonList',
         'versions' => 'versions',
     ];
 
     public function validate()
     {
-        if (\is_array($this->verisonList)) {
-            Model::validateArray($this->verisonList);
-        }
         if (\is_array($this->versions)) {
             Model::validateArray($this->versions);
         }
@@ -77,22 +68,13 @@ class ListTerraformProviderVersionsResponseBody extends Model
             $res['totalCount'] = $this->totalCount;
         }
 
-        if (null !== $this->verisonList) {
-            if (\is_array($this->verisonList)) {
-                $res['verisonList'] = [];
-                $n1 = 0;
-                foreach ($this->verisonList as $item1) {
-                    $res['verisonList'][$n1++] = $item1;
-                }
-            }
-        }
-
         if (null !== $this->versions) {
             if (\is_array($this->versions)) {
                 $res['versions'] = [];
                 $n1 = 0;
                 foreach ($this->versions as $item1) {
-                    $res['versions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['versions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,22 +106,13 @@ class ListTerraformProviderVersionsResponseBody extends Model
             $model->totalCount = $map['totalCount'];
         }
 
-        if (isset($map['verisonList'])) {
-            if (!empty($map['verisonList'])) {
-                $model->verisonList = [];
-                $n1 = 0;
-                foreach ($map['verisonList'] as $item1) {
-                    $model->verisonList[$n1++] = $item1;
-                }
-            }
-        }
-
         if (isset($map['versions'])) {
             if (!empty($map['versions'])) {
                 $model->versions = [];
                 $n1 = 0;
                 foreach ($map['versions'] as $item1) {
-                    $model->versions[$n1++] = versions::fromMap($item1);
+                    $model->versions[$n1] = versions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

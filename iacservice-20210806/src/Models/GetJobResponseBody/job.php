@@ -69,11 +69,6 @@ class job extends Model
     /**
      * @var string
      */
-    public $runtimeType;
-
-    /**
-     * @var string
-     */
     public $status;
 
     /**
@@ -107,7 +102,6 @@ class job extends Model
         'jobId' => 'jobId',
         'output' => 'output',
         'parameters' => 'parameters',
-        'runtimeType' => 'runtimeType',
         'status' => 'status',
         'statusDetail' => 'statusDetail',
         'taskId' => 'taskId',
@@ -143,7 +137,8 @@ class job extends Model
                 $res['assertCheckDetail'] = [];
                 $n1 = 0;
                 foreach ($this->assertCheckDetail as $item1) {
-                    $res['assertCheckDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['assertCheckDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -198,10 +193,6 @@ class job extends Model
             }
         }
 
-        if (null !== $this->runtimeType) {
-            $res['runtimeType'] = $this->runtimeType;
-        }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -243,7 +234,8 @@ class job extends Model
                 $model->assertCheckDetail = [];
                 $n1 = 0;
                 foreach ($map['assertCheckDetail'] as $item1) {
-                    $model->assertCheckDetail[$n1++] = assertCheckDetail::fromMap($item1);
+                    $model->assertCheckDetail[$n1] = assertCheckDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -296,10 +288,6 @@ class job extends Model
                     $model->parameters[$key1] = $value1;
                 }
             }
-        }
-
-        if (isset($map['runtimeType'])) {
-            $model->runtimeType = $map['runtimeType'];
         }
 
         if (isset($map['status'])) {

@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models\GetModuleResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetModuleResponseBody\module\groupInfo;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetModuleResponseBody\module\tags;
 
 class module extends Model
 {
@@ -17,6 +19,11 @@ class module extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var groupInfo
+     */
+    public $groupInfo;
 
     /**
      * @var string
@@ -59,12 +66,18 @@ class module extends Model
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $versionStrategy;
     protected $_name = [
         'createTime' => 'createTime',
         'description' => 'description',
+        'groupInfo' => 'groupInfo',
         'latestVersion' => 'latestVersion',
         'moduleId' => 'moduleId',
         'name' => 'name',
@@ -73,11 +86,18 @@ class module extends Model
         'sourcePath' => 'sourcePath',
         'statePath' => 'statePath',
         'status' => 'status',
+        'tags' => 'tags',
         'versionStrategy' => 'versionStrategy',
     ];
 
     public function validate()
     {
+        if (null !== $this->groupInfo) {
+            $this->groupInfo->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -90,6 +110,10 @@ class module extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->groupInfo) {
+            $res['groupInfo'] = null !== $this->groupInfo ? $this->groupInfo->toArray($noStream) : $this->groupInfo;
         }
 
         if (null !== $this->latestVersion) {
@@ -124,6 +148,17 @@ class module extends Model
             $res['status'] = $this->status;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->versionStrategy) {
             $res['versionStrategy'] = $this->versionStrategy;
         }
@@ -145,6 +180,10 @@ class module extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['groupInfo'])) {
+            $model->groupInfo = groupInfo::fromMap($map['groupInfo']);
         }
 
         if (isset($map['latestVersion'])) {
@@ -177,6 +216,17 @@ class module extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['versionStrategy'])) {

@@ -43,6 +43,11 @@ class tasks extends Model
     /**
      * @var string
      */
+    public $latestModuleVersion;
+
+    /**
+     * @var string
+     */
     public $moduleId;
 
     /**
@@ -81,6 +86,7 @@ class tasks extends Model
         'currentJobStatus' => 'currentJobStatus',
         'deletionProtection' => 'deletionProtection',
         'groupInfo' => 'groupInfo',
+        'latestModuleVersion' => 'latestModuleVersion',
         'moduleId' => 'moduleId',
         'moduleName' => 'moduleName',
         'moduleVersion' => 'moduleVersion',
@@ -128,6 +134,10 @@ class tasks extends Model
             $res['groupInfo'] = null !== $this->groupInfo ? $this->groupInfo->toArray($noStream) : $this->groupInfo;
         }
 
+        if (null !== $this->latestModuleVersion) {
+            $res['latestModuleVersion'] = $this->latestModuleVersion;
+        }
+
         if (null !== $this->moduleId) {
             $res['moduleId'] = $this->moduleId;
         }
@@ -153,7 +163,8 @@ class tasks extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -197,6 +208,10 @@ class tasks extends Model
             $model->groupInfo = groupInfo::fromMap($map['groupInfo']);
         }
 
+        if (isset($map['latestModuleVersion'])) {
+            $model->latestModuleVersion = $map['latestModuleVersion'];
+        }
+
         if (isset($map['moduleId'])) {
             $model->moduleId = $map['moduleId'];
         }
@@ -222,7 +237,8 @@ class tasks extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

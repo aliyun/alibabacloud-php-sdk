@@ -12,14 +12,8 @@ class CancelResourceExportTaskRequest extends Model
      * @var string
      */
     public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $ramRole;
     protected $_name = [
         'clientToken' => 'clientToken',
-        'ramRole' => 'ramRole',
     ];
 
     public function validate()
@@ -32,10 +26,6 @@ class CancelResourceExportTaskRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
-        }
-
-        if (null !== $this->ramRole) {
-            $res['ramRole'] = $this->ramRole;
         }
 
         return $res;
@@ -51,10 +41,6 @@ class CancelResourceExportTaskRequest extends Model
         $model = new self();
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
-        }
-
-        if (isset($map['ramRole'])) {
-            $model->ramRole = $map['ramRole'];
         }
 
         return $model;

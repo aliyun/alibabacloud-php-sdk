@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceExportTasksResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceExportTasksResponseBody\exportTasks\excludeRules;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceExportTasksResponseBody\exportTasks\exportToModule;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceExportTasksResponseBody\exportTasks\includeRules;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceExportTasksResponseBody\exportTasks\modules;
@@ -29,11 +28,6 @@ class exportTasks extends Model
     public $elapsedTime;
 
     /**
-     * @var excludeRules[]
-     */
-    public $excludeRules;
-
-    /**
      * @var string
      */
     public $exportStatus;
@@ -52,11 +46,6 @@ class exportTasks extends Model
      * @var string
      */
     public $exportVersion;
-
-    /**
-     * @var bool
-     */
-    public $hasDestroy;
 
     /**
      * @var includeRules[]
@@ -86,12 +75,10 @@ class exportTasks extends Model
         'createTime' => 'createTime',
         'description' => 'description',
         'elapsedTime' => 'elapsedTime',
-        'excludeRules' => 'excludeRules',
         'exportStatus' => 'exportStatus',
         'exportTaskId' => 'exportTaskId',
         'exportToModule' => 'exportToModule',
         'exportVersion' => 'exportVersion',
-        'hasDestroy' => 'hasDestroy',
         'includeRules' => 'includeRules',
         'modules' => 'modules',
         'name' => 'name',
@@ -101,9 +88,6 @@ class exportTasks extends Model
 
     public function validate()
     {
-        if (\is_array($this->excludeRules)) {
-            Model::validateArray($this->excludeRules);
-        }
         if (null !== $this->exportToModule) {
             $this->exportToModule->validate();
         }
@@ -134,16 +118,6 @@ class exportTasks extends Model
             $res['elapsedTime'] = $this->elapsedTime;
         }
 
-        if (null !== $this->excludeRules) {
-            if (\is_array($this->excludeRules)) {
-                $res['excludeRules'] = [];
-                $n1 = 0;
-                foreach ($this->excludeRules as $item1) {
-                    $res['excludeRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
-        }
-
         if (null !== $this->exportStatus) {
             $res['exportStatus'] = $this->exportStatus;
         }
@@ -160,16 +134,13 @@ class exportTasks extends Model
             $res['exportVersion'] = $this->exportVersion;
         }
 
-        if (null !== $this->hasDestroy) {
-            $res['hasDestroy'] = $this->hasDestroy;
-        }
-
         if (null !== $this->includeRules) {
             if (\is_array($this->includeRules)) {
                 $res['includeRules'] = [];
                 $n1 = 0;
                 foreach ($this->includeRules as $item1) {
-                    $res['includeRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['includeRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +150,8 @@ class exportTasks extends Model
                 $res['modules'] = [];
                 $n1 = 0;
                 foreach ($this->modules as $item1) {
-                    $res['modules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['modules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -197,7 +169,8 @@ class exportTasks extends Model
                 $res['variables'] = [];
                 $n1 = 0;
                 foreach ($this->variables as $item1) {
-                    $res['variables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['variables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -225,16 +198,6 @@ class exportTasks extends Model
             $model->elapsedTime = $map['elapsedTime'];
         }
 
-        if (isset($map['excludeRules'])) {
-            if (!empty($map['excludeRules'])) {
-                $model->excludeRules = [];
-                $n1 = 0;
-                foreach ($map['excludeRules'] as $item1) {
-                    $model->excludeRules[$n1++] = excludeRules::fromMap($item1);
-                }
-            }
-        }
-
         if (isset($map['exportStatus'])) {
             $model->exportStatus = $map['exportStatus'];
         }
@@ -251,16 +214,13 @@ class exportTasks extends Model
             $model->exportVersion = $map['exportVersion'];
         }
 
-        if (isset($map['hasDestroy'])) {
-            $model->hasDestroy = $map['hasDestroy'];
-        }
-
         if (isset($map['includeRules'])) {
             if (!empty($map['includeRules'])) {
                 $model->includeRules = [];
                 $n1 = 0;
                 foreach ($map['includeRules'] as $item1) {
-                    $model->includeRules[$n1++] = includeRules::fromMap($item1);
+                    $model->includeRules[$n1] = includeRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -270,7 +230,8 @@ class exportTasks extends Model
                 $model->modules = [];
                 $n1 = 0;
                 foreach ($map['modules'] as $item1) {
-                    $model->modules[$n1++] = modules::fromMap($item1);
+                    $model->modules[$n1] = modules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -288,7 +249,8 @@ class exportTasks extends Model
                 $model->variables = [];
                 $n1 = 0;
                 foreach ($map['variables'] as $item1) {
-                    $model->variables[$n1++] = variables::fromMap($item1);
+                    $model->variables[$n1] = variables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

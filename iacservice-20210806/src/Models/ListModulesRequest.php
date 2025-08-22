@@ -10,11 +10,6 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\ListModulesRequest\tag;
 class ListModulesRequest extends Model
 {
     /**
-     * @var string[]
-     */
-    public $excludeModuleIds;
-
-    /**
      * @var string
      */
     public $groupId;
@@ -44,7 +39,6 @@ class ListModulesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'excludeModuleIds' => 'excludeModuleIds',
         'groupId' => 'groupId',
         'keyword' => 'keyword',
         'pageNumber' => 'pageNumber',
@@ -55,9 +49,6 @@ class ListModulesRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->excludeModuleIds)) {
-            Model::validateArray($this->excludeModuleIds);
-        }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
         }
@@ -67,16 +58,6 @@ class ListModulesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->excludeModuleIds) {
-            if (\is_array($this->excludeModuleIds)) {
-                $res['excludeModuleIds'] = [];
-                $n1 = 0;
-                foreach ($this->excludeModuleIds as $item1) {
-                    $res['excludeModuleIds'][$n1++] = $item1;
-                }
-            }
-        }
-
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
         }
@@ -102,7 +83,8 @@ class ListModulesRequest extends Model
                 $res['tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,16 +100,6 @@ class ListModulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['excludeModuleIds'])) {
-            if (!empty($map['excludeModuleIds'])) {
-                $model->excludeModuleIds = [];
-                $n1 = 0;
-                foreach ($map['excludeModuleIds'] as $item1) {
-                    $model->excludeModuleIds[$n1++] = $item1;
-                }
-            }
-        }
-
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
         }
@@ -153,7 +125,8 @@ class ListModulesRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

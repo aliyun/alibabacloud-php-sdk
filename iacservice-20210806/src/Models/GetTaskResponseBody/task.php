@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\IaCService\V20210806\Models\GetTaskResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetTaskResponseBody\task\groupInfo;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetTaskResponseBody\task\tags;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetTaskResponseBody\task\taskBackend;
 
 class task extends Model
 {
@@ -32,6 +34,16 @@ class task extends Model
     /**
      * @var string
      */
+    public $currentJobStatus;
+
+    /**
+     * @var bool
+     */
+    public $deletionProtection;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -47,7 +59,17 @@ class task extends Model
     /**
      * @var string
      */
+    public $latestModuleVersion;
+
+    /**
+     * @var string
+     */
     public $moduleId;
+
+    /**
+     * @var string
+     */
+    public $moduleName;
 
     /**
      * @var string
@@ -58,11 +80,6 @@ class task extends Model
      * @var string
      */
     public $name;
-
-    /**
-     * @var string[]
-     */
-    public $parameters;
 
     /**
      * @var string[]
@@ -85,6 +102,16 @@ class task extends Model
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @var taskBackend
+     */
+    public $taskBackend;
+
+    /**
      * @var string
      */
     public $taskId;
@@ -103,32 +130,31 @@ class task extends Model
      * @var string
      */
     public $triggerStrategy;
-
-    /**
-     * @var string
-     */
-    public $triggerValue;
     protected $_name = [
         'autoApply' => 'autoApply',
         'autoDestroy' => 'autoDestroy',
         'createTime' => 'createTime',
         'currentJobId' => 'currentJobId',
+        'currentJobStatus' => 'currentJobStatus',
+        'deletionProtection' => 'deletionProtection',
         'description' => 'description',
         'groupInfo' => 'groupInfo',
         'initModuleState' => 'initModuleState',
+        'latestModuleVersion' => 'latestModuleVersion',
         'moduleId' => 'moduleId',
+        'moduleName' => 'moduleName',
         'moduleVersion' => 'moduleVersion',
         'name' => 'name',
-        'parameters' => 'parameters',
         'protectionStrategy' => 'protectionStrategy',
         'ramRole' => 'ramRole',
         'skipPropertyValidation' => 'skipPropertyValidation',
         'status' => 'status',
+        'tags' => 'tags',
+        'taskBackend' => 'taskBackend',
         'taskId' => 'taskId',
         'taskOutputPath' => 'taskOutputPath',
         'terraformVersion' => 'terraformVersion',
         'triggerStrategy' => 'triggerStrategy',
-        'triggerValue' => 'triggerValue',
     ];
 
     public function validate()
@@ -136,11 +162,14 @@ class task extends Model
         if (null !== $this->groupInfo) {
             $this->groupInfo->validate();
         }
-        if (\is_array($this->parameters)) {
-            Model::validateArray($this->parameters);
-        }
         if (\is_array($this->protectionStrategy)) {
             Model::validateArray($this->protectionStrategy);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        if (null !== $this->taskBackend) {
+            $this->taskBackend->validate();
         }
         parent::validate();
     }
@@ -164,6 +193,14 @@ class task extends Model
             $res['currentJobId'] = $this->currentJobId;
         }
 
+        if (null !== $this->currentJobStatus) {
+            $res['currentJobStatus'] = $this->currentJobStatus;
+        }
+
+        if (null !== $this->deletionProtection) {
+            $res['deletionProtection'] = $this->deletionProtection;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -176,8 +213,16 @@ class task extends Model
             $res['initModuleState'] = $this->initModuleState;
         }
 
+        if (null !== $this->latestModuleVersion) {
+            $res['latestModuleVersion'] = $this->latestModuleVersion;
+        }
+
         if (null !== $this->moduleId) {
             $res['moduleId'] = $this->moduleId;
+        }
+
+        if (null !== $this->moduleName) {
+            $res['moduleName'] = $this->moduleName;
         }
 
         if (null !== $this->moduleVersion) {
@@ -188,21 +233,13 @@ class task extends Model
             $res['name'] = $this->name;
         }
 
-        if (null !== $this->parameters) {
-            if (\is_array($this->parameters)) {
-                $res['parameters'] = [];
-                foreach ($this->parameters as $key1 => $value1) {
-                    $res['parameters'][$key1] = $value1;
-                }
-            }
-        }
-
         if (null !== $this->protectionStrategy) {
             if (\is_array($this->protectionStrategy)) {
                 $res['protectionStrategy'] = [];
                 $n1 = 0;
                 foreach ($this->protectionStrategy as $item1) {
-                    $res['protectionStrategy'][$n1++] = $item1;
+                    $res['protectionStrategy'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -219,6 +256,21 @@ class task extends Model
             $res['status'] = $this->status;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->taskBackend) {
+            $res['taskBackend'] = null !== $this->taskBackend ? $this->taskBackend->toArray($noStream) : $this->taskBackend;
+        }
+
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
@@ -233,10 +285,6 @@ class task extends Model
 
         if (null !== $this->triggerStrategy) {
             $res['triggerStrategy'] = $this->triggerStrategy;
-        }
-
-        if (null !== $this->triggerValue) {
-            $res['triggerValue'] = $this->triggerValue;
         }
 
         return $res;
@@ -266,6 +314,14 @@ class task extends Model
             $model->currentJobId = $map['currentJobId'];
         }
 
+        if (isset($map['currentJobStatus'])) {
+            $model->currentJobStatus = $map['currentJobStatus'];
+        }
+
+        if (isset($map['deletionProtection'])) {
+            $model->deletionProtection = $map['deletionProtection'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -278,8 +334,16 @@ class task extends Model
             $model->initModuleState = $map['initModuleState'];
         }
 
+        if (isset($map['latestModuleVersion'])) {
+            $model->latestModuleVersion = $map['latestModuleVersion'];
+        }
+
         if (isset($map['moduleId'])) {
             $model->moduleId = $map['moduleId'];
+        }
+
+        if (isset($map['moduleName'])) {
+            $model->moduleName = $map['moduleName'];
         }
 
         if (isset($map['moduleVersion'])) {
@@ -290,21 +354,13 @@ class task extends Model
             $model->name = $map['name'];
         }
 
-        if (isset($map['parameters'])) {
-            if (!empty($map['parameters'])) {
-                $model->parameters = [];
-                foreach ($map['parameters'] as $key1 => $value1) {
-                    $model->parameters[$key1] = $value1;
-                }
-            }
-        }
-
         if (isset($map['protectionStrategy'])) {
             if (!empty($map['protectionStrategy'])) {
                 $model->protectionStrategy = [];
                 $n1 = 0;
                 foreach ($map['protectionStrategy'] as $item1) {
-                    $model->protectionStrategy[$n1++] = $item1;
+                    $model->protectionStrategy[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -321,6 +377,21 @@ class task extends Model
             $model->status = $map['status'];
         }
 
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['taskBackend'])) {
+            $model->taskBackend = taskBackend::fromMap($map['taskBackend']);
+        }
+
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }
@@ -335,10 +406,6 @@ class task extends Model
 
         if (isset($map['triggerStrategy'])) {
             $model->triggerStrategy = $map['triggerStrategy'];
-        }
-
-        if (isset($map['triggerValue'])) {
-            $model->triggerValue = $map['triggerValue'];
         }
 
         return $model;

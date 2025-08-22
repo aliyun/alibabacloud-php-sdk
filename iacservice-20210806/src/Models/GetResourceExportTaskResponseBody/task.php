@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceExportTaskResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceExportTaskResponseBody\task\excludeRules;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceExportTaskResponseBody\task\exportToModule;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceExportTaskResponseBody\task\includeRules;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceExportTaskResponseBody\task\modules;
@@ -13,11 +12,6 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceExportTaskResponseBo
 
 class task extends Model
 {
-    /**
-     * @var string
-     */
-    public $configPath;
-
     /**
      * @var string
      */
@@ -32,11 +26,6 @@ class task extends Model
      * @var int
      */
     public $elapsedTime;
-
-    /**
-     * @var excludeRules[]
-     */
-    public $excludeRules;
 
     /**
      * @var string
@@ -113,11 +102,9 @@ class task extends Model
      */
     public $variables;
     protected $_name = [
-        'configPath' => 'configPath',
         'createTime' => 'createTime',
         'description' => 'description',
         'elapsedTime' => 'elapsedTime',
-        'excludeRules' => 'excludeRules',
         'exportTaskId' => 'exportTaskId',
         'exportToModule' => 'exportToModule',
         'exportVersion' => 'exportVersion',
@@ -137,9 +124,6 @@ class task extends Model
 
     public function validate()
     {
-        if (\is_array($this->excludeRules)) {
-            Model::validateArray($this->excludeRules);
-        }
         if (null !== $this->exportToModule) {
             $this->exportToModule->validate();
         }
@@ -161,10 +145,6 @@ class task extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->configPath) {
-            $res['configPath'] = $this->configPath;
-        }
-
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
@@ -175,16 +155,6 @@ class task extends Model
 
         if (null !== $this->elapsedTime) {
             $res['elapsedTime'] = $this->elapsedTime;
-        }
-
-        if (null !== $this->excludeRules) {
-            if (\is_array($this->excludeRules)) {
-                $res['excludeRules'] = [];
-                $n1 = 0;
-                foreach ($this->excludeRules as $item1) {
-                    $res['excludeRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
         }
 
         if (null !== $this->exportTaskId) {
@@ -208,7 +178,8 @@ class task extends Model
                 $res['includeRules'] = [];
                 $n1 = 0;
                 foreach ($this->includeRules as $item1) {
-                    $res['includeRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['includeRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -218,7 +189,8 @@ class task extends Model
                 $res['modules'] = [];
                 $n1 = 0;
                 foreach ($this->modules as $item1) {
-                    $res['modules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['modules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -265,7 +237,8 @@ class task extends Model
                 $res['variables'] = [];
                 $n1 = 0;
                 foreach ($this->variables as $item1) {
-                    $res['variables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['variables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -281,10 +254,6 @@ class task extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['configPath'])) {
-            $model->configPath = $map['configPath'];
-        }
-
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
@@ -295,16 +264,6 @@ class task extends Model
 
         if (isset($map['elapsedTime'])) {
             $model->elapsedTime = $map['elapsedTime'];
-        }
-
-        if (isset($map['excludeRules'])) {
-            if (!empty($map['excludeRules'])) {
-                $model->excludeRules = [];
-                $n1 = 0;
-                foreach ($map['excludeRules'] as $item1) {
-                    $model->excludeRules[$n1++] = excludeRules::fromMap($item1);
-                }
-            }
         }
 
         if (isset($map['exportTaskId'])) {
@@ -328,7 +287,8 @@ class task extends Model
                 $model->includeRules = [];
                 $n1 = 0;
                 foreach ($map['includeRules'] as $item1) {
-                    $model->includeRules[$n1++] = includeRules::fromMap($item1);
+                    $model->includeRules[$n1] = includeRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -338,7 +298,8 @@ class task extends Model
                 $model->modules = [];
                 $n1 = 0;
                 foreach ($map['modules'] as $item1) {
-                    $model->modules[$n1++] = modules::fromMap($item1);
+                    $model->modules[$n1] = modules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -385,7 +346,8 @@ class task extends Model
                 $model->variables = [];
                 $n1 = 0;
                 foreach ($map['variables'] as $item1) {
-                    $model->variables[$n1++] = variables::fromMap($item1);
+                    $model->variables[$n1] = variables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

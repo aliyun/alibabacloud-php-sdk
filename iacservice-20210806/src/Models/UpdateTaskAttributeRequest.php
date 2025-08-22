@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateTaskAttributeRequest\groupInfo;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateTaskAttributeRequest\tags;
 
 class UpdateTaskAttributeRequest extends Model
 {
@@ -18,6 +19,11 @@ class UpdateTaskAttributeRequest extends Model
      * @var bool
      */
     public $autoDestroy;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
 
     /**
      * @var string
@@ -37,22 +43,12 @@ class UpdateTaskAttributeRequest extends Model
     /**
      * @var string
      */
-    public $moduleId;
-
-    /**
-     * @var string
-     */
     public $moduleVersion;
 
     /**
      * @var string
      */
     public $name;
-
-    /**
-     * @var string[]
-     */
-    public $parameters;
 
     /**
      * @var string[]
@@ -70,6 +66,11 @@ class UpdateTaskAttributeRequest extends Model
     public $skipPropertyValidation;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $terraformVersion;
@@ -78,27 +79,21 @@ class UpdateTaskAttributeRequest extends Model
      * @var string
      */
     public $triggerStrategy;
-
-    /**
-     * @var string
-     */
-    public $triggerValue;
     protected $_name = [
         'autoApply' => 'autoApply',
         'autoDestroy' => 'autoDestroy',
+        'clientToken' => 'clientToken',
         'description' => 'description',
         'groupInfo' => 'groupInfo',
         'initModuleState' => 'initModuleState',
-        'moduleId' => 'moduleId',
         'moduleVersion' => 'moduleVersion',
         'name' => 'name',
-        'parameters' => 'parameters',
         'protectionStrategy' => 'protectionStrategy',
         'ramRole' => 'ramRole',
         'skipPropertyValidation' => 'skipPropertyValidation',
+        'tags' => 'tags',
         'terraformVersion' => 'terraformVersion',
         'triggerStrategy' => 'triggerStrategy',
-        'triggerValue' => 'triggerValue',
     ];
 
     public function validate()
@@ -106,11 +101,11 @@ class UpdateTaskAttributeRequest extends Model
         if (null !== $this->groupInfo) {
             $this->groupInfo->validate();
         }
-        if (\is_array($this->parameters)) {
-            Model::validateArray($this->parameters);
-        }
         if (\is_array($this->protectionStrategy)) {
             Model::validateArray($this->protectionStrategy);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -126,6 +121,10 @@ class UpdateTaskAttributeRequest extends Model
             $res['autoDestroy'] = $this->autoDestroy;
         }
 
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -138,10 +137,6 @@ class UpdateTaskAttributeRequest extends Model
             $res['initModuleState'] = $this->initModuleState;
         }
 
-        if (null !== $this->moduleId) {
-            $res['moduleId'] = $this->moduleId;
-        }
-
         if (null !== $this->moduleVersion) {
             $res['moduleVersion'] = $this->moduleVersion;
         }
@@ -150,21 +145,13 @@ class UpdateTaskAttributeRequest extends Model
             $res['name'] = $this->name;
         }
 
-        if (null !== $this->parameters) {
-            if (\is_array($this->parameters)) {
-                $res['parameters'] = [];
-                foreach ($this->parameters as $key1 => $value1) {
-                    $res['parameters'][$key1] = $value1;
-                }
-            }
-        }
-
         if (null !== $this->protectionStrategy) {
             if (\is_array($this->protectionStrategy)) {
                 $res['protectionStrategy'] = [];
                 $n1 = 0;
                 foreach ($this->protectionStrategy as $item1) {
-                    $res['protectionStrategy'][$n1++] = $item1;
+                    $res['protectionStrategy'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -177,16 +164,23 @@ class UpdateTaskAttributeRequest extends Model
             $res['skipPropertyValidation'] = $this->skipPropertyValidation;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->terraformVersion) {
             $res['terraformVersion'] = $this->terraformVersion;
         }
 
         if (null !== $this->triggerStrategy) {
             $res['triggerStrategy'] = $this->triggerStrategy;
-        }
-
-        if (null !== $this->triggerValue) {
-            $res['triggerValue'] = $this->triggerValue;
         }
 
         return $res;
@@ -208,6 +202,10 @@ class UpdateTaskAttributeRequest extends Model
             $model->autoDestroy = $map['autoDestroy'];
         }
 
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -220,10 +218,6 @@ class UpdateTaskAttributeRequest extends Model
             $model->initModuleState = $map['initModuleState'];
         }
 
-        if (isset($map['moduleId'])) {
-            $model->moduleId = $map['moduleId'];
-        }
-
         if (isset($map['moduleVersion'])) {
             $model->moduleVersion = $map['moduleVersion'];
         }
@@ -232,21 +226,13 @@ class UpdateTaskAttributeRequest extends Model
             $model->name = $map['name'];
         }
 
-        if (isset($map['parameters'])) {
-            if (!empty($map['parameters'])) {
-                $model->parameters = [];
-                foreach ($map['parameters'] as $key1 => $value1) {
-                    $model->parameters[$key1] = $value1;
-                }
-            }
-        }
-
         if (isset($map['protectionStrategy'])) {
             if (!empty($map['protectionStrategy'])) {
                 $model->protectionStrategy = [];
                 $n1 = 0;
                 foreach ($map['protectionStrategy'] as $item1) {
-                    $model->protectionStrategy[$n1++] = $item1;
+                    $model->protectionStrategy[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -259,16 +245,23 @@ class UpdateTaskAttributeRequest extends Model
             $model->skipPropertyValidation = $map['skipPropertyValidation'];
         }
 
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['terraformVersion'])) {
             $model->terraformVersion = $map['terraformVersion'];
         }
 
         if (isset($map['triggerStrategy'])) {
             $model->triggerStrategy = $map['triggerStrategy'];
-        }
-
-        if (isset($map['triggerValue'])) {
-            $model->triggerValue = $map['triggerValue'];
         }
 
         return $model;

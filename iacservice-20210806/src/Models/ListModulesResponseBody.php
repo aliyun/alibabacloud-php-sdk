@@ -57,7 +57,8 @@ class ListModulesResponseBody extends Model
                 $res['modules'] = [];
                 $n1 = 0;
                 foreach ($this->modules as $item1) {
-                    $res['modules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['modules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListModulesResponseBody extends Model
                 $model->modules = [];
                 $n1 = 0;
                 foreach ($map['modules'] as $item1) {
-                    $model->modules[$n1++] = modules::fromMap($item1);
+                    $model->modules[$n1] = modules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

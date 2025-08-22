@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskRequest\groupInfo;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskRequest\tags;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskRequest\taskBackend;
 
 class CreateTaskRequest extends Model
@@ -58,11 +59,6 @@ class CreateTaskRequest extends Model
     /**
      * @var string[]
      */
-    public $parameters;
-
-    /**
-     * @var string[]
-     */
     public $protectionStrategy;
 
     /**
@@ -74,6 +70,11 @@ class CreateTaskRequest extends Model
      * @var bool
      */
     public $skipPropertyValidation;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @var taskBackend
@@ -89,11 +90,6 @@ class CreateTaskRequest extends Model
      * @var string
      */
     public $triggerStrategy;
-
-    /**
-     * @var string
-     */
-    public $triggerValue;
     protected $_name = [
         'autoApply' => 'autoApply',
         'autoDestroy' => 'autoDestroy',
@@ -104,14 +100,13 @@ class CreateTaskRequest extends Model
         'moduleId' => 'moduleId',
         'moduleVersion' => 'moduleVersion',
         'name' => 'name',
-        'parameters' => 'parameters',
         'protectionStrategy' => 'protectionStrategy',
         'ramRole' => 'ramRole',
         'skipPropertyValidation' => 'skipPropertyValidation',
+        'tags' => 'tags',
         'taskBackend' => 'taskBackend',
         'terraformVersion' => 'terraformVersion',
         'triggerStrategy' => 'triggerStrategy',
-        'triggerValue' => 'triggerValue',
     ];
 
     public function validate()
@@ -119,11 +114,11 @@ class CreateTaskRequest extends Model
         if (null !== $this->groupInfo) {
             $this->groupInfo->validate();
         }
-        if (\is_array($this->parameters)) {
-            Model::validateArray($this->parameters);
-        }
         if (\is_array($this->protectionStrategy)) {
             Model::validateArray($this->protectionStrategy);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         if (null !== $this->taskBackend) {
             $this->taskBackend->validate();
@@ -170,21 +165,13 @@ class CreateTaskRequest extends Model
             $res['name'] = $this->name;
         }
 
-        if (null !== $this->parameters) {
-            if (\is_array($this->parameters)) {
-                $res['parameters'] = [];
-                foreach ($this->parameters as $key1 => $value1) {
-                    $res['parameters'][$key1] = $value1;
-                }
-            }
-        }
-
         if (null !== $this->protectionStrategy) {
             if (\is_array($this->protectionStrategy)) {
                 $res['protectionStrategy'] = [];
                 $n1 = 0;
                 foreach ($this->protectionStrategy as $item1) {
-                    $res['protectionStrategy'][$n1++] = $item1;
+                    $res['protectionStrategy'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -197,6 +184,17 @@ class CreateTaskRequest extends Model
             $res['skipPropertyValidation'] = $this->skipPropertyValidation;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->taskBackend) {
             $res['taskBackend'] = null !== $this->taskBackend ? $this->taskBackend->toArray($noStream) : $this->taskBackend;
         }
@@ -207,10 +205,6 @@ class CreateTaskRequest extends Model
 
         if (null !== $this->triggerStrategy) {
             $res['triggerStrategy'] = $this->triggerStrategy;
-        }
-
-        if (null !== $this->triggerValue) {
-            $res['triggerValue'] = $this->triggerValue;
         }
 
         return $res;
@@ -260,21 +254,13 @@ class CreateTaskRequest extends Model
             $model->name = $map['name'];
         }
 
-        if (isset($map['parameters'])) {
-            if (!empty($map['parameters'])) {
-                $model->parameters = [];
-                foreach ($map['parameters'] as $key1 => $value1) {
-                    $model->parameters[$key1] = $value1;
-                }
-            }
-        }
-
         if (isset($map['protectionStrategy'])) {
             if (!empty($map['protectionStrategy'])) {
                 $model->protectionStrategy = [];
                 $n1 = 0;
                 foreach ($map['protectionStrategy'] as $item1) {
-                    $model->protectionStrategy[$n1++] = $item1;
+                    $model->protectionStrategy[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -287,6 +273,17 @@ class CreateTaskRequest extends Model
             $model->skipPropertyValidation = $map['skipPropertyValidation'];
         }
 
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['taskBackend'])) {
             $model->taskBackend = taskBackend::fromMap($map['taskBackend']);
         }
@@ -297,10 +294,6 @@ class CreateTaskRequest extends Model
 
         if (isset($map['triggerStrategy'])) {
             $model->triggerStrategy = $map['triggerStrategy'];
-        }
-
-        if (isset($map['triggerValue'])) {
-            $model->triggerValue = $map['triggerValue'];
         }
 
         return $model;

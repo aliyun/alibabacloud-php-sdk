@@ -10,11 +10,6 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\ListTasksRequest\tag;
 class ListTasksRequest extends Model
 {
     /**
-     * @var string[]
-     */
-    public $excludeTaskIds;
-
-    /**
      * @var string
      */
     public $groupId;
@@ -59,7 +54,6 @@ class ListTasksRequest extends Model
      */
     public $taskId;
     protected $_name = [
-        'excludeTaskIds' => 'excludeTaskIds',
         'groupId' => 'groupId',
         'keyword' => 'keyword',
         'moduleId' => 'moduleId',
@@ -73,9 +67,6 @@ class ListTasksRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->excludeTaskIds)) {
-            Model::validateArray($this->excludeTaskIds);
-        }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
         }
@@ -85,16 +76,6 @@ class ListTasksRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->excludeTaskIds) {
-            if (\is_array($this->excludeTaskIds)) {
-                $res['excludeTaskIds'] = [];
-                $n1 = 0;
-                foreach ($this->excludeTaskIds as $item1) {
-                    $res['excludeTaskIds'][$n1++] = $item1;
-                }
-            }
-        }
-
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
         }
@@ -128,7 +109,8 @@ class ListTasksRequest extends Model
                 $res['tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,16 +130,6 @@ class ListTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['excludeTaskIds'])) {
-            if (!empty($map['excludeTaskIds'])) {
-                $model->excludeTaskIds = [];
-                $n1 = 0;
-                foreach ($map['excludeTaskIds'] as $item1) {
-                    $model->excludeTaskIds[$n1++] = $item1;
-                }
-            }
-        }
-
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
         }
@@ -191,7 +163,8 @@ class ListTasksRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

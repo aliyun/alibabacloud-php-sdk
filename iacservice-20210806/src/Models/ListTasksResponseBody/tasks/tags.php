@@ -16,9 +16,21 @@ class tags extends Model
     /**
      * @var string
      */
+    public $tagKey;
+
+    /**
+     * @var string
+     */
+    public $tagValue;
+
+    /**
+     * @var string
+     */
     public $value;
     protected $_name = [
         'key' => 'key',
+        'tagKey' => 'tagKey',
+        'tagValue' => 'tagValue',
         'value' => 'value',
     ];
 
@@ -32,6 +44,14 @@ class tags extends Model
         $res = [];
         if (null !== $this->key) {
             $res['key'] = $this->key;
+        }
+
+        if (null !== $this->tagKey) {
+            $res['tagKey'] = $this->tagKey;
+        }
+
+        if (null !== $this->tagValue) {
+            $res['tagValue'] = $this->tagValue;
         }
 
         if (null !== $this->value) {
@@ -51,6 +71,14 @@ class tags extends Model
         $model = new self();
         if (isset($map['key'])) {
             $model->key = $map['key'];
+        }
+
+        if (isset($map['tagKey'])) {
+            $model->tagKey = $map['tagKey'];
+        }
+
+        if (isset($map['tagValue'])) {
+            $model->tagValue = $map['tagValue'];
         }
 
         if (isset($map['value'])) {

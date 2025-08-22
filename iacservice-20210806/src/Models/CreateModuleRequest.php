@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateModuleRequest\groupInfo;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateModuleRequest\tags;
 
 class CreateModuleRequest extends Model
 {
@@ -45,6 +46,11 @@ class CreateModuleRequest extends Model
     public $statePath;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $versionStrategy;
@@ -56,6 +62,7 @@ class CreateModuleRequest extends Model
         'source' => 'source',
         'sourcePath' => 'sourcePath',
         'statePath' => 'statePath',
+        'tags' => 'tags',
         'versionStrategy' => 'versionStrategy',
     ];
 
@@ -63,6 +70,9 @@ class CreateModuleRequest extends Model
     {
         if (null !== $this->groupInfo) {
             $this->groupInfo->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -96,6 +106,17 @@ class CreateModuleRequest extends Model
 
         if (null !== $this->statePath) {
             $res['statePath'] = $this->statePath;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->versionStrategy) {
@@ -139,6 +160,17 @@ class CreateModuleRequest extends Model
 
         if (isset($map['statePath'])) {
             $model->statePath = $map['statePath'];
+        }
+
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['versionStrategy'])) {

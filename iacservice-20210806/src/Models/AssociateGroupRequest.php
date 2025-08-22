@@ -58,7 +58,8 @@ class AssociateGroupRequest extends Model
                 $res['resourceIds'] = [];
                 $n1 = 0;
                 foreach ($this->resourceIds as $item1) {
-                    $res['resourceIds'][$n1++] = $item1;
+                    $res['resourceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class AssociateGroupRequest extends Model
                 $model->resourceIds = [];
                 $n1 = 0;
                 foreach ($map['resourceIds'] as $item1) {
-                    $model->resourceIds[$n1++] = $item1;
+                    $model->resourceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

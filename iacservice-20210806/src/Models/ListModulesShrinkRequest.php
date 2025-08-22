@@ -11,11 +11,6 @@ class ListModulesShrinkRequest extends Model
     /**
      * @var string
      */
-    public $excludeModuleIdsShrink;
-
-    /**
-     * @var string
-     */
     public $groupId;
 
     /**
@@ -43,7 +38,6 @@ class ListModulesShrinkRequest extends Model
      */
     public $tagShrink;
     protected $_name = [
-        'excludeModuleIdsShrink' => 'excludeModuleIds',
         'groupId' => 'groupId',
         'keyword' => 'keyword',
         'pageNumber' => 'pageNumber',
@@ -60,10 +54,6 @@ class ListModulesShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->excludeModuleIdsShrink) {
-            $res['excludeModuleIds'] = $this->excludeModuleIdsShrink;
-        }
-
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
         }
@@ -99,10 +89,6 @@ class ListModulesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['excludeModuleIds'])) {
-            $model->excludeModuleIdsShrink = $map['excludeModuleIds'];
-        }
-
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
         }

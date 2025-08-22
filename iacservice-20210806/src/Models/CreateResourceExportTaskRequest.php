@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateResourceExportTaskRequest\excludeRules;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateResourceExportTaskRequest\exportToModule;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateResourceExportTaskRequest\includeRules;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateResourceExportTaskRequest\variables;
@@ -20,17 +19,7 @@ class CreateResourceExportTaskRequest extends Model
     /**
      * @var string
      */
-    public $configPath;
-
-    /**
-     * @var string
-     */
     public $description;
-
-    /**
-     * @var excludeRules[]
-     */
-    public $excludeRules;
 
     /**
      * @var exportToModule
@@ -73,9 +62,7 @@ class CreateResourceExportTaskRequest extends Model
     public $variables;
     protected $_name = [
         'clientToken' => 'clientToken',
-        'configPath' => 'configPath',
         'description' => 'description',
-        'excludeRules' => 'excludeRules',
         'exportToModule' => 'exportToModule',
         'includeRules' => 'includeRules',
         'name' => 'name',
@@ -88,9 +75,6 @@ class CreateResourceExportTaskRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->excludeRules)) {
-            Model::validateArray($this->excludeRules);
-        }
         if (null !== $this->exportToModule) {
             $this->exportToModule->validate();
         }
@@ -110,22 +94,8 @@ class CreateResourceExportTaskRequest extends Model
             $res['clientToken'] = $this->clientToken;
         }
 
-        if (null !== $this->configPath) {
-            $res['configPath'] = $this->configPath;
-        }
-
         if (null !== $this->description) {
             $res['description'] = $this->description;
-        }
-
-        if (null !== $this->excludeRules) {
-            if (\is_array($this->excludeRules)) {
-                $res['excludeRules'] = [];
-                $n1 = 0;
-                foreach ($this->excludeRules as $item1) {
-                    $res['excludeRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
         }
 
         if (null !== $this->exportToModule) {
@@ -137,7 +107,8 @@ class CreateResourceExportTaskRequest extends Model
                 $res['includeRules'] = [];
                 $n1 = 0;
                 foreach ($this->includeRules as $item1) {
-                    $res['includeRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['includeRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +138,8 @@ class CreateResourceExportTaskRequest extends Model
                 $res['variables'] = [];
                 $n1 = 0;
                 foreach ($this->variables as $item1) {
-                    $res['variables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['variables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,22 +159,8 @@ class CreateResourceExportTaskRequest extends Model
             $model->clientToken = $map['clientToken'];
         }
 
-        if (isset($map['configPath'])) {
-            $model->configPath = $map['configPath'];
-        }
-
         if (isset($map['description'])) {
             $model->description = $map['description'];
-        }
-
-        if (isset($map['excludeRules'])) {
-            if (!empty($map['excludeRules'])) {
-                $model->excludeRules = [];
-                $n1 = 0;
-                foreach ($map['excludeRules'] as $item1) {
-                    $model->excludeRules[$n1++] = excludeRules::fromMap($item1);
-                }
-            }
         }
 
         if (isset($map['exportToModule'])) {
@@ -214,7 +172,8 @@ class CreateResourceExportTaskRequest extends Model
                 $model->includeRules = [];
                 $n1 = 0;
                 foreach ($map['includeRules'] as $item1) {
-                    $model->includeRules[$n1++] = includeRules::fromMap($item1);
+                    $model->includeRules[$n1] = includeRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -244,7 +203,8 @@ class CreateResourceExportTaskRequest extends Model
                 $model->variables = [];
                 $n1 = 0;
                 foreach ($map['variables'] as $item1) {
-                    $model->variables[$n1++] = variables::fromMap($item1);
+                    $model->variables[$n1] = variables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

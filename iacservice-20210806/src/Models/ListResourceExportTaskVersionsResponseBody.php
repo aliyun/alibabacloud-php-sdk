@@ -57,7 +57,8 @@ class ListResourceExportTaskVersionsResponseBody extends Model
                 $res['exportTasks'] = [];
                 $n1 = 0;
                 foreach ($this->exportTasks as $item1) {
-                    $res['exportTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['exportTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListResourceExportTaskVersionsResponseBody extends Model
                 $model->exportTasks = [];
                 $n1 = 0;
                 foreach ($map['exportTasks'] as $item1) {
-                    $model->exportTasks[$n1++] = exportTasks::fromMap($item1);
+                    $model->exportTasks[$n1] = exportTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -16,6 +16,11 @@ class config extends Model
     /**
      * @var string
      */
+    public $moduleDescription;
+
+    /**
+     * @var string
+     */
     public $moduleVersion;
 
     /**
@@ -29,6 +34,7 @@ class config extends Model
     public $subCommand;
     protected $_name = [
         'isDestroy' => 'isDestroy',
+        'moduleDescription' => 'moduleDescription',
         'moduleVersion' => 'moduleVersion',
         'resourcesChanged' => 'resourcesChanged',
         'subCommand' => 'subCommand',
@@ -44,6 +50,10 @@ class config extends Model
         $res = [];
         if (null !== $this->isDestroy) {
             $res['isDestroy'] = $this->isDestroy;
+        }
+
+        if (null !== $this->moduleDescription) {
+            $res['moduleDescription'] = $this->moduleDescription;
         }
 
         if (null !== $this->moduleVersion) {
@@ -71,6 +81,10 @@ class config extends Model
         $model = new self();
         if (isset($map['isDestroy'])) {
             $model->isDestroy = $map['isDestroy'];
+        }
+
+        if (isset($map['moduleDescription'])) {
+            $model->moduleDescription = $map['moduleDescription'];
         }
 
         if (isset($map['moduleVersion'])) {

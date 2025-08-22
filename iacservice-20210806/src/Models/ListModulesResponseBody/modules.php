@@ -36,11 +36,6 @@ class modules extends Model
     public $latestVersion;
 
     /**
-     * @var mixed[]
-     */
-    public $meta;
-
-    /**
      * @var string
      */
     public $moduleId;
@@ -54,11 +49,6 @@ class modules extends Model
      * @var string
      */
     public $source;
-
-    /**
-     * @var mixed[]
-     */
-    public $sourceConfig;
 
     /**
      * @var string
@@ -75,11 +65,9 @@ class modules extends Model
         'description' => 'description',
         'groupInfo' => 'groupInfo',
         'latestVersion' => 'latestVersion',
-        'meta' => 'meta',
         'moduleId' => 'moduleId',
         'name' => 'name',
         'source' => 'source',
-        'sourceConfig' => 'sourceConfig',
         'status' => 'status',
         'tags' => 'tags',
     ];
@@ -88,12 +76,6 @@ class modules extends Model
     {
         if (null !== $this->groupInfo) {
             $this->groupInfo->validate();
-        }
-        if (\is_array($this->meta)) {
-            Model::validateArray($this->meta);
-        }
-        if (\is_array($this->sourceConfig)) {
-            Model::validateArray($this->sourceConfig);
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -124,15 +106,6 @@ class modules extends Model
             $res['latestVersion'] = $this->latestVersion;
         }
 
-        if (null !== $this->meta) {
-            if (\is_array($this->meta)) {
-                $res['meta'] = [];
-                foreach ($this->meta as $key1 => $value1) {
-                    $res['meta'][$key1] = $value1;
-                }
-            }
-        }
-
         if (null !== $this->moduleId) {
             $res['moduleId'] = $this->moduleId;
         }
@@ -145,15 +118,6 @@ class modules extends Model
             $res['source'] = $this->source;
         }
 
-        if (null !== $this->sourceConfig) {
-            if (\is_array($this->sourceConfig)) {
-                $res['sourceConfig'] = [];
-                foreach ($this->sourceConfig as $key1 => $value1) {
-                    $res['sourceConfig'][$key1] = $value1;
-                }
-            }
-        }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -163,7 +127,8 @@ class modules extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -199,15 +164,6 @@ class modules extends Model
             $model->latestVersion = $map['latestVersion'];
         }
 
-        if (isset($map['meta'])) {
-            if (!empty($map['meta'])) {
-                $model->meta = [];
-                foreach ($map['meta'] as $key1 => $value1) {
-                    $model->meta[$key1] = $value1;
-                }
-            }
-        }
-
         if (isset($map['moduleId'])) {
             $model->moduleId = $map['moduleId'];
         }
@@ -220,15 +176,6 @@ class modules extends Model
             $model->source = $map['source'];
         }
 
-        if (isset($map['sourceConfig'])) {
-            if (!empty($map['sourceConfig'])) {
-                $model->sourceConfig = [];
-                foreach ($map['sourceConfig'] as $key1 => $value1) {
-                    $model->sourceConfig[$key1] = $value1;
-                }
-            }
-        }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
@@ -238,7 +185,8 @@ class modules extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

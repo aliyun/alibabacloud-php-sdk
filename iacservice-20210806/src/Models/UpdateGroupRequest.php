@@ -148,7 +148,8 @@ class UpdateGroupRequest extends Model
                 $res['notifyConfig'] = [];
                 $n1 = 0;
                 foreach ($this->notifyConfig as $item1) {
-                    $res['notifyConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['notifyConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +159,8 @@ class UpdateGroupRequest extends Model
                 $res['notifyOperationTypes'] = [];
                 $n1 = 0;
                 foreach ($this->notifyOperationTypes as $item1) {
-                    $res['notifyOperationTypes'][$n1++] = $item1;
+                    $res['notifyOperationTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +174,8 @@ class UpdateGroupRequest extends Model
                 $res['reportExportField'] = [];
                 $n1 = 0;
                 foreach ($this->reportExportField as $item1) {
-                    $res['reportExportField'][$n1++] = $item1;
+                    $res['reportExportField'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +193,8 @@ class UpdateGroupRequest extends Model
                 $res['triggerConfig'] = [];
                 $n1 = 0;
                 foreach ($this->triggerConfig as $item1) {
-                    $res['triggerConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['triggerConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +204,8 @@ class UpdateGroupRequest extends Model
                 $res['triggerResourceType'] = [];
                 $n1 = 0;
                 foreach ($this->triggerResourceType as $item1) {
-                    $res['triggerResourceType'][$n1++] = $item1;
+                    $res['triggerResourceType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +250,8 @@ class UpdateGroupRequest extends Model
                 $model->notifyConfig = [];
                 $n1 = 0;
                 foreach ($map['notifyConfig'] as $item1) {
-                    $model->notifyConfig[$n1++] = notifyConfig::fromMap($item1);
+                    $model->notifyConfig[$n1] = notifyConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +261,8 @@ class UpdateGroupRequest extends Model
                 $model->notifyOperationTypes = [];
                 $n1 = 0;
                 foreach ($map['notifyOperationTypes'] as $item1) {
-                    $model->notifyOperationTypes[$n1++] = $item1;
+                    $model->notifyOperationTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -269,7 +276,8 @@ class UpdateGroupRequest extends Model
                 $model->reportExportField = [];
                 $n1 = 0;
                 foreach ($map['reportExportField'] as $item1) {
-                    $model->reportExportField[$n1++] = $item1;
+                    $model->reportExportField[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -287,7 +295,8 @@ class UpdateGroupRequest extends Model
                 $model->triggerConfig = [];
                 $n1 = 0;
                 foreach ($map['triggerConfig'] as $item1) {
-                    $model->triggerConfig[$n1++] = triggerConfig::fromMap($item1);
+                    $model->triggerConfig[$n1] = triggerConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -297,7 +306,8 @@ class UpdateGroupRequest extends Model
                 $model->triggerResourceType = [];
                 $n1 = 0;
                 foreach ($map['triggerResourceType'] as $item1) {
-                    $model->triggerResourceType[$n1++] = $item1;
+                    $model->triggerResourceType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

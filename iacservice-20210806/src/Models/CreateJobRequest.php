@@ -21,11 +21,6 @@ class CreateJobRequest extends Model
     /**
      * @var string
      */
-    public $executeType;
-
-    /**
-     * @var string
-     */
     public $subCommand;
 
     /**
@@ -35,7 +30,6 @@ class CreateJobRequest extends Model
     protected $_name = [
         'clientToken' => 'clientToken',
         'description' => 'description',
-        'executeType' => 'executeType',
         'subCommand' => 'subCommand',
         'taskType' => 'taskType',
     ];
@@ -54,10 +48,6 @@ class CreateJobRequest extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
-        }
-
-        if (null !== $this->executeType) {
-            $res['executeType'] = $this->executeType;
         }
 
         if (null !== $this->subCommand) {
@@ -85,10 +75,6 @@ class CreateJobRequest extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
-        }
-
-        if (isset($map['executeType'])) {
-            $model->executeType = $map['executeType'];
         }
 
         if (isset($map['subCommand'])) {

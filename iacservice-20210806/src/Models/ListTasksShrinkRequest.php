@@ -11,11 +11,6 @@ class ListTasksShrinkRequest extends Model
     /**
      * @var string
      */
-    public $excludeTaskIdsShrink;
-
-    /**
-     * @var string
-     */
     public $groupId;
 
     /**
@@ -58,7 +53,6 @@ class ListTasksShrinkRequest extends Model
      */
     public $taskId;
     protected $_name = [
-        'excludeTaskIdsShrink' => 'excludeTaskIds',
         'groupId' => 'groupId',
         'keyword' => 'keyword',
         'moduleId' => 'moduleId',
@@ -78,10 +72,6 @@ class ListTasksShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->excludeTaskIdsShrink) {
-            $res['excludeTaskIds'] = $this->excludeTaskIdsShrink;
-        }
-
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
         }
@@ -129,10 +119,6 @@ class ListTasksShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['excludeTaskIds'])) {
-            $model->excludeTaskIdsShrink = $map['excludeTaskIds'];
-        }
-
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
         }

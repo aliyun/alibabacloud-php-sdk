@@ -11,20 +11,20 @@ class JobsStatusDetailValue extends Model
     /**
      * @var string
      */
-    public $comment;
+    public $jobResult;
 
     /**
      * @var string
      */
-    public $jobResult;
+    public $comment;
 
     /**
      * @var string
      */
     public $timeStamps;
     protected $_name = [
-        'comment' => 'comment',
         'jobResult' => 'jobResult',
+        'comment' => 'comment',
         'timeStamps' => 'timeStamps',
     ];
 
@@ -36,12 +36,12 @@ class JobsStatusDetailValue extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->comment) {
-            $res['comment'] = $this->comment;
-        }
-
         if (null !== $this->jobResult) {
             $res['jobResult'] = $this->jobResult;
+        }
+
+        if (null !== $this->comment) {
+            $res['comment'] = $this->comment;
         }
 
         if (null !== $this->timeStamps) {
@@ -59,12 +59,12 @@ class JobsStatusDetailValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['comment'])) {
-            $model->comment = $map['comment'];
-        }
-
         if (isset($map['jobResult'])) {
             $model->jobResult = $map['jobResult'];
+        }
+
+        if (isset($map['comment'])) {
+            $model->comment = $map['comment'];
         }
 
         if (isset($map['timeStamps'])) {

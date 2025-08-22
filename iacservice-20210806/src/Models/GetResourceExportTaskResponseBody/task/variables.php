@@ -38,7 +38,8 @@ class variables extends Model
                 $res['properties'] = [];
                 $n1 = 0;
                 foreach ($this->properties as $item1) {
-                    $res['properties'][$n1++] = $item1;
+                    $res['properties'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class variables extends Model
                 $model->properties = [];
                 $n1 = 0;
                 foreach ($map['properties'] as $item1) {
-                    $model->properties[$n1++] = $item1;
+                    $model->properties[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

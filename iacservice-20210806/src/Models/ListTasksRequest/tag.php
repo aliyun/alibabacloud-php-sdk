@@ -11,15 +11,15 @@ class tag extends Model
     /**
      * @var string
      */
-    public $key;
+    public $tagKey;
 
     /**
      * @var string
      */
-    public $value;
+    public $tagValue;
     protected $_name = [
-        'key' => 'key',
-        'value' => 'value',
+        'tagKey' => 'tagKey',
+        'tagValue' => 'tagValue',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class tag extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['key'] = $this->key;
+        if (null !== $this->tagKey) {
+            $res['tagKey'] = $this->tagKey;
         }
 
-        if (null !== $this->value) {
-            $res['value'] = $this->value;
+        if (null !== $this->tagValue) {
+            $res['tagValue'] = $this->tagValue;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class tag extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['key'])) {
-            $model->key = $map['key'];
+        if (isset($map['tagKey'])) {
+            $model->tagKey = $map['tagKey'];
         }
 
-        if (isset($map['value'])) {
-            $model->value = $map['value'];
+        if (isset($map['tagValue'])) {
+            $model->tagValue = $map['tagValue'];
         }
 
         return $model;
