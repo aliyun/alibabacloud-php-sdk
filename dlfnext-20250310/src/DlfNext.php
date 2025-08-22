@@ -385,6 +385,10 @@ class DlfNext extends OpenApiClient
             @$body['comment'] = $request->comment;
         }
 
+        if (null !== $request->enableWrite) {
+            @$body['enableWrite'] = $request->enableWrite;
+        }
+
         if (null !== $request->shareName) {
             @$body['shareName'] = $request->shareName;
         }
@@ -1058,6 +1062,10 @@ class DlfNext extends OpenApiClient
         $body = [];
         if (null !== $request->comment) {
             @$body['comment'] = $request->comment;
+        }
+
+        if (null !== $request->enableWrite) {
+            @$body['enableWrite'] = $request->enableWrite;
         }
 
         if (null !== $request->shareName) {

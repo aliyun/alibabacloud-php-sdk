@@ -14,11 +14,17 @@ class CreateShareRequest extends Model
     public $comment;
 
     /**
+     * @var bool
+     */
+    public $enableWrite;
+
+    /**
      * @var string
      */
     public $shareName;
     protected $_name = [
         'comment' => 'comment',
+        'enableWrite' => 'enableWrite',
         'shareName' => 'shareName',
     ];
 
@@ -32,6 +38,10 @@ class CreateShareRequest extends Model
         $res = [];
         if (null !== $this->comment) {
             $res['comment'] = $this->comment;
+        }
+
+        if (null !== $this->enableWrite) {
+            $res['enableWrite'] = $this->enableWrite;
         }
 
         if (null !== $this->shareName) {
@@ -51,6 +61,10 @@ class CreateShareRequest extends Model
         $model = new self();
         if (isset($map['comment'])) {
             $model->comment = $map['comment'];
+        }
+
+        if (isset($map['enableWrite'])) {
+            $model->enableWrite = $map['enableWrite'];
         }
 
         if (isset($map['shareName'])) {

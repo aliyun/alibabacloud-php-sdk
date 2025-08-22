@@ -29,6 +29,11 @@ class ReceivedShare extends Model
     public $createdBy;
 
     /**
+     * @var bool
+     */
+    public $enableWrite;
+
+    /**
      * @var string
      */
     public $owner;
@@ -62,6 +67,7 @@ class ReceivedShare extends Model
         'comment' => 'comment',
         'createdAt' => 'createdAt',
         'createdBy' => 'createdBy',
+        'enableWrite' => 'enableWrite',
         'owner' => 'owner',
         'providerTenantId' => 'providerTenantId',
         'shareId' => 'shareId',
@@ -92,6 +98,10 @@ class ReceivedShare extends Model
 
         if (null !== $this->createdBy) {
             $res['createdBy'] = $this->createdBy;
+        }
+
+        if (null !== $this->enableWrite) {
+            $res['enableWrite'] = $this->enableWrite;
         }
 
         if (null !== $this->owner) {
@@ -143,6 +153,10 @@ class ReceivedShare extends Model
 
         if (isset($map['createdBy'])) {
             $model->createdBy = $map['createdBy'];
+        }
+
+        if (isset($map['enableWrite'])) {
+            $model->enableWrite = $map['enableWrite'];
         }
 
         if (isset($map['owner'])) {
