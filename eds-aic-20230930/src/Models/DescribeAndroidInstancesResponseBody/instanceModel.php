@@ -235,6 +235,11 @@ class instanceModel extends Model
     public $streamMode;
 
     /**
+     * @var string
+     */
+    public $systemVersion;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -298,6 +303,7 @@ class instanceModel extends Model
         'serverType' => 'ServerType',
         'sessionStatus' => 'SessionStatus',
         'streamMode' => 'StreamMode',
+        'systemVersion' => 'SystemVersion',
         'tags' => 'Tags',
         'upBandwidthLimit' => 'UpBandwidthLimit',
         'vSwitchId' => 'VSwitchId',
@@ -518,6 +524,10 @@ class instanceModel extends Model
 
         if (null !== $this->streamMode) {
             $res['StreamMode'] = $this->streamMode;
+        }
+
+        if (null !== $this->systemVersion) {
+            $res['SystemVersion'] = $this->systemVersion;
         }
 
         if (null !== $this->tags) {
@@ -742,6 +752,10 @@ class instanceModel extends Model
 
         if (isset($map['StreamMode'])) {
             $model->streamMode = $map['StreamMode'];
+        }
+
+        if (isset($map['SystemVersion'])) {
+            $model->systemVersion = $map['SystemVersion'];
         }
 
         if (isset($map['Tags'])) {

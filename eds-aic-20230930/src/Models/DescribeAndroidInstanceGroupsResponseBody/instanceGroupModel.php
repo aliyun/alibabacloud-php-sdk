@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstanceGroups
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstanceGroupsResponseBody\instanceGroupModel\disks;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstanceGroupsResponseBody\instanceGroupModel\tags;
 
 class instanceGroupModel extends Model
 {
@@ -23,6 +24,21 @@ class instanceGroupModel extends Model
      * @var int
      */
     public $availableInstanceAmount;
+
+    /**
+     * @var string
+     */
+    public $bandwidthPackageId;
+
+    /**
+     * @var string
+     */
+    public $bandwidthPackageStatus;
+
+    /**
+     * @var string
+     */
+    public $bandwidthPackageType;
 
     /**
      * @var string
@@ -112,6 +128,11 @@ class instanceGroupModel extends Model
     /**
      * @var string
      */
+    public $networkType;
+
+    /**
+     * @var string
+     */
     public $numberOfInstances;
 
     /**
@@ -155,6 +176,11 @@ class instanceGroupModel extends Model
     public $systemVersion;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $vSwitchId;
@@ -162,6 +188,9 @@ class instanceGroupModel extends Model
         'appInstanceGroupId' => 'AppInstanceGroupId',
         'architectureType' => 'ArchitectureType',
         'availableInstanceAmount' => 'AvailableInstanceAmount',
+        'bandwidthPackageId' => 'BandwidthPackageId',
+        'bandwidthPackageStatus' => 'BandwidthPackageStatus',
+        'bandwidthPackageType' => 'BandwidthPackageType',
         'chargeType' => 'ChargeType',
         'cpu' => 'Cpu',
         'disks' => 'Disks',
@@ -179,6 +208,7 @@ class instanceGroupModel extends Model
         'instanceGroupStatus' => 'InstanceGroupStatus',
         'ipv6Bandwidth' => 'Ipv6Bandwidth',
         'memory' => 'Memory',
+        'networkType' => 'NetworkType',
         'numberOfInstances' => 'NumberOfInstances',
         'officeSiteId' => 'OfficeSiteId',
         'policyGroupId' => 'PolicyGroupId',
@@ -188,6 +218,7 @@ class instanceGroupModel extends Model
         'resolutionWidth' => 'ResolutionWidth',
         'saleMode' => 'SaleMode',
         'systemVersion' => 'SystemVersion',
+        'tags' => 'Tags',
         'vSwitchId' => 'VSwitchId',
     ];
 
@@ -195,6 +226,9 @@ class instanceGroupModel extends Model
     {
         if (\is_array($this->disks)) {
             Model::validateArray($this->disks);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -212,6 +246,18 @@ class instanceGroupModel extends Model
 
         if (null !== $this->availableInstanceAmount) {
             $res['AvailableInstanceAmount'] = $this->availableInstanceAmount;
+        }
+
+        if (null !== $this->bandwidthPackageId) {
+            $res['BandwidthPackageId'] = $this->bandwidthPackageId;
+        }
+
+        if (null !== $this->bandwidthPackageStatus) {
+            $res['BandwidthPackageStatus'] = $this->bandwidthPackageStatus;
+        }
+
+        if (null !== $this->bandwidthPackageType) {
+            $res['BandwidthPackageType'] = $this->bandwidthPackageType;
         }
 
         if (null !== $this->chargeType) {
@@ -289,6 +335,10 @@ class instanceGroupModel extends Model
             $res['Memory'] = $this->memory;
         }
 
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
+        }
+
         if (null !== $this->numberOfInstances) {
             $res['NumberOfInstances'] = $this->numberOfInstances;
         }
@@ -325,6 +375,17 @@ class instanceGroupModel extends Model
             $res['SystemVersion'] = $this->systemVersion;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -350,6 +411,18 @@ class instanceGroupModel extends Model
 
         if (isset($map['AvailableInstanceAmount'])) {
             $model->availableInstanceAmount = $map['AvailableInstanceAmount'];
+        }
+
+        if (isset($map['BandwidthPackageId'])) {
+            $model->bandwidthPackageId = $map['BandwidthPackageId'];
+        }
+
+        if (isset($map['BandwidthPackageStatus'])) {
+            $model->bandwidthPackageStatus = $map['BandwidthPackageStatus'];
+        }
+
+        if (isset($map['BandwidthPackageType'])) {
+            $model->bandwidthPackageType = $map['BandwidthPackageType'];
         }
 
         if (isset($map['ChargeType'])) {
@@ -427,6 +500,10 @@ class instanceGroupModel extends Model
             $model->memory = $map['Memory'];
         }
 
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
+        }
+
         if (isset($map['NumberOfInstances'])) {
             $model->numberOfInstances = $map['NumberOfInstances'];
         }
@@ -461,6 +538,17 @@ class instanceGroupModel extends Model
 
         if (isset($map['SystemVersion'])) {
             $model->systemVersion = $map['SystemVersion'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VSwitchId'])) {

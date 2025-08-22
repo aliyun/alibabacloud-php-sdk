@@ -5,10 +5,9 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupRequest\networkInfo;
-use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupRequest\tag;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupShrinkRequest\tag;
 
-class CreateAndroidInstanceGroupRequest extends Model
+class CreateAndroidInstanceGroupShrinkRequest extends Model
 {
     /**
      * @var int
@@ -86,9 +85,9 @@ class CreateAndroidInstanceGroupRequest extends Model
     public $keyPairId;
 
     /**
-     * @var networkInfo
+     * @var string
      */
-    public $networkInfo;
+    public $networkInfoShrink;
 
     /**
      * @var string
@@ -145,7 +144,7 @@ class CreateAndroidInstanceGroupRequest extends Model
         'instanceGroupSpec' => 'InstanceGroupSpec',
         'ipv6Bandwidth' => 'Ipv6Bandwidth',
         'keyPairId' => 'KeyPairId',
-        'networkInfo' => 'NetworkInfo',
+        'networkInfoShrink' => 'NetworkInfo',
         'networkType' => 'NetworkType',
         'numberOfInstances' => 'NumberOfInstances',
         'officeSiteId' => 'OfficeSiteId',
@@ -158,9 +157,6 @@ class CreateAndroidInstanceGroupRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->networkInfo) {
-            $this->networkInfo->validate();
-        }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
         }
@@ -230,8 +226,8 @@ class CreateAndroidInstanceGroupRequest extends Model
             $res['KeyPairId'] = $this->keyPairId;
         }
 
-        if (null !== $this->networkInfo) {
-            $res['NetworkInfo'] = null !== $this->networkInfo ? $this->networkInfo->toArray($noStream) : $this->networkInfo;
+        if (null !== $this->networkInfoShrink) {
+            $res['NetworkInfo'] = $this->networkInfoShrink;
         }
 
         if (null !== $this->networkType) {
@@ -345,7 +341,7 @@ class CreateAndroidInstanceGroupRequest extends Model
         }
 
         if (isset($map['NetworkInfo'])) {
-            $model->networkInfo = networkInfo::fromMap($map['NetworkInfo']);
+            $model->networkInfoShrink = $map['NetworkInfo'];
         }
 
         if (isset($map['NetworkType'])) {

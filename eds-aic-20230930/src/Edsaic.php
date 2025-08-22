@@ -19,6 +19,7 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\CheckResourceStockRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CheckResourceStockResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAppRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAppShrinkRequest;
@@ -181,7 +182,6 @@ class Edsaic extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eds-aic', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -679,19 +679,25 @@ class Edsaic extends OpenApiClient
      * *   If the billing method of an instance group is PrePaid, AutoPay is set to false by default. In this case, you need to go to [Expenses and Costs](https://usercenter2-intl.aliyun.com/order/list) to manually complete the payment.
      * *   You can also set AutoPay to true based on your business requirements.
      *
-     * @param request - CreateAndroidInstanceGroupRequest
+     * @param tmpReq - CreateAndroidInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateAndroidInstanceGroupResponse
      *
-     * @param CreateAndroidInstanceGroupRequest $request
+     * @param CreateAndroidInstanceGroupRequest $tmpReq
      * @param RuntimeOptions                    $runtime
      *
      * @return CreateAndroidInstanceGroupResponse
      */
-    public function createAndroidInstanceGroupWithOptions($request, $runtime)
+    public function createAndroidInstanceGroupWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateAndroidInstanceGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->networkInfo) {
+            $request->networkInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->networkInfo, 'NetworkInfo', 'json');
+        }
+
         $query = [];
         if (null !== $request->amount) {
             @$query['Amount'] = $request->amount;
@@ -703,6 +709,14 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->autoRenew) {
             @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->bandwidthPackageId) {
+            @$query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        }
+
+        if (null !== $request->bandwidthPackageType) {
+            @$query['BandwidthPackageType'] = $request->bandwidthPackageType;
         }
 
         if (null !== $request->bizRegionId) {
@@ -743,6 +757,14 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->keyPairId) {
             @$query['KeyPairId'] = $request->keyPairId;
+        }
+
+        if (null !== $request->networkInfoShrink) {
+            @$query['NetworkInfo'] = $request->networkInfoShrink;
+        }
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
         }
 
         if (null !== $request->numberOfInstances) {
@@ -2048,6 +2070,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->status) {
             @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
 
         $req = new OpenApiRequest([
@@ -6109,6 +6135,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->instanceIdList) {
             @$query['InstanceIdList'] = $request->instanceIdList;
+        }
+
+        if (null !== $request->reset) {
+            @$query['Reset'] = $request->reset;
         }
 
         $req = new OpenApiRequest([

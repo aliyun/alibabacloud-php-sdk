@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupResponseBody\instanceGroupInfos;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupResponseBody\networkPackageOrderModel;
 
 class CreateAndroidInstanceGroupResponseBody extends Model
 {
@@ -20,6 +21,11 @@ class CreateAndroidInstanceGroupResponseBody extends Model
     public $instanceGroupInfos;
 
     /**
+     * @var networkPackageOrderModel
+     */
+    public $networkPackageOrderModel;
+
+    /**
      * @var string
      */
     public $orderId;
@@ -31,6 +37,7 @@ class CreateAndroidInstanceGroupResponseBody extends Model
     protected $_name = [
         'instanceGroupIds' => 'InstanceGroupIds',
         'instanceGroupInfos' => 'InstanceGroupInfos',
+        'networkPackageOrderModel' => 'NetworkPackageOrderModel',
         'orderId' => 'OrderId',
         'requestId' => 'RequestId',
     ];
@@ -42,6 +49,9 @@ class CreateAndroidInstanceGroupResponseBody extends Model
         }
         if (\is_array($this->instanceGroupInfos)) {
             Model::validateArray($this->instanceGroupInfos);
+        }
+        if (null !== $this->networkPackageOrderModel) {
+            $this->networkPackageOrderModel->validate();
         }
         parent::validate();
     }
@@ -69,6 +79,10 @@ class CreateAndroidInstanceGroupResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->networkPackageOrderModel) {
+            $res['NetworkPackageOrderModel'] = null !== $this->networkPackageOrderModel ? $this->networkPackageOrderModel->toArray($noStream) : $this->networkPackageOrderModel;
         }
 
         if (null !== $this->orderId) {
@@ -110,6 +124,10 @@ class CreateAndroidInstanceGroupResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['NetworkPackageOrderModel'])) {
+            $model->networkPackageOrderModel = networkPackageOrderModel::fromMap($map['NetworkPackageOrderModel']);
         }
 
         if (isset($map['OrderId'])) {

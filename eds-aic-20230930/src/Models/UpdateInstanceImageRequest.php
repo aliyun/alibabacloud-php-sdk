@@ -17,9 +17,15 @@ class UpdateInstanceImageRequest extends Model
      * @var string[]
      */
     public $instanceIdList;
+
+    /**
+     * @var bool
+     */
+    public $reset;
     protected $_name = [
         'imageId' => 'ImageId',
         'instanceIdList' => 'InstanceIdList',
+        'reset' => 'Reset',
     ];
 
     public function validate()
@@ -48,6 +54,10 @@ class UpdateInstanceImageRequest extends Model
             }
         }
 
+        if (null !== $this->reset) {
+            $res['Reset'] = $this->reset;
+        }
+
         return $res;
     }
 
@@ -72,6 +82,10 @@ class UpdateInstanceImageRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Reset'])) {
+            $model->reset = $map['Reset'];
         }
 
         return $model;

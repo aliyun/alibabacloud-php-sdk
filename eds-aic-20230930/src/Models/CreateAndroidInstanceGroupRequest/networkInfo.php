@@ -2,12 +2,22 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeRequest;
+namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupRequest;
 
 use AlibabaCloud\Dara\Model;
 
 class networkInfo extends Model
 {
+    /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
+     * @var bool
+     */
+    public $autoRenew;
+
     /**
      * @var string
      */
@@ -44,10 +54,22 @@ class networkInfo extends Model
     public $payType;
 
     /**
+     * @var int
+     */
+    public $period;
+
+    /**
+     * @var string
+     */
+    public $periodUnit;
+
+    /**
      * @var string
      */
     public $visibleType;
     protected $_name = [
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
         'bandwidthPackageName' => 'BandwidthPackageName',
         'cidrBlock' => 'CidrBlock',
         'internetChargeType' => 'InternetChargeType',
@@ -55,6 +77,8 @@ class networkInfo extends Model
         'isp' => 'Isp',
         'limitedBandwidth' => 'LimitedBandwidth',
         'payType' => 'PayType',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
         'visibleType' => 'VisibleType',
     ];
 
@@ -66,6 +90,14 @@ class networkInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
+
         if (null !== $this->bandwidthPackageName) {
             $res['BandwidthPackageName'] = $this->bandwidthPackageName;
         }
@@ -94,6 +126,14 @@ class networkInfo extends Model
             $res['PayType'] = $this->payType;
         }
 
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+
+        if (null !== $this->periodUnit) {
+            $res['PeriodUnit'] = $this->periodUnit;
+        }
+
         if (null !== $this->visibleType) {
             $res['VisibleType'] = $this->visibleType;
         }
@@ -109,6 +149,14 @@ class networkInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
+
         if (isset($map['BandwidthPackageName'])) {
             $model->bandwidthPackageName = $map['BandwidthPackageName'];
         }
@@ -135,6 +183,14 @@ class networkInfo extends Model
 
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+
+        if (isset($map['PeriodUnit'])) {
+            $model->periodUnit = $map['PeriodUnit'];
         }
 
         if (isset($map['VisibleType'])) {
