@@ -546,7 +546,6 @@ class Ecd extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ecd', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -21198,6 +21197,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->imageId) {
             @$query['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->lastRetryTime) {
+            @$query['LastRetryTime'] = $request->lastRetryTime;
         }
 
         if (null !== $request->payType) {

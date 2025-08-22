@@ -29,6 +29,11 @@ class ResetDesktopsRequest extends Model
     public $imageId;
 
     /**
+     * @var int
+     */
+    public $lastRetryTime;
+
+    /**
      * @var string
      */
     public $payType;
@@ -52,6 +57,7 @@ class ResetDesktopsRequest extends Model
         'desktopGroupIds' => 'DesktopGroupIds',
         'desktopId' => 'DesktopId',
         'imageId' => 'ImageId',
+        'lastRetryTime' => 'LastRetryTime',
         'payType' => 'PayType',
         'regionId' => 'RegionId',
         'resetScope' => 'ResetScope',
@@ -100,6 +106,10 @@ class ResetDesktopsRequest extends Model
 
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->lastRetryTime) {
+            $res['LastRetryTime'] = $this->lastRetryTime;
         }
 
         if (null !== $this->payType) {
@@ -157,6 +167,10 @@ class ResetDesktopsRequest extends Model
 
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['LastRetryTime'])) {
+            $model->lastRetryTime = $map['LastRetryTime'];
         }
 
         if (isset($map['PayType'])) {
