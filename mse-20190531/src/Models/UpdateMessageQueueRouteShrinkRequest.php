@@ -36,6 +36,11 @@ class UpdateMessageQueueRouteShrinkRequest extends Model
     /**
      * @var string
      */
+    public $grayBaseTagsShrink;
+
+    /**
+     * @var string
+     */
     public $namespace;
 
     /**
@@ -53,6 +58,7 @@ class UpdateMessageQueueRouteShrinkRequest extends Model
         'appName' => 'AppName',
         'enable' => 'Enable',
         'filterSide' => 'FilterSide',
+        'grayBaseTagsShrink' => 'GrayBaseTags',
         'namespace' => 'Namespace',
         'region' => 'Region',
         'tagsShrink' => 'Tags',
@@ -84,6 +90,10 @@ class UpdateMessageQueueRouteShrinkRequest extends Model
 
         if (null !== $this->filterSide) {
             $res['FilterSide'] = $this->filterSide;
+        }
+
+        if (null !== $this->grayBaseTagsShrink) {
+            $res['GrayBaseTags'] = $this->grayBaseTagsShrink;
         }
 
         if (null !== $this->namespace) {
@@ -127,6 +137,10 @@ class UpdateMessageQueueRouteShrinkRequest extends Model
 
         if (isset($map['FilterSide'])) {
             $model->filterSide = $map['FilterSide'];
+        }
+
+        if (isset($map['GrayBaseTags'])) {
+            $model->grayBaseTagsShrink = $map['GrayBaseTags'];
         }
 
         if (isset($map['Namespace'])) {

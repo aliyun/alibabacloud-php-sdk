@@ -24,6 +24,11 @@ class data extends Model
     public $filterSide;
 
     /**
+     * @var string[]
+     */
+    public $grayBaseTags;
+
+    /**
      * @var string
      */
     public $region;
@@ -36,12 +41,16 @@ class data extends Model
         'appId' => 'AppId',
         'enable' => 'Enable',
         'filterSide' => 'FilterSide',
+        'grayBaseTags' => 'GrayBaseTags',
         'region' => 'Region',
         'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (\is_array($this->grayBaseTags)) {
+            Model::validateArray($this->grayBaseTags);
+        }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
         }
@@ -61,6 +70,17 @@ class data extends Model
 
         if (null !== $this->filterSide) {
             $res['FilterSide'] = $this->filterSide;
+        }
+
+        if (null !== $this->grayBaseTags) {
+            if (\is_array($this->grayBaseTags)) {
+                $res['GrayBaseTags'] = [];
+                $n1 = 0;
+                foreach ($this->grayBaseTags as $item1) {
+                    $res['GrayBaseTags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->region) {
@@ -99,6 +119,17 @@ class data extends Model
 
         if (isset($map['FilterSide'])) {
             $model->filterSide = $map['FilterSide'];
+        }
+
+        if (isset($map['GrayBaseTags'])) {
+            if (!empty($map['GrayBaseTags'])) {
+                $model->grayBaseTags = [];
+                $n1 = 0;
+                foreach ($map['GrayBaseTags'] as $item1) {
+                    $model->grayBaseTags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Region'])) {

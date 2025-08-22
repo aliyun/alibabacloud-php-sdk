@@ -548,7 +548,6 @@ class Mse extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('mse', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -19262,6 +19261,10 @@ class Mse extends OpenApiClient
         $tmpReq->validate();
         $request = new UpdateMessageQueueRouteShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->grayBaseTags) {
+            $request->grayBaseTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->grayBaseTags, 'GrayBaseTags', 'json');
+        }
+
         if (null !== $tmpReq->tags) {
             $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
@@ -19285,6 +19288,10 @@ class Mse extends OpenApiClient
 
         if (null !== $request->filterSide) {
             @$query['FilterSide'] = $request->filterSide;
+        }
+
+        if (null !== $request->grayBaseTagsShrink) {
+            @$query['GrayBaseTags'] = $request->grayBaseTagsShrink;
         }
 
         if (null !== $request->namespace) {
