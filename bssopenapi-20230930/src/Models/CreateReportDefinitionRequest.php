@@ -16,6 +16,11 @@ class CreateReportDefinitionRequest extends Model
     /**
      * @var string
      */
+    public $includeMembers;
+
+    /**
+     * @var string
+     */
     public $mcProject;
 
     /**
@@ -27,6 +32,11 @@ class CreateReportDefinitionRequest extends Model
      * @var string
      */
     public $nbid;
+
+    /**
+     * @var string
+     */
+    public $notSendOnNoData;
 
     /**
      * @var string
@@ -52,16 +62,30 @@ class CreateReportDefinitionRequest extends Model
      * @var string
      */
     public $reportType;
+
+    /**
+     * @var string
+     */
+    public $sendWithAttach;
+
+    /**
+     * @var string
+     */
+    public $splitFileOnUserId;
     protected $_name = [
         'beginBillingCycle' => 'BeginBillingCycle',
+        'includeMembers' => 'IncludeMembers',
         'mcProject' => 'McProject',
         'mcTableName' => 'McTableName',
         'nbid' => 'Nbid',
+        'notSendOnNoData' => 'NotSendOnNoData',
         'ossBucketName' => 'OssBucketName',
         'ossBucketOwnerAccountId' => 'OssBucketOwnerAccountId',
         'ossBucketPath' => 'OssBucketPath',
         'reportSourceType' => 'ReportSourceType',
         'reportType' => 'ReportType',
+        'sendWithAttach' => 'SendWithAttach',
+        'splitFileOnUserId' => 'SplitFileOnUserId',
     ];
 
     public function validate()
@@ -76,6 +100,10 @@ class CreateReportDefinitionRequest extends Model
             $res['BeginBillingCycle'] = $this->beginBillingCycle;
         }
 
+        if (null !== $this->includeMembers) {
+            $res['IncludeMembers'] = $this->includeMembers;
+        }
+
         if (null !== $this->mcProject) {
             $res['McProject'] = $this->mcProject;
         }
@@ -86,6 +114,10 @@ class CreateReportDefinitionRequest extends Model
 
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
+        }
+
+        if (null !== $this->notSendOnNoData) {
+            $res['NotSendOnNoData'] = $this->notSendOnNoData;
         }
 
         if (null !== $this->ossBucketName) {
@@ -108,6 +140,14 @@ class CreateReportDefinitionRequest extends Model
             $res['ReportType'] = $this->reportType;
         }
 
+        if (null !== $this->sendWithAttach) {
+            $res['SendWithAttach'] = $this->sendWithAttach;
+        }
+
+        if (null !== $this->splitFileOnUserId) {
+            $res['SplitFileOnUserId'] = $this->splitFileOnUserId;
+        }
+
         return $res;
     }
 
@@ -123,6 +163,10 @@ class CreateReportDefinitionRequest extends Model
             $model->beginBillingCycle = $map['BeginBillingCycle'];
         }
 
+        if (isset($map['IncludeMembers'])) {
+            $model->includeMembers = $map['IncludeMembers'];
+        }
+
         if (isset($map['McProject'])) {
             $model->mcProject = $map['McProject'];
         }
@@ -133,6 +177,10 @@ class CreateReportDefinitionRequest extends Model
 
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
+        }
+
+        if (isset($map['NotSendOnNoData'])) {
+            $model->notSendOnNoData = $map['NotSendOnNoData'];
         }
 
         if (isset($map['OssBucketName'])) {
@@ -153,6 +201,14 @@ class CreateReportDefinitionRequest extends Model
 
         if (isset($map['ReportType'])) {
             $model->reportType = $map['ReportType'];
+        }
+
+        if (isset($map['SendWithAttach'])) {
+            $model->sendWithAttach = $map['SendWithAttach'];
+        }
+
+        if (isset($map['SplitFileOnUserId'])) {
+            $model->splitFileOnUserId = $map['SplitFileOnUserId'];
         }
 
         return $model;

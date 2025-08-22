@@ -848,8 +848,16 @@ class BssOpenApi extends OpenApiClient
             @$query['BeginBillingCycle'] = $request->beginBillingCycle;
         }
 
+        if (null !== $request->includeMembers) {
+            @$query['IncludeMembers'] = $request->includeMembers;
+        }
+
         if (null !== $request->nbid) {
             @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->notSendOnNoData) {
+            @$query['NotSendOnNoData'] = $request->notSendOnNoData;
         }
 
         if (null !== $request->ossBucketName) {
@@ -866,6 +874,14 @@ class BssOpenApi extends OpenApiClient
 
         if (null !== $request->reportType) {
             @$query['ReportType'] = $request->reportType;
+        }
+
+        if (null !== $request->sendWithAttach) {
+            @$query['SendWithAttach'] = $request->sendWithAttach;
+        }
+
+        if (null !== $request->splitFileOnUserId) {
+            @$query['SplitFileOnUserId'] = $request->splitFileOnUserId;
         }
 
         $body = [];
