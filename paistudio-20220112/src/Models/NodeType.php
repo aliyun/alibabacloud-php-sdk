@@ -16,6 +16,16 @@ class NodeType extends Model
     /**
      * @var string
      */
+    public $allocatableCPU;
+
+    /**
+     * @var string
+     */
+    public $allocatableMemory;
+
+    /**
+     * @var string
+     */
     public $CPU;
 
     /**
@@ -42,14 +52,28 @@ class NodeType extends Model
      * @var string
      */
     public $nodeType;
+
+    /**
+     * @var string
+     */
+    public $systemReservedCPU;
+
+    /**
+     * @var string
+     */
+    public $systemReservedMemory;
     protected $_name = [
         'acceleratorType' => 'AcceleratorType',
+        'allocatableCPU' => 'AllocatableCPU',
+        'allocatableMemory' => 'AllocatableMemory',
         'CPU' => 'CPU',
         'GPU' => 'GPU',
         'GPUMemory' => 'GPUMemory',
         'GPUType' => 'GPUType',
         'memory' => 'Memory',
         'nodeType' => 'NodeType',
+        'systemReservedCPU' => 'SystemReservedCPU',
+        'systemReservedMemory' => 'SystemReservedMemory',
     ];
 
     public function validate()
@@ -62,6 +86,14 @@ class NodeType extends Model
         $res = [];
         if (null !== $this->acceleratorType) {
             $res['AcceleratorType'] = $this->acceleratorType;
+        }
+
+        if (null !== $this->allocatableCPU) {
+            $res['AllocatableCPU'] = $this->allocatableCPU;
+        }
+
+        if (null !== $this->allocatableMemory) {
+            $res['AllocatableMemory'] = $this->allocatableMemory;
         }
 
         if (null !== $this->CPU) {
@@ -88,6 +120,14 @@ class NodeType extends Model
             $res['NodeType'] = $this->nodeType;
         }
 
+        if (null !== $this->systemReservedCPU) {
+            $res['SystemReservedCPU'] = $this->systemReservedCPU;
+        }
+
+        if (null !== $this->systemReservedMemory) {
+            $res['SystemReservedMemory'] = $this->systemReservedMemory;
+        }
+
         return $res;
     }
 
@@ -101,6 +141,14 @@ class NodeType extends Model
         $model = new self();
         if (isset($map['AcceleratorType'])) {
             $model->acceleratorType = $map['AcceleratorType'];
+        }
+
+        if (isset($map['AllocatableCPU'])) {
+            $model->allocatableCPU = $map['AllocatableCPU'];
+        }
+
+        if (isset($map['AllocatableMemory'])) {
+            $model->allocatableMemory = $map['AllocatableMemory'];
         }
 
         if (isset($map['CPU'])) {
@@ -125,6 +173,14 @@ class NodeType extends Model
 
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
+        }
+
+        if (isset($map['SystemReservedCPU'])) {
+            $model->systemReservedCPU = $map['SystemReservedCPU'];
+        }
+
+        if (isset($map['SystemReservedMemory'])) {
+            $model->systemReservedMemory = $map['SystemReservedMemory'];
         }
 
         return $model;

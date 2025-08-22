@@ -16,6 +16,11 @@ class QuotaDetails extends Model
     /**
      * @var ResourceAmount
      */
+    public $allocatableQuota;
+
+    /**
+     * @var ResourceAmount
+     */
     public $allocatedQuota;
 
     /**
@@ -51,9 +56,15 @@ class QuotaDetails extends Model
     /**
      * @var ResourceAmount
      */
+    public $systemReservedQuota;
+
+    /**
+     * @var ResourceAmount
+     */
     public $usedQuota;
     protected $_name = [
         'actualMinQuota' => 'ActualMinQuota',
+        'allocatableQuota' => 'AllocatableQuota',
         'allocatedQuota' => 'AllocatedQuota',
         'ancestorsAllocatedQuota' => 'AncestorsAllocatedQuota',
         'descendantsAllocatedQuota' => 'DescendantsAllocatedQuota',
@@ -61,6 +72,7 @@ class QuotaDetails extends Model
         'requestedQuota' => 'RequestedQuota',
         'selfAllocatedQuota' => 'SelfAllocatedQuota',
         'selfSubmittedQuota' => 'SelfSubmittedQuota',
+        'systemReservedQuota' => 'SystemReservedQuota',
         'usedQuota' => 'UsedQuota',
     ];
 
@@ -68,6 +80,9 @@ class QuotaDetails extends Model
     {
         if (null !== $this->actualMinQuota) {
             $this->actualMinQuota->validate();
+        }
+        if (null !== $this->allocatableQuota) {
+            $this->allocatableQuota->validate();
         }
         if (null !== $this->allocatedQuota) {
             $this->allocatedQuota->validate();
@@ -90,6 +105,9 @@ class QuotaDetails extends Model
         if (null !== $this->selfSubmittedQuota) {
             $this->selfSubmittedQuota->validate();
         }
+        if (null !== $this->systemReservedQuota) {
+            $this->systemReservedQuota->validate();
+        }
         if (null !== $this->usedQuota) {
             $this->usedQuota->validate();
         }
@@ -101,6 +119,10 @@ class QuotaDetails extends Model
         $res = [];
         if (null !== $this->actualMinQuota) {
             $res['ActualMinQuota'] = null !== $this->actualMinQuota ? $this->actualMinQuota->toArray($noStream) : $this->actualMinQuota;
+        }
+
+        if (null !== $this->allocatableQuota) {
+            $res['AllocatableQuota'] = null !== $this->allocatableQuota ? $this->allocatableQuota->toArray($noStream) : $this->allocatableQuota;
         }
 
         if (null !== $this->allocatedQuota) {
@@ -131,6 +153,10 @@ class QuotaDetails extends Model
             $res['SelfSubmittedQuota'] = null !== $this->selfSubmittedQuota ? $this->selfSubmittedQuota->toArray($noStream) : $this->selfSubmittedQuota;
         }
 
+        if (null !== $this->systemReservedQuota) {
+            $res['SystemReservedQuota'] = null !== $this->systemReservedQuota ? $this->systemReservedQuota->toArray($noStream) : $this->systemReservedQuota;
+        }
+
         if (null !== $this->usedQuota) {
             $res['UsedQuota'] = null !== $this->usedQuota ? $this->usedQuota->toArray($noStream) : $this->usedQuota;
         }
@@ -148,6 +174,10 @@ class QuotaDetails extends Model
         $model = new self();
         if (isset($map['ActualMinQuota'])) {
             $model->actualMinQuota = ResourceAmount::fromMap($map['ActualMinQuota']);
+        }
+
+        if (isset($map['AllocatableQuota'])) {
+            $model->allocatableQuota = ResourceAmount::fromMap($map['AllocatableQuota']);
         }
 
         if (isset($map['AllocatedQuota'])) {
@@ -176,6 +206,10 @@ class QuotaDetails extends Model
 
         if (isset($map['SelfSubmittedQuota'])) {
             $model->selfSubmittedQuota = ResourceAmount::fromMap($map['SelfSubmittedQuota']);
+        }
+
+        if (isset($map['SystemReservedQuota'])) {
+            $model->systemReservedQuota = ResourceAmount::fromMap($map['SystemReservedQuota']);
         }
 
         if (isset($map['UsedQuota'])) {

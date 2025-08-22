@@ -16,6 +16,16 @@ class Node extends Model
     /**
      * @var string
      */
+    public $allocatableCPU;
+
+    /**
+     * @var string
+     */
+    public $allocatableMemory;
+
+    /**
+     * @var string
+     */
     public $availabilityZone;
 
     /**
@@ -159,6 +169,16 @@ class Node extends Model
     public $resourceGroupName;
 
     /**
+     * @var string
+     */
+    public $systemReservedCPU;
+
+    /**
+     * @var string
+     */
+    public $systemReservedMemory;
+
+    /**
      * @var UserInfo[]
      */
     public $users;
@@ -169,6 +189,8 @@ class Node extends Model
     public $workloadNum;
     protected $_name = [
         'acceleratorType' => 'AcceleratorType',
+        'allocatableCPU' => 'AllocatableCPU',
+        'allocatableMemory' => 'AllocatableMemory',
         'availabilityZone' => 'AvailabilityZone',
         'boundQuotas' => 'BoundQuotas',
         'CPU' => 'CPU',
@@ -198,6 +220,8 @@ class Node extends Model
         'requestMemory' => 'RequestMemory',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceGroupName' => 'ResourceGroupName',
+        'systemReservedCPU' => 'SystemReservedCPU',
+        'systemReservedMemory' => 'SystemReservedMemory',
         'users' => 'Users',
         'workloadNum' => 'WorkloadNum',
     ];
@@ -218,6 +242,14 @@ class Node extends Model
         $res = [];
         if (null !== $this->acceleratorType) {
             $res['AcceleratorType'] = $this->acceleratorType;
+        }
+
+        if (null !== $this->allocatableCPU) {
+            $res['AllocatableCPU'] = $this->allocatableCPU;
+        }
+
+        if (null !== $this->allocatableMemory) {
+            $res['AllocatableMemory'] = $this->allocatableMemory;
         }
 
         if (null !== $this->availabilityZone) {
@@ -343,6 +375,14 @@ class Node extends Model
             $res['ResourceGroupName'] = $this->resourceGroupName;
         }
 
+        if (null !== $this->systemReservedCPU) {
+            $res['SystemReservedCPU'] = $this->systemReservedCPU;
+        }
+
+        if (null !== $this->systemReservedMemory) {
+            $res['SystemReservedMemory'] = $this->systemReservedMemory;
+        }
+
         if (null !== $this->users) {
             if (\is_array($this->users)) {
                 $res['Users'] = [];
@@ -371,6 +411,14 @@ class Node extends Model
         $model = new self();
         if (isset($map['AcceleratorType'])) {
             $model->acceleratorType = $map['AcceleratorType'];
+        }
+
+        if (isset($map['AllocatableCPU'])) {
+            $model->allocatableCPU = $map['AllocatableCPU'];
+        }
+
+        if (isset($map['AllocatableMemory'])) {
+            $model->allocatableMemory = $map['AllocatableMemory'];
         }
 
         if (isset($map['AvailabilityZone'])) {
@@ -494,6 +542,14 @@ class Node extends Model
 
         if (isset($map['ResourceGroupName'])) {
             $model->resourceGroupName = $map['ResourceGroupName'];
+        }
+
+        if (isset($map['SystemReservedCPU'])) {
+            $model->systemReservedCPU = $map['SystemReservedCPU'];
+        }
+
+        if (isset($map['SystemReservedMemory'])) {
+            $model->systemReservedMemory = $map['SystemReservedMemory'];
         }
 
         if (isset($map['Users'])) {

@@ -11,6 +11,16 @@ class MachineGroup extends Model
     /**
      * @var int
      */
+    public $allocatableCpu;
+
+    /**
+     * @var int
+     */
+    public $allocatableMemory;
+
+    /**
+     * @var int
+     */
     public $cpu;
 
     /**
@@ -137,7 +147,19 @@ class MachineGroup extends Model
      * @var string[]
      */
     public $supportedDrivers;
+
+    /**
+     * @var int
+     */
+    public $systemReservedCpu;
+
+    /**
+     * @var int
+     */
+    public $systemReservedMemory;
     protected $_name = [
+        'allocatableCpu' => 'AllocatableCpu',
+        'allocatableMemory' => 'AllocatableMemory',
         'cpu' => 'Cpu',
         'creatorID' => 'CreatorID',
         'defaultDriver' => 'DefaultDriver',
@@ -164,6 +186,8 @@ class MachineGroup extends Model
         'resourceType' => 'ResourceType',
         'status' => 'Status',
         'supportedDrivers' => 'SupportedDrivers',
+        'systemReservedCpu' => 'SystemReservedCpu',
+        'systemReservedMemory' => 'SystemReservedMemory',
     ];
 
     public function validate()
@@ -177,6 +201,14 @@ class MachineGroup extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allocatableCpu) {
+            $res['AllocatableCpu'] = $this->allocatableCpu;
+        }
+
+        if (null !== $this->allocatableMemory) {
+            $res['AllocatableMemory'] = $this->allocatableMemory;
+        }
+
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
@@ -288,6 +320,14 @@ class MachineGroup extends Model
             }
         }
 
+        if (null !== $this->systemReservedCpu) {
+            $res['SystemReservedCpu'] = $this->systemReservedCpu;
+        }
+
+        if (null !== $this->systemReservedMemory) {
+            $res['SystemReservedMemory'] = $this->systemReservedMemory;
+        }
+
         return $res;
     }
 
@@ -299,6 +339,14 @@ class MachineGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllocatableCpu'])) {
+            $model->allocatableCpu = $map['AllocatableCpu'];
+        }
+
+        if (isset($map['AllocatableMemory'])) {
+            $model->allocatableMemory = $map['AllocatableMemory'];
+        }
+
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
@@ -408,6 +456,14 @@ class MachineGroup extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SystemReservedCpu'])) {
+            $model->systemReservedCpu = $map['SystemReservedCpu'];
+        }
+
+        if (isset($map['SystemReservedMemory'])) {
+            $model->systemReservedMemory = $map['SystemReservedMemory'];
         }
 
         return $model;
