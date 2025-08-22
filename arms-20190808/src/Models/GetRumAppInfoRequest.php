@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRumAppInfoRequest extends Model
 {
     /**
-     * @description The group to which the application belongs.
-     *
-     * @example default
-     *
      * @var string
      */
     public $appGroup;
 
     /**
-     * @description The process ID (PID) of the application.
-     *
-     * This parameter is required.
-     *
-     * @example atc889zkcf@d8deedfa9bf****
-     *
      * @var string
      */
     public $pid;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -44,17 +28,22 @@ class GetRumAppInfoRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appGroup) {
             $res['AppGroup'] = $this->appGroup;
         }
+
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -62,20 +51,22 @@ class GetRumAppInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRumAppInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppGroup'])) {
             $model->appGroup = $map['AppGroup'];
         }
+
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

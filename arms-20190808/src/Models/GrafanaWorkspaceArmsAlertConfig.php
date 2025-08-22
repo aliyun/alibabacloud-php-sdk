@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GrafanaWorkspaceArmsAlertConfig extends Model
 {
     /**
-     * @example true
-     *
      * @var string
      */
     public $armsAlertsEnable;
@@ -24,14 +22,18 @@ class GrafanaWorkspaceArmsAlertConfig extends Model
         'armsAlertsWebhookUrl' => 'armsAlertsWebhookUrl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->armsAlertsEnable) {
             $res['armsAlertsEnable'] = $this->armsAlertsEnable;
         }
+
         if (null !== $this->armsAlertsWebhookUrl) {
             $res['armsAlertsWebhookUrl'] = $this->armsAlertsWebhookUrl;
         }
@@ -39,17 +41,18 @@ class GrafanaWorkspaceArmsAlertConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GrafanaWorkspaceArmsAlertConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['armsAlertsEnable'])) {
             $model->armsAlertsEnable = $map['armsAlertsEnable'];
         }
+
         if (isset($map['armsAlertsWebhookUrl'])) {
             $model->armsAlertsWebhookUrl = $map['armsAlertsWebhookUrl'];
         }

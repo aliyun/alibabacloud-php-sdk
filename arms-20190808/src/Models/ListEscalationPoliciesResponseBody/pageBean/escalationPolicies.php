@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEscalationPoliciesResponseBody\pageBean;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class escalationPolicies extends Model
 {
     /**
-     * @description The ID of the escalation policy.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The name of the escalation policy.
-     *
-     * @example prod escalation policy
-     *
      * @var string
      */
     public $name;
@@ -30,14 +22,18 @@ class escalationPolicies extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -45,17 +41,18 @@ class escalationPolicies extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return escalationPolicies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

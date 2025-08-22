@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeTraceLicenseKeyResponseBody extends Model
 {
     /**
-     * @description The license key for the application.
-     *
-     * @example b590lhguqs@3a75d95f218****
-     *
      * @var string
      */
     public $licenseKey;
 
     /**
-     * @description The request ID.
-     *
-     * @example 29053944-6FE5-4240-8927-10095ECE****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class DescribeTraceLicenseKeyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->licenseKey) {
             $res['LicenseKey'] = $this->licenseKey;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class DescribeTraceLicenseKeyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTraceLicenseKeyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LicenseKey'])) {
             $model->licenseKey = $map['LicenseKey'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

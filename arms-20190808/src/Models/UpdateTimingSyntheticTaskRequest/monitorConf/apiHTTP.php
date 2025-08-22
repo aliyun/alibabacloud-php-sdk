@@ -4,86 +4,47 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateTimingSyntheticTaskRequest\monitorConf;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateTimingSyntheticTaskRequest\monitorConf\apiHTTP\requestBody;
-use AlibabaCloud\Tea\Model;
 
 class apiHTTP extends Model
 {
     /**
-     * @description Specifies whether to verify the certificate. Default value: false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $checkCert;
 
     /**
-     * @description The connection timeout period. Unit: milliseconds. Default value: 5000. Minimum value: 1000. Maximum value: 300000.
-     *
-     * @example 5000
-     *
      * @var int
      */
     public $connectTimeout;
 
     /**
-     * @description The request method. Valid values:
-     *
-     *   POST
-     *   GET
-     *
-     * @example POST
-     *
      * @var string
      */
     public $method;
 
     /**
-     * @description The ALPN protocol version. You can configure this parameter when you perform an HTTPS synthetic test on a WAP mobile client. Valid values:
-     *
-     * 0: default
-     *
-     * 1-http/1.1
-     *
-     * 2-h2
-     *
-     * 3: disables the ALPN protocol
-     *
-     * @example 0
-     *
      * @var int
      */
     public $protocolAlpnProtocol;
 
     /**
-     * @description The HTTP request body.
-     *
      * @var requestBody
      */
     public $requestBody;
 
     /**
-     * @description The custom header field.
-     *
      * @var string[]
      */
     public $requestHeaders;
 
     /**
-     * @description The URL or request path for synthetic monitoring.
-     *
-     * @example https://********
-     *
      * @var string
      */
     public $targetUrl;
 
     /**
-     * @description The timeout period. Unit: milliseconds. Default value: 10000. Minimum value: 1000. Maximum value: 300000.
-     *
-     * @example 5000
-     *
      * @var int
      */
     public $timeout;
@@ -98,32 +59,53 @@ class apiHTTP extends Model
         'timeout' => 'Timeout',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->requestBody) {
+            $this->requestBody->validate();
+        }
+        if (\is_array($this->requestHeaders)) {
+            Model::validateArray($this->requestHeaders);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkCert) {
             $res['CheckCert'] = $this->checkCert;
         }
+
         if (null !== $this->connectTimeout) {
             $res['ConnectTimeout'] = $this->connectTimeout;
         }
+
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
+
         if (null !== $this->protocolAlpnProtocol) {
             $res['ProtocolAlpnProtocol'] = $this->protocolAlpnProtocol;
         }
+
         if (null !== $this->requestBody) {
-            $res['RequestBody'] = null !== $this->requestBody ? $this->requestBody->toMap() : null;
+            $res['RequestBody'] = null !== $this->requestBody ? $this->requestBody->toArray($noStream) : $this->requestBody;
         }
+
         if (null !== $this->requestHeaders) {
-            $res['RequestHeaders'] = $this->requestHeaders;
+            if (\is_array($this->requestHeaders)) {
+                $res['RequestHeaders'] = [];
+                foreach ($this->requestHeaders as $key1 => $value1) {
+                    $res['RequestHeaders'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->targetUrl) {
             $res['TargetUrl'] = $this->targetUrl;
         }
+
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
         }
@@ -131,35 +113,47 @@ class apiHTTP extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apiHTTP
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckCert'])) {
             $model->checkCert = $map['CheckCert'];
         }
+
         if (isset($map['ConnectTimeout'])) {
             $model->connectTimeout = $map['ConnectTimeout'];
         }
+
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }
+
         if (isset($map['ProtocolAlpnProtocol'])) {
             $model->protocolAlpnProtocol = $map['ProtocolAlpnProtocol'];
         }
+
         if (isset($map['RequestBody'])) {
             $model->requestBody = requestBody::fromMap($map['RequestBody']);
         }
+
         if (isset($map['RequestHeaders'])) {
-            $model->requestHeaders = $map['RequestHeaders'];
+            if (!empty($map['RequestHeaders'])) {
+                $model->requestHeaders = [];
+                foreach ($map['RequestHeaders'] as $key1 => $value1) {
+                    $model->requestHeaders[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['TargetUrl'])) {
             $model->targetUrl = $map['TargetUrl'];
         }
+
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
         }

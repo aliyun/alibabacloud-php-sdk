@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppInfoResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppInfoResponseBody\data\bonreeSDKConfig\moduleConfig;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppInfoResponseBody\data\bonreeSDKConfig\samplingConfig;
-use AlibabaCloud\Tea\Model;
 
 class bonreeSDKConfig extends Model
 {
     /**
-     * @description The module configuration.
-     *
      * @var moduleConfig
      */
     public $moduleConfig;
 
     /**
-     * @description Sampling configuration.
-     *
      * @var samplingConfig
      */
     public $samplingConfig;
@@ -28,32 +24,43 @@ class bonreeSDKConfig extends Model
         'samplingConfig' => 'samplingConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->moduleConfig) {
+            $this->moduleConfig->validate();
+        }
+        if (null !== $this->samplingConfig) {
+            $this->samplingConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->moduleConfig) {
-            $res['moduleConfig'] = null !== $this->moduleConfig ? $this->moduleConfig->toMap() : null;
+            $res['moduleConfig'] = null !== $this->moduleConfig ? $this->moduleConfig->toArray($noStream) : $this->moduleConfig;
         }
+
         if (null !== $this->samplingConfig) {
-            $res['samplingConfig'] = null !== $this->samplingConfig ? $this->samplingConfig->toMap() : null;
+            $res['samplingConfig'] = null !== $this->samplingConfig ? $this->samplingConfig->toArray($noStream) : $this->samplingConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bonreeSDKConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['moduleConfig'])) {
             $model->moduleConfig = moduleConfig::fromMap($map['moduleConfig']);
         }
+
         if (isset($map['samplingConfig'])) {
             $model->samplingConfig = samplingConfig::fromMap($map['samplingConfig']);
         }

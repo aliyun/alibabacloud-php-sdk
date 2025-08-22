@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusAlertTemplatesResponseBody\prometheusAlertTemplates;
-use AlibabaCloud\Tea\Model;
 
 class ListPrometheusAlertTemplatesResponseBody extends Model
 {
     /**
-     * @description The returned struct.
-     *
      * @var prometheusAlertTemplates[]
      */
     public $prometheusAlertTemplates;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 9FEA6D00-317F-45E3-9004-7FB8B0B7****
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class ListPrometheusAlertTemplatesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->prometheusAlertTemplates)) {
+            Model::validateArray($this->prometheusAlertTemplates);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->prometheusAlertTemplates) {
-            $res['PrometheusAlertTemplates'] = [];
-            if (null !== $this->prometheusAlertTemplates && \is_array($this->prometheusAlertTemplates)) {
-                $n = 0;
-                foreach ($this->prometheusAlertTemplates as $item) {
-                    $res['PrometheusAlertTemplates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->prometheusAlertTemplates)) {
+                $res['PrometheusAlertTemplates'] = [];
+                $n1 = 0;
+                foreach ($this->prometheusAlertTemplates as $item1) {
+                    $res['PrometheusAlertTemplates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class ListPrometheusAlertTemplatesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPrometheusAlertTemplatesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrometheusAlertTemplates'])) {
             if (!empty($map['PrometheusAlertTemplates'])) {
                 $model->prometheusAlertTemplates = [];
-                $n = 0;
-                foreach ($map['PrometheusAlertTemplates'] as $item) {
-                    $model->prometheusAlertTemplates[$n++] = null !== $item ? prometheusAlertTemplates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PrometheusAlertTemplates'] as $item1) {
+                    $model->prometheusAlertTemplates[$n1] = prometheusAlertTemplates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

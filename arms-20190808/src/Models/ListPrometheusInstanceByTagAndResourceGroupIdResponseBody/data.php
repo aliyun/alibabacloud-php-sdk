@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusInstanceByTagAndResourceGroupIdResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusInstanceByTagAndResourceGroupIdResponseBody\data\prometheusInstances;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The queried Prometheus instances.
-     *
      * @var prometheusInstances[]
      */
     public $prometheusInstances;
@@ -19,17 +17,24 @@ class data extends Model
         'prometheusInstances' => 'PrometheusInstances',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->prometheusInstances)) {
+            Model::validateArray($this->prometheusInstances);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->prometheusInstances) {
-            $res['PrometheusInstances'] = [];
-            if (null !== $this->prometheusInstances && \is_array($this->prometheusInstances)) {
-                $n = 0;
-                foreach ($this->prometheusInstances as $item) {
-                    $res['PrometheusInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->prometheusInstances)) {
+                $res['PrometheusInstances'] = [];
+                $n1 = 0;
+                foreach ($this->prometheusInstances as $item1) {
+                    $res['PrometheusInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrometheusInstances'])) {
             if (!empty($map['PrometheusInstances'])) {
                 $model->prometheusInstances = [];
-                $n = 0;
-                foreach ($map['PrometheusInstances'] as $item) {
-                    $model->prometheusInstances[$n++] = null !== $item ? prometheusInstances::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PrometheusInstances'] as $item1) {
+                    $model->prometheusInstances[$n1] = prometheusInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

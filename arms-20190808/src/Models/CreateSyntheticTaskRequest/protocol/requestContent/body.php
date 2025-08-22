@@ -4,59 +4,33 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\CreateSyntheticTaskRequest\protocol\requestContent;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateSyntheticTaskRequest\protocol\requestContent\body\formData;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateSyntheticTaskRequest\protocol\requestContent\body\urlEncoding;
-use AlibabaCloud\Tea\Model;
 
 class body extends Model
 {
     /**
-     * @description The data that is passed when the **Mode** parameter is set to **form-data**.
-     *
      * @var formData[]
      */
     public $formData;
 
     /**
-     * @description The language that is selected when the Mode parameter is set to raw.
-     *
-     *   json
-     *   xml
-     *   javascript
-     *   html
-     *   text
-     *
-     * @example json
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description The data type of the content.
-     *
-     *   form-data
-     *   x-www-form-urlencoded
-     *   raw
-     *
-     * @example form-data
-     *
      * @var string
      */
     public $mode;
 
     /**
-     * @description The data that is passed when the **Mode** parameter is set to **raw**.
-     *
-     * @example content
-     *
      * @var string
      */
     public $raw;
 
     /**
-     * @description The data that is passed when the **Mode** parameter is set to **x-www-form-urlencoded**.
-     *
      * @var urlEncoding[]
      */
     public $urlEncoding;
@@ -68,35 +42,50 @@ class body extends Model
         'urlEncoding' => 'UrlEncoding',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->formData)) {
+            Model::validateArray($this->formData);
+        }
+        if (\is_array($this->urlEncoding)) {
+            Model::validateArray($this->urlEncoding);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->formData) {
-            $res['FormData'] = [];
-            if (null !== $this->formData && \is_array($this->formData)) {
-                $n = 0;
-                foreach ($this->formData as $item) {
-                    $res['FormData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->formData)) {
+                $res['FormData'] = [];
+                $n1 = 0;
+                foreach ($this->formData as $item1) {
+                    $res['FormData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->raw) {
             $res['Raw'] = $this->raw;
         }
+
         if (null !== $this->urlEncoding) {
-            $res['UrlEncoding'] = [];
-            if (null !== $this->urlEncoding && \is_array($this->urlEncoding)) {
-                $n = 0;
-                foreach ($this->urlEncoding as $item) {
-                    $res['UrlEncoding'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->urlEncoding)) {
+                $res['UrlEncoding'] = [];
+                $n1 = 0;
+                foreach ($this->urlEncoding as $item1) {
+                    $res['UrlEncoding'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,38 +93,44 @@ class body extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return body
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FormData'])) {
             if (!empty($map['FormData'])) {
                 $model->formData = [];
-                $n = 0;
-                foreach ($map['FormData'] as $item) {
-                    $model->formData[$n++] = null !== $item ? formData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FormData'] as $item1) {
+                    $model->formData[$n1] = formData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['Raw'])) {
             $model->raw = $map['Raw'];
         }
+
         if (isset($map['UrlEncoding'])) {
             if (!empty($map['UrlEncoding'])) {
                 $model->urlEncoding = [];
-                $n = 0;
-                foreach ($map['UrlEncoding'] as $item) {
-                    $model->urlEncoding[$n++] = null !== $item ? urlEncoding::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UrlEncoding'] as $item1) {
+                    $model->urlEncoding[$n1] = urlEncoding::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,127 +4,72 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskRequest\availableAssertions;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskRequest\commonSetting;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskRequest\customPeriod;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskRequest\monitorConf;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskRequest\monitors;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskRequest\tags;
-use AlibabaCloud\Tea\Model;
 
 class CreateTimingSyntheticTaskRequest extends Model
 {
     /**
-     * @description The list of assertions.
-     *
      * @var availableAssertions[]
      */
     public $availableAssertions;
 
     /**
-     * @description The general settings.
-     *
      * @var commonSetting
      */
     public $commonSetting;
 
     /**
-     * @description The general settings.
-     *
      * @var customPeriod
      */
     public $customPeriod;
 
     /**
-     * @description The detection frequency. Valid values: 1m, 5m, 10m, 15m, 20m, 30m, 1h, 2h, 3h, 4h, 6h, 8h, 12h, and 24h.
-     *
-     * This parameter is required.
-     *
-     * @example 5m
-     *
      * @var string
      */
     public $frequency;
 
     /**
-     * @description The detection point type. Valid values:
-     *
-     * - 1: PC
-     * - 2: mobile device
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $monitorCategory;
 
     /**
-     * @description The monitoring configurations.
-     *
-     * This parameter is required.
-     *
      * @var monitorConf
      */
     public $monitorConf;
 
     /**
-     * @description The list of detection points.
-     *
-     * This parameter is required.
-     *
      * @var monitors[]
      */
     public $monitors;
 
     /**
-     * @description The name of the task.
-     *
-     * This parameter is required.
-     *
-     * @example demo-test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The parameter is optional.
-     *
-     * @example xxxx
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The tag list.
-     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The type of the task. Valid values:
-     *
-     * 1: ICMP. 2: TCP. 3: DNS. 4: HTTP. 5: website speed measurement. 6: file download.
-     *
-     * This parameter is required.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $taskType;
@@ -143,62 +88,97 @@ class CreateTimingSyntheticTaskRequest extends Model
         'taskType' => 'TaskType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->availableAssertions)) {
+            Model::validateArray($this->availableAssertions);
+        }
+        if (null !== $this->commonSetting) {
+            $this->commonSetting->validate();
+        }
+        if (null !== $this->customPeriod) {
+            $this->customPeriod->validate();
+        }
+        if (null !== $this->monitorConf) {
+            $this->monitorConf->validate();
+        }
+        if (\is_array($this->monitors)) {
+            Model::validateArray($this->monitors);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableAssertions) {
-            $res['AvailableAssertions'] = [];
-            if (null !== $this->availableAssertions && \is_array($this->availableAssertions)) {
-                $n = 0;
-                foreach ($this->availableAssertions as $item) {
-                    $res['AvailableAssertions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->availableAssertions)) {
+                $res['AvailableAssertions'] = [];
+                $n1 = 0;
+                foreach ($this->availableAssertions as $item1) {
+                    $res['AvailableAssertions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->commonSetting) {
-            $res['CommonSetting'] = null !== $this->commonSetting ? $this->commonSetting->toMap() : null;
+            $res['CommonSetting'] = null !== $this->commonSetting ? $this->commonSetting->toArray($noStream) : $this->commonSetting;
         }
+
         if (null !== $this->customPeriod) {
-            $res['CustomPeriod'] = null !== $this->customPeriod ? $this->customPeriod->toMap() : null;
+            $res['CustomPeriod'] = null !== $this->customPeriod ? $this->customPeriod->toArray($noStream) : $this->customPeriod;
         }
+
         if (null !== $this->frequency) {
             $res['Frequency'] = $this->frequency;
         }
+
         if (null !== $this->monitorCategory) {
             $res['MonitorCategory'] = $this->monitorCategory;
         }
+
         if (null !== $this->monitorConf) {
-            $res['MonitorConf'] = null !== $this->monitorConf ? $this->monitorConf->toMap() : null;
+            $res['MonitorConf'] = null !== $this->monitorConf ? $this->monitorConf->toArray($noStream) : $this->monitorConf;
         }
+
         if (null !== $this->monitors) {
-            $res['Monitors'] = [];
-            if (null !== $this->monitors && \is_array($this->monitors)) {
-                $n = 0;
-                foreach ($this->monitors as $item) {
-                    $res['Monitors'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->monitors)) {
+                $res['Monitors'] = [];
+                $n1 = 0;
+                foreach ($this->monitors as $item1) {
+                    $res['Monitors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -206,65 +186,79 @@ class CreateTimingSyntheticTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTimingSyntheticTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableAssertions'])) {
             if (!empty($map['AvailableAssertions'])) {
                 $model->availableAssertions = [];
-                $n = 0;
-                foreach ($map['AvailableAssertions'] as $item) {
-                    $model->availableAssertions[$n++] = null !== $item ? availableAssertions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AvailableAssertions'] as $item1) {
+                    $model->availableAssertions[$n1] = availableAssertions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['CommonSetting'])) {
             $model->commonSetting = commonSetting::fromMap($map['CommonSetting']);
         }
+
         if (isset($map['CustomPeriod'])) {
             $model->customPeriod = customPeriod::fromMap($map['CustomPeriod']);
         }
+
         if (isset($map['Frequency'])) {
             $model->frequency = $map['Frequency'];
         }
+
         if (isset($map['MonitorCategory'])) {
             $model->monitorCategory = $map['MonitorCategory'];
         }
+
         if (isset($map['MonitorConf'])) {
             $model->monitorConf = monitorConf::fromMap($map['MonitorConf']);
         }
+
         if (isset($map['Monitors'])) {
             if (!empty($map['Monitors'])) {
                 $model->monitors = [];
-                $n = 0;
-                foreach ($map['Monitors'] as $item) {
-                    $model->monitors[$n++] = null !== $item ? monitors::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Monitors'] as $item1) {
+                    $model->monitors[$n1] = monitors::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

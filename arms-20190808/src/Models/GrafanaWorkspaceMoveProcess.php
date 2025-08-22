@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GrafanaWorkspaceMoveProcess extends Model
 {
     /**
-     * @example 1680861352600
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @example 1680861352600
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @example grafana-cn-**********
-     *
      * @var string
      */
     public $grafanaWorkspaceId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $id;
@@ -52,8 +44,6 @@ class GrafanaWorkspaceMoveProcess extends Model
     public $processStatus;
 
     /**
-     * @example User
-     *
      * @var string
      */
     public $subType;
@@ -74,35 +64,46 @@ class GrafanaWorkspaceMoveProcess extends Model
         'userId' => 'userId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->gmtModified) {
             $res['gmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->grafanaWorkspaceId) {
             $res['grafanaWorkspaceId'] = $this->grafanaWorkspaceId;
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->msg) {
             $res['msg'] = $this->msg;
         }
+
         if (null !== $this->processName) {
             $res['processName'] = $this->processName;
         }
+
         if (null !== $this->processStatus) {
             $res['processStatus'] = $this->processStatus;
         }
+
         if (null !== $this->subType) {
             $res['subType'] = $this->subType;
         }
+
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
@@ -110,38 +111,46 @@ class GrafanaWorkspaceMoveProcess extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GrafanaWorkspaceMoveProcess
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
         }
+
         if (isset($map['gmtModified'])) {
             $model->gmtModified = $map['gmtModified'];
         }
+
         if (isset($map['grafanaWorkspaceId'])) {
             $model->grafanaWorkspaceId = $map['grafanaWorkspaceId'];
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['msg'])) {
             $model->msg = $map['msg'];
         }
+
         if (isset($map['processName'])) {
             $model->processName = $map['processName'];
         }
+
         if (isset($map['processStatus'])) {
             $model->processStatus = $map['processStatus'];
         }
+
         if (isset($map['subType'])) {
             $model->subType = $map['subType'];
         }
+
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }

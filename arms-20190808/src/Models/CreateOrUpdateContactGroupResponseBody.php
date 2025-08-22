@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateContactGroupResponseBody\alertContactGroup;
-use AlibabaCloud\Tea\Model;
 
 class CreateOrUpdateContactGroupResponseBody extends Model
 {
     /**
-     * @description The information about the alert contact group.
-     *
      * @var alertContactGroup
      */
     public $alertContactGroup;
 
     /**
-     * @description The request ID.
-     *
-     * @example 9319A57D-2D9E-472A-B69B-CF3CD16D****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class CreateOrUpdateContactGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->alertContactGroup) {
+            $this->alertContactGroup->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertContactGroup) {
-            $res['AlertContactGroup'] = null !== $this->alertContactGroup ? $this->alertContactGroup->toMap() : null;
+            $res['AlertContactGroup'] = null !== $this->alertContactGroup ? $this->alertContactGroup->toArray($noStream) : $this->alertContactGroup;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class CreateOrUpdateContactGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateOrUpdateContactGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertContactGroup'])) {
             $model->alertContactGroup = alertContactGroup::fromMap($map['AlertContactGroup']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

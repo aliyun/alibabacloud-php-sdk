@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateEventBridgeIntegrationResponseBody\eventBridgeIntegration;
-use AlibabaCloud\Tea\Model;
 
 class CreateOrUpdateEventBridgeIntegrationResponseBody extends Model
 {
     /**
-     * @description The information about the EventBridge integration.
-     *
      * @var eventBridgeIntegration
      */
     public $eventBridgeIntegration;
 
     /**
-     * @description The request ID.
-     *
-     * @example 2B289756-E791-5842-BCBD-AD414C******
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class CreateOrUpdateEventBridgeIntegrationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->eventBridgeIntegration) {
+            $this->eventBridgeIntegration->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventBridgeIntegration) {
-            $res['EventBridgeIntegration'] = null !== $this->eventBridgeIntegration ? $this->eventBridgeIntegration->toMap() : null;
+            $res['EventBridgeIntegration'] = null !== $this->eventBridgeIntegration ? $this->eventBridgeIntegration->toArray($noStream) : $this->eventBridgeIntegration;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class CreateOrUpdateEventBridgeIntegrationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateOrUpdateEventBridgeIntegrationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventBridgeIntegration'])) {
             $model->eventBridgeIntegration = eventBridgeIntegration::fromMap($map['EventBridgeIntegration']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

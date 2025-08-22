@@ -4,48 +4,26 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class availableAssertions extends Model
 {
     /**
-     * @description The expected value.
-     *
-     * This parameter is required.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $expect;
 
     /**
-     * @description The condition. gt: greater than. gte: greater than or equal to. lt: less than. lte: less than or equal to. eq: equal to. neq: not equal to. ctn: contain. nctn: does not contain. exist: exist. n_exist: does not exist. belong: belong to. n_belong: does not belong to. reg_match: regular expression.
-     *
-     * This parameter is required.
-     *
-     * @example eq
-     *
      * @var string
      */
     public $operator;
 
     /**
-     * @description The check target. If you set the type parameter to HttpResCode, HttpResBody, or HttpResponseTime, you do not need to set the target parameter. If you set the type parameter to HttpResHead, you must specify the key in the header. If you set the type parameter to HttpResBodyJson, use jsonPath.
-     *
-     * @example key
-     *
      * @var string
      */
     public $target;
 
     /**
-     * @description The assertion type. Valid values: HttpResCode, HttpResHead, HttpResBody, HttpResBodyJson, HttpResponseTime, IcmpPackLoss (packet loss rate), IcmpPackMaxLatency (maximum packet latency), IcmpPackAvgLatency (average packet latency), TraceRouteHops (number of hops), DnsARecord (A record), DnsCName (CNAME), websiteTTFB (time to first packet), websiteTTLB (time to last packet), websiteFST (first paint time), websiteFFST (first meaningful paint), websiteOnload (full loaded time). For more information, see the following description.
-     *
-     * This parameter is required.
-     *
-     * @example DnsARecord
-     *
      * @var string
      */
     public $type;
@@ -56,20 +34,26 @@ class availableAssertions extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expect) {
             $res['Expect'] = $this->expect;
         }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
+
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -77,23 +61,26 @@ class availableAssertions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableAssertions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Expect'])) {
             $model->expect = $map['Expect'];
         }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
+
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

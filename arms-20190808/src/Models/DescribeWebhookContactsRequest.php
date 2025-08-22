@@ -4,46 +4,26 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeWebhookContactsRequest extends Model
 {
     /**
-     * @description The ID of the alert contact.
-     *
-     * @example 123
-     *
      * @var string
      */
     public $contactIds;
 
     /**
-     * @description The number of the page to return.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description The number of alert contacts displayed on each page.
-     *
-     * This parameter is required.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @description The name of the webhook alert contact.
-     *
-     * @example Webhook name
-     *
      * @var string
      */
     public $webhookName;
@@ -54,20 +34,26 @@ class DescribeWebhookContactsRequest extends Model
         'webhookName' => 'WebhookName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactIds) {
             $res['ContactIds'] = $this->contactIds;
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
+
         if (null !== $this->webhookName) {
             $res['WebhookName'] = $this->webhookName;
         }
@@ -75,23 +61,26 @@ class DescribeWebhookContactsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWebhookContactsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactIds'])) {
             $model->contactIds = $map['ContactIds'];
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
+
         if (isset($map['WebhookName'])) {
             $model->webhookName = $map['WebhookName'];
         }

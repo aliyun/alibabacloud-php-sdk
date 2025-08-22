@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesResponseBody\pageBean\alertRules;
-use AlibabaCloud\Tea\Model;
 
 class pageBean extends Model
 {
     /**
-     * @description The alert rules.
-     *
      * @var alertRules[]
      */
     public $alertRules;
 
     /**
-     * @description The number of pages returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description The number of alert rules returned per page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @description The total number of queried alert rules.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $total;
@@ -49,26 +35,36 @@ class pageBean extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->alertRules)) {
+            Model::validateArray($this->alertRules);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertRules) {
-            $res['AlertRules'] = [];
-            if (null !== $this->alertRules && \is_array($this->alertRules)) {
-                $n = 0;
-                foreach ($this->alertRules as $item) {
-                    $res['AlertRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alertRules)) {
+                $res['AlertRules'] = [];
+                $n1 = 0;
+                foreach ($this->alertRules as $item1) {
+                    $res['AlertRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -76,29 +72,33 @@ class pageBean extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageBean
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertRules'])) {
             if (!empty($map['AlertRules'])) {
                 $model->alertRules = [];
-                $n = 0;
-                foreach ($map['AlertRules'] as $item) {
-                    $model->alertRules[$n++] = null !== $item ? alertRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AlertRules'] as $item1) {
+                    $model->alertRules[$n1] = alertRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

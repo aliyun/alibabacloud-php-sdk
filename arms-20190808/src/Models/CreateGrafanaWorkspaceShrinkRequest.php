@@ -4,138 +4,76 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateGrafanaWorkspaceShrinkRequest extends Model
 {
     /**
-     * @example 10
-     *
      * @var string
      */
     public $accountNumber;
 
     /**
-     * @description The language. Default value: zh. Valid values:
-     *
-     *   zh
-     *   en
-     *
-     * @example zh
-     *
      * @var string
      */
     public $aliyunLang;
 
     /**
-     * @example false
-     *
      * @var string
      */
     public $autoRenew;
 
     /**
-     * @example 0
-     *
      * @var string
      */
     public $customAccountNumber;
 
     /**
-     * @description The description of the workspace
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example 6
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10.0.x
-     *
      * @var string
      */
     public $grafanaVersion;
 
     /**
-     * @description The edition.
-     *
-     **Valid values:**
-     *
-     *   standard: `Beta Edition or Standard Edition`
-     *   personal_edition: Developer Edition
-     *   experts_edition: Pro Edition
-     *   advanced_edition: Advanced Edition
-     *
-     * This parameter is required.
-     *
-     * @example experts_edition
-     *
      * @var string
      */
     public $grafanaWorkspaceEdition;
 
     /**
-     * @description The name of the Grafana workspace.
-     *
-     * This parameter is required.
-     *
-     * @example testgrafana
-     *
      * @var string
      */
     public $grafanaWorkspaceName;
 
     /**
-     * @description The password of the workspace. The password must be 8 to 30 characters in length. It must include at least three of the following characters types: uppercase letter, lowercase letter, digit, and special character. Special characters include () \\" ~ ! @ # $ % ^ & \\* - _ + =.
-     *
-     * @example Test123456!
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @description 包年包月的计费周期，取值： Month（默认值）：按月购买。                                 Year：按年购买。
-     *
-     * @example Month
-     *
      * @var string
      */
     public $pricingCycle;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The resource group ID.
-     *
-     * @example rg-acfmxyexli2****
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The list of tags.
-     *
      * @var string
      */
     public $tagsShrink;
@@ -156,50 +94,66 @@ class CreateGrafanaWorkspaceShrinkRequest extends Model
         'tagsShrink' => 'Tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountNumber) {
             $res['AccountNumber'] = $this->accountNumber;
         }
+
         if (null !== $this->aliyunLang) {
             $res['AliyunLang'] = $this->aliyunLang;
         }
+
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
+
         if (null !== $this->customAccountNumber) {
             $res['CustomAccountNumber'] = $this->customAccountNumber;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->grafanaVersion) {
             $res['GrafanaVersion'] = $this->grafanaVersion;
         }
+
         if (null !== $this->grafanaWorkspaceEdition) {
             $res['GrafanaWorkspaceEdition'] = $this->grafanaWorkspaceEdition;
         }
+
         if (null !== $this->grafanaWorkspaceName) {
             $res['GrafanaWorkspaceName'] = $this->grafanaWorkspaceName;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
         }
@@ -207,53 +161,66 @@ class CreateGrafanaWorkspaceShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateGrafanaWorkspaceShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountNumber'])) {
             $model->accountNumber = $map['AccountNumber'];
         }
+
         if (isset($map['AliyunLang'])) {
             $model->aliyunLang = $map['AliyunLang'];
         }
+
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
+
         if (isset($map['CustomAccountNumber'])) {
             $model->customAccountNumber = $map['CustomAccountNumber'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['GrafanaVersion'])) {
             $model->grafanaVersion = $map['GrafanaVersion'];
         }
+
         if (isset($map['GrafanaWorkspaceEdition'])) {
             $model->grafanaWorkspaceEdition = $map['GrafanaWorkspaceEdition'];
         }
+
         if (isset($map['GrafanaWorkspaceName'])) {
             $model->grafanaWorkspaceName = $map['GrafanaWorkspaceName'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
         }

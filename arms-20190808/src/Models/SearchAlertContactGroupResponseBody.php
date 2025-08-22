@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SearchAlertContactGroupResponseBody\contactGroups;
-use AlibabaCloud\Tea\Model;
 
 class SearchAlertContactGroupResponseBody extends Model
 {
     /**
-     * @description The information about the alert contact groups.
-     *
      * @var contactGroups[]
      */
     public $contactGroups;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 4D6C358A-A58B-4F4B-94CE-F5AAF023****
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class SearchAlertContactGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->contactGroups)) {
+            Model::validateArray($this->contactGroups);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroups) {
-            $res['ContactGroups'] = [];
-            if (null !== $this->contactGroups && \is_array($this->contactGroups)) {
-                $n = 0;
-                foreach ($this->contactGroups as $item) {
-                    $res['ContactGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contactGroups)) {
+                $res['ContactGroups'] = [];
+                $n1 = 0;
+                foreach ($this->contactGroups as $item1) {
+                    $res['ContactGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class SearchAlertContactGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SearchAlertContactGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactGroups'])) {
             if (!empty($map['ContactGroups'])) {
                 $model->contactGroups = [];
-                $n = 0;
-                foreach ($map['ContactGroups'] as $item) {
-                    $model->contactGroups[$n++] = null !== $item ? contactGroups::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ContactGroups'] as $item1) {
+                    $model->contactGroups[$n1] = contactGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

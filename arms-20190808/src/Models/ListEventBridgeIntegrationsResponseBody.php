@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEventBridgeIntegrationsResponseBody\pageBean;
-use AlibabaCloud\Tea\Model;
 
 class ListEventBridgeIntegrationsResponseBody extends Model
 {
     /**
-     * @description The information about EventBridge integrations that is returned on each page.
-     *
      * @var pageBean
      */
     public $pageBean;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 2B289756-E791-5842-BCBD-AD414C******
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class ListEventBridgeIntegrationsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->pageBean) {
+            $this->pageBean->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageBean) {
-            $res['PageBean'] = null !== $this->pageBean ? $this->pageBean->toMap() : null;
+            $res['PageBean'] = null !== $this->pageBean ? $this->pageBean->toArray($noStream) : $this->pageBean;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class ListEventBridgeIntegrationsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEventBridgeIntegrationsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageBean'])) {
             $model->pageBean = pageBean::fromMap($map['PageBean']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

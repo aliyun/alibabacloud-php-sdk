@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateWebhookResponseBody extends Model
 {
     /**
-     * @description The ID of the contact for webhook alerts.
-     *
-     * @example 48716
-     *
      * @var string
      */
     public $contactId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 16AF921B-8187-489F-9913-43C808B4****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateWebhookResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateWebhookResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateWebhookResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateTimingSyntheticTaskRequest\monitorConf\apiHTTP;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class requestBody extends Model
 {
     /**
-     * @description The content of the request body. Format: JSON string. The parameter is required if the Type parameter is set to text/plain, application/json, application/xml, or text/html. Format: JSON string.
-     *
-     * @example {
-     * "key1": "value1",
-     * "key2": "value2"
-     * }
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The type of the request body. Valid values: text/plain, application/json, application/x-www-form-urlencoded, multipart/form-data, application/xml, and text/html.
-     *
-     * @example application/json
-     *
      * @var string
      */
     public $type;
@@ -33,14 +22,18 @@ class requestBody extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -48,17 +41,18 @@ class requestBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return requestBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

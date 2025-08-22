@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePrometheusIntegrationResponseBody extends Model
 {
     /**
-     * @description The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description success or an error message.
-     *
-     * @example success
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @description The message returned.
-     *
-     * @example message
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
-     *
-     * @example 19F54318-CC92-5567-BF66-CB029EC44C84
-     *
      * @var string
      */
     public $requestId;
@@ -50,20 +34,26 @@ class DeletePrometheusIntegrationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -71,23 +61,26 @@ class DeletePrometheusIntegrationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePrometheusIntegrationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,63 +4,32 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UntagResourcesRequest\tags;
-use AlibabaCloud\Tea\Model;
 
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to delete all tags. This parameter takes effect only when the TagKey.N parameter is not specified. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * Default value: false.
-     *
-     * @example False
-     *
      * @var bool
      */
     public $all;
 
     /**
-     * @description The resource IDs. You can specify a maximum of 50 resource IDs.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description The type of the ARMS resources for which you want to modify tags. Valid values:
-     *
-     *   WEB: Browser Monitoring
-     *   APPLICATION: Application Monitoring
-     *   PROMETHEUS: Managed Service for Prometheus
-     *   SYNTHETICTASK: Synthetic Monitoring
-     *   ALERTRULE: Application Monitoring alert rule
-     *   PROMETHEUSALERTRULE: Managed Service for Prometheus alert rule
-     *   XTRACEAPP: Managed Service for OpenTelemetry
-     *
-     * This parameter is required.
-     *
-     * @example PROMETHEUS
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description The tag keys. You can specify a maximum of 20 tag keys.
-     *
      * @var string[]
      */
     public $tagKey;
 
     /**
-     * @description The list of tags.
-     *
      * @var tags[]
      */
     public $tags;
@@ -72,29 +41,60 @@ class UntagResourcesRequest extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resourceId)) {
+            Model::validateArray($this->resourceId);
+        }
+        if (\is_array($this->tagKey)) {
+            Model::validateArray($this->tagKey);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->all) {
             $res['All'] = $this->all;
         }
+
         if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+            if (\is_array($this->resourceId)) {
+                $res['ResourceId'] = [];
+                $n1 = 0;
+                foreach ($this->resourceId as $item1) {
+                    $res['ResourceId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
+            if (\is_array($this->tagKey)) {
+                $res['TagKey'] = [];
+                $n1 = 0;
+                foreach ($this->tagKey as $item1) {
+                    $res['TagKey'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,36 +102,51 @@ class UntagResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UntagResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['All'])) {
             $model->all = $map['All'];
         }
+
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
+                $model->resourceId = [];
+                $n1 = 0;
+                foreach ($map['ResourceId'] as $item1) {
+                    $model->resourceId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['TagKey'])) {
             if (!empty($map['TagKey'])) {
-                $model->tagKey = $map['TagKey'];
+                $model->tagKey = [];
+                $n1 = 0;
+                foreach ($map['TagKey'] as $item1) {
+                    $model->tagKey[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

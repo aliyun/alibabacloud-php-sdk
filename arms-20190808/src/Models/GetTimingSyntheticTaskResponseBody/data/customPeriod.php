@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetTimingSyntheticTaskResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customPeriod extends Model
 {
     /**
-     * @description The hour at which the test ends. Valid values: 0 to 24.
-     *
-     * @example 22
-     *
      * @var int
      */
     public $endHour;
 
     /**
-     * @description The hour at which the test starts. Valid values: 0 to 24.
-     *
-     * @example 14
-     *
      * @var int
      */
     public $startHour;
@@ -30,14 +22,18 @@ class customPeriod extends Model
         'startHour' => 'StartHour',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endHour) {
             $res['EndHour'] = $this->endHour;
         }
+
         if (null !== $this->startHour) {
             $res['StartHour'] = $this->startHour;
         }
@@ -45,17 +41,18 @@ class customPeriod extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customPeriod
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndHour'])) {
             $model->endHour = $map['EndHour'];
         }
+
         if (isset($map['StartHour'])) {
             $model->startHour = $map['StartHour'];
         }

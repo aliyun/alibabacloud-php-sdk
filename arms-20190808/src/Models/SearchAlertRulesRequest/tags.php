@@ -4,35 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\SearchAlertRulesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @description The key of the tag. The following system preset fields are provided:
-     *
-     *   traceId: the ID of the trace.
-     *   serverApp: the name of the server application.
-     *   clientApp: the name of the client application.
-     *   service: the name of the operation.
-     *   rpc: the type of the call.
-     *   msOfSpan: the duration exceeds a specific value.
-     *   clientIp: the IP address of the client.
-     *   serverIp: the IP address of the server.
-     *   isError: specifies whether the call is abnormal.
-     *   hasTprof: contains only thread profiling.
-     *
-     * @example TestKey
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value.
-     *
-     * @example TestValue
-     *
      * @var string
      */
     public $value;
@@ -41,14 +22,18 @@ class tags extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -56,17 +41,18 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

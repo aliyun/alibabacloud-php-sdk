@@ -4,46 +4,26 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRumAppRequest extends Model
 {
     /**
-     * @description The group where the application resides.
-     *
-     * @example default
-     *
      * @var string
      */
     public $appGroup;
 
     /**
-     * @description The ID of the application.
-     *
-     * This parameter is required.
-     *
-     * @example b590lhguqs@28f515462******
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The region where the application resides. You can leave this parameter empty or set it to China East 2 Finance.
-     *
-     * @example cn-shanghai-finance-1
-     *
      * @var string
      */
     public $realRegionId;
 
     /**
-     * @description The ID of the region.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -54,20 +34,26 @@ class DeleteRumAppRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appGroup) {
             $res['AppGroup'] = $this->appGroup;
         }
+
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->realRegionId) {
             $res['RealRegionId'] = $this->realRegionId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -75,23 +61,26 @@ class DeleteRumAppRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRumAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppGroup'])) {
             $model->appGroup = $map['AppGroup'];
         }
+
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['RealRegionId'])) {
             $model->realRegionId = $map['RealRegionId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

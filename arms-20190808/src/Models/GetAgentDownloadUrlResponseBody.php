@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAgentDownloadUrlResponseBody extends Model
 {
     /**
-     * @description The download URL of the ARMS agent.
-     *
-     * @example http://arms-apm-hangzhou.oss-cn-hangzhou-internal.aliyuncs.com/2.7.1.1/
-     *
      * @var string
      */
     public $armsAgentDownloadUrl;
 
     /**
-     * @description The request ID.
-     *
-     * @example 14043452-D486-4EA1-80C9-BA73FB81****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class GetAgentDownloadUrlResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->armsAgentDownloadUrl) {
             $res['ArmsAgentDownloadUrl'] = $this->armsAgentDownloadUrl;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class GetAgentDownloadUrlResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAgentDownloadUrlResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArmsAgentDownloadUrl'])) {
             $model->armsAgentDownloadUrl = $map['ArmsAgentDownloadUrl'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

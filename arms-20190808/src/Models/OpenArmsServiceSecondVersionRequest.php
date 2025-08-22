@@ -4,34 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OpenArmsServiceSecondVersionRequest extends Model
 {
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The type of the service. Valid values:
-     *
-     *   `arms`: ARMS
-     *   `arms_app`: Application Monitoring
-     *   `arms_web`: Browser Monitoring
-     *   `prometheus_monitor`: Managed Service for Prometheus
-     *   `synthetic_post`: Synthetic Monitoring
-     *
-     * This parameter is required.
-     *
-     * @example arms
-     *
      * @var string
      */
     public $type;
@@ -40,14 +22,18 @@ class OpenArmsServiceSecondVersionRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -55,17 +41,18 @@ class OpenArmsServiceSecondVersionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OpenArmsServiceSecondVersionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

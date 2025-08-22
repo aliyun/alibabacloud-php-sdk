@@ -4,47 +4,26 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateNotificationPolicyResponseBody\notificationPolicy\notifyRule;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class notifyObjects extends Model
 {
     /**
-     * @description The notification methods specified for a contact.
-     *
      * @var string[]
      */
     public $notifyChannels;
 
     /**
-     * @description The ID of the notification object.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $notifyObjectId;
 
     /**
-     * @description The name of the notification object.
-     *
-     * @example test
-     *
      * @var string
      */
     public $notifyObjectName;
 
     /**
-     * @description The type of the notification object. Valid values:
-     *
-     *   CONTACT: contact
-     *   CONTACT_GROUP: contact group
-     *   ARMS_CONTACT: ARMS contact
-     *   ARMS_CONTACT_GROUP: ARMS contact group
-     *   DING_ROBOT_GROUP: DingTalk, Lark, WeCom, or IM robot
-     *   CONTACT_SCHEDULE: user on duty defined by a schedule
-     *
-     * @example CONTACT
-     *
      * @var string
      */
     public $notifyObjectType;
@@ -55,20 +34,36 @@ class notifyObjects extends Model
         'notifyObjectType' => 'NotifyObjectType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->notifyChannels)) {
+            Model::validateArray($this->notifyChannels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->notifyChannels) {
-            $res['NotifyChannels'] = $this->notifyChannels;
+            if (\is_array($this->notifyChannels)) {
+                $res['NotifyChannels'] = [];
+                $n1 = 0;
+                foreach ($this->notifyChannels as $item1) {
+                    $res['NotifyChannels'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->notifyObjectId) {
             $res['NotifyObjectId'] = $this->notifyObjectId;
         }
+
         if (null !== $this->notifyObjectName) {
             $res['NotifyObjectName'] = $this->notifyObjectName;
         }
+
         if (null !== $this->notifyObjectType) {
             $res['NotifyObjectType'] = $this->notifyObjectType;
         }
@@ -76,25 +71,33 @@ class notifyObjects extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notifyObjects
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NotifyChannels'])) {
             if (!empty($map['NotifyChannels'])) {
-                $model->notifyChannels = $map['NotifyChannels'];
+                $model->notifyChannels = [];
+                $n1 = 0;
+                foreach ($map['NotifyChannels'] as $item1) {
+                    $model->notifyChannels[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NotifyObjectId'])) {
             $model->notifyObjectId = $map['NotifyObjectId'];
         }
+
         if (isset($map['NotifyObjectName'])) {
             $model->notifyObjectName = $map['NotifyObjectName'];
         }
+
         if (isset($map['NotifyObjectType'])) {
             $model->notifyObjectType = $map['NotifyObjectType'];
         }

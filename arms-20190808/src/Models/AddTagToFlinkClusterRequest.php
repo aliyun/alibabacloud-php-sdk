@@ -4,70 +4,36 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddTagToFlinkClusterRequest extends Model
 {
     /**
-     * @description The ID of the Prometheus instance.
-     *
-     * This parameter is required.
-     *
-     * @example c5defa51f******c92bd2ef5fb093269
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The ID of the Flink workspace.
-     *
-     * This parameter is required.
-     *
-     * @example ab18f***93744d
-     *
      * @var string
      */
     public $flinkWorkSpaceId;
 
     /**
-     * @description The name of the Flink workspace.
-     *
-     * This parameter is required.
-     *
-     * @example flink-demo
-     *
      * @var string
      */
     public $flinkWorkSpaceName;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfmxyexli2****
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the Flink workspace belongs.
-     *
-     * This parameter is required.
-     *
-     * @example 198608******7619
-     *
      * @var string
      */
     public $targetUserId;
@@ -80,26 +46,34 @@ class AddTagToFlinkClusterRequest extends Model
         'targetUserId' => 'TargetUserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->flinkWorkSpaceId) {
             $res['FlinkWorkSpaceId'] = $this->flinkWorkSpaceId;
         }
+
         if (null !== $this->flinkWorkSpaceName) {
             $res['FlinkWorkSpaceName'] = $this->flinkWorkSpaceName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->targetUserId) {
             $res['TargetUserId'] = $this->targetUserId;
         }
@@ -107,29 +81,34 @@ class AddTagToFlinkClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddTagToFlinkClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['FlinkWorkSpaceId'])) {
             $model->flinkWorkSpaceId = $map['FlinkWorkSpaceId'];
         }
+
         if (isset($map['FlinkWorkSpaceName'])) {
             $model->flinkWorkSpaceName = $map['FlinkWorkSpaceName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['TargetUserId'])) {
             $model->targetUserId = $map['TargetUserId'];
         }

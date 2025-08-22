@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\QueryCommercialUsageRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class advancedFilters extends Model
 {
     /**
-     * @description The key of the filter condition.
-     *
-     * @example regionId
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The operator. Valid values: eq and in.
-     *
-     * @example eq
-     *
      * @var string
      */
     public $opType;
 
     /**
-     * @description The value of the filter condition.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $value;
@@ -40,17 +28,22 @@ class advancedFilters extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->opType) {
             $res['OpType'] = $this->opType;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -58,20 +51,22 @@ class advancedFilters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return advancedFilters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['OpType'])) {
             $model->opType = $map['OpType'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

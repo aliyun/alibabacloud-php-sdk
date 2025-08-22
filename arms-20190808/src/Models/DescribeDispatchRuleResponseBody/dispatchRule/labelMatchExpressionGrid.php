@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeDispatchRuleResponseBody\dispatchRule;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeDispatchRuleResponseBody\dispatchRule\labelMatchExpressionGrid\labelMatchExpressionGroups;
-use AlibabaCloud\Tea\Model;
 
 class labelMatchExpressionGrid extends Model
 {
     /**
-     * @description The collection of dispatch rules.
-     *
      * @var labelMatchExpressionGroups[]
      */
     public $labelMatchExpressionGroups;
@@ -19,17 +17,24 @@ class labelMatchExpressionGrid extends Model
         'labelMatchExpressionGroups' => 'LabelMatchExpressionGroups',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->labelMatchExpressionGroups)) {
+            Model::validateArray($this->labelMatchExpressionGroups);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labelMatchExpressionGroups) {
-            $res['LabelMatchExpressionGroups'] = [];
-            if (null !== $this->labelMatchExpressionGroups && \is_array($this->labelMatchExpressionGroups)) {
-                $n = 0;
-                foreach ($this->labelMatchExpressionGroups as $item) {
-                    $res['LabelMatchExpressionGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->labelMatchExpressionGroups)) {
+                $res['LabelMatchExpressionGroups'] = [];
+                $n1 = 0;
+                foreach ($this->labelMatchExpressionGroups as $item1) {
+                    $res['LabelMatchExpressionGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class labelMatchExpressionGrid extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return labelMatchExpressionGrid
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LabelMatchExpressionGroups'])) {
             if (!empty($map['LabelMatchExpressionGroups'])) {
                 $model->labelMatchExpressionGroups = [];
-                $n = 0;
-                foreach ($map['LabelMatchExpressionGroups'] as $item) {
-                    $model->labelMatchExpressionGroups[$n++] = null !== $item ? labelMatchExpressionGroups::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LabelMatchExpressionGroups'] as $item1) {
+                    $model->labelMatchExpressionGroups[$n1] = labelMatchExpressionGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

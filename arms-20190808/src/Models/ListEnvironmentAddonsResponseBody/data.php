@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAddonsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAddonsResponseBody\data\addons;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The queried add-ons.
-     *
      * @var addons[]
      */
     public $addons;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $total;
@@ -27,20 +23,28 @@ class data extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->addons)) {
+            Model::validateArray($this->addons);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addons) {
-            $res['Addons'] = [];
-            if (null !== $this->addons && \is_array($this->addons)) {
-                $n = 0;
-                foreach ($this->addons as $item) {
-                    $res['Addons'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->addons)) {
+                $res['Addons'] = [];
+                $n1 = 0;
+                foreach ($this->addons as $item1) {
+                    $res['Addons'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -48,23 +52,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Addons'])) {
             if (!empty($map['Addons'])) {
                 $model->addons = [];
-                $n = 0;
-                foreach ($map['Addons'] as $item) {
-                    $model->addons[$n++] = null !== $item ? addons::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Addons'] as $item1) {
+                    $model->addons[$n1] = addons::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

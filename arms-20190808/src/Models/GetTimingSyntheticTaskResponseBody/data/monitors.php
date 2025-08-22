@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetTimingSyntheticTaskResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class monitors extends Model
 {
     /**
-     * @description The city code.
-     *
-     * @example 110100
-     *
      * @var string
      */
     public $cityCode;
 
     /**
-     * @description The client type of the monitoring point. Valid values: 1: data center. 2: Internet. 3: mobile device. 4: ECS instance.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $clientType;
 
     /**
-     * @description The carrier code.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $operatorCode;
@@ -40,17 +28,22 @@ class monitors extends Model
         'operatorCode' => 'OperatorCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cityCode) {
             $res['CityCode'] = $this->cityCode;
         }
+
         if (null !== $this->clientType) {
             $res['ClientType'] = $this->clientType;
         }
+
         if (null !== $this->operatorCode) {
             $res['OperatorCode'] = $this->operatorCode;
         }
@@ -58,20 +51,22 @@ class monitors extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return monitors
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CityCode'])) {
             $model->cityCode = $map['CityCode'];
         }
+
         if (isset($map['ClientType'])) {
             $model->clientType = $map['ClientType'];
         }
+
         if (isset($map['OperatorCode'])) {
             $model->operatorCode = $map['OperatorCode'];
         }

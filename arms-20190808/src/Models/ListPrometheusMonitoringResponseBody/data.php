@@ -4,65 +4,31 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusMonitoringResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The ID of the Prometheus instance.
-     *
-     * @example c589a1b8db05c4561aefbb898ca8fb1cf
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The monitoring configuration. The value is a YAML string.
-     *
-     * @example apiVersion: monitoring.coreos.com/v1
-     * kind: ServiceMonitor
-     * metadata:
-     * name: tomcat-demo
-     * namespace: default
-     * spec:
-     * endpoints:
-     * - interval: 30s
-     * path: /metrics
-     * port: tomcat-monitor
-     * namespaceSelector:
-     * any: true
-     * selector:
-     * matchLabels:
-     * app: tomcat
-     *
      * @var string
      */
     public $configYaml;
 
     /**
-     * @description The name of the monitoring configuration.
-     *
-     * @example podMonitor1
-     *
      * @var string
      */
     public $monitoringName;
 
     /**
-     * @description The status of the monitoring configuration.
-     *
-     * @example run
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The type of the monitoring configuration.
-     *
-     * @example podMonitor
-     *
      * @var string
      */
     public $type;
@@ -74,23 +40,30 @@ class data extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->configYaml) {
             $res['ConfigYaml'] = $this->configYaml;
         }
+
         if (null !== $this->monitoringName) {
             $res['MonitoringName'] = $this->monitoringName;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -98,26 +71,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ConfigYaml'])) {
             $model->configYaml = $map['ConfigYaml'];
         }
+
         if (isset($map['MonitoringName'])) {
             $model->monitoringName = $map['MonitoringName'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

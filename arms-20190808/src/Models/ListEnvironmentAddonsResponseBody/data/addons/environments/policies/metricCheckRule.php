@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAddonsResponseBody\data\addons\environments\policies;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class metricCheckRule extends Model
 {
     /**
-     * @description The PromQL statements.
-     *
      * @var string[]
      */
     public $promQL;
@@ -18,29 +16,47 @@ class metricCheckRule extends Model
         'promQL' => 'PromQL',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->promQL)) {
+            Model::validateArray($this->promQL);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->promQL) {
-            $res['PromQL'] = $this->promQL;
+            if (\is_array($this->promQL)) {
+                $res['PromQL'] = [];
+                $n1 = 0;
+                foreach ($this->promQL as $item1) {
+                    $res['PromQL'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metricCheckRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PromQL'])) {
             if (!empty($map['PromQL'])) {
-                $model->promQL = $map['PromQL'];
+                $model->promQL = [];
+                $n1 = 0;
+                foreach ($map['PromQL'] as $item1) {
+                    $model->promQL[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

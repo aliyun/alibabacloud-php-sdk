@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAlertRuleRequest extends Model
 {
     /**
-     * @description The alert rule ID.
-     *
-     * For more information about how to obtain the ID of an alert rule, see [GetAlertRules](https://help.aliyun.com/document_detail/2612348.html).
-     *
-     * This parameter is required.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $alertId;
@@ -24,9 +16,12 @@ class DeleteAlertRuleRequest extends Model
         'alertId' => 'AlertId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertId) {
@@ -36,11 +31,11 @@ class DeleteAlertRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAlertRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

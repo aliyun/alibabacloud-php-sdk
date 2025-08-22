@@ -4,67 +4,36 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeContactGroupsRequest extends Model
 {
     /**
-     * @description The name of the alert contact group.
-     *
-     * @example TestGroup
-     *
      * @var string
      */
     public $contactGroupName;
 
     /**
-     * @description The ID of the alert contact group.
-     *
-     * @example 12345
-     *
      * @var string
      */
     public $groupIds;
 
     /**
-     * @description Specifies whether to return all the alert contacts in the queried alert contact group. Valid values:
-     *
-     *   `false`
-     *   `true`
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isDetail;
 
     /**
-     * @description The number of the page to return.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The number of alert contact groups displayed on each page.
-     *
-     * This parameter is required.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $size;
@@ -77,26 +46,34 @@ class DescribeContactGroupsRequest extends Model
         'size' => 'Size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroupName) {
             $res['ContactGroupName'] = $this->contactGroupName;
         }
+
         if (null !== $this->groupIds) {
             $res['GroupIds'] = $this->groupIds;
         }
+
         if (null !== $this->isDetail) {
             $res['IsDetail'] = $this->isDetail;
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -104,29 +81,34 @@ class DescribeContactGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeContactGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactGroupName'])) {
             $model->contactGroupName = $map['ContactGroupName'];
         }
+
         if (isset($map['GroupIds'])) {
             $model->groupIds = $map['GroupIds'];
         }
+
         if (isset($map['IsDetail'])) {
             $model->isDetail = $map['IsDetail'];
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

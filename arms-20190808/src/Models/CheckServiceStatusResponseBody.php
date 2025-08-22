@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckServiceStatusResponseBody extends Model
 {
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true.
-     *   false.
-     *
-     * @example true
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @description The request ID. You can use the ID to find logs and troubleshoot issues.
-     *
-     * @example 5710C923-AD09-4293-9E11-DCBE3D15F8D4
-     *
      * @var string
      */
     public $requestId;
@@ -33,14 +22,18 @@ class CheckServiceStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,17 +41,18 @@ class CheckServiceStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckServiceStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

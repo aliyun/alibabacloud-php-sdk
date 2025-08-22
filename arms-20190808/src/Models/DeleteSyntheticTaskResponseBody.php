@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSyntheticTaskResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 1A9C645C-C83F-4C9D-8CCB-29BEC9E1****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the specified tasks are deleted.
-     *
-     *   `true`: The tasks are deleted.
-     *   `false`: The tasks fail to be deleted.
-     *
-     * @example true
-     *
      * @var string
      */
     public $result;
@@ -33,14 +22,18 @@ class DeleteSyntheticTaskResponseBody extends Model
         'result' => 'Result',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
@@ -48,17 +41,18 @@ class DeleteSyntheticTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSyntheticTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }

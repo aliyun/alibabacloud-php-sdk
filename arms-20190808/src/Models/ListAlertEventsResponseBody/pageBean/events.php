@@ -4,158 +4,88 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListAlertEventsResponseBody\pageBean;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAlertEventsResponseBody\pageBean\events\alarms;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAlertEventsResponseBody\pageBean\events\notificationPolicies;
-use AlibabaCloud\Tea\Model;
 
 class events extends Model
 {
     /**
-     * @description The associated alerts.
-     *
      * @var alarms[]
      */
     public $alarms;
 
     /**
-     * @description The name of the alert.
-     *
-     * @example Test-triggered alert
-     *
      * @var string
      */
     public $alertName;
 
     /**
-     * @description The annotations.
-     *
-     * @example [{\\"Name\\":\\"annotation-a\\",\\"Value\\":\\"annotation a value\\"}]
-     *
      * @var string
      */
     public $annotations;
 
     /**
-     * @description The description of the alert event.
-     *
-     * @example Test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The end time.
-     *
-     * @example 2021-12-20 17:42:16
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The URL of the alert event.
-     *
-     * @example https://xxx.xx/
-     *
      * @var string
      */
     public $generatorURL;
 
     /**
-     * @description The user who handled the alert.
-     *
-     * @example Tom
-     *
      * @var string
      */
     public $handlerName;
 
     /**
-     * @description The name of the alert integration.
-     *
-     * @example Custom integration
-     *
      * @var string
      */
     public $integrationName;
 
     /**
-     * @description The type of the alert integration.
-     *
-     * @example CUSTOM
-     *
      * @var string
      */
     public $integrationType;
 
     /**
-     * @description The tags.
-     *
-     * @example [{\\"name\\":\\"severity\\",\\"value\\":\\"error\\"}]
-     *
      * @var string
      */
     public $labels;
 
     /**
-     * @description The associated notification policies.
-     *
      * @var notificationPolicies[]
      */
     public $notificationPolicies;
 
     /**
-     * @description The time when the alert event was received.
-     *
-     * @example 2021-12-20 17:42:16
-     *
      * @var string
      */
     public $receiveTime;
 
     /**
-     * @description The severity level of the alert. Valid values:
-     *
-     *   critical: P1
-     *   error: P2
-     *   warning: P3
-     *   page: P4
-     *   default: P6
-     *
-     * @example critical
-     *
      * @var string
      */
     public $severity;
 
     /**
-     * @description The start time.
-     *
-     * @example 2021-12-20 17:42:16
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The status of the alert event. Valid values:
-     *
-     *   Active
-     *   Silenced
-     *   Resolved
-     *
-     * @example Active
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The number of times the event is triggered.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $triggerCount;
@@ -178,68 +108,94 @@ class events extends Model
         'triggerCount' => 'TriggerCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->alarms)) {
+            Model::validateArray($this->alarms);
+        }
+        if (\is_array($this->notificationPolicies)) {
+            Model::validateArray($this->notificationPolicies);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarms) {
-            $res['Alarms'] = [];
-            if (null !== $this->alarms && \is_array($this->alarms)) {
-                $n = 0;
-                foreach ($this->alarms as $item) {
-                    $res['Alarms'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alarms)) {
+                $res['Alarms'] = [];
+                $n1 = 0;
+                foreach ($this->alarms as $item1) {
+                    $res['Alarms'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->alertName) {
             $res['AlertName'] = $this->alertName;
         }
+
         if (null !== $this->annotations) {
             $res['Annotations'] = $this->annotations;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->generatorURL) {
             $res['GeneratorURL'] = $this->generatorURL;
         }
+
         if (null !== $this->handlerName) {
             $res['HandlerName'] = $this->handlerName;
         }
+
         if (null !== $this->integrationName) {
             $res['IntegrationName'] = $this->integrationName;
         }
+
         if (null !== $this->integrationType) {
             $res['IntegrationType'] = $this->integrationType;
         }
+
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
         }
+
         if (null !== $this->notificationPolicies) {
-            $res['NotificationPolicies'] = [];
-            if (null !== $this->notificationPolicies && \is_array($this->notificationPolicies)) {
-                $n = 0;
-                foreach ($this->notificationPolicies as $item) {
-                    $res['NotificationPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->notificationPolicies)) {
+                $res['NotificationPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->notificationPolicies as $item1) {
+                    $res['NotificationPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->receiveTime) {
             $res['ReceiveTime'] = $this->receiveTime;
         }
+
         if (null !== $this->severity) {
             $res['Severity'] = $this->severity;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->triggerCount) {
             $res['TriggerCount'] = $this->triggerCount;
         }
@@ -247,71 +203,88 @@ class events extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return events
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alarms'])) {
             if (!empty($map['Alarms'])) {
                 $model->alarms = [];
-                $n = 0;
-                foreach ($map['Alarms'] as $item) {
-                    $model->alarms[$n++] = null !== $item ? alarms::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Alarms'] as $item1) {
+                    $model->alarms[$n1] = alarms::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['AlertName'])) {
             $model->alertName = $map['AlertName'];
         }
+
         if (isset($map['Annotations'])) {
             $model->annotations = $map['Annotations'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['GeneratorURL'])) {
             $model->generatorURL = $map['GeneratorURL'];
         }
+
         if (isset($map['HandlerName'])) {
             $model->handlerName = $map['HandlerName'];
         }
+
         if (isset($map['IntegrationName'])) {
             $model->integrationName = $map['IntegrationName'];
         }
+
         if (isset($map['IntegrationType'])) {
             $model->integrationType = $map['IntegrationType'];
         }
+
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
         }
+
         if (isset($map['NotificationPolicies'])) {
             if (!empty($map['NotificationPolicies'])) {
                 $model->notificationPolicies = [];
-                $n = 0;
-                foreach ($map['NotificationPolicies'] as $item) {
-                    $model->notificationPolicies[$n++] = null !== $item ? notificationPolicies::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NotificationPolicies'] as $item1) {
+                    $model->notificationPolicies[$n1] = notificationPolicies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ReceiveTime'])) {
             $model->receiveTime = $map['ReceiveTime'];
         }
+
         if (isset($map['Severity'])) {
             $model->severity = $map['Severity'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TriggerCount'])) {
             $model->triggerCount = $map['TriggerCount'];
         }

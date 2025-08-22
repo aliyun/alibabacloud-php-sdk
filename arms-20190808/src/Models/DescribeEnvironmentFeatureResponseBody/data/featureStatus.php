@@ -4,79 +4,47 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvironmentFeatureResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvironmentFeatureResponseBody\data\featureStatus\featureContainers;
-use AlibabaCloud\Tea\Model;
 
 class featureStatus extends Model
 {
     /**
-     * @description The ID of the resource.
-     *
-     * @example c013823b55e4b4d6bb6b6f28682bd38a7
-     *
      * @var string
      */
     public $bindResourceId;
 
     /**
-     * @description The containers of the feature.
-     *
      * @var featureContainers[]
      */
     public $featureContainers;
 
     /**
-     * @description The IP address of the pod.
-     *
      * @var string[]
      */
     public $ips;
 
     /**
-     * @description The Kubernetes resource name of the feature.
-     *
-     * @example arms-prometheus-ack-arms-prometheus
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The namespace.
-     *
-     * @example arms-prom
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The ID of the security group.
-     *
-     * @example sg-bp1c9fcexoalq9po6cp8
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description The status of the agent. Valid values:
-     *
-     *   Success: The agent is running.
-     *   Failed: The agent failed to run.
-     *   Not Found: The agent is not installed.
-     *
-     * @example Success
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The ID of the vSwitch.
-     *
-     * @example vsw-bp1qt6ict0dbxgv4wer8l
-     *
      * @var string
      */
     public $vSwitchId;
@@ -91,38 +59,62 @@ class featureStatus extends Model
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->featureContainers)) {
+            Model::validateArray($this->featureContainers);
+        }
+        if (\is_array($this->ips)) {
+            Model::validateArray($this->ips);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindResourceId) {
             $res['BindResourceId'] = $this->bindResourceId;
         }
+
         if (null !== $this->featureContainers) {
-            $res['FeatureContainers'] = [];
-            if (null !== $this->featureContainers && \is_array($this->featureContainers)) {
-                $n = 0;
-                foreach ($this->featureContainers as $item) {
-                    $res['FeatureContainers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->featureContainers)) {
+                $res['FeatureContainers'] = [];
+                $n1 = 0;
+                foreach ($this->featureContainers as $item1) {
+                    $res['FeatureContainers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->ips) {
-            $res['Ips'] = $this->ips;
+            if (\is_array($this->ips)) {
+                $res['Ips'] = [];
+                $n1 = 0;
+                foreach ($this->ips as $item1) {
+                    $res['Ips'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -130,43 +122,56 @@ class featureStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return featureStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindResourceId'])) {
             $model->bindResourceId = $map['BindResourceId'];
         }
+
         if (isset($map['FeatureContainers'])) {
             if (!empty($map['FeatureContainers'])) {
                 $model->featureContainers = [];
-                $n = 0;
-                foreach ($map['FeatureContainers'] as $item) {
-                    $model->featureContainers[$n++] = null !== $item ? featureContainers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FeatureContainers'] as $item1) {
+                    $model->featureContainers[$n1] = featureContainers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Ips'])) {
             if (!empty($map['Ips'])) {
-                $model->ips = $map['Ips'];
+                $model->ips = [];
+                $n1 = 0;
+                foreach ($map['Ips'] as $item1) {
+                    $model->ips[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

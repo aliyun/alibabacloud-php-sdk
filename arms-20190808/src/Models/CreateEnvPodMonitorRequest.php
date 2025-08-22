@@ -4,57 +4,31 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateEnvPodMonitorRequest extends Model
 {
     /**
-     * @description The language. Valid values: zh and en. Default value: zh.
-     *
-     * @example zh
-     *
      * @var string
      */
     public $aliyunLang;
 
     /**
-     * @description The YAML configuration snippet for PodMonitor.
-     *
-     * This parameter is required.
-     *
-     * @example Refer to supplementary instructions.
-     *
      * @var string
      */
     public $configYaml;
 
     /**
-     * @description Specifies whether to perform only a dry run, without performing the actual request.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description The ID of the environment instance.
-     *
-     * This parameter is required.
-     *
-     * @example env-xxxxxx
-     *
      * @var string
      */
     public $environmentId;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -66,23 +40,30 @@ class CreateEnvPodMonitorRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunLang) {
             $res['AliyunLang'] = $this->aliyunLang;
         }
+
         if (null !== $this->configYaml) {
             $res['ConfigYaml'] = $this->configYaml;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->environmentId) {
             $res['EnvironmentId'] = $this->environmentId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -90,26 +71,30 @@ class CreateEnvPodMonitorRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEnvPodMonitorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliyunLang'])) {
             $model->aliyunLang = $map['AliyunLang'];
         }
+
         if (isset($map['ConfigYaml'])) {
             $model->configYaml = $map['ConfigYaml'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['EnvironmentId'])) {
             $model->environmentId = $map['EnvironmentId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

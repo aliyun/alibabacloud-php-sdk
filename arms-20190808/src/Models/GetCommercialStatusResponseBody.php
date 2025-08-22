@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetCommercialStatusResponseBody\userAndCommodityStatus;
-use AlibabaCloud\Tea\Model;
 
 class GetCommercialStatusResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 49C82193-E991-5F6A-AF3E-1664D8D05CA3
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The commercialization status of the service.
-     *
      * @var userAndCommodityStatus
      */
     public $userAndCommodityStatus;
@@ -29,32 +23,40 @@ class GetCommercialStatusResponseBody extends Model
         'userAndCommodityStatus' => 'UserAndCommodityStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->userAndCommodityStatus) {
+            $this->userAndCommodityStatus->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->userAndCommodityStatus) {
-            $res['UserAndCommodityStatus'] = null !== $this->userAndCommodityStatus ? $this->userAndCommodityStatus->toMap() : null;
+            $res['UserAndCommodityStatus'] = null !== $this->userAndCommodityStatus ? $this->userAndCommodityStatus->toArray($noStream) : $this->userAndCommodityStatus;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCommercialStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UserAndCommodityStatus'])) {
             $model->userAndCommodityStatus = userAndCommodityStatus::fromMap($map['UserAndCommodityStatus']);
         }

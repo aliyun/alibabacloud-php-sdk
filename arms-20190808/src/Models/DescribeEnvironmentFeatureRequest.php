@@ -4,52 +4,26 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeEnvironmentFeatureRequest extends Model
 {
     /**
-     * @description The language. Valid values: en and zh.
-     *
-     * @example en
-     *
      * @var string
      */
     public $aliyunLang;
 
     /**
-     * @description The environment ID.
-     *
-     * This parameter is required.
-     *
-     * @example env-xxx
-     *
      * @var string
      */
     public $environmentId;
 
     /**
-     * @description The name of the feature.
-     *
-     * Valid values:
-     *
-     *   app-agent-pilot: App Pilot agent
-     *   arms-cmonitor: ARMS CMonitor agent
-     *   metric-agent: Prometheus agent
-     *
-     * This parameter is required.
-     *
-     * @example metric-agent
-     *
      * @var string
      */
     public $featureName;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -60,20 +34,26 @@ class DescribeEnvironmentFeatureRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunLang) {
             $res['AliyunLang'] = $this->aliyunLang;
         }
+
         if (null !== $this->environmentId) {
             $res['EnvironmentId'] = $this->environmentId;
         }
+
         if (null !== $this->featureName) {
             $res['FeatureName'] = $this->featureName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -81,23 +61,26 @@ class DescribeEnvironmentFeatureRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEnvironmentFeatureRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliyunLang'])) {
             $model->aliyunLang = $map['AliyunLang'];
         }
+
         if (isset($map['EnvironmentId'])) {
             $model->environmentId = $map['EnvironmentId'];
         }
+
         if (isset($map['FeatureName'])) {
             $model->featureName = $map['FeatureName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

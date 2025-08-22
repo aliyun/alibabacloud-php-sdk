@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DataBonreeSDKConfigModuleConfigVersionConfigsValue extends Model
 {
     /**
-     * @description Indicates whether the custom configuration is used.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $useCustom;
 
     /**
-     * @description The custom configuration.
-     *
      * @var DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue[]
      */
     public $customConfig;
 
     /**
-     * @description The description of the version configuration.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The time when the version configuration was updated.
-     *
-     * @example 1721112372055
-     *
      * @var int
      */
     public $updateTime;
@@ -48,25 +34,34 @@ class DataBonreeSDKConfigModuleConfigVersionConfigsValue extends Model
         'updateTime' => 'updateTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->customConfig)) {
+            Model::validateArray($this->customConfig);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->useCustom) {
             $res['useCustom'] = $this->useCustom;
         }
+
         if (null !== $this->customConfig) {
-            $res['customConfig'] = [];
-            if (null !== $this->customConfig && \is_array($this->customConfig)) {
-                foreach ($this->customConfig as $key => $val) {
-                    $res['customConfig'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->customConfig)) {
+                $res['customConfig'] = [];
+                foreach ($this->customConfig as $key1 => $value1) {
+                    $res['customConfig'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->updateTime) {
             $res['updateTime'] = $this->updateTime;
         }
@@ -74,23 +69,31 @@ class DataBonreeSDKConfigModuleConfigVersionConfigsValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DataBonreeSDKConfigModuleConfigVersionConfigsValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['useCustom'])) {
             $model->useCustom = $map['useCustom'];
         }
+
         if (isset($map['customConfig'])) {
-            $model->customConfig = $map['customConfig'];
+            if (!empty($map['customConfig'])) {
+                $model->customConfig = [];
+                foreach ($map['customConfig'] as $key1 => $value1) {
+                    $model->customConfig[$key1] = DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue::fromMap($value1);
+                }
+            }
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];
         }

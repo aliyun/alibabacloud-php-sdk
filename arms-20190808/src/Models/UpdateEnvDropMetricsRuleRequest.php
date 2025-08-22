@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateEnvDropMetricsRuleRequest extends Model
 {
     /**
-     * @example zh
-     *
      * @var string
      */
     public $aliyunLang;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example metric_1
-     * metric_2
-     * metric_3
-     *
      * @var string
      */
     public $dropMetrics;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example env-xxx
-     *
      * @var string
      */
     public $environmentId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -50,20 +34,26 @@ class UpdateEnvDropMetricsRuleRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunLang) {
             $res['AliyunLang'] = $this->aliyunLang;
         }
+
         if (null !== $this->dropMetrics) {
             $res['DropMetrics'] = $this->dropMetrics;
         }
+
         if (null !== $this->environmentId) {
             $res['EnvironmentId'] = $this->environmentId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -71,23 +61,26 @@ class UpdateEnvDropMetricsRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateEnvDropMetricsRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliyunLang'])) {
             $model->aliyunLang = $map['AliyunLang'];
         }
+
         if (isset($map['DropMetrics'])) {
             $model->dropMetrics = $map['DropMetrics'];
         }
+
         if (isset($map['EnvironmentId'])) {
             $model->environmentId = $map['EnvironmentId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAlertContactGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the alert contact group.
-     *
-     * @example 446*
-     *
      * @var string
      */
     public $contactGroupId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 70675725-8F11-4817-8106-CFE0AD71****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateAlertContactGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroupId) {
             $res['ContactGroupId'] = $this->contactGroupId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateAlertContactGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAlertContactGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactGroupId'])) {
             $model->contactGroupId = $map['ContactGroupId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

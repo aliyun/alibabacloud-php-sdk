@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEventBridgeIntegrationsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEventBridgeIntegrationsResponseBody\pageBean\eventBridgeIntegrations;
-use AlibabaCloud\Tea\Model;
 
 class pageBean extends Model
 {
     /**
-     * @description The EventBridge integrations.
-     *
      * @var eventBridgeIntegrations[]
      */
     public $eventBridgeIntegrations;
 
     /**
-     * @description The number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @description The total number of EventBridge integrations that are returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $total;
@@ -49,26 +35,36 @@ class pageBean extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->eventBridgeIntegrations)) {
+            Model::validateArray($this->eventBridgeIntegrations);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventBridgeIntegrations) {
-            $res['EventBridgeIntegrations'] = [];
-            if (null !== $this->eventBridgeIntegrations && \is_array($this->eventBridgeIntegrations)) {
-                $n = 0;
-                foreach ($this->eventBridgeIntegrations as $item) {
-                    $res['EventBridgeIntegrations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->eventBridgeIntegrations)) {
+                $res['EventBridgeIntegrations'] = [];
+                $n1 = 0;
+                foreach ($this->eventBridgeIntegrations as $item1) {
+                    $res['EventBridgeIntegrations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -76,29 +72,33 @@ class pageBean extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageBean
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventBridgeIntegrations'])) {
             if (!empty($map['EventBridgeIntegrations'])) {
                 $model->eventBridgeIntegrations = [];
-                $n = 0;
-                foreach ($map['EventBridgeIntegrations'] as $item) {
-                    $model->eventBridgeIntegrations[$n++] = null !== $item ? eventBridgeIntegrations::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EventBridgeIntegrations'] as $item1) {
+                    $model->eventBridgeIntegrations[$n1] = eventBridgeIntegrations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

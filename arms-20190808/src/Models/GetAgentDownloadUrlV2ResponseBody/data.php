@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetAgentDownloadUrlV2ResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The download URL of the agent.
-     *
-     * @example http://arms-apm-cn-hangzhou.oss-cn-hangzhou-internal.aliyuncs.com/3.2.9/ArmsAgent.zip
-     *
      * @var string
      */
     public $url;
 
     /**
-     * @description The version number of the agent.
-     *
-     * @example 3.2.9
-     *
      * @var string
      */
     public $version;
@@ -30,14 +22,18 @@ class data extends Model
         'version' => 'Version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -45,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

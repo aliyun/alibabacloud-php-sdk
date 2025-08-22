@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvPodMonitorsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class endpoints extends Model
 {
     /**
-     * @description The collection interval.
-     *
-     * @example 30s
-     *
      * @var string
      */
     public $interval;
 
     /**
-     * @description The number of pods that match the PodMonitor endpoint.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $matchedTargetCount;
 
     /**
-     * @description The collection path.
-     *
-     * @example /metrics
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description The external port.
-     *
-     * @example 9182
-     *
      * @var string
      */
     public $port;
 
     /**
-     * @description The destination port.
-     *
-     * @example 3306
-     *
      * @var int
      */
     public $targetPort;
@@ -60,23 +40,30 @@ class endpoints extends Model
         'targetPort' => 'TargetPort',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
+
         if (null !== $this->matchedTargetCount) {
             $res['MatchedTargetCount'] = $this->matchedTargetCount;
         }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->targetPort) {
             $res['TargetPort'] = $this->targetPort;
         }
@@ -84,26 +71,30 @@ class endpoints extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return endpoints
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
+
         if (isset($map['MatchedTargetCount'])) {
             $model->matchedTargetCount = $map['MatchedTargetCount'];
         }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['TargetPort'])) {
             $model->targetPort = $map['TargetPort'];
         }

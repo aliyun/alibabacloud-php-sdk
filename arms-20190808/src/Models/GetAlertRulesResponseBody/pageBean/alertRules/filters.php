@@ -4,36 +4,28 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesResponseBody\pageBean\alertRules;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesResponseBody\pageBean\alertRules\filters\customSLSFilters;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesResponseBody\pageBean\alertRules\filters\dimFilters;
-use AlibabaCloud\Tea\Model;
 
 class filters extends Model
 {
     /**
-     * @description The custom filter condition of the Browser Monitoring alert rule.
-     *
      * @var customSLSFilters[]
      */
     public $customSLSFilters;
 
     /**
-     * @description The information about the aggregation dimension.
-     *
      * @var string[]
      */
     public $customSLSGroupByDimensions;
 
     /**
-     * @description The details of the custom filter condition.
-     *
      * @var string[]
      */
     public $customSLSWheres;
 
     /**
-     * @description The information about each filter condition of the Application Monitoring or Browser Monitoring alert rule.
-     *
      * @var dimFilters[]
      */
     public $dimFilters;
@@ -44,32 +36,66 @@ class filters extends Model
         'dimFilters' => 'DimFilters',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->customSLSFilters)) {
+            Model::validateArray($this->customSLSFilters);
+        }
+        if (\is_array($this->customSLSGroupByDimensions)) {
+            Model::validateArray($this->customSLSGroupByDimensions);
+        }
+        if (\is_array($this->customSLSWheres)) {
+            Model::validateArray($this->customSLSWheres);
+        }
+        if (\is_array($this->dimFilters)) {
+            Model::validateArray($this->dimFilters);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customSLSFilters) {
-            $res['CustomSLSFilters'] = [];
-            if (null !== $this->customSLSFilters && \is_array($this->customSLSFilters)) {
-                $n = 0;
-                foreach ($this->customSLSFilters as $item) {
-                    $res['CustomSLSFilters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customSLSFilters)) {
+                $res['CustomSLSFilters'] = [];
+                $n1 = 0;
+                foreach ($this->customSLSFilters as $item1) {
+                    $res['CustomSLSFilters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->customSLSGroupByDimensions) {
-            $res['CustomSLSGroupByDimensions'] = $this->customSLSGroupByDimensions;
+            if (\is_array($this->customSLSGroupByDimensions)) {
+                $res['CustomSLSGroupByDimensions'] = [];
+                $n1 = 0;
+                foreach ($this->customSLSGroupByDimensions as $item1) {
+                    $res['CustomSLSGroupByDimensions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->customSLSWheres) {
-            $res['CustomSLSWheres'] = $this->customSLSWheres;
+            if (\is_array($this->customSLSWheres)) {
+                $res['CustomSLSWheres'] = [];
+                $n1 = 0;
+                foreach ($this->customSLSWheres as $item1) {
+                    $res['CustomSLSWheres'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->dimFilters) {
-            $res['DimFilters'] = [];
-            if (null !== $this->dimFilters && \is_array($this->dimFilters)) {
-                $n = 0;
-                foreach ($this->dimFilters as $item) {
-                    $res['DimFilters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dimFilters)) {
+                $res['DimFilters'] = [];
+                $n1 = 0;
+                foreach ($this->dimFilters as $item1) {
+                    $res['DimFilters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,39 +103,54 @@ class filters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomSLSFilters'])) {
             if (!empty($map['CustomSLSFilters'])) {
                 $model->customSLSFilters = [];
-                $n = 0;
-                foreach ($map['CustomSLSFilters'] as $item) {
-                    $model->customSLSFilters[$n++] = null !== $item ? customSLSFilters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CustomSLSFilters'] as $item1) {
+                    $model->customSLSFilters[$n1] = customSLSFilters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['CustomSLSGroupByDimensions'])) {
             if (!empty($map['CustomSLSGroupByDimensions'])) {
-                $model->customSLSGroupByDimensions = $map['CustomSLSGroupByDimensions'];
+                $model->customSLSGroupByDimensions = [];
+                $n1 = 0;
+                foreach ($map['CustomSLSGroupByDimensions'] as $item1) {
+                    $model->customSLSGroupByDimensions[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['CustomSLSWheres'])) {
             if (!empty($map['CustomSLSWheres'])) {
-                $model->customSLSWheres = $map['CustomSLSWheres'];
+                $model->customSLSWheres = [];
+                $n1 = 0;
+                foreach ($map['CustomSLSWheres'] as $item1) {
+                    $model->customSLSWheres[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['DimFilters'])) {
             if (!empty($map['DimFilters'])) {
                 $model->dimFilters = [];
-                $n = 0;
-                foreach ($map['DimFilters'] as $item) {
-                    $model->dimFilters[$n++] = null !== $item ? dimFilters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DimFilters'] as $item1) {
+                    $model->dimFilters[$n1] = dimFilters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\UploadResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class uploadResult extends Model
 {
     /**
-     * @description The ID of the SourceMap file.
-     *
-     * @example 123
-     *
      * @var string
      */
     public $fid;
 
     /**
-     * @description The name of the SourceMap file.
-     *
-     * @example test.js.map
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description The time when the file was uploaded.
-     *
-     * @example 1650272251
-     *
      * @var string
      */
     public $uploadTime;
@@ -40,17 +28,22 @@ class uploadResult extends Model
         'uploadTime' => 'UploadTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fid) {
             $res['Fid'] = $this->fid;
         }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->uploadTime) {
             $res['UploadTime'] = $this->uploadTime;
         }
@@ -58,20 +51,22 @@ class uploadResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return uploadResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Fid'])) {
             $model->fid = $map['Fid'];
         }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['UploadTime'])) {
             $model->uploadTime = $map['UploadTime'];
         }

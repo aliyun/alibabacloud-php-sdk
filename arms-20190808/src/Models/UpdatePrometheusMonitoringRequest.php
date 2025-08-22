@@ -4,77 +4,31 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdatePrometheusMonitoringRequest extends Model
 {
     /**
-     * @description The ID of the Prometheus instance.
-     *
-     * This parameter is required.
-     *
-     * @example cc7a37ee31aea4ed1a059eff8034b****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The monitoring configuration. The value is a YAML string.
-     *
-     * This parameter is required.
-     *
-     * @example apiVersion: monitoring.coreos.com/v1
-     * kind: ServiceMonitor
-     * metadata:
-     * name: tomcat-demo
-     * namespace: default
-     * spec:
-     * endpoints:
-     * - interval: 30s
-     * path: /metrics
-     * port: tomcat-monitor
-     * namespaceSelector:
-     * any: true
-     * selector:
-     * matchLabels:
-     * app: tomcat
-     *
      * @var string
      */
     public $configYaml;
 
     /**
-     * @description The name of the monitoring configuration.
-     *
-     * This parameter is required.
-     *
-     * @example podMonitor1
-     *
      * @var string
      */
     public $monitoringName;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The type of the monitoring configuration.
-     * Valid values for a Prometheus instance for Container Service: serviceMonitor, podMonitor, customJob, and probe.
-     * Valid values for a Prometheus instance for ECS: customJob and probe.
-     *
-     * This parameter is required.
-     *
-     * @example podMonitor
-     *
      * @var string
      */
     public $type;
@@ -86,23 +40,30 @@ class UpdatePrometheusMonitoringRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->configYaml) {
             $res['ConfigYaml'] = $this->configYaml;
         }
+
         if (null !== $this->monitoringName) {
             $res['MonitoringName'] = $this->monitoringName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -110,26 +71,30 @@ class UpdatePrometheusMonitoringRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePrometheusMonitoringRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ConfigYaml'])) {
             $model->configYaml = $map['ConfigYaml'];
         }
+
         if (isset($map['MonitoringName'])) {
             $model->monitoringName = $map['MonitoringName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

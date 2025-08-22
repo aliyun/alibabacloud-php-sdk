@@ -4,50 +4,26 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteEnvPodMonitorRequest extends Model
 {
     /**
-     * @description The ID of the environment instance.
-     *
-     * This parameter is required.
-     *
-     * @example env-xxxxxx
-     *
      * @var string
      */
     public $environmentId;
 
     /**
-     * @description The namespace where the PodMonitor is located.
-     *
-     * This parameter is required.
-     *
-     * @example arms-prom
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The name of the PodMonitor.
-     *
-     * This parameter is required.
-     *
-     * @example arms-admin-pm1
-     *
      * @var string
      */
     public $podMonitorName;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -58,20 +34,26 @@ class DeleteEnvPodMonitorRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->environmentId) {
             $res['EnvironmentId'] = $this->environmentId;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->podMonitorName) {
             $res['PodMonitorName'] = $this->podMonitorName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -79,23 +61,26 @@ class DeleteEnvPodMonitorRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteEnvPodMonitorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnvironmentId'])) {
             $model->environmentId = $map['EnvironmentId'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['PodMonitorName'])) {
             $model->podMonitorName = $map['PodMonitorName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
