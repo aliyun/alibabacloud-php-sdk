@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources\osUpdate;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class packages extends Model
 {
@@ -28,17 +28,22 @@ class packages extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->kb) {
             $res['Kb'] = $this->kb;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -46,20 +51,22 @@ class packages extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return packages
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Kb'])) {
             $model->kb = $map['Kb'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

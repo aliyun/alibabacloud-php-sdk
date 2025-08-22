@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\ApproveFotaUpdateRequest;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\ApproveFotaUpdateResponse;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\ChangePasswordRequest;
@@ -69,18 +68,16 @@ use AlibabaCloud\SDK\Ecd\V20201002\Models\UnbindUserDesktopRequest;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\UnbindUserDesktopResponse;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\VerifyCredentialRequest;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\VerifyCredentialResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Ecd extends OpenApiClient
 {
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ecd', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -99,54 +96,68 @@ class Ecd extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 允许桌面FOTA升级
-     *  *
-     * @param ApproveFotaUpdateRequest $request ApproveFotaUpdateRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 允许桌面FOTA升级.
      *
-     * @return ApproveFotaUpdateResponse ApproveFotaUpdateResponse
+     * @param request - ApproveFotaUpdateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApproveFotaUpdateResponse
+     *
+     * @param ApproveFotaUpdateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ApproveFotaUpdateResponse
      */
     public function approveFotaUpdateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appVersion)) {
-            $query['AppVersion'] = $request->appVersion;
+        if (null !== $request->appVersion) {
+            @$query['AppVersion'] = $request->appVersion;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
+
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->targetStatus)) {
-            $query['TargetStatus'] = $request->targetStatus;
+
+        if (null !== $request->targetStatus) {
+            @$query['TargetStatus'] = $request->targetStatus;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $query['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ApproveFotaUpdate',
@@ -160,15 +171,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return ApproveFotaUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ApproveFotaUpdateResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary 允许桌面FOTA升级
-     *  *
-     * @param ApproveFotaUpdateRequest $request ApproveFotaUpdateRequest
+     * 允许桌面FOTA升级.
      *
-     * @return ApproveFotaUpdateResponse ApproveFotaUpdateResponse
+     * @param request - ApproveFotaUpdateRequest
+     *
+     * @returns ApproveFotaUpdateResponse
+     *
+     * @param ApproveFotaUpdateRequest $request
+     *
+     * @return ApproveFotaUpdateResponse
      */
     public function approveFotaUpdate($request)
     {
@@ -178,43 +193,56 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Changes the password of a user account.
-     *  *
-     * @param ChangePasswordRequest $request ChangePasswordRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Changes the password of a user account.
      *
-     * @return ChangePasswordResponse ChangePasswordResponse
+     * @param request - ChangePasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangePasswordResponse
+     *
+     * @param ChangePasswordRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ChangePasswordResponse
      */
     public function changePasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->newPassword)) {
-            $query['NewPassword'] = $request->newPassword;
+
+        if (null !== $request->newPassword) {
+            @$query['NewPassword'] = $request->newPassword;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->oldPassword)) {
-            $query['OldPassword'] = $request->oldPassword;
+
+        if (null !== $request->oldPassword) {
+            @$query['OldPassword'] = $request->oldPassword;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ChangePassword',
@@ -228,15 +256,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return ChangePasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangePasswordResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary Changes the password of a user account.
-     *  *
-     * @param ChangePasswordRequest $request ChangePasswordRequest
+     * Changes the password of a user account.
      *
-     * @return ChangePasswordResponse ChangePasswordResponse
+     * @param request - ChangePasswordRequest
+     *
+     * @returns ChangePasswordResponse
+     *
+     * @param ChangePasswordRequest $request
+     *
+     * @return ChangePasswordResponse
      */
     public function changePassword($request)
     {
@@ -246,35 +278,46 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteFingerPrintTemplateRequest $request DeleteFingerPrintTemplateRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteFingerPrintTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteFingerPrintTemplateResponse DeleteFingerPrintTemplateResponse
+     * @returns DeleteFingerPrintTemplateResponse
+     *
+     * @param DeleteFingerPrintTemplateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteFingerPrintTemplateResponse
      */
     public function deleteFingerPrintTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->index)) {
-            $query['Index'] = $request->index;
+
+        if (null !== $request->index) {
+            @$query['Index'] = $request->index;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteFingerPrintTemplate',
@@ -288,13 +331,17 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return DeleteFingerPrintTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFingerPrintTemplateResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @param DeleteFingerPrintTemplateRequest $request DeleteFingerPrintTemplateRequest
+     * @param request - DeleteFingerPrintTemplateRequest
      *
-     * @return DeleteFingerPrintTemplateResponse DeleteFingerPrintTemplateResponse
+     * @returns DeleteFingerPrintTemplateResponse
+     *
+     * @param DeleteFingerPrintTemplateRequest $request
+     *
+     * @return DeleteFingerPrintTemplateResponse
      */
     public function deleteFingerPrintTemplate($request)
     {
@@ -304,28 +351,36 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Queries directory details.
-     *  *
-     * @param DescribeDirectoriesRequest $request DescribeDirectoriesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries directory details.
      *
-     * @return DescribeDirectoriesResponse DescribeDirectoriesResponse
+     * @param request - DescribeDirectoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDirectoriesResponse
+     *
+     * @param DescribeDirectoriesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDirectoriesResponse
      */
     public function describeDirectoriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->directoryId)) {
-            $query['DirectoryId'] = $request->directoryId;
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDirectories',
@@ -339,15 +394,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return DescribeDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDirectoriesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary Queries directory details.
-     *  *
-     * @param DescribeDirectoriesRequest $request DescribeDirectoriesRequest
+     * Queries directory details.
      *
-     * @return DescribeDirectoriesResponse DescribeDirectoriesResponse
+     * @param request - DescribeDirectoriesRequest
+     *
+     * @returns DescribeDirectoriesResponse
+     *
+     * @param DescribeDirectoriesRequest $request
+     *
+     * @return DescribeDirectoriesResponse
      */
     public function describeDirectories($request)
     {
@@ -357,31 +416,40 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Queries fingerprint templates.
-     *  *
-     * @param DescribeFingerPrintTemplatesRequest $request DescribeFingerPrintTemplatesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries fingerprint templates.
      *
-     * @return DescribeFingerPrintTemplatesResponse DescribeFingerPrintTemplatesResponse
+     * @param request - DescribeFingerPrintTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFingerPrintTemplatesResponse
+     *
+     * @param DescribeFingerPrintTemplatesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeFingerPrintTemplatesResponse
      */
     public function describeFingerPrintTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeFingerPrintTemplates',
@@ -395,15 +463,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return DescribeFingerPrintTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFingerPrintTemplatesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary Queries fingerprint templates.
-     *  *
-     * @param DescribeFingerPrintTemplatesRequest $request DescribeFingerPrintTemplatesRequest
+     * Queries fingerprint templates.
      *
-     * @return DescribeFingerPrintTemplatesResponse DescribeFingerPrintTemplatesResponse
+     * @param request - DescribeFingerPrintTemplatesRequest
+     *
+     * @returns DescribeFingerPrintTemplatesResponse
+     *
+     * @param DescribeFingerPrintTemplatesRequest $request
+     *
+     * @return DescribeFingerPrintTemplatesResponse
      */
     public function describeFingerPrintTemplates($request)
     {
@@ -413,77 +485,102 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalDesktopsRequest $request DescribeGlobalDesktopsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeGlobalDesktopsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeGlobalDesktopsResponse DescribeGlobalDesktopsResponse
+     * @returns DescribeGlobalDesktopsResponse
+     *
+     * @param DescribeGlobalDesktopsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeGlobalDesktopsResponse
      */
     public function describeGlobalDesktopsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->desktopAccessType)) {
-            $query['DesktopAccessType'] = $request->desktopAccessType;
+
+        if (null !== $request->desktopAccessType) {
+            @$query['DesktopAccessType'] = $request->desktopAccessType;
         }
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
+
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->desktopName)) {
-            $query['DesktopName'] = $request->desktopName;
+
+        if (null !== $request->desktopName) {
+            @$query['DesktopName'] = $request->desktopName;
         }
-        if (!Utils::isUnset($request->desktopStatus)) {
-            $query['DesktopStatus'] = $request->desktopStatus;
+
+        if (null !== $request->desktopStatus) {
+            @$query['DesktopStatus'] = $request->desktopStatus;
         }
-        if (!Utils::isUnset($request->directoryId)) {
-            $query['DirectoryId'] = $request->directoryId;
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->loginRegionId)) {
-            $query['LoginRegionId'] = $request->loginRegionId;
+
+        if (null !== $request->loginRegionId) {
+            @$query['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->queryFotaUpdate)) {
-            $query['QueryFotaUpdate'] = $request->queryFotaUpdate;
+
+        if (null !== $request->queryFotaUpdate) {
+            @$query['QueryFotaUpdate'] = $request->queryFotaUpdate;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->searchRegionId)) {
-            $query['SearchRegionId'] = $request->searchRegionId;
+
+        if (null !== $request->searchRegionId) {
+            @$query['SearchRegionId'] = $request->searchRegionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->sortType)) {
-            $query['SortType'] = $request->sortType;
+
+        if (null !== $request->sortType) {
+            @$query['SortType'] = $request->sortType;
         }
-        if (!Utils::isUnset($request->withoutLatency)) {
-            $query['WithoutLatency'] = $request->withoutLatency;
+
+        if (null !== $request->withoutLatency) {
+            @$query['WithoutLatency'] = $request->withoutLatency;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGlobalDesktops',
@@ -497,13 +594,17 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return DescribeGlobalDesktopsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeGlobalDesktopsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @param DescribeGlobalDesktopsRequest $request DescribeGlobalDesktopsRequest
+     * @param request - DescribeGlobalDesktopsRequest
      *
-     * @return DescribeGlobalDesktopsResponse DescribeGlobalDesktopsResponse
+     * @returns DescribeGlobalDesktopsResponse
+     *
+     * @param DescribeGlobalDesktopsRequest $request
+     *
+     * @return DescribeGlobalDesktopsResponse
      */
     public function describeGlobalDesktops($request)
     {
@@ -513,26 +614,34 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeOfficeSitesRequest $request DescribeOfficeSitesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeOfficeSitesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeOfficeSitesResponse DescribeOfficeSitesResponse
+     * @returns DescribeOfficeSitesResponse
+     *
+     * @param DescribeOfficeSitesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeOfficeSitesResponse
      */
     public function describeOfficeSitesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeOfficeSites',
@@ -546,13 +655,17 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return DescribeOfficeSitesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeOfficeSitesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @param DescribeOfficeSitesRequest $request DescribeOfficeSitesRequest
+     * @param request - DescribeOfficeSitesRequest
      *
-     * @return DescribeOfficeSitesResponse DescribeOfficeSitesResponse
+     * @returns DescribeOfficeSitesResponse
+     *
+     * @param DescribeOfficeSitesRequest $request
+     *
+     * @return DescribeOfficeSitesResponse
      */
     public function describeOfficeSites($request)
     {
@@ -562,23 +675,30 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRegions',
@@ -592,13 +712,17 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param request - DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -608,43 +732,56 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary 列举快照
-     *  *
-     * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 列举快照.
      *
-     * @return DescribeSnapshotsResponse DescribeSnapshotsResponse
+     * @param request - DescribeSnapshotsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSnapshotsResponse
+     *
+     * @param DescribeSnapshotsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeSnapshotsResponse
      */
     public function describeSnapshotsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
+
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->snapshotId)) {
-            $query['SnapshotId'] = $request->snapshotId;
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSnapshots',
@@ -658,15 +795,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return DescribeSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSnapshotsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary 列举快照
-     *  *
-     * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
+     * 列举快照.
      *
-     * @return DescribeSnapshotsResponse DescribeSnapshotsResponse
+     * @param request - DescribeSnapshotsRequest
+     *
+     * @returns DescribeSnapshotsResponse
+     *
+     * @param DescribeSnapshotsRequest $request
+     *
+     * @return DescribeSnapshotsResponse
      */
     public function describeSnapshots($request)
     {
@@ -676,97 +817,128 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户资源列表
-     *  *
-     * @param DescribeUserResourcesRequest $request DescribeUserResourcesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询用户资源列表.
      *
-     * @return DescribeUserResourcesResponse DescribeUserResourcesResponse
+     * @param request - DescribeUserResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserResourcesResponse
+     *
+     * @param DescribeUserResourcesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeUserResourcesResponse
      */
     public function describeUserResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessType)) {
-            $query['AccessType'] = $request->accessType;
+        if (null !== $request->accessType) {
+            @$query['AccessType'] = $request->accessType;
         }
-        if (!Utils::isUnset($request->autoRefresh)) {
-            $query['AutoRefresh'] = $request->autoRefresh;
+
+        if (null !== $request->autoRefresh) {
+            @$query['AutoRefresh'] = $request->autoRefresh;
         }
-        if (!Utils::isUnset($request->categoryId)) {
-            $query['CategoryId'] = $request->categoryId;
+
+        if (null !== $request->categoryId) {
+            @$query['CategoryId'] = $request->categoryId;
         }
-        if (!Utils::isUnset($request->categoryType)) {
-            $query['CategoryType'] = $request->categoryType;
+
+        if (null !== $request->categoryType) {
+            @$query['CategoryType'] = $request->categoryType;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $query['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientType) {
+            @$query['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $query['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$query['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->dualCenterForward)) {
-            $query['DualCenterForward'] = $request->dualCenterForward;
+
+        if (null !== $request->dualCenterForward) {
+            @$query['DualCenterForward'] = $request->dualCenterForward;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->loginRegionId)) {
-            $query['LoginRegionId'] = $request->loginRegionId;
+
+        if (null !== $request->loginRegionId) {
+            @$query['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->officeSiteIds)) {
-            $query['OfficeSiteIds'] = $request->officeSiteIds;
+
+        if (null !== $request->officeSiteIds) {
+            @$query['OfficeSiteIds'] = $request->officeSiteIds;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->productTypes)) {
-            $query['ProductTypes'] = $request->productTypes;
+
+        if (null !== $request->productTypes) {
+            @$query['ProductTypes'] = $request->productTypes;
         }
-        if (!Utils::isUnset($request->protocolType)) {
-            $query['ProtocolType'] = $request->protocolType;
+
+        if (null !== $request->protocolType) {
+            @$query['ProtocolType'] = $request->protocolType;
         }
-        if (!Utils::isUnset($request->queryFotaUpdate)) {
-            $query['QueryFotaUpdate'] = $request->queryFotaUpdate;
+
+        if (null !== $request->queryFotaUpdate) {
+            @$query['QueryFotaUpdate'] = $request->queryFotaUpdate;
         }
-        if (!Utils::isUnset($request->refreshFotaUpdate)) {
-            $query['RefreshFotaUpdate'] = $request->refreshFotaUpdate;
+
+        if (null !== $request->refreshFotaUpdate) {
+            @$query['RefreshFotaUpdate'] = $request->refreshFotaUpdate;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['ResourceIds'] = $request->resourceIds;
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->resourceName)) {
-            $query['ResourceName'] = $request->resourceName;
+
+        if (null !== $request->resourceName) {
+            @$query['ResourceName'] = $request->resourceName;
         }
-        if (!Utils::isUnset($request->resourceTypes)) {
-            $query['ResourceTypes'] = $request->resourceTypes;
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['Scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['Scene'] = $request->scene;
         }
-        if (!Utils::isUnset($request->searchRegionId)) {
-            $query['SearchRegionId'] = $request->searchRegionId;
+
+        if (null !== $request->searchRegionId) {
+            @$query['SearchRegionId'] = $request->searchRegionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->sortType)) {
-            $query['SortType'] = $request->sortType;
+
+        if (null !== $request->sortType) {
+            @$query['SortType'] = $request->sortType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeUserResources',
@@ -780,15 +952,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return DescribeUserResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserResourcesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary 查询用户资源列表
-     *  *
-     * @param DescribeUserResourcesRequest $request DescribeUserResourcesRequest
+     * 查询用户资源列表.
      *
-     * @return DescribeUserResourcesResponse DescribeUserResourcesResponse
+     * @param request - DescribeUserResourcesRequest
+     *
+     * @returns DescribeUserResourcesResponse
+     *
+     * @param DescribeUserResourcesRequest $request
+     *
+     * @return DescribeUserResourcesResponse
      */
     public function describeUserResources($request)
     {
@@ -798,40 +974,52 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Encrypts a password.
-     *  *
-     * @param EncryptPasswordRequest $request EncryptPasswordRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Encrypts a password.
      *
-     * @return EncryptPasswordResponse EncryptPasswordResponse
+     * @param request - EncryptPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EncryptPasswordResponse
+     *
+     * @param EncryptPasswordRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return EncryptPasswordResponse
      */
     public function encryptPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->directoryId)) {
-            $query['DirectoryId'] = $request->directoryId;
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'EncryptPassword',
@@ -845,15 +1033,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return EncryptPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EncryptPasswordResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary Encrypts a password.
-     *  *
-     * @param EncryptPasswordRequest $request EncryptPasswordRequest
+     * Encrypts a password.
      *
-     * @return EncryptPasswordResponse EncryptPasswordResponse
+     * @param request - EncryptPasswordRequest
+     *
+     * @returns EncryptPasswordResponse
+     *
+     * @param EncryptPasswordRequest $request
+     *
+     * @return EncryptPasswordResponse
      */
     public function encryptPassword($request)
     {
@@ -863,34 +1055,44 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary 获取无影云盘的免密token
-     *  *
-     * @param GetCloudDriveServiceMountTokenRequest $request GetCloudDriveServiceMountTokenRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 获取无影云盘的免密token.
      *
-     * @return GetCloudDriveServiceMountTokenResponse GetCloudDriveServiceMountTokenResponse
+     * @param request - GetCloudDriveServiceMountTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCloudDriveServiceMountTokenResponse
+     *
+     * @param GetCloudDriveServiceMountTokenRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetCloudDriveServiceMountTokenResponse
      */
     public function getCloudDriveServiceMountTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetCloudDriveServiceMountToken',
@@ -904,15 +1106,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return GetCloudDriveServiceMountTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCloudDriveServiceMountTokenResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary 获取无影云盘的免密token
-     *  *
-     * @param GetCloudDriveServiceMountTokenRequest $request GetCloudDriveServiceMountTokenRequest
+     * 获取无影云盘的免密token.
      *
-     * @return GetCloudDriveServiceMountTokenResponse GetCloudDriveServiceMountTokenResponse
+     * @param request - GetCloudDriveServiceMountTokenRequest
+     *
+     * @returns GetCloudDriveServiceMountTokenResponse
+     *
+     * @param GetCloudDriveServiceMountTokenRequest $request
+     *
+     * @return GetCloudDriveServiceMountTokenResponse
      */
     public function getCloudDriveServiceMountToken($request)
     {
@@ -922,62 +1128,84 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetConnectionTicketRequest $request GetConnectionTicketRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获得连接凭证
      *
-     * @return GetConnectionTicketResponse GetConnectionTicketResponse
+     * @param request - GetConnectionTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConnectionTicketResponse
+     *
+     * @param GetConnectionTicketRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetConnectionTicketResponse
      */
     public function getConnectionTicketWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $query['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$query['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $query['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientType) {
+            @$query['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $query['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$query['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->commandContent)) {
-            $query['CommandContent'] = $request->commandContent;
+
+        if (null !== $request->commandContent) {
+            @$query['CommandContent'] = $request->commandContent;
         }
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
+
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $query['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetConnectionTicket',
@@ -991,13 +1219,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return GetConnectionTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetConnectionTicketResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @param GetConnectionTicketRequest $request GetConnectionTicketRequest
+     * 获得连接凭证
      *
-     * @return GetConnectionTicketResponse GetConnectionTicketResponse
+     * @param request - GetConnectionTicketRequest
+     *
+     * @returns GetConnectionTicketResponse
+     *
+     * @param GetConnectionTicketRequest $request
+     *
+     * @return GetConnectionTicketResponse
      */
     public function getConnectionTicket($request)
     {
@@ -1007,81 +1241,110 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Obtains logon credentials.
-     *  *
-     * @param GetLoginTokenRequest $tmpReq  GetLoginTokenRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Obtains logon credentials.
      *
-     * @return GetLoginTokenResponse GetLoginTokenResponse
+     * @param tmpReq - GetLoginTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLoginTokenResponse
+     *
+     * @param GetLoginTokenRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetLoginTokenResponse
      */
     public function getLoginTokenWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetLoginTokenShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->availableFeatures)) {
-            $request->availableFeaturesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->availableFeatures, 'AvailableFeatures', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->availableFeatures) {
+            $request->availableFeaturesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->availableFeatures, 'AvailableFeatures', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->authenticationCode)) {
-            $query['AuthenticationCode'] = $request->authenticationCode;
+        if (null !== $request->authenticationCode) {
+            @$query['AuthenticationCode'] = $request->authenticationCode;
         }
-        if (!Utils::isUnset($request->availableFeaturesShrink)) {
-            $query['AvailableFeatures'] = $request->availableFeaturesShrink;
+
+        if (null !== $request->availableFeaturesShrink) {
+            @$query['AvailableFeatures'] = $request->availableFeaturesShrink;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $query['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientName) {
+            @$query['ClientName'] = $request->clientName;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $query['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientOS) {
+            @$query['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $query['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientType) {
+            @$query['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->currentStage)) {
-            $query['CurrentStage'] = $request->currentStage;
+
+        if (null !== $request->clientVersion) {
+            @$query['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->directoryId)) {
-            $query['DirectoryId'] = $request->directoryId;
+
+        if (null !== $request->currentStage) {
+            @$query['CurrentStage'] = $request->currentStage;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
         }
-        if (!Utils::isUnset($request->keepAlive)) {
-            $query['KeepAlive'] = $request->keepAlive;
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->keepAliveToken)) {
-            $query['KeepAliveToken'] = $request->keepAliveToken;
+
+        if (null !== $request->keepAlive) {
+            @$query['KeepAlive'] = $request->keepAlive;
         }
-        if (!Utils::isUnset($request->newPassword)) {
-            $query['NewPassword'] = $request->newPassword;
+
+        if (null !== $request->keepAliveToken) {
+            @$query['KeepAliveToken'] = $request->keepAliveToken;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->newPassword) {
+            @$query['NewPassword'] = $request->newPassword;
         }
-        if (!Utils::isUnset($request->oldPassword)) {
-            $query['OldPassword'] = $request->oldPassword;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->oldPassword) {
+            @$query['OldPassword'] = $request->oldPassword;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->tokenCode)) {
-            $query['TokenCode'] = $request->tokenCode;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $query['Uuid'] = $request->uuid;
+
+        if (null !== $request->tokenCode) {
+            @$query['TokenCode'] = $request->tokenCode;
         }
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetLoginToken',
@@ -1095,15 +1358,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return GetLoginTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLoginTokenResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary Obtains logon credentials.
-     *  *
-     * @param GetLoginTokenRequest $request GetLoginTokenRequest
+     * Obtains logon credentials.
      *
-     * @return GetLoginTokenResponse GetLoginTokenResponse
+     * @param request - GetLoginTokenRequest
+     *
+     * @returns GetLoginTokenResponse
+     *
+     * @param GetLoginTokenRequest $request
+     *
+     * @return GetLoginTokenResponse
      */
     public function getLoginToken($request)
     {
@@ -1113,28 +1380,36 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary 是否保持登录判断接口
-     *  *
-     * @param IsKeepAliveRequest $request IsKeepAliveRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 是否保持登录判断接口.
      *
-     * @return IsKeepAliveResponse IsKeepAliveResponse
+     * @param request - IsKeepAliveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IsKeepAliveResponse
+     *
+     * @param IsKeepAliveRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return IsKeepAliveResponse
      */
     public function isKeepAliveWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'IsKeepAlive',
@@ -1148,15 +1423,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return IsKeepAliveResponse::fromMap($this->callApi($params, $req, $runtime));
+        return IsKeepAliveResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary 是否保持登录判断接口
-     *  *
-     * @param IsKeepAliveRequest $request IsKeepAliveRequest
+     * 是否保持登录判断接口.
      *
-     * @return IsKeepAliveResponse IsKeepAliveResponse
+     * @param request - IsKeepAliveRequest
+     *
+     * @returns IsKeepAliveResponse
+     *
+     * @param IsKeepAliveRequest $request
+     *
+     * @return IsKeepAliveResponse
      */
     public function isKeepAlive($request)
     {
@@ -1166,28 +1445,36 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary 查询Agent需要上报的配置信息
-     *  *
-     * @param QueryEdsAgentReportConfigRequest $request QueryEdsAgentReportConfigRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 查询Agent需要上报的配置信息.
      *
-     * @return QueryEdsAgentReportConfigResponse QueryEdsAgentReportConfigResponse
+     * @param request - QueryEdsAgentReportConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryEdsAgentReportConfigResponse
+     *
+     * @param QueryEdsAgentReportConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryEdsAgentReportConfigResponse
      */
     public function queryEdsAgentReportConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
+
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->ecsInstanceId)) {
-            $query['EcsInstanceId'] = $request->ecsInstanceId;
+
+        if (null !== $request->ecsInstanceId) {
+            @$query['EcsInstanceId'] = $request->ecsInstanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryEdsAgentReportConfig',
@@ -1201,15 +1488,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return QueryEdsAgentReportConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryEdsAgentReportConfigResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary 查询Agent需要上报的配置信息
-     *  *
-     * @param QueryEdsAgentReportConfigRequest $request QueryEdsAgentReportConfigRequest
+     * 查询Agent需要上报的配置信息.
      *
-     * @return QueryEdsAgentReportConfigResponse QueryEdsAgentReportConfigResponse
+     * @param request - QueryEdsAgentReportConfigRequest
+     *
+     * @returns QueryEdsAgentReportConfigResponse
+     *
+     * @param QueryEdsAgentReportConfigRequest $request
+     *
+     * @return QueryEdsAgentReportConfigResponse
      */
     public function queryEdsAgentReportConfig($request)
     {
@@ -1219,52 +1510,68 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Restart cloud computers.
-     *  *
-     * @param RebootDesktopsRequest $request RebootDesktopsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Restart cloud computers.
      *
-     * @return RebootDesktopsResponse RebootDesktopsResponse
+     * @param request - RebootDesktopsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RebootDesktopsResponse
+     *
+     * @param RebootDesktopsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RebootDesktopsResponse
      */
     public function rebootDesktopsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $query['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$query['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $query['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$query['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
+
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->osUpdate)) {
-            $query['OsUpdate'] = $request->osUpdate;
+
+        if (null !== $request->osUpdate) {
+            @$query['OsUpdate'] = $request->osUpdate;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->sessionToken)) {
-            $query['SessionToken'] = $request->sessionToken;
+
+        if (null !== $request->sessionToken) {
+            @$query['SessionToken'] = $request->sessionToken;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $query['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RebootDesktops',
@@ -1278,15 +1585,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return RebootDesktopsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RebootDesktopsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary Restart cloud computers.
-     *  *
-     * @param RebootDesktopsRequest $request RebootDesktopsRequest
+     * Restart cloud computers.
      *
-     * @return RebootDesktopsResponse RebootDesktopsResponse
+     * @param request - RebootDesktopsRequest
+     *
+     * @returns RebootDesktopsResponse
+     *
+     * @param RebootDesktopsRequest $request
+     *
+     * @return RebootDesktopsResponse
      */
     public function rebootDesktops($request)
     {
@@ -1296,38 +1607,50 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RefreshLoginTokenRequest $request RefreshLoginTokenRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - RefreshLoginTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RefreshLoginTokenResponse RefreshLoginTokenResponse
+     * @returns RefreshLoginTokenResponse
+     *
+     * @param RefreshLoginTokenRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RefreshLoginTokenResponse
      */
     public function refreshLoginTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->directoryId)) {
-            $query['DirectoryId'] = $request->directoryId;
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RefreshLoginToken',
@@ -1341,13 +1664,17 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return RefreshLoginTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefreshLoginTokenResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @param RefreshLoginTokenRequest $request RefreshLoginTokenRequest
+     * @param request - RefreshLoginTokenRequest
      *
-     * @return RefreshLoginTokenResponse RefreshLoginTokenResponse
+     * @returns RefreshLoginTokenResponse
+     *
+     * @param RefreshLoginTokenRequest $request
+     *
+     * @return RefreshLoginTokenResponse
      */
     public function refreshLoginToken($request)
     {
@@ -1357,31 +1684,40 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary 上报edsAgent的信息
-     *  *
-     * @param ReportEdsAgentInfoRequest $request ReportEdsAgentInfoRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 上报edsAgent的信息.
      *
-     * @return ReportEdsAgentInfoResponse ReportEdsAgentInfoResponse
+     * @param request - ReportEdsAgentInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReportEdsAgentInfoResponse
+     *
+     * @param ReportEdsAgentInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ReportEdsAgentInfoResponse
      */
     public function reportEdsAgentInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
+
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->ecsInstanceId)) {
-            $query['EcsInstanceId'] = $request->ecsInstanceId;
+
+        if (null !== $request->ecsInstanceId) {
+            @$query['EcsInstanceId'] = $request->ecsInstanceId;
         }
-        if (!Utils::isUnset($request->edsAgentInfo)) {
-            $query['EdsAgentInfo'] = $request->edsAgentInfo;
+
+        if (null !== $request->edsAgentInfo) {
+            @$query['EdsAgentInfo'] = $request->edsAgentInfo;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ReportEdsAgentInfo',
@@ -1395,15 +1731,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return ReportEdsAgentInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReportEdsAgentInfoResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary 上报edsAgent的信息
-     *  *
-     * @param ReportEdsAgentInfoRequest $request ReportEdsAgentInfoRequest
+     * 上报edsAgent的信息.
      *
-     * @return ReportEdsAgentInfoResponse ReportEdsAgentInfoResponse
+     * @param request - ReportEdsAgentInfoRequest
+     *
+     * @returns ReportEdsAgentInfoResponse
+     *
+     * @param ReportEdsAgentInfoRequest $request
+     *
+     * @return ReportEdsAgentInfoResponse
      */
     public function reportEdsAgentInfo($request)
     {
@@ -1413,35 +1753,46 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ReportSessionStatusRequest $request ReportSessionStatusRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - ReportSessionStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ReportSessionStatusResponse ReportSessionStatusResponse
+     * @returns ReportSessionStatusResponse
+     *
+     * @param ReportSessionStatusRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ReportSessionStatusResponse
      */
     public function reportSessionStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionChangeTime)) {
-            $query['SessionChangeTime'] = $request->sessionChangeTime;
+
+        if (null !== $request->sessionChangeTime) {
+            @$query['SessionChangeTime'] = $request->sessionChangeTime;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->sessionStatus)) {
-            $query['SessionStatus'] = $request->sessionStatus;
+
+        if (null !== $request->sessionStatus) {
+            @$query['SessionStatus'] = $request->sessionStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ReportSessionStatus',
@@ -1455,13 +1806,17 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return ReportSessionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReportSessionStatusResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @param ReportSessionStatusRequest $request ReportSessionStatusRequest
+     * @param request - ReportSessionStatusRequest
      *
-     * @return ReportSessionStatusResponse ReportSessionStatusResponse
+     * @returns ReportSessionStatusResponse
+     *
+     * @param ReportSessionStatusRequest $request
+     *
+     * @return ReportSessionStatusResponse
      */
     public function reportSessionStatus($request)
     {
@@ -1471,40 +1826,52 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Resets a password.
-     *  *
-     * @param ResetPasswordRequest $request ResetPasswordRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Resets a password.
      *
-     * @return ResetPasswordResponse ResetPasswordResponse
+     * @param request - ResetPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetPasswordResponse
+     *
+     * @param ResetPasswordRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ResetPasswordResponse
      */
     public function resetPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $query['phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$query['phone'] = $request->phone;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ResetPassword',
@@ -1518,15 +1885,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return ResetPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetPasswordResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary Resets a password.
-     *  *
-     * @param ResetPasswordRequest $request ResetPasswordRequest
+     * Resets a password.
      *
-     * @return ResetPasswordResponse ResetPasswordResponse
+     * @param request - ResetPasswordRequest
+     *
+     * @returns ResetPasswordResponse
+     *
+     * @param ResetPasswordRequest $request
+     *
+     * @return ResetPasswordResponse
      */
     public function resetPassword($request)
     {
@@ -1536,40 +1907,52 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Restores the data of a disk from a snapshot.
-     *  *
-     * @param ResetSnapshotRequest $request ResetSnapshotRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Restores the data of a disk from a snapshot.
      *
-     * @return ResetSnapshotResponse ResetSnapshotResponse
+     * @param request - ResetSnapshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetSnapshotResponse
+     *
+     * @param ResetSnapshotRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ResetSnapshotResponse
      */
     public function resetSnapshotWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
+
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->snapshotId)) {
-            $query['SnapshotId'] = $request->snapshotId;
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
         }
-        if (!Utils::isUnset($request->stopDesktop)) {
-            $query['StopDesktop'] = $request->stopDesktop;
+
+        if (null !== $request->stopDesktop) {
+            @$query['StopDesktop'] = $request->stopDesktop;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ResetSnapshot',
@@ -1583,15 +1966,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return ResetSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetSnapshotResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary Restores the data of a disk from a snapshot.
-     *  *
-     * @param ResetSnapshotRequest $request ResetSnapshotRequest
+     * Restores the data of a disk from a snapshot.
      *
-     * @return ResetSnapshotResponse ResetSnapshotResponse
+     * @param request - ResetSnapshotRequest
+     *
+     * @returns ResetSnapshotResponse
+     *
+     * @param ResetSnapshotRequest $request
+     *
+     * @return ResetSnapshotResponse
      */
     public function resetSnapshot($request)
     {
@@ -1601,43 +1988,56 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Sends a logon verification code.
-     *  *
-     * @param SendTokenCodeRequest $request SendTokenCodeRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Sends a logon verification code.
      *
-     * @return SendTokenCodeResponse SendTokenCodeResponse
+     * @param request - SendTokenCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendTokenCodeResponse
+     *
+     * @param SendTokenCodeRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SendTokenCodeResponse
      */
     public function sendTokenCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $query['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$query['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $query['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$query['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->tokenCode)) {
-            $query['TokenCode'] = $request->tokenCode;
+
+        if (null !== $request->tokenCode) {
+            @$query['TokenCode'] = $request->tokenCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SendTokenCode',
@@ -1651,15 +2051,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return SendTokenCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendTokenCodeResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary Sends a logon verification code.
-     *  *
-     * @param SendTokenCodeRequest $request SendTokenCodeRequest
+     * Sends a logon verification code.
      *
-     * @return SendTokenCodeResponse SendTokenCodeResponse
+     * @param request - SendTokenCodeRequest
+     *
+     * @returns SendTokenCodeResponse
+     *
+     * @param SendTokenCodeRequest $request
+     *
+     * @return SendTokenCodeResponse
      */
     public function sendTokenCode($request)
     {
@@ -1669,47 +2073,62 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetFingerPrintTemplateRequest $request SetFingerPrintTemplateRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - SetFingerPrintTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SetFingerPrintTemplateResponse SetFingerPrintTemplateResponse
+     * @returns SetFingerPrintTemplateResponse
+     *
+     * @param SetFingerPrintTemplateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SetFingerPrintTemplateResponse
      */
     public function setFingerPrintTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->encryptedFingerPrintTemplate)) {
-            $query['EncryptedFingerPrintTemplate'] = $request->encryptedFingerPrintTemplate;
+
+        if (null !== $request->encryptedFingerPrintTemplate) {
+            @$query['EncryptedFingerPrintTemplate'] = $request->encryptedFingerPrintTemplate;
         }
-        if (!Utils::isUnset($request->encryptedKey)) {
-            $query['EncryptedKey'] = $request->encryptedKey;
+
+        if (null !== $request->encryptedKey) {
+            @$query['EncryptedKey'] = $request->encryptedKey;
         }
-        if (!Utils::isUnset($request->fingerPrintTemplate)) {
-            $query['FingerPrintTemplate'] = $request->fingerPrintTemplate;
+
+        if (null !== $request->fingerPrintTemplate) {
+            @$query['FingerPrintTemplate'] = $request->fingerPrintTemplate;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SetFingerPrintTemplate',
@@ -1723,13 +2142,17 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return SetFingerPrintTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetFingerPrintTemplateResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @param SetFingerPrintTemplateRequest $request SetFingerPrintTemplateRequest
+     * @param request - SetFingerPrintTemplateRequest
      *
-     * @return SetFingerPrintTemplateResponse SetFingerPrintTemplateResponse
+     * @returns SetFingerPrintTemplateResponse
+     *
+     * @param SetFingerPrintTemplateRequest $request
+     *
+     * @return SetFingerPrintTemplateResponse
      */
     public function setFingerPrintTemplate($request)
     {
@@ -1739,38 +2162,50 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetFingerPrintTemplateDescriptionRequest $request SetFingerPrintTemplateDescriptionRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * @param request - SetFingerPrintTemplateDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SetFingerPrintTemplateDescriptionResponse SetFingerPrintTemplateDescriptionResponse
+     * @returns SetFingerPrintTemplateDescriptionResponse
+     *
+     * @param SetFingerPrintTemplateDescriptionRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return SetFingerPrintTemplateDescriptionResponse
      */
     public function setFingerPrintTemplateDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->index)) {
-            $query['Index'] = $request->index;
+
+        if (null !== $request->index) {
+            @$query['Index'] = $request->index;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SetFingerPrintTemplateDescription',
@@ -1784,13 +2219,17 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return SetFingerPrintTemplateDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetFingerPrintTemplateDescriptionResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @param SetFingerPrintTemplateDescriptionRequest $request SetFingerPrintTemplateDescriptionRequest
+     * @param request - SetFingerPrintTemplateDescriptionRequest
      *
-     * @return SetFingerPrintTemplateDescriptionResponse SetFingerPrintTemplateDescriptionResponse
+     * @returns SetFingerPrintTemplateDescriptionResponse
+     *
+     * @param SetFingerPrintTemplateDescriptionRequest $request
+     *
+     * @return SetFingerPrintTemplateDescriptionResponse
      */
     public function setFingerPrintTemplateDescription($request)
     {
@@ -1800,48 +2239,63 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Start cloud computers.
-     *  *
-     * @description The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
-     *  *
-     * @param StartDesktopsRequest $request StartDesktopsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Start cloud computers.
      *
-     * @return StartDesktopsResponse StartDesktopsResponse
+     * @remarks
+     * The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
+     *
+     * @param request - StartDesktopsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartDesktopsResponse
+     *
+     * @param StartDesktopsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartDesktopsResponse
      */
     public function startDesktopsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $query['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$query['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $query['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$query['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
+
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $query['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'StartDesktops',
@@ -1855,17 +2309,22 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return StartDesktopsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartDesktopsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary Start cloud computers.
-     *  *
-     * @description The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
-     *  *
-     * @param StartDesktopsRequest $request StartDesktopsRequest
+     * Start cloud computers.
      *
-     * @return StartDesktopsResponse StartDesktopsResponse
+     * @remarks
+     * The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
+     *
+     * @param request - StartDesktopsRequest
+     *
+     * @returns StartDesktopsResponse
+     *
+     * @param StartDesktopsRequest $request
+     *
+     * @return StartDesktopsResponse
      */
     public function startDesktops($request)
     {
@@ -1875,41 +2334,54 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param StartRecordContentRequest $request StartRecordContentRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - StartRecordContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return StartRecordContentResponse StartRecordContentResponse
+     * @returns StartRecordContentResponse
+     *
+     * @param StartRecordContentRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StartRecordContentResponse
      */
     public function startRecordContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $query['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$query['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $query['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$query['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
+
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->filePath)) {
-            $query['FilePath'] = $request->filePath;
+
+        if (null !== $request->filePath) {
+            @$query['FilePath'] = $request->filePath;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'StartRecordContent',
@@ -1923,13 +2395,17 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return StartRecordContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartRecordContentResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @param StartRecordContentRequest $request StartRecordContentRequest
+     * @param request - StartRecordContentRequest
      *
-     * @return StartRecordContentResponse StartRecordContentResponse
+     * @returns StartRecordContentResponse
+     *
+     * @param StartRecordContentRequest $request
+     *
+     * @return StartRecordContentResponse
      */
     public function startRecordContent($request)
     {
@@ -1939,54 +2415,71 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Stops cloud computers.
-     *  *
-     * @description The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
-     *  *
-     * @param StopDesktopsRequest $request StopDesktopsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Stops cloud computers.
      *
-     * @return StopDesktopsResponse StopDesktopsResponse
+     * @remarks
+     * The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
+     *
+     * @param request - StopDesktopsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopDesktopsResponse
+     *
+     * @param StopDesktopsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StopDesktopsResponse
      */
     public function stopDesktopsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $query['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$query['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $query['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$query['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
+
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->osUpdate)) {
-            $query['OsUpdate'] = $request->osUpdate;
+
+        if (null !== $request->osUpdate) {
+            @$query['OsUpdate'] = $request->osUpdate;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->sessionToken)) {
-            $query['SessionToken'] = $request->sessionToken;
+
+        if (null !== $request->sessionToken) {
+            @$query['SessionToken'] = $request->sessionToken;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $query['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'StopDesktops',
@@ -2000,17 +2493,22 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return StopDesktopsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopDesktopsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary Stops cloud computers.
-     *  *
-     * @description The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
-     *  *
-     * @param StopDesktopsRequest $request StopDesktopsRequest
+     * Stops cloud computers.
      *
-     * @return StopDesktopsResponse StopDesktopsResponse
+     * @remarks
+     * The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
+     *
+     * @param request - StopDesktopsRequest
+     *
+     * @returns StopDesktopsResponse
+     *
+     * @param StopDesktopsRequest $request
+     *
+     * @return StopDesktopsResponse
      */
     public function stopDesktops($request)
     {
@@ -2020,38 +2518,50 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param StopRecordContentRequest $request StopRecordContentRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - StopRecordContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return StopRecordContentResponse StopRecordContentResponse
+     * @returns StopRecordContentResponse
+     *
+     * @param StopRecordContentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return StopRecordContentResponse
      */
     public function stopRecordContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $query['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$query['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $query['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$query['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
+
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'StopRecordContent',
@@ -2065,13 +2575,17 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return StopRecordContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopRecordContentResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @param StopRecordContentRequest $request StopRecordContentRequest
+     * @param request - StopRecordContentRequest
      *
-     * @return StopRecordContentResponse StopRecordContentResponse
+     * @returns StopRecordContentResponse
+     *
+     * @param StopRecordContentRequest $request
+     *
+     * @return StopRecordContentResponse
      */
     public function stopRecordContent($request)
     {
@@ -2081,40 +2595,52 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Unbinds end users from cloud computers.
-     *  *
-     * @param UnbindUserDesktopRequest $request UnbindUserDesktopRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Unbinds end users from cloud computers.
      *
-     * @return UnbindUserDesktopResponse UnbindUserDesktopResponse
+     * @param request - UnbindUserDesktopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindUserDesktopResponse
+     *
+     * @param UnbindUserDesktopRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UnbindUserDesktopResponse
      */
     public function unbindUserDesktopWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $query['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientType) {
+            @$query['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->force)) {
-            $query['Force'] = $request->force;
+
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->userDesktopId)) {
-            $query['UserDesktopId'] = $request->userDesktopId;
+
+        if (null !== $request->userDesktopId) {
+            @$query['UserDesktopId'] = $request->userDesktopId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UnbindUserDesktop',
@@ -2128,15 +2654,19 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return UnbindUserDesktopResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnbindUserDesktopResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary Unbinds end users from cloud computers.
-     *  *
-     * @param UnbindUserDesktopRequest $request UnbindUserDesktopRequest
+     * Unbinds end users from cloud computers.
      *
-     * @return UnbindUserDesktopResponse UnbindUserDesktopResponse
+     * @param request - UnbindUserDesktopRequest
+     *
+     * @returns UnbindUserDesktopResponse
+     *
+     * @param UnbindUserDesktopRequest $request
+     *
+     * @return UnbindUserDesktopResponse
      */
     public function unbindUserDesktop($request)
     {
@@ -2146,41 +2676,54 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param VerifyCredentialRequest $request VerifyCredentialRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - VerifyCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return VerifyCredentialResponse VerifyCredentialResponse
+     * @returns VerifyCredentialResponse
+     *
+     * @param VerifyCredentialRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return VerifyCredentialResponse
      */
     public function verifyCredentialWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->credential)) {
-            $query['Credential'] = $request->credential;
+
+        if (null !== $request->credential) {
+            @$query['Credential'] = $request->credential;
         }
-        if (!Utils::isUnset($request->credentialType)) {
-            $query['CredentialType'] = $request->credentialType;
+
+        if (null !== $request->credentialType) {
+            @$query['CredentialType'] = $request->credentialType;
         }
-        if (!Utils::isUnset($request->encryptedKey)) {
-            $query['EncryptedKey'] = $request->encryptedKey;
+
+        if (null !== $request->encryptedKey) {
+            @$query['EncryptedKey'] = $request->encryptedKey;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'VerifyCredential',
@@ -2194,13 +2737,17 @@ class Ecd extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return VerifyCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+        return VerifyCredentialResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @param VerifyCredentialRequest $request VerifyCredentialRequest
+     * @param request - VerifyCredentialRequest
      *
-     * @return VerifyCredentialResponse VerifyCredentialResponse
+     * @returns VerifyCredentialResponse
+     *
+     * @param VerifyCredentialRequest $request
+     *
+     * @return VerifyCredentialResponse
      */
     public function verifyCredential($request)
     {
