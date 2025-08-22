@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LogInfo extends Model
 {
@@ -34,8 +34,6 @@ class LogInfo extends Model
     public $podUid;
 
     /**
-     * @example stderr, stdout
-     *
      * @var string
      */
     public $source;
@@ -54,29 +52,38 @@ class LogInfo extends Model
         'time' => 'Time',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->isTruncated) {
             $res['IsTruncated'] = $this->isTruncated;
         }
+
         if (null !== $this->podId) {
             $res['PodId'] = $this->podId;
         }
+
         if (null !== $this->podUid) {
             $res['PodUid'] = $this->podUid;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
@@ -84,32 +91,38 @@ class LogInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LogInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['IsTruncated'])) {
             $model->isTruncated = $map['IsTruncated'];
         }
+
         if (isset($map['PodId'])) {
             $model->podId = $map['PodId'];
         }
+
         if (isset($map['PodUid'])) {
             $model->podUid = $map['PodUid'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }

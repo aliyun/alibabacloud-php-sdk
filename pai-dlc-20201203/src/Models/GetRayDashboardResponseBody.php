@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRayDashboardResponseBody extends Model
 {
     /**
-     * @description Indicates whether the dashboard has been integrated with CloudMonitor and supports ray metrics
-     *
-     * @example true
-     *
      * @var string
      */
     public $metricsEnabled;
 
     /**
-     * @description The Ray Dashboard URL
-     *
-     * @example https://pre-pai-dlc-proxy-cn-hangzhou.aliyun.com/ray/dashboard/dlc1k7426goc7bvy
-     *
      * @var string
      */
     public $url;
@@ -30,14 +22,18 @@ class GetRayDashboardResponseBody extends Model
         'url' => 'url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metricsEnabled) {
             $res['metricsEnabled'] = $this->metricsEnabled;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -45,17 +41,18 @@ class GetRayDashboardResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRayDashboardResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['metricsEnabled'])) {
             $model->metricsEnabled = $map['metricsEnabled'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

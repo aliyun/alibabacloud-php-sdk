@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListJobSanityCheckResultsRequest extends Model
 {
     /**
-     * @description The sorting order:
-     *
-     *   desc: descending order
-     *   asc: ascending order
-     *
-     * @example desc
-     *
      * @var string
      */
     public $order;
@@ -23,9 +16,12 @@ class ListJobSanityCheckResultsRequest extends Model
         'order' => 'Order',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->order) {
@@ -35,11 +31,11 @@ class ListJobSanityCheckResultsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListJobSanityCheckResultsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

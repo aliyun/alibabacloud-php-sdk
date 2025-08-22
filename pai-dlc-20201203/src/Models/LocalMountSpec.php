@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LocalMountSpec extends Model
 {
@@ -28,17 +28,22 @@ class LocalMountSpec extends Model
         'mountPath' => 'MountPath',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->localPath) {
             $res['LocalPath'] = $this->localPath;
         }
+
         if (null !== $this->mountMode) {
             $res['MountMode'] = $this->mountMode;
         }
+
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
         }
@@ -46,20 +51,22 @@ class LocalMountSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LocalMountSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LocalPath'])) {
             $model->localPath = $map['LocalPath'];
         }
+
         if (isset($map['MountMode'])) {
             $model->mountMode = $map['MountMode'];
         }
+
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
         }

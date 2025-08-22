@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListJobsResponseBody extends Model
 {
     /**
-     * @description The jobs.
-     *
      * @var JobItem[]
      */
     public $jobs;
 
     /**
-     * @description The request ID used to troubleshoot issues.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of jobs that meet the filter conditions.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
@@ -38,23 +28,32 @@ class ListJobsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->jobs)) {
+            Model::validateArray($this->jobs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobs) {
-            $res['Jobs'] = [];
-            if (null !== $this->jobs && \is_array($this->jobs)) {
-                $n = 0;
-                foreach ($this->jobs as $item) {
-                    $res['Jobs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->jobs)) {
+                $res['Jobs'] = [];
+                $n1 = 0;
+                foreach ($this->jobs as $item1) {
+                    $res['Jobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -62,26 +61,29 @@ class ListJobsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListJobsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Jobs'])) {
             if (!empty($map['Jobs'])) {
                 $model->jobs = [];
-                $n = 0;
-                foreach ($map['Jobs'] as $item) {
-                    $model->jobs[$n++] = null !== $item ? JobItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Jobs'] as $item1) {
+                    $model->jobs[$n1] = JobItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

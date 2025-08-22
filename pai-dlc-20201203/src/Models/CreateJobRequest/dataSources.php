@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataSources extends Model
 {
     /**
-     * @description The data source ID.
-     *
-     * @example d-cn9dl*******
-     *
      * @var string
      */
     public $dataSourceId;
@@ -33,32 +29,16 @@ class dataSources extends Model
     public $mountAccess;
 
     /**
-     * @description The path to which the job is mounted. By default, the mount path in the data source configuration is used. This parameter is optional.
-     *
-     * @example /root/data
-     *
      * @var string
      */
     public $mountPath;
 
     /**
-     * @description The mount attribute of the custom dataset. Set the value to OSS.
-     *
-     * @example {
-     * "fs.oss.download.thread.concurrency": "10",
-     * "fs.oss.upload.thread.concurrency": "10",
-     * "fs.jindo.args": "-oattr_timeout=3 -oentry_timeout=0 -onegative_timeout=0 -oauto_cache -ono_symlink"
-     * }
-     *
      * @var string
      */
     public $options;
 
     /**
-     * @description The data source path.
-     *
-     * @example oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
-     *
      * @var string
      */
     public $uri;
@@ -72,29 +52,38 @@ class dataSources extends Model
         'uri' => 'Uri',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
+
         if (null !== $this->dataSourceVersion) {
             $res['DataSourceVersion'] = $this->dataSourceVersion;
         }
+
         if (null !== $this->enableCache) {
             $res['EnableCache'] = $this->enableCache;
         }
+
         if (null !== $this->mountAccess) {
             $res['MountAccess'] = $this->mountAccess;
         }
+
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
         }
+
         if (null !== $this->options) {
             $res['Options'] = $this->options;
         }
+
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
         }
@@ -102,32 +91,38 @@ class dataSources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataSources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
+
         if (isset($map['DataSourceVersion'])) {
             $model->dataSourceVersion = $map['DataSourceVersion'];
         }
+
         if (isset($map['EnableCache'])) {
             $model->enableCache = $map['EnableCache'];
         }
+
         if (isset($map['MountAccess'])) {
             $model->mountAccess = $map['MountAccess'];
         }
+
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
         }
+
         if (isset($map['Options'])) {
             $model->options = $map['Options'];
         }
+
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
         }

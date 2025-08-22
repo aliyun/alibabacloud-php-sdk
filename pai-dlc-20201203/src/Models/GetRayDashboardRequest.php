@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRayDashboardRequest extends Model
 {
     /**
-     * @description Specifies whether the link is a sharing link. If yes, a token is required.
-     *
-     * Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example false
-     *
      * @var bool
      */
     public $isShared;
 
     /**
-     * @description The token obtained from GetToken
-     *
-     * @example some_token_value
-     *
      * @var string
      */
     public $token;
@@ -35,14 +22,18 @@ class GetRayDashboardRequest extends Model
         'token' => 'token',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isShared) {
             $res['isShared'] = $this->isShared;
         }
+
         if (null !== $this->token) {
             $res['token'] = $this->token;
         }
@@ -50,17 +41,18 @@ class GetRayDashboardRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRayDashboardRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['isShared'])) {
             $model->isShared = $map['isShared'];
         }
+
         if (isset($map['token'])) {
             $model->token = $map['token'];
         }

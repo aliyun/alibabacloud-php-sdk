@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetJobSanityCheckResultResponseBody extends Model
 {
     /**
-     * @description The job ID.
-     *
-     * @example dlc-20210126170216-xxxxxx
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description The request ID.
-     *
-     * @example B3789344-F1xxxBE-5xx2-A04D-xxxxx
-     *
      * @var string
      */
     public $requestID;
 
     /**
-     * @description The job sanity check result.
-     *
      * @var SanityCheckResultItem[]
      */
     public $sanityCheckResult;
@@ -38,23 +28,32 @@ class GetJobSanityCheckResultResponseBody extends Model
         'sanityCheckResult' => 'SanityCheckResult',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sanityCheckResult)) {
+            Model::validateArray($this->sanityCheckResult);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->requestID) {
             $res['RequestID'] = $this->requestID;
         }
+
         if (null !== $this->sanityCheckResult) {
-            $res['SanityCheckResult'] = [];
-            if (null !== $this->sanityCheckResult && \is_array($this->sanityCheckResult)) {
-                $n = 0;
-                foreach ($this->sanityCheckResult as $item) {
-                    $res['SanityCheckResult'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sanityCheckResult)) {
+                $res['SanityCheckResult'] = [];
+                $n1 = 0;
+                foreach ($this->sanityCheckResult as $item1) {
+                    $res['SanityCheckResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -62,26 +61,29 @@ class GetJobSanityCheckResultResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetJobSanityCheckResultResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['RequestID'])) {
             $model->requestID = $map['RequestID'];
         }
+
         if (isset($map['SanityCheckResult'])) {
             if (!empty($map['SanityCheckResult'])) {
                 $model->sanityCheckResult = [];
-                $n = 0;
-                foreach ($map['SanityCheckResult'] as $item) {
-                    $model->sanityCheckResult[$n++] = null !== $item ? SanityCheckResultItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SanityCheckResult'] as $item1) {
+                    $model->sanityCheckResult[$n1] = SanityCheckResultItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

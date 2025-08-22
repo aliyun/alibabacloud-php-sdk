@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models\Lifecycle;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\Lifecycle\postStart\exec;
-use AlibabaCloud\Tea\Model;
 
 class postStart extends Model
 {
@@ -17,23 +17,29 @@ class postStart extends Model
         'exec' => 'Exec',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->exec) {
+            $this->exec->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exec) {
-            $res['Exec'] = null !== $this->exec ? $this->exec->toMap() : null;
+            $res['Exec'] = null !== $this->exec ? $this->exec->toArray($noStream) : $this->exec;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return postStart
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

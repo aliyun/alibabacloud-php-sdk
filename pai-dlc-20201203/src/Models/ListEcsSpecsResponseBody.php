@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListEcsSpecsResponseBody extends Model
 {
     /**
-     * @description The list of ECS specifications.
-     *
      * @var EcsSpec[]
      */
     public $ecsSpecs;
 
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The number of types that meet the filter conditions.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -38,23 +28,32 @@ class ListEcsSpecsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ecsSpecs)) {
+            Model::validateArray($this->ecsSpecs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ecsSpecs) {
-            $res['EcsSpecs'] = [];
-            if (null !== $this->ecsSpecs && \is_array($this->ecsSpecs)) {
-                $n = 0;
-                foreach ($this->ecsSpecs as $item) {
-                    $res['EcsSpecs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ecsSpecs)) {
+                $res['EcsSpecs'] = [];
+                $n1 = 0;
+                foreach ($this->ecsSpecs as $item1) {
+                    $res['EcsSpecs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -62,26 +61,29 @@ class ListEcsSpecsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEcsSpecsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EcsSpecs'])) {
             if (!empty($map['EcsSpecs'])) {
                 $model->ecsSpecs = [];
-                $n = 0;
-                foreach ($map['EcsSpecs'] as $item) {
-                    $model->ecsSpecs[$n++] = null !== $item ? EcsSpec::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EcsSpecs'] as $item1) {
+                    $model->ecsSpecs[$n1] = EcsSpec::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

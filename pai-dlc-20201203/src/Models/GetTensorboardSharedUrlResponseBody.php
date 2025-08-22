@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTensorboardSharedUrlResponseBody extends Model
 {
     /**
-     * @description The request ID which is used for troubleshooting.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The shareable link of the TensorBoard task.
-     *
-     * @example http://pai-dlc-proxy-xxx.alicyuncs.com/xxx/xxx/token/
-     *
      * @var string
      */
     public $tensorboardSharedUrl;
@@ -30,14 +22,18 @@ class GetTensorboardSharedUrlResponseBody extends Model
         'tensorboardSharedUrl' => 'TensorboardSharedUrl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tensorboardSharedUrl) {
             $res['TensorboardSharedUrl'] = $this->tensorboardSharedUrl;
         }
@@ -45,17 +41,18 @@ class GetTensorboardSharedUrlResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTensorboardSharedUrlResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TensorboardSharedUrl'])) {
             $model->tensorboardSharedUrl = $map['TensorboardSharedUrl'];
         }

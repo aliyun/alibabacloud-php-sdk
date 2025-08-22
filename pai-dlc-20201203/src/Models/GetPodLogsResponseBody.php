@@ -4,49 +4,31 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPodLogsResponseBody extends Model
 {
     /**
-     * @description The job ID.
-     *
-     * @example dlc-20210126170216-******
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description The logs.
-     *
      * @var string[]
      */
     public $logs;
 
     /**
-     * @description The node ID.
-     *
-     * @example dlc-20210126170216-****-chief-0
-     *
      * @var string
      */
     public $podId;
 
     /**
-     * @description The instance UID.
-     *
-     * @example 94a7cc7c-0033-48b5-85bd-71c63592c268
-     *
      * @var string
      */
     public $podUid;
 
     /**
-     * @description The request ID which is used for diagnostics and Q\\&A.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -58,23 +40,40 @@ class GetPodLogsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->logs)) {
+            Model::validateArray($this->logs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->logs) {
-            $res['Logs'] = $this->logs;
+            if (\is_array($this->logs)) {
+                $res['Logs'] = [];
+                $n1 = 0;
+                foreach ($this->logs as $item1) {
+                    $res['Logs'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->podId) {
             $res['PodId'] = $this->podId;
         }
+
         if (null !== $this->podUid) {
             $res['PodUid'] = $this->podUid;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -82,28 +81,37 @@ class GetPodLogsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPodLogsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
-                $model->logs = $map['Logs'];
+                $model->logs = [];
+                $n1 = 0;
+                foreach ($map['Logs'] as $item1) {
+                    $model->logs[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PodId'])) {
             $model->podId = $map['PodId'];
         }
+
         if (isset($map['PodUid'])) {
             $model->podUid = $map['PodUid'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

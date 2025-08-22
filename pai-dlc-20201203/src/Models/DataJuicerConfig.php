@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetTokenResponseBody extends Model
+class DataJuicerConfig extends Model
 {
     /**
      * @var string
      */
-    public $requestId;
+    public $commandType;
 
     /**
      * @var string
      */
-    public $token;
+    public $executionMode;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'token' => 'Token',
+        'commandType' => 'CommandType',
+        'executionMode' => 'ExecutionMode',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class GetTokenResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->commandType) {
+            $res['CommandType'] = $this->commandType;
         }
 
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
+        if (null !== $this->executionMode) {
+            $res['ExecutionMode'] = $this->executionMode;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class GetTokenResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['CommandType'])) {
+            $model->commandType = $map['CommandType'];
         }
 
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
+        if (isset($map['ExecutionMode'])) {
+            $model->executionMode = $map['ExecutionMode'];
         }
 
         return $model;

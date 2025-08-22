@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SeccompProfile extends Model
 {
     /**
-     * @example my-profiles/profile-allow.json
-     *
      * @var string
      */
     public $localhostProfile;
 
     /**
-     * @example Unconfined
-     *
      * @var string
      */
     public $type;
@@ -26,14 +22,18 @@ class SeccompProfile extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->localhostProfile) {
             $res['LocalhostProfile'] = $this->localhostProfile;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,17 +41,18 @@ class SeccompProfile extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SeccompProfile
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LocalhostProfile'])) {
             $model->localhostProfile = $map['LocalhostProfile'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

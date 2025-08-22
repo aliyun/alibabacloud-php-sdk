@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTensorboardsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The TensorBoard instances.
-     *
      * @var Tensorboard[]
      */
     public $tensorboards;
 
     /**
-     * @description The total number of data sources that meet the conditions.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
@@ -38,23 +28,32 @@ class ListTensorboardsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tensorboards)) {
+            Model::validateArray($this->tensorboards);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tensorboards) {
-            $res['Tensorboards'] = [];
-            if (null !== $this->tensorboards && \is_array($this->tensorboards)) {
-                $n = 0;
-                foreach ($this->tensorboards as $item) {
-                    $res['Tensorboards'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tensorboards)) {
+                $res['Tensorboards'] = [];
+                $n1 = 0;
+                foreach ($this->tensorboards as $item1) {
+                    $res['Tensorboards'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -62,26 +61,29 @@ class ListTensorboardsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTensorboardsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Tensorboards'])) {
             if (!empty($map['Tensorboards'])) {
                 $model->tensorboards = [];
-                $n = 0;
-                foreach ($map['Tensorboards'] as $item) {
-                    $model->tensorboards[$n++] = null !== $item ? Tensorboard::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tensorboards'] as $item1) {
+                    $model->tensorboards[$n1] = Tensorboard::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartTensorboardRequest extends Model
 {
     /**
-     * @description The workspace ID.
-     *
-     * @example 380
-     *
      * @var string
      */
     public $workspaceId;
@@ -20,9 +16,12 @@ class StartTensorboardRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->workspaceId) {
@@ -32,11 +31,11 @@ class StartTensorboardRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartTensorboardRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

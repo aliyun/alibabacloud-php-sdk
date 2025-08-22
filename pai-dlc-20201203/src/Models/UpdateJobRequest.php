@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateJobRequest extends Model
 {
     /**
-     * @description The job visibility. Valid values:
-     *
-     *   PUBLIC: The job is visible to all members in the workspace.
-     *   PRIVATE: The job is visible only to you and the administrator of the workspace.
-     *
-     * @example PRIVATE
-     *
      * @var string
      */
     public $accessibility;
 
     /**
-     * @description The job priority. Valid values: 1 to 9.
-     *
-     *   1: the lowest priority.
-     *   9: the highest priority.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $priority;
@@ -36,14 +22,18 @@ class UpdateJobRequest extends Model
         'priority' => 'Priority',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
@@ -51,17 +41,18 @@ class UpdateJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
+
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models\JobItem;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataSources extends Model
 {
     /**
-     * @example data-20210114104214-vf9lowjt3pso
-     *
      * @var string
      */
     public $dataSourceId;
 
     /**
-     * @example /mnt/data
-     *
      * @var string
      */
     public $mountPath;
@@ -26,14 +22,18 @@ class dataSources extends Model
         'mountPath' => 'MountPath',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
+
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
         }
@@ -41,17 +41,18 @@ class dataSources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataSources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
+
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
         }

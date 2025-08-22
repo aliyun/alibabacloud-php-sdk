@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPodEventsResponseBody extends Model
 {
     /**
-     * @description The events returned.
-     *
      * @var string[]
      */
     public $events;
 
     /**
-     * @description The job ID.
-     *
-     * @example dlc-20210126170216-*****
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description The node ID.
-     *
-     * This parameter is required.
-     *
-     * @example dlc-20210126170216-*****-chief-0
-     *
      * @var string
      */
     public $podId;
 
     /**
-     * @description The node UID.
-     *
-     * @example 94a7cc7c-0033-48b5-85bd-71c63592c268
-     *
      * @var string
      */
     public $podUid;
 
     /**
-     * @description The request ID, which can be used for troubleshooting.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -60,23 +40,40 @@ class GetPodEventsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->events)) {
+            Model::validateArray($this->events);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->events) {
-            $res['Events'] = $this->events;
+            if (\is_array($this->events)) {
+                $res['Events'] = [];
+                $n1 = 0;
+                foreach ($this->events as $item1) {
+                    $res['Events'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->podId) {
             $res['PodId'] = $this->podId;
         }
+
         if (null !== $this->podUid) {
             $res['PodUid'] = $this->podUid;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -84,28 +81,37 @@ class GetPodEventsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPodEventsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Events'])) {
             if (!empty($map['Events'])) {
-                $model->events = $map['Events'];
+                $model->events = [];
+                $n1 = 0;
+                foreach ($map['Events'] as $item1) {
+                    $model->events[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['PodId'])) {
             $model->podId = $map['PodId'];
         }
+
         if (isset($map['PodUid'])) {
             $model->podUid = $map['PodUid'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

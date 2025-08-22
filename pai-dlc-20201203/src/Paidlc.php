@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateTensorboardRequest;
@@ -53,11 +53,10 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateJobResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateTensorboardResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Paidlc extends OpenApiClient
 {
@@ -127,97 +126,126 @@ class Paidlc extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
-     *  *
-     * @param CreateJobRequest $request CreateJobRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
      *
-     * @return CreateJobResponse CreateJobResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+     *
+     * @param request - CreateJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateJobResponse
+     *
+     * @param CreateJobRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateJobResponse
      */
     public function createJobWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessibility)) {
-            $body['Accessibility'] = $request->accessibility;
+        if (null !== $request->accessibility) {
+            @$body['Accessibility'] = $request->accessibility;
         }
-        if (!Utils::isUnset($request->codeSource)) {
-            $body['CodeSource'] = $request->codeSource;
+
+        if (null !== $request->codeSource) {
+            @$body['CodeSource'] = $request->codeSource;
         }
-        if (!Utils::isUnset($request->credentialConfig)) {
-            $body['CredentialConfig'] = $request->credentialConfig;
+
+        if (null !== $request->credentialConfig) {
+            @$body['CredentialConfig'] = $request->credentialConfig;
         }
-        if (!Utils::isUnset($request->dataSources)) {
-            $body['DataSources'] = $request->dataSources;
+
+        if (null !== $request->dataSources) {
+            @$body['DataSources'] = $request->dataSources;
         }
-        if (!Utils::isUnset($request->debuggerConfigContent)) {
-            $body['DebuggerConfigContent'] = $request->debuggerConfigContent;
+
+        if (null !== $request->debuggerConfigContent) {
+            @$body['DebuggerConfigContent'] = $request->debuggerConfigContent;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->elasticSpec)) {
-            $body['ElasticSpec'] = $request->elasticSpec;
+
+        if (null !== $request->elasticSpec) {
+            @$body['ElasticSpec'] = $request->elasticSpec;
         }
-        if (!Utils::isUnset($request->envs)) {
-            $body['Envs'] = $request->envs;
+
+        if (null !== $request->envs) {
+            @$body['Envs'] = $request->envs;
         }
-        if (!Utils::isUnset($request->jobMaxRunningTimeMinutes)) {
-            $body['JobMaxRunningTimeMinutes'] = $request->jobMaxRunningTimeMinutes;
+
+        if (null !== $request->jobMaxRunningTimeMinutes) {
+            @$body['JobMaxRunningTimeMinutes'] = $request->jobMaxRunningTimeMinutes;
         }
-        if (!Utils::isUnset($request->jobSpecs)) {
-            $body['JobSpecs'] = $request->jobSpecs;
+
+        if (null !== $request->jobSpecs) {
+            @$body['JobSpecs'] = $request->jobSpecs;
         }
-        if (!Utils::isUnset($request->jobType)) {
-            $body['JobType'] = $request->jobType;
+
+        if (null !== $request->jobType) {
+            @$body['JobType'] = $request->jobType;
         }
-        if (!Utils::isUnset($request->options)) {
-            $body['Options'] = $request->options;
+
+        if (null !== $request->options) {
+            @$body['Options'] = $request->options;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $body['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->settings)) {
-            $body['Settings'] = $request->settings;
+
+        if (null !== $request->settings) {
+            @$body['Settings'] = $request->settings;
         }
-        if (!Utils::isUnset($request->successPolicy)) {
-            $body['SuccessPolicy'] = $request->successPolicy;
+
+        if (null !== $request->successPolicy) {
+            @$body['SuccessPolicy'] = $request->successPolicy;
         }
-        if (!Utils::isUnset($request->thirdpartyLibDir)) {
-            $body['ThirdpartyLibDir'] = $request->thirdpartyLibDir;
+
+        if (null !== $request->thirdpartyLibDir) {
+            @$body['ThirdpartyLibDir'] = $request->thirdpartyLibDir;
         }
-        if (!Utils::isUnset($request->thirdpartyLibs)) {
-            $body['ThirdpartyLibs'] = $request->thirdpartyLibs;
+
+        if (null !== $request->thirdpartyLibs) {
+            @$body['ThirdpartyLibs'] = $request->thirdpartyLibs;
         }
-        if (!Utils::isUnset($request->userCommand)) {
-            $body['UserCommand'] = $request->userCommand;
+
+        if (null !== $request->userCommand) {
+            @$body['UserCommand'] = $request->userCommand;
         }
-        if (!Utils::isUnset($request->userVpc)) {
-            $body['UserVpc'] = $request->userVpc;
+
+        if (null !== $request->userVpc) {
+            @$body['UserVpc'] = $request->userVpc;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateJob',
@@ -235,13 +263,18 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
-     *  *
-     * @param CreateJobRequest $request CreateJobRequest
+     * Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
      *
-     * @return CreateJobResponse CreateJobResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+     *
+     * @param request - CreateJobRequest
+     *
+     * @returns CreateJobResponse
+     *
+     * @param CreateJobRequest $request
+     *
+     * @return CreateJobResponse
      */
     public function createJob($request)
     {
@@ -252,81 +285,107 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Creates a TensorBoard by using a job or specifying a data source configuration.
-     *  *
-     * @param CreateTensorboardRequest $request CreateTensorboardRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates a TensorBoard by using a job or specifying a data source configuration.
      *
-     * @return CreateTensorboardResponse CreateTensorboardResponse
+     * @param request - CreateTensorboardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTensorboardResponse
+     *
+     * @param CreateTensorboardRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateTensorboardResponse
      */
     public function createTensorboardWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessibility)) {
-            $body['Accessibility'] = $request->accessibility;
+        if (null !== $request->accessibility) {
+            @$body['Accessibility'] = $request->accessibility;
         }
-        if (!Utils::isUnset($request->cpu)) {
-            $body['Cpu'] = $request->cpu;
+
+        if (null !== $request->cpu) {
+            @$body['Cpu'] = $request->cpu;
         }
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $body['DataSourceId'] = $request->dataSourceId;
+
+        if (null !== $request->dataSourceId) {
+            @$body['DataSourceId'] = $request->dataSourceId;
         }
-        if (!Utils::isUnset($request->dataSourceType)) {
-            $body['DataSourceType'] = $request->dataSourceType;
+
+        if (null !== $request->dataSourceType) {
+            @$body['DataSourceType'] = $request->dataSourceType;
         }
-        if (!Utils::isUnset($request->dataSources)) {
-            $body['DataSources'] = $request->dataSources;
+
+        if (null !== $request->dataSources) {
+            @$body['DataSources'] = $request->dataSources;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->maxRunningTimeMinutes)) {
-            $body['MaxRunningTimeMinutes'] = $request->maxRunningTimeMinutes;
+
+        if (null !== $request->maxRunningTimeMinutes) {
+            @$body['MaxRunningTimeMinutes'] = $request->maxRunningTimeMinutes;
         }
-        if (!Utils::isUnset($request->memory)) {
-            $body['Memory'] = $request->memory;
+
+        if (null !== $request->memory) {
+            @$body['Memory'] = $request->memory;
         }
-        if (!Utils::isUnset($request->options)) {
-            $body['Options'] = $request->options;
+
+        if (null !== $request->options) {
+            @$body['Options'] = $request->options;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $body['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->quotaId)) {
-            $body['QuotaId'] = $request->quotaId;
+
+        if (null !== $request->quotaId) {
+            @$body['QuotaId'] = $request->quotaId;
         }
-        if (!Utils::isUnset($request->sourceId)) {
-            $body['SourceId'] = $request->sourceId;
+
+        if (null !== $request->sourceId) {
+            @$body['SourceId'] = $request->sourceId;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $body['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$body['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->summaryPath)) {
-            $body['SummaryPath'] = $request->summaryPath;
+
+        if (null !== $request->summaryPath) {
+            @$body['SummaryPath'] = $request->summaryPath;
         }
-        if (!Utils::isUnset($request->summaryRelativePath)) {
-            $body['SummaryRelativePath'] = $request->summaryRelativePath;
+
+        if (null !== $request->summaryRelativePath) {
+            @$body['SummaryRelativePath'] = $request->summaryRelativePath;
         }
-        if (!Utils::isUnset($request->tensorboardDataSources)) {
-            $body['TensorboardDataSources'] = $request->tensorboardDataSources;
+
+        if (null !== $request->tensorboardDataSources) {
+            @$body['TensorboardDataSources'] = $request->tensorboardDataSources;
         }
-        if (!Utils::isUnset($request->tensorboardSpec)) {
-            $body['TensorboardSpec'] = $request->tensorboardSpec;
+
+        if (null !== $request->tensorboardSpec) {
+            @$body['TensorboardSpec'] = $request->tensorboardSpec;
         }
-        if (!Utils::isUnset($request->uri)) {
-            $body['Uri'] = $request->uri;
+
+        if (null !== $request->uri) {
+            @$body['Uri'] = $request->uri;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateTensorboard',
@@ -344,11 +403,15 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Creates a TensorBoard by using a job or specifying a data source configuration.
-     *  *
-     * @param CreateTensorboardRequest $request CreateTensorboardRequest
+     * Creates a TensorBoard by using a job or specifying a data source configuration.
      *
-     * @return CreateTensorboardResponse CreateTensorboardResponse
+     * @param request - CreateTensorboardRequest
+     *
+     * @returns CreateTensorboardResponse
+     *
+     * @param CreateTensorboardRequest $request
+     *
+     * @return CreateTensorboardResponse
      */
     public function createTensorboard($request)
     {
@@ -359,13 +422,18 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a completed or stopped job.
-     *  *
-     * @param string         $JobId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Deletes a completed or stopped job.
      *
-     * @return DeleteJobResponse DeleteJobResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteJobResponse
+     *
+     * @param string         $JobId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteJobResponse
      */
     public function deleteJobWithOptions($JobId, $headers, $runtime)
     {
@@ -376,7 +444,7 @@ class Paidlc extends OpenApiClient
             'action' => 'DeleteJob',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -388,11 +456,13 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a completed or stopped job.
-     *  *
+     * Deletes a completed or stopped job.
+     *
+     * @returns DeleteJobResponse
+     *
      * @param string $JobId
      *
-     * @return DeleteJobResponse DeleteJobResponse
+     * @return DeleteJobResponse
      */
     public function deleteJob($JobId)
     {
@@ -403,31 +473,38 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a stopped TensorBoard.
-     *  *
-     * @param string                   $TensorboardId
-     * @param DeleteTensorboardRequest $request       DeleteTensorboardRequest
-     * @param string[]                 $headers       map
-     * @param RuntimeOptions           $runtime       runtime options for this request RuntimeOptions
+     * Deletes a stopped TensorBoard.
      *
-     * @return DeleteTensorboardResponse DeleteTensorboardResponse
+     * @param request - DeleteTensorboardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTensorboardResponse
+     *
+     * @param string                   $TensorboardId
+     * @param DeleteTensorboardRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteTensorboardResponse
      */
     public function deleteTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteTensorboard',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/tensorboards/' . OpenApiUtilClient::getEncodeParam($TensorboardId) . '',
+            'pathname' => '/api/v1/tensorboards/' . Url::percentEncode($TensorboardId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -439,12 +516,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a stopped TensorBoard.
-     *  *
-     * @param string                   $TensorboardId
-     * @param DeleteTensorboardRequest $request       DeleteTensorboardRequest
+     * Deletes a stopped TensorBoard.
      *
-     * @return DeleteTensorboardResponse DeleteTensorboardResponse
+     * @param request - DeleteTensorboardRequest
+     *
+     * @returns DeleteTensorboardResponse
+     *
+     * @param string                   $TensorboardId
+     * @param DeleteTensorboardRequest $request
+     *
+     * @return DeleteTensorboardResponse
      */
     public function deleteTensorboard($TensorboardId, $request)
     {
@@ -455,31 +536,38 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the configuration and runtime information of a job.
-     *  *
-     * @param string         $JobId
-     * @param GetJobRequest  $request GetJobRequest
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Obtains the configuration and runtime information of a job.
      *
-     * @return GetJobResponse GetJobResponse
+     * @param request - GetJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobResponse
+     *
+     * @param string         $JobId
+     * @param GetJobRequest  $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetJobResponse
      */
     public function getJobWithOptions($JobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->needDetail)) {
-            $query['NeedDetail'] = $request->needDetail;
+        if (null !== $request->needDetail) {
+            @$query['NeedDetail'] = $request->needDetail;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJob',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -491,12 +579,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the configuration and runtime information of a job.
-     *  *
-     * @param string        $JobId
-     * @param GetJobRequest $request GetJobRequest
+     * Obtains the configuration and runtime information of a job.
      *
-     * @return GetJobResponse GetJobResponse
+     * @param request - GetJobRequest
+     *
+     * @returns GetJobResponse
+     *
+     * @param string        $JobId
+     * @param GetJobRequest $request
+     *
+     * @return GetJobResponse
      */
     public function getJob($JobId, $request)
     {
@@ -507,37 +599,46 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the system events of a job.
-     *  *
-     * @param string              $JobId
-     * @param GetJobEventsRequest $request GetJobEventsRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Obtains the system events of a job.
      *
-     * @return GetJobEventsResponse GetJobEventsResponse
+     * @param request - GetJobEventsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobEventsResponse
+     *
+     * @param string              $JobId
+     * @param GetJobEventsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetJobEventsResponse
      */
     public function getJobEventsWithOptions($JobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxEventsNum)) {
-            $query['MaxEventsNum'] = $request->maxEventsNum;
+
+        if (null !== $request->maxEventsNum) {
+            @$query['MaxEventsNum'] = $request->maxEventsNum;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJobEvents',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/events',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '/events',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -549,12 +650,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the system events of a job.
-     *  *
-     * @param string              $JobId
-     * @param GetJobEventsRequest $request GetJobEventsRequest
+     * Obtains the system events of a job.
      *
-     * @return GetJobEventsResponse GetJobEventsResponse
+     * @param request - GetJobEventsRequest
+     *
+     * @returns GetJobEventsResponse
+     *
+     * @param string              $JobId
+     * @param GetJobEventsRequest $request
+     *
+     * @return GetJobEventsResponse
      */
     public function getJobEvents($JobId, $request)
     {
@@ -565,43 +670,54 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate.
-     *  *
-     * @param string               $JobId
-     * @param GetJobMetricsRequest $request GetJobMetricsRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate.
      *
-     * @return GetJobMetricsResponse GetJobMetricsResponse
+     * @param request - GetJobMetricsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobMetricsResponse
+     *
+     * @param string               $JobId
+     * @param GetJobMetricsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetJobMetricsResponse
      */
     public function getJobMetricsWithOptions($JobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->metricType)) {
-            $query['MetricType'] = $request->metricType;
+
+        if (null !== $request->metricType) {
+            @$query['MetricType'] = $request->metricType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->timeStep)) {
-            $query['TimeStep'] = $request->timeStep;
+
+        if (null !== $request->timeStep) {
+            @$query['TimeStep'] = $request->timeStep;
         }
-        if (!Utils::isUnset($request->token)) {
-            $query['Token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJobMetrics',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/metrics',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '/metrics',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -613,12 +729,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate.
-     *  *
-     * @param string               $JobId
-     * @param GetJobMetricsRequest $request GetJobMetricsRequest
+     * Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate.
      *
-     * @return GetJobMetricsResponse GetJobMetricsResponse
+     * @param request - GetJobMetricsRequest
+     *
+     * @returns GetJobMetricsResponse
+     *
+     * @param string               $JobId
+     * @param GetJobMetricsRequest $request
+     *
+     * @return GetJobMetricsResponse
      */
     public function getJobMetrics($JobId, $request)
     {
@@ -629,37 +749,46 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains specified job sanity check result in a Deep Learning Containers (DLC) job.
-     *  *
-     * @param string                         $JobId
-     * @param GetJobSanityCheckResultRequest $request GetJobSanityCheckResultRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Obtains specified job sanity check result in a Deep Learning Containers (DLC) job.
      *
-     * @return GetJobSanityCheckResultResponse GetJobSanityCheckResultResponse
+     * @param request - GetJobSanityCheckResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobSanityCheckResultResponse
+     *
+     * @param string                         $JobId
+     * @param GetJobSanityCheckResultRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetJobSanityCheckResultResponse
      */
     public function getJobSanityCheckResultWithOptions($JobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sanityCheckNumber)) {
-            $query['SanityCheckNumber'] = $request->sanityCheckNumber;
+        if (null !== $request->sanityCheckNumber) {
+            @$query['SanityCheckNumber'] = $request->sanityCheckNumber;
         }
-        if (!Utils::isUnset($request->sanityCheckPhase)) {
-            $query['SanityCheckPhase'] = $request->sanityCheckPhase;
+
+        if (null !== $request->sanityCheckPhase) {
+            @$query['SanityCheckPhase'] = $request->sanityCheckPhase;
         }
-        if (!Utils::isUnset($request->token)) {
-            $query['Token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJobSanityCheckResult',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/sanitycheckresult',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '/sanitycheckresult',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -671,12 +800,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains specified job sanity check result in a Deep Learning Containers (DLC) job.
-     *  *
-     * @param string                         $JobId
-     * @param GetJobSanityCheckResultRequest $request GetJobSanityCheckResultRequest
+     * Obtains specified job sanity check result in a Deep Learning Containers (DLC) job.
      *
-     * @return GetJobSanityCheckResultResponse GetJobSanityCheckResultResponse
+     * @param request - GetJobSanityCheckResultRequest
+     *
+     * @returns GetJobSanityCheckResultResponse
+     *
+     * @param string                         $JobId
+     * @param GetJobSanityCheckResultRequest $request
+     *
+     * @return GetJobSanityCheckResultResponse
      */
     public function getJobSanityCheckResult($JobId, $request)
     {
@@ -687,41 +820,51 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the system events of a specific node in a job to locate and troubleshoot issues.
-     *  *
+     * Obtains the system events of a specific node in a job to locate and troubleshoot issues.
+     *
+     * @param request - GetPodEventsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPodEventsResponse
+     *
      * @param string              $JobId
      * @param string              $PodId
-     * @param GetPodEventsRequest $request GetPodEventsRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param GetPodEventsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return GetPodEventsResponse GetPodEventsResponse
+     * @return GetPodEventsResponse
      */
     public function getPodEventsWithOptions($JobId, $PodId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxEventsNum)) {
-            $query['MaxEventsNum'] = $request->maxEventsNum;
+
+        if (null !== $request->maxEventsNum) {
+            @$query['MaxEventsNum'] = $request->maxEventsNum;
         }
-        if (!Utils::isUnset($request->podUid)) {
-            $query['PodUid'] = $request->podUid;
+
+        if (null !== $request->podUid) {
+            @$query['PodUid'] = $request->podUid;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPodEvents',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/pods/' . OpenApiUtilClient::getEncodeParam($PodId) . '/events',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '/pods/' . Url::percentEncode($PodId) . '/events',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -733,13 +876,17 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the system events of a specific node in a job to locate and troubleshoot issues.
-     *  *
+     * Obtains the system events of a specific node in a job to locate and troubleshoot issues.
+     *
+     * @param request - GetPodEventsRequest
+     *
+     * @returns GetPodEventsResponse
+     *
      * @param string              $JobId
      * @param string              $PodId
-     * @param GetPodEventsRequest $request GetPodEventsRequest
+     * @param GetPodEventsRequest $request
      *
-     * @return GetPodEventsResponse GetPodEventsResponse
+     * @return GetPodEventsResponse
      */
     public function getPodEvents($JobId, $PodId, $request)
     {
@@ -750,44 +897,55 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains or downloads the logs of a node for a task. The logs are from the stdout and stderr of the system and user scripts.
-     *  *
+     * Obtains or downloads the logs of a node for a task. The logs are from the stdout and stderr of the system and user scripts.
+     *
+     * @param request - GetPodLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPodLogsResponse
+     *
      * @param string            $JobId
      * @param string            $PodId
-     * @param GetPodLogsRequest $request GetPodLogsRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param GetPodLogsRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
-     * @return GetPodLogsResponse GetPodLogsResponse
+     * @return GetPodLogsResponse
      */
     public function getPodLogsWithOptions($JobId, $PodId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->downloadToFile)) {
-            $query['DownloadToFile'] = $request->downloadToFile;
+        if (null !== $request->downloadToFile) {
+            @$query['DownloadToFile'] = $request->downloadToFile;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxLines)) {
-            $query['MaxLines'] = $request->maxLines;
+
+        if (null !== $request->maxLines) {
+            @$query['MaxLines'] = $request->maxLines;
         }
-        if (!Utils::isUnset($request->podUid)) {
-            $query['PodUid'] = $request->podUid;
+
+        if (null !== $request->podUid) {
+            @$query['PodUid'] = $request->podUid;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPodLogs',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/pods/' . OpenApiUtilClient::getEncodeParam($PodId) . '/logs',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '/pods/' . Url::percentEncode($PodId) . '/logs',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -799,13 +957,17 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains or downloads the logs of a node for a task. The logs are from the stdout and stderr of the system and user scripts.
-     *  *
+     * Obtains or downloads the logs of a node for a task. The logs are from the stdout and stderr of the system and user scripts.
+     *
+     * @param request - GetPodLogsRequest
+     *
+     * @returns GetPodLogsResponse
+     *
      * @param string            $JobId
      * @param string            $PodId
-     * @param GetPodLogsRequest $request GetPodLogsRequest
+     * @param GetPodLogsRequest $request
      *
-     * @return GetPodLogsResponse GetPodLogsResponse
+     * @return GetPodLogsResponse
      */
     public function getPodLogs($JobId, $PodId, $request)
     {
@@ -816,36 +978,45 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a Ray Dashboard URL.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
-     *  *
-     * @param string                 $jobId
-     * @param GetRayDashboardRequest $request GetRayDashboardRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Obtains a Ray Dashboard URL.
      *
-     * @return GetRayDashboardResponse GetRayDashboardResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+     *
+     * @param request - GetRayDashboardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRayDashboardResponse
+     *
+     * @param string                 $jobId
+     * @param GetRayDashboardRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetRayDashboardResponse
      */
     public function getRayDashboardWithOptions($jobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isShared)) {
-            $query['isShared'] = $request->isShared;
+        if (null !== $request->isShared) {
+            @$query['isShared'] = $request->isShared;
         }
-        if (!Utils::isUnset($request->token)) {
-            $query['token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$query['token'] = $request->token;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRayDashboard',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '/rayDashboard',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($jobId) . '/rayDashboard',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -857,14 +1028,19 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a Ray Dashboard URL.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
-     *  *
-     * @param string                 $jobId
-     * @param GetRayDashboardRequest $request GetRayDashboardRequest
+     * Obtains a Ray Dashboard URL.
      *
-     * @return GetRayDashboardResponse GetRayDashboardResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+     *
+     * @param request - GetRayDashboardRequest
+     *
+     * @returns GetRayDashboardResponse
+     *
+     * @param string                 $jobId
+     * @param GetRayDashboardRequest $request
+     *
+     * @return GetRayDashboardResponse
      */
     public function getRayDashboard($jobId, $request)
     {
@@ -875,37 +1051,46 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information of a TensorBoard instance.
-     *  *
-     * @param string                $TensorboardId
-     * @param GetTensorboardRequest $request       GetTensorboardRequest
-     * @param string[]              $headers       map
-     * @param RuntimeOptions        $runtime       runtime options for this request RuntimeOptions
+     * Queries the information of a TensorBoard instance.
      *
-     * @return GetTensorboardResponse GetTensorboardResponse
+     * @param request - GetTensorboardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTensorboardResponse
+     *
+     * @param string                $TensorboardId
+     * @param GetTensorboardRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetTensorboardResponse
      */
     public function getTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jodId)) {
-            $query['JodId'] = $request->jodId;
+        if (null !== $request->jodId) {
+            @$query['JodId'] = $request->jodId;
         }
-        if (!Utils::isUnset($request->token)) {
-            $query['Token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTensorboard',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/tensorboards/' . OpenApiUtilClient::getEncodeParam($TensorboardId) . '',
+            'pathname' => '/api/v1/tensorboards/' . Url::percentEncode($TensorboardId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -917,12 +1102,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information of a TensorBoard instance.
-     *  *
-     * @param string                $TensorboardId
-     * @param GetTensorboardRequest $request       GetTensorboardRequest
+     * Queries the information of a TensorBoard instance.
      *
-     * @return GetTensorboardResponse GetTensorboardResponse
+     * @param request - GetTensorboardRequest
+     *
+     * @returns GetTensorboardResponse
+     *
+     * @param string                $TensorboardId
+     * @param GetTensorboardRequest $request
+     *
+     * @return GetTensorboardResponse
      */
     public function getTensorboard($TensorboardId, $request)
     {
@@ -933,31 +1122,38 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the shareable link of a TensorBoard task. The link contains digital tokens. You can use a shareable link to access a TensorBoard task.
-     *  *
-     * @param string                         $TensorboardId
-     * @param GetTensorboardSharedUrlRequest $request       GetTensorboardSharedUrlRequest
-     * @param string[]                       $headers       map
-     * @param RuntimeOptions                 $runtime       runtime options for this request RuntimeOptions
+     * Obtains the shareable link of a TensorBoard task. The link contains digital tokens. You can use a shareable link to access a TensorBoard task.
      *
-     * @return GetTensorboardSharedUrlResponse GetTensorboardSharedUrlResponse
+     * @param request - GetTensorboardSharedUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTensorboardSharedUrlResponse
+     *
+     * @param string                         $TensorboardId
+     * @param GetTensorboardSharedUrlRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetTensorboardSharedUrlResponse
      */
     public function getTensorboardSharedUrlWithOptions($TensorboardId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->expireTimeSeconds)) {
-            $query['ExpireTimeSeconds'] = $request->expireTimeSeconds;
+        if (null !== $request->expireTimeSeconds) {
+            @$query['ExpireTimeSeconds'] = $request->expireTimeSeconds;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTensorboardSharedUrl',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/tensorboards/' . OpenApiUtilClient::getEncodeParam($TensorboardId) . '/sharedurl',
+            'pathname' => '/api/v1/tensorboards/' . Url::percentEncode($TensorboardId) . '/sharedurl',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -969,12 +1165,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the shareable link of a TensorBoard task. The link contains digital tokens. You can use a shareable link to access a TensorBoard task.
-     *  *
-     * @param string                         $TensorboardId
-     * @param GetTensorboardSharedUrlRequest $request       GetTensorboardSharedUrlRequest
+     * Obtains the shareable link of a TensorBoard task. The link contains digital tokens. You can use a shareable link to access a TensorBoard task.
      *
-     * @return GetTensorboardSharedUrlResponse GetTensorboardSharedUrlResponse
+     * @param request - GetTensorboardSharedUrlRequest
+     *
+     * @returns GetTensorboardSharedUrlResponse
+     *
+     * @param string                         $TensorboardId
+     * @param GetTensorboardSharedUrlRequest $request
+     *
+     * @return GetTensorboardSharedUrlResponse
      */
     public function getTensorboardSharedUrl($TensorboardId, $request)
     {
@@ -985,30 +1185,39 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the sharing token of a DLC job. This token is used to view the information about the shared job.
-     *  *
-     * @param GetTokenRequest $request GetTokenRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Obtains the sharing token of a DLC job. This token is used to view the information about the shared job.
      *
-     * @return GetTokenResponse GetTokenResponse
+     * @param request - GetTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTokenResponse
+     *
+     * @param GetTokenRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetTokenResponse
      */
     public function getTokenWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->expireTime)) {
-            $query['ExpireTime'] = $request->expireTime;
+        if (null !== $request->expireTime) {
+            @$query['ExpireTime'] = $request->expireTime;
         }
-        if (!Utils::isUnset($request->targetId)) {
-            $query['TargetId'] = $request->targetId;
+
+        if (null !== $request->targetId) {
+            @$query['TargetId'] = $request->targetId;
         }
-        if (!Utils::isUnset($request->targetType)) {
-            $query['TargetType'] = $request->targetType;
+
+        if (null !== $request->targetType) {
+            @$query['TargetType'] = $request->targetType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetToken',
@@ -1026,11 +1235,15 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the sharing token of a DLC job. This token is used to view the information about the shared job.
-     *  *
-     * @param GetTokenRequest $request GetTokenRequest
+     * Obtains the sharing token of a DLC job. This token is used to view the information about the shared job.
      *
-     * @return GetTokenResponse GetTokenResponse
+     * @param request - GetTokenRequest
+     *
+     * @returns GetTokenResponse
+     *
+     * @param GetTokenRequest $request
+     *
+     * @return GetTokenResponse
      */
     public function getToken($request)
     {
@@ -1041,35 +1254,43 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Provides methods and steps to obtain a HTTP link for accessing a container.
-     *  *
+     * Provides methods and steps to obtain a HTTP link for accessing a container.
+     *
+     * @param request - GetWebTerminalRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWebTerminalResponse
+     *
      * @param string                $JobId
      * @param string                $PodId
-     * @param GetWebTerminalRequest $request GetWebTerminalRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param GetWebTerminalRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return GetWebTerminalResponse GetWebTerminalResponse
+     * @return GetWebTerminalResponse
      */
     public function getWebTerminalWithOptions($JobId, $PodId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isShared)) {
-            $query['IsShared'] = $request->isShared;
+        if (null !== $request->isShared) {
+            @$query['IsShared'] = $request->isShared;
         }
-        if (!Utils::isUnset($request->podUid)) {
-            $query['PodUid'] = $request->podUid;
+
+        if (null !== $request->podUid) {
+            @$query['PodUid'] = $request->podUid;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetWebTerminal',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/pods/' . OpenApiUtilClient::getEncodeParam($PodId) . '/webterminal',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '/pods/' . Url::percentEncode($PodId) . '/webterminal',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1081,13 +1302,17 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Provides methods and steps to obtain a HTTP link for accessing a container.
-     *  *
+     * Provides methods and steps to obtain a HTTP link for accessing a container.
+     *
+     * @param request - GetWebTerminalRequest
+     *
+     * @returns GetWebTerminalResponse
+     *
      * @param string                $JobId
      * @param string                $PodId
-     * @param GetWebTerminalRequest $request GetWebTerminalRequest
+     * @param GetWebTerminalRequest $request
      *
-     * @return GetWebTerminalResponse GetWebTerminalResponse
+     * @return GetWebTerminalResponse
      */
     public function getWebTerminal($JobId, $PodId, $request)
     {
@@ -1098,42 +1323,55 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of supported instance types.
-     *  *
-     * @param ListEcsSpecsRequest $request ListEcsSpecsRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the list of supported instance types.
      *
-     * @return ListEcsSpecsResponse ListEcsSpecsResponse
+     * @param request - ListEcsSpecsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEcsSpecsResponse
+     *
+     * @param ListEcsSpecsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListEcsSpecsResponse
      */
     public function listEcsSpecsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceleratorType)) {
-            $query['AcceleratorType'] = $request->acceleratorType;
+        if (null !== $request->acceleratorType) {
+            @$query['AcceleratorType'] = $request->acceleratorType;
         }
-        if (!Utils::isUnset($request->instanceTypes)) {
-            $query['InstanceTypes'] = $request->instanceTypes;
+
+        if (null !== $request->instanceTypes) {
+            @$query['InstanceTypes'] = $request->instanceTypes;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListEcsSpecs',
@@ -1151,11 +1389,15 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of supported instance types.
-     *  *
-     * @param ListEcsSpecsRequest $request ListEcsSpecsRequest
+     * Queries the list of supported instance types.
      *
-     * @return ListEcsSpecsResponse ListEcsSpecsResponse
+     * @param request - ListEcsSpecsRequest
+     *
+     * @returns ListEcsSpecsResponse
+     *
+     * @param ListEcsSpecsRequest $request
+     *
+     * @return ListEcsSpecsResponse
      */
     public function listEcsSpecs($request)
     {
@@ -1166,31 +1408,38 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the results of all sanity checks for a DLC job.
-     *  *
-     * @param string                           $JobId
-     * @param ListJobSanityCheckResultsRequest $request ListJobSanityCheckResultsRequest
-     * @param string[]                         $headers map
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Obtains the results of all sanity checks for a DLC job.
      *
-     * @return ListJobSanityCheckResultsResponse ListJobSanityCheckResultsResponse
+     * @param request - ListJobSanityCheckResultsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobSanityCheckResultsResponse
+     *
+     * @param string                           $JobId
+     * @param ListJobSanityCheckResultsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListJobSanityCheckResultsResponse
      */
     public function listJobSanityCheckResultsWithOptions($JobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListJobSanityCheckResults',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/sanitycheckresults',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '/sanitycheckresults',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1202,12 +1451,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the results of all sanity checks for a DLC job.
-     *  *
-     * @param string                           $JobId
-     * @param ListJobSanityCheckResultsRequest $request ListJobSanityCheckResultsRequest
+     * Obtains the results of all sanity checks for a DLC job.
      *
-     * @return ListJobSanityCheckResultsResponse ListJobSanityCheckResultsResponse
+     * @param request - ListJobSanityCheckResultsRequest
+     *
+     * @returns ListJobSanityCheckResultsResponse
+     *
+     * @param string                           $JobId
+     * @param ListJobSanityCheckResultsRequest $request
+     *
+     * @return ListJobSanityCheckResultsResponse
      */
     public function listJobSanityCheckResults($JobId, $request)
     {
@@ -1218,101 +1471,133 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
-     *  *
-     * @param ListJobsRequest $tmpReq  ListJobsRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param tmpReq - ListJobsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobsResponse
+     *
+     * @param ListJobsRequest $tmpReq
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListJobsResponse
      */
     public function listJobsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListJobsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accessibility)) {
-            $query['Accessibility'] = $request->accessibility;
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
         }
-        if (!Utils::isUnset($request->businessUserId)) {
-            $query['BusinessUserId'] = $request->businessUserId;
+
+        if (null !== $request->businessUserId) {
+            @$query['BusinessUserId'] = $request->businessUserId;
         }
-        if (!Utils::isUnset($request->caller)) {
-            $query['Caller'] = $request->caller;
+
+        if (null !== $request->caller) {
+            @$query['Caller'] = $request->caller;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $query['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->fromAllWorkspaces)) {
-            $query['FromAllWorkspaces'] = $request->fromAllWorkspaces;
+
+        if (null !== $request->fromAllWorkspaces) {
+            @$query['FromAllWorkspaces'] = $request->fromAllWorkspaces;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
+
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
-        if (!Utils::isUnset($request->jobType)) {
-            $query['JobType'] = $request->jobType;
+
+        if (null !== $request->jobType) {
+            @$query['JobType'] = $request->jobType;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->oversoldInfo)) {
-            $query['OversoldInfo'] = $request->oversoldInfo;
+
+        if (null !== $request->oversoldInfo) {
+            @$query['OversoldInfo'] = $request->oversoldInfo;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->paymentType)) {
-            $query['PaymentType'] = $request->paymentType;
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
         }
-        if (!Utils::isUnset($request->pipelineId)) {
-            $query['PipelineId'] = $request->pipelineId;
+
+        if (null !== $request->pipelineId) {
+            @$query['PipelineId'] = $request->pipelineId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceQuotaName)) {
-            $query['ResourceQuotaName'] = $request->resourceQuotaName;
+
+        if (null !== $request->resourceQuotaName) {
+            @$query['ResourceQuotaName'] = $request->resourceQuotaName;
         }
-        if (!Utils::isUnset($request->showOwn)) {
-            $query['ShowOwn'] = $request->showOwn;
+
+        if (null !== $request->showOwn) {
+            @$query['ShowOwn'] = $request->showOwn;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->userIdForFilter)) {
-            $query['UserIdForFilter'] = $request->userIdForFilter;
+
+        if (null !== $request->userIdForFilter) {
+            @$query['UserIdForFilter'] = $request->userIdForFilter;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListJobs',
@@ -1330,11 +1615,15 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
-     *  *
-     * @param ListJobsRequest $request ListJobsRequest
+     * Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param request - ListJobsRequest
+     *
+     * @returns ListJobsResponse
+     *
+     * @param ListJobsRequest $request
+     *
+     * @return ListJobsResponse
      */
     public function listJobs($request)
     {
@@ -1345,81 +1634,107 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of TensorBoard instances.
-     *  *
-     * @param ListTensorboardsRequest $request ListTensorboardsRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries a list of TensorBoard instances.
      *
-     * @return ListTensorboardsResponse ListTensorboardsResponse
+     * @param request - ListTensorboardsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTensorboardsResponse
+     *
+     * @param ListTensorboardsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTensorboardsResponse
      */
     public function listTensorboardsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessibility)) {
-            $query['Accessibility'] = $request->accessibility;
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $query['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->paymentType)) {
-            $query['PaymentType'] = $request->paymentType;
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
         }
-        if (!Utils::isUnset($request->quotaId)) {
-            $query['QuotaId'] = $request->quotaId;
+
+        if (null !== $request->quotaId) {
+            @$query['QuotaId'] = $request->quotaId;
         }
-        if (!Utils::isUnset($request->showOwn)) {
-            $query['ShowOwn'] = $request->showOwn;
+
+        if (null !== $request->showOwn) {
+            @$query['ShowOwn'] = $request->showOwn;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->sourceId)) {
-            $query['SourceId'] = $request->sourceId;
+
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tensorboardId)) {
-            $query['TensorboardId'] = $request->tensorboardId;
+
+        if (null !== $request->tensorboardId) {
+            @$query['TensorboardId'] = $request->tensorboardId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
-        if (!Utils::isUnset($request->verbose)) {
-            $query['Verbose'] = $request->verbose;
+
+        if (null !== $request->verbose) {
+            @$query['Verbose'] = $request->verbose;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTensorboards',
@@ -1437,11 +1752,15 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of TensorBoard instances.
-     *  *
-     * @param ListTensorboardsRequest $request ListTensorboardsRequest
+     * Queries a list of TensorBoard instances.
      *
-     * @return ListTensorboardsResponse ListTensorboardsResponse
+     * @param request - ListTensorboardsRequest
+     *
+     * @returns ListTensorboardsResponse
+     *
+     * @param ListTensorboardsRequest $request
+     *
+     * @return ListTensorboardsResponse
      */
     public function listTensorboards($request)
     {
@@ -1452,31 +1771,38 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Starts a TensorBoard instance.
-     *  *
-     * @param string                  $TensorboardId
-     * @param StartTensorboardRequest $request       StartTensorboardRequest
-     * @param string[]                $headers       map
-     * @param RuntimeOptions          $runtime       runtime options for this request RuntimeOptions
+     * Starts a TensorBoard instance.
      *
-     * @return StartTensorboardResponse StartTensorboardResponse
+     * @param request - StartTensorboardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartTensorboardResponse
+     *
+     * @param string                  $TensorboardId
+     * @param StartTensorboardRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StartTensorboardResponse
      */
     public function startTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'StartTensorboard',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/tensorboards/' . OpenApiUtilClient::getEncodeParam($TensorboardId) . '/start',
+            'pathname' => '/api/v1/tensorboards/' . Url::percentEncode($TensorboardId) . '/start',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1488,12 +1814,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Starts a TensorBoard instance.
-     *  *
-     * @param string                  $TensorboardId
-     * @param StartTensorboardRequest $request       StartTensorboardRequest
+     * Starts a TensorBoard instance.
      *
-     * @return StartTensorboardResponse StartTensorboardResponse
+     * @param request - StartTensorboardRequest
+     *
+     * @returns StartTensorboardResponse
+     *
+     * @param string                  $TensorboardId
+     * @param StartTensorboardRequest $request
+     *
+     * @return StartTensorboardResponse
      */
     public function startTensorboard($TensorboardId, $request)
     {
@@ -1504,13 +1834,18 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Stops a running job.
-     *  *
-     * @param string         $JobId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Stops a running job.
      *
-     * @return StopJobResponse StopJobResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopJobResponse
+     *
+     * @param string         $JobId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopJobResponse
      */
     public function stopJobWithOptions($JobId, $headers, $runtime)
     {
@@ -1521,7 +1856,7 @@ class Paidlc extends OpenApiClient
             'action' => 'StopJob',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/stop',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '/stop',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1533,11 +1868,13 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Stops a running job.
-     *  *
+     * Stops a running job.
+     *
+     * @returns StopJobResponse
+     *
      * @param string $JobId
      *
-     * @return StopJobResponse StopJobResponse
+     * @return StopJobResponse
      */
     public function stopJob($JobId)
     {
@@ -1548,31 +1885,38 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Stops a TensorBoard instance.
-     *  *
-     * @param string                 $TensorboardId
-     * @param StopTensorboardRequest $request       StopTensorboardRequest
-     * @param string[]               $headers       map
-     * @param RuntimeOptions         $runtime       runtime options for this request RuntimeOptions
+     * Stops a TensorBoard instance.
      *
-     * @return StopTensorboardResponse StopTensorboardResponse
+     * @param request - StopTensorboardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopTensorboardResponse
+     *
+     * @param string                 $TensorboardId
+     * @param StopTensorboardRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return StopTensorboardResponse
      */
     public function stopTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'StopTensorboard',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/tensorboards/' . OpenApiUtilClient::getEncodeParam($TensorboardId) . '/stop',
+            'pathname' => '/api/v1/tensorboards/' . Url::percentEncode($TensorboardId) . '/stop',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1584,12 +1928,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Stops a TensorBoard instance.
-     *  *
-     * @param string                 $TensorboardId
-     * @param StopTensorboardRequest $request       StopTensorboardRequest
+     * Stops a TensorBoard instance.
      *
-     * @return StopTensorboardResponse StopTensorboardResponse
+     * @param request - StopTensorboardRequest
+     *
+     * @returns StopTensorboardResponse
+     *
+     * @param string                 $TensorboardId
+     * @param StopTensorboardRequest $request
+     *
+     * @return StopTensorboardResponse
      */
     public function stopTensorboard($TensorboardId, $request)
     {
@@ -1600,34 +1948,42 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Updates the configuration information of a job. For example, you can modify the priority of a job in a queue.
-     *  *
-     * @param string           $JobId
-     * @param UpdateJobRequest $request UpdateJobRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Updates the configuration information of a job. For example, you can modify the priority of a job in a queue.
      *
-     * @return UpdateJobResponse UpdateJobResponse
+     * @param request - UpdateJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateJobResponse
+     *
+     * @param string           $JobId
+     * @param UpdateJobRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateJobResponse
      */
     public function updateJobWithOptions($JobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessibility)) {
-            $body['Accessibility'] = $request->accessibility;
+        if (null !== $request->accessibility) {
+            @$body['Accessibility'] = $request->accessibility;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $body['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateJob',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1639,12 +1995,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Updates the configuration information of a job. For example, you can modify the priority of a job in a queue.
-     *  *
-     * @param string           $JobId
-     * @param UpdateJobRequest $request UpdateJobRequest
+     * Updates the configuration information of a job. For example, you can modify the priority of a job in a queue.
      *
-     * @return UpdateJobResponse UpdateJobResponse
+     * @param request - UpdateJobRequest
+     *
+     * @returns UpdateJobResponse
+     *
+     * @param string           $JobId
+     * @param UpdateJobRequest $request
+     *
+     * @return UpdateJobResponse
      */
     public function updateJob($JobId, $request)
     {
@@ -1655,40 +2015,50 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Updates a TensorBoard instance.
-     *  *
-     * @param string                   $TensorboardId
-     * @param UpdateTensorboardRequest $request       UpdateTensorboardRequest
-     * @param string[]                 $headers       map
-     * @param RuntimeOptions           $runtime       runtime options for this request RuntimeOptions
+     * Updates a TensorBoard instance.
      *
-     * @return UpdateTensorboardResponse UpdateTensorboardResponse
+     * @param request - UpdateTensorboardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTensorboardResponse
+     *
+     * @param string                   $TensorboardId
+     * @param UpdateTensorboardRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateTensorboardResponse
      */
     public function updateTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessibility)) {
-            $query['Accessibility'] = $request->accessibility;
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
         }
-        if (!Utils::isUnset($request->maxRunningTimeMinutes)) {
-            $query['MaxRunningTimeMinutes'] = $request->maxRunningTimeMinutes;
+
+        if (null !== $request->maxRunningTimeMinutes) {
+            @$query['MaxRunningTimeMinutes'] = $request->maxRunningTimeMinutes;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateTensorboard',
             'version' => '2020-12-03',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/tensorboards/' . OpenApiUtilClient::getEncodeParam($TensorboardId) . '',
+            'pathname' => '/api/v1/tensorboards/' . Url::percentEncode($TensorboardId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1700,12 +2070,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @summary Updates a TensorBoard instance.
-     *  *
-     * @param string                   $TensorboardId
-     * @param UpdateTensorboardRequest $request       UpdateTensorboardRequest
+     * Updates a TensorBoard instance.
      *
-     * @return UpdateTensorboardResponse UpdateTensorboardResponse
+     * @param request - UpdateTensorboardRequest
+     *
+     * @returns UpdateTensorboardResponse
+     *
+     * @param string                   $TensorboardId
+     * @param UpdateTensorboardRequest $request
+     *
+     * @return UpdateTensorboardResponse
      */
     public function updateTensorboard($TensorboardId, $request)
     {

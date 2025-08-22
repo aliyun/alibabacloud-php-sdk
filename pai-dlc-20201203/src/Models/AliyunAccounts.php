@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AliyunAccounts extends Model
 {
@@ -34,20 +34,26 @@ class AliyunAccounts extends Model
         'gmtModifyTime' => 'GmtModifyTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunUid) {
             $res['AliyunUid'] = $this->aliyunUid;
         }
+
         if (null !== $this->employeeId) {
             $res['EmployeeId'] = $this->employeeId;
         }
+
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
+
         if (null !== $this->gmtModifyTime) {
             $res['GmtModifyTime'] = $this->gmtModifyTime;
         }
@@ -55,23 +61,26 @@ class AliyunAccounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AliyunAccounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliyunUid'])) {
             $model->aliyunUid = $map['AliyunUid'];
         }
+
         if (isset($map['EmployeeId'])) {
             $model->employeeId = $map['EmployeeId'];
         }
+
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
+
         if (isset($map['GmtModifyTime'])) {
             $model->gmtModifyTime = $map['GmtModifyTime'];
         }
