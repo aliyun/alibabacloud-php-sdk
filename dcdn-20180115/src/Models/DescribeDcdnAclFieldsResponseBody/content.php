@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnAclFieldsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
     /**
-     * @description The rules and policies that were configured. The JSON string is decoded.
-     *
-     * @example \\"fieldList\\":[{\\"name\\":\\"alert\\",\\"display\\":\\"observe\\",\\"tip\\":\\"mark the request in the log without blocking it\\"},{\\"name\\":\\"bypass\\",\\"display\\":\\"bypass\\",\\"tip\\":\\"bypass security modules\\"}],\\"module\\":[{\\"name\\":\\"cc\\",\\"display\\":\\"Rate Limit\\",\\"tip\\":\\"bypass Rate Limit\\"},{\\"name\\":\\"bot\\",\\"display\\":\\"Bot Traffic Management\\",\\"tip\\":\\"bypass Bot Manager\\"}]
-     *
      * @var string
      */
     public $fields;
@@ -22,9 +18,10 @@ class content extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fields) {
@@ -34,11 +31,11 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

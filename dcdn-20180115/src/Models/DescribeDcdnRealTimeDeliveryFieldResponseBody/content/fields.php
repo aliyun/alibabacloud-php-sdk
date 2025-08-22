@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRealTimeDeliveryFieldResponseBody\content;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fields extends Model
 {
     /**
-     * @description The description of the field.
-     *
-     * @example Access time
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the field. For more information about fields in real-time log entries, see [Fields in a real-time log](https://help.aliyun.com/document_detail/324199.html).
-     *
-     * @example unixtime
-     *
      * @var string
      */
     public $fieldName;
     protected $_name = [
         'description' => 'Description',
-        'fieldName'   => 'FieldName',
+        'fieldName' => 'FieldName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->fieldName) {
             $res['FieldName'] = $this->fieldName;
         }
@@ -47,17 +41,18 @@ class fields extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fields
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FieldName'])) {
             $model->fieldName = $map['FieldName'];
         }

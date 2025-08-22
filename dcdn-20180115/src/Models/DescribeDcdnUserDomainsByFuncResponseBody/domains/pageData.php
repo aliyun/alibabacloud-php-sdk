@@ -4,155 +4,120 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserDomainsByFuncResponseBody\domains;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserDomainsByFuncResponseBody\domains\pageData\sources;
-use AlibabaCloud\Tea\Model;
 
 class pageData extends Model
 {
     /**
-     * @description The CNAME assigned to the accelerated domain name.
-     *
-     * @example example.com.w.alikunlun.net
-     *
      * @var string
      */
     public $cname;
 
     /**
-     * @description The reason why the accelerated domain name failed the review.
-     *
-     * @example audit failed
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The accelerated domain name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The status of the accelerated domain name. Valid values:
-     *
-     *   **online**
-     *   **offline**
-     *   **configuring**
-     *   **configure_failed**
-     *   **checking**
-     *   **check_failed**
-     *
-     * @example configure_failed
-     *
      * @var string
      */
     public $domainStatus;
 
     /**
-     * @description The time when the accelerated domain name was added to Dynamic Content Delivery Network (DCDN).
-     *
-     * @example 2015-10-28T09:32:51Z
-     *
      * @var string
      */
     public $gmtCreated;
 
     /**
-     * @description The time when the accelerated domain name was modified.
-     *
-     * @example 2015-10-28T11:05:50Z
-     *
      * @var string
      */
     public $gmtModified;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfmyuji4b6r4**
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description Indicates whether the accelerated domain name was in a sandbox.
-     *
-     * @example normal
-     *
      * @var string
      */
     public $sandbox;
 
     /**
-     * @description The information about the origin servers.
-     *
      * @var sources
      */
     public $sources;
 
     /**
-     * @description Indicates whether HTTPS is enabled. Valid values:
-     *
-     *   **on**: HTTPS is enabled.
-     *   **off**: HTTPS is disabled.
-     *
-     * @example on
-     *
      * @var string
      */
     public $sslProtocol;
     protected $_name = [
-        'cname'           => 'Cname',
-        'description'     => 'Description',
-        'domainName'      => 'DomainName',
-        'domainStatus'    => 'DomainStatus',
-        'gmtCreated'      => 'GmtCreated',
-        'gmtModified'     => 'GmtModified',
+        'cname' => 'Cname',
+        'description' => 'Description',
+        'domainName' => 'DomainName',
+        'domainStatus' => 'DomainStatus',
+        'gmtCreated' => 'GmtCreated',
+        'gmtModified' => 'GmtModified',
         'resourceGroupId' => 'ResourceGroupId',
-        'sandbox'         => 'Sandbox',
-        'sources'         => 'Sources',
-        'sslProtocol'     => 'SslProtocol',
+        'sandbox' => 'Sandbox',
+        'sources' => 'Sources',
+        'sslProtocol' => 'SslProtocol',
     ];
 
     public function validate()
     {
+        if (null !== $this->sources) {
+            $this->sources->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->domainStatus) {
             $res['DomainStatus'] = $this->domainStatus;
         }
+
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
         }
+
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->sandbox) {
             $res['Sandbox'] = $this->sandbox;
         }
+
         if (null !== $this->sources) {
-            $res['Sources'] = null !== $this->sources ? $this->sources->toMap() : null;
+            $res['Sources'] = null !== $this->sources ? $this->sources->toArray($noStream) : $this->sources;
         }
+
         if (null !== $this->sslProtocol) {
             $res['SslProtocol'] = $this->sslProtocol;
         }
@@ -160,41 +125,50 @@ class pageData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['DomainStatus'])) {
             $model->domainStatus = $map['DomainStatus'];
         }
+
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];
         }
+
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Sandbox'])) {
             $model->sandbox = $map['Sandbox'];
         }
+
         if (isset($map['Sources'])) {
             $model->sources = sources::fromMap($map['Sources']);
         }
+
         if (isset($map['SslProtocol'])) {
             $model->sslProtocol = $map['SslProtocol'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchPutDcdnKvRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class kvList extends Model
 {
@@ -19,41 +19,41 @@ class kvList extends Model
     public $expirationTtl;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'expiration'    => 'Expiration',
+        'expiration' => 'Expiration',
         'expirationTtl' => 'ExpirationTtl',
-        'key'           => 'Key',
-        'value'         => 'Value',
+        'key' => 'Key',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expiration) {
             $res['Expiration'] = $this->expiration;
         }
+
         if (null !== $this->expirationTtl) {
             $res['ExpirationTtl'] = $this->expirationTtl;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -61,23 +61,26 @@ class kvList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return kvList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Expiration'])) {
             $model->expiration = $map['Expiration'];
         }
+
         if (isset($map['ExpirationTtl'])) {
             $model->expirationTtl = $map['ExpirationTtl'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

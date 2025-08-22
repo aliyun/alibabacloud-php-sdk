@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnErUsageDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnErUsageDataResponseBody\erAccData\erAccItem;
-use AlibabaCloud\Tea\Model;
 
 class erAccData extends Model
 {
@@ -19,17 +19,22 @@ class erAccData extends Model
 
     public function validate()
     {
+        if (\is_array($this->erAccItem)) {
+            Model::validateArray($this->erAccItem);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->erAccItem) {
-            $res['ErAccItem'] = [];
-            if (null !== $this->erAccItem && \is_array($this->erAccItem)) {
-                $n = 0;
-                foreach ($this->erAccItem as $item) {
-                    $res['ErAccItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->erAccItem)) {
+                $res['ErAccItem'] = [];
+                $n1 = 0;
+                foreach ($this->erAccItem as $item1) {
+                    $res['ErAccItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class erAccData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return erAccData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErAccItem'])) {
             if (!empty($map['ErAccItem'])) {
                 $model->erAccItem = [];
-                $n                = 0;
-                foreach ($map['ErAccItem'] as $item) {
-                    $model->erAccItem[$n++] = null !== $item ? erAccItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ErAccItem'] as $item1) {
+                    $model->erAccItem[$n1] = erAccItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

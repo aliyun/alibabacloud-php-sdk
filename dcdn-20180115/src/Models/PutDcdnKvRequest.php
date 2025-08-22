@@ -4,84 +4,66 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PutDcdnKvRequest extends Model
 {
     /**
-     * @description The time when the key expires.Example: "1690081381".
-     *
-     * @example 1690081381
-     *
      * @var int
      */
     public $expiration;
 
     /**
-     * @description The time when the key expires.Example: "3600".
-     *
-     * @example 3600
-     *
      * @var int
      */
     public $expirationTtl;
 
     /**
-     * @description The key. The key can be up to 512 characters in length, and cannot contain spaces.
-     *
-     * This parameter is required.
-     * @example key1
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The name of the namespace.
-     *
-     * This parameter is required.
-     * @example ns1
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The value of the key. The maximum size is 2 MB (2 x 1000 x 1000 bytes).
-     *
-     * This parameter is required.
-     * @example value1
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'expiration'    => 'Expiration',
+        'expiration' => 'Expiration',
         'expirationTtl' => 'ExpirationTtl',
-        'key'           => 'Key',
-        'namespace'     => 'Namespace',
-        'value'         => 'Value',
+        'key' => 'Key',
+        'namespace' => 'Namespace',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expiration) {
             $res['Expiration'] = $this->expiration;
         }
+
         if (null !== $this->expirationTtl) {
             $res['ExpirationTtl'] = $this->expirationTtl;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -89,26 +71,30 @@ class PutDcdnKvRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutDcdnKvRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Expiration'])) {
             $model->expiration = $map['Expiration'];
         }
+
         if (isset($map['ExpirationTtl'])) {
             $model->expirationTtl = $map['ExpirationTtl'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

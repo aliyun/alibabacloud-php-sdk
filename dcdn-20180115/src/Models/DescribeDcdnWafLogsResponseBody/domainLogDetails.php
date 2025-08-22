@@ -4,102 +4,105 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafLogsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafLogsResponseBody\domainLogDetails\logInfos;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafLogsResponseBody\domainLogDetails\pageInfos;
-use AlibabaCloud\Tea\Model;
 
 class domainLogDetails extends Model
 {
     /**
-     * @description The WAF domain name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The total number of entries returned on the current page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $logCount;
 
     /**
-     * @description The log information.
-     *
      * @var logInfos[]
      */
     public $logInfos;
 
     /**
-     * @description The page information.
-     *
      * @var pageInfos
      */
     public $pageInfos;
     protected $_name = [
         'domainName' => 'DomainName',
-        'logCount'   => 'LogCount',
-        'logInfos'   => 'LogInfos',
-        'pageInfos'  => 'PageInfos',
+        'logCount' => 'LogCount',
+        'logInfos' => 'LogInfos',
+        'pageInfos' => 'PageInfos',
     ];
 
     public function validate()
     {
+        if (\is_array($this->logInfos)) {
+            Model::validateArray($this->logInfos);
+        }
+        if (null !== $this->pageInfos) {
+            $this->pageInfos->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->logCount) {
             $res['LogCount'] = $this->logCount;
         }
+
         if (null !== $this->logInfos) {
-            $res['LogInfos'] = [];
-            if (null !== $this->logInfos && \is_array($this->logInfos)) {
-                $n = 0;
-                foreach ($this->logInfos as $item) {
-                    $res['LogInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logInfos)) {
+                $res['LogInfos'] = [];
+                $n1 = 0;
+                foreach ($this->logInfos as $item1) {
+                    $res['LogInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageInfos) {
-            $res['PageInfos'] = null !== $this->pageInfos ? $this->pageInfos->toMap() : null;
+            $res['PageInfos'] = null !== $this->pageInfos ? $this->pageInfos->toArray($noStream) : $this->pageInfos;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainLogDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['LogCount'])) {
             $model->logCount = $map['LogCount'];
         }
+
         if (isset($map['LogInfos'])) {
             if (!empty($map['LogInfos'])) {
                 $model->logInfos = [];
-                $n               = 0;
-                foreach ($map['LogInfos'] as $item) {
-                    $model->logInfos[$n++] = null !== $item ? logInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LogInfos'] as $item1) {
+                    $model->logInfos[$n1] = logInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageInfos'])) {
             $model->pageInfos = pageInfos::fromMap($map['PageInfos']);
         }

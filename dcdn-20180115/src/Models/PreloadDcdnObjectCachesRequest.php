@@ -4,40 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PreloadDcdnObjectCachesRequest extends Model
 {
     /**
-     * @description The acceleration region in which you want to prefetch content. If you do not specify a region, the value overseas is used.
-     *
-     *   **domestic**: Chinese mainland
-     *   **overseas**: outside the Chinese mainland
-     *
-     * @example domestic
-     *
      * @var string
      */
     public $area;
 
     /**
-     * @description Specifies whether to prefetch content to POPs. Valid values:
-     *
-     *   **true**: prefetches content to nodes that include L2 DCDN nodes.
-     *   **false**: prefetches content to L2 POPs or L3 POPs.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $l2Preload;
 
     /**
-     * @description The path of the content that you want to prefetch. Separate multiple URLs with line feed characters (\\n) or a pair of carriage return and line feed characters (\\r\\n).
-     *
-     * This parameter is required.
-     * @example example.com/examplefile.txt
-     *
      * @var string
      */
     public $objectPath;
@@ -58,48 +39,51 @@ class PreloadDcdnObjectCachesRequest extends Model
     public $securityToken;
 
     /**
-     * @description The custom header for prefetch in the JSON format.
-     *
-     * @example {
-     * }
      * @var string
      */
     public $withHeader;
     protected $_name = [
-        'area'          => 'Area',
-        'l2Preload'     => 'L2Preload',
-        'objectPath'    => 'ObjectPath',
-        'ownerId'       => 'OwnerId',
-        'queryHashkey'  => 'QueryHashkey',
+        'area' => 'Area',
+        'l2Preload' => 'L2Preload',
+        'objectPath' => 'ObjectPath',
+        'ownerId' => 'OwnerId',
+        'queryHashkey' => 'QueryHashkey',
         'securityToken' => 'SecurityToken',
-        'withHeader'    => 'WithHeader',
+        'withHeader' => 'WithHeader',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->area) {
             $res['Area'] = $this->area;
         }
+
         if (null !== $this->l2Preload) {
             $res['L2Preload'] = $this->l2Preload;
         }
+
         if (null !== $this->objectPath) {
             $res['ObjectPath'] = $this->objectPath;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->queryHashkey) {
             $res['QueryHashkey'] = $this->queryHashkey;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->withHeader) {
             $res['WithHeader'] = $this->withHeader;
         }
@@ -107,32 +91,38 @@ class PreloadDcdnObjectCachesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PreloadDcdnObjectCachesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Area'])) {
             $model->area = $map['Area'];
         }
+
         if (isset($map['L2Preload'])) {
             $model->l2Preload = $map['L2Preload'];
         }
+
         if (isset($map['ObjectPath'])) {
             $model->objectPath = $map['ObjectPath'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['QueryHashkey'])) {
             $model->queryHashkey = $map['QueryHashkey'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['WithHeader'])) {
             $model->withHeader = $map['WithHeader'];
         }

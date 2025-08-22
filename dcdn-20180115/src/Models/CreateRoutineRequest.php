@@ -4,56 +4,54 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateRoutineRequest extends Model
 {
     /**
-     * @description The description of the routine.
-     *
-     * @example the description of this routine
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The configurations of the specified environment.
-     *
-     * @example {"staging":{"SpecName":"50ms"},"production":{"SpecName":"50ms"}}
-     *
      * @var mixed[]
      */
     public $envConf;
 
     /**
-     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $name;
     protected $_name = [
         'description' => 'Description',
-        'envConf'     => 'EnvConf',
-        'name'        => 'Name',
+        'envConf' => 'EnvConf',
+        'name' => 'Name',
     ];
 
     public function validate()
     {
+        if (\is_array($this->envConf)) {
+            Model::validateArray($this->envConf);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->envConf) {
-            $res['EnvConf'] = $this->envConf;
+            if (\is_array($this->envConf)) {
+                $res['EnvConf'] = [];
+                foreach ($this->envConf as $key1 => $value1) {
+                    $res['EnvConf'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -61,20 +59,27 @@ class CreateRoutineRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRoutineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EnvConf'])) {
-            $model->envConf = $map['EnvConf'];
+            if (!empty($map['EnvConf'])) {
+                $model->envConf = [];
+                foreach ($map['EnvConf'] as $key1 => $value1) {
+                    $model->envConf[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

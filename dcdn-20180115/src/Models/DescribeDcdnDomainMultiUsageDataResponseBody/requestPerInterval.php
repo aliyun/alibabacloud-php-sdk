@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainMultiUsageDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainMultiUsageDataResponseBody\requestPerInterval\requestDataModule;
-use AlibabaCloud\Tea\Model;
 
 class requestPerInterval extends Model
 {
@@ -19,17 +19,22 @@ class requestPerInterval extends Model
 
     public function validate()
     {
+        if (\is_array($this->requestDataModule)) {
+            Model::validateArray($this->requestDataModule);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestDataModule) {
-            $res['RequestDataModule'] = [];
-            if (null !== $this->requestDataModule && \is_array($this->requestDataModule)) {
-                $n = 0;
-                foreach ($this->requestDataModule as $item) {
-                    $res['RequestDataModule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->requestDataModule)) {
+                $res['RequestDataModule'] = [];
+                $n1 = 0;
+                foreach ($this->requestDataModule as $item1) {
+                    $res['RequestDataModule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class requestPerInterval extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return requestPerInterval
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestDataModule'])) {
             if (!empty($map['RequestDataModule'])) {
                 $model->requestDataModule = [];
-                $n                        = 0;
-                foreach ($map['RequestDataModule'] as $item) {
-                    $model->requestDataModule[$n++] = null !== $item ? requestDataModule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RequestDataModule'] as $item1) {
+                    $model->requestDataModule[$n1] = requestDataModule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

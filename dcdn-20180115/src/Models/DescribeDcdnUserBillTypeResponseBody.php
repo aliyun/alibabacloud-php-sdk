@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserBillTypeResponseBody\billTypeData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnUserBillTypeResponseBody extends Model
 {
     /**
-     * @description The information about the metering method.
-     *
      * @var billTypeData
      */
     public $billTypeData;
 
     /**
-     * @description The request ID.
-     *
-     * @example C370DAF1-C838-4288-A1A0-9A87633D248E
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'billTypeData' => 'BillTypeData',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->billTypeData) {
+            $this->billTypeData->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->billTypeData) {
-            $res['BillTypeData'] = null !== $this->billTypeData ? $this->billTypeData->toMap() : null;
+            $res['BillTypeData'] = null !== $this->billTypeData ? $this->billTypeData->toArray($noStream) : $this->billTypeData;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeDcdnUserBillTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnUserBillTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BillTypeData'])) {
             $model->billTypeData = billTypeData::fromMap($map['BillTypeData']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

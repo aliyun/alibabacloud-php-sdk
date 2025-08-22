@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnSubListResponseBody extends Model
 {
     /**
-     * @description The information about the custom report.
-     *
-     * @example "data": [{"subId": 336,"reportId": [6,8],"createTime": "2021-07-05T06:18:46Z","domains": ["example.com"],"effectiveFrom": "2021-07-05T06:18:46Z","effectiveEnd": "2021-10-05T06:18:46Z","status": "enable"}]
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The request ID.
-     *
-     * @example 3250A51D-C11D-46BA-B6B3-95348EEDE652
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'content'   => 'Content',
+        'content' => 'Content',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class DescribeDcdnSubListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnSubListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

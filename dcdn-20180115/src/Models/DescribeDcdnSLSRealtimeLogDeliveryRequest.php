@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnSLSRealtimeLogDeliveryRequest extends Model
 {
     /**
-     * @description The name of a real-time log delivery project.
-     *
-     * This parameter is required.
-     * @example example
-     *
      * @var string
      */
     public $projectName;
@@ -23,9 +18,10 @@ class DescribeDcdnSLSRealtimeLogDeliveryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectName) {
@@ -35,11 +31,11 @@ class DescribeDcdnSLSRealtimeLogDeliveryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnSLSRealtimeLogDeliveryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

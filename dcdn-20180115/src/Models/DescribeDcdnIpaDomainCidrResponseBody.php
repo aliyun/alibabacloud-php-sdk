@@ -4,42 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnIpaDomainCidrResponseBody extends Model
 {
     /**
-     * @description The back-to-origin IPv4 and IPv6 CIDR blocks.
-     *
-     * @example ["1.1.1.0/24","2.2.2.0/24","1111:2222:3333:4444:5555:0:0:0/80"]
-     *
      * @var string[]
      */
     public $cidr;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'cidr'      => 'Cidr',
+        'cidr' => 'Cidr',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->cidr)) {
+            Model::validateArray($this->cidr);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cidr) {
-            $res['Cidr'] = $this->cidr;
+            if (\is_array($this->cidr)) {
+                $res['Cidr'] = [];
+                $n1 = 0;
+                foreach ($this->cidr as $item1) {
+                    $res['Cidr'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,19 +51,25 @@ class DescribeDcdnIpaDomainCidrResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnIpaDomainCidrResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cidr'])) {
             if (!empty($map['Cidr'])) {
-                $model->cidr = $map['Cidr'];
+                $model->cidr = [];
+                $n1 = 0;
+                foreach ($map['Cidr'] as $item1) {
+                    $model->cidr[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchDeleteDcdnDomainConfigsRequest extends Model
 {
     /**
-     * @description The accelerated domain names whose configurations you want to delete. Separate multiple accelerated domain names with commas (,).
-     *
-     * This parameter is required.
-     * @example example.com
-     *
      * @var string
      */
     public $domainNames;
 
     /**
-     * @description The names of the features that you want to delete. Separate multiple feature names with commas (,). For more information about feature names, see [Feature settings for a domain name](https://help.aliyun.com/document_detail/410622.html).
-     *
-     * This parameter is required.
-     * @example referer_white_list_set,https_force
-     *
      * @var string
      */
     public $functionNames;
@@ -43,32 +33,37 @@ class BatchDeleteDcdnDomainConfigsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainNames'   => 'DomainNames',
+        'domainNames' => 'DomainNames',
         'functionNames' => 'FunctionNames',
-        'ownerAccount'  => 'OwnerAccount',
-        'ownerId'       => 'OwnerId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainNames) {
             $res['DomainNames'] = $this->domainNames;
         }
+
         if (null !== $this->functionNames) {
             $res['FunctionNames'] = $this->functionNames;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -76,26 +71,30 @@ class BatchDeleteDcdnDomainConfigsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchDeleteDcdnDomainConfigsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainNames'])) {
             $model->domainNames = $map['DomainNames'];
         }
+
         if (isset($map['FunctionNames'])) {
             $model->functionNames = $map['FunctionNames'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

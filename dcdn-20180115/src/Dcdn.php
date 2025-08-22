@@ -4,8 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Models\FileField;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\Util\FormUtil;
+use AlibabaCloud\Dara\Util\StreamUtil;
+use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\AddDcdnDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\AddDcdnDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\AddDcdnIpaDomainRequest;
@@ -32,8 +37,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchPutDcdnKvShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchPutDcdnKvWithHighCapacityAdvanceRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchPutDcdnKvWithHighCapacityRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchPutDcdnKvWithHighCapacityResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainCertificateRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainConfigsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainConfigsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnIpaDomainConfigsRequest;
@@ -65,6 +68,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateSlrAndSlsProjectRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateSlrAndSlsProjectResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteCustomDomainSampleRateRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteCustomDomainSampleRateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDeliverTaskRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDeliverTaskResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDomainRequest;
@@ -97,6 +102,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineConfEnvsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineConfEnvsShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeCustomDomainSampleRateRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeCustomDomainSampleRateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnAclFieldsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnAclFieldsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnBgpBpsDataRequest;
@@ -340,6 +347,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDdosAllEventListResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeEncryptRoutineUidResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeHighlightInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeHighlightInfoResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeKvRealTimeQpsDataRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeKvRealTimeQpsDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeKvUsageDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeKvUsageDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRDDomainConfigRequest;
@@ -376,6 +385,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnKvRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnKvResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyCustomDomainSampleRateRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyCustomDomainSampleRateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDCdnDomainSchdmByPropertyRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDCdnDomainSchdmByPropertyResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDcdnWafGroupRequest;
@@ -409,8 +420,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshErObjectCachesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshErObjectCachesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RollbackDcdnStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RollbackDcdnStagingConfigResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCertificateRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCSRCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCSRCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateRequest;
@@ -456,19 +465,12 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\UploadStagingRoutineCodeRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UploadStagingRoutineCodeResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\VerifyDcdnDomainOwnerRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\VerifyDcdnDomainOwnerResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
-use AlibabaCloud\SDK\OSS\OSS;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
-use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Dcdn extends OpenApiClient
 {
@@ -476,64 +478,109 @@ class Dcdn extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-1'              => 'dcdn.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'dcdn.aliyuncs.com',
-            'ap-south-1'                  => 'dcdn.aliyuncs.com',
-            'ap-southeast-1'              => 'dcdn.aliyuncs.com',
-            'ap-southeast-2'              => 'dcdn.aliyuncs.com',
-            'ap-southeast-3'              => 'dcdn.aliyuncs.com',
-            'ap-southeast-5'              => 'dcdn.aliyuncs.com',
-            'cn-beijing'                  => 'dcdn.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'dcdn.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'dcdn.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'dcdn.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'dcdn.aliyuncs.com',
-            'cn-chengdu'                  => 'dcdn.aliyuncs.com',
-            'cn-edge-1'                   => 'dcdn.aliyuncs.com',
-            'cn-fujian'                   => 'dcdn.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'dcdn.aliyuncs.com',
-            'cn-hangzhou'                 => 'dcdn.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'dcdn.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'dcdn.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-1' => 'dcdn.aliyuncs.com',
+            'ap-northeast-2-pop' => 'dcdn.aliyuncs.com',
+            'ap-south-1' => 'dcdn.aliyuncs.com',
+            'ap-southeast-1' => 'dcdn.aliyuncs.com',
+            'ap-southeast-2' => 'dcdn.aliyuncs.com',
+            'ap-southeast-3' => 'dcdn.aliyuncs.com',
+            'ap-southeast-5' => 'dcdn.aliyuncs.com',
+            'cn-beijing' => 'dcdn.aliyuncs.com',
+            'cn-beijing-finance-1' => 'dcdn.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'dcdn.aliyuncs.com',
+            'cn-beijing-gov-1' => 'dcdn.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'dcdn.aliyuncs.com',
+            'cn-chengdu' => 'dcdn.aliyuncs.com',
+            'cn-edge-1' => 'dcdn.aliyuncs.com',
+            'cn-fujian' => 'dcdn.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'dcdn.aliyuncs.com',
+            'cn-hangzhou' => 'dcdn.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'dcdn.aliyuncs.com',
+            'cn-hangzhou-finance' => 'dcdn.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'dcdn.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'dcdn.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'dcdn.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'dcdn.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'dcdn.aliyuncs.com',
-            'cn-hongkong'                 => 'dcdn.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'dcdn.aliyuncs.com',
-            'cn-huhehaote'                => 'dcdn.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'dcdn.aliyuncs.com',
-            'cn-qingdao'                  => 'dcdn.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'dcdn.aliyuncs.com',
-            'cn-shanghai'                 => 'dcdn.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'dcdn.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'dcdn.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'dcdn.aliyuncs.com',
-            'cn-shanghai-inner'           => 'dcdn.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'dcdn.aliyuncs.com',
+            'cn-hongkong' => 'dcdn.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'dcdn.aliyuncs.com',
+            'cn-huhehaote' => 'dcdn.aliyuncs.com',
+            'cn-north-2-gov-1' => 'dcdn.aliyuncs.com',
+            'cn-qingdao' => 'dcdn.aliyuncs.com',
+            'cn-qingdao-nebula' => 'dcdn.aliyuncs.com',
+            'cn-shanghai' => 'dcdn.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'dcdn.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'dcdn.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'dcdn.aliyuncs.com',
+            'cn-shanghai-inner' => 'dcdn.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'dcdn.aliyuncs.com',
-            'cn-shenzhen'                 => 'dcdn.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'dcdn.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'dcdn.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'dcdn.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'dcdn.aliyuncs.com',
-            'cn-wuhan'                    => 'dcdn.aliyuncs.com',
-            'cn-yushanfang'               => 'dcdn.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'dcdn.aliyuncs.com',
-            'cn-zhangjiakou'              => 'dcdn.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'dcdn.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'dcdn.aliyuncs.com',
-            'eu-central-1'                => 'dcdn.aliyuncs.com',
-            'eu-west-1'                   => 'dcdn.aliyuncs.com',
-            'eu-west-1-oxs'               => 'dcdn.aliyuncs.com',
-            'me-east-1'                   => 'dcdn.aliyuncs.com',
-            'rus-west-1-pop'              => 'dcdn.aliyuncs.com',
-            'us-east-1'                   => 'dcdn.aliyuncs.com',
-            'us-west-1'                   => 'dcdn.aliyuncs.com',
+            'cn-shenzhen' => 'dcdn.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'dcdn.aliyuncs.com',
+            'cn-shenzhen-inner' => 'dcdn.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'dcdn.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'dcdn.aliyuncs.com',
+            'cn-wuhan' => 'dcdn.aliyuncs.com',
+            'cn-yushanfang' => 'dcdn.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'dcdn.aliyuncs.com',
+            'cn-zhangjiakou' => 'dcdn.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'dcdn.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'dcdn.aliyuncs.com',
+            'eu-central-1' => 'dcdn.aliyuncs.com',
+            'eu-west-1' => 'dcdn.aliyuncs.com',
+            'eu-west-1-oxs' => 'dcdn.aliyuncs.com',
+            'me-east-1' => 'dcdn.aliyuncs.com',
+            'rus-west-1-pop' => 'dcdn.aliyuncs.com',
+            'us-east-1' => 'dcdn.aliyuncs.com',
+            'us-west-1' => 'dcdn.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dcdn', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param string  $bucketName
+     * @param mixed[] $form
+     *
+     * @return mixed[]
+     */
+    public function _postOSSObject($bucketName, $form)
+    {
+        $_request = new Request();
+        $boundary = FormUtil::getBoundary();
+        $_request->protocol = 'HTTPS';
+        $_request->method = 'POST';
+        $_request->pathname = '/';
+        $_request->headers = [
+            'host' => '' . @$form['host'],
+            'date' => Utils::getDateUTCString(),
+            'user-agent' => Utils::getUserAgent(''),
+        ];
+        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+        $_request->body = FormUtil::toFileForm($form, $boundary);
+        $_response = Dara::send($_request);
+
+        $respMap = null;
+        $bodyStr = StreamUtil::readAsString($_response->body);
+        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+            $respMap = XML::parseXml($bodyStr, null);
+            $err = @$respMap['Error'];
+
+            throw new ClientException([
+                'code' => '' . @$err['Code'],
+                'message' => '' . @$err['Message'],
+                'data' => [
+                    'httpCode' => $_response->statusCode,
+                    'requestId' => '' . @$err['RequestId'],
+                    'hostId' => '' . @$err['HostId'],
+                ],
+            ]);
+        }
+
+        $respMap = XML::parseXml($bodyStr, null);
+
+        return Dara::merge([
+        ], $respMap);
     }
 
     /**
@@ -549,98 +596,122 @@ class Dcdn extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds a domain name to accelerate. You can specify only one domain name in each request.
-     *  *
-     * @description > *   Dynamic Content Delivery Network (DCDN) is activated.
+     * Adds a domain name to accelerate. You can specify only one domain name in each request.
+     *
+     * @remarks
+     * > *   Dynamic Content Delivery Network (DCDN) is activated.
      * > *   Internet content provider (ICP) filing is complete for the accelerated domain name.
      * > *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
      * > *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param AddDcdnDomainRequest $request AddDcdnDomainRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDcdnDomainResponse AddDcdnDomainResponse
+     * @param Request - AddDcdnDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDcdnDomainResponse
+     *
+     * @param AddDcdnDomainRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddDcdnDomainResponse
      */
     public function addDcdnDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->checkUrl)) {
-            $query['CheckUrl'] = $request->checkUrl;
+        if (null !== $request->checkUrl) {
+            @$query['CheckUrl'] = $request->checkUrl;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->functionType)) {
-            $query['FunctionType'] = $request->functionType;
+
+        if (null !== $request->functionType) {
+            @$query['FunctionType'] = $request->functionType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['Scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['Scene'] = $request->scene;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->sources)) {
-            $query['Sources'] = $request->sources;
+
+        if (null !== $request->sources) {
+            @$query['Sources'] = $request->sources;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->topLevelDomain)) {
-            $query['TopLevelDomain'] = $request->topLevelDomain;
+
+        if (null !== $request->topLevelDomain) {
+            @$query['TopLevelDomain'] = $request->topLevelDomain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDcdnDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDcdnDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a domain name to accelerate. You can specify only one domain name in each request.
-     *  *
-     * @description > *   Dynamic Content Delivery Network (DCDN) is activated.
+     * Adds a domain name to accelerate. You can specify only one domain name in each request.
+     *
+     * @remarks
+     * > *   Dynamic Content Delivery Network (DCDN) is activated.
      * > *   Internet content provider (ICP) filing is complete for the accelerated domain name.
      * > *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
      * > *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param AddDcdnDomainRequest $request AddDcdnDomainRequest
      *
-     * @return AddDcdnDomainResponse AddDcdnDomainResponse
+     * @param Request - AddDcdnDomainRequest
+     *
+     * @returns AddDcdnDomainResponse
+     *
+     * @param AddDcdnDomainRequest $request
+     *
+     * @return AddDcdnDomainResponse
      */
     public function addDcdnDomain($request)
     {
@@ -650,83 +721,104 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Adds a domain name to IPA. You can specify only one domain name in each request.
-     *  *
-     * @description >
+     * Adds a domain name to IPA. You can specify only one domain name in each request.
+     *
+     * @remarks
+     * >
      * *   Make sure that the IPA service is activated before you add a domain name to accelerate.
      * *   Make sure that the Internet content provider (ICP) filling is complete for the domain name to accelerate.
      * *   If the content on the origin server is not stored on Alibaba Cloud, the content must be reviewed. The review is complete by the end of the next business day after you submit the request.
      * *   You can call this operation up to 10 times per second per user.
-     *  *
-     * @param AddDcdnIpaDomainRequest $request AddDcdnIpaDomainRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDcdnIpaDomainResponse AddDcdnIpaDomainResponse
+     * @param Request - AddDcdnIpaDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDcdnIpaDomainResponse
+     *
+     * @param AddDcdnIpaDomainRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddDcdnIpaDomainResponse
      */
     public function addDcdnIpaDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->checkUrl)) {
-            $query['CheckUrl'] = $request->checkUrl;
+        if (null !== $request->checkUrl) {
+            @$query['CheckUrl'] = $request->checkUrl;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->protocol)) {
-            $query['Protocol'] = $request->protocol;
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->sources)) {
-            $query['Sources'] = $request->sources;
+
+        if (null !== $request->sources) {
+            @$query['Sources'] = $request->sources;
         }
-        if (!Utils::isUnset($request->topLevelDomain)) {
-            $query['TopLevelDomain'] = $request->topLevelDomain;
+
+        if (null !== $request->topLevelDomain) {
+            @$query['TopLevelDomain'] = $request->topLevelDomain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDcdnIpaDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDcdnIpaDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddDcdnIpaDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a domain name to IPA. You can specify only one domain name in each request.
-     *  *
-     * @description >
+     * Adds a domain name to IPA. You can specify only one domain name in each request.
+     *
+     * @remarks
+     * >
      * *   Make sure that the IPA service is activated before you add a domain name to accelerate.
      * *   Make sure that the Internet content provider (ICP) filling is complete for the domain name to accelerate.
      * *   If the content on the origin server is not stored on Alibaba Cloud, the content must be reviewed. The review is complete by the end of the next business day after you submit the request.
      * *   You can call this operation up to 10 times per second per user.
-     *  *
-     * @param AddDcdnIpaDomainRequest $request AddDcdnIpaDomainRequest
      *
-     * @return AddDcdnIpaDomainResponse AddDcdnIpaDomainResponse
+     * @param Request - AddDcdnIpaDomainRequest
+     *
+     * @returns AddDcdnIpaDomainResponse
+     *
+     * @param AddDcdnIpaDomainRequest $request
+     *
+     * @return AddDcdnIpaDomainResponse
      */
     public function addDcdnIpaDomain($request)
     {
@@ -736,82 +828,102 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Adds one or more domain names to DCDN at a time.
-     *  *
-     * @description **Prerequisites**:
+     * Adds one or more domain names to DCDN at a time.
+     *
+     * @remarks
+     * *Prerequisites**:
      * *   The [DCDN service is activated](https://help.aliyun.com/document_detail/64926.html).
      * *   Internet content provider (ICP) filing is complete for the accelerated domain names.
      * > *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
      * >*   You can specify up to 50 domain names in each request.
      * >*   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param BatchAddDcdnDomainRequest $request BatchAddDcdnDomainRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchAddDcdnDomainResponse BatchAddDcdnDomainResponse
+     * @param Request - BatchAddDcdnDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchAddDcdnDomainResponse
+     *
+     * @param BatchAddDcdnDomainRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BatchAddDcdnDomainResponse
      */
     public function batchAddDcdnDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->checkUrl)) {
-            $query['CheckUrl'] = $request->checkUrl;
+        if (null !== $request->checkUrl) {
+            @$query['CheckUrl'] = $request->checkUrl;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->sources)) {
-            $query['Sources'] = $request->sources;
+
+        if (null !== $request->sources) {
+            @$query['Sources'] = $request->sources;
         }
-        if (!Utils::isUnset($request->topLevelDomain)) {
-            $query['TopLevelDomain'] = $request->topLevelDomain;
+
+        if (null !== $request->topLevelDomain) {
+            @$query['TopLevelDomain'] = $request->topLevelDomain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchAddDcdnDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchAddDcdnDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchAddDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds one or more domain names to DCDN at a time.
-     *  *
-     * @description **Prerequisites**:
+     * Adds one or more domain names to DCDN at a time.
+     *
+     * @remarks
+     * *Prerequisites**:
      * *   The [DCDN service is activated](https://help.aliyun.com/document_detail/64926.html).
      * *   Internet content provider (ICP) filing is complete for the accelerated domain names.
      * > *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
      * >*   You can specify up to 50 domain names in each request.
      * >*   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param BatchAddDcdnDomainRequest $request BatchAddDcdnDomainRequest
      *
-     * @return BatchAddDcdnDomainResponse BatchAddDcdnDomainResponse
+     * @param Request - BatchAddDcdnDomainRequest
+     *
+     * @returns BatchAddDcdnDomainResponse
+     *
+     * @param BatchAddDcdnDomainRequest $request
+     *
+     * @return BatchAddDcdnDomainResponse
      */
     public function batchAddDcdnDomain($request)
     {
@@ -821,51 +933,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Creates Web Application Firewall (WAF) protection rules.
-     *  *
-     * @description >  You can call this operation up to 20 times per second per account.
-     *  *
-     * @param BatchCreateDcdnWafRulesRequest $request BatchCreateDcdnWafRulesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Creates Web Application Firewall (WAF) protection rules.
      *
-     * @return BatchCreateDcdnWafRulesResponse BatchCreateDcdnWafRulesResponse
+     * @remarks
+     * >  You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - BatchCreateDcdnWafRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchCreateDcdnWafRulesResponse
+     *
+     * @param BatchCreateDcdnWafRulesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return BatchCreateDcdnWafRulesResponse
      */
     public function batchCreateDcdnWafRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $body['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$body['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->ruleConfigs)) {
-            $body['RuleConfigs'] = $request->ruleConfigs;
+
+        if (null !== $request->ruleConfigs) {
+            @$body['RuleConfigs'] = $request->ruleConfigs;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchCreateDcdnWafRules',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchCreateDcdnWafRules',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchCreateDcdnWafRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates Web Application Firewall (WAF) protection rules.
-     *  *
-     * @description >  You can call this operation up to 20 times per second per account.
-     *  *
-     * @param BatchCreateDcdnWafRulesRequest $request BatchCreateDcdnWafRulesRequest
+     * Creates Web Application Firewall (WAF) protection rules.
      *
-     * @return BatchCreateDcdnWafRulesResponse BatchCreateDcdnWafRulesResponse
+     * @remarks
+     * >  You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - BatchCreateDcdnWafRulesRequest
+     *
+     * @returns BatchCreateDcdnWafRulesResponse
+     *
+     * @param BatchCreateDcdnWafRulesRequest $request
+     *
+     * @return BatchCreateDcdnWafRulesResponse
      */
     public function batchCreateDcdnWafRules($request)
     {
@@ -875,62 +1000,78 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes configurations of multiple accelerated domain names at a time.
-     *  *
-     * @description > - You can specify up to 50 domain names in each request.
-     * > - You can call this operation up to 30 times per second per account.
-     *  *
-     * @param BatchDeleteDcdnDomainConfigsRequest $request BatchDeleteDcdnDomainConfigsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Deletes configurations of multiple accelerated domain names at a time.
      *
-     * @return BatchDeleteDcdnDomainConfigsResponse BatchDeleteDcdnDomainConfigsResponse
+     * @remarks
+     * > - You can specify up to 50 domain names in each request.
+     * > - You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - BatchDeleteDcdnDomainConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchDeleteDcdnDomainConfigsResponse
+     *
+     * @param BatchDeleteDcdnDomainConfigsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return BatchDeleteDcdnDomainConfigsResponse
      */
     public function batchDeleteDcdnDomainConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainNames)) {
-            $query['DomainNames'] = $request->domainNames;
+        if (null !== $request->domainNames) {
+            @$query['DomainNames'] = $request->domainNames;
         }
-        if (!Utils::isUnset($request->functionNames)) {
-            $query['FunctionNames'] = $request->functionNames;
+
+        if (null !== $request->functionNames) {
+            @$query['FunctionNames'] = $request->functionNames;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchDeleteDcdnDomainConfigs',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchDeleteDcdnDomainConfigs',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchDeleteDcdnDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes configurations of multiple accelerated domain names at a time.
-     *  *
-     * @description > - You can specify up to 50 domain names in each request.
-     * > - You can call this operation up to 30 times per second per account.
-     *  *
-     * @param BatchDeleteDcdnDomainConfigsRequest $request BatchDeleteDcdnDomainConfigsRequest
+     * Deletes configurations of multiple accelerated domain names at a time.
      *
-     * @return BatchDeleteDcdnDomainConfigsResponse BatchDeleteDcdnDomainConfigsResponse
+     * @remarks
+     * > - You can specify up to 50 domain names in each request.
+     * > - You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - BatchDeleteDcdnDomainConfigsRequest
+     *
+     * @returns BatchDeleteDcdnDomainConfigsResponse
+     *
+     * @param BatchDeleteDcdnDomainConfigsRequest $request
+     *
+     * @return BatchDeleteDcdnDomainConfigsResponse
      */
     public function batchDeleteDcdnDomainConfigs($request)
     {
@@ -940,54 +1081,66 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除kv数据，支持最大2M的请求体
-     *  *
-     * @param BatchDeleteDcdnKvRequest $tmpReq  BatchDeleteDcdnKvRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 批量删除kv数据，支持最大2M的请求体.
      *
-     * @return BatchDeleteDcdnKvResponse BatchDeleteDcdnKvResponse
+     * @param tmpReq - BatchDeleteDcdnKvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchDeleteDcdnKvResponse
+     *
+     * @param BatchDeleteDcdnKvRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return BatchDeleteDcdnKvResponse
      */
     public function batchDeleteDcdnKvWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchDeleteDcdnKvShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->keys)) {
-            $request->keysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->keys) {
+            $request->keysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->keysShrink)) {
-            $body['Keys'] = $request->keysShrink;
+        if (null !== $request->keysShrink) {
+            @$body['Keys'] = $request->keysShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchDeleteDcdnKv',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchDeleteDcdnKv',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchDeleteDcdnKvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量删除kv数据，支持最大2M的请求体
-     *  *
-     * @param BatchDeleteDcdnKvRequest $request BatchDeleteDcdnKvRequest
+     * 批量删除kv数据，支持最大2M的请求体.
      *
-     * @return BatchDeleteDcdnKvResponse BatchDeleteDcdnKvResponse
+     * @param Request - BatchDeleteDcdnKvRequest
+     *
+     * @returns BatchDeleteDcdnKvResponse
+     *
+     * @param BatchDeleteDcdnKvRequest $request
+     *
+     * @return BatchDeleteDcdnKvResponse
      */
     public function batchDeleteDcdnKv($request)
     {
@@ -997,47 +1150,58 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除kv数据，支持最大100M的请求体
-     *  *
-     * @param BatchDeleteDcdnKvWithHighCapacityRequest $request BatchDeleteDcdnKvWithHighCapacityRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * 批量删除kv数据，支持最大100M的请求体.
      *
-     * @return BatchDeleteDcdnKvWithHighCapacityResponse BatchDeleteDcdnKvWithHighCapacityResponse
+     * @param Request - BatchDeleteDcdnKvWithHighCapacityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchDeleteDcdnKvWithHighCapacityResponse
+     *
+     * @param BatchDeleteDcdnKvWithHighCapacityRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return BatchDeleteDcdnKvWithHighCapacityResponse
      */
     public function batchDeleteDcdnKvWithHighCapacityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchDeleteDcdnKvWithHighCapacity',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchDeleteDcdnKvWithHighCapacity',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchDeleteDcdnKvWithHighCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量删除kv数据，支持最大100M的请求体
-     *  *
-     * @param BatchDeleteDcdnKvWithHighCapacityRequest $request BatchDeleteDcdnKvWithHighCapacityRequest
+     * 批量删除kv数据，支持最大100M的请求体.
      *
-     * @return BatchDeleteDcdnKvWithHighCapacityResponse BatchDeleteDcdnKvWithHighCapacityResponse
+     * @param Request - BatchDeleteDcdnKvWithHighCapacityRequest
+     *
+     * @returns BatchDeleteDcdnKvWithHighCapacityResponse
+     *
+     * @param BatchDeleteDcdnKvWithHighCapacityRequest $request
+     *
+     * @return BatchDeleteDcdnKvWithHighCapacityResponse
      */
     public function batchDeleteDcdnKvWithHighCapacity($request)
     {
@@ -1055,121 +1219,146 @@ class Dcdn extends OpenApiClient
     public function batchDeleteDcdnKvWithHighCapacityAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'dcdn',
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'dcdn',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $batchDeleteDcdnKvWithHighCapacityReq = new BatchDeleteDcdnKvWithHighCapacityRequest([]);
-        OpenApiUtilClient::convert($request, $batchDeleteDcdnKvWithHighCapacityReq);
-        if (!Utils::isUnset($request->urlObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->urlObject,
+        Utils::convert($request, $batchDeleteDcdnKvWithHighCapacityReq);
+        if (null !== $request->urlObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->urlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $batchDeleteDcdnKvWithHighCapacityReq->url = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $batchDeleteDcdnKvWithHighCapacityReq->url = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->batchDeleteDcdnKvWithHighCapacityWithOptions($batchDeleteDcdnKvWithHighCapacityReq, $runtime);
     }
 
     /**
-     * @summary Deletes multiple Web Application Firewall (WAF) protection rules at a time.
-     *  *
-     * @description *   You can call this operation up to 20 times per second per account.
-     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
-     *  *
-     * @param BatchDeleteDcdnWafRulesRequest $request BatchDeleteDcdnWafRulesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Deletes multiple Web Application Firewall (WAF) protection rules at a time.
      *
-     * @return BatchDeleteDcdnWafRulesResponse BatchDeleteDcdnWafRulesResponse
+     * @remarks
+     *   You can call this operation up to 20 times per second per account.
+     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
+     *
+     * @param Request - BatchDeleteDcdnWafRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchDeleteDcdnWafRulesResponse
+     *
+     * @param BatchDeleteDcdnWafRulesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return BatchDeleteDcdnWafRulesResponse
      */
     public function batchDeleteDcdnWafRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->ruleIds)) {
-            $body['RuleIds'] = $request->ruleIds;
+        if (null !== $request->ruleIds) {
+            @$body['RuleIds'] = $request->ruleIds;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchDeleteDcdnWafRules',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchDeleteDcdnWafRules',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchDeleteDcdnWafRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes multiple Web Application Firewall (WAF) protection rules at a time.
-     *  *
-     * @description *   You can call this operation up to 20 times per second per account.
-     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
-     *  *
-     * @param BatchDeleteDcdnWafRulesRequest $request BatchDeleteDcdnWafRulesRequest
+     * Deletes multiple Web Application Firewall (WAF) protection rules at a time.
      *
-     * @return BatchDeleteDcdnWafRulesResponse BatchDeleteDcdnWafRulesResponse
+     * @remarks
+     *   You can call this operation up to 20 times per second per account.
+     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
+     *
+     * @param Request - BatchDeleteDcdnWafRulesRequest
+     *
+     * @returns BatchDeleteDcdnWafRulesResponse
+     *
+     * @param BatchDeleteDcdnWafRulesRequest $request
+     *
+     * @return BatchDeleteDcdnWafRulesResponse
      */
     public function batchDeleteDcdnWafRules($request)
     {
@@ -1179,51 +1368,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Modifies multiple Web Application Firewall (WAF) protection rules. Only Bot management rules can be modified.
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param BatchModifyDcdnWafRulesRequest $request BatchModifyDcdnWafRulesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies multiple Web Application Firewall (WAF) protection rules. Only Bot management rules can be modified.
      *
-     * @return BatchModifyDcdnWafRulesResponse BatchModifyDcdnWafRulesResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - BatchModifyDcdnWafRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchModifyDcdnWafRulesResponse
+     *
+     * @param BatchModifyDcdnWafRulesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return BatchModifyDcdnWafRulesResponse
      */
     public function batchModifyDcdnWafRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $body['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$body['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->ruleConfigs)) {
-            $body['RuleConfigs'] = $request->ruleConfigs;
+
+        if (null !== $request->ruleConfigs) {
+            @$body['RuleConfigs'] = $request->ruleConfigs;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchModifyDcdnWafRules',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchModifyDcdnWafRules',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchModifyDcdnWafRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies multiple Web Application Firewall (WAF) protection rules. Only Bot management rules can be modified.
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param BatchModifyDcdnWafRulesRequest $request BatchModifyDcdnWafRulesRequest
+     * Modifies multiple Web Application Firewall (WAF) protection rules. Only Bot management rules can be modified.
      *
-     * @return BatchModifyDcdnWafRulesResponse BatchModifyDcdnWafRulesResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - BatchModifyDcdnWafRulesRequest
+     *
+     * @returns BatchModifyDcdnWafRulesResponse
+     *
+     * @param BatchModifyDcdnWafRulesRequest $request
+     *
+     * @return BatchModifyDcdnWafRulesResponse
      */
     public function batchModifyDcdnWafRules($request)
     {
@@ -1233,54 +1435,66 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Configures multiple key-value (KV) pairs for a namespace.
-     *  *
-     * @param BatchPutDcdnKvRequest $tmpReq  BatchPutDcdnKvRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Configures multiple key-value (KV) pairs for a namespace.
      *
-     * @return BatchPutDcdnKvResponse BatchPutDcdnKvResponse
+     * @param tmpReq - BatchPutDcdnKvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchPutDcdnKvResponse
+     *
+     * @param BatchPutDcdnKvRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return BatchPutDcdnKvResponse
      */
     public function batchPutDcdnKvWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchPutDcdnKvShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->kvList)) {
-            $request->kvListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->kvList, 'KvList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->kvList) {
+            $request->kvListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->kvList, 'KvList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->kvListShrink)) {
-            $body['KvList'] = $request->kvListShrink;
+        if (null !== $request->kvListShrink) {
+            @$body['KvList'] = $request->kvListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchPutDcdnKv',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchPutDcdnKv',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchPutDcdnKvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures multiple key-value (KV) pairs for a namespace.
-     *  *
-     * @param BatchPutDcdnKvRequest $request BatchPutDcdnKvRequest
+     * Configures multiple key-value (KV) pairs for a namespace.
      *
-     * @return BatchPutDcdnKvResponse BatchPutDcdnKvResponse
+     * @param Request - BatchPutDcdnKvRequest
+     *
+     * @returns BatchPutDcdnKvResponse
+     *
+     * @param BatchPutDcdnKvRequest $request
+     *
+     * @return BatchPutDcdnKvResponse
      */
     public function batchPutDcdnKv($request)
     {
@@ -1290,47 +1504,58 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary 批量写入kv数据，支持最大100M的请求体
-     *  *
-     * @param BatchPutDcdnKvWithHighCapacityRequest $request BatchPutDcdnKvWithHighCapacityRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 批量写入kv数据，支持最大100M的请求体.
      *
-     * @return BatchPutDcdnKvWithHighCapacityResponse BatchPutDcdnKvWithHighCapacityResponse
+     * @param Request - BatchPutDcdnKvWithHighCapacityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchPutDcdnKvWithHighCapacityResponse
+     *
+     * @param BatchPutDcdnKvWithHighCapacityRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return BatchPutDcdnKvWithHighCapacityResponse
      */
     public function batchPutDcdnKvWithHighCapacityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchPutDcdnKvWithHighCapacity',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchPutDcdnKvWithHighCapacity',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchPutDcdnKvWithHighCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量写入kv数据，支持最大100M的请求体
-     *  *
-     * @param BatchPutDcdnKvWithHighCapacityRequest $request BatchPutDcdnKvWithHighCapacityRequest
+     * 批量写入kv数据，支持最大100M的请求体.
      *
-     * @return BatchPutDcdnKvWithHighCapacityResponse BatchPutDcdnKvWithHighCapacityResponse
+     * @param Request - BatchPutDcdnKvWithHighCapacityRequest
+     *
+     * @returns BatchPutDcdnKvWithHighCapacityResponse
+     *
+     * @param BatchPutDcdnKvWithHighCapacityRequest $request
+     *
+     * @return BatchPutDcdnKvWithHighCapacityResponse
      */
     public function batchPutDcdnKvWithHighCapacity($request)
     {
@@ -1348,208 +1573,162 @@ class Dcdn extends OpenApiClient
     public function batchPutDcdnKvWithHighCapacityAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'dcdn',
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'dcdn',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $batchPutDcdnKvWithHighCapacityReq = new BatchPutDcdnKvWithHighCapacityRequest([]);
-        OpenApiUtilClient::convert($request, $batchPutDcdnKvWithHighCapacityReq);
-        if (!Utils::isUnset($request->urlObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->urlObject,
+        Utils::convert($request, $batchPutDcdnKvWithHighCapacityReq);
+        if (null !== $request->urlObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->urlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $batchPutDcdnKvWithHighCapacityReq->url = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $batchPutDcdnKvWithHighCapacityReq->url = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->batchPutDcdnKvWithHighCapacityWithOptions($batchPutDcdnKvWithHighCapacityReq, $runtime);
     }
 
     /**
-     * @summary Configures the SSL certificate and modifies the certificate information for multiple accelerated domain names at a time.
-     *  *
-     * @description > You can call this operation up to 10 times per second per account.
-     *  *
-     * @param BatchSetDcdnDomainCertificateRequest $request BatchSetDcdnDomainCertificateRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Configures features for one or more domain names.
      *
-     * @return BatchSetDcdnDomainCertificateResponse BatchSetDcdnDomainCertificateResponse
-     */
-    public function batchSetDcdnDomainCertificateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->certName)) {
-            $query['CertName'] = $request->certName;
-        }
-        if (!Utils::isUnset($request->certType)) {
-            $query['CertType'] = $request->certType;
-        }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->SSLPri)) {
-            $query['SSLPri'] = $request->SSLPri;
-        }
-        if (!Utils::isUnset($request->SSLProtocol)) {
-            $query['SSLProtocol'] = $request->SSLProtocol;
-        }
-        if (!Utils::isUnset($request->SSLPub)) {
-            $query['SSLPub'] = $request->SSLPub;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchSetDcdnDomainCertificate',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return BatchSetDcdnDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Configures the SSL certificate and modifies the certificate information for multiple accelerated domain names at a time.
-     *  *
-     * @description > You can call this operation up to 10 times per second per account.
-     *  *
-     * @param BatchSetDcdnDomainCertificateRequest $request BatchSetDcdnDomainCertificateRequest
-     *
-     * @return BatchSetDcdnDomainCertificateResponse BatchSetDcdnDomainCertificateResponse
-     */
-    public function batchSetDcdnDomainCertificate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchSetDcdnDomainCertificateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Configures features for one or more domain names.
-     *  *
-     * @description *   You can specify up to 50 domain names in each request.
+     * @remarks
+     *   You can specify up to 50 domain names in each request.
      * *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param BatchSetDcdnDomainConfigsRequest $request BatchSetDcdnDomainConfigsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchSetDcdnDomainConfigsResponse BatchSetDcdnDomainConfigsResponse
+     * @param Request - BatchSetDcdnDomainConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchSetDcdnDomainConfigsResponse
+     *
+     * @param BatchSetDcdnDomainConfigsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return BatchSetDcdnDomainConfigsResponse
      */
     public function batchSetDcdnDomainConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainNames)) {
-            $query['DomainNames'] = $request->domainNames;
+        if (null !== $request->domainNames) {
+            @$query['DomainNames'] = $request->domainNames;
         }
-        if (!Utils::isUnset($request->functions)) {
-            $query['Functions'] = $request->functions;
+
+        if (null !== $request->functions) {
+            @$query['Functions'] = $request->functions;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchSetDcdnDomainConfigs',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchSetDcdnDomainConfigs',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchSetDcdnDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures features for one or more domain names.
-     *  *
-     * @description *   You can specify up to 50 domain names in each request.
-     * *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param BatchSetDcdnDomainConfigsRequest $request BatchSetDcdnDomainConfigsRequest
+     * Configures features for one or more domain names.
      *
-     * @return BatchSetDcdnDomainConfigsResponse BatchSetDcdnDomainConfigsResponse
+     * @remarks
+     *   You can specify up to 50 domain names in each request.
+     * *   You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - BatchSetDcdnDomainConfigsRequest
+     *
+     * @returns BatchSetDcdnDomainConfigsResponse
+     *
+     * @param BatchSetDcdnDomainConfigsRequest $request
+     *
+     * @return BatchSetDcdnDomainConfigsResponse
      */
     public function batchSetDcdnDomainConfigs($request)
     {
@@ -1559,60 +1738,76 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Configures multiple domain names to be accelerated by IP Application Accelerator (IPA).
-     *  *
-     * @description > You can call this operation up to 20 times per second per account.
-     *  *
-     * @param BatchSetDcdnIpaDomainConfigsRequest $request BatchSetDcdnIpaDomainConfigsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Configures multiple domain names to be accelerated by IP Application Accelerator (IPA).
      *
-     * @return BatchSetDcdnIpaDomainConfigsResponse BatchSetDcdnIpaDomainConfigsResponse
+     * @remarks
+     * > You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - BatchSetDcdnIpaDomainConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchSetDcdnIpaDomainConfigsResponse
+     *
+     * @param BatchSetDcdnIpaDomainConfigsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return BatchSetDcdnIpaDomainConfigsResponse
      */
     public function batchSetDcdnIpaDomainConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainNames)) {
-            $query['DomainNames'] = $request->domainNames;
+        if (null !== $request->domainNames) {
+            @$query['DomainNames'] = $request->domainNames;
         }
-        if (!Utils::isUnset($request->functions)) {
-            $query['Functions'] = $request->functions;
+
+        if (null !== $request->functions) {
+            @$query['Functions'] = $request->functions;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchSetDcdnIpaDomainConfigs',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchSetDcdnIpaDomainConfigs',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchSetDcdnIpaDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures multiple domain names to be accelerated by IP Application Accelerator (IPA).
-     *  *
-     * @description > You can call this operation up to 20 times per second per account.
-     *  *
-     * @param BatchSetDcdnIpaDomainConfigsRequest $request BatchSetDcdnIpaDomainConfigsRequest
+     * Configures multiple domain names to be accelerated by IP Application Accelerator (IPA).
      *
-     * @return BatchSetDcdnIpaDomainConfigsResponse BatchSetDcdnIpaDomainConfigsResponse
+     * @remarks
+     * > You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - BatchSetDcdnIpaDomainConfigsRequest
+     *
+     * @returns BatchSetDcdnIpaDomainConfigsResponse
+     *
+     * @param BatchSetDcdnIpaDomainConfigsRequest $request
+     *
+     * @return BatchSetDcdnIpaDomainConfigsResponse
      */
     public function batchSetDcdnIpaDomainConfigs($request)
     {
@@ -1622,58 +1817,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Sets the protection status of multiple domain names at a time.
-     *  *
-     * @description #
+     * Sets the protection status of multiple domain names at a time.
+     *
+     * @remarks
+     * #
      * *   You can call this operation up to 20 times per second.
      * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
-     *  *
-     * @param BatchSetDcdnWafDomainConfigsRequest $request BatchSetDcdnWafDomainConfigsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchSetDcdnWafDomainConfigsResponse BatchSetDcdnWafDomainConfigsResponse
+     * @param Request - BatchSetDcdnWafDomainConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchSetDcdnWafDomainConfigsResponse
+     *
+     * @param BatchSetDcdnWafDomainConfigsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return BatchSetDcdnWafDomainConfigsResponse
      */
     public function batchSetDcdnWafDomainConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientIpTag)) {
-            $body['ClientIpTag'] = $request->clientIpTag;
+        if (null !== $request->clientIpTag) {
+            @$body['ClientIpTag'] = $request->clientIpTag;
         }
-        if (!Utils::isUnset($request->defenseStatus)) {
-            $body['DefenseStatus'] = $request->defenseStatus;
+
+        if (null !== $request->defenseStatus) {
+            @$body['DefenseStatus'] = $request->defenseStatus;
         }
-        if (!Utils::isUnset($request->domainNames)) {
-            $body['DomainNames'] = $request->domainNames;
+
+        if (null !== $request->domainNames) {
+            @$body['DomainNames'] = $request->domainNames;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchSetDcdnWafDomainConfigs',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchSetDcdnWafDomainConfigs',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchSetDcdnWafDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Sets the protection status of multiple domain names at a time.
-     *  *
-     * @description #
+     * Sets the protection status of multiple domain names at a time.
+     *
+     * @remarks
+     * #
      * *   You can call this operation up to 20 times per second.
      * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
-     *  *
-     * @param BatchSetDcdnWafDomainConfigsRequest $request BatchSetDcdnWafDomainConfigsRequest
      *
-     * @return BatchSetDcdnWafDomainConfigsResponse BatchSetDcdnWafDomainConfigsResponse
+     * @param Request - BatchSetDcdnWafDomainConfigsRequest
+     *
+     * @returns BatchSetDcdnWafDomainConfigsResponse
+     *
+     * @param BatchSetDcdnWafDomainConfigsRequest $request
+     *
+     * @return BatchSetDcdnWafDomainConfigsResponse
      */
     public function batchSetDcdnWafDomainConfigs($request)
     {
@@ -1683,60 +1892,74 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Enables one or more accelerated domain names. After the accelerated domain names are enabled, the value of the DomainStatus parameter for the domain names changes to Online.
-     *  *
-     * @description >
+     * Enables one or more accelerated domain names. After the accelerated domain names are enabled, the value of the DomainStatus parameter for the domain names changes to Online.
+     *
+     * @remarks
+     * >
      * *   If an accelerated domain name is in an invalid state or your account has an overdue payment, the accelerated domain name cannot be enabled.
      * *   You can specify up to 50 domain names in each request.
      * *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param BatchStartDcdnDomainRequest $request BatchStartDcdnDomainRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchStartDcdnDomainResponse BatchStartDcdnDomainResponse
+     * @param Request - BatchStartDcdnDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchStartDcdnDomainResponse
+     *
+     * @param BatchStartDcdnDomainRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return BatchStartDcdnDomainResponse
      */
     public function batchStartDcdnDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainNames)) {
-            $query['DomainNames'] = $request->domainNames;
+        if (null !== $request->domainNames) {
+            @$query['DomainNames'] = $request->domainNames;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchStartDcdnDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchStartDcdnDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchStartDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables one or more accelerated domain names. After the accelerated domain names are enabled, the value of the DomainStatus parameter for the domain names changes to Online.
-     *  *
-     * @description >
+     * Enables one or more accelerated domain names. After the accelerated domain names are enabled, the value of the DomainStatus parameter for the domain names changes to Online.
+     *
+     * @remarks
+     * >
      * *   If an accelerated domain name is in an invalid state or your account has an overdue payment, the accelerated domain name cannot be enabled.
      * *   You can specify up to 50 domain names in each request.
      * *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param BatchStartDcdnDomainRequest $request BatchStartDcdnDomainRequest
      *
-     * @return BatchStartDcdnDomainResponse BatchStartDcdnDomainResponse
+     * @param Request - BatchStartDcdnDomainRequest
+     *
+     * @returns BatchStartDcdnDomainResponse
+     *
+     * @param BatchStartDcdnDomainRequest $request
+     *
+     * @return BatchStartDcdnDomainResponse
      */
     public function batchStartDcdnDomain($request)
     {
@@ -1746,58 +1969,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Disables one or more accelerated domain names. After an accelerated domain name is disabled, the value of the DomainStatus parameter for the domain name changes to Offline.
-     *  *
-     * @description > *   After an accelerated domain name is disabled, Dynamic Content Delivery Network (DCDN) retains the domain name information. The system automatically reroutes all requests that are destined for the accelerated domain name to the origin.
+     * Disables one or more accelerated domain names. After an accelerated domain name is disabled, the value of the DomainStatus parameter for the domain name changes to Offline.
+     *
+     * @remarks
+     * > *   After an accelerated domain name is disabled, Dynamic Content Delivery Network (DCDN) retains the domain name information. The system automatically reroutes all requests that are destined for the accelerated domain name to the origin.
      * >*   You can specify up to 50 domain names in each request.
      * >*   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param BatchStopDcdnDomainRequest $request BatchStopDcdnDomainRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchStopDcdnDomainResponse BatchStopDcdnDomainResponse
+     * @param Request - BatchStopDcdnDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchStopDcdnDomainResponse
+     *
+     * @param BatchStopDcdnDomainRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchStopDcdnDomainResponse
      */
     public function batchStopDcdnDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainNames)) {
-            $query['DomainNames'] = $request->domainNames;
+        if (null !== $request->domainNames) {
+            @$query['DomainNames'] = $request->domainNames;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchStopDcdnDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchStopDcdnDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchStopDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables one or more accelerated domain names. After an accelerated domain name is disabled, the value of the DomainStatus parameter for the domain name changes to Offline.
-     *  *
-     * @description > *   After an accelerated domain name is disabled, Dynamic Content Delivery Network (DCDN) retains the domain name information. The system automatically reroutes all requests that are destined for the accelerated domain name to the origin.
+     * Disables one or more accelerated domain names. After an accelerated domain name is disabled, the value of the DomainStatus parameter for the domain name changes to Offline.
+     *
+     * @remarks
+     * > *   After an accelerated domain name is disabled, Dynamic Content Delivery Network (DCDN) retains the domain name information. The system automatically reroutes all requests that are destined for the accelerated domain name to the origin.
      * >*   You can specify up to 50 domain names in each request.
      * >*   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param BatchStopDcdnDomainRequest $request BatchStopDcdnDomainRequest
      *
-     * @return BatchStopDcdnDomainResponse BatchStopDcdnDomainResponse
+     * @param Request - BatchStopDcdnDomainRequest
+     *
+     * @returns BatchStopDcdnDomainResponse
+     *
+     * @param BatchStopDcdnDomainRequest $request
+     *
+     * @return BatchStopDcdnDomainResponse
      */
     public function batchStopDcdnDomain($request)
     {
@@ -1807,45 +2044,56 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether a real-time log delivery project exists.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CheckDcdnProjectExistRequest $request CheckDcdnProjectExistRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Checks whether a real-time log delivery project exists.
      *
-     * @return CheckDcdnProjectExistResponse CheckDcdnProjectExistResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - CheckDcdnProjectExistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckDcdnProjectExistResponse
+     *
+     * @param CheckDcdnProjectExistRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CheckDcdnProjectExistResponse
      */
     public function checkDcdnProjectExistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckDcdnProjectExist',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckDcdnProjectExist',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckDcdnProjectExistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether a real-time log delivery project exists.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CheckDcdnProjectExistRequest $request CheckDcdnProjectExistRequest
+     * Checks whether a real-time log delivery project exists.
      *
-     * @return CheckDcdnProjectExistResponse CheckDcdnProjectExistResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - CheckDcdnProjectExistRequest
+     *
+     * @returns CheckDcdnProjectExistResponse
+     *
+     * @param CheckDcdnProjectExistRequest $request
+     *
+     * @return CheckDcdnProjectExistResponse
      */
     public function checkDcdnProjectExist($request)
     {
@@ -1855,53 +2103,66 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Generates an official code version from unstable JavaScript code that is in the staging
+     * Generates an official code version from unstable JavaScript code that is in the staging
      *                   environment. The version can be used in the canary release or production environment.
-     *  *
-     * @description >  The call frequency of the API is no more than 100 queries per second.
-     *  *
-     * @param CommitStagingRoutineCodeRequest $request CommitStagingRoutineCodeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CommitStagingRoutineCodeResponse CommitStagingRoutineCodeResponse
+     * @remarks
+     * >  The call frequency of the API is no more than 100 queries per second.
+     *
+     * @param Request - CommitStagingRoutineCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CommitStagingRoutineCodeResponse
+     *
+     * @param CommitStagingRoutineCodeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CommitStagingRoutineCodeResponse
      */
     public function commitStagingRoutineCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->codeDescription)) {
-            $body['CodeDescription'] = $request->codeDescription;
+        if (null !== $request->codeDescription) {
+            @$body['CodeDescription'] = $request->codeDescription;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CommitStagingRoutineCode',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CommitStagingRoutineCode',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CommitStagingRoutineCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Generates an official code version from unstable JavaScript code that is in the staging
+     * Generates an official code version from unstable JavaScript code that is in the staging
      *                   environment. The version can be used in the canary release or production environment.
-     *  *
-     * @description >  The call frequency of the API is no more than 100 queries per second.
-     *  *
-     * @param CommitStagingRoutineCodeRequest $request CommitStagingRoutineCodeRequest
      *
-     * @return CommitStagingRoutineCodeResponse CommitStagingRoutineCodeResponse
+     * @remarks
+     * >  The call frequency of the API is no more than 100 queries per second.
+     *
+     * @param Request - CommitStagingRoutineCodeRequest
+     *
+     * @returns CommitStagingRoutineCodeResponse
+     *
+     * @param CommitStagingRoutineCodeRequest $request
+     *
+     * @return CommitStagingRoutineCodeResponse
      */
     public function commitStagingRoutineCode($request)
     {
@@ -1911,65 +2172,82 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Creates a certificate signing request (CSR) file.
-     *  *
-     * @param CreateDcdnCertificateSigningRequestRequest $request CreateDcdnCertificateSigningRequestRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * Creates a certificate signing request (CSR) file.
      *
-     * @return CreateDcdnCertificateSigningRequestResponse CreateDcdnCertificateSigningRequestResponse
+     * @param Request - CreateDcdnCertificateSigningRequestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDcdnCertificateSigningRequestResponse
+     *
+     * @param CreateDcdnCertificateSigningRequestRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return CreateDcdnCertificateSigningRequestResponse
      */
     public function createDcdnCertificateSigningRequestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->city)) {
-            $query['City'] = $request->city;
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
         }
-        if (!Utils::isUnset($request->commonName)) {
-            $query['CommonName'] = $request->commonName;
+
+        if (null !== $request->commonName) {
+            @$query['CommonName'] = $request->commonName;
         }
-        if (!Utils::isUnset($request->country)) {
-            $query['Country'] = $request->country;
+
+        if (null !== $request->country) {
+            @$query['Country'] = $request->country;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->organization)) {
-            $query['Organization'] = $request->organization;
+
+        if (null !== $request->organization) {
+            @$query['Organization'] = $request->organization;
         }
-        if (!Utils::isUnset($request->organizationUnit)) {
-            $query['OrganizationUnit'] = $request->organizationUnit;
+
+        if (null !== $request->organizationUnit) {
+            @$query['OrganizationUnit'] = $request->organizationUnit;
         }
-        if (!Utils::isUnset($request->SANs)) {
-            $query['SANs'] = $request->SANs;
+
+        if (null !== $request->SANs) {
+            @$query['SANs'] = $request->SANs;
         }
-        if (!Utils::isUnset($request->state)) {
-            $query['State'] = $request->state;
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDcdnCertificateSigningRequest',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDcdnCertificateSigningRequest',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDcdnCertificateSigningRequestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a certificate signing request (CSR) file.
-     *  *
-     * @param CreateDcdnCertificateSigningRequestRequest $request CreateDcdnCertificateSigningRequestRequest
+     * Creates a certificate signing request (CSR) file.
      *
-     * @return CreateDcdnCertificateSigningRequestResponse CreateDcdnCertificateSigningRequestResponse
+     * @param Request - CreateDcdnCertificateSigningRequestRequest
+     *
+     * @returns CreateDcdnCertificateSigningRequestResponse
+     *
+     * @param CreateDcdnCertificateSigningRequestRequest $request
+     *
+     * @return CreateDcdnCertificateSigningRequestResponse
      */
     public function createDcdnCertificateSigningRequest($request)
     {
@@ -1979,62 +2257,78 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Creates a tracking task. After you create a tracking task, the system periodically sends operations reports to you by email.
-     *  *
-     * @description **
-     * **You can call this operation up to three times per second.
-     *  *
-     * @param CreateDcdnDeliverTaskRequest $request CreateDcdnDeliverTaskRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates a tracking task. After you create a tracking task, the system periodically sends operations reports to you by email.
      *
-     * @return CreateDcdnDeliverTaskResponse CreateDcdnDeliverTaskResponse
+     * @remarks
+     * *
+     * **You can call this operation up to three times per second.
+     *
+     * @param Request - CreateDcdnDeliverTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDcdnDeliverTaskResponse
+     *
+     * @param CreateDcdnDeliverTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDcdnDeliverTaskResponse
      */
     public function createDcdnDeliverTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->deliver)) {
-            $body['Deliver'] = $request->deliver;
+        if (null !== $request->deliver) {
+            @$body['Deliver'] = $request->deliver;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $body['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->reports)) {
-            $body['Reports'] = $request->reports;
+
+        if (null !== $request->reports) {
+            @$body['Reports'] = $request->reports;
         }
-        if (!Utils::isUnset($request->schedule)) {
-            $body['Schedule'] = $request->schedule;
+
+        if (null !== $request->schedule) {
+            @$body['Schedule'] = $request->schedule;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDcdnDeliverTask',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDcdnDeliverTask',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDcdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a tracking task. After you create a tracking task, the system periodically sends operations reports to you by email.
-     *  *
-     * @description **
-     * **You can call this operation up to three times per second.
-     *  *
-     * @param CreateDcdnDeliverTaskRequest $request CreateDcdnDeliverTaskRequest
+     * Creates a tracking task. After you create a tracking task, the system periodically sends operations reports to you by email.
      *
-     * @return CreateDcdnDeliverTaskResponse CreateDcdnDeliverTaskResponse
+     * @remarks
+     * *
+     * **You can call this operation up to three times per second.
+     *
+     * @param Request - CreateDcdnDeliverTaskRequest
+     *
+     * @returns CreateDcdnDeliverTaskResponse
+     *
+     * @param CreateDcdnDeliverTaskRequest $request
+     *
+     * @return CreateDcdnDeliverTaskResponse
      */
     public function createDcdnDeliverTask($request)
     {
@@ -2044,69 +2338,88 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Creates a real-time log delivery project.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CreateDcdnSLSRealTimeLogDeliveryRequest $request CreateDcdnSLSRealTimeLogDeliveryRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Creates a real-time log delivery project.
      *
-     * @return CreateDcdnSLSRealTimeLogDeliveryResponse CreateDcdnSLSRealTimeLogDeliveryResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - CreateDcdnSLSRealTimeLogDeliveryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDcdnSLSRealTimeLogDeliveryResponse
+     *
+     * @param CreateDcdnSLSRealTimeLogDeliveryRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateDcdnSLSRealTimeLogDeliveryResponse
      */
     public function createDcdnSLSRealTimeLogDeliveryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $body['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$body['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->dataCenter)) {
-            $body['DataCenter'] = $request->dataCenter;
+
+        if (null !== $request->dataCenter) {
+            @$body['DataCenter'] = $request->dataCenter;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $body['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->SLSLogStore)) {
-            $body['SLSLogStore'] = $request->SLSLogStore;
+
+        if (null !== $request->SLSLogStore) {
+            @$body['SLSLogStore'] = $request->SLSLogStore;
         }
-        if (!Utils::isUnset($request->SLSProject)) {
-            $body['SLSProject'] = $request->SLSProject;
+
+        if (null !== $request->SLSProject) {
+            @$body['SLSProject'] = $request->SLSProject;
         }
-        if (!Utils::isUnset($request->SLSRegion)) {
-            $body['SLSRegion'] = $request->SLSRegion;
+
+        if (null !== $request->SLSRegion) {
+            @$body['SLSRegion'] = $request->SLSRegion;
         }
-        if (!Utils::isUnset($request->samplingRate)) {
-            $body['SamplingRate'] = $request->samplingRate;
+
+        if (null !== $request->samplingRate) {
+            @$body['SamplingRate'] = $request->samplingRate;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDcdnSLSRealTimeLogDelivery',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDcdnSLSRealTimeLogDelivery',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDcdnSLSRealTimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a real-time log delivery project.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CreateDcdnSLSRealTimeLogDeliveryRequest $request CreateDcdnSLSRealTimeLogDeliveryRequest
+     * Creates a real-time log delivery project.
      *
-     * @return CreateDcdnSLSRealTimeLogDeliveryResponse CreateDcdnSLSRealTimeLogDeliveryResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - CreateDcdnSLSRealTimeLogDeliveryRequest
+     *
+     * @returns CreateDcdnSLSRealTimeLogDeliveryResponse
+     *
+     * @param CreateDcdnSLSRealTimeLogDeliveryRequest $request
+     *
+     * @return CreateDcdnSLSRealTimeLogDeliveryResponse
      */
     public function createDcdnSLSRealTimeLogDelivery($request)
     {
@@ -2116,53 +2429,66 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom operations report.
-     *  *
-     * @description > *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
-     * > *   You can call this operation up to three times per second per account.
-     *  *
-     * @param CreateDcdnSubTaskRequest $request CreateDcdnSubTaskRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates a custom operations report.
      *
-     * @return CreateDcdnSubTaskResponse CreateDcdnSubTaskResponse
+     * @remarks
+     * > *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
+     * > *   You can call this operation up to three times per second per account.
+     *
+     * @param Request - CreateDcdnSubTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDcdnSubTaskResponse
+     *
+     * @param CreateDcdnSubTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateDcdnSubTaskResponse
      */
     public function createDcdnSubTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $body['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->reportIds)) {
-            $body['ReportIds'] = $request->reportIds;
+
+        if (null !== $request->reportIds) {
+            @$body['ReportIds'] = $request->reportIds;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDcdnSubTask',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDcdnSubTask',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDcdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a custom operations report.
-     *  *
-     * @description > *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
-     * > *   You can call this operation up to three times per second per account.
-     *  *
-     * @param CreateDcdnSubTaskRequest $request CreateDcdnSubTaskRequest
+     * Creates a custom operations report.
      *
-     * @return CreateDcdnSubTaskResponse CreateDcdnSubTaskResponse
+     * @remarks
+     * > *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
+     * > *   You can call this operation up to three times per second per account.
+     *
+     * @param Request - CreateDcdnSubTaskRequest
+     *
+     * @returns CreateDcdnSubTaskResponse
+     *
+     * @param CreateDcdnSubTaskRequest $request
+     *
+     * @return CreateDcdnSubTaskResponse
      */
     public function createDcdnSubTask($request)
     {
@@ -2172,50 +2498,62 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Create a custom WAF rule group.
-     *  *
-     * @param CreateDcdnWafGroupRequest $request CreateDcdnWafGroupRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Create a custom WAF rule group.
      *
-     * @return CreateDcdnWafGroupResponse CreateDcdnWafGroupResponse
+     * @param Request - CreateDcdnWafGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDcdnWafGroupResponse
+     *
+     * @param CreateDcdnWafGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDcdnWafGroupResponse
      */
     public function createDcdnWafGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->subscribe)) {
-            $body['Subscribe'] = $request->subscribe;
+
+        if (null !== $request->subscribe) {
+            @$body['Subscribe'] = $request->subscribe;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $body['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDcdnWafGroup',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDcdnWafGroup',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDcdnWafGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Create a custom WAF rule group.
-     *  *
-     * @param CreateDcdnWafGroupRequest $request CreateDcdnWafGroupRequest
+     * Create a custom WAF rule group.
      *
-     * @return CreateDcdnWafGroupResponse CreateDcdnWafGroupResponse
+     * @param Request - CreateDcdnWafGroupRequest
+     *
+     * @returns CreateDcdnWafGroupResponse
+     *
+     * @param CreateDcdnWafGroupRequest $request
+     *
+     * @return CreateDcdnWafGroupResponse
      */
     public function createDcdnWafGroup($request)
     {
@@ -2225,59 +2563,74 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Web Application Firewall (WAF) protection policy.
-     *  *
-     * @description *   You can call this operation up to 20 times per second per user.
-     * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
-     *  *
-     * @param CreateDcdnWafPolicyRequest $request CreateDcdnWafPolicyRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a Web Application Firewall (WAF) protection policy.
      *
-     * @return CreateDcdnWafPolicyResponse CreateDcdnWafPolicyResponse
+     * @remarks
+     *   You can call this operation up to 20 times per second per user.
+     * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+     *
+     * @param Request - CreateDcdnWafPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDcdnWafPolicyResponse
+     *
+     * @param CreateDcdnWafPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateDcdnWafPolicyResponse
      */
     public function createDcdnWafPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->defenseScene)) {
-            $body['DefenseScene'] = $request->defenseScene;
+        if (null !== $request->defenseScene) {
+            @$body['DefenseScene'] = $request->defenseScene;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $body['PolicyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$body['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyStatus)) {
-            $body['PolicyStatus'] = $request->policyStatus;
+
+        if (null !== $request->policyStatus) {
+            @$body['PolicyStatus'] = $request->policyStatus;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $body['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$body['PolicyType'] = $request->policyType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDcdnWafPolicy',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDcdnWafPolicy',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDcdnWafPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a Web Application Firewall (WAF) protection policy.
-     *  *
-     * @description *   You can call this operation up to 20 times per second per user.
-     * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
-     *  *
-     * @param CreateDcdnWafPolicyRequest $request CreateDcdnWafPolicyRequest
+     * Creates a Web Application Firewall (WAF) protection policy.
      *
-     * @return CreateDcdnWafPolicyResponse CreateDcdnWafPolicyResponse
+     * @remarks
+     *   You can call this operation up to 20 times per second per user.
+     * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+     *
+     * @param Request - CreateDcdnWafPolicyRequest
+     *
+     * @returns CreateDcdnWafPolicyResponse
+     *
+     * @param CreateDcdnWafPolicyRequest $request
+     *
+     * @return CreateDcdnWafPolicyResponse
      */
     public function createDcdnWafPolicy($request)
     {
@@ -2287,63 +2640,78 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Creates a routine.
-     *  *
-     * @description > *   The parameters must comply with the rules of EnvConf. The description of a routine cannot exceed 50 characters in length.
+     * Creates a routine.
+     *
+     * @remarks
+     * > *   The parameters must comply with the rules of EnvConf. The description of a routine cannot exceed 50 characters in length.
      * >*   You can only specify the production and staging environments when you call this operation.
      * >*   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CreateRoutineRequest $tmpReq  CreateRoutineRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRoutineResponse CreateRoutineResponse
+     * @param tmpReq - CreateRoutineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRoutineResponse
+     *
+     * @param CreateRoutineRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateRoutineResponse
      */
     public function createRoutineWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateRoutineShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->envConf)) {
-            $request->envConfShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->envConf, 'EnvConf', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->envConf) {
+            $request->envConfShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->envConf, 'EnvConf', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->envConfShrink)) {
-            $body['EnvConf'] = $request->envConfShrink;
+
+        if (null !== $request->envConfShrink) {
+            @$body['EnvConf'] = $request->envConfShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateRoutine',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRoutine',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a routine.
-     *  *
-     * @description > *   The parameters must comply with the rules of EnvConf. The description of a routine cannot exceed 50 characters in length.
+     * Creates a routine.
+     *
+     * @remarks
+     * > *   The parameters must comply with the rules of EnvConf. The description of a routine cannot exceed 50 characters in length.
      * >*   You can only specify the production and staging environments when you call this operation.
      * >*   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CreateRoutineRequest $request CreateRoutineRequest
      *
-     * @return CreateRoutineResponse CreateRoutineResponse
+     * @param Request - CreateRoutineRequest
+     *
+     * @returns CreateRoutineResponse
+     *
+     * @param CreateRoutineRequest $request
+     *
+     * @return CreateRoutineResponse
      */
     public function createRoutine($request)
     {
@@ -2353,51 +2721,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Creates a service-linked role (SLR) and a Log Service project.
-     *  *
-     * @description >  You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CreateSlrAndSlsProjectRequest $request CreateSlrAndSlsProjectRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates a service-linked role (SLR) and a Log Service project.
      *
-     * @return CreateSlrAndSlsProjectResponse CreateSlrAndSlsProjectResponse
+     * @remarks
+     * >  You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - CreateSlrAndSlsProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSlrAndSlsProjectResponse
+     *
+     * @param CreateSlrAndSlsProjectRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateSlrAndSlsProjectResponse
      */
     public function createSlrAndSlsProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $body['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$body['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSlrAndSlsProject',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSlrAndSlsProject',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSlrAndSlsProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a service-linked role (SLR) and a Log Service project.
-     *  *
-     * @description >  You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CreateSlrAndSlsProjectRequest $request CreateSlrAndSlsProjectRequest
+     * Creates a service-linked role (SLR) and a Log Service project.
      *
-     * @return CreateSlrAndSlsProjectResponse CreateSlrAndSlsProjectResponse
+     * @remarks
+     * >  You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - CreateSlrAndSlsProjectRequest
+     *
+     * @returns CreateSlrAndSlsProjectResponse
+     *
+     * @param CreateSlrAndSlsProjectRequest $request
+     *
+     * @return CreateSlrAndSlsProjectResponse
      */
     public function createSlrAndSlsProject($request)
     {
@@ -2407,48 +2788,117 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes tracking tasks by task ID.
-     *  *
-     * @description >  The maximum number of times that each user can call this operation per second is 3.
-     *  *
-     * @param DeleteDcdnDeliverTaskRequest $request DeleteDcdnDeliverTaskRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * A客户定制实时日志删除接口.
      *
-     * @return DeleteDcdnDeliverTaskResponse DeleteDcdnDeliverTaskResponse
+     * @param Request - DeleteCustomDomainSampleRateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomDomainSampleRateResponse
+     *
+     * @param DeleteCustomDomainSampleRateRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteCustomDomainSampleRateResponse
+     */
+    public function deleteCustomDomainSampleRateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->domainNames) {
+            @$body['DomainNames'] = $request->domainNames;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCustomDomainSampleRate',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCustomDomainSampleRateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * A客户定制实时日志删除接口.
+     *
+     * @param Request - DeleteCustomDomainSampleRateRequest
+     *
+     * @returns DeleteCustomDomainSampleRateResponse
+     *
+     * @param DeleteCustomDomainSampleRateRequest $request
+     *
+     * @return DeleteCustomDomainSampleRateResponse
+     */
+    public function deleteCustomDomainSampleRate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomDomainSampleRateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes tracking tasks by task ID.
+     *
+     * @remarks
+     * >  The maximum number of times that each user can call this operation per second is 3.
+     *
+     * @param Request - DeleteDcdnDeliverTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDcdnDeliverTaskResponse
+     *
+     * @param DeleteDcdnDeliverTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDcdnDeliverTaskResponse
      */
     public function deleteDcdnDeliverTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deliverId)) {
-            $query['DeliverId'] = $request->deliverId;
+        if (null !== $request->deliverId) {
+            @$query['DeliverId'] = $request->deliverId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDcdnDeliverTask',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDcdnDeliverTask',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDcdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes tracking tasks by task ID.
-     *  *
-     * @description >  The maximum number of times that each user can call this operation per second is 3.
-     *  *
-     * @param DeleteDcdnDeliverTaskRequest $request DeleteDcdnDeliverTaskRequest
+     * Deletes tracking tasks by task ID.
      *
-     * @return DeleteDcdnDeliverTaskResponse DeleteDcdnDeliverTaskResponse
+     * @remarks
+     * >  The maximum number of times that each user can call this operation per second is 3.
+     *
+     * @param Request - DeleteDcdnDeliverTaskRequest
+     *
+     * @returns DeleteDcdnDeliverTaskResponse
+     *
+     * @param DeleteDcdnDeliverTaskRequest $request
+     *
+     * @return DeleteDcdnDeliverTaskResponse
      */
     public function deleteDcdnDeliverTask($request)
     {
@@ -2458,61 +2908,76 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a specified accelerated domain name.
-     *  *
-     * @description > *   Before you delete your domain name, you need to request the Domain Name System (DNS) provider to restore the A record of the domain name. Otherwise, the domain name may become inaccessible after you delete it.
+     * Deletes a specified accelerated domain name.
+     *
+     * @remarks
+     * > *   Before you delete your domain name, you need to request the Domain Name System (DNS) provider to restore the A record of the domain name. Otherwise, the domain name may become inaccessible after you delete it.
      * > *   If you call the **DeleteDcdnDomain** operation, all the information about the accelerated domain name is deleted. If you want to disable an accelerated domain name, call the [StopDcdnDomain](https://help.aliyun.com/document_detail/130622.html) operation.
      * > *   You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DeleteDcdnDomainRequest $request DeleteDcdnDomainRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDcdnDomainResponse DeleteDcdnDomainResponse
+     * @param Request - DeleteDcdnDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDcdnDomainResponse
+     *
+     * @param DeleteDcdnDomainRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDcdnDomainResponse
      */
     public function deleteDcdnDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDcdnDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDcdnDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a specified accelerated domain name.
-     *  *
-     * @description > *   Before you delete your domain name, you need to request the Domain Name System (DNS) provider to restore the A record of the domain name. Otherwise, the domain name may become inaccessible after you delete it.
+     * Deletes a specified accelerated domain name.
+     *
+     * @remarks
+     * > *   Before you delete your domain name, you need to request the Domain Name System (DNS) provider to restore the A record of the domain name. Otherwise, the domain name may become inaccessible after you delete it.
      * > *   If you call the **DeleteDcdnDomain** operation, all the information about the accelerated domain name is deleted. If you want to disable an accelerated domain name, call the [StopDcdnDomain](https://help.aliyun.com/document_detail/130622.html) operation.
      * > *   You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DeleteDcdnDomainRequest $request DeleteDcdnDomainRequest
      *
-     * @return DeleteDcdnDomainResponse DeleteDcdnDomainResponse
+     * @param Request - DeleteDcdnDomainRequest
+     *
+     * @returns DeleteDcdnDomainResponse
+     *
+     * @param DeleteDcdnDomainRequest $request
+     *
+     * @return DeleteDcdnDomainResponse
      */
     public function deleteDcdnDomain($request)
     {
@@ -2522,63 +2987,78 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an accelerated domain name from IP Application Accelerator (IPA).
-     *  *
-     * @description >
+     * Deletes an accelerated domain name from IP Application Accelerator (IPA).
+     *
+     * @remarks
+     * >
      * *   Before you delete your domain name, we recommend that you request the Domain Name System (DNS) provider to restore the A record of the domain name. Otherwise, the domain name may become inaccessible after you delete it.
      * *   This operation deletes all records of the specified accelerated domain name. If you want to temporarily disable an accelerated domain name, call the **StopDcdnIpaDomain** operation.****
      * *   You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DeleteDcdnIpaDomainRequest $request DeleteDcdnIpaDomainRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDcdnIpaDomainResponse DeleteDcdnIpaDomainResponse
+     * @param Request - DeleteDcdnIpaDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDcdnIpaDomainResponse
+     *
+     * @param DeleteDcdnIpaDomainRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteDcdnIpaDomainResponse
      */
     public function deleteDcdnIpaDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDcdnIpaDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDcdnIpaDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDcdnIpaDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an accelerated domain name from IP Application Accelerator (IPA).
-     *  *
-     * @description >
+     * Deletes an accelerated domain name from IP Application Accelerator (IPA).
+     *
+     * @remarks
+     * >
      * *   Before you delete your domain name, we recommend that you request the Domain Name System (DNS) provider to restore the A record of the domain name. Otherwise, the domain name may become inaccessible after you delete it.
      * *   This operation deletes all records of the specified accelerated domain name. If you want to temporarily disable an accelerated domain name, call the **StopDcdnIpaDomain** operation.****
      * *   You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DeleteDcdnIpaDomainRequest $request DeleteDcdnIpaDomainRequest
      *
-     * @return DeleteDcdnIpaDomainResponse DeleteDcdnIpaDomainResponse
+     * @param Request - DeleteDcdnIpaDomainRequest
+     *
+     * @returns DeleteDcdnIpaDomainResponse
+     *
+     * @param DeleteDcdnIpaDomainRequest $request
+     *
+     * @return DeleteDcdnIpaDomainResponse
      */
     public function deleteDcdnIpaDomain($request)
     {
@@ -2588,57 +3068,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes specific configurations of an accelerated domain name from IP Application Accelerator (IPA).
-     *  *
-     * @description > You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DeleteDcdnIpaSpecificConfigRequest $request DeleteDcdnIpaSpecificConfigRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Deletes specific configurations of an accelerated domain name from IP Application Accelerator (IPA).
      *
-     * @return DeleteDcdnIpaSpecificConfigResponse DeleteDcdnIpaSpecificConfigResponse
+     * @remarks
+     * > You can call this operation up to 10 times per second per account.
+     *
+     * @param Request - DeleteDcdnIpaSpecificConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDcdnIpaSpecificConfigResponse
+     *
+     * @param DeleteDcdnIpaSpecificConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteDcdnIpaSpecificConfigResponse
      */
     public function deleteDcdnIpaSpecificConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configId)) {
-            $query['ConfigId'] = $request->configId;
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDcdnIpaSpecificConfig',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDcdnIpaSpecificConfig',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDcdnIpaSpecificConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes specific configurations of an accelerated domain name from IP Application Accelerator (IPA).
-     *  *
-     * @description > You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DeleteDcdnIpaSpecificConfigRequest $request DeleteDcdnIpaSpecificConfigRequest
+     * Deletes specific configurations of an accelerated domain name from IP Application Accelerator (IPA).
      *
-     * @return DeleteDcdnIpaSpecificConfigResponse DeleteDcdnIpaSpecificConfigResponse
+     * @remarks
+     * > You can call this operation up to 10 times per second per account.
+     *
+     * @param Request - DeleteDcdnIpaSpecificConfigRequest
+     *
+     * @returns DeleteDcdnIpaSpecificConfigResponse
+     *
+     * @param DeleteDcdnIpaSpecificConfigRequest $request
+     *
+     * @return DeleteDcdnIpaSpecificConfigResponse
      */
     public function deleteDcdnIpaSpecificConfig($request)
     {
@@ -2648,47 +3143,58 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the key-value pairs in a namespace that you specify when you call the PutDcdnKvNamespace operation. EdgeKV provides a global key-value database for Dynamic Route for CDN (DCDN) points of presence (POPs).
-     *  *
-     * @param DeleteDcdnKvRequest $request DeleteDcdnKvRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Deletes the key-value pairs in a namespace that you specify when you call the PutDcdnKvNamespace operation. EdgeKV provides a global key-value database for Dynamic Route for CDN (DCDN) points of presence (POPs).
      *
-     * @return DeleteDcdnKvResponse DeleteDcdnKvResponse
+     * @param Request - DeleteDcdnKvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDcdnKvResponse
+     *
+     * @param DeleteDcdnKvRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteDcdnKvResponse
      */
     public function deleteDcdnKvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDcdnKv',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDcdnKv',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDcdnKvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the key-value pairs in a namespace that you specify when you call the PutDcdnKvNamespace operation. EdgeKV provides a global key-value database for Dynamic Route for CDN (DCDN) points of presence (POPs).
-     *  *
-     * @param DeleteDcdnKvRequest $request DeleteDcdnKvRequest
+     * Deletes the key-value pairs in a namespace that you specify when you call the PutDcdnKvNamespace operation. EdgeKV provides a global key-value database for Dynamic Route for CDN (DCDN) points of presence (POPs).
      *
-     * @return DeleteDcdnKvResponse DeleteDcdnKvResponse
+     * @param Request - DeleteDcdnKvRequest
+     *
+     * @returns DeleteDcdnKvResponse
+     *
+     * @param DeleteDcdnKvRequest $request
+     *
+     * @return DeleteDcdnKvResponse
      */
     public function deleteDcdnKv($request)
     {
@@ -2698,44 +3204,54 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a namespace that belongs to your account.
-     *  *
-     * @param DeleteDcdnKvNamespaceRequest $request DeleteDcdnKvNamespaceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes a namespace that belongs to your account.
      *
-     * @return DeleteDcdnKvNamespaceResponse DeleteDcdnKvNamespaceResponse
+     * @param Request - DeleteDcdnKvNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDcdnKvNamespaceResponse
+     *
+     * @param DeleteDcdnKvNamespaceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDcdnKvNamespaceResponse
      */
     public function deleteDcdnKvNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDcdnKvNamespace',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDcdnKvNamespace',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDcdnKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a namespace that belongs to your account.
-     *  *
-     * @param DeleteDcdnKvNamespaceRequest $request DeleteDcdnKvNamespaceRequest
+     * Deletes a namespace that belongs to your account.
      *
-     * @return DeleteDcdnKvNamespaceResponse DeleteDcdnKvNamespaceResponse
+     * @param Request - DeleteDcdnKvNamespaceRequest
+     *
+     * @returns DeleteDcdnKvNamespaceResponse
+     *
+     * @param DeleteDcdnKvNamespaceRequest $request
+     *
+     * @return DeleteDcdnKvNamespaceResponse
      */
     public function deleteDcdnKvNamespace($request)
     {
@@ -2745,48 +3261,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary The ID of the request.
-     *  *
-     * @description >  You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DeleteDcdnRealTimeLogProjectRequest $request DeleteDcdnRealTimeLogProjectRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * The ID of the request.
      *
-     * @return DeleteDcdnRealTimeLogProjectResponse DeleteDcdnRealTimeLogProjectResponse
+     * @remarks
+     * >  You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DeleteDcdnRealTimeLogProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDcdnRealTimeLogProjectResponse
+     *
+     * @param DeleteDcdnRealTimeLogProjectRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteDcdnRealTimeLogProjectResponse
      */
     public function deleteDcdnRealTimeLogProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDcdnRealTimeLogProject',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDcdnRealTimeLogProject',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDcdnRealTimeLogProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary The ID of the request.
-     *  *
-     * @description >  You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DeleteDcdnRealTimeLogProjectRequest $request DeleteDcdnRealTimeLogProjectRequest
+     * The ID of the request.
      *
-     * @return DeleteDcdnRealTimeLogProjectResponse DeleteDcdnRealTimeLogProjectResponse
+     * @remarks
+     * >  You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DeleteDcdnRealTimeLogProjectRequest
+     *
+     * @returns DeleteDcdnRealTimeLogProjectResponse
+     *
+     * @param DeleteDcdnRealTimeLogProjectRequest $request
+     *
+     * @return DeleteDcdnRealTimeLogProjectResponse
      */
     public function deleteDcdnRealTimeLogProject($request)
     {
@@ -2796,57 +3324,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes configurations of a domain name.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DeleteDcdnSpecificConfigRequest $request DeleteDcdnSpecificConfigRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Deletes configurations of a domain name.
      *
-     * @return DeleteDcdnSpecificConfigResponse DeleteDcdnSpecificConfigResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DeleteDcdnSpecificConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDcdnSpecificConfigResponse
+     *
+     * @param DeleteDcdnSpecificConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteDcdnSpecificConfigResponse
      */
     public function deleteDcdnSpecificConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configId)) {
-            $query['ConfigId'] = $request->configId;
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDcdnSpecificConfig',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDcdnSpecificConfig',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDcdnSpecificConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes configurations of a domain name.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DeleteDcdnSpecificConfigRequest $request DeleteDcdnSpecificConfigRequest
+     * Deletes configurations of a domain name.
      *
-     * @return DeleteDcdnSpecificConfigResponse DeleteDcdnSpecificConfigResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DeleteDcdnSpecificConfigRequest
+     *
+     * @returns DeleteDcdnSpecificConfigResponse
+     *
+     * @param DeleteDcdnSpecificConfigRequest $request
+     *
+     * @return DeleteDcdnSpecificConfigResponse
      */
     public function deleteDcdnSpecificConfig($request)
     {
@@ -2856,57 +3399,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the configurations of an accelerated domain name in the canary release environment.
-     *  *
-     * @description > You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DeleteDcdnSpecificStagingConfigRequest $request DeleteDcdnSpecificStagingConfigRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Deletes the configurations of an accelerated domain name in the canary release environment.
      *
-     * @return DeleteDcdnSpecificStagingConfigResponse DeleteDcdnSpecificStagingConfigResponse
+     * @remarks
+     * > You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DeleteDcdnSpecificStagingConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDcdnSpecificStagingConfigResponse
+     *
+     * @param DeleteDcdnSpecificStagingConfigRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteDcdnSpecificStagingConfigResponse
      */
     public function deleteDcdnSpecificStagingConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configId)) {
-            $query['ConfigId'] = $request->configId;
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDcdnSpecificStagingConfig',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDcdnSpecificStagingConfig',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDcdnSpecificStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the configurations of an accelerated domain name in the canary release environment.
-     *  *
-     * @description > You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DeleteDcdnSpecificStagingConfigRequest $request DeleteDcdnSpecificStagingConfigRequest
+     * Deletes the configurations of an accelerated domain name in the canary release environment.
      *
-     * @return DeleteDcdnSpecificStagingConfigResponse DeleteDcdnSpecificStagingConfigResponse
+     * @remarks
+     * > You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DeleteDcdnSpecificStagingConfigRequest
+     *
+     * @returns DeleteDcdnSpecificStagingConfigResponse
+     *
+     * @param DeleteDcdnSpecificStagingConfigRequest $request
+     *
+     * @return DeleteDcdnSpecificStagingConfigResponse
      */
     public function deleteDcdnSpecificStagingConfig($request)
     {
@@ -2916,38 +3474,47 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes all custom operations reports.
-     *  *
-     * @description > You can call this operation up to 3 times per second per account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Deletes all custom operations reports.
      *
-     * @return DeleteDcdnSubTaskResponse DeleteDcdnSubTaskResponse
+     * @remarks
+     * > You can call this operation up to 3 times per second per account.
+     *
+     * @param Request - DeleteDcdnSubTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDcdnSubTaskResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteDcdnSubTaskResponse
      */
     public function deleteDcdnSubTaskWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DeleteDcdnSubTask',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDcdnSubTask',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDcdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes all custom operations reports.
-     *  *
-     * @description > You can call this operation up to 3 times per second per account.
-     *  *
-     * @return DeleteDcdnSubTaskResponse DeleteDcdnSubTaskResponse
+     * Deletes all custom operations reports.
+     *
+     * @remarks
+     * > You can call this operation up to 3 times per second per account.
+     *
+     * @returns DeleteDcdnSubTaskResponse
+     *
+     * @return DeleteDcdnSubTaskResponse
      */
     public function deleteDcdnSubTask()
     {
@@ -2957,44 +3524,54 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes feature configurations by user.
-     *  *
-     * @param DeleteDcdnUserConfigRequest $request DeleteDcdnUserConfigRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes feature configurations by user.
      *
-     * @return DeleteDcdnUserConfigResponse DeleteDcdnUserConfigResponse
+     * @param Request - DeleteDcdnUserConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDcdnUserConfigResponse
+     *
+     * @param DeleteDcdnUserConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteDcdnUserConfigResponse
      */
     public function deleteDcdnUserConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->functionName)) {
-            $query['FunctionName'] = $request->functionName;
+        if (null !== $request->functionName) {
+            @$query['FunctionName'] = $request->functionName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDcdnUserConfig',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDcdnUserConfig',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDcdnUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes feature configurations by user.
-     *  *
-     * @param DeleteDcdnUserConfigRequest $request DeleteDcdnUserConfigRequest
+     * Deletes feature configurations by user.
      *
-     * @return DeleteDcdnUserConfigResponse DeleteDcdnUserConfigResponse
+     * @param Request - DeleteDcdnUserConfigRequest
+     *
+     * @returns DeleteDcdnUserConfigResponse
+     *
+     * @param DeleteDcdnUserConfigRequest $request
+     *
+     * @return DeleteDcdnUserConfigResponse
      */
     public function deleteDcdnUserConfig($request)
     {
@@ -3004,44 +3581,54 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom WAF rule group.
-     *  *
-     * @param DeleteDcdnWafGroupRequest $request DeleteDcdnWafGroupRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes a custom WAF rule group.
      *
-     * @return DeleteDcdnWafGroupResponse DeleteDcdnWafGroupResponse
+     * @param Request - DeleteDcdnWafGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDcdnWafGroupResponse
+     *
+     * @param DeleteDcdnWafGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDcdnWafGroupResponse
      */
     public function deleteDcdnWafGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDcdnWafGroup',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDcdnWafGroup',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDcdnWafGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a custom WAF rule group.
-     *  *
-     * @param DeleteDcdnWafGroupRequest $request DeleteDcdnWafGroupRequest
+     * Deletes a custom WAF rule group.
      *
-     * @return DeleteDcdnWafGroupResponse DeleteDcdnWafGroupResponse
+     * @param Request - DeleteDcdnWafGroupRequest
+     *
+     * @returns DeleteDcdnWafGroupResponse
+     *
+     * @param DeleteDcdnWafGroupRequest $request
+     *
+     * @return DeleteDcdnWafGroupResponse
      */
     public function deleteDcdnWafGroup($request)
     {
@@ -3051,50 +3638,62 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a protection policy.
-     *  *
-     * @description *   You can call this operation up to 20 times per second per account.
-     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
-     *  *
-     * @param DeleteDcdnWafPolicyRequest $request DeleteDcdnWafPolicyRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes a protection policy.
      *
-     * @return DeleteDcdnWafPolicyResponse DeleteDcdnWafPolicyResponse
+     * @remarks
+     *   You can call this operation up to 20 times per second per account.
+     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
+     *
+     * @param Request - DeleteDcdnWafPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDcdnWafPolicyResponse
+     *
+     * @param DeleteDcdnWafPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteDcdnWafPolicyResponse
      */
     public function deleteDcdnWafPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $body['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$body['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDcdnWafPolicy',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDcdnWafPolicy',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDcdnWafPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a protection policy.
-     *  *
-     * @description *   You can call this operation up to 20 times per second per account.
-     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
-     *  *
-     * @param DeleteDcdnWafPolicyRequest $request DeleteDcdnWafPolicyRequest
+     * Deletes a protection policy.
      *
-     * @return DeleteDcdnWafPolicyResponse DeleteDcdnWafPolicyResponse
+     * @remarks
+     *   You can call this operation up to 20 times per second per account.
+     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
+     *
+     * @param Request - DeleteDcdnWafPolicyRequest
+     *
+     * @returns DeleteDcdnWafPolicyResponse
+     *
+     * @param DeleteDcdnWafPolicyRequest $request
+     *
+     * @return DeleteDcdnWafPolicyResponse
      */
     public function deleteDcdnWafPolicy($request)
     {
@@ -3104,48 +3703,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a routine.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DeleteRoutineRequest $request DeleteRoutineRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes a routine.
      *
-     * @return DeleteRoutineResponse DeleteRoutineResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DeleteRoutineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRoutineResponse
+     *
+     * @param DeleteRoutineRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteRoutineResponse
      */
     public function deleteRoutineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRoutine',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRoutine',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a routine.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DeleteRoutineRequest $request DeleteRoutineRequest
+     * Deletes a routine.
      *
-     * @return DeleteRoutineResponse DeleteRoutineResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DeleteRoutineRequest
+     *
+     * @returns DeleteRoutineResponse
+     *
+     * @param DeleteRoutineRequest $request
+     *
+     * @return DeleteRoutineResponse
      */
     public function deleteRoutine($request)
     {
@@ -3155,51 +3766,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the code of the specified version from a routine.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DeleteRoutineCodeRevisionRequest $request DeleteRoutineCodeRevisionRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Deletes the code of the specified version from a routine.
      *
-     * @return DeleteRoutineCodeRevisionResponse DeleteRoutineCodeRevisionResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DeleteRoutineCodeRevisionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRoutineCodeRevisionResponse
+     *
+     * @param DeleteRoutineCodeRevisionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteRoutineCodeRevisionResponse
      */
     public function deleteRoutineCodeRevisionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->selectCodeRevision)) {
-            $body['SelectCodeRevision'] = $request->selectCodeRevision;
+
+        if (null !== $request->selectCodeRevision) {
+            @$body['SelectCodeRevision'] = $request->selectCodeRevision;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRoutineCodeRevision',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRoutineCodeRevision',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteRoutineCodeRevisionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the code of the specified version from a routine.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DeleteRoutineCodeRevisionRequest $request DeleteRoutineCodeRevisionRequest
+     * Deletes the code of the specified version from a routine.
      *
-     * @return DeleteRoutineCodeRevisionResponse DeleteRoutineCodeRevisionResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DeleteRoutineCodeRevisionRequest
+     *
+     * @returns DeleteRoutineCodeRevisionResponse
+     *
+     * @param DeleteRoutineCodeRevisionRequest $request
+     *
+     * @return DeleteRoutineCodeRevisionResponse
      */
     public function deleteRoutineCodeRevision($request)
     {
@@ -3209,60 +3833,74 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Deletes canary release environments from a routine.
-     *  *
-     * @description >
+     * Deletes canary release environments from a routine.
+     *
+     * @remarks
+     * >
      * *   This operation deletes only custom preset canary release environments. You cannot delete production or staging environments.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DeleteRoutineConfEnvsRequest $tmpReq  DeleteRoutineConfEnvsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRoutineConfEnvsResponse DeleteRoutineConfEnvsResponse
+     * @param tmpReq - DeleteRoutineConfEnvsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRoutineConfEnvsResponse
+     *
+     * @param DeleteRoutineConfEnvsRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteRoutineConfEnvsResponse
      */
     public function deleteRoutineConfEnvsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteRoutineConfEnvsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->envs)) {
-            $request->envsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->envs, 'Envs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->envs) {
+            $request->envsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->envs, 'Envs', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->envsShrink)) {
-            $body['Envs'] = $request->envsShrink;
+        if (null !== $request->envsShrink) {
+            @$body['Envs'] = $request->envsShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRoutineConfEnvs',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRoutineConfEnvs',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteRoutineConfEnvsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes canary release environments from a routine.
-     *  *
-     * @description >
+     * Deletes canary release environments from a routine.
+     *
+     * @remarks
+     * >
      * *   This operation deletes only custom preset canary release environments. You cannot delete production or staging environments.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DeleteRoutineConfEnvsRequest $request DeleteRoutineConfEnvsRequest
      *
-     * @return DeleteRoutineConfEnvsResponse DeleteRoutineConfEnvsResponse
+     * @param Request - DeleteRoutineConfEnvsRequest
+     *
+     * @returns DeleteRoutineConfEnvsResponse
+     *
+     * @param DeleteRoutineConfEnvsRequest $request
+     *
+     * @return DeleteRoutineConfEnvsResponse
      */
     public function deleteRoutineConfEnvs($request)
     {
@@ -3272,48 +3910,125 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries precise access control rules.
-     *  *
-     * @description > You can call this operation up to three times per second per account.
-     *  *
-     * @param DescribeDcdnAclFieldsRequest $request DescribeDcdnAclFieldsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * A客户定制查询域名采样率.
      *
-     * @return DescribeDcdnAclFieldsResponse DescribeDcdnAclFieldsResponse
+     * @param Request - DescribeCustomDomainSampleRateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustomDomainSampleRateResponse
+     *
+     * @param DescribeCustomDomainSampleRateRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeCustomDomainSampleRateResponse
+     */
+    public function describeCustomDomainSampleRateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domainNames) {
+            @$query['DomainNames'] = $request->domainNames;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCustomDomainSampleRate',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCustomDomainSampleRateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * A客户定制查询域名采样率.
+     *
+     * @param Request - DescribeCustomDomainSampleRateRequest
+     *
+     * @returns DescribeCustomDomainSampleRateResponse
+     *
+     * @param DescribeCustomDomainSampleRateRequest $request
+     *
+     * @return DescribeCustomDomainSampleRateResponse
+     */
+    public function describeCustomDomainSampleRate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomDomainSampleRateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries precise access control rules.
+     *
+     * @remarks
+     * > You can call this operation up to three times per second per account.
+     *
+     * @param Request - DescribeDcdnAclFieldsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnAclFieldsResponse
+     *
+     * @param DescribeDcdnAclFieldsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDcdnAclFieldsResponse
      */
     public function describeDcdnAclFieldsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnAclFields',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnAclFields',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnAclFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries precise access control rules.
-     *  *
-     * @description > You can call this operation up to three times per second per account.
-     *  *
-     * @param DescribeDcdnAclFieldsRequest $request DescribeDcdnAclFieldsRequest
+     * Queries precise access control rules.
      *
-     * @return DescribeDcdnAclFieldsResponse DescribeDcdnAclFieldsResponse
+     * @remarks
+     * > You can call this operation up to three times per second per account.
+     *
+     * @param Request - DescribeDcdnAclFieldsRequest
+     *
+     * @returns DescribeDcdnAclFieldsResponse
+     *
+     * @param DescribeDcdnAclFieldsRequest $request
+     *
+     * @return DescribeDcdnAclFieldsResponse
      */
     public function describeDcdnAclFields($request)
     {
@@ -3323,73 +4038,90 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries bandwidth data for Border Gateway Protocol (BGP) accelerated domain names. Data is collected every 5 minutes.
-     *  *
-     * @description *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both of them empty.
+     * Queries bandwidth data for Border Gateway Protocol (BGP) accelerated domain names. Data is collected every 5 minutes.
+     *
+     * @remarks
+     *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both of them empty.
      * *   If you specify multiple Internet service providers (ISPs), the data for the ISPs is aggregated.
      * *   You can query data in the last 90 days.
      * *   The maximum time range from the start time to the end time is 31 days. The start time is specified by the StartTime parameter and the end time is specified by the EndTime parameter.
      * *   If the time range from the start time to the end time is 72 hours or shorter, you can specify the interval as 5 minutes. If the time range is longer than 72 hours, you must specify the interval as 1 hour.
      * *   You can call this operation up to five times per second per account.
-     *  *
-     * @param DescribeDcdnBgpBpsDataRequest $request DescribeDcdnBgpBpsDataRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnBgpBpsDataResponse DescribeDcdnBgpBpsDataResponse
+     * @param Request - DescribeDcdnBgpBpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnBgpBpsDataResponse
+     *
+     * @param DescribeDcdnBgpBpsDataRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDcdnBgpBpsDataResponse
      */
     public function describeDcdnBgpBpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
+        if (null !== $request->deviceName) {
+            @$query['DeviceName'] = $request->deviceName;
         }
-        if (!Utils::isUnset($request->devicePort)) {
-            $query['DevicePort'] = $request->devicePort;
+
+        if (null !== $request->devicePort) {
+            @$query['DevicePort'] = $request->devicePort;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->isp)) {
-            $query['Isp'] = $request->isp;
+
+        if (null !== $request->isp) {
+            @$query['Isp'] = $request->isp;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnBgpBpsData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnBgpBpsData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnBgpBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries bandwidth data for Border Gateway Protocol (BGP) accelerated domain names. Data is collected every 5 minutes.
-     *  *
-     * @description *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both of them empty.
+     * Queries bandwidth data for Border Gateway Protocol (BGP) accelerated domain names. Data is collected every 5 minutes.
+     *
+     * @remarks
+     *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both of them empty.
      * *   If you specify multiple Internet service providers (ISPs), the data for the ISPs is aggregated.
      * *   You can query data in the last 90 days.
      * *   The maximum time range from the start time to the end time is 31 days. The start time is specified by the StartTime parameter and the end time is specified by the EndTime parameter.
      * *   If the time range from the start time to the end time is 72 hours or shorter, you can specify the interval as 5 minutes. If the time range is longer than 72 hours, you must specify the interval as 1 hour.
      * *   You can call this operation up to five times per second per account.
-     *  *
-     * @param DescribeDcdnBgpBpsDataRequest $request DescribeDcdnBgpBpsDataRequest
      *
-     * @return DescribeDcdnBgpBpsDataResponse DescribeDcdnBgpBpsDataResponse
+     * @param Request - DescribeDcdnBgpBpsDataRequest
+     *
+     * @returns DescribeDcdnBgpBpsDataResponse
+     *
+     * @param DescribeDcdnBgpBpsDataRequest $request
+     *
+     * @return DescribeDcdnBgpBpsDataResponse
      */
     public function describeDcdnBgpBpsData($request)
     {
@@ -3399,67 +4131,82 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries traffic data for BGP accelerated domain names. Data is collected every 5 minutes.
-     *  *
-     * @description *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both parameters empty.
+     * Queries traffic data for BGP accelerated domain names. Data is collected every 5 minutes.
+     *
+     * @remarks
+     *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both parameters empty.
      * *   If you specify multiple Internet service providers (ISPs), the data for the ISPs is aggregated.
      * *   You can query data in the last 90 days.
      * *   The maximum time range that you can specify is 31 days. StartTime specifies the start time and EndTime specifies the end time of the time range.
      * *   If the time range from the start time to the end time is 72 hours or shorter, you can specify the interval as 5 minutes. If the time range is longer than 72 hours, you must specify the interval as 1 hour.
      * *   You can call this operation up to five times per second per account.
-     *  *
-     * @param DescribeDcdnBgpTrafficDataRequest $request DescribeDcdnBgpTrafficDataRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnBgpTrafficDataResponse DescribeDcdnBgpTrafficDataResponse
+     * @param Request - DescribeDcdnBgpTrafficDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnBgpTrafficDataResponse
+     *
+     * @param DescribeDcdnBgpTrafficDataRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDcdnBgpTrafficDataResponse
      */
     public function describeDcdnBgpTrafficDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->isp)) {
-            $query['Isp'] = $request->isp;
+
+        if (null !== $request->isp) {
+            @$query['Isp'] = $request->isp;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnBgpTrafficData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnBgpTrafficData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnBgpTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries traffic data for BGP accelerated domain names. Data is collected every 5 minutes.
-     *  *
-     * @description *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both parameters empty.
+     * Queries traffic data for BGP accelerated domain names. Data is collected every 5 minutes.
+     *
+     * @remarks
+     *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both parameters empty.
      * *   If you specify multiple Internet service providers (ISPs), the data for the ISPs is aggregated.
      * *   You can query data in the last 90 days.
      * *   The maximum time range that you can specify is 31 days. StartTime specifies the start time and EndTime specifies the end time of the time range.
      * *   If the time range from the start time to the end time is 72 hours or shorter, you can specify the interval as 5 minutes. If the time range is longer than 72 hours, you must specify the interval as 1 hour.
      * *   You can call this operation up to five times per second per account.
-     *  *
-     * @param DescribeDcdnBgpTrafficDataRequest $request DescribeDcdnBgpTrafficDataRequest
      *
-     * @return DescribeDcdnBgpTrafficDataResponse DescribeDcdnBgpTrafficDataResponse
+     * @param Request - DescribeDcdnBgpTrafficDataRequest
+     *
+     * @returns DescribeDcdnBgpTrafficDataResponse
+     *
+     * @param DescribeDcdnBgpTrafficDataRequest $request
+     *
+     * @return DescribeDcdnBgpTrafficDataResponse
      */
     public function describeDcdnBgpTrafficData($request)
     {
@@ -3469,45 +4216,56 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries countries and regions that can be added to the blacklist.
-     *  *
-     * @description > You can call this operation up to 50 times per second per account.
-     *  *
-     * @param DescribeDcdnBlockedRegionsRequest $request DescribeDcdnBlockedRegionsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries countries and regions that can be added to the blacklist.
      *
-     * @return DescribeDcdnBlockedRegionsResponse DescribeDcdnBlockedRegionsResponse
+     * @remarks
+     * > You can call this operation up to 50 times per second per account.
+     *
+     * @param Request - DescribeDcdnBlockedRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnBlockedRegionsResponse
+     *
+     * @param DescribeDcdnBlockedRegionsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDcdnBlockedRegionsResponse
      */
     public function describeDcdnBlockedRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnBlockedRegions',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnBlockedRegions',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnBlockedRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries countries and regions that can be added to the blacklist.
-     *  *
-     * @description > You can call this operation up to 50 times per second per account.
-     *  *
-     * @param DescribeDcdnBlockedRegionsRequest $request DescribeDcdnBlockedRegionsRequest
+     * Queries countries and regions that can be added to the blacklist.
      *
-     * @return DescribeDcdnBlockedRegionsResponse DescribeDcdnBlockedRegionsResponse
+     * @remarks
+     * > You can call this operation up to 50 times per second per account.
+     *
+     * @param Request - DescribeDcdnBlockedRegionsRequest
+     *
+     * @returns DescribeDcdnBlockedRegionsResponse
+     *
+     * @param DescribeDcdnBlockedRegionsRequest $request
+     *
+     * @return DescribeDcdnBlockedRegionsResponse
      */
     public function describeDcdnBlockedRegions($request)
     {
@@ -3517,54 +4275,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries details about a certificate.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnCertificateDetailRequest $request DescribeDcdnCertificateDetailRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries details about a certificate.
      *
-     * @return DescribeDcdnCertificateDetailResponse DescribeDcdnCertificateDetailResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnCertificateDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnCertificateDetailResponse
+     *
+     * @param DescribeDcdnCertificateDetailRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDcdnCertificateDetailResponse
      */
     public function describeDcdnCertificateDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certName)) {
-            $query['CertName'] = $request->certName;
+        if (null !== $request->certName) {
+            @$query['CertName'] = $request->certName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnCertificateDetail',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnCertificateDetail',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries details about a certificate.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnCertificateDetailRequest $request DescribeDcdnCertificateDetailRequest
+     * Queries details about a certificate.
      *
-     * @return DescribeDcdnCertificateDetailResponse DescribeDcdnCertificateDetailResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnCertificateDetailRequest
+     *
+     * @returns DescribeDcdnCertificateDetailResponse
+     *
+     * @param DescribeDcdnCertificateDetailRequest $request
+     *
+     * @return DescribeDcdnCertificateDetailResponse
      */
     public function describeDcdnCertificateDetail($request)
     {
@@ -3574,62 +4346,73 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * Queries the certificates of one or more accelerated domain names.
+     *
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
      * @deprecated openAPI DescribeDcdnCertificateList is deprecated, please use dcdn::2018-01-15::DescribeDcdnSSLCertificateList instead
-     *  *
-     * @summary Queries the certificates of one or more accelerated domain names.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * Deprecated
      *
-     * @param DescribeDcdnCertificateListRequest $request DescribeDcdnCertificateListRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param Request - DescribeDcdnCertificateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnCertificateListResponse DescribeDcdnCertificateListResponse
+     * @returns DescribeDcdnCertificateListResponse
+     *
+     * @param DescribeDcdnCertificateListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnCertificateListResponse
      */
     public function describeDcdnCertificateListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnCertificateList',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnCertificateList',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * Queries the certificates of one or more accelerated domain names.
+     *
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
      * @deprecated openAPI DescribeDcdnCertificateList is deprecated, please use dcdn::2018-01-15::DescribeDcdnSSLCertificateList instead
-     *  *
-     * @summary Queries the certificates of one or more accelerated domain names.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * Deprecated
      *
-     * @param DescribeDcdnCertificateListRequest $request DescribeDcdnCertificateListRequest
+     * @param Request - DescribeDcdnCertificateListRequest
      *
-     * @return DescribeDcdnCertificateListResponse DescribeDcdnCertificateListResponse
+     * @returns DescribeDcdnCertificateListResponse
+     *
+     * @param DescribeDcdnCertificateListRequest $request
+     *
+     * @return DescribeDcdnCertificateListResponse
      */
     public function describeDcdnCertificateList($request)
     {
@@ -3639,47 +4422,58 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of DCDN DDoS mitigation.
-     *  *
-     * @param DescribeDcdnDdosServiceRequest $request DescribeDcdnDdosServiceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the status of DCDN DDoS mitigation.
      *
-     * @return DescribeDcdnDdosServiceResponse DescribeDcdnDdosServiceResponse
+     * @param Request - DescribeDcdnDdosServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDdosServiceResponse
+     *
+     * @param DescribeDcdnDdosServiceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnDdosServiceResponse
      */
     public function describeDcdnDdosServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDdosService',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDdosService',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDdosServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of DCDN DDoS mitigation.
-     *  *
-     * @param DescribeDcdnDdosServiceRequest $request DescribeDcdnDdosServiceRequest
+     * Queries the status of DCDN DDoS mitigation.
      *
-     * @return DescribeDcdnDdosServiceResponse DescribeDcdnDdosServiceResponse
+     * @param Request - DescribeDcdnDdosServiceRequest
+     *
+     * @returns DescribeDcdnDdosServiceResponse
+     *
+     * @param DescribeDcdnDdosServiceRequest $request
+     *
+     * @return DescribeDcdnDdosServiceResponse
      */
     public function describeDcdnDdosService($request)
     {
@@ -3689,34 +4483,41 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the specifications of DCDN DDoS versions.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the specifications of DCDN DDoS versions.
      *
-     * @return DescribeDcdnDdosSpecInfoResponse DescribeDcdnDdosSpecInfoResponse
+     * @param Request - DescribeDcdnDdosSpecInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDdosSpecInfoResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnDdosSpecInfoResponse
      */
     public function describeDcdnDdosSpecInfoWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDdosSpecInfo',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDdosSpecInfo',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDdosSpecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the specifications of DCDN DDoS versions.
-     *  *
-     * @return DescribeDcdnDdosSpecInfoResponse DescribeDcdnDdosSpecInfoResponse
+     * Queries the specifications of DCDN DDoS versions.
+     *
+     * @returns DescribeDcdnDdosSpecInfoResponse
+     *
+     * @return DescribeDcdnDdosSpecInfoResponse
      */
     public function describeDcdnDdosSpecInfo()
     {
@@ -3726,51 +4527,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the domain names that are deleted from your Alibaba Cloud account.
-     *  *
-     * @description > You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DescribeDcdnDeletedDomainsRequest $request DescribeDcdnDeletedDomainsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the domain names that are deleted from your Alibaba Cloud account.
      *
-     * @return DescribeDcdnDeletedDomainsResponse DescribeDcdnDeletedDomainsResponse
+     * @remarks
+     * > You can call this operation up to 10 times per second per account.
+     *
+     * @param Request - DescribeDcdnDeletedDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDeletedDomainsResponse
+     *
+     * @param DescribeDcdnDeletedDomainsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDcdnDeletedDomainsResponse
      */
     public function describeDcdnDeletedDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDeletedDomains',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDeletedDomains',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDeletedDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the domain names that are deleted from your Alibaba Cloud account.
-     *  *
-     * @description > You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DescribeDcdnDeletedDomainsRequest $request DescribeDcdnDeletedDomainsRequest
+     * Queries the domain names that are deleted from your Alibaba Cloud account.
      *
-     * @return DescribeDcdnDeletedDomainsResponse DescribeDcdnDeletedDomainsResponse
+     * @remarks
+     * > You can call this operation up to 10 times per second per account.
+     *
+     * @param Request - DescribeDcdnDeletedDomainsRequest
+     *
+     * @returns DescribeDcdnDeletedDomainsResponse
+     *
+     * @param DescribeDcdnDeletedDomainsRequest $request
+     *
+     * @return DescribeDcdnDeletedDomainsResponse
      */
     public function describeDcdnDeletedDomains($request)
     {
@@ -3780,48 +4594,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries all tracking tasks of operations reports.
-     *  *
-     * @description >You can call this operation up to three times per second.
-     *  *
-     * @param DescribeDcdnDeliverListRequest $request DescribeDcdnDeliverListRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries all tracking tasks of operations reports.
      *
-     * @return DescribeDcdnDeliverListResponse DescribeDcdnDeliverListResponse
+     * @remarks
+     * >You can call this operation up to three times per second.
+     *
+     * @param Request - DescribeDcdnDeliverListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDeliverListResponse
+     *
+     * @param DescribeDcdnDeliverListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnDeliverListResponse
      */
     public function describeDcdnDeliverListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deliverId)) {
-            $query['DeliverId'] = $request->deliverId;
+        if (null !== $request->deliverId) {
+            @$query['DeliverId'] = $request->deliverId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDeliverList',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDeliverList',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDeliverListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all tracking tasks of operations reports.
-     *  *
-     * @description >You can call this operation up to three times per second.
-     *  *
-     * @param DescribeDcdnDeliverListRequest $request DescribeDcdnDeliverListRequest
+     * Queries all tracking tasks of operations reports.
      *
-     * @return DescribeDcdnDeliverListResponse DescribeDcdnDeliverListResponse
+     * @remarks
+     * >You can call this operation up to three times per second.
+     *
+     * @param Request - DescribeDcdnDeliverListRequest
+     *
+     * @returns DescribeDcdnDeliverListResponse
+     *
+     * @param DescribeDcdnDeliverListRequest $request
+     *
+     * @return DescribeDcdnDeliverListResponse
      */
     public function describeDcdnDeliverList($request)
     {
@@ -3831,9 +4657,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the monitoring data of network bandwidth for one or more accelerated domain names. You can query data in the last 90 days.
-     *  *
-     * @description * You can call this operation up to 100 times per second per account.
+     * Queries the monitoring data of network bandwidth for one or more accelerated domain names. You can query data in the last 90 days.
+     *
+     * @remarks
+     * You can call this operation up to 100 times per second per account.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -3842,56 +4669,68 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainBpsDataRequest $request DescribeDcdnDomainBpsDataRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainBpsDataResponse DescribeDcdnDomainBpsDataResponse
+     * @param Request - DescribeDcdnDomainBpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainBpsDataResponse
+     *
+     * @param DescribeDcdnDomainBpsDataRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDcdnDomainBpsDataResponse
      */
     public function describeDcdnDomainBpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainBpsData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainBpsData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the monitoring data of network bandwidth for one or more accelerated domain names. You can query data in the last 90 days.
-     *  *
-     * @description * You can call this operation up to 100 times per second per account.
+     * Queries the monitoring data of network bandwidth for one or more accelerated domain names. You can query data in the last 90 days.
+     *
+     * @remarks
+     * You can call this operation up to 100 times per second per account.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -3900,10 +4739,14 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainBpsDataRequest $request DescribeDcdnDomainBpsDataRequest
      *
-     * @return DescribeDcdnDomainBpsDataResponse DescribeDcdnDomainBpsDataResponse
+     * @param Request - DescribeDcdnDomainBpsDataRequest
+     *
+     * @returns DescribeDcdnDomainBpsDataResponse
+     *
+     * @param DescribeDcdnDomainBpsDataRequest $request
+     *
+     * @return DescribeDcdnDomainBpsDataResponse
      */
     public function describeDcdnDomainBpsData($request)
     {
@@ -3913,9 +4756,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries bandwidth data of accelerated domain names.
-     *  *
-     * @description * You can call this operation up to 20 times per second per account.
+     * Queries bandwidth data of accelerated domain names.
+     *
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
      * * If you do not set **StartTime** or **EndTime**, the request returns the data collected in the last 24 hours. If you set both **StartTime** and **EndTime**, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the time range to query, as described in the following table.
@@ -3924,59 +4768,72 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainBpsDataByLayerRequest $request DescribeDcdnDomainBpsDataByLayerRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainBpsDataByLayerResponse DescribeDcdnDomainBpsDataByLayerResponse
+     * @param Request - DescribeDcdnDomainBpsDataByLayerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainBpsDataByLayerResponse
+     *
+     * @param DescribeDcdnDomainBpsDataByLayerRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDcdnDomainBpsDataByLayerResponse
      */
     public function describeDcdnDomainBpsDataByLayerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->layer)) {
-            $query['Layer'] = $request->layer;
+
+        if (null !== $request->layer) {
+            @$query['Layer'] = $request->layer;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainBpsDataByLayer',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainBpsDataByLayer',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainBpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries bandwidth data of accelerated domain names.
-     *  *
-     * @description * You can call this operation up to 20 times per second per account.
+     * Queries bandwidth data of accelerated domain names.
+     *
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
      * * If you do not set **StartTime** or **EndTime**, the request returns the data collected in the last 24 hours. If you set both **StartTime** and **EndTime**, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the time range to query, as described in the following table.
@@ -3985,10 +4842,14 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainBpsDataByLayerRequest $request DescribeDcdnDomainBpsDataByLayerRequest
      *
-     * @return DescribeDcdnDomainBpsDataByLayerResponse DescribeDcdnDomainBpsDataByLayerResponse
+     * @param Request - DescribeDcdnDomainBpsDataByLayerRequest
+     *
+     * @returns DescribeDcdnDomainBpsDataByLayerResponse
+     *
+     * @param DescribeDcdnDomainBpsDataByLayerRequest $request
+     *
+     * @return DescribeDcdnDomainBpsDataByLayerResponse
      */
     public function describeDcdnDomainBpsDataByLayer($request)
     {
@@ -3998,54 +4859,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries accelerated domain names by SSL certificate.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainByCertificateRequest $request DescribeDcdnDomainByCertificateRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries accelerated domain names by SSL certificate.
      *
-     * @return DescribeDcdnDomainByCertificateResponse DescribeDcdnDomainByCertificateResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnDomainByCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainByCertificateResponse
+     *
+     * @param DescribeDcdnDomainByCertificateRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDcdnDomainByCertificateResponse
      */
     public function describeDcdnDomainByCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->exact)) {
-            $query['Exact'] = $request->exact;
+        if (null !== $request->exact) {
+            @$query['Exact'] = $request->exact;
         }
-        if (!Utils::isUnset($request->SSLPub)) {
-            $query['SSLPub'] = $request->SSLPub;
+
+        if (null !== $request->SSLPub) {
+            @$query['SSLPub'] = $request->SSLPub;
         }
-        if (!Utils::isUnset($request->SSLStatus)) {
-            $query['SSLStatus'] = $request->SSLStatus;
+
+        if (null !== $request->SSLStatus) {
+            @$query['SSLStatus'] = $request->SSLStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainByCertificate',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainByCertificate',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainByCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries accelerated domain names by SSL certificate.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainByCertificateRequest $request DescribeDcdnDomainByCertificateRequest
+     * Queries accelerated domain names by SSL certificate.
      *
-     * @return DescribeDcdnDomainByCertificateResponse DescribeDcdnDomainByCertificateResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnDomainByCertificateRequest
+     *
+     * @returns DescribeDcdnDomainByCertificateResponse
+     *
+     * @param DescribeDcdnDomainByCertificateRequest $request
+     *
+     * @return DescribeDcdnDomainByCertificateResponse
      */
     public function describeDcdnDomainByCertificate($request)
     {
@@ -4055,75 +4930,94 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries logs of rate limiting.
-     *  *
-     * @description >
+     * Queries logs of rate limiting.
+     *
+     * @remarks
+     * >
      * *   If you do not configure the StartTime or EndTime parameter, data collected over the last 24 hours is queried. If you configure both the StartTime and EndTime parameters, data collected within the specified time range is queried.
      * *   You can query data collected over the last 30 days.
      * *   You can call the RefreshObjectCaches operation up to 50 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainCcActivityLogRequest $request DescribeDcdnDomainCcActivityLogRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainCcActivityLogResponse DescribeDcdnDomainCcActivityLogResponse
+     * @param Request - DescribeDcdnDomainCcActivityLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainCcActivityLogResponse
+     *
+     * @param DescribeDcdnDomainCcActivityLogRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDcdnDomainCcActivityLogResponse
      */
     public function describeDcdnDomainCcActivityLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->triggerObject)) {
-            $query['TriggerObject'] = $request->triggerObject;
+
+        if (null !== $request->triggerObject) {
+            @$query['TriggerObject'] = $request->triggerObject;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainCcActivityLog',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainCcActivityLog',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainCcActivityLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries logs of rate limiting.
-     *  *
-     * @description >
+     * Queries logs of rate limiting.
+     *
+     * @remarks
+     * >
      * *   If you do not configure the StartTime or EndTime parameter, data collected over the last 24 hours is queried. If you configure both the StartTime and EndTime parameters, data collected within the specified time range is queried.
      * *   You can query data collected over the last 30 days.
      * *   You can call the RefreshObjectCaches operation up to 50 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainCcActivityLogRequest $request DescribeDcdnDomainCcActivityLogRequest
      *
-     * @return DescribeDcdnDomainCcActivityLogResponse DescribeDcdnDomainCcActivityLogResponse
+     * @param Request - DescribeDcdnDomainCcActivityLogRequest
+     *
+     * @returns DescribeDcdnDomainCcActivityLogResponse
+     *
+     * @param DescribeDcdnDomainCcActivityLogRequest $request
+     *
+     * @return DescribeDcdnDomainCcActivityLogResponse
      */
     public function describeDcdnDomainCcActivityLog($request)
     {
@@ -4133,48 +5027,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the certificate information about an accelerated domain name.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainCertificateInfoRequest $request DescribeDcdnDomainCertificateInfoRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the certificate information about an accelerated domain name.
      *
-     * @return DescribeDcdnDomainCertificateInfoResponse DescribeDcdnDomainCertificateInfoResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnDomainCertificateInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainCertificateInfoResponse
+     *
+     * @param DescribeDcdnDomainCertificateInfoRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDcdnDomainCertificateInfoResponse
      */
     public function describeDcdnDomainCertificateInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainCertificateInfo',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainCertificateInfo',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainCertificateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the certificate information about an accelerated domain name.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainCertificateInfoRequest $request DescribeDcdnDomainCertificateInfoRequest
+     * Queries the certificate information about an accelerated domain name.
      *
-     * @return DescribeDcdnDomainCertificateInfoResponse DescribeDcdnDomainCertificateInfoResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnDomainCertificateInfoRequest
+     *
+     * @returns DescribeDcdnDomainCertificateInfoResponse
+     *
+     * @param DescribeDcdnDomainCertificateInfoRequest $request
+     *
+     * @return DescribeDcdnDomainCertificateInfoResponse
      */
     public function describeDcdnDomainCertificateInfo($request)
     {
@@ -4184,45 +5090,56 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether CNAME records are configured for one or more accelerated domain names.
-     *  *
-     * @description > You can call this operation up to 80 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainCnameRequest $request DescribeDcdnDomainCnameRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Checks whether CNAME records are configured for one or more accelerated domain names.
      *
-     * @return DescribeDcdnDomainCnameResponse DescribeDcdnDomainCnameResponse
+     * @remarks
+     * > You can call this operation up to 80 times per second per account.
+     *
+     * @param Request - DescribeDcdnDomainCnameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainCnameResponse
+     *
+     * @param DescribeDcdnDomainCnameRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnDomainCnameResponse
      */
     public function describeDcdnDomainCnameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainCname',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainCname',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainCnameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether CNAME records are configured for one or more accelerated domain names.
-     *  *
-     * @description > You can call this operation up to 80 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainCnameRequest $request DescribeDcdnDomainCnameRequest
+     * Checks whether CNAME records are configured for one or more accelerated domain names.
      *
-     * @return DescribeDcdnDomainCnameResponse DescribeDcdnDomainCnameResponse
+     * @remarks
+     * > You can call this operation up to 80 times per second per account.
+     *
+     * @param Request - DescribeDcdnDomainCnameRequest
+     *
+     * @returns DescribeDcdnDomainCnameResponse
+     *
+     * @param DescribeDcdnDomainCnameRequest $request
+     *
+     * @return DescribeDcdnDomainCnameResponse
      */
     public function describeDcdnDomainCname($request)
     {
@@ -4232,62 +5149,78 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of an accelerated domain name.
-     *  *
-     * @description > *   You can query the configurations of one or more features in a request.
-     * > *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainConfigsRequest $request DescribeDcdnDomainConfigsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations of an accelerated domain name.
      *
-     * @return DescribeDcdnDomainConfigsResponse DescribeDcdnDomainConfigsResponse
+     * @remarks
+     * > *   You can query the configurations of one or more features in a request.
+     * > *   You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnDomainConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainConfigsResponse
+     *
+     * @param DescribeDcdnDomainConfigsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDcdnDomainConfigsResponse
      */
     public function describeDcdnDomainConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configId)) {
-            $query['ConfigId'] = $request->configId;
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->functionNames)) {
-            $query['FunctionNames'] = $request->functionNames;
+
+        if (null !== $request->functionNames) {
+            @$query['FunctionNames'] = $request->functionNames;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainConfigs',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainConfigs',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of an accelerated domain name.
-     *  *
-     * @description > *   You can query the configurations of one or more features in a request.
-     * > *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainConfigsRequest $request DescribeDcdnDomainConfigsRequest
+     * Queries the configurations of an accelerated domain name.
      *
-     * @return DescribeDcdnDomainConfigsResponse DescribeDcdnDomainConfigsResponse
+     * @remarks
+     * > *   You can query the configurations of one or more features in a request.
+     * > *   You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnDomainConfigsRequest
+     *
+     * @returns DescribeDcdnDomainConfigsResponse
+     *
+     * @param DescribeDcdnDomainConfigsRequest $request
+     *
+     * @return DescribeDcdnDomainConfigsResponse
      */
     public function describeDcdnDomainConfigs($request)
     {
@@ -4297,54 +5230,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the basic configuration information about an accelerated domain name.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainDetailRequest $request DescribeDcdnDomainDetailRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the basic configuration information about an accelerated domain name.
      *
-     * @return DescribeDcdnDomainDetailResponse DescribeDcdnDomainDetailResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnDomainDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainDetailResponse
+     *
+     * @param DescribeDcdnDomainDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDcdnDomainDetailResponse
      */
     public function describeDcdnDomainDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainDetail',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainDetail',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the basic configuration information about an accelerated domain name.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainDetailRequest $request DescribeDcdnDomainDetailRequest
+     * Queries the basic configuration information about an accelerated domain name.
      *
-     * @return DescribeDcdnDomainDetailResponse DescribeDcdnDomainDetailResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnDomainDetailRequest
+     *
+     * @returns DescribeDcdnDomainDetailResponse
+     *
+     * @param DescribeDcdnDomainDetailRequest $request
+     *
+     * @return DescribeDcdnDomainDetailResponse
      */
     public function describeDcdnDomainDetail($request)
     {
@@ -4354,63 +5301,78 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the request hit ratios of one or more accelerated domain names. You can query data collected within the last 90 days.
-     *  *
-     * @description #
+     * Queries the request hit ratios of one or more accelerated domain names. You can query data collected within the last 90 days.
+     *
+     * @remarks
+     * #
      * *   You can call this operation up to 100 times per second per account.
      * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity** The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table. |Time granularity |Maximum time range per query |Historical data available |Data delay | -------------- | -------------- | ------ |5 minutes |3 days |93 days |15 minutes |1 hour |31 days |186 days |4 hours |1 day |366 days |366 days |04:00 on the next day
-     *  *
-     * @param DescribeDcdnDomainHitRateDataRequest $request DescribeDcdnDomainHitRateDataRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainHitRateDataResponse DescribeDcdnDomainHitRateDataResponse
+     * @param Request - DescribeDcdnDomainHitRateDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainHitRateDataResponse
+     *
+     * @param DescribeDcdnDomainHitRateDataRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDcdnDomainHitRateDataResponse
      */
     public function describeDcdnDomainHitRateDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainHitRateData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainHitRateData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the request hit ratios of one or more accelerated domain names. You can query data collected within the last 90 days.
-     *  *
-     * @description #
+     * Queries the request hit ratios of one or more accelerated domain names. You can query data collected within the last 90 days.
+     *
+     * @remarks
+     * #
      * *   You can call this operation up to 100 times per second per account.
      * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity** The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table. |Time granularity |Maximum time range per query |Historical data available |Data delay | -------------- | -------------- | ------ |5 minutes |3 days |93 days |15 minutes |1 hour |31 days |186 days |4 hours |1 day |366 days |366 days |04:00 on the next day
-     *  *
-     * @param DescribeDcdnDomainHitRateDataRequest $request DescribeDcdnDomainHitRateDataRequest
      *
-     * @return DescribeDcdnDomainHitRateDataResponse DescribeDcdnDomainHitRateDataResponse
+     * @param Request - DescribeDcdnDomainHitRateDataRequest
+     *
+     * @returns DescribeDcdnDomainHitRateDataResponse
+     *
+     * @param DescribeDcdnDomainHitRateDataRequest $request
+     *
+     * @return DescribeDcdnDomainHitRateDataResponse
      */
     public function describeDcdnDomainHitRateData($request)
     {
@@ -4420,9 +5382,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the total number and proportions of HTTP status codes returned from one or more accelerated domain names. Data is collected every 5 minutes. You can query data in the last 90 days.
-     *  *
-     * @description * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+     * Queries the total number and proportions of HTTP status codes returned from one or more accelerated domain names. Data is collected every 5 minutes. You can query data in the last 90 days.
+     *
+     * @remarks
+     * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * * You can call this operation up to 100 times per second per account.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -4431,56 +5394,68 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainHttpCodeDataRequest $request DescribeDcdnDomainHttpCodeDataRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainHttpCodeDataResponse DescribeDcdnDomainHttpCodeDataResponse
+     * @param Request - DescribeDcdnDomainHttpCodeDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainHttpCodeDataResponse
+     *
+     * @param DescribeDcdnDomainHttpCodeDataRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDcdnDomainHttpCodeDataResponse
      */
     public function describeDcdnDomainHttpCodeDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainHttpCodeData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainHttpCodeData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the total number and proportions of HTTP status codes returned from one or more accelerated domain names. Data is collected every 5 minutes. You can query data in the last 90 days.
-     *  *
-     * @description * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+     * Queries the total number and proportions of HTTP status codes returned from one or more accelerated domain names. Data is collected every 5 minutes. You can query data in the last 90 days.
+     *
+     * @remarks
+     * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * * You can call this operation up to 100 times per second per account.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -4489,10 +5464,14 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainHttpCodeDataRequest $request DescribeDcdnDomainHttpCodeDataRequest
      *
-     * @return DescribeDcdnDomainHttpCodeDataResponse DescribeDcdnDomainHttpCodeDataResponse
+     * @param Request - DescribeDcdnDomainHttpCodeDataRequest
+     *
+     * @returns DescribeDcdnDomainHttpCodeDataResponse
+     *
+     * @param DescribeDcdnDomainHttpCodeDataRequest $request
+     *
+     * @return DescribeDcdnDomainHttpCodeDataResponse
      */
     public function describeDcdnDomainHttpCodeData($request)
     {
@@ -4502,9 +5481,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the distribution of HTTP status codes by protocol.
-     *  *
-     * @description * You can call this operation up to 20 times per second per account.
+     * Queries the distribution of HTTP status codes by protocol.
+     *
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
      * * You cannot query the distribution of HTTP status codes by IP protocol.
      * * If you do not specify the **StartTime** or **EndTime** parameter, the data that is collected within the last 24 hours is collected. If you specify both the **StartTime** and **EndTime** parameters, the data that is collected within the time range that you specify is collected.
      * **Time granularity**
@@ -4514,59 +5494,72 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainHttpCodeDataByLayerRequest $request DescribeDcdnDomainHttpCodeDataByLayerRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainHttpCodeDataByLayerResponse DescribeDcdnDomainHttpCodeDataByLayerResponse
+     * @param Request - DescribeDcdnDomainHttpCodeDataByLayerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainHttpCodeDataByLayerResponse
+     *
+     * @param DescribeDcdnDomainHttpCodeDataByLayerRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeDcdnDomainHttpCodeDataByLayerResponse
      */
     public function describeDcdnDomainHttpCodeDataByLayerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->layer)) {
-            $query['Layer'] = $request->layer;
+
+        if (null !== $request->layer) {
+            @$query['Layer'] = $request->layer;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainHttpCodeDataByLayer',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainHttpCodeDataByLayer',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainHttpCodeDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the distribution of HTTP status codes by protocol.
-     *  *
-     * @description * You can call this operation up to 20 times per second per account.
+     * Queries the distribution of HTTP status codes by protocol.
+     *
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
      * * You cannot query the distribution of HTTP status codes by IP protocol.
      * * If you do not specify the **StartTime** or **EndTime** parameter, the data that is collected within the last 24 hours is collected. If you specify both the **StartTime** and **EndTime** parameters, the data that is collected within the time range that you specify is collected.
      * **Time granularity**
@@ -4576,10 +5569,14 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainHttpCodeDataByLayerRequest $request DescribeDcdnDomainHttpCodeDataByLayerRequest
      *
-     * @return DescribeDcdnDomainHttpCodeDataByLayerResponse DescribeDcdnDomainHttpCodeDataByLayerResponse
+     * @param Request - DescribeDcdnDomainHttpCodeDataByLayerRequest
+     *
+     * @returns DescribeDcdnDomainHttpCodeDataByLayerResponse
+     *
+     * @param DescribeDcdnDomainHttpCodeDataByLayerRequest $request
+     *
+     * @return DescribeDcdnDomainHttpCodeDataByLayerResponse
      */
     public function describeDcdnDomainHttpCodeDataByLayer($request)
     {
@@ -4589,75 +5586,94 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries bandwidth of accelerated domain names for which Layer 4 acceleration is enabled. You can query the data that is collected over the last 90 days.
-     *  *
-     * @description >
+     * Queries bandwidth of accelerated domain names for which Layer 4 acceleration is enabled. You can query the data that is collected over the last 90 days.
+     *
+     * @remarks
+     * >
      * *   The bandwidth is measured in bit/s.
      * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainIpaBpsDataRequest $request DescribeDcdnDomainIpaBpsDataRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainIpaBpsDataResponse DescribeDcdnDomainIpaBpsDataResponse
+     * @param Request - DescribeDcdnDomainIpaBpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainIpaBpsDataResponse
+     *
+     * @param DescribeDcdnDomainIpaBpsDataRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDcdnDomainIpaBpsDataResponse
      */
     public function describeDcdnDomainIpaBpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->fixTimeGap)) {
-            $query['FixTimeGap'] = $request->fixTimeGap;
+
+        if (null !== $request->fixTimeGap) {
+            @$query['FixTimeGap'] = $request->fixTimeGap;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->timeMerge)) {
-            $query['TimeMerge'] = $request->timeMerge;
+
+        if (null !== $request->timeMerge) {
+            @$query['TimeMerge'] = $request->timeMerge;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainIpaBpsData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainIpaBpsData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainIpaBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries bandwidth of accelerated domain names for which Layer 4 acceleration is enabled. You can query the data that is collected over the last 90 days.
-     *  *
-     * @description >
+     * Queries bandwidth of accelerated domain names for which Layer 4 acceleration is enabled. You can query the data that is collected over the last 90 days.
+     *
+     * @remarks
+     * >
      * *   The bandwidth is measured in bit/s.
      * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainIpaBpsDataRequest $request DescribeDcdnDomainIpaBpsDataRequest
      *
-     * @return DescribeDcdnDomainIpaBpsDataResponse DescribeDcdnDomainIpaBpsDataResponse
+     * @param Request - DescribeDcdnDomainIpaBpsDataRequest
+     *
+     * @returns DescribeDcdnDomainIpaBpsDataResponse
+     *
+     * @param DescribeDcdnDomainIpaBpsDataRequest $request
+     *
+     * @return DescribeDcdnDomainIpaBpsDataResponse
      */
     public function describeDcdnDomainIpaBpsData($request)
     {
@@ -4667,61 +5683,76 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of IPA user connections.
-     *  *
-     * @description *   You can call this operation up to 10 times per second per user.
+     * Queries the number of IPA user connections.
+     *
+     * @remarks
+     *   You can call this operation up to 10 times per second per user.
      * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * *   The minimum time granularity at which the data is queried is 5 minutes. The maximum time range for a single query is 31 days. The period within which historical data is available is 366 days. The data latency is no more than 10 minutes.
-     *  *
-     * @param DescribeDcdnDomainIpaConnDataRequest $request DescribeDcdnDomainIpaConnDataRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainIpaConnDataResponse DescribeDcdnDomainIpaConnDataResponse
+     * @param Request - DescribeDcdnDomainIpaConnDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainIpaConnDataResponse
+     *
+     * @param DescribeDcdnDomainIpaConnDataRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDcdnDomainIpaConnDataResponse
      */
     public function describeDcdnDomainIpaConnDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->splitBy)) {
-            $query['SplitBy'] = $request->splitBy;
+
+        if (null !== $request->splitBy) {
+            @$query['SplitBy'] = $request->splitBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainIpaConnData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainIpaConnData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainIpaConnDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of IPA user connections.
-     *  *
-     * @description *   You can call this operation up to 10 times per second per user.
+     * Queries the number of IPA user connections.
+     *
+     * @remarks
+     *   You can call this operation up to 10 times per second per user.
      * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * *   The minimum time granularity at which the data is queried is 5 minutes. The maximum time range for a single query is 31 days. The period within which historical data is available is 366 days. The data latency is no more than 10 minutes.
-     *  *
-     * @param DescribeDcdnDomainIpaConnDataRequest $request DescribeDcdnDomainIpaConnDataRequest
      *
-     * @return DescribeDcdnDomainIpaConnDataResponse DescribeDcdnDomainIpaConnDataResponse
+     * @param Request - DescribeDcdnDomainIpaConnDataRequest
+     *
+     * @returns DescribeDcdnDomainIpaConnDataResponse
+     *
+     * @param DescribeDcdnDomainIpaConnDataRequest $request
+     *
+     * @return DescribeDcdnDomainIpaConnDataResponse
      */
     public function describeDcdnDomainIpaConnData($request)
     {
@@ -4731,75 +5762,94 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries traffic of one or more accelerated domain names for which Layer 4 acceleration is enabled. You can query the data that is collected over the last 90 days.
-     *  *
-     * @description >
+     * Queries traffic of one or more accelerated domain names for which Layer 4 acceleration is enabled. You can query the data that is collected over the last 90 days.
+     *
+     * @remarks
+     * >
      * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * *   Unit: bytes.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainIpaTrafficDataRequest $request DescribeDcdnDomainIpaTrafficDataRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainIpaTrafficDataResponse DescribeDcdnDomainIpaTrafficDataResponse
+     * @param Request - DescribeDcdnDomainIpaTrafficDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainIpaTrafficDataResponse
+     *
+     * @param DescribeDcdnDomainIpaTrafficDataRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDcdnDomainIpaTrafficDataResponse
      */
     public function describeDcdnDomainIpaTrafficDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->fixTimeGap)) {
-            $query['FixTimeGap'] = $request->fixTimeGap;
+
+        if (null !== $request->fixTimeGap) {
+            @$query['FixTimeGap'] = $request->fixTimeGap;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->timeMerge)) {
-            $query['TimeMerge'] = $request->timeMerge;
+
+        if (null !== $request->timeMerge) {
+            @$query['TimeMerge'] = $request->timeMerge;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainIpaTrafficData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainIpaTrafficData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainIpaTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries traffic of one or more accelerated domain names for which Layer 4 acceleration is enabled. You can query the data that is collected over the last 90 days.
-     *  *
-     * @description >
+     * Queries traffic of one or more accelerated domain names for which Layer 4 acceleration is enabled. You can query the data that is collected over the last 90 days.
+     *
+     * @remarks
+     * >
      * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * *   Unit: bytes.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainIpaTrafficDataRequest $request DescribeDcdnDomainIpaTrafficDataRequest
      *
-     * @return DescribeDcdnDomainIpaTrafficDataResponse DescribeDcdnDomainIpaTrafficDataResponse
+     * @param Request - DescribeDcdnDomainIpaTrafficDataRequest
+     *
+     * @returns DescribeDcdnDomainIpaTrafficDataResponse
+     *
+     * @param DescribeDcdnDomainIpaTrafficDataRequest $request
+     *
+     * @return DescribeDcdnDomainIpaTrafficDataResponse
      */
     public function describeDcdnDomainIpaTrafficData($request)
     {
@@ -4809,9 +5859,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the proportions of data usage of different Internet service providers (ISPs). You can query data within the last 90 days.
-     *  *
-     * @description >
+     * Queries the proportions of data usage of different Internet service providers (ISPs). You can query data within the last 90 days.
+     *
+     * @remarks
+     * >
      * *   You can call this operation up to 100 times per second per account.
      * *   If **StartTime** is set but **EndTime** is not set, the data within the hour that starts from **StartTime** is queried.
      * *   If **EndTime** is set but **StartTime** is not set, the data within the last hour that precedes **EndTime** is queried.
@@ -4820,47 +5871,56 @@ class Dcdn extends OpenApiClient
      *     *   **If the time range is shorter than or equal to one hour**, data is queried every minute.
      *     *   **If the time range is longer than 1 hour but shorter than or equal to three days**, data is queried every five minutes.
      *     *   **If the time range is longer than three days but shorter than or equal to seven days**, data is queried every hour.
-     *  *
-     * @param DescribeDcdnDomainIspDataRequest $request DescribeDcdnDomainIspDataRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainIspDataResponse DescribeDcdnDomainIspDataResponse
+     * @param Request - DescribeDcdnDomainIspDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainIspDataResponse
+     *
+     * @param DescribeDcdnDomainIspDataRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDcdnDomainIspDataResponse
      */
     public function describeDcdnDomainIspDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainIspData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainIspData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainIspDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the proportions of data usage of different Internet service providers (ISPs). You can query data within the last 90 days.
-     *  *
-     * @description >
+     * Queries the proportions of data usage of different Internet service providers (ISPs). You can query data within the last 90 days.
+     *
+     * @remarks
+     * >
      * *   You can call this operation up to 100 times per second per account.
      * *   If **StartTime** is set but **EndTime** is not set, the data within the hour that starts from **StartTime** is queried.
      * *   If **EndTime** is set but **StartTime** is not set, the data within the last hour that precedes **EndTime** is queried.
@@ -4869,10 +5929,14 @@ class Dcdn extends OpenApiClient
      *     *   **If the time range is shorter than or equal to one hour**, data is queried every minute.
      *     *   **If the time range is longer than 1 hour but shorter than or equal to three days**, data is queried every five minutes.
      *     *   **If the time range is longer than three days but shorter than or equal to seven days**, data is queried every hour.
-     *  *
-     * @param DescribeDcdnDomainIspDataRequest $request DescribeDcdnDomainIspDataRequest
      *
-     * @return DescribeDcdnDomainIspDataResponse DescribeDcdnDomainIspDataResponse
+     * @param Request - DescribeDcdnDomainIspDataRequest
+     *
+     * @returns DescribeDcdnDomainIspDataResponse
+     *
+     * @param DescribeDcdnDomainIspDataRequest $request
+     *
+     * @return DescribeDcdnDomainIspDataResponse
      */
     public function describeDcdnDomainIspData($request)
     {
@@ -4882,64 +5946,80 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the address where you can download the log data of a specific domain name.
-     *  *
-     * @description >
+     * Queries the address where you can download the log data of a domain name.
+     *
+     * @remarks
+     * >
      * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.********
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainLogRequest $request DescribeDcdnDomainLogRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainLogResponse DescribeDcdnDomainLogResponse
+     * @param Request - DescribeDcdnDomainLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainLogResponse
+     *
+     * @param DescribeDcdnDomainLogRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDcdnDomainLogResponse
      */
     public function describeDcdnDomainLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainLog',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainLog',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the address where you can download the log data of a specific domain name.
-     *  *
-     * @description >
+     * Queries the address where you can download the log data of a domain name.
+     *
+     * @remarks
+     * >
      * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.********
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainLogRequest $request DescribeDcdnDomainLogRequest
      *
-     * @return DescribeDcdnDomainLogResponse DescribeDcdnDomainLogResponse
+     * @param Request - DescribeDcdnDomainLogRequest
+     *
+     * @returns DescribeDcdnDomainLogResponse
+     *
+     * @param DescribeDcdnDomainLogRequest $request
+     *
+     * @return DescribeDcdnDomainLogResponse
      */
     public function describeDcdnDomainLog($request)
     {
@@ -4949,52 +6029,66 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDcdnDomainLogExTtlRequest $request DescribeDcdnDomainLogExTtlRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param Request - DescribeDcdnDomainLogExTtlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainLogExTtlResponse DescribeDcdnDomainLogExTtlResponse
+     * @returns DescribeDcdnDomainLogExTtlResponse
+     *
+     * @param DescribeDcdnDomainLogExTtlRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDcdnDomainLogExTtlResponse
      */
     public function describeDcdnDomainLogExTtlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainLogExTtl',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainLogExTtl',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainLogExTtlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDcdnDomainLogExTtlRequest $request DescribeDcdnDomainLogExTtlRequest
+     * @param Request - DescribeDcdnDomainLogExTtlRequest
      *
-     * @return DescribeDcdnDomainLogExTtlResponse DescribeDcdnDomainLogExTtlResponse
+     * @returns DescribeDcdnDomainLogExTtlResponse
+     *
+     * @param DescribeDcdnDomainLogExTtlRequest $request
+     *
+     * @return DescribeDcdnDomainLogExTtlResponse
      */
     public function describeDcdnDomainLogExTtl($request)
     {
@@ -5004,60 +6098,74 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the billable items of accelerated domain names. The data is collected at least every 5 minutes. The billable items do not include non-request items.
-     *  *
-     * @description *   If you do not set the StartTime or EndTime parameter, data within the last 10 minutes is queried. You can set both the StartTime and EndTime parameters to specify a time range.
+     * Queries the billable items of accelerated domain names. The data is collected at least every 5 minutes. The billable items do not include non-request items.
+     *
+     * @remarks
+     *   If you do not set the StartTime or EndTime parameter, data within the last 10 minutes is queried. You can set both the StartTime and EndTime parameters to specify a time range.
      * *   You can specify one or more accelerated domain names. Separate domain names with commas (,).
      * *   You can query data within the last 90 days.
      * *   The time range cannot exceed 1 hour.
-     *  *
-     * @param DescribeDcdnDomainMultiUsageDataRequest $request DescribeDcdnDomainMultiUsageDataRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainMultiUsageDataResponse DescribeDcdnDomainMultiUsageDataResponse
+     * @param Request - DescribeDcdnDomainMultiUsageDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainMultiUsageDataResponse
+     *
+     * @param DescribeDcdnDomainMultiUsageDataRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDcdnDomainMultiUsageDataResponse
      */
     public function describeDcdnDomainMultiUsageDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainMultiUsageData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainMultiUsageData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainMultiUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the billable items of accelerated domain names. The data is collected at least every 5 minutes. The billable items do not include non-request items.
-     *  *
-     * @description *   If you do not set the StartTime or EndTime parameter, data within the last 10 minutes is queried. You can set both the StartTime and EndTime parameters to specify a time range.
+     * Queries the billable items of accelerated domain names. The data is collected at least every 5 minutes. The billable items do not include non-request items.
+     *
+     * @remarks
+     *   If you do not set the StartTime or EndTime parameter, data within the last 10 minutes is queried. You can set both the StartTime and EndTime parameters to specify a time range.
      * *   You can specify one or more accelerated domain names. Separate domain names with commas (,).
      * *   You can query data within the last 90 days.
      * *   The time range cannot exceed 1 hour.
-     *  *
-     * @param DescribeDcdnDomainMultiUsageDataRequest $request DescribeDcdnDomainMultiUsageDataRequest
      *
-     * @return DescribeDcdnDomainMultiUsageDataResponse DescribeDcdnDomainMultiUsageDataResponse
+     * @param Request - DescribeDcdnDomainMultiUsageDataRequest
+     *
+     * @returns DescribeDcdnDomainMultiUsageDataResponse
+     *
+     * @param DescribeDcdnDomainMultiUsageDataRequest $request
+     *
+     * @return DescribeDcdnDomainMultiUsageDataResponse
      */
     public function describeDcdnDomainMultiUsageData($request)
     {
@@ -5067,9 +6175,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the origin bandwidth data for one or more accelerated domain names. You can query data in the last 90 days.
-     *  *
-     * @description * You can call this operation up to 100 times per second per account.
+     * Queries the origin bandwidth data for one or more accelerated domain names. You can query data in the last 90 days.
+     *
+     * @remarks
+     * You can call this operation up to 100 times per second per account.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -5078,50 +6187,60 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainOriginBpsDataRequest $request DescribeDcdnDomainOriginBpsDataRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainOriginBpsDataResponse DescribeDcdnDomainOriginBpsDataResponse
+     * @param Request - DescribeDcdnDomainOriginBpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainOriginBpsDataResponse
+     *
+     * @param DescribeDcdnDomainOriginBpsDataRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDcdnDomainOriginBpsDataResponse
      */
     public function describeDcdnDomainOriginBpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainOriginBpsData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainOriginBpsData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainOriginBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the origin bandwidth data for one or more accelerated domain names. You can query data in the last 90 days.
-     *  *
-     * @description * You can call this operation up to 100 times per second per account.
+     * Queries the origin bandwidth data for one or more accelerated domain names. You can query data in the last 90 days.
+     *
+     * @remarks
+     * You can call this operation up to 100 times per second per account.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -5130,10 +6249,14 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainOriginBpsDataRequest $request DescribeDcdnDomainOriginBpsDataRequest
      *
-     * @return DescribeDcdnDomainOriginBpsDataResponse DescribeDcdnDomainOriginBpsDataResponse
+     * @param Request - DescribeDcdnDomainOriginBpsDataRequest
+     *
+     * @returns DescribeDcdnDomainOriginBpsDataResponse
+     *
+     * @param DescribeDcdnDomainOriginBpsDataRequest $request
+     *
+     * @return DescribeDcdnDomainOriginBpsDataResponse
      */
     public function describeDcdnDomainOriginBpsData($request)
     {
@@ -5143,9 +6266,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the back-to-origin traffic of one or more accelerated domain names.
-     *  *
-     * @description - You can call this operation up to 100 times per second per account.
+     * Queries the back-to-origin traffic of one or more accelerated domain names.
+     *
+     * @remarks
+     * - You can call this operation up to 100 times per second per account.
      * - If you do not set the **StartTime** or **EndTime** parameters, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
@@ -5154,50 +6278,60 @@ class Dcdn extends OpenApiClient
      * | 5 minutes | 3 days | 93 days | 15 minutes |
      * | 1 hour | 31 days | 186 days | 4 hours |
      * | 1 day | 366 days | 366 days | 04:00 on the next day |
-     *  *
-     * @param DescribeDcdnDomainOriginTrafficDataRequest $request DescribeDcdnDomainOriginTrafficDataRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainOriginTrafficDataResponse DescribeDcdnDomainOriginTrafficDataResponse
+     * @param Request - DescribeDcdnDomainOriginTrafficDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainOriginTrafficDataResponse
+     *
+     * @param DescribeDcdnDomainOriginTrafficDataRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeDcdnDomainOriginTrafficDataResponse
      */
     public function describeDcdnDomainOriginTrafficDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainOriginTrafficData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainOriginTrafficData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainOriginTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the back-to-origin traffic of one or more accelerated domain names.
-     *  *
-     * @description - You can call this operation up to 100 times per second per account.
+     * Queries the back-to-origin traffic of one or more accelerated domain names.
+     *
+     * @remarks
+     * - You can call this operation up to 100 times per second per account.
      * - If you do not set the **StartTime** or **EndTime** parameters, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
@@ -5206,10 +6340,14 @@ class Dcdn extends OpenApiClient
      * | 5 minutes | 3 days | 93 days | 15 minutes |
      * | 1 hour | 31 days | 186 days | 4 hours |
      * | 1 day | 366 days | 366 days | 04:00 on the next day |
-     *  *
-     * @param DescribeDcdnDomainOriginTrafficDataRequest $request DescribeDcdnDomainOriginTrafficDataRequest
      *
-     * @return DescribeDcdnDomainOriginTrafficDataResponse DescribeDcdnDomainOriginTrafficDataResponse
+     * @param Request - DescribeDcdnDomainOriginTrafficDataRequest
+     *
+     * @returns DescribeDcdnDomainOriginTrafficDataResponse
+     *
+     * @param DescribeDcdnDomainOriginTrafficDataRequest $request
+     *
+     * @return DescribeDcdnDomainOriginTrafficDataResponse
      */
     public function describeDcdnDomainOriginTrafficData($request)
     {
@@ -5219,48 +6357,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the protocol type of IP Application Accelerator (IPA).
-     *  *
-     * @description > You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainPropertyRequest $request DescribeDcdnDomainPropertyRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the protocol type of IP Application Accelerator (IPA).
      *
-     * @return DescribeDcdnDomainPropertyResponse DescribeDcdnDomainPropertyResponse
+     * @remarks
+     * > You can call this operation up to 10 times per second per account.
+     *
+     * @param Request - DescribeDcdnDomainPropertyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainPropertyResponse
+     *
+     * @param DescribeDcdnDomainPropertyRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDcdnDomainPropertyResponse
      */
     public function describeDcdnDomainPropertyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainProperty',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainProperty',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the protocol type of IP Application Accelerator (IPA).
-     *  *
-     * @description > You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainPropertyRequest $request DescribeDcdnDomainPropertyRequest
+     * Queries the protocol type of IP Application Accelerator (IPA).
      *
-     * @return DescribeDcdnDomainPropertyResponse DescribeDcdnDomainPropertyResponse
+     * @remarks
+     * > You can call this operation up to 10 times per second per account.
+     *
+     * @param Request - DescribeDcdnDomainPropertyRequest
+     *
+     * @returns DescribeDcdnDomainPropertyResponse
+     *
+     * @param DescribeDcdnDomainPropertyRequest $request
+     *
+     * @return DescribeDcdnDomainPropertyResponse
      */
     public function describeDcdnDomainProperty($request)
     {
@@ -5270,50 +6420,62 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries page view (PV) data of an accelerated domain name. Data can be collected at minimum intervals of one hour.
-     *  *
-     * @param DescribeDcdnDomainPvDataRequest $request DescribeDcdnDomainPvDataRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries page view (PV) data of an accelerated domain name. Data can be collected at minimum intervals of one hour.
      *
-     * @return DescribeDcdnDomainPvDataResponse DescribeDcdnDomainPvDataResponse
+     * @param Request - DescribeDcdnDomainPvDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainPvDataResponse
+     *
+     * @param DescribeDcdnDomainPvDataRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDcdnDomainPvDataResponse
      */
     public function describeDcdnDomainPvDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainPvData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainPvData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainPvDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries page view (PV) data of an accelerated domain name. Data can be collected at minimum intervals of one hour.
-     *  *
-     * @param DescribeDcdnDomainPvDataRequest $request DescribeDcdnDomainPvDataRequest
+     * Queries page view (PV) data of an accelerated domain name. Data can be collected at minimum intervals of one hour.
      *
-     * @return DescribeDcdnDomainPvDataResponse DescribeDcdnDomainPvDataResponse
+     * @param Request - DescribeDcdnDomainPvDataRequest
+     *
+     * @returns DescribeDcdnDomainPvDataResponse
+     *
+     * @param DescribeDcdnDomainPvDataRequest $request
+     *
+     * @return DescribeDcdnDomainPvDataResponse
      */
     public function describeDcdnDomainPvData($request)
     {
@@ -5323,9 +6485,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of requests to an accelerated domain name per second. You can query data in the last 90 days.
-     *  *
-     * @description * You can call this operation up to 100 times per second per account.
+     * Queries the number of requests to an accelerated domain name per second. You can query data in the last 90 days.
+     *
+     * @remarks
+     * You can call this operation up to 100 times per second per account.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -5334,56 +6497,68 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainQpsDataRequest $request DescribeDcdnDomainQpsDataRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainQpsDataResponse DescribeDcdnDomainQpsDataResponse
+     * @param Request - DescribeDcdnDomainQpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainQpsDataResponse
+     *
+     * @param DescribeDcdnDomainQpsDataRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDcdnDomainQpsDataResponse
      */
     public function describeDcdnDomainQpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainQpsData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainQpsData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of requests to an accelerated domain name per second. You can query data in the last 90 days.
-     *  *
-     * @description * You can call this operation up to 100 times per second per account.
+     * Queries the number of requests to an accelerated domain name per second. You can query data in the last 90 days.
+     *
+     * @remarks
+     * You can call this operation up to 100 times per second per account.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -5392,10 +6567,14 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainQpsDataRequest $request DescribeDcdnDomainQpsDataRequest
      *
-     * @return DescribeDcdnDomainQpsDataResponse DescribeDcdnDomainQpsDataResponse
+     * @param Request - DescribeDcdnDomainQpsDataRequest
+     *
+     * @returns DescribeDcdnDomainQpsDataResponse
+     *
+     * @param DescribeDcdnDomainQpsDataRequest $request
+     *
+     * @return DescribeDcdnDomainQpsDataResponse
      */
     public function describeDcdnDomainQpsData($request)
     {
@@ -5405,9 +6584,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary The number of queries per second in the Chinese mainland.
-     *  *
-     * @description * You can call this operation up to 20 times per second per account.
+     * The number of queries per second in the Chinese mainland.
+     *
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the time range to query, as described in the following table.
@@ -5416,59 +6596,72 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainQpsDataByLayerRequest $request DescribeDcdnDomainQpsDataByLayerRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainQpsDataByLayerResponse DescribeDcdnDomainQpsDataByLayerResponse
+     * @param Request - DescribeDcdnDomainQpsDataByLayerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainQpsDataByLayerResponse
+     *
+     * @param DescribeDcdnDomainQpsDataByLayerRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDcdnDomainQpsDataByLayerResponse
      */
     public function describeDcdnDomainQpsDataByLayerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->layer)) {
-            $query['Layer'] = $request->layer;
+
+        if (null !== $request->layer) {
+            @$query['Layer'] = $request->layer;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainQpsDataByLayer',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainQpsDataByLayer',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainQpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary The number of queries per second in the Chinese mainland.
-     *  *
-     * @description * You can call this operation up to 20 times per second per account.
+     * The number of queries per second in the Chinese mainland.
+     *
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the time range to query, as described in the following table.
@@ -5477,10 +6670,14 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainQpsDataByLayerRequest $request DescribeDcdnDomainQpsDataByLayerRequest
      *
-     * @return DescribeDcdnDomainQpsDataByLayerResponse DescribeDcdnDomainQpsDataByLayerResponse
+     * @param Request - DescribeDcdnDomainQpsDataByLayerRequest
+     *
+     * @returns DescribeDcdnDomainQpsDataByLayerResponse
+     *
+     * @param DescribeDcdnDomainQpsDataByLayerRequest $request
+     *
+     * @return DescribeDcdnDomainQpsDataByLayerResponse
      */
     public function describeDcdnDomainQpsDataByLayer($request)
     {
@@ -5490,9 +6687,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the real-time network bandwidth of a domain name.
-     *  *
-     * @description * You can call this operation up to 10 times per second per account.
+     * Queries the real-time network bandwidth of a domain name.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account.
      * * If you do not specify **StartTime** or **EndTime**, the request returns the data collected in the last hour by default. If you specify both parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -5501,38 +6699,44 @@ class Dcdn extends OpenApiClient
      * |1 minute|1 hour|7 days|5 minutes|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|3 to 4 hours|
-     *  *
-     * @param DescribeDcdnDomainRealTimeBpsDataRequest $request DescribeDcdnDomainRealTimeBpsDataRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainRealTimeBpsDataResponse DescribeDcdnDomainRealTimeBpsDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeBpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainRealTimeBpsDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeBpsDataRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDcdnDomainRealTimeBpsDataResponse
      */
     public function describeDcdnDomainRealTimeBpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainRealTimeBpsData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainRealTimeBpsData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainRealTimeBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the real-time network bandwidth of a domain name.
-     *  *
-     * @description * You can call this operation up to 10 times per second per account.
+     * Queries the real-time network bandwidth of a domain name.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account.
      * * If you do not specify **StartTime** or **EndTime**, the request returns the data collected in the last hour by default. If you specify both parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -5541,10 +6745,14 @@ class Dcdn extends OpenApiClient
      * |1 minute|1 hour|7 days|5 minutes|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|3 to 4 hours|
-     *  *
-     * @param DescribeDcdnDomainRealTimeBpsDataRequest $request DescribeDcdnDomainRealTimeBpsDataRequest
      *
-     * @return DescribeDcdnDomainRealTimeBpsDataResponse DescribeDcdnDomainRealTimeBpsDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeBpsDataRequest
+     *
+     * @returns DescribeDcdnDomainRealTimeBpsDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeBpsDataRequest $request
+     *
+     * @return DescribeDcdnDomainRealTimeBpsDataResponse
      */
     public function describeDcdnDomainRealTimeBpsData($request)
     {
@@ -5554,9 +6762,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries byte hit ratios at a time granularity of 1 minute.
-     *  *
-     * @description * You can call this operation up to 10 times per second per account.
+     * Queries byte hit ratios at a time granularity of 1 minute.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account.
      * * The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
@@ -5566,38 +6775,44 @@ class Dcdn extends OpenApiClient
      * | 1 minute | 1 hour | 7 days | 5 minutes |
      * | 5 minutes | 3 days | 93 days | 15 minutes |
      * | 1 hour | 31 days | 186 days | 4 hours |
-     *  *
-     * @param DescribeDcdnDomainRealTimeByteHitRateDataRequest $request DescribeDcdnDomainRealTimeByteHitRateDataRequest
-     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainRealTimeByteHitRateDataResponse DescribeDcdnDomainRealTimeByteHitRateDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeByteHitRateDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainRealTimeByteHitRateDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeByteHitRateDataRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return DescribeDcdnDomainRealTimeByteHitRateDataResponse
      */
     public function describeDcdnDomainRealTimeByteHitRateDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainRealTimeByteHitRateData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainRealTimeByteHitRateData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainRealTimeByteHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries byte hit ratios at a time granularity of 1 minute.
-     *  *
-     * @description * You can call this operation up to 10 times per second per account.
+     * Queries byte hit ratios at a time granularity of 1 minute.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account.
      * * The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
@@ -5607,10 +6822,14 @@ class Dcdn extends OpenApiClient
      * | 1 minute | 1 hour | 7 days | 5 minutes |
      * | 5 minutes | 3 days | 93 days | 15 minutes |
      * | 1 hour | 31 days | 186 days | 4 hours |
-     *  *
-     * @param DescribeDcdnDomainRealTimeByteHitRateDataRequest $request DescribeDcdnDomainRealTimeByteHitRateDataRequest
      *
-     * @return DescribeDcdnDomainRealTimeByteHitRateDataResponse DescribeDcdnDomainRealTimeByteHitRateDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeByteHitRateDataRequest
+     *
+     * @returns DescribeDcdnDomainRealTimeByteHitRateDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeByteHitRateDataRequest $request
+     *
+     * @return DescribeDcdnDomainRealTimeByteHitRateDataResponse
      */
     public function describeDcdnDomainRealTimeByteHitRateData($request)
     {
@@ -5620,45 +6839,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries traffic data and the number of visits of each Internet service provider (ISP) in each region. Data is collected every minute. The maximum time range to query for this operation is 10 minutes.
-     *  *
-     * @description > You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainRealTimeDetailDataRequest $request DescribeDcdnDomainRealTimeDetailDataRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Queries traffic usage through each Internet service provider (ISP) and the number of visits in each region. The resolution of the data is one minute. The maximum time range to query for this operation is 10 minutes.
      *
-     * @return DescribeDcdnDomainRealTimeDetailDataResponse DescribeDcdnDomainRealTimeDetailDataResponse
+     * @remarks
+     * >
+     * > - You can call this operation up to 10 times per second per account.
+     * > - This operation is available only to users whose daily peak bandwidth value is higher than 1 Gbit/s. If you meet this requirement, you can [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl) to apply for permissions to use this operation.
+     *
+     * @param Request - DescribeDcdnDomainRealTimeDetailDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainRealTimeDetailDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeDetailDataRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeDcdnDomainRealTimeDetailDataResponse
      */
     public function describeDcdnDomainRealTimeDetailDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainRealTimeDetailData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainRealTimeDetailData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainRealTimeDetailDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries traffic data and the number of visits of each Internet service provider (ISP) in each region. Data is collected every minute. The maximum time range to query for this operation is 10 minutes.
-     *  *
-     * @description > You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainRealTimeDetailDataRequest $request DescribeDcdnDomainRealTimeDetailDataRequest
+     * Queries traffic usage through each Internet service provider (ISP) and the number of visits in each region. The resolution of the data is one minute. The maximum time range to query for this operation is 10 minutes.
      *
-     * @return DescribeDcdnDomainRealTimeDetailDataResponse DescribeDcdnDomainRealTimeDetailDataResponse
+     * @remarks
+     * >
+     * > - You can call this operation up to 10 times per second per account.
+     * > - This operation is available only to users whose daily peak bandwidth value is higher than 1 Gbit/s. If you meet this requirement, you can [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl) to apply for permissions to use this operation.
+     *
+     * @param Request - DescribeDcdnDomainRealTimeDetailDataRequest
+     *
+     * @returns DescribeDcdnDomainRealTimeDetailDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeDetailDataRequest $request
+     *
+     * @return DescribeDcdnDomainRealTimeDetailDataResponse
      */
     public function describeDcdnDomainRealTimeDetailData($request)
     {
@@ -5668,9 +6902,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the total number and proportions of HTTP status codes returned from one or more accelerated domain names.
-     *  *
-     * @description * You can call this operation up to 10 times per second per account.
+     * Queries the total number and proportions of HTTP status codes returned from one or more accelerated domain names.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account.
      * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -5679,53 +6914,64 @@ class Dcdn extends OpenApiClient
      * |1 minute|1 hour|7 days|5 minutes|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
-     *  *
-     * @param DescribeDcdnDomainRealTimeHttpCodeDataRequest $request DescribeDcdnDomainRealTimeHttpCodeDataRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainRealTimeHttpCodeDataResponse DescribeDcdnDomainRealTimeHttpCodeDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeHttpCodeDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainRealTimeHttpCodeDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeHttpCodeDataRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return DescribeDcdnDomainRealTimeHttpCodeDataResponse
      */
     public function describeDcdnDomainRealTimeHttpCodeDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainRealTimeHttpCodeData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainRealTimeHttpCodeData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainRealTimeHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the total number and proportions of HTTP status codes returned from one or more accelerated domain names.
-     *  *
-     * @description * You can call this operation up to 10 times per second per account.
+     * Queries the total number and proportions of HTTP status codes returned from one or more accelerated domain names.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account.
      * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -5734,10 +6980,14 @@ class Dcdn extends OpenApiClient
      * |1 minute|1 hour|7 days|5 minutes|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
-     *  *
-     * @param DescribeDcdnDomainRealTimeHttpCodeDataRequest $request DescribeDcdnDomainRealTimeHttpCodeDataRequest
      *
-     * @return DescribeDcdnDomainRealTimeHttpCodeDataResponse DescribeDcdnDomainRealTimeHttpCodeDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeHttpCodeDataRequest
+     *
+     * @returns DescribeDcdnDomainRealTimeHttpCodeDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeHttpCodeDataRequest $request
+     *
+     * @return DescribeDcdnDomainRealTimeHttpCodeDataResponse
      */
     public function describeDcdnDomainRealTimeHttpCodeData($request)
     {
@@ -5747,9 +6997,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary The number of QPS for one or more accelerated domain names is queried. Data is collected every minute.
-     *  *
-     * @description * You can call this operation up to 10 times per second per account.
+     * The number of QPS for one or more accelerated domain names is queried. Data is collected every minute.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account.
      * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -5758,38 +7009,44 @@ class Dcdn extends OpenApiClient
      * |1 minute|1 hour|7 days|5 minutes|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
-     *  *
-     * @param DescribeDcdnDomainRealTimeQpsDataRequest $request DescribeDcdnDomainRealTimeQpsDataRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainRealTimeQpsDataResponse DescribeDcdnDomainRealTimeQpsDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeQpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainRealTimeQpsDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeQpsDataRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDcdnDomainRealTimeQpsDataResponse
      */
     public function describeDcdnDomainRealTimeQpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainRealTimeQpsData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainRealTimeQpsData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainRealTimeQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary The number of QPS for one or more accelerated domain names is queried. Data is collected every minute.
-     *  *
-     * @description * You can call this operation up to 10 times per second per account.
+     * The number of QPS for one or more accelerated domain names is queried. Data is collected every minute.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account.
      * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -5798,10 +7055,14 @@ class Dcdn extends OpenApiClient
      * |1 minute|1 hour|7 days|5 minutes|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
-     *  *
-     * @param DescribeDcdnDomainRealTimeQpsDataRequest $request DescribeDcdnDomainRealTimeQpsDataRequest
      *
-     * @return DescribeDcdnDomainRealTimeQpsDataResponse DescribeDcdnDomainRealTimeQpsDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeQpsDataRequest
+     *
+     * @returns DescribeDcdnDomainRealTimeQpsDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeQpsDataRequest $request
+     *
+     * @return DescribeDcdnDomainRealTimeQpsDataResponse
      */
     public function describeDcdnDomainRealTimeQpsData($request)
     {
@@ -5811,9 +7072,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the request hit rates with a time granularity of 1 minute.
-     *  *
-     * @description * You can call this operation up to 10 times per second per user.
+     * Queries the request hit rates with a time granularity of 1 minute.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per user.
      * * The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -5822,38 +7084,44 @@ class Dcdn extends OpenApiClient
      * |1 minute|1 hour|7 days|5 minutes|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
-     *  *
-     * @param DescribeDcdnDomainRealTimeReqHitRateDataRequest $request DescribeDcdnDomainRealTimeReqHitRateDataRequest
-     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainRealTimeReqHitRateDataResponse DescribeDcdnDomainRealTimeReqHitRateDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeReqHitRateDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainRealTimeReqHitRateDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeReqHitRateDataRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return DescribeDcdnDomainRealTimeReqHitRateDataResponse
      */
     public function describeDcdnDomainRealTimeReqHitRateDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainRealTimeReqHitRateData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainRealTimeReqHitRateData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainRealTimeReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the request hit rates with a time granularity of 1 minute.
-     *  *
-     * @description * You can call this operation up to 10 times per second per user.
+     * Queries the request hit rates with a time granularity of 1 minute.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per user.
      * * The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -5862,10 +7130,14 @@ class Dcdn extends OpenApiClient
      * |1 minute|1 hour|7 days|5 minutes|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
-     *  *
-     * @param DescribeDcdnDomainRealTimeReqHitRateDataRequest $request DescribeDcdnDomainRealTimeReqHitRateDataRequest
      *
-     * @return DescribeDcdnDomainRealTimeReqHitRateDataResponse DescribeDcdnDomainRealTimeReqHitRateDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeReqHitRateDataRequest
+     *
+     * @returns DescribeDcdnDomainRealTimeReqHitRateDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeReqHitRateDataRequest $request
+     *
+     * @return DescribeDcdnDomainRealTimeReqHitRateDataResponse
      */
     public function describeDcdnDomainRealTimeReqHitRateData($request)
     {
@@ -5875,9 +7147,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the bandwidth data of back-to-origin requests. Data is collected every minute. You can query data collected in the last 7 days.
-     *  *
-     * @description *   You can call this operation up to 10 times per second per account.
+     * Queries the bandwidth data of back-to-origin requests. Data is collected every minute. You can query data collected in the last 7 days.
+     *
+     * @remarks
+     *   You can call this operation up to 10 times per second per account.
      * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -5885,47 +7158,56 @@ class Dcdn extends OpenApiClient
      * |-----|-----|-----|--------|
      * | 1 minute | 1 hour | 7 days | 5 minutes |
      * | 5 minutes | 3 days | 93 days | 15 minutes | | 1 hour | 31 days | 186 days | 4 hours |
-     *  *
-     * @param DescribeDcdnDomainRealTimeSrcBpsDataRequest $request DescribeDcdnDomainRealTimeSrcBpsDataRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainRealTimeSrcBpsDataResponse DescribeDcdnDomainRealTimeSrcBpsDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeSrcBpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainRealTimeSrcBpsDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeSrcBpsDataRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeDcdnDomainRealTimeSrcBpsDataResponse
      */
     public function describeDcdnDomainRealTimeSrcBpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainRealTimeSrcBpsData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainRealTimeSrcBpsData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainRealTimeSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the bandwidth data of back-to-origin requests. Data is collected every minute. You can query data collected in the last 7 days.
-     *  *
-     * @description *   You can call this operation up to 10 times per second per account.
+     * Queries the bandwidth data of back-to-origin requests. Data is collected every minute. You can query data collected in the last 7 days.
+     *
+     * @remarks
+     *   You can call this operation up to 10 times per second per account.
      * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -5933,10 +7215,14 @@ class Dcdn extends OpenApiClient
      * |-----|-----|-----|--------|
      * | 1 minute | 1 hour | 7 days | 5 minutes |
      * | 5 minutes | 3 days | 93 days | 15 minutes | | 1 hour | 31 days | 186 days | 4 hours |
-     *  *
-     * @param DescribeDcdnDomainRealTimeSrcBpsDataRequest $request DescribeDcdnDomainRealTimeSrcBpsDataRequest
      *
-     * @return DescribeDcdnDomainRealTimeSrcBpsDataResponse DescribeDcdnDomainRealTimeSrcBpsDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeSrcBpsDataRequest
+     *
+     * @returns DescribeDcdnDomainRealTimeSrcBpsDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeSrcBpsDataRequest $request
+     *
+     * @return DescribeDcdnDomainRealTimeSrcBpsDataResponse
      */
     public function describeDcdnDomainRealTimeSrcBpsData($request)
     {
@@ -5946,9 +7232,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the proportions of HTTP status codes based on back-to-origin statistics with a time granularity of one minute.
-     *  *
-     * @description * You can call this operation up to 10 times per second per account.
+     * Queries the proportions of HTTP status codes based on back-to-origin statistics with a time granularity of one minute.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account.
      * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -5957,53 +7244,64 @@ class Dcdn extends OpenApiClient
      * |1 minute|1 hour|7 days|5 minutes|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
-     *  *
-     * @param DescribeDcdnDomainRealTimeSrcHttpCodeDataRequest $request DescribeDcdnDomainRealTimeSrcHttpCodeDataRequest
-     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeSrcHttpCodeDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeSrcHttpCodeDataRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse
      */
     public function describeDcdnDomainRealTimeSrcHttpCodeDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainRealTimeSrcHttpCodeData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainRealTimeSrcHttpCodeData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the proportions of HTTP status codes based on back-to-origin statistics with a time granularity of one minute.
-     *  *
-     * @description * You can call this operation up to 10 times per second per account.
+     * Queries the proportions of HTTP status codes based on back-to-origin statistics with a time granularity of one minute.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account.
      * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
@@ -6012,10 +7310,14 @@ class Dcdn extends OpenApiClient
      * |1 minute|1 hour|7 days|5 minutes|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
-     *  *
-     * @param DescribeDcdnDomainRealTimeSrcHttpCodeDataRequest $request DescribeDcdnDomainRealTimeSrcHttpCodeDataRequest
      *
-     * @return DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeSrcHttpCodeDataRequest
+     *
+     * @returns DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeSrcHttpCodeDataRequest $request
+     *
+     * @return DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse
      */
     public function describeDcdnDomainRealTimeSrcHttpCodeData($request)
     {
@@ -6025,9 +7327,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the origin traffic monitoring data for an accelerated domain name. Data is collected every minute. You can query data in the last 90 days.
-     *  *
-     * @description If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
+     * Queries the origin traffic monitoring data for an accelerated domain name. Data is collected every minute. You can query data in the last 90 days.
+     *
+     * @remarks
+     * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
      * |Time granularity|Maximum time range per query|Historical data available|Data delay|
@@ -6035,47 +7338,56 @@ class Dcdn extends OpenApiClient
      * |1 minute|1 hour|7 days|5 minutes|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
-     *  *
-     * @param DescribeDcdnDomainRealTimeSrcTrafficDataRequest $request DescribeDcdnDomainRealTimeSrcTrafficDataRequest
-     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainRealTimeSrcTrafficDataResponse DescribeDcdnDomainRealTimeSrcTrafficDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeSrcTrafficDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainRealTimeSrcTrafficDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeSrcTrafficDataRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return DescribeDcdnDomainRealTimeSrcTrafficDataResponse
      */
     public function describeDcdnDomainRealTimeSrcTrafficDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainRealTimeSrcTrafficData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainRealTimeSrcTrafficData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainRealTimeSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the origin traffic monitoring data for an accelerated domain name. Data is collected every minute. You can query data in the last 90 days.
-     *  *
-     * @description If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
+     * Queries the origin traffic monitoring data for an accelerated domain name. Data is collected every minute. You can query data in the last 90 days.
+     *
+     * @remarks
+     * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
      * |Time granularity|Maximum time range per query|Historical data available|Data delay|
@@ -6083,10 +7395,14 @@ class Dcdn extends OpenApiClient
      * |1 minute|1 hour|7 days|5 minutes|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
-     *  *
-     * @param DescribeDcdnDomainRealTimeSrcTrafficDataRequest $request DescribeDcdnDomainRealTimeSrcTrafficDataRequest
      *
-     * @return DescribeDcdnDomainRealTimeSrcTrafficDataResponse DescribeDcdnDomainRealTimeSrcTrafficDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeSrcTrafficDataRequest
+     *
+     * @returns DescribeDcdnDomainRealTimeSrcTrafficDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeSrcTrafficDataRequest $request
+     *
+     * @return DescribeDcdnDomainRealTimeSrcTrafficDataResponse
      */
     public function describeDcdnDomainRealTimeSrcTrafficData($request)
     {
@@ -6096,9 +7412,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the traffic monitoring data of an accelerated domain name. Data is collected every minute.
-     *  *
-     * @description You can call this operation up to 50 times per second per user.
+     * Queries the traffic monitoring data of an accelerated domain name. Data is collected every minute.
+     *
+     * @remarks
+     * You can call this operation up to 50 times per second per user.
      * **Time granularity**
      * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
      * |Time granularity|Maximum time range per query|Historical data available|Data delay|
@@ -6106,47 +7423,56 @@ class Dcdn extends OpenApiClient
      * |1 minute|1 hour|7 days|5 minutes|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
-     *  *
-     * @param DescribeDcdnDomainRealTimeTrafficDataRequest $request DescribeDcdnDomainRealTimeTrafficDataRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainRealTimeTrafficDataResponse DescribeDcdnDomainRealTimeTrafficDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeTrafficDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainRealTimeTrafficDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeTrafficDataRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeDcdnDomainRealTimeTrafficDataResponse
      */
     public function describeDcdnDomainRealTimeTrafficDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainRealTimeTrafficData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainRealTimeTrafficData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainRealTimeTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the traffic monitoring data of an accelerated domain name. Data is collected every minute.
-     *  *
-     * @description You can call this operation up to 50 times per second per user.
+     * Queries the traffic monitoring data of an accelerated domain name. Data is collected every minute.
+     *
+     * @remarks
+     * You can call this operation up to 50 times per second per user.
      * **Time granularity**
      * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
      * |Time granularity|Maximum time range per query|Historical data available|Data delay|
@@ -6154,10 +7480,14 @@ class Dcdn extends OpenApiClient
      * |1 minute|1 hour|7 days|5 minutes|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
-     *  *
-     * @param DescribeDcdnDomainRealTimeTrafficDataRequest $request DescribeDcdnDomainRealTimeTrafficDataRequest
      *
-     * @return DescribeDcdnDomainRealTimeTrafficDataResponse DescribeDcdnDomainRealTimeTrafficDataResponse
+     * @param Request - DescribeDcdnDomainRealTimeTrafficDataRequest
+     *
+     * @returns DescribeDcdnDomainRealTimeTrafficDataResponse
+     *
+     * @param DescribeDcdnDomainRealTimeTrafficDataRequest $request
+     *
+     * @return DescribeDcdnDomainRealTimeTrafficDataResponse
      */
     public function describeDcdnDomainRealTimeTrafficData($request)
     {
@@ -6167,58 +7497,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries regional distribution of users. Data is collected every day. You can query data within the last 90 days.
-     *  *
-     * @description >
+     * Queries regional distribution of users. Data is collected every day. You can query data within the last 90 days.
+     *
+     * @remarks
+     * >
      * *   If you do not specify the StartTime and EndTime parameters, the data within the last 24 hours is queried. If you specify the StartTime and EndTime parameters, the data within the specified time range is queried.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainRegionDataRequest $request DescribeDcdnDomainRegionDataRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainRegionDataResponse DescribeDcdnDomainRegionDataResponse
+     * @param Request - DescribeDcdnDomainRegionDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainRegionDataResponse
+     *
+     * @param DescribeDcdnDomainRegionDataRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDcdnDomainRegionDataResponse
      */
     public function describeDcdnDomainRegionDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainRegionData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainRegionData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainRegionDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries regional distribution of users. Data is collected every day. You can query data within the last 90 days.
-     *  *
-     * @description >
+     * Queries regional distribution of users. Data is collected every day. You can query data within the last 90 days.
+     *
+     * @remarks
+     * >
      * *   If you do not specify the StartTime and EndTime parameters, the data within the last 24 hours is queried. If you specify the StartTime and EndTime parameters, the data within the specified time range is queried.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainRegionDataRequest $request DescribeDcdnDomainRegionDataRequest
      *
-     * @return DescribeDcdnDomainRegionDataResponse DescribeDcdnDomainRegionDataResponse
+     * @param Request - DescribeDcdnDomainRegionDataRequest
+     *
+     * @returns DescribeDcdnDomainRegionDataResponse
+     *
+     * @param DescribeDcdnDomainRegionDataRequest $request
+     *
+     * @return DescribeDcdnDomainRegionDataResponse
      */
     public function describeDcdnDomainRegionData($request)
     {
@@ -6228,51 +7572,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the environment configuration in the canary release environment.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainStagingConfigRequest $request DescribeDcdnDomainStagingConfigRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the environment configuration in the canary release environment.
      *
-     * @return DescribeDcdnDomainStagingConfigResponse DescribeDcdnDomainStagingConfigResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnDomainStagingConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainStagingConfigResponse
+     *
+     * @param DescribeDcdnDomainStagingConfigRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDcdnDomainStagingConfigResponse
      */
     public function describeDcdnDomainStagingConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->functionNames)) {
-            $query['FunctionNames'] = $request->functionNames;
+
+        if (null !== $request->functionNames) {
+            @$query['FunctionNames'] = $request->functionNames;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainStagingConfig',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainStagingConfig',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the environment configuration in the canary release environment.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnDomainStagingConfigRequest $request DescribeDcdnDomainStagingConfigRequest
+     * Queries the environment configuration in the canary release environment.
      *
-     * @return DescribeDcdnDomainStagingConfigResponse DescribeDcdnDomainStagingConfigResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnDomainStagingConfigRequest
+     *
+     * @returns DescribeDcdnDomainStagingConfigResponse
+     *
+     * @param DescribeDcdnDomainStagingConfigRequest $request
+     *
+     * @return DescribeDcdnDomainStagingConfigResponse
      */
     public function describeDcdnDomainStagingConfig($request)
     {
@@ -6282,56 +7639,70 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries and sorts frequently requested web pages on a specified day. You can query data collected within the last 90 days.
-     *  *
-     * @description *   If you do not set the StartTime parameter, the data on the previous day is queried.
-     * *   You can specify only one domain name.
-     *  *
-     * @param DescribeDcdnDomainTopReferVisitRequest $request DescribeDcdnDomainTopReferVisitRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries and sorts frequently requested web pages on a specified day. You can query data collected within the last 90 days.
      *
-     * @return DescribeDcdnDomainTopReferVisitResponse DescribeDcdnDomainTopReferVisitResponse
+     * @remarks
+     *   If you do not set the StartTime parameter, the data on the previous day is queried.
+     * *   You can specify only one domain name.
+     *
+     * @param Request - DescribeDcdnDomainTopReferVisitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainTopReferVisitResponse
+     *
+     * @param DescribeDcdnDomainTopReferVisitRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDcdnDomainTopReferVisitResponse
      */
     public function describeDcdnDomainTopReferVisitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainTopReferVisit',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainTopReferVisit',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainTopReferVisitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries and sorts frequently requested web pages on a specified day. You can query data collected within the last 90 days.
-     *  *
-     * @description *   If you do not set the StartTime parameter, the data on the previous day is queried.
-     * *   You can specify only one domain name.
-     *  *
-     * @param DescribeDcdnDomainTopReferVisitRequest $request DescribeDcdnDomainTopReferVisitRequest
+     * Queries and sorts frequently requested web pages on a specified day. You can query data collected within the last 90 days.
      *
-     * @return DescribeDcdnDomainTopReferVisitResponse DescribeDcdnDomainTopReferVisitResponse
+     * @remarks
+     *   If you do not set the StartTime parameter, the data on the previous day is queried.
+     * *   You can specify only one domain name.
+     *
+     * @param Request - DescribeDcdnDomainTopReferVisitRequest
+     *
+     * @returns DescribeDcdnDomainTopReferVisitResponse
+     *
+     * @param DescribeDcdnDomainTopReferVisitRequest $request
+     *
+     * @return DescribeDcdnDomainTopReferVisitResponse
      */
     public function describeDcdnDomainTopReferVisit($request)
     {
@@ -6341,54 +7712,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries frequently requested URLs on a day.
-     *  *
-     * @description > You can query data in the last seven days.
-     *  *
-     * @param DescribeDcdnDomainTopUrlVisitRequest $request DescribeDcdnDomainTopUrlVisitRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries frequently requested URLs on a day.
      *
-     * @return DescribeDcdnDomainTopUrlVisitResponse DescribeDcdnDomainTopUrlVisitResponse
+     * @remarks
+     * > You can query data in the last seven days.
+     *
+     * @param Request - DescribeDcdnDomainTopUrlVisitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainTopUrlVisitResponse
+     *
+     * @param DescribeDcdnDomainTopUrlVisitRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDcdnDomainTopUrlVisitResponse
      */
     public function describeDcdnDomainTopUrlVisitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainTopUrlVisit',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainTopUrlVisit',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainTopUrlVisitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries frequently requested URLs on a day.
-     *  *
-     * @description > You can query data in the last seven days.
-     *  *
-     * @param DescribeDcdnDomainTopUrlVisitRequest $request DescribeDcdnDomainTopUrlVisitRequest
+     * Queries frequently requested URLs on a day.
      *
-     * @return DescribeDcdnDomainTopUrlVisitResponse DescribeDcdnDomainTopUrlVisitResponse
+     * @remarks
+     * > You can query data in the last seven days.
+     *
+     * @param Request - DescribeDcdnDomainTopUrlVisitRequest
+     *
+     * @returns DescribeDcdnDomainTopUrlVisitResponse
+     *
+     * @param DescribeDcdnDomainTopUrlVisitRequest $request
+     *
+     * @return DescribeDcdnDomainTopUrlVisitResponse
      */
     public function describeDcdnDomainTopUrlVisit($request)
     {
@@ -6398,9 +7783,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the network traffic of accelerated domain names. You can query data collected in the last 90 days.
-     *  *
-     * @description * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+     * Queries the network traffic of accelerated domain names. You can query data collected in the last 90 days.
+     *
+     * @remarks
+     * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * * You can call this operation up to 100 times per second per account.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -6409,56 +7795,68 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainTrafficDataRequest $request DescribeDcdnDomainTrafficDataRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainTrafficDataResponse DescribeDcdnDomainTrafficDataResponse
+     * @param Request - DescribeDcdnDomainTrafficDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainTrafficDataResponse
+     *
+     * @param DescribeDcdnDomainTrafficDataRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDcdnDomainTrafficDataResponse
      */
     public function describeDcdnDomainTrafficDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainTrafficData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainTrafficData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the network traffic of accelerated domain names. You can query data collected in the last 90 days.
-     *  *
-     * @description * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+     * Queries the network traffic of accelerated domain names. You can query data collected in the last 90 days.
+     *
+     * @remarks
+     * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * * You can call this operation up to 100 times per second per account.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -6467,10 +7865,14 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainTrafficDataRequest $request DescribeDcdnDomainTrafficDataRequest
      *
-     * @return DescribeDcdnDomainTrafficDataResponse DescribeDcdnDomainTrafficDataResponse
+     * @param Request - DescribeDcdnDomainTrafficDataRequest
+     *
+     * @returns DescribeDcdnDomainTrafficDataResponse
+     *
+     * @param DescribeDcdnDomainTrafficDataRequest $request
+     *
+     * @return DescribeDcdnDomainTrafficDataResponse
      */
     public function describeDcdnDomainTrafficData($request)
     {
@@ -6480,9 +7882,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries resource usage about domain names in a billable region.
-     *  *
-     * @description * You can call this operation up to 10 times per second per account.
+     * Queries resource usage about domain names in a billable region.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account.
      * * Usage data includes traffic (measured in bytes), bandwidth values (measured in bit/s), and the number of requests.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -6491,62 +7894,76 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainUsageDataRequest $request DescribeDcdnDomainUsageDataRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainUsageDataResponse DescribeDcdnDomainUsageDataResponse
+     * @param Request - DescribeDcdnDomainUsageDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainUsageDataResponse
+     *
+     * @param DescribeDcdnDomainUsageDataRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnDomainUsageDataResponse
      */
     public function describeDcdnDomainUsageDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->area)) {
-            $query['Area'] = $request->area;
+        if (null !== $request->area) {
+            @$query['Area'] = $request->area;
         }
-        if (!Utils::isUnset($request->dataProtocol)) {
-            $query['DataProtocol'] = $request->dataProtocol;
+
+        if (null !== $request->dataProtocol) {
+            @$query['DataProtocol'] = $request->dataProtocol;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->field)) {
-            $query['Field'] = $request->field;
+
+        if (null !== $request->field) {
+            @$query['Field'] = $request->field;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainUsageData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainUsageData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries resource usage about domain names in a billable region.
-     *  *
-     * @description * You can call this operation up to 10 times per second per account.
+     * Queries resource usage about domain names in a billable region.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account.
      * * Usage data includes traffic (measured in bytes), bandwidth values (measured in bit/s), and the number of requests.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -6555,10 +7972,14 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainUsageDataRequest $request DescribeDcdnDomainUsageDataRequest
      *
-     * @return DescribeDcdnDomainUsageDataResponse DescribeDcdnDomainUsageDataResponse
+     * @param Request - DescribeDcdnDomainUsageDataRequest
+     *
+     * @returns DescribeDcdnDomainUsageDataResponse
+     *
+     * @param DescribeDcdnDomainUsageDataRequest $request
+     *
+     * @return DescribeDcdnDomainUsageDataResponse
      */
     public function describeDcdnDomainUsageData($request)
     {
@@ -6568,56 +7989,70 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of unique visitors (UVs) to an accelerated domain name. Data is collected every hour. You can query data within the last 90 days.
-     *  *
-     * @description *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     * *   You can specify only one accelerated domain name or all the accelerated domain names that belong to your Alibaba Cloud account.
-     *  *
-     * @param DescribeDcdnDomainUvDataRequest $request DescribeDcdnDomainUvDataRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the number of unique visitors (UVs) to an accelerated domain name. Data is collected every hour. You can query data within the last 90 days.
      *
-     * @return DescribeDcdnDomainUvDataResponse DescribeDcdnDomainUvDataResponse
+     * @remarks
+     *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
+     * *   You can specify only one accelerated domain name or all the accelerated domain names that belong to your Alibaba Cloud account.
+     *
+     * @param Request - DescribeDcdnDomainUvDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainUvDataResponse
+     *
+     * @param DescribeDcdnDomainUvDataRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDcdnDomainUvDataResponse
      */
     public function describeDcdnDomainUvDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainUvData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainUvData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainUvDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of unique visitors (UVs) to an accelerated domain name. Data is collected every hour. You can query data within the last 90 days.
-     *  *
-     * @description *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     * *   You can specify only one accelerated domain name or all the accelerated domain names that belong to your Alibaba Cloud account.
-     *  *
-     * @param DescribeDcdnDomainUvDataRequest $request DescribeDcdnDomainUvDataRequest
+     * Queries the number of unique visitors (UVs) to an accelerated domain name. Data is collected every hour. You can query data within the last 90 days.
      *
-     * @return DescribeDcdnDomainUvDataResponse DescribeDcdnDomainUvDataResponse
+     * @remarks
+     *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
+     * *   You can specify only one accelerated domain name or all the accelerated domain names that belong to your Alibaba Cloud account.
+     *
+     * @param Request - DescribeDcdnDomainUvDataRequest
+     *
+     * @returns DescribeDcdnDomainUvDataResponse
+     *
+     * @param DescribeDcdnDomainUvDataRequest $request
+     *
+     * @return DescribeDcdnDomainUvDataResponse
      */
     public function describeDcdnDomainUvData($request)
     {
@@ -6627,9 +8062,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries bandwidth of one or more accelerated domain names for which WebSocket is enabled. You can query the data that is collected over the last 90 days.
-     *  *
-     * @description * You can call this operation up to 100 times per second per account.
+     * Queries bandwidth of one or more accelerated domain names for which WebSocket is enabled. You can query the data that is collected over the last 90 days.
+     *
+     * @remarks
+     * You can call this operation up to 100 times per second per account.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -6638,56 +8074,68 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainWebsocketBpsDataRequest $request DescribeDcdnDomainWebsocketBpsDataRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainWebsocketBpsDataResponse DescribeDcdnDomainWebsocketBpsDataResponse
+     * @param Request - DescribeDcdnDomainWebsocketBpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainWebsocketBpsDataResponse
+     *
+     * @param DescribeDcdnDomainWebsocketBpsDataRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeDcdnDomainWebsocketBpsDataResponse
      */
     public function describeDcdnDomainWebsocketBpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainWebsocketBpsData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainWebsocketBpsData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainWebsocketBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries bandwidth of one or more accelerated domain names for which WebSocket is enabled. You can query the data that is collected over the last 90 days.
-     *  *
-     * @description * You can call this operation up to 100 times per second per account.
+     * Queries bandwidth of one or more accelerated domain names for which WebSocket is enabled. You can query the data that is collected over the last 90 days.
+     *
+     * @remarks
+     * You can call this operation up to 100 times per second per account.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -6696,10 +8144,14 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainWebsocketBpsDataRequest $request DescribeDcdnDomainWebsocketBpsDataRequest
      *
-     * @return DescribeDcdnDomainWebsocketBpsDataResponse DescribeDcdnDomainWebsocketBpsDataResponse
+     * @param Request - DescribeDcdnDomainWebsocketBpsDataRequest
+     *
+     * @returns DescribeDcdnDomainWebsocketBpsDataResponse
+     *
+     * @param DescribeDcdnDomainWebsocketBpsDataRequest $request
+     *
+     * @return DescribeDcdnDomainWebsocketBpsDataResponse
      */
     public function describeDcdnDomainWebsocketBpsData($request)
     {
@@ -6709,9 +8161,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary The total number and proportions of HTTP status codes returned from one or more accelerated domain names for which WebSocket is enabled are queried. Data can be collected at minimum intervals of 5 minutes.
-     *  *
-     * @description You can call this operation up to 100 times per second per account.
+     * The total number and proportions of HTTP status codes returned from one or more accelerated domain names for which WebSocket is enabled are queried. Data can be collected at minimum intervals of 5 minutes.
+     *
+     * @remarks
+     * You can call this operation up to 100 times per second per account.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the time range to query, as described in the following table.
      * |Time granularity|Maximum time range per query|Historical data available|Data delay|
@@ -6719,56 +8172,68 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainWebsocketHttpCodeDataRequest $request DescribeDcdnDomainWebsocketHttpCodeDataRequest
-     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainWebsocketHttpCodeDataResponse DescribeDcdnDomainWebsocketHttpCodeDataResponse
+     * @param Request - DescribeDcdnDomainWebsocketHttpCodeDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainWebsocketHttpCodeDataResponse
+     *
+     * @param DescribeDcdnDomainWebsocketHttpCodeDataRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribeDcdnDomainWebsocketHttpCodeDataResponse
      */
     public function describeDcdnDomainWebsocketHttpCodeDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainWebsocketHttpCodeData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainWebsocketHttpCodeData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainWebsocketHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary The total number and proportions of HTTP status codes returned from one or more accelerated domain names for which WebSocket is enabled are queried. Data can be collected at minimum intervals of 5 minutes.
-     *  *
-     * @description You can call this operation up to 100 times per second per account.
+     * The total number and proportions of HTTP status codes returned from one or more accelerated domain names for which WebSocket is enabled are queried. Data can be collected at minimum intervals of 5 minutes.
+     *
+     * @remarks
+     * You can call this operation up to 100 times per second per account.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the time range to query, as described in the following table.
      * |Time granularity|Maximum time range per query|Historical data available|Data delay|
@@ -6776,10 +8241,14 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainWebsocketHttpCodeDataRequest $request DescribeDcdnDomainWebsocketHttpCodeDataRequest
      *
-     * @return DescribeDcdnDomainWebsocketHttpCodeDataResponse DescribeDcdnDomainWebsocketHttpCodeDataResponse
+     * @param Request - DescribeDcdnDomainWebsocketHttpCodeDataRequest
+     *
+     * @returns DescribeDcdnDomainWebsocketHttpCodeDataResponse
+     *
+     * @param DescribeDcdnDomainWebsocketHttpCodeDataRequest $request
+     *
+     * @return DescribeDcdnDomainWebsocketHttpCodeDataResponse
      */
     public function describeDcdnDomainWebsocketHttpCodeData($request)
     {
@@ -6789,9 +8258,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the traffic monitoring data for an accelerated domain name with WebSocket enabled. You can query data in the last 90 days.
-     *  *
-     * @description * You can call this operation up to 100 times per second per account.
+     * Queries the traffic monitoring data for an accelerated domain name with WebSocket enabled. You can query data in the last 90 days.
+     *
+     * @remarks
+     * You can call this operation up to 100 times per second per account.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -6800,56 +8270,68 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainWebsocketTrafficDataRequest $request DescribeDcdnDomainWebsocketTrafficDataRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnDomainWebsocketTrafficDataResponse DescribeDcdnDomainWebsocketTrafficDataResponse
+     * @param Request - DescribeDcdnDomainWebsocketTrafficDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainWebsocketTrafficDataResponse
+     *
+     * @param DescribeDcdnDomainWebsocketTrafficDataRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return DescribeDcdnDomainWebsocketTrafficDataResponse
      */
     public function describeDcdnDomainWebsocketTrafficDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainWebsocketTrafficData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainWebsocketTrafficData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainWebsocketTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the traffic monitoring data for an accelerated domain name with WebSocket enabled. You can query data in the last 90 days.
-     *  *
-     * @description * You can call this operation up to 100 times per second per account.
+     * Queries the traffic monitoring data for an accelerated domain name with WebSocket enabled. You can query data in the last 90 days.
+     *
+     * @remarks
+     * You can call this operation up to 100 times per second per account.
      * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
      * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
@@ -6858,10 +8340,14 @@ class Dcdn extends OpenApiClient
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|4 hours|
      * |1 day|366 days|366 days|04:00 on the next day|
-     *  *
-     * @param DescribeDcdnDomainWebsocketTrafficDataRequest $request DescribeDcdnDomainWebsocketTrafficDataRequest
      *
-     * @return DescribeDcdnDomainWebsocketTrafficDataResponse DescribeDcdnDomainWebsocketTrafficDataResponse
+     * @param Request - DescribeDcdnDomainWebsocketTrafficDataRequest
+     *
+     * @returns DescribeDcdnDomainWebsocketTrafficDataResponse
+     *
+     * @param DescribeDcdnDomainWebsocketTrafficDataRequest $request
+     *
+     * @return DescribeDcdnDomainWebsocketTrafficDataResponse
      */
     public function describeDcdnDomainWebsocketTrafficData($request)
     {
@@ -6871,44 +8357,54 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries DCDN-accelerated domain names by origin server.
-     *  *
-     * @param DescribeDcdnDomainsBySourceRequest $request DescribeDcdnDomainsBySourceRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries DCDN-accelerated domain names by origin server.
      *
-     * @return DescribeDcdnDomainsBySourceResponse DescribeDcdnDomainsBySourceResponse
+     * @param Request - DescribeDcdnDomainsBySourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnDomainsBySourceResponse
+     *
+     * @param DescribeDcdnDomainsBySourceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnDomainsBySourceResponse
      */
     public function describeDcdnDomainsBySourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sources)) {
-            $query['Sources'] = $request->sources;
+        if (null !== $request->sources) {
+            @$query['Sources'] = $request->sources;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnDomainsBySource',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnDomainsBySource',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnDomainsBySourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries DCDN-accelerated domain names by origin server.
-     *  *
-     * @param DescribeDcdnDomainsBySourceRequest $request DescribeDcdnDomainsBySourceRequest
+     * Queries DCDN-accelerated domain names by origin server.
      *
-     * @return DescribeDcdnDomainsBySourceResponse DescribeDcdnDomainsBySourceResponse
+     * @param Request - DescribeDcdnDomainsBySourceRequest
+     *
+     * @returns DescribeDcdnDomainsBySourceResponse
+     *
+     * @param DescribeDcdnDomainsBySourceRequest $request
+     *
+     * @return DescribeDcdnDomainsBySourceResponse
      */
     public function describeDcdnDomainsBySource($request)
     {
@@ -6918,62 +8414,78 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of times that a routine is executed within a specified period of time.
-     *  *
-     * @description *   You can call this operation up to 10 times per second per account.
-     * *   The minimum time granularity for a query is 1 hour. The maximum time span for a query is 24 hours. The time period within which historical data is available for a query is 366 days.
-     *  *
-     * @param DescribeDcdnErUsageDataRequest $request DescribeDcdnErUsageDataRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the number of times that a routine is executed within a specified period of time.
      *
-     * @return DescribeDcdnErUsageDataResponse DescribeDcdnErUsageDataResponse
+     * @remarks
+     *   You can call this operation up to 10 times per second per account.
+     * *   The minimum time granularity for a query is 1 hour. The maximum time span for a query is 24 hours. The time period within which historical data is available for a query is 366 days.
+     *
+     * @param Request - DescribeDcdnErUsageDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnErUsageDataResponse
+     *
+     * @param DescribeDcdnErUsageDataRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnErUsageDataResponse
      */
     public function describeDcdnErUsageDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->routineID)) {
-            $query['RoutineID'] = $request->routineID;
+
+        if (null !== $request->routineID) {
+            @$query['RoutineID'] = $request->routineID;
         }
-        if (!Utils::isUnset($request->spec)) {
-            $query['Spec'] = $request->spec;
+
+        if (null !== $request->spec) {
+            @$query['Spec'] = $request->spec;
         }
-        if (!Utils::isUnset($request->splitBy)) {
-            $query['SplitBy'] = $request->splitBy;
+
+        if (null !== $request->splitBy) {
+            @$query['SplitBy'] = $request->splitBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnErUsageData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnErUsageData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnErUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of times that a routine is executed within a specified period of time.
-     *  *
-     * @description *   You can call this operation up to 10 times per second per account.
-     * *   The minimum time granularity for a query is 1 hour. The maximum time span for a query is 24 hours. The time period within which historical data is available for a query is 366 days.
-     *  *
-     * @param DescribeDcdnErUsageDataRequest $request DescribeDcdnErUsageDataRequest
+     * Queries the number of times that a routine is executed within a specified period of time.
      *
-     * @return DescribeDcdnErUsageDataResponse DescribeDcdnErUsageDataResponse
+     * @remarks
+     *   You can call this operation up to 10 times per second per account.
+     * *   The minimum time granularity for a query is 1 hour. The maximum time span for a query is 24 hours. The time period within which historical data is available for a query is 366 days.
+     *
+     * @param Request - DescribeDcdnErUsageDataRequest
+     *
+     * @returns DescribeDcdnErUsageDataResponse
+     *
+     * @param DescribeDcdnErUsageDataRequest $request
+     *
+     * @return DescribeDcdnErUsageDataResponse
      */
     public function describeDcdnErUsageData($request)
     {
@@ -6983,49 +8495,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of blocked IP addresses.
-     *  *
-     * @description > *   If you specify IP addresses or CIDR blocks, IP addresses that are effective and the corresponding expiration time are returned. If you do not specify IP addresses or CIDR blocks, all effective IP addresses and the corresponding expiration time are returned.
+     * Queries the configurations of blocked IP addresses.
+     *
+     * @remarks
+     * > *   If you specify IP addresses or CIDR blocks, IP addresses that are effective and the corresponding expiration time are returned. If you do not specify IP addresses or CIDR blocks, all effective IP addresses and the corresponding expiration time are returned.
      * > *   The results are written to OSS and returned as OSS URLs. The content in OSS objects is in the format of `IP address-Corresponding expiration time`. The expiration time is in the YYYY-MM-DD hh:mm:ss format.
      * > *   You can share OSS URLs with others. The shared URLs are valid for three days.
-     *  *
-     * @param DescribeDcdnFullDomainsBlockIPConfigRequest $request DescribeDcdnFullDomainsBlockIPConfigRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnFullDomainsBlockIPConfigResponse DescribeDcdnFullDomainsBlockIPConfigResponse
+     * @param Request - DescribeDcdnFullDomainsBlockIPConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnFullDomainsBlockIPConfigResponse
+     *
+     * @param DescribeDcdnFullDomainsBlockIPConfigRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeDcdnFullDomainsBlockIPConfigResponse
      */
     public function describeDcdnFullDomainsBlockIPConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnFullDomainsBlockIPConfig',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnFullDomainsBlockIPConfig',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnFullDomainsBlockIPConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of blocked IP addresses.
-     *  *
-     * @description > *   If you specify IP addresses or CIDR blocks, IP addresses that are effective and the corresponding expiration time are returned. If you do not specify IP addresses or CIDR blocks, all effective IP addresses and the corresponding expiration time are returned.
+     * Queries the configurations of blocked IP addresses.
+     *
+     * @remarks
+     * > *   If you specify IP addresses or CIDR blocks, IP addresses that are effective and the corresponding expiration time are returned. If you do not specify IP addresses or CIDR blocks, all effective IP addresses and the corresponding expiration time are returned.
      * > *   The results are written to OSS and returned as OSS URLs. The content in OSS objects is in the format of `IP address-Corresponding expiration time`. The expiration time is in the YYYY-MM-DD hh:mm:ss format.
      * > *   You can share OSS URLs with others. The shared URLs are valid for three days.
-     *  *
-     * @param DescribeDcdnFullDomainsBlockIPConfigRequest $request DescribeDcdnFullDomainsBlockIPConfigRequest
      *
-     * @return DescribeDcdnFullDomainsBlockIPConfigResponse DescribeDcdnFullDomainsBlockIPConfigResponse
+     * @param Request - DescribeDcdnFullDomainsBlockIPConfigRequest
+     *
+     * @returns DescribeDcdnFullDomainsBlockIPConfigResponse
+     *
+     * @param DescribeDcdnFullDomainsBlockIPConfigRequest $request
+     *
+     * @return DescribeDcdnFullDomainsBlockIPConfigResponse
      */
     public function describeDcdnFullDomainsBlockIPConfig($request)
     {
@@ -7035,60 +8558,74 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户海量封禁历史
-     *  *
-     * @description *   For a specified IP addresses and time range, the time when the IP address was delivered to the edge and the corresponding result are returned.
+     * 查询用户海量封禁历史.
+     *
+     * @remarks
+     *   For a specified IP addresses and time range, the time when the IP address was delivered to the edge and the corresponding result are returned.
      * *   If a specified IP address or CIDR block has multiple blocking records in a specified time range, the records are sorted by delivery time in descending order.
      * *   The maximum time range to query is 90 days.
      * *   If no blocking record exists or delivery fails for the given IP address and time range, the delivery time is empty.
-     *  *
-     * @param DescribeDcdnFullDomainsBlockIPHistoryRequest $request DescribeDcdnFullDomainsBlockIPHistoryRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnFullDomainsBlockIPHistoryResponse DescribeDcdnFullDomainsBlockIPHistoryResponse
+     * @param Request - DescribeDcdnFullDomainsBlockIPHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnFullDomainsBlockIPHistoryResponse
+     *
+     * @param DescribeDcdnFullDomainsBlockIPHistoryRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeDcdnFullDomainsBlockIPHistoryResponse
      */
     public function describeDcdnFullDomainsBlockIPHistoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->IPList)) {
-            $body['IPList'] = $request->IPList;
+
+        if (null !== $request->IPList) {
+            @$body['IPList'] = $request->IPList;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnFullDomainsBlockIPHistory',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnFullDomainsBlockIPHistory',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnFullDomainsBlockIPHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询用户海量封禁历史
-     *  *
-     * @description *   For a specified IP addresses and time range, the time when the IP address was delivered to the edge and the corresponding result are returned.
+     * 查询用户海量封禁历史.
+     *
+     * @remarks
+     *   For a specified IP addresses and time range, the time when the IP address was delivered to the edge and the corresponding result are returned.
      * *   If a specified IP address or CIDR block has multiple blocking records in a specified time range, the records are sorted by delivery time in descending order.
      * *   The maximum time range to query is 90 days.
      * *   If no blocking record exists or delivery fails for the given IP address and time range, the delivery time is empty.
-     *  *
-     * @param DescribeDcdnFullDomainsBlockIPHistoryRequest $request DescribeDcdnFullDomainsBlockIPHistoryRequest
      *
-     * @return DescribeDcdnFullDomainsBlockIPHistoryResponse DescribeDcdnFullDomainsBlockIPHistoryResponse
+     * @param Request - DescribeDcdnFullDomainsBlockIPHistoryRequest
+     *
+     * @returns DescribeDcdnFullDomainsBlockIPHistoryResponse
+     *
+     * @param DescribeDcdnFullDomainsBlockIPHistoryRequest $request
+     *
+     * @return DescribeDcdnFullDomainsBlockIPHistoryResponse
      */
     public function describeDcdnFullDomainsBlockIPHistory($request)
     {
@@ -7098,54 +8635,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about all certificates that belong to your account.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnHttpsDomainListRequest $request DescribeDcdnHttpsDomainListRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries information about all certificates that belong to your account.
      *
-     * @return DescribeDcdnHttpsDomainListResponse DescribeDcdnHttpsDomainListResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnHttpsDomainListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnHttpsDomainListResponse
+     *
+     * @param DescribeDcdnHttpsDomainListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnHttpsDomainListResponse
      */
     public function describeDcdnHttpsDomainListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnHttpsDomainList',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnHttpsDomainList',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnHttpsDomainListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about all certificates that belong to your account.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnHttpsDomainListRequest $request DescribeDcdnHttpsDomainListRequest
+     * Queries information about all certificates that belong to your account.
      *
-     * @return DescribeDcdnHttpsDomainListResponse DescribeDcdnHttpsDomainListResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnHttpsDomainListRequest
+     *
+     * @returns DescribeDcdnHttpsDomainListResponse
+     *
+     * @param DescribeDcdnHttpsDomainListRequest $request
+     *
+     * @return DescribeDcdnHttpsDomainListResponse
      */
     public function describeDcdnHttpsDomainList($request)
     {
@@ -7155,48 +8706,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether an IP address belongs to a POP.
-     *  *
-     * @description > You can call this operation up to 50 times per second per account.
-     *  *
-     * @param DescribeDcdnIpInfoRequest $request DescribeDcdnIpInfoRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries whether an IP address belongs to a POP.
      *
-     * @return DescribeDcdnIpInfoResponse DescribeDcdnIpInfoResponse
+     * @remarks
+     * > You can call this operation up to 50 times per second per account.
+     *
+     * @param Request - DescribeDcdnIpInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnIpInfoResponse
+     *
+     * @param DescribeDcdnIpInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDcdnIpInfoResponse
      */
     public function describeDcdnIpInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->IP)) {
-            $query['IP'] = $request->IP;
+        if (null !== $request->IP) {
+            @$query['IP'] = $request->IP;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnIpInfo',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnIpInfo',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnIpInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether an IP address belongs to a POP.
-     *  *
-     * @description > You can call this operation up to 50 times per second per account.
-     *  *
-     * @param DescribeDcdnIpInfoRequest $request DescribeDcdnIpInfoRequest
+     * Queries whether an IP address belongs to a POP.
      *
-     * @return DescribeDcdnIpInfoResponse DescribeDcdnIpInfoResponse
+     * @remarks
+     * > You can call this operation up to 50 times per second per account.
+     *
+     * @param Request - DescribeDcdnIpInfoRequest
+     *
+     * @returns DescribeDcdnIpInfoResponse
+     *
+     * @param DescribeDcdnIpInfoRequest $request
+     *
+     * @return DescribeDcdnIpInfoResponse
      */
     public function describeDcdnIpInfo($request)
     {
@@ -7206,48 +8769,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the back-to-origin CIDR blocks of IPA-accelerated domain names. If you want to call this API operation, you must submit a ticket to apply for the required permissions.
-     *  *
-     * @description >  This operation can be called globally up to 50 times per second. This operation can be called up to 10 times per second per account.
-     *  *
-     * @param DescribeDcdnIpaDomainCidrRequest $request DescribeDcdnIpaDomainCidrRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the back-to-origin CIDR blocks of IPA-accelerated domain names. If you want to call this API operation, you must submit a ticket to apply for the required permissions.
      *
-     * @return DescribeDcdnIpaDomainCidrResponse DescribeDcdnIpaDomainCidrResponse
+     * @remarks
+     * >  This operation can be called globally up to 50 times per second. This operation can be called up to 10 times per second per account.
+     *
+     * @param Request - DescribeDcdnIpaDomainCidrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnIpaDomainCidrResponse
+     *
+     * @param DescribeDcdnIpaDomainCidrRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDcdnIpaDomainCidrResponse
      */
     public function describeDcdnIpaDomainCidrWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnIpaDomainCidr',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnIpaDomainCidr',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnIpaDomainCidrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the back-to-origin CIDR blocks of IPA-accelerated domain names. If you want to call this API operation, you must submit a ticket to apply for the required permissions.
-     *  *
-     * @description >  This operation can be called globally up to 50 times per second. This operation can be called up to 10 times per second per account.
-     *  *
-     * @param DescribeDcdnIpaDomainCidrRequest $request DescribeDcdnIpaDomainCidrRequest
+     * Queries the back-to-origin CIDR blocks of IPA-accelerated domain names. If you want to call this API operation, you must submit a ticket to apply for the required permissions.
      *
-     * @return DescribeDcdnIpaDomainCidrResponse DescribeDcdnIpaDomainCidrResponse
+     * @remarks
+     * >  This operation can be called globally up to 50 times per second. This operation can be called up to 10 times per second per account.
+     *
+     * @param Request - DescribeDcdnIpaDomainCidrRequest
+     *
+     * @returns DescribeDcdnIpaDomainCidrResponse
+     *
+     * @param DescribeDcdnIpaDomainCidrRequest $request
+     *
+     * @return DescribeDcdnIpaDomainCidrResponse
      */
     public function describeDcdnIpaDomainCidr($request)
     {
@@ -7257,57 +8832,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of an accelerated domain name. You can query the configurations of one or more features in each request.
-     *  *
-     * @description > You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnIpaDomainConfigsRequest $request DescribeDcdnIpaDomainConfigsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations of an accelerated domain name. You can query the configurations of one or more features in each request.
      *
-     * @return DescribeDcdnIpaDomainConfigsResponse DescribeDcdnIpaDomainConfigsResponse
+     * @remarks
+     * > You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnIpaDomainConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnIpaDomainConfigsResponse
+     *
+     * @param DescribeDcdnIpaDomainConfigsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDcdnIpaDomainConfigsResponse
      */
     public function describeDcdnIpaDomainConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->functionNames)) {
-            $query['FunctionNames'] = $request->functionNames;
+
+        if (null !== $request->functionNames) {
+            @$query['FunctionNames'] = $request->functionNames;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnIpaDomainConfigs',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnIpaDomainConfigs',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnIpaDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of an accelerated domain name. You can query the configurations of one or more features in each request.
-     *  *
-     * @description > You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnIpaDomainConfigsRequest $request DescribeDcdnIpaDomainConfigsRequest
+     * Queries the configurations of an accelerated domain name. You can query the configurations of one or more features in each request.
      *
-     * @return DescribeDcdnIpaDomainConfigsResponse DescribeDcdnIpaDomainConfigsResponse
+     * @remarks
+     * > You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnIpaDomainConfigsRequest
+     *
+     * @returns DescribeDcdnIpaDomainConfigsResponse
+     *
+     * @param DescribeDcdnIpaDomainConfigsRequest $request
+     *
+     * @return DescribeDcdnIpaDomainConfigsResponse
      */
     public function describeDcdnIpaDomainConfigs($request)
     {
@@ -7317,54 +8907,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the basic configuration information about an accelerated domain name.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnIpaDomainDetailRequest $request DescribeDcdnIpaDomainDetailRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the basic configuration information about an accelerated domain name.
      *
-     * @return DescribeDcdnIpaDomainDetailResponse DescribeDcdnIpaDomainDetailResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnIpaDomainDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnIpaDomainDetailResponse
+     *
+     * @param DescribeDcdnIpaDomainDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnIpaDomainDetailResponse
      */
     public function describeDcdnIpaDomainDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnIpaDomainDetail',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnIpaDomainDetail',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnIpaDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the basic configuration information about an accelerated domain name.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnIpaDomainDetailRequest $request DescribeDcdnIpaDomainDetailRequest
+     * Queries the basic configuration information about an accelerated domain name.
      *
-     * @return DescribeDcdnIpaDomainDetailResponse DescribeDcdnIpaDomainDetailResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnIpaDomainDetailRequest
+     *
+     * @returns DescribeDcdnIpaDomainDetailResponse
+     *
+     * @param DescribeDcdnIpaDomainDetailRequest $request
+     *
+     * @return DescribeDcdnIpaDomainDetailResponse
      */
     public function describeDcdnIpaDomainDetail($request)
     {
@@ -7374,53 +8978,66 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of IPA. The information includes the time when the service was activated, the current service status, the current billing method, and the billing method of the next cycle.
-     *  *
-     * @description **
-     * **The maximum number of times that each user can call this operation per second is 20.
-     *  *
-     * @param DescribeDcdnIpaServiceRequest $request DescribeDcdnIpaServiceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the status of IPA. The information includes the time when the service was activated, the current service status, the current billing method, and the billing method of the next cycle.
      *
-     * @return DescribeDcdnIpaServiceResponse DescribeDcdnIpaServiceResponse
+     * @remarks
+     * *
+     * **The maximum number of times that each user can call this operation per second is 20.
+     *
+     * @param Request - DescribeDcdnIpaServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnIpaServiceResponse
+     *
+     * @param DescribeDcdnIpaServiceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDcdnIpaServiceResponse
      */
     public function describeDcdnIpaServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnIpaService',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnIpaService',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnIpaServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of IPA. The information includes the time when the service was activated, the current service status, the current billing method, and the billing method of the next cycle.
-     *  *
-     * @description **
-     * **The maximum number of times that each user can call this operation per second is 20.
-     *  *
-     * @param DescribeDcdnIpaServiceRequest $request DescribeDcdnIpaServiceRequest
+     * Queries the status of IPA. The information includes the time when the service was activated, the current service status, the current billing method, and the billing method of the next cycle.
      *
-     * @return DescribeDcdnIpaServiceResponse DescribeDcdnIpaServiceResponse
+     * @remarks
+     * *
+     * **The maximum number of times that each user can call this operation per second is 20.
+     *
+     * @param Request - DescribeDcdnIpaServiceRequest
+     *
+     * @returns DescribeDcdnIpaServiceResponse
+     *
+     * @param DescribeDcdnIpaServiceRequest $request
+     *
+     * @return DescribeDcdnIpaServiceResponse
      */
     public function describeDcdnIpaService($request)
     {
@@ -7430,78 +9047,100 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about all domain names that are accelerated by IP Application Accelerator (IPA) in your account. Fuzzy search and filtering by domain status are supported.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnIpaUserDomainsRequest $request DescribeDcdnIpaUserDomainsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries information about all domain names that are accelerated by IP Application Accelerator (IPA) in your account. Fuzzy search and filtering by domain status are supported.
      *
-     * @return DescribeDcdnIpaUserDomainsResponse DescribeDcdnIpaUserDomainsResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnIpaUserDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnIpaUserDomainsResponse
+     *
+     * @param DescribeDcdnIpaUserDomainsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDcdnIpaUserDomainsResponse
      */
     public function describeDcdnIpaUserDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->checkDomainShow)) {
-            $query['CheckDomainShow'] = $request->checkDomainShow;
+        if (null !== $request->checkDomainShow) {
+            @$query['CheckDomainShow'] = $request->checkDomainShow;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->domainSearchType)) {
-            $query['DomainSearchType'] = $request->domainSearchType;
+
+        if (null !== $request->domainSearchType) {
+            @$query['DomainSearchType'] = $request->domainSearchType;
         }
-        if (!Utils::isUnset($request->domainStatus)) {
-            $query['DomainStatus'] = $request->domainStatus;
+
+        if (null !== $request->domainStatus) {
+            @$query['DomainStatus'] = $request->domainStatus;
         }
-        if (!Utils::isUnset($request->funcFilter)) {
-            $query['FuncFilter'] = $request->funcFilter;
+
+        if (null !== $request->funcFilter) {
+            @$query['FuncFilter'] = $request->funcFilter;
         }
-        if (!Utils::isUnset($request->funcId)) {
-            $query['FuncId'] = $request->funcId;
+
+        if (null !== $request->funcId) {
+            @$query['FuncId'] = $request->funcId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnIpaUserDomains',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnIpaUserDomains',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnIpaUserDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about all domain names that are accelerated by IP Application Accelerator (IPA) in your account. Fuzzy search and filtering by domain status are supported.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnIpaUserDomainsRequest $request DescribeDcdnIpaUserDomainsRequest
+     * Queries information about all domain names that are accelerated by IP Application Accelerator (IPA) in your account. Fuzzy search and filtering by domain status are supported.
      *
-     * @return DescribeDcdnIpaUserDomainsResponse DescribeDcdnIpaUserDomainsResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnIpaUserDomainsRequest
+     *
+     * @returns DescribeDcdnIpaUserDomainsResponse
+     *
+     * @param DescribeDcdnIpaUserDomainsRequest $request
+     *
+     * @return DescribeDcdnIpaUserDomainsResponse
      */
     public function describeDcdnIpaUserDomains($request)
     {
@@ -7511,34 +9150,41 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the key-value pairs that belong to your account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the key-value pairs that belong to your account.
      *
-     * @return DescribeDcdnKvAccountResponse DescribeDcdnKvAccountResponse
+     * @param Request - DescribeDcdnKvAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnKvAccountResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnKvAccountResponse
      */
     public function describeDcdnKvAccountWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeDcdnKvAccount',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnKvAccount',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnKvAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the key-value pairs that belong to your account.
-     *  *
-     * @return DescribeDcdnKvAccountResponse DescribeDcdnKvAccountResponse
+     * Queries the information about the key-value pairs that belong to your account.
+     *
+     * @returns DescribeDcdnKvAccountResponse
+     *
+     * @return DescribeDcdnKvAccountResponse
      */
     public function describeDcdnKvAccount()
     {
@@ -7548,34 +9194,41 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the KV status of an account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the KV status of an account.
      *
-     * @return DescribeDcdnKvAccountStatusResponse DescribeDcdnKvAccountStatusResponse
+     * @param Request - DescribeDcdnKvAccountStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnKvAccountStatusResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnKvAccountStatusResponse
      */
     public function describeDcdnKvAccountStatusWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeDcdnKvAccountStatus',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnKvAccountStatus',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnKvAccountStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the KV status of an account.
-     *  *
-     * @return DescribeDcdnKvAccountStatusResponse DescribeDcdnKvAccountStatusResponse
+     * Queries the KV status of an account.
+     *
+     * @returns DescribeDcdnKvAccountStatusResponse
+     *
+     * @return DescribeDcdnKvAccountStatusResponse
      */
     public function describeDcdnKvAccountStatus()
     {
@@ -7585,41 +9238,50 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a namespace.
-     *  *
-     * @param DescribeDcdnKvNamespaceRequest $request DescribeDcdnKvNamespaceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a namespace.
      *
-     * @return DescribeDcdnKvNamespaceResponse DescribeDcdnKvNamespaceResponse
+     * @param Request - DescribeDcdnKvNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnKvNamespaceResponse
+     *
+     * @param DescribeDcdnKvNamespaceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnKvNamespaceResponse
      */
     public function describeDcdnKvNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnKvNamespace',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnKvNamespace',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a namespace.
-     *  *
-     * @param DescribeDcdnKvNamespaceRequest $request DescribeDcdnKvNamespaceRequest
+     * Queries the information about a namespace.
      *
-     * @return DescribeDcdnKvNamespaceResponse DescribeDcdnKvNamespaceResponse
+     * @param Request - DescribeDcdnKvNamespaceRequest
+     *
+     * @returns DescribeDcdnKvNamespaceResponse
+     *
+     * @param DescribeDcdnKvNamespaceRequest $request
+     *
+     * @return DescribeDcdnKvNamespaceResponse
      */
     public function describeDcdnKvNamespace($request)
     {
@@ -7629,40 +9291,49 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries CIDR blocks of Dynamic Content Delivery Network (DCDN) points of presence (POPs).
-     *  *
-     * @description > *   To use this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
-     * > *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries CIDR blocks of Dynamic Content Delivery Network (DCDN) points of presence (POPs).
      *
-     * @return DescribeDcdnL2IpsResponse DescribeDcdnL2IpsResponse
+     * @remarks
+     * > *   To use this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+     * > *   You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnL2IpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnL2IpsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnL2IpsResponse
      */
     public function describeDcdnL2IpsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeDcdnL2Ips',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnL2Ips',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnL2IpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries CIDR blocks of Dynamic Content Delivery Network (DCDN) points of presence (POPs).
-     *  *
-     * @description > *   To use this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+     * Queries CIDR blocks of Dynamic Content Delivery Network (DCDN) points of presence (POPs).
+     *
+     * @remarks
+     * > *   To use this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
      * > *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @return DescribeDcdnL2IpsResponse DescribeDcdnL2IpsResponse
+     *
+     * @returns DescribeDcdnL2IpsResponse
+     *
+     * @return DescribeDcdnL2IpsResponse
      */
     public function describeDcdnL2Ips()
     {
@@ -7672,44 +9343,54 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the origin CIDR blocks by domain name. The CIDR blocks include IPv4 and IPv6 CIDR blocks.
-     *  *
-     * @param DescribeDcdnL2VipsRequest $request DescribeDcdnL2VipsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the origin CIDR blocks by domain name. The CIDR blocks include IPv4 and IPv6 CIDR blocks.
      *
-     * @return DescribeDcdnL2VipsResponse DescribeDcdnL2VipsResponse
+     * @param Request - DescribeDcdnL2VipsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnL2VipsResponse
+     *
+     * @param DescribeDcdnL2VipsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDcdnL2VipsResponse
      */
     public function describeDcdnL2VipsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnL2Vips',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnL2Vips',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnL2VipsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the origin CIDR blocks by domain name. The CIDR blocks include IPv4 and IPv6 CIDR blocks.
-     *  *
-     * @param DescribeDcdnL2VipsRequest $request DescribeDcdnL2VipsRequest
+     * Queries the origin CIDR blocks by domain name. The CIDR blocks include IPv4 and IPv6 CIDR blocks.
      *
-     * @return DescribeDcdnL2VipsResponse DescribeDcdnL2VipsResponse
+     * @param Request - DescribeDcdnL2VipsRequest
+     *
+     * @returns DescribeDcdnL2VipsResponse
+     *
+     * @param DescribeDcdnL2VipsRequest $request
+     *
+     * @return DescribeDcdnL2VipsResponse
      */
     public function describeDcdnL2Vips($request)
     {
@@ -7719,44 +9400,54 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of the origin server for a DCDN-accelerated domain name.
-     *  *
-     * @param DescribeDcdnOriginSiteHealthStatusRequest $request DescribeDcdnOriginSiteHealthStatusRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the status of the origin server for a DCDN-accelerated domain name.
      *
-     * @return DescribeDcdnOriginSiteHealthStatusResponse DescribeDcdnOriginSiteHealthStatusResponse
+     * @param Request - DescribeDcdnOriginSiteHealthStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnOriginSiteHealthStatusResponse
+     *
+     * @param DescribeDcdnOriginSiteHealthStatusRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeDcdnOriginSiteHealthStatusResponse
      */
     public function describeDcdnOriginSiteHealthStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnOriginSiteHealthStatus',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnOriginSiteHealthStatus',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnOriginSiteHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of the origin server for a DCDN-accelerated domain name.
-     *  *
-     * @param DescribeDcdnOriginSiteHealthStatusRequest $request DescribeDcdnOriginSiteHealthStatusRequest
+     * Queries the status of the origin server for a DCDN-accelerated domain name.
      *
-     * @return DescribeDcdnOriginSiteHealthStatusResponse DescribeDcdnOriginSiteHealthStatusResponse
+     * @param Request - DescribeDcdnOriginSiteHealthStatusRequest
+     *
+     * @returns DescribeDcdnOriginSiteHealthStatusResponse
+     *
+     * @param DescribeDcdnOriginSiteHealthStatusRequest $request
+     *
+     * @return DescribeDcdnOriginSiteHealthStatusResponse
      */
     public function describeDcdnOriginSiteHealthStatus($request)
     {
@@ -7766,48 +9457,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the fields in real-time log entries.
-     *  *
-     * @description >  You can call this API operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnRealTimeDeliveryFieldRequest $request DescribeDcdnRealTimeDeliveryFieldRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the fields in real-time log entries.
      *
-     * @return DescribeDcdnRealTimeDeliveryFieldResponse DescribeDcdnRealTimeDeliveryFieldResponse
+     * @remarks
+     * >  You can call this API operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnRealTimeDeliveryFieldRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnRealTimeDeliveryFieldResponse
+     *
+     * @param DescribeDcdnRealTimeDeliveryFieldRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDcdnRealTimeDeliveryFieldResponse
      */
     public function describeDcdnRealTimeDeliveryFieldWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$query['BusinessType'] = $request->businessType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnRealTimeDeliveryField',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnRealTimeDeliveryField',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnRealTimeDeliveryFieldResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the fields in real-time log entries.
-     *  *
-     * @description >  You can call this API operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnRealTimeDeliveryFieldRequest $request DescribeDcdnRealTimeDeliveryFieldRequest
+     * Queries the fields in real-time log entries.
      *
-     * @return DescribeDcdnRealTimeDeliveryFieldResponse DescribeDcdnRealTimeDeliveryFieldResponse
+     * @remarks
+     * >  You can call this API operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnRealTimeDeliveryFieldRequest
+     *
+     * @returns DescribeDcdnRealTimeDeliveryFieldResponse
+     *
+     * @param DescribeDcdnRealTimeDeliveryFieldRequest $request
+     *
+     * @return DescribeDcdnRealTimeDeliveryFieldResponse
      */
     public function describeDcdnRealTimeDeliveryField($request)
     {
@@ -7817,55 +9520,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the maximum number and the remaining number of URLs and directories that can be refreshed or the maximum number and the remaining number of URLs that can be prefetched per day.
-     *  *
-     * @description >
+     * Queries the maximum number and the remaining number of URLs and directories that can be refreshed or the maximum number and the remaining number of URLs that can be prefetched per day.
+     *
+     * @remarks
+     * >
      * *   You can call the **RefreshDcdnObjectCaches** operation to refresh content and call the **PreloadDcdnObjectCaches** operation to prefetch content.
      * *   You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnRefreshQuotaRequest $request DescribeDcdnRefreshQuotaRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnRefreshQuotaResponse DescribeDcdnRefreshQuotaResponse
+     * @param Request - DescribeDcdnRefreshQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnRefreshQuotaResponse
+     *
+     * @param DescribeDcdnRefreshQuotaRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDcdnRefreshQuotaResponse
      */
     public function describeDcdnRefreshQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnRefreshQuota',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnRefreshQuota',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnRefreshQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the maximum number and the remaining number of URLs and directories that can be refreshed or the maximum number and the remaining number of URLs that can be prefetched per day.
-     *  *
-     * @description >
+     * Queries the maximum number and the remaining number of URLs and directories that can be refreshed or the maximum number and the remaining number of URLs that can be prefetched per day.
+     *
+     * @remarks
+     * >
      * *   You can call the **RefreshDcdnObjectCaches** operation to refresh content and call the **PreloadDcdnObjectCaches** operation to prefetch content.
      * *   You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnRefreshQuotaRequest $request DescribeDcdnRefreshQuotaRequest
      *
-     * @return DescribeDcdnRefreshQuotaResponse DescribeDcdnRefreshQuotaResponse
+     * @param Request - DescribeDcdnRefreshQuotaRequest
+     *
+     * @returns DescribeDcdnRefreshQuotaResponse
+     *
+     * @param DescribeDcdnRefreshQuotaRequest $request
+     *
+     * @return DescribeDcdnRefreshQuotaResponse
      */
     public function describeDcdnRefreshQuota($request)
     {
@@ -7875,52 +9591,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of refresh or prefetch tasks by task ID.
-     *  *
-     * @description >
+     * Queries the status of refresh or prefetch tasks by task ID.
+     *
+     * @remarks
+     * >
      * *   You can query data within the last three days.
      * *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnRefreshTaskByIdRequest $request DescribeDcdnRefreshTaskByIdRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnRefreshTaskByIdResponse DescribeDcdnRefreshTaskByIdResponse
+     * @param Request - DescribeDcdnRefreshTaskByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnRefreshTaskByIdResponse
+     *
+     * @param DescribeDcdnRefreshTaskByIdRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnRefreshTaskByIdResponse
      */
     public function describeDcdnRefreshTaskByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnRefreshTaskById',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnRefreshTaskById',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnRefreshTaskByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of refresh or prefetch tasks by task ID.
-     *  *
-     * @description >
+     * Queries the status of refresh or prefetch tasks by task ID.
+     *
+     * @remarks
+     * >
      * *   You can query data within the last three days.
      * *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnRefreshTaskByIdRequest $request DescribeDcdnRefreshTaskByIdRequest
      *
-     * @return DescribeDcdnRefreshTaskByIdResponse DescribeDcdnRefreshTaskByIdResponse
+     * @param Request - DescribeDcdnRefreshTaskByIdRequest
+     *
+     * @returns DescribeDcdnRefreshTaskByIdResponse
+     *
+     * @param DescribeDcdnRefreshTaskByIdRequest $request
+     *
+     * @return DescribeDcdnRefreshTaskByIdResponse
      */
     public function describeDcdnRefreshTaskById($request)
     {
@@ -7930,84 +9658,106 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the refresh or prefetch tasks. You can query the tasks in the last three days.
-     *  *
-     * @description *   You can query the refresh or prefetch tasks by ID or URL.
+     * Queries the refresh or prefetch tasks. You can query the tasks in the last three days.
+     *
+     * @remarks
+     *   You can query the refresh or prefetch tasks by ID or URL.
      * *   You can set both **TaskId** and **ObjectPath** in a request. If you do not set **TaskId** or **ObjectPath**, the data in the last 3 days on the first page is returned. By default, a maximum of 20 entries can be displayed on each page.
      * *   If you specify **DomainName** or **Status**, you must also specify **ObjectType**.
      * *   You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DescribeDcdnRefreshTasksRequest $request DescribeDcdnRefreshTasksRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnRefreshTasksResponse DescribeDcdnRefreshTasksResponse
+     * @param Request - DescribeDcdnRefreshTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnRefreshTasksResponse
+     *
+     * @param DescribeDcdnRefreshTasksRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDcdnRefreshTasksResponse
      */
     public function describeDcdnRefreshTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->objectPath)) {
-            $query['ObjectPath'] = $request->objectPath;
+
+        if (null !== $request->objectPath) {
+            @$query['ObjectPath'] = $request->objectPath;
         }
-        if (!Utils::isUnset($request->objectType)) {
-            $query['ObjectType'] = $request->objectType;
+
+        if (null !== $request->objectType) {
+            @$query['ObjectType'] = $request->objectType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnRefreshTasks',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnRefreshTasks',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnRefreshTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the refresh or prefetch tasks. You can query the tasks in the last three days.
-     *  *
-     * @description *   You can query the refresh or prefetch tasks by ID or URL.
+     * Queries the refresh or prefetch tasks. You can query the tasks in the last three days.
+     *
+     * @remarks
+     *   You can query the refresh or prefetch tasks by ID or URL.
      * *   You can set both **TaskId** and **ObjectPath** in a request. If you do not set **TaskId** or **ObjectPath**, the data in the last 3 days on the first page is returned. By default, a maximum of 20 entries can be displayed on each page.
      * *   If you specify **DomainName** or **Status**, you must also specify **ObjectType**.
      * *   You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DescribeDcdnRefreshTasksRequest $request DescribeDcdnRefreshTasksRequest
      *
-     * @return DescribeDcdnRefreshTasksResponse DescribeDcdnRefreshTasksResponse
+     * @param Request - DescribeDcdnRefreshTasksRequest
+     *
+     * @returns DescribeDcdnRefreshTasksResponse
+     *
+     * @param DescribeDcdnRefreshTasksRequest $request
+     *
+     * @return DescribeDcdnRefreshTasksResponse
      */
     public function describeDcdnRefreshTasks($request)
     {
@@ -8017,51 +9767,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of Internet service providers (ISPs) and regions.
-     *  *
-     * @description >  You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnRegionAndIspRequest $request DescribeDcdnRegionAndIspRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the list of Internet service providers (ISPs) and regions.
      *
-     * @return DescribeDcdnRegionAndIspResponse DescribeDcdnRegionAndIspResponse
+     * @remarks
+     * >  You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnRegionAndIspRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnRegionAndIspResponse
+     *
+     * @param DescribeDcdnRegionAndIspRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDcdnRegionAndIspResponse
      */
     public function describeDcdnRegionAndIspWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnRegionAndIsp',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnRegionAndIsp',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnRegionAndIspResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of Internet service providers (ISPs) and regions.
-     *  *
-     * @description >  You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnRegionAndIspRequest $request DescribeDcdnRegionAndIspRequest
+     * Queries the list of Internet service providers (ISPs) and regions.
      *
-     * @return DescribeDcdnRegionAndIspResponse DescribeDcdnRegionAndIspResponse
+     * @remarks
+     * >  You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnRegionAndIspRequest
+     *
+     * @returns DescribeDcdnRegionAndIspResponse
+     *
+     * @param DescribeDcdnRegionAndIspRequest $request
+     *
+     * @return DescribeDcdnRegionAndIspResponse
      */
     public function describeDcdnRegionAndIsp($request)
     {
@@ -8071,66 +9834,84 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the content of an operations report.
-     *  *
-     * @description > You can call this operation up to three times per second per account.
-     *  *
-     * @param DescribeDcdnReportRequest $request DescribeDcdnReportRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the content of an operations report.
      *
-     * @return DescribeDcdnReportResponse DescribeDcdnReportResponse
+     * @remarks
+     * > You can call this operation up to three times per second per account.
+     *
+     * @param Request - DescribeDcdnReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnReportResponse
+     *
+     * @param DescribeDcdnReportRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDcdnReportResponse
      */
     public function describeDcdnReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->area)) {
-            $query['Area'] = $request->area;
+        if (null !== $request->area) {
+            @$query['Area'] = $request->area;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->httpCode)) {
-            $query['HttpCode'] = $request->httpCode;
+
+        if (null !== $request->httpCode) {
+            @$query['HttpCode'] = $request->httpCode;
         }
-        if (!Utils::isUnset($request->isOverseas)) {
-            $query['IsOverseas'] = $request->isOverseas;
+
+        if (null !== $request->isOverseas) {
+            @$query['IsOverseas'] = $request->isOverseas;
         }
-        if (!Utils::isUnset($request->reportId)) {
-            $query['ReportId'] = $request->reportId;
+
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnReport',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnReport',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the content of an operations report.
-     *  *
-     * @description > You can call this operation up to three times per second per account.
-     *  *
-     * @param DescribeDcdnReportRequest $request DescribeDcdnReportRequest
+     * Queries the content of an operations report.
      *
-     * @return DescribeDcdnReportResponse DescribeDcdnReportResponse
+     * @remarks
+     * > You can call this operation up to three times per second per account.
+     *
+     * @param Request - DescribeDcdnReportRequest
+     *
+     * @returns DescribeDcdnReportResponse
+     *
+     * @param DescribeDcdnReportRequest $request
+     *
+     * @return DescribeDcdnReportResponse
      */
     public function describeDcdnReport($request)
     {
@@ -8140,50 +9921,62 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries custom operations reports.
-     *  *
-     * @description > * This operation queries the metadata of all operations reports. The statistics in the reports are not returned.
-     * > * You can call this operation up to three times per second per account.
-     *  *
-     * @param DescribeDcdnReportListRequest $request DescribeDcdnReportListRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries custom operations reports.
      *
-     * @return DescribeDcdnReportListResponse DescribeDcdnReportListResponse
+     * @remarks
+     * > * This operation queries the metadata of all operations reports. The statistics in the reports are not returned.
+     * > * You can call this operation up to three times per second per account.
+     *
+     * @param Request - DescribeDcdnReportListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnReportListResponse
+     *
+     * @param DescribeDcdnReportListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDcdnReportListResponse
      */
     public function describeDcdnReportListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->reportId)) {
-            $query['ReportId'] = $request->reportId;
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnReportList',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnReportList',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnReportListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries custom operations reports.
-     *  *
-     * @description > * This operation queries the metadata of all operations reports. The statistics in the reports are not returned.
-     * > * You can call this operation up to three times per second per account.
-     *  *
-     * @param DescribeDcdnReportListRequest $request DescribeDcdnReportListRequest
+     * Queries custom operations reports.
      *
-     * @return DescribeDcdnReportListResponse DescribeDcdnReportListResponse
+     * @remarks
+     * > * This operation queries the metadata of all operations reports. The statistics in the reports are not returned.
+     * > * You can call this operation up to three times per second per account.
+     *
+     * @param Request - DescribeDcdnReportListRequest
+     *
+     * @returns DescribeDcdnReportListResponse
+     *
+     * @param DescribeDcdnReportListRequest $request
+     *
+     * @return DescribeDcdnReportListResponse
      */
     public function describeDcdnReportList($request)
     {
@@ -8193,34 +9986,41 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries supported types of real-time logs.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries supported types of real-time logs.
      *
-     * @return DescribeDcdnSLSRealTimeLogTypeResponse DescribeDcdnSLSRealTimeLogTypeResponse
+     * @param Request - DescribeDcdnSLSRealTimeLogTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnSLSRealTimeLogTypeResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnSLSRealTimeLogTypeResponse
      */
     public function describeDcdnSLSRealTimeLogTypeWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeDcdnSLSRealTimeLogType',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnSLSRealTimeLogType',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnSLSRealTimeLogTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries supported types of real-time logs.
-     *  *
-     * @return DescribeDcdnSLSRealTimeLogTypeResponse DescribeDcdnSLSRealTimeLogTypeResponse
+     * Queries supported types of real-time logs.
+     *
+     * @returns DescribeDcdnSLSRealTimeLogTypeResponse
+     *
+     * @return DescribeDcdnSLSRealTimeLogTypeResponse
      */
     public function describeDcdnSLSRealTimeLogType()
     {
@@ -8230,48 +10030,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries a real-time log delivery project.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnSLSRealtimeLogDeliveryRequest $request DescribeDcdnSLSRealtimeLogDeliveryRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries a real-time log delivery project.
      *
-     * @return DescribeDcdnSLSRealtimeLogDeliveryResponse DescribeDcdnSLSRealtimeLogDeliveryResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnSLSRealtimeLogDeliveryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnSLSRealtimeLogDeliveryResponse
+     *
+     * @param DescribeDcdnSLSRealtimeLogDeliveryRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeDcdnSLSRealtimeLogDeliveryResponse
      */
     public function describeDcdnSLSRealtimeLogDeliveryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnSLSRealtimeLogDelivery',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnSLSRealtimeLogDelivery',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnSLSRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a real-time log delivery project.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnSLSRealtimeLogDeliveryRequest $request DescribeDcdnSLSRealtimeLogDeliveryRequest
+     * Queries a real-time log delivery project.
      *
-     * @return DescribeDcdnSLSRealtimeLogDeliveryResponse DescribeDcdnSLSRealtimeLogDeliveryResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnSLSRealtimeLogDeliveryRequest
+     *
+     * @returns DescribeDcdnSLSRealtimeLogDeliveryResponse
+     *
+     * @param DescribeDcdnSLSRealtimeLogDeliveryRequest $request
+     *
+     * @return DescribeDcdnSLSRealtimeLogDeliveryResponse
      */
     public function describeDcdnSLSRealtimeLogDelivery($request)
     {
@@ -8281,54 +10093,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about a ShangMi (SM) certificate.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnSMCertificateDetailRequest $request DescribeDcdnSMCertificateDetailRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the details about a ShangMi (SM) certificate.
      *
-     * @return DescribeDcdnSMCertificateDetailResponse DescribeDcdnSMCertificateDetailResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnSMCertificateDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnSMCertificateDetailResponse
+     *
+     * @param DescribeDcdnSMCertificateDetailRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDcdnSMCertificateDetailResponse
      */
     public function describeDcdnSMCertificateDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certIdentifier)) {
-            $query['CertIdentifier'] = $request->certIdentifier;
+        if (null !== $request->certIdentifier) {
+            @$query['CertIdentifier'] = $request->certIdentifier;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnSMCertificateDetail',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnSMCertificateDetail',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnSMCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about a ShangMi (SM) certificate.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnSMCertificateDetailRequest $request DescribeDcdnSMCertificateDetailRequest
+     * Queries the details about a ShangMi (SM) certificate.
      *
-     * @return DescribeDcdnSMCertificateDetailResponse DescribeDcdnSMCertificateDetailResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnSMCertificateDetailRequest
+     *
+     * @returns DescribeDcdnSMCertificateDetailResponse
+     *
+     * @param DescribeDcdnSMCertificateDetailRequest $request
+     *
+     * @return DescribeDcdnSMCertificateDetailResponse
      */
     public function describeDcdnSMCertificateDetail($request)
     {
@@ -8338,54 +10164,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the ShangMi (SM) certificates of an accelerated domain name.
-     *  *
-     * @description >  You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnSMCertificateListRequest $request DescribeDcdnSMCertificateListRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the ShangMi (SM) certificates of an accelerated domain name.
      *
-     * @return DescribeDcdnSMCertificateListResponse DescribeDcdnSMCertificateListResponse
+     * @remarks
+     * >  You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnSMCertificateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnSMCertificateListResponse
+     *
+     * @param DescribeDcdnSMCertificateListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDcdnSMCertificateListResponse
      */
     public function describeDcdnSMCertificateListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnSMCertificateList',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnSMCertificateList',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnSMCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the ShangMi (SM) certificates of an accelerated domain name.
-     *  *
-     * @description >  You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnSMCertificateListRequest $request DescribeDcdnSMCertificateListRequest
+     * Queries the ShangMi (SM) certificates of an accelerated domain name.
      *
-     * @return DescribeDcdnSMCertificateListResponse DescribeDcdnSMCertificateListResponse
+     * @remarks
+     * >  You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnSMCertificateListRequest
+     *
+     * @returns DescribeDcdnSMCertificateListResponse
+     *
+     * @param DescribeDcdnSMCertificateListRequest $request
+     *
+     * @return DescribeDcdnSMCertificateListResponse
      */
     public function describeDcdnSMCertificateList($request)
     {
@@ -8395,59 +10235,74 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the certificates of accelerated domain names.
-     *  *
-     * @param DescribeDcdnSSLCertificateListRequest $request DescribeDcdnSSLCertificateListRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the certificates of accelerated domain names.
      *
-     * @return DescribeDcdnSSLCertificateListResponse DescribeDcdnSSLCertificateListResponse
+     * @param Request - DescribeDcdnSSLCertificateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnSSLCertificateListResponse
+     *
+     * @param DescribeDcdnSSLCertificateListRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDcdnSSLCertificateListResponse
      */
     public function describeDcdnSSLCertificateListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchKeyword)) {
-            $query['SearchKeyword'] = $request->searchKeyword;
+
+        if (null !== $request->searchKeyword) {
+            @$query['SearchKeyword'] = $request->searchKeyword;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnSSLCertificateList',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnSSLCertificateList',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnSSLCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the certificates of accelerated domain names.
-     *  *
-     * @param DescribeDcdnSSLCertificateListRequest $request DescribeDcdnSSLCertificateListRequest
+     * Queries the certificates of accelerated domain names.
      *
-     * @return DescribeDcdnSSLCertificateListResponse DescribeDcdnSSLCertificateListResponse
+     * @param Request - DescribeDcdnSSLCertificateListRequest
+     *
+     * @returns DescribeDcdnSSLCertificateListResponse
+     *
+     * @param DescribeDcdnSSLCertificateListRequest $request
+     *
+     * @return DescribeDcdnSSLCertificateListResponse
      */
     public function describeDcdnSSLCertificateList($request)
     {
@@ -8457,51 +10312,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Creates an edge security drop-down list in the Dynamic Content Delivery Network (DCDN) console.
-     *  *
-     * @description > You can call this operation up to 50 times per second per account.
-     *  *
-     * @param DescribeDcdnSecFuncInfoRequest $request DescribeDcdnSecFuncInfoRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Creates an edge security drop-down list in the Dynamic Content Delivery Network (DCDN) console.
      *
-     * @return DescribeDcdnSecFuncInfoResponse DescribeDcdnSecFuncInfoResponse
+     * @remarks
+     * > You can call this operation up to 50 times per second per account.
+     *
+     * @param Request - DescribeDcdnSecFuncInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnSecFuncInfoResponse
+     *
+     * @param DescribeDcdnSecFuncInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnSecFuncInfoResponse
      */
     public function describeDcdnSecFuncInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->secFuncType)) {
-            $query['SecFuncType'] = $request->secFuncType;
+
+        if (null !== $request->secFuncType) {
+            @$query['SecFuncType'] = $request->secFuncType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnSecFuncInfo',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnSecFuncInfo',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnSecFuncInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an edge security drop-down list in the Dynamic Content Delivery Network (DCDN) console.
-     *  *
-     * @description > You can call this operation up to 50 times per second per account.
-     *  *
-     * @param DescribeDcdnSecFuncInfoRequest $request DescribeDcdnSecFuncInfoRequest
+     * Creates an edge security drop-down list in the Dynamic Content Delivery Network (DCDN) console.
      *
-     * @return DescribeDcdnSecFuncInfoResponse DescribeDcdnSecFuncInfoResponse
+     * @remarks
+     * > You can call this operation up to 50 times per second per account.
+     *
+     * @param Request - DescribeDcdnSecFuncInfoRequest
+     *
+     * @returns DescribeDcdnSecFuncInfoResponse
+     *
+     * @param DescribeDcdnSecFuncInfoRequest $request
+     *
+     * @return DescribeDcdnSecFuncInfoResponse
      */
     public function describeDcdnSecFuncInfo($request)
     {
@@ -8511,38 +10379,47 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the version of secure Dynamic Route for CDN (DCDN) and the security rules.
-     *  *
-     * @description > You can call this operation up to 50 times per second per account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the version of secure Dynamic Route for CDN (DCDN) and the security rules.
      *
-     * @return DescribeDcdnSecSpecInfoResponse DescribeDcdnSecSpecInfoResponse
+     * @remarks
+     * > You can call this operation up to 50 times per second per account.
+     *
+     * @param Request - DescribeDcdnSecSpecInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnSecSpecInfoResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnSecSpecInfoResponse
      */
     public function describeDcdnSecSpecInfoWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeDcdnSecSpecInfo',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnSecSpecInfo',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnSecSpecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the version of secure Dynamic Route for CDN (DCDN) and the security rules.
-     *  *
-     * @description > You can call this operation up to 50 times per second per account.
-     *  *
-     * @return DescribeDcdnSecSpecInfoResponse DescribeDcdnSecSpecInfoResponse
+     * Queries the version of secure Dynamic Route for CDN (DCDN) and the security rules.
+     *
+     * @remarks
+     * > You can call this operation up to 50 times per second per account.
+     *
+     * @returns DescribeDcdnSecSpecInfoResponse
+     *
+     * @return DescribeDcdnSecSpecInfoResponse
      */
     public function describeDcdnSecSpecInfo()
     {
@@ -8552,51 +10429,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about the Dynamic Content Delivery Network (DCDN) service. The information includes the time when the service was activated, the current service status, the current billing method, and the billing method of the next cycle.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnServiceRequest $request DescribeDcdnServiceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries information about the Dynamic Content Delivery Network (DCDN) service. The information includes the time when the service was activated, the current service status, the current billing method, and the billing method of the next cycle.
      *
-     * @return DescribeDcdnServiceResponse DescribeDcdnServiceResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnServiceResponse
+     *
+     * @param DescribeDcdnServiceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDcdnServiceResponse
      */
     public function describeDcdnServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnService',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnService',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about the Dynamic Content Delivery Network (DCDN) service. The information includes the time when the service was activated, the current service status, the current billing method, and the billing method of the next cycle.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnServiceRequest $request DescribeDcdnServiceRequest
+     * Queries information about the Dynamic Content Delivery Network (DCDN) service. The information includes the time when the service was activated, the current service status, the current billing method, and the billing method of the next cycle.
      *
-     * @return DescribeDcdnServiceResponse DescribeDcdnServiceResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnServiceRequest
+     *
+     * @returns DescribeDcdnServiceResponse
+     *
+     * @param DescribeDcdnServiceRequest $request
+     *
+     * @return DescribeDcdnServiceResponse
      */
     public function describeDcdnService($request)
     {
@@ -8606,38 +10496,47 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries valid virtual IP addresses (VIPs) in the staging environment.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries valid virtual IP addresses (VIPs) in the staging environment.
      *
-     * @return DescribeDcdnStagingIpResponse DescribeDcdnStagingIpResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnStagingIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnStagingIpResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnStagingIpResponse
      */
     public function describeDcdnStagingIpWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeDcdnStagingIp',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnStagingIp',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnStagingIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries valid virtual IP addresses (VIPs) in the staging environment.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @return DescribeDcdnStagingIpResponse DescribeDcdnStagingIpResponse
+     * Queries valid virtual IP addresses (VIPs) in the staging environment.
+     *
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @returns DescribeDcdnStagingIpResponse
+     *
+     * @return DescribeDcdnStagingIpResponse
      */
     public function describeDcdnStagingIp()
     {
@@ -8647,40 +10546,49 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries custom operations reports.
-     *  *
-     * @description > *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
-     * > *   You can call this API operation up to three times per second per account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries custom operations reports.
      *
-     * @return DescribeDcdnSubListResponse DescribeDcdnSubListResponse
+     * @remarks
+     * > *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
+     * > *   You can call this API operation up to three times per second per account.
+     *
+     * @param Request - DescribeDcdnSubListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnSubListResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnSubListResponse
      */
     public function describeDcdnSubListWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeDcdnSubList',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnSubList',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnSubListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries custom operations reports.
-     *  *
-     * @description > *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
+     * Queries custom operations reports.
+     *
+     * @remarks
+     * > *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
      * > *   You can call this API operation up to three times per second per account.
-     *  *
-     * @return DescribeDcdnSubListResponse DescribeDcdnSubListResponse
+     *
+     * @returns DescribeDcdnSubListResponse
+     *
+     * @return DescribeDcdnSubListResponse
      */
     public function describeDcdnSubList()
     {
@@ -8690,54 +10598,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tags of one or more resources.
-     *  *
-     * @description > You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DescribeDcdnTagResourcesRequest $request DescribeDcdnTagResourcesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the tags of one or more resources.
      *
-     * @return DescribeDcdnTagResourcesResponse DescribeDcdnTagResourcesResponse
+     * @remarks
+     * > You can call this operation up to 10 times per second per account.
+     *
+     * @param Request - DescribeDcdnTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnTagResourcesResponse
+     *
+     * @param DescribeDcdnTagResourcesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDcdnTagResourcesResponse
      */
     public function describeDcdnTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnTagResources',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnTagResources',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tags of one or more resources.
-     *  *
-     * @description > You can call this operation up to 10 times per second per account.
-     *  *
-     * @param DescribeDcdnTagResourcesRequest $request DescribeDcdnTagResourcesRequest
+     * Queries the tags of one or more resources.
      *
-     * @return DescribeDcdnTagResourcesResponse DescribeDcdnTagResourcesResponse
+     * @remarks
+     * > You can call this operation up to 10 times per second per account.
+     *
+     * @param Request - DescribeDcdnTagResourcesRequest
+     *
+     * @returns DescribeDcdnTagResourcesResponse
+     *
+     * @param DescribeDcdnTagResourcesRequest $request
+     *
+     * @return DescribeDcdnTagResourcesResponse
      */
     public function describeDcdnTagResources($request)
     {
@@ -8747,54 +10669,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries domain names ranked by network traffic. You can query data within the last 90 days.
-     *  *
-     * @description If you do not specify the StartTime and EndTime parameters, the data within the current month is queried. If you specify the StartTime and EndTime parameters, the data within the specified time range is queried.
-     *  *
-     * @param DescribeDcdnTopDomainsByFlowRequest $request DescribeDcdnTopDomainsByFlowRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries domain names ranked by network traffic. You can query data within the last 90 days.
      *
-     * @return DescribeDcdnTopDomainsByFlowResponse DescribeDcdnTopDomainsByFlowResponse
+     * @remarks
+     * If you do not specify the StartTime and EndTime parameters, the data within the current month is queried. If you specify the StartTime and EndTime parameters, the data within the specified time range is queried.
+     *
+     * @param Request - DescribeDcdnTopDomainsByFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnTopDomainsByFlowResponse
+     *
+     * @param DescribeDcdnTopDomainsByFlowRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDcdnTopDomainsByFlowResponse
      */
     public function describeDcdnTopDomainsByFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnTopDomainsByFlow',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnTopDomainsByFlow',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnTopDomainsByFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries domain names ranked by network traffic. You can query data within the last 90 days.
-     *  *
-     * @description If you do not specify the StartTime and EndTime parameters, the data within the current month is queried. If you specify the StartTime and EndTime parameters, the data within the specified time range is queried.
-     *  *
-     * @param DescribeDcdnTopDomainsByFlowRequest $request DescribeDcdnTopDomainsByFlowRequest
+     * Queries domain names ranked by network traffic. You can query data within the last 90 days.
      *
-     * @return DescribeDcdnTopDomainsByFlowResponse DescribeDcdnTopDomainsByFlowResponse
+     * @remarks
+     * If you do not specify the StartTime and EndTime parameters, the data within the current month is queried. If you specify the StartTime and EndTime parameters, the data within the specified time range is queried.
+     *
+     * @param Request - DescribeDcdnTopDomainsByFlowRequest
+     *
+     * @returns DescribeDcdnTopDomainsByFlowResponse
+     *
+     * @param DescribeDcdnTopDomainsByFlowRequest $request
+     *
+     * @return DescribeDcdnTopDomainsByFlowResponse
      */
     public function describeDcdnTopDomainsByFlow($request)
     {
@@ -8804,51 +10740,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the billing records of an Alibaba Cloud account. The maximum time range that you can specify is one month.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnUserBillHistoryRequest $request DescribeDcdnUserBillHistoryRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the billing records of an Alibaba Cloud account. The maximum time range that you can specify is one month.
      *
-     * @return DescribeDcdnUserBillHistoryResponse DescribeDcdnUserBillHistoryResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserBillHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnUserBillHistoryResponse
+     *
+     * @param DescribeDcdnUserBillHistoryRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnUserBillHistoryResponse
      */
     public function describeDcdnUserBillHistoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnUserBillHistory',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnUserBillHistory',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnUserBillHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the billing records of an Alibaba Cloud account. The maximum time range that you can specify is one month.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnUserBillHistoryRequest $request DescribeDcdnUserBillHistoryRequest
+     * Queries the billing records of an Alibaba Cloud account. The maximum time range that you can specify is one month.
      *
-     * @return DescribeDcdnUserBillHistoryResponse DescribeDcdnUserBillHistoryResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserBillHistoryRequest
+     *
+     * @returns DescribeDcdnUserBillHistoryResponse
+     *
+     * @param DescribeDcdnUserBillHistoryRequest $request
+     *
+     * @return DescribeDcdnUserBillHistoryResponse
      */
     public function describeDcdnUserBillHistory($request)
     {
@@ -8858,47 +10807,58 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the metering method that is used in Dynamic Content Delivery Network (DCDN).
-     *  *
-     * @param DescribeDcdnUserBillTypeRequest $request DescribeDcdnUserBillTypeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the metering method that is used in Dynamic Content Delivery Network (DCDN).
      *
-     * @return DescribeDcdnUserBillTypeResponse DescribeDcdnUserBillTypeResponse
+     * @param Request - DescribeDcdnUserBillTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnUserBillTypeResponse
+     *
+     * @param DescribeDcdnUserBillTypeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDcdnUserBillTypeResponse
      */
     public function describeDcdnUserBillTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnUserBillType',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnUserBillType',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnUserBillTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the metering method that is used in Dynamic Content Delivery Network (DCDN).
-     *  *
-     * @param DescribeDcdnUserBillTypeRequest $request DescribeDcdnUserBillTypeRequest
+     * Queries the metering method that is used in Dynamic Content Delivery Network (DCDN).
      *
-     * @return DescribeDcdnUserBillTypeResponse DescribeDcdnUserBillTypeResponse
+     * @param Request - DescribeDcdnUserBillTypeRequest
+     *
+     * @returns DescribeDcdnUserBillTypeResponse
+     *
+     * @param DescribeDcdnUserBillTypeRequest $request
+     *
+     * @return DescribeDcdnUserBillTypeResponse
      */
     public function describeDcdnUserBillType($request)
     {
@@ -8908,38 +10868,47 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of domain names whose SSL certificates are about to expire or have already expired.
-     *  *
-     * @description You can call this operation up to 100 times per second per account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the number of domain names whose SSL certificates are about to expire or have already expired.
      *
-     * @return DescribeDcdnUserCertificateExpireCountResponse DescribeDcdnUserCertificateExpireCountResponse
+     * @remarks
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserCertificateExpireCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnUserCertificateExpireCountResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnUserCertificateExpireCountResponse
      */
     public function describeDcdnUserCertificateExpireCountWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeDcdnUserCertificateExpireCount',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnUserCertificateExpireCount',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnUserCertificateExpireCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of domain names whose SSL certificates are about to expire or have already expired.
-     *  *
-     * @description You can call this operation up to 100 times per second per account.
-     *  *
-     * @return DescribeDcdnUserCertificateExpireCountResponse DescribeDcdnUserCertificateExpireCountResponse
+     * Queries the number of domain names whose SSL certificates are about to expire or have already expired.
+     *
+     * @remarks
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @returns DescribeDcdnUserCertificateExpireCountResponse
+     *
+     * @return DescribeDcdnUserCertificateExpireCountResponse
      */
     public function describeDcdnUserCertificateExpireCount()
     {
@@ -8949,48 +10918,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of security features.
-     *  *
-     * @description You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnUserConfigsRequest $request DescribeDcdnUserConfigsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations of security features.
      *
-     * @return DescribeDcdnUserConfigsResponse DescribeDcdnUserConfigsResponse
+     * @remarks
+     * You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnUserConfigsResponse
+     *
+     * @param DescribeDcdnUserConfigsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnUserConfigsResponse
      */
     public function describeDcdnUserConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->functionName)) {
-            $query['FunctionName'] = $request->functionName;
+        if (null !== $request->functionName) {
+            @$query['FunctionName'] = $request->functionName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnUserConfigs',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnUserConfigs',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnUserConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of security features.
-     *  *
-     * @description You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnUserConfigsRequest $request DescribeDcdnUserConfigsRequest
+     * Queries the configurations of security features.
      *
-     * @return DescribeDcdnUserConfigsResponse DescribeDcdnUserConfigsResponse
+     * @remarks
+     * You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserConfigsRequest
+     *
+     * @returns DescribeDcdnUserConfigsResponse
+     *
+     * @param DescribeDcdnUserConfigsRequest $request
+     *
+     * @return DescribeDcdnUserConfigsResponse
      */
     public function describeDcdnUserConfigs($request)
     {
@@ -9000,87 +10981,112 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the accelerated domain names that belong to your Alibaba Cloud account. You can filter domains by name or by status. Fuzzy match is supported when you filter domains by name.
-     *  *
-     * @description > You can call this operation up to 80 times per second per account.
-     *  *
-     * @param DescribeDcdnUserDomainsRequest $request DescribeDcdnUserDomainsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the accelerated domain names that belong to your Alibaba Cloud account. You can filter domains by name or by status. Fuzzy match is supported when you filter domains by name.
      *
-     * @return DescribeDcdnUserDomainsResponse DescribeDcdnUserDomainsResponse
+     * @remarks
+     * > You can call this operation up to 80 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnUserDomainsResponse
+     *
+     * @param DescribeDcdnUserDomainsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnUserDomainsResponse
      */
     public function describeDcdnUserDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->changeEndTime)) {
-            $query['ChangeEndTime'] = $request->changeEndTime;
+        if (null !== $request->changeEndTime) {
+            @$query['ChangeEndTime'] = $request->changeEndTime;
         }
-        if (!Utils::isUnset($request->changeStartTime)) {
-            $query['ChangeStartTime'] = $request->changeStartTime;
+
+        if (null !== $request->changeStartTime) {
+            @$query['ChangeStartTime'] = $request->changeStartTime;
         }
-        if (!Utils::isUnset($request->checkDomainShow)) {
-            $query['CheckDomainShow'] = $request->checkDomainShow;
+
+        if (null !== $request->checkDomainShow) {
+            @$query['CheckDomainShow'] = $request->checkDomainShow;
         }
-        if (!Utils::isUnset($request->coverage)) {
-            $query['Coverage'] = $request->coverage;
+
+        if (null !== $request->coverage) {
+            @$query['Coverage'] = $request->coverage;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->domainSearchType)) {
-            $query['DomainSearchType'] = $request->domainSearchType;
+
+        if (null !== $request->domainSearchType) {
+            @$query['DomainSearchType'] = $request->domainSearchType;
         }
-        if (!Utils::isUnset($request->domainStatus)) {
-            $query['DomainStatus'] = $request->domainStatus;
+
+        if (null !== $request->domainStatus) {
+            @$query['DomainStatus'] = $request->domainStatus;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->webSiteType)) {
-            $query['WebSiteType'] = $request->webSiteType;
+
+        if (null !== $request->webSiteType) {
+            @$query['WebSiteType'] = $request->webSiteType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnUserDomains',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnUserDomains',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnUserDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the accelerated domain names that belong to your Alibaba Cloud account. You can filter domains by name or by status. Fuzzy match is supported when you filter domains by name.
-     *  *
-     * @description > You can call this operation up to 80 times per second per account.
-     *  *
-     * @param DescribeDcdnUserDomainsRequest $request DescribeDcdnUserDomainsRequest
+     * Queries the accelerated domain names that belong to your Alibaba Cloud account. You can filter domains by name or by status. Fuzzy match is supported when you filter domains by name.
      *
-     * @return DescribeDcdnUserDomainsResponse DescribeDcdnUserDomainsResponse
+     * @remarks
+     * > You can call this operation up to 80 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserDomainsRequest
+     *
+     * @returns DescribeDcdnUserDomainsResponse
+     *
+     * @param DescribeDcdnUserDomainsRequest $request
+     *
+     * @return DescribeDcdnUserDomainsResponse
      */
     public function describeDcdnUserDomains($request)
     {
@@ -9090,66 +11096,84 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries all accelerated domain names with specified features configured that belong to your Alibaba Cloud account based on the FuncId parameter.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnUserDomainsByFuncRequest $request DescribeDcdnUserDomainsByFuncRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries all accelerated domain names with specified features configured that belong to your Alibaba Cloud account based on the FuncId parameter.
      *
-     * @return DescribeDcdnUserDomainsByFuncResponse DescribeDcdnUserDomainsByFuncResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserDomainsByFuncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnUserDomainsByFuncResponse
+     *
+     * @param DescribeDcdnUserDomainsByFuncRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDcdnUserDomainsByFuncResponse
      */
     public function describeDcdnUserDomainsByFuncWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->funcFilter)) {
-            $query['FuncFilter'] = $request->funcFilter;
+
+        if (null !== $request->funcFilter) {
+            @$query['FuncFilter'] = $request->funcFilter;
         }
-        if (!Utils::isUnset($request->funcId)) {
-            $query['FuncId'] = $request->funcId;
+
+        if (null !== $request->funcId) {
+            @$query['FuncId'] = $request->funcId;
         }
-        if (!Utils::isUnset($request->matchType)) {
-            $query['MatchType'] = $request->matchType;
+
+        if (null !== $request->matchType) {
+            @$query['MatchType'] = $request->matchType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnUserDomainsByFunc',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnUserDomainsByFunc',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnUserDomainsByFuncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all accelerated domain names with specified features configured that belong to your Alibaba Cloud account based on the FuncId parameter.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnUserDomainsByFuncRequest $request DescribeDcdnUserDomainsByFuncRequest
+     * Queries all accelerated domain names with specified features configured that belong to your Alibaba Cloud account based on the FuncId parameter.
      *
-     * @return DescribeDcdnUserDomainsByFuncResponse DescribeDcdnUserDomainsByFuncResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserDomainsByFuncRequest
+     *
+     * @returns DescribeDcdnUserDomainsByFuncResponse
+     *
+     * @param DescribeDcdnUserDomainsByFuncRequest $request
+     *
+     * @return DescribeDcdnUserDomainsByFuncResponse
      */
     public function describeDcdnUserDomainsByFunc($request)
     {
@@ -9159,51 +11183,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resource quotas and the used resources.
-     *  *
-     * @description >  The maximum number of times that each user can call this operation per second is 30.
-     *  *
-     * @param DescribeDcdnUserQuotaRequest $request DescribeDcdnUserQuotaRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the resource quotas and the used resources.
      *
-     * @return DescribeDcdnUserQuotaResponse DescribeDcdnUserQuotaResponse
+     * @remarks
+     * >  The maximum number of times that each user can call this operation per second is 30.
+     *
+     * @param Request - DescribeDcdnUserQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnUserQuotaResponse
+     *
+     * @param DescribeDcdnUserQuotaRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDcdnUserQuotaResponse
      */
     public function describeDcdnUserQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnUserQuota',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnUserQuota',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnUserQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the resource quotas and the used resources.
-     *  *
-     * @description >  The maximum number of times that each user can call this operation per second is 30.
-     *  *
-     * @param DescribeDcdnUserQuotaRequest $request DescribeDcdnUserQuotaRequest
+     * Queries the resource quotas and the used resources.
      *
-     * @return DescribeDcdnUserQuotaResponse DescribeDcdnUserQuotaResponse
+     * @remarks
+     * >  The maximum number of times that each user can call this operation per second is 30.
+     *
+     * @param Request - DescribeDcdnUserQuotaRequest
+     *
+     * @returns DescribeDcdnUserQuotaResponse
+     *
+     * @param DescribeDcdnUserQuotaRequest $request
+     *
+     * @return DescribeDcdnUserQuotaResponse
      */
     public function describeDcdnUserQuota($request)
     {
@@ -9213,45 +11250,56 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the fields that are selected.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnUserRealTimeDeliveryFieldRequest $request DescribeDcdnUserRealTimeDeliveryFieldRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Queries the fields that are selected.
      *
-     * @return DescribeDcdnUserRealTimeDeliveryFieldResponse DescribeDcdnUserRealTimeDeliveryFieldResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserRealTimeDeliveryFieldRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnUserRealTimeDeliveryFieldResponse
+     *
+     * @param DescribeDcdnUserRealTimeDeliveryFieldRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeDcdnUserRealTimeDeliveryFieldResponse
      */
     public function describeDcdnUserRealTimeDeliveryFieldWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnUserRealTimeDeliveryField',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnUserRealTimeDeliveryField',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnUserRealTimeDeliveryFieldResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the fields that are selected.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnUserRealTimeDeliveryFieldRequest $request DescribeDcdnUserRealTimeDeliveryFieldRequest
+     * Queries the fields that are selected.
      *
-     * @return DescribeDcdnUserRealTimeDeliveryFieldResponse DescribeDcdnUserRealTimeDeliveryFieldResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserRealTimeDeliveryFieldRequest
+     *
+     * @returns DescribeDcdnUserRealTimeDeliveryFieldResponse
+     *
+     * @param DescribeDcdnUserRealTimeDeliveryFieldRequest $request
+     *
+     * @return DescribeDcdnUserRealTimeDeliveryFieldResponse
      */
     public function describeDcdnUserRealTimeDeliveryField($request)
     {
@@ -9261,54 +11309,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about the resource plans in your Alibaba Cloud account.
-     *  *
-     * @description The maximum number of times that each user can call this operation per second is 30.
-     *  *
-     * @param DescribeDcdnUserResourcePackageRequest $request DescribeDcdnUserResourcePackageRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries information about the resource plans in your Alibaba Cloud account.
      *
-     * @return DescribeDcdnUserResourcePackageResponse DescribeDcdnUserResourcePackageResponse
+     * @remarks
+     * The maximum number of times that each user can call this operation per second is 30.
+     *
+     * @param Request - DescribeDcdnUserResourcePackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnUserResourcePackageResponse
+     *
+     * @param DescribeDcdnUserResourcePackageRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDcdnUserResourcePackageResponse
      */
     public function describeDcdnUserResourcePackageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnUserResourcePackage',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnUserResourcePackage',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnUserResourcePackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about the resource plans in your Alibaba Cloud account.
-     *  *
-     * @description The maximum number of times that each user can call this operation per second is 30.
-     *  *
-     * @param DescribeDcdnUserResourcePackageRequest $request DescribeDcdnUserResourcePackageRequest
+     * Queries information about the resource plans in your Alibaba Cloud account.
      *
-     * @return DescribeDcdnUserResourcePackageResponse DescribeDcdnUserResourcePackageResponse
+     * @remarks
+     * The maximum number of times that each user can call this operation per second is 30.
+     *
+     * @param Request - DescribeDcdnUserResourcePackageRequest
+     *
+     * @returns DescribeDcdnUserResourcePackageResponse
+     *
+     * @param DescribeDcdnUserResourcePackageRequest $request
+     *
+     * @return DescribeDcdnUserResourcePackageResponse
      */
     public function describeDcdnUserResourcePackage($request)
     {
@@ -9318,54 +11380,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of packets blocked by a specified security feature.
-     *  *
-     * @description > You can call this operation up to 50 times per second per account.
-     *  *
-     * @param DescribeDcdnUserSecDropRequest $request DescribeDcdnUserSecDropRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the number of packets blocked by a specified security feature.
      *
-     * @return DescribeDcdnUserSecDropResponse DescribeDcdnUserSecDropResponse
+     * @remarks
+     * > You can call this operation up to 50 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserSecDropRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnUserSecDropResponse
+     *
+     * @param DescribeDcdnUserSecDropRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnUserSecDropResponse
      */
     public function describeDcdnUserSecDropWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->data)) {
-            $query['Data'] = $request->data;
+        if (null !== $request->data) {
+            @$query['Data'] = $request->data;
         }
-        if (!Utils::isUnset($request->metric)) {
-            $query['Metric'] = $request->metric;
+
+        if (null !== $request->metric) {
+            @$query['Metric'] = $request->metric;
         }
-        if (!Utils::isUnset($request->secFunc)) {
-            $query['SecFunc'] = $request->secFunc;
+
+        if (null !== $request->secFunc) {
+            @$query['SecFunc'] = $request->secFunc;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnUserSecDrop',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnUserSecDrop',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnUserSecDropResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of packets blocked by a specified security feature.
-     *  *
-     * @description > You can call this operation up to 50 times per second per account.
-     *  *
-     * @param DescribeDcdnUserSecDropRequest $request DescribeDcdnUserSecDropRequest
+     * Queries the number of packets blocked by a specified security feature.
      *
-     * @return DescribeDcdnUserSecDropResponse DescribeDcdnUserSecDropResponse
+     * @remarks
+     * > You can call this operation up to 50 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserSecDropRequest
+     *
+     * @returns DescribeDcdnUserSecDropResponse
+     *
+     * @param DescribeDcdnUserSecDropRequest $request
+     *
+     * @return DescribeDcdnUserSecDropResponse
      */
     public function describeDcdnUserSecDrop($request)
     {
@@ -9375,72 +11451,92 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of packets that are blocked by security features at the application layer in a specific time range.
-     *  *
-     * @description > You can call this operation up to 50 times per second per account.
-     *  *
-     * @param DescribeDcdnUserSecDropByMinuteRequest $request DescribeDcdnUserSecDropByMinuteRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the number of packets that are blocked by security features at the application layer in a specific time range.
      *
-     * @return DescribeDcdnUserSecDropByMinuteResponse DescribeDcdnUserSecDropByMinuteResponse
+     * @remarks
+     * > You can call this operation up to 50 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserSecDropByMinuteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnUserSecDropByMinuteResponse
+     *
+     * @param DescribeDcdnUserSecDropByMinuteRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDcdnUserSecDropByMinuteResponse
      */
     public function describeDcdnUserSecDropByMinuteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->object)) {
-            $query['Object'] = $request->object;
+
+        if (null !== $request->object) {
+            @$query['Object'] = $request->object;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->secFunc)) {
-            $query['SecFunc'] = $request->secFunc;
+
+        if (null !== $request->secFunc) {
+            @$query['SecFunc'] = $request->secFunc;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnUserSecDropByMinute',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnUserSecDropByMinute',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnUserSecDropByMinuteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of packets that are blocked by security features at the application layer in a specific time range.
-     *  *
-     * @description > You can call this operation up to 50 times per second per account.
-     *  *
-     * @param DescribeDcdnUserSecDropByMinuteRequest $request DescribeDcdnUserSecDropByMinuteRequest
+     * Queries the number of packets that are blocked by security features at the application layer in a specific time range.
      *
-     * @return DescribeDcdnUserSecDropByMinuteResponse DescribeDcdnUserSecDropByMinuteResponse
+     * @remarks
+     * > You can call this operation up to 50 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserSecDropByMinuteRequest
+     *
+     * @returns DescribeDcdnUserSecDropByMinuteResponse
+     *
+     * @param DescribeDcdnUserSecDropByMinuteRequest $request
+     *
+     * @return DescribeDcdnUserSecDropByMinuteResponse
      */
     public function describeDcdnUserSecDropByMinute($request)
     {
@@ -9450,38 +11546,47 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries user tags.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries user tags.
      *
-     * @return DescribeDcdnUserTagsResponse DescribeDcdnUserTagsResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnUserTagsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnUserTagsResponse
      */
     public function describeDcdnUserTagsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeDcdnUserTags',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnUserTags',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnUserTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries user tags.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @return DescribeDcdnUserTagsResponse DescribeDcdnUserTagsResponse
+     * Queries user tags.
+     *
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @returns DescribeDcdnUserTagsResponse
+     *
+     * @return DescribeDcdnUserTagsResponse
      */
     public function describeDcdnUserTags()
     {
@@ -9491,51 +11596,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries virtual IP addresses of the POPs by domain name.
-     *  *
-     * @description >  You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnUserVipsByDomainRequest $request DescribeDcdnUserVipsByDomainRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries virtual IP addresses of the POPs by domain name.
      *
-     * @return DescribeDcdnUserVipsByDomainResponse DescribeDcdnUserVipsByDomainResponse
+     * @remarks
+     * >  You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserVipsByDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnUserVipsByDomainResponse
+     *
+     * @param DescribeDcdnUserVipsByDomainRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDcdnUserVipsByDomainResponse
      */
     public function describeDcdnUserVipsByDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->available)) {
-            $query['Available'] = $request->available;
+        if (null !== $request->available) {
+            @$query['Available'] = $request->available;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnUserVipsByDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnUserVipsByDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnUserVipsByDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries virtual IP addresses of the POPs by domain name.
-     *  *
-     * @description >  You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeDcdnUserVipsByDomainRequest $request DescribeDcdnUserVipsByDomainRequest
+     * Queries virtual IP addresses of the POPs by domain name.
      *
-     * @return DescribeDcdnUserVipsByDomainResponse DescribeDcdnUserVipsByDomainResponse
+     * @remarks
+     * >  You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeDcdnUserVipsByDomainRequest
+     *
+     * @returns DescribeDcdnUserVipsByDomainResponse
+     *
+     * @param DescribeDcdnUserVipsByDomainRequest $request
+     *
+     * @return DescribeDcdnUserVipsByDomainResponse
      */
     public function describeDcdnUserVipsByDomain($request)
     {
@@ -9545,48 +11663,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the ownership verification content of a domain name.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnVerifyContentRequest $request DescribeDcdnVerifyContentRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the ownership verification content of a domain name.
      *
-     * @return DescribeDcdnVerifyContentResponse DescribeDcdnVerifyContentResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnVerifyContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnVerifyContentResponse
+     *
+     * @param DescribeDcdnVerifyContentRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDcdnVerifyContentResponse
      */
     public function describeDcdnVerifyContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnVerifyContent',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnVerifyContent',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the ownership verification content of a domain name.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnVerifyContentRequest $request DescribeDcdnVerifyContentRequest
+     * Queries the ownership verification content of a domain name.
      *
-     * @return DescribeDcdnVerifyContentResponse DescribeDcdnVerifyContentResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeDcdnVerifyContentRequest
+     *
+     * @returns DescribeDcdnVerifyContentResponse
+     *
+     * @param DescribeDcdnVerifyContentRequest $request
+     *
+     * @return DescribeDcdnVerifyContentResponse
      */
     public function describeDcdnVerifyContent($request)
     {
@@ -9596,34 +11726,41 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the SDK authentication key for the Alibaba Cloud account. You can also use the SDK authentication key to send SDK initialization requests. The key must be included in the integration code.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the SDK authentication key for the Alibaba Cloud account. You can also use the SDK authentication key to send SDK initialization requests. The key must be included in the integration code.
      *
-     * @return DescribeDcdnWafBotAppKeyResponse DescribeDcdnWafBotAppKeyResponse
+     * @param Request - DescribeDcdnWafBotAppKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafBotAppKeyResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnWafBotAppKeyResponse
      */
     public function describeDcdnWafBotAppKeyWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafBotAppKey',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafBotAppKey',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafBotAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the SDK authentication key for the Alibaba Cloud account. You can also use the SDK authentication key to send SDK initialization requests. The key must be included in the integration code.
-     *  *
-     * @return DescribeDcdnWafBotAppKeyResponse DescribeDcdnWafBotAppKeyResponse
+     * Queries the SDK authentication key for the Alibaba Cloud account. You can also use the SDK authentication key to send SDK initialization requests. The key must be included in the integration code.
+     *
+     * @returns DescribeDcdnWafBotAppKeyResponse
+     *
+     * @return DescribeDcdnWafBotAppKeyResponse
      */
     public function describeDcdnWafBotAppKey()
     {
@@ -9633,44 +11770,54 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the default configurations of a WAF rule.
-     *  *
-     * @param DescribeDcdnWafDefaultRulesRequest $request DescribeDcdnWafDefaultRulesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the default configurations of a WAF rule.
      *
-     * @return DescribeDcdnWafDefaultRulesResponse DescribeDcdnWafDefaultRulesResponse
+     * @param Request - DescribeDcdnWafDefaultRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafDefaultRulesResponse
+     *
+     * @param DescribeDcdnWafDefaultRulesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnWafDefaultRulesResponse
      */
     public function describeDcdnWafDefaultRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->queryArgs)) {
-            $query['QueryArgs'] = $request->queryArgs;
+        if (null !== $request->queryArgs) {
+            @$query['QueryArgs'] = $request->queryArgs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafDefaultRules',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafDefaultRules',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafDefaultRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the default configurations of a WAF rule.
-     *  *
-     * @param DescribeDcdnWafDefaultRulesRequest $request DescribeDcdnWafDefaultRulesRequest
+     * Queries the default configurations of a WAF rule.
      *
-     * @return DescribeDcdnWafDefaultRulesResponse DescribeDcdnWafDefaultRulesResponse
+     * @param Request - DescribeDcdnWafDefaultRulesRequest
+     *
+     * @returns DescribeDcdnWafDefaultRulesResponse
+     *
+     * @param DescribeDcdnWafDefaultRulesRequest $request
+     *
+     * @return DescribeDcdnWafDefaultRulesResponse
      */
     public function describeDcdnWafDefaultRules($request)
     {
@@ -9680,54 +11827,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries domain names that have Web Application Firewall (WAF) enabled and the relevant information, including the status of the access control list (ACL), protection against HTTP flood attacks, domain name, and WAF.
-     *  *
-     * @description > You can call this operation up to 50 times per second per account.
-     *  *
-     * @param DescribeDcdnWafDomainRequest $request DescribeDcdnWafDomainRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries domain names that have Web Application Firewall (WAF) enabled and the relevant information, including the status of the access control list (ACL), protection against HTTP flood attacks, domain name, and WAF.
      *
-     * @return DescribeDcdnWafDomainResponse DescribeDcdnWafDomainResponse
+     * @remarks
+     * > You can call this operation up to 50 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafDomainResponse
+     *
+     * @param DescribeDcdnWafDomainRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDcdnWafDomainResponse
      */
     public function describeDcdnWafDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries domain names that have Web Application Firewall (WAF) enabled and the relevant information, including the status of the access control list (ACL), protection against HTTP flood attacks, domain name, and WAF.
-     *  *
-     * @description > You can call this operation up to 50 times per second per account.
-     *  *
-     * @param DescribeDcdnWafDomainRequest $request DescribeDcdnWafDomainRequest
+     * Queries domain names that have Web Application Firewall (WAF) enabled and the relevant information, including the status of the access control list (ACL), protection against HTTP flood attacks, domain name, and WAF.
      *
-     * @return DescribeDcdnWafDomainResponse DescribeDcdnWafDomainResponse
+     * @remarks
+     * > You can call this operation up to 50 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafDomainRequest
+     *
+     * @returns DescribeDcdnWafDomainResponse
+     *
+     * @param DescribeDcdnWafDomainRequest $request
+     *
+     * @return DescribeDcdnWafDomainResponse
      */
     public function describeDcdnWafDomain($request)
     {
@@ -9737,48 +11898,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the protection policy of a domain name.
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafDomainDetailRequest $request DescribeDcdnWafDomainDetailRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the protection policy of a domain name.
      *
-     * @return DescribeDcdnWafDomainDetailResponse DescribeDcdnWafDomainDetailResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafDomainDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafDomainDetailResponse
+     *
+     * @param DescribeDcdnWafDomainDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnWafDomainDetailResponse
      */
     public function describeDcdnWafDomainDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafDomainDetail',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafDomainDetail',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the protection policy of a domain name.
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafDomainDetailRequest $request DescribeDcdnWafDomainDetailRequest
+     * Queries the information about the protection policy of a domain name.
      *
-     * @return DescribeDcdnWafDomainDetailResponse DescribeDcdnWafDomainDetailResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafDomainDetailRequest
+     *
+     * @returns DescribeDcdnWafDomainDetailResponse
+     *
+     * @param DescribeDcdnWafDomainDetailRequest $request
+     *
+     * @return DescribeDcdnWafDomainDetailResponse
      */
     public function describeDcdnWafDomainDetail($request)
     {
@@ -9788,54 +11961,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the accelerated domain names that are protected by Web Application Firewall (WAF). Fuzzy search is supported.
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafDomainsRequest $request DescribeDcdnWafDomainsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the accelerated domain names that are protected by Web Application Firewall (WAF). Fuzzy search is supported.
      *
-     * @return DescribeDcdnWafDomainsResponse DescribeDcdnWafDomainsResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafDomainsResponse
+     *
+     * @param DescribeDcdnWafDomainsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDcdnWafDomainsResponse
      */
     public function describeDcdnWafDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryArgs)) {
-            $query['QueryArgs'] = $request->queryArgs;
+
+        if (null !== $request->queryArgs) {
+            @$query['QueryArgs'] = $request->queryArgs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafDomains',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafDomains',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the accelerated domain names that are protected by Web Application Firewall (WAF). Fuzzy search is supported.
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafDomainsRequest $request DescribeDcdnWafDomainsRequest
+     * Queries the accelerated domain names that are protected by Web Application Firewall (WAF). Fuzzy search is supported.
      *
-     * @return DescribeDcdnWafDomainsResponse DescribeDcdnWafDomainsResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafDomainsRequest
+     *
+     * @returns DescribeDcdnWafDomainsResponse
+     *
+     * @param DescribeDcdnWafDomainsRequest $request
+     *
+     * @return DescribeDcdnWafDomainsResponse
      */
     public function describeDcdnWafDomains($request)
     {
@@ -9845,51 +12032,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about match conditions in a custom protection rule, such as the match fields, logical characters, and match content.
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafFilterInfoRequest $request DescribeDcdnWafFilterInfoRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the information about match conditions in a custom protection rule, such as the match fields, logical characters, and match content.
      *
-     * @return DescribeDcdnWafFilterInfoResponse DescribeDcdnWafFilterInfoResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafFilterInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafFilterInfoResponse
+     *
+     * @param DescribeDcdnWafFilterInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDcdnWafFilterInfoResponse
      */
     public function describeDcdnWafFilterInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->defenseScenes)) {
-            $query['DefenseScenes'] = $request->defenseScenes;
+        if (null !== $request->defenseScenes) {
+            @$query['DefenseScenes'] = $request->defenseScenes;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafFilterInfo',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafFilterInfo',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafFilterInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about match conditions in a custom protection rule, such as the match fields, logical characters, and match content.
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafFilterInfoRequest $request DescribeDcdnWafFilterInfoRequest
+     * Queries the information about match conditions in a custom protection rule, such as the match fields, logical characters, and match content.
      *
-     * @return DescribeDcdnWafFilterInfoResponse DescribeDcdnWafFilterInfoResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafFilterInfoRequest
+     *
+     * @returns DescribeDcdnWafFilterInfoResponse
+     *
+     * @param DescribeDcdnWafFilterInfoRequest $request
+     *
+     * @return DescribeDcdnWafFilterInfoResponse
      */
     public function describeDcdnWafFilterInfo($request)
     {
@@ -9899,48 +12099,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the countries and regions that can be added to the blacklist of Web Application Firewall (WAF).
-     *  *
-     * @description > You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafGeoInfoRequest $request DescribeDcdnWafGeoInfoRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the countries and regions that can be added to the blacklist of Web Application Firewall (WAF).
      *
-     * @return DescribeDcdnWafGeoInfoResponse DescribeDcdnWafGeoInfoResponse
+     * @remarks
+     * > You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafGeoInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafGeoInfoResponse
+     *
+     * @param DescribeDcdnWafGeoInfoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDcdnWafGeoInfoResponse
      */
     public function describeDcdnWafGeoInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafGeoInfo',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafGeoInfo',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafGeoInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the countries and regions that can be added to the blacklist of Web Application Firewall (WAF).
-     *  *
-     * @description > You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafGeoInfoRequest $request DescribeDcdnWafGeoInfoRequest
+     * Queries the countries and regions that can be added to the blacklist of Web Application Firewall (WAF).
      *
-     * @return DescribeDcdnWafGeoInfoResponse DescribeDcdnWafGeoInfoResponse
+     * @remarks
+     * > You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafGeoInfoRequest
+     *
+     * @returns DescribeDcdnWafGeoInfoResponse
+     *
+     * @param DescribeDcdnWafGeoInfoRequest $request
+     *
+     * @return DescribeDcdnWafGeoInfoResponse
      */
     public function describeDcdnWafGeoInfo($request)
     {
@@ -9950,59 +12162,74 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a custom WAF rule group by page.
-     *  *
-     * @param DescribeDcdnWafGroupRequest $request DescribeDcdnWafGroupRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a custom WAF rule group by page.
      *
-     * @return DescribeDcdnWafGroupResponse DescribeDcdnWafGroupResponse
+     * @param Request - DescribeDcdnWafGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafGroupResponse
+     *
+     * @param DescribeDcdnWafGroupRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDcdnWafGroupResponse
      */
     public function describeDcdnWafGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryArgs)) {
-            $query['QueryArgs'] = $request->queryArgs;
+
+        if (null !== $request->queryArgs) {
+            @$query['QueryArgs'] = $request->queryArgs;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafGroup',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafGroup',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a custom WAF rule group by page.
-     *  *
-     * @param DescribeDcdnWafGroupRequest $request DescribeDcdnWafGroupRequest
+     * Queries the details of a custom WAF rule group by page.
      *
-     * @return DescribeDcdnWafGroupResponse DescribeDcdnWafGroupResponse
+     * @param Request - DescribeDcdnWafGroupRequest
+     *
+     * @returns DescribeDcdnWafGroupResponse
+     *
+     * @param DescribeDcdnWafGroupRequest $request
+     *
+     * @return DescribeDcdnWafGroupResponse
      */
     public function describeDcdnWafGroup($request)
     {
@@ -10012,53 +12239,66 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries custom Web Application Firewall (WAF) rule groups.
-     *  *
-     * @param DescribeDcdnWafGroupsRequest $request DescribeDcdnWafGroupsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries custom Web Application Firewall (WAF) rule groups.
      *
-     * @return DescribeDcdnWafGroupsResponse DescribeDcdnWafGroupsResponse
+     * @param Request - DescribeDcdnWafGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafGroupsResponse
+     *
+     * @param DescribeDcdnWafGroupsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDcdnWafGroupsResponse
      */
     public function describeDcdnWafGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryArgs)) {
-            $query['QueryArgs'] = $request->queryArgs;
+
+        if (null !== $request->queryArgs) {
+            @$query['QueryArgs'] = $request->queryArgs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafGroups',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafGroups',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries custom Web Application Firewall (WAF) rule groups.
-     *  *
-     * @param DescribeDcdnWafGroupsRequest $request DescribeDcdnWafGroupsRequest
+     * Queries custom Web Application Firewall (WAF) rule groups.
      *
-     * @return DescribeDcdnWafGroupsResponse DescribeDcdnWafGroupsResponse
+     * @param Request - DescribeDcdnWafGroupsRequest
+     *
+     * @returns DescribeDcdnWafGroupsResponse
+     *
+     * @param DescribeDcdnWafGroupsRequest $request
+     *
+     * @return DescribeDcdnWafGroupsResponse
      */
     public function describeDcdnWafGroups($request)
     {
@@ -10068,66 +12308,82 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the address from which you can download the Web Application Firewall (WAF) logs of a domain name.
-     *  *
-     * @description >
+     * Queries the address from which you can download the Web Application Firewall (WAF) logs of a domain name.
+     *
+     * @remarks
+     * >
      * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
      * *   The log data is collected every hour.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnWafLogsRequest $request DescribeDcdnWafLogsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnWafLogsResponse DescribeDcdnWafLogsResponse
+     * @param Request - DescribeDcdnWafLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafLogsResponse
+     *
+     * @param DescribeDcdnWafLogsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDcdnWafLogsResponse
      */
     public function describeDcdnWafLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafLogs',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafLogs',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the address from which you can download the Web Application Firewall (WAF) logs of a domain name.
-     *  *
-     * @description >
+     * Queries the address from which you can download the Web Application Firewall (WAF) logs of a domain name.
+     *
+     * @remarks
+     * >
      * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
      * *   The log data is collected every hour.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeDcdnWafLogsRequest $request DescribeDcdnWafLogsRequest
      *
-     * @return DescribeDcdnWafLogsResponse DescribeDcdnWafLogsResponse
+     * @param Request - DescribeDcdnWafLogsRequest
+     *
+     * @returns DescribeDcdnWafLogsResponse
+     *
+     * @param DescribeDcdnWafLogsRequest $request
+     *
+     * @return DescribeDcdnWafLogsResponse
      */
     public function describeDcdnWafLogs($request)
     {
@@ -10137,54 +12393,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the Web Application Firewall (WAF) protection policies that you configured.
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafPoliciesRequest $request DescribeDcdnWafPoliciesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the details of the Web Application Firewall (WAF) protection policies that you configured.
      *
-     * @return DescribeDcdnWafPoliciesResponse DescribeDcdnWafPoliciesResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafPoliciesResponse
+     *
+     * @param DescribeDcdnWafPoliciesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnWafPoliciesResponse
      */
     public function describeDcdnWafPoliciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryArgs)) {
-            $query['QueryArgs'] = $request->queryArgs;
+
+        if (null !== $request->queryArgs) {
+            @$query['QueryArgs'] = $request->queryArgs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafPolicies',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafPolicies',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of the Web Application Firewall (WAF) protection policies that you configured.
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafPoliciesRequest $request DescribeDcdnWafPoliciesRequest
+     * Queries the details of the Web Application Firewall (WAF) protection policies that you configured.
      *
-     * @return DescribeDcdnWafPoliciesResponse DescribeDcdnWafPoliciesResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafPoliciesRequest
+     *
+     * @returns DescribeDcdnWafPoliciesResponse
+     *
+     * @param DescribeDcdnWafPoliciesRequest $request
+     *
+     * @return DescribeDcdnWafPoliciesResponse
      */
     public function describeDcdnWafPolicies($request)
     {
@@ -10194,48 +12464,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a protection policy.
-     *  *
-     * @description > You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafPolicyRequest $request DescribeDcdnWafPolicyRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a protection policy.
      *
-     * @return DescribeDcdnWafPolicyResponse DescribeDcdnWafPolicyResponse
+     * @remarks
+     * > You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafPolicyResponse
+     *
+     * @param DescribeDcdnWafPolicyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDcdnWafPolicyResponse
      */
     public function describeDcdnWafPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafPolicy',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafPolicy',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a protection policy.
-     *  *
-     * @description > You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafPolicyRequest $request DescribeDcdnWafPolicyRequest
+     * Queries the details of a protection policy.
      *
-     * @return DescribeDcdnWafPolicyResponse DescribeDcdnWafPolicyResponse
+     * @remarks
+     * > You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafPolicyRequest
+     *
+     * @returns DescribeDcdnWafPolicyResponse
+     *
+     * @param DescribeDcdnWafPolicyRequest $request
+     *
+     * @return DescribeDcdnWafPolicyResponse
      */
     public function describeDcdnWafPolicy($request)
     {
@@ -10245,54 +12527,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the accelerated domain names that are protected by a specified Web Application Firewall (WAF) protection policy.
-     *  *
-     * @description You can call this operation up to 20 times per second per user.
-     *  *
-     * @param DescribeDcdnWafPolicyDomainsRequest $request DescribeDcdnWafPolicyDomainsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the accelerated domain names that are protected by a specified Web Application Firewall (WAF) protection policy.
      *
-     * @return DescribeDcdnWafPolicyDomainsResponse DescribeDcdnWafPolicyDomainsResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per user.
+     *
+     * @param Request - DescribeDcdnWafPolicyDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafPolicyDomainsResponse
+     *
+     * @param DescribeDcdnWafPolicyDomainsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDcdnWafPolicyDomainsResponse
      */
     public function describeDcdnWafPolicyDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafPolicyDomains',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafPolicyDomains',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafPolicyDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the accelerated domain names that are protected by a specified Web Application Firewall (WAF) protection policy.
-     *  *
-     * @description You can call this operation up to 20 times per second per user.
-     *  *
-     * @param DescribeDcdnWafPolicyDomainsRequest $request DescribeDcdnWafPolicyDomainsRequest
+     * Queries the accelerated domain names that are protected by a specified Web Application Firewall (WAF) protection policy.
      *
-     * @return DescribeDcdnWafPolicyDomainsResponse DescribeDcdnWafPolicyDomainsResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per user.
+     *
+     * @param Request - DescribeDcdnWafPolicyDomainsRequest
+     *
+     * @returns DescribeDcdnWafPolicyDomainsResponse
+     *
+     * @param DescribeDcdnWafPolicyDomainsRequest $request
+     *
+     * @return DescribeDcdnWafPolicyDomainsResponse
      */
     public function describeDcdnWafPolicyDomains($request)
     {
@@ -10302,57 +12598,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the domain names that can be bound to a custom protection policy.
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafPolicyValidDomainsRequest $request DescribeDcdnWafPolicyValidDomainsRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the domain names that can be bound to a custom protection policy.
      *
-     * @return DescribeDcdnWafPolicyValidDomainsResponse DescribeDcdnWafPolicyValidDomainsResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafPolicyValidDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafPolicyValidDomainsResponse
+     *
+     * @param DescribeDcdnWafPolicyValidDomainsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDcdnWafPolicyValidDomainsResponse
      */
     public function describeDcdnWafPolicyValidDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->defenseScene)) {
-            $query['DefenseScene'] = $request->defenseScene;
+        if (null !== $request->defenseScene) {
+            @$query['DefenseScene'] = $request->defenseScene;
         }
-        if (!Utils::isUnset($request->domainNameLike)) {
-            $query['DomainNameLike'] = $request->domainNameLike;
+
+        if (null !== $request->domainNameLike) {
+            @$query['DomainNameLike'] = $request->domainNameLike;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafPolicyValidDomains',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafPolicyValidDomains',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafPolicyValidDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the domain names that can be bound to a custom protection policy.
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafPolicyValidDomainsRequest $request DescribeDcdnWafPolicyValidDomainsRequest
+     * Queries the domain names that can be bound to a custom protection policy.
      *
-     * @return DescribeDcdnWafPolicyValidDomainsResponse DescribeDcdnWafPolicyValidDomainsResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafPolicyValidDomainsRequest
+     *
+     * @returns DescribeDcdnWafPolicyValidDomainsResponse
+     *
+     * @param DescribeDcdnWafPolicyValidDomainsRequest $request
+     *
+     * @return DescribeDcdnWafPolicyValidDomainsResponse
      */
     public function describeDcdnWafPolicyValidDomains($request)
     {
@@ -10362,50 +12673,62 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a specified protection rule.
-     *  *
-     * @description #
-     * You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafRuleRequest $request DescribeDcdnWafRuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a specified protection rule.
      *
-     * @return DescribeDcdnWafRuleResponse DescribeDcdnWafRuleResponse
+     * @remarks
+     * #
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafRuleResponse
+     *
+     * @param DescribeDcdnWafRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDcdnWafRuleResponse
      */
     public function describeDcdnWafRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafRule',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafRule',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a specified protection rule.
-     *  *
-     * @description #
-     * You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafRuleRequest $request DescribeDcdnWafRuleRequest
+     * Queries the details of a specified protection rule.
      *
-     * @return DescribeDcdnWafRuleResponse DescribeDcdnWafRuleResponse
+     * @remarks
+     * #
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafRuleRequest
+     *
+     * @returns DescribeDcdnWafRuleResponse
+     *
+     * @param DescribeDcdnWafRuleRequest $request
+     *
+     * @return DescribeDcdnWafRuleResponse
      */
     public function describeDcdnWafRule($request)
     {
@@ -10415,54 +12738,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the protection rules that you configured.
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafRulesRequest $request DescribeDcdnWafRulesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the details of the protection rules that you configured.
      *
-     * @return DescribeDcdnWafRulesResponse DescribeDcdnWafRulesResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafRulesResponse
+     *
+     * @param DescribeDcdnWafRulesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDcdnWafRulesResponse
      */
     public function describeDcdnWafRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryArgs)) {
-            $query['QueryArgs'] = $request->queryArgs;
+
+        if (null !== $request->queryArgs) {
+            @$query['QueryArgs'] = $request->queryArgs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafRules',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafRules',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of the protection rules that you configured.
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafRulesRequest $request DescribeDcdnWafRulesRequest
+     * Queries the details of the protection rules that you configured.
      *
-     * @return DescribeDcdnWafRulesResponse DescribeDcdnWafRulesResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafRulesRequest
+     *
+     * @returns DescribeDcdnWafRulesResponse
+     *
+     * @param DescribeDcdnWafRulesRequest $request
+     *
+     * @return DescribeDcdnWafRulesResponse
      */
     public function describeDcdnWafRules($request)
     {
@@ -10472,48 +12809,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the type of the protection policy that you use.
-     *  *
-     * @description You can call this operation up to 20 times per second per user.
-     *  *
-     * @param DescribeDcdnWafScenesRequest $request DescribeDcdnWafScenesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the type of the protection policy that you use.
      *
-     * @return DescribeDcdnWafScenesResponse DescribeDcdnWafScenesResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per user.
+     *
+     * @param Request - DescribeDcdnWafScenesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafScenesResponse
+     *
+     * @param DescribeDcdnWafScenesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDcdnWafScenesResponse
      */
     public function describeDcdnWafScenesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->defenseScenes)) {
-            $query['DefenseScenes'] = $request->defenseScenes;
+        if (null !== $request->defenseScenes) {
+            @$query['DefenseScenes'] = $request->defenseScenes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafScenes',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafScenes',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafScenesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the type of the protection policy that you use.
-     *  *
-     * @description You can call this operation up to 20 times per second per user.
-     *  *
-     * @param DescribeDcdnWafScenesRequest $request DescribeDcdnWafScenesRequest
+     * Queries the information about the type of the protection policy that you use.
      *
-     * @return DescribeDcdnWafScenesResponse DescribeDcdnWafScenesResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per user.
+     *
+     * @param Request - DescribeDcdnWafScenesRequest
+     *
+     * @returns DescribeDcdnWafScenesResponse
+     *
+     * @param DescribeDcdnWafScenesRequest $request
+     *
+     * @return DescribeDcdnWafScenesResponse
      */
     public function describeDcdnWafScenes($request)
     {
@@ -10523,53 +12872,66 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about Dynamic Content Delivery Network (DCDN) Web Application Firewall WAF), including the time when WAF is enabled, edition of WAF, current status of WAF, metering method for requests, and metering method for rules.
-     *  *
-     * @description # Usage notes
-     * You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafServiceRequest $request DescribeDcdnWafServiceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the information about Dynamic Content Delivery Network (DCDN) Web Application Firewall WAF), including the time when WAF is enabled, edition of WAF, current status of WAF, metering method for requests, and metering method for rules.
      *
-     * @return DescribeDcdnWafServiceResponse DescribeDcdnWafServiceResponse
+     * @remarks
+     * # Usage notes
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafServiceResponse
+     *
+     * @param DescribeDcdnWafServiceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDcdnWafServiceResponse
      */
     public function describeDcdnWafServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafService',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafService',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about Dynamic Content Delivery Network (DCDN) Web Application Firewall WAF), including the time when WAF is enabled, edition of WAF, current status of WAF, metering method for requests, and metering method for rules.
-     *  *
-     * @description # Usage notes
-     * You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnWafServiceRequest $request DescribeDcdnWafServiceRequest
+     * Queries the information about Dynamic Content Delivery Network (DCDN) Web Application Firewall WAF), including the time when WAF is enabled, edition of WAF, current status of WAF, metering method for requests, and metering method for rules.
      *
-     * @return DescribeDcdnWafServiceResponse DescribeDcdnWafServiceResponse
+     * @remarks
+     * # Usage notes
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafServiceRequest
+     *
+     * @returns DescribeDcdnWafServiceResponse
+     *
+     * @param DescribeDcdnWafServiceRequest $request
+     *
+     * @return DescribeDcdnWafServiceResponse
      */
     public function describeDcdnWafService($request)
     {
@@ -10579,38 +12941,47 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the version of Web Application Firewall (WAF) used in Dynamic Content Delivery Network (DCDN).
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the version of Web Application Firewall (WAF) used in Dynamic Content Delivery Network (DCDN).
      *
-     * @return DescribeDcdnWafSpecInfoResponse DescribeDcdnWafSpecInfoResponse
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnWafSpecInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafSpecInfoResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnWafSpecInfoResponse
      */
     public function describeDcdnWafSpecInfoWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafSpecInfo',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafSpecInfo',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafSpecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the version of Web Application Firewall (WAF) used in Dynamic Content Delivery Network (DCDN).
-     *  *
-     * @description You can call this operation up to 20 times per second per account.
-     *  *
-     * @return DescribeDcdnWafSpecInfoResponse DescribeDcdnWafSpecInfoResponse
+     * Queries the version of Web Application Firewall (WAF) used in Dynamic Content Delivery Network (DCDN).
+     *
+     * @remarks
+     * You can call this operation up to 20 times per second per account.
+     *
+     * @returns DescribeDcdnWafSpecInfoResponse
+     *
+     * @return DescribeDcdnWafSpecInfoResponse
      */
     public function describeDcdnWafSpecInfo()
     {
@@ -10620,62 +12991,78 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary The number of used SeCUs.
-     *  *
-     * @description *   You can call this operation up to 10 times per second per account.
-     * *   The minimum time granularity for a query is 5 minutes. The maximum time span for a query is 31 days. The time period within which historical data is available for a query is 90 days.
-     *  *
-     * @param DescribeDcdnWafUsageDataRequest $request DescribeDcdnWafUsageDataRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * The number of used SeCUs.
      *
-     * @return DescribeDcdnWafUsageDataResponse DescribeDcdnWafUsageDataResponse
+     * @remarks
+     *   You can call this operation up to 10 times per second per account.
+     * *   The minimum time granularity for a query is 5 minutes. The maximum time span for a query is 31 days. The time period within which historical data is available for a query is 90 days.
+     *
+     * @param Request - DescribeDcdnWafUsageDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnWafUsageDataResponse
+     *
+     * @param DescribeDcdnWafUsageDataRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDcdnWafUsageDataResponse
      */
     public function describeDcdnWafUsageDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->splitBy)) {
-            $query['SplitBy'] = $request->splitBy;
+
+        if (null !== $request->splitBy) {
+            @$query['SplitBy'] = $request->splitBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnWafUsageData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnWafUsageData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnWafUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary The number of used SeCUs.
-     *  *
-     * @description *   You can call this operation up to 10 times per second per account.
-     * *   The minimum time granularity for a query is 5 minutes. The maximum time span for a query is 31 days. The time period within which historical data is available for a query is 90 days.
-     *  *
-     * @param DescribeDcdnWafUsageDataRequest $request DescribeDcdnWafUsageDataRequest
+     * The number of used SeCUs.
      *
-     * @return DescribeDcdnWafUsageDataResponse DescribeDcdnWafUsageDataResponse
+     * @remarks
+     *   You can call this operation up to 10 times per second per account.
+     * *   The minimum time granularity for a query is 5 minutes. The maximum time span for a query is 31 days. The time period within which historical data is available for a query is 90 days.
+     *
+     * @param Request - DescribeDcdnWafUsageDataRequest
+     *
+     * @returns DescribeDcdnWafUsageDataResponse
+     *
+     * @param DescribeDcdnWafUsageDataRequest $request
+     *
+     * @return DescribeDcdnWafUsageDataResponse
      */
     public function describeDcdnWafUsageData($request)
     {
@@ -10685,51 +13072,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about Dynamic Content Delivery Network (DCDN), such as the service activation time, the expiration time, and the current status.
-     *  *
-     * @description > You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnsecServiceRequest $request DescribeDcdnsecServiceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the information about Dynamic Content Delivery Network (DCDN), such as the service activation time, the expiration time, and the current status.
      *
-     * @return DescribeDcdnsecServiceResponse DescribeDcdnsecServiceResponse
+     * @remarks
+     * > You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnsecServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDcdnsecServiceResponse
+     *
+     * @param DescribeDcdnsecServiceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDcdnsecServiceResponse
      */
     public function describeDcdnsecServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnsecService',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDcdnsecService',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDcdnsecServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about Dynamic Content Delivery Network (DCDN), such as the service activation time, the expiration time, and the current status.
-     *  *
-     * @description > You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeDcdnsecServiceRequest $request DescribeDcdnsecServiceRequest
+     * Queries the information about Dynamic Content Delivery Network (DCDN), such as the service activation time, the expiration time, and the current status.
      *
-     * @return DescribeDcdnsecServiceResponse DescribeDcdnsecServiceResponse
+     * @remarks
+     * > You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeDcdnsecServiceRequest
+     *
+     * @returns DescribeDcdnsecServiceResponse
+     *
+     * @param DescribeDcdnsecServiceRequest $request
+     *
+     * @return DescribeDcdnsecServiceResponse
      */
     public function describeDcdnsecService($request)
     {
@@ -10739,56 +13139,70 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries attack events.
-     *  *
-     * @param DescribeDdosAllEventListRequest $request DescribeDdosAllEventListRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries attack events.
      *
-     * @return DescribeDdosAllEventListResponse DescribeDdosAllEventListResponse
+     * @param Request - DescribeDdosAllEventListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDdosAllEventListResponse
+     *
+     * @param DescribeDdosAllEventListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDdosAllEventListResponse
      */
     public function describeDdosAllEventListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDdosAllEventList',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDdosAllEventList',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDdosAllEventListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries attack events.
-     *  *
-     * @param DescribeDdosAllEventListRequest $request DescribeDdosAllEventListRequest
+     * Queries attack events.
      *
-     * @return DescribeDdosAllEventListResponse DescribeDdosAllEventListResponse
+     * @param Request - DescribeDdosAllEventListRequest
+     *
+     * @returns DescribeDdosAllEventListResponse
+     *
+     * @param DescribeDdosAllEventListRequest $request
+     *
+     * @return DescribeDdosAllEventListResponse
      */
     public function describeDdosAllEventList($request)
     {
@@ -10798,34 +13212,41 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the encrypted RoutineUid of a routine.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the encrypted RoutineUid of a routine.
      *
-     * @return DescribeEncryptRoutineUidResponse DescribeEncryptRoutineUidResponse
+     * @param Request - DescribeEncryptRoutineUidRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEncryptRoutineUidResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeEncryptRoutineUidResponse
      */
     public function describeEncryptRoutineUidWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeEncryptRoutineUid',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEncryptRoutineUid',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEncryptRoutineUidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the encrypted RoutineUid of a routine.
-     *  *
-     * @return DescribeEncryptRoutineUidResponse DescribeEncryptRoutineUidResponse
+     * Queries the encrypted RoutineUid of a routine.
+     *
+     * @returns DescribeEncryptRoutineUidResponse
+     *
+     * @return DescribeEncryptRoutineUidResponse
      */
     public function describeEncryptRoutineUid()
     {
@@ -10835,53 +13256,66 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the highlighted data of attack details. You can query the reasons for which requests are blocked based on TraceIDs in logs of requests that are blocked by Basic Web Protection. The highlighted data matches the content blocked by the basic web protection module.
-     *  *
-     * @param DescribeHighlightInfoRequest $request DescribeHighlightInfoRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the highlighted data of attack details. You can query the reasons for which requests are blocked based on TraceIDs in logs of requests that are blocked by Basic Web Protection. The highlighted data matches the content blocked by the basic web protection module.
      *
-     * @return DescribeHighlightInfoResponse DescribeHighlightInfoResponse
+     * @param Request - DescribeHighlightInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHighlightInfoResponse
+     *
+     * @param DescribeHighlightInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeHighlightInfoResponse
      */
     public function describeHighlightInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->traceId)) {
-            $query['TraceId'] = $request->traceId;
+
+        if (null !== $request->traceId) {
+            @$query['TraceId'] = $request->traceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHighlightInfo',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHighlightInfo',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeHighlightInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the highlighted data of attack details. You can query the reasons for which requests are blocked based on TraceIDs in logs of requests that are blocked by Basic Web Protection. The highlighted data matches the content blocked by the basic web protection module.
-     *  *
-     * @param DescribeHighlightInfoRequest $request DescribeHighlightInfoRequest
+     * Queries the highlighted data of attack details. You can query the reasons for which requests are blocked based on TraceIDs in logs of requests that are blocked by Basic Web Protection. The highlighted data matches the content blocked by the basic web protection module.
      *
-     * @return DescribeHighlightInfoResponse DescribeHighlightInfoResponse
+     * @param Request - DescribeHighlightInfoRequest
+     *
+     * @returns DescribeHighlightInfoResponse
+     *
+     * @param DescribeHighlightInfoRequest $request
+     *
+     * @return DescribeHighlightInfoResponse
      */
     public function describeHighlightInfo($request)
     {
@@ -10891,76 +13325,171 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage data of KV storage.
-     *  *
-     * @description **Note*** You can call this operation up to 5 times per second per account.
+     * kv存储实时Qps监控数据.
+     *
+     * @param Request - DescribeKvRealTimeQpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeKvRealTimeQpsDataResponse
+     *
+     * @param DescribeKvRealTimeQpsDataRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeKvRealTimeQpsDataResponse
+     */
+    public function describeKvRealTimeQpsDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessType) {
+            @$query['AccessType'] = $request->accessType;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        if (null !== $request->splitBy) {
+            @$query['SplitBy'] = $request->splitBy;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeKvRealTimeQpsData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeKvRealTimeQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * kv存储实时Qps监控数据.
+     *
+     * @param Request - DescribeKvRealTimeQpsDataRequest
+     *
+     * @returns DescribeKvRealTimeQpsDataResponse
+     *
+     * @param DescribeKvRealTimeQpsDataRequest $request
+     *
+     * @return DescribeKvRealTimeQpsDataResponse
+     */
+    public function describeKvRealTimeQpsData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKvRealTimeQpsDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the usage data of KV storage.
+     *
+     * @remarks
+     * *Note*** You can call this operation up to 5 times per second per account.
      * * The usage data indicates the number of requests.
      * **Time granularity:** This operation supports only the time granularity of 1 hour.
      * |Time granularity|Time range to query|Historical data available|Data latency|
      * |---|---|---|---|
      * |1 hour|31 days|90 days|3 to 4 hours|
-     *  *
-     * @param DescribeKvUsageDataRequest $request DescribeKvUsageDataRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeKvUsageDataResponse DescribeKvUsageDataResponse
+     * @param Request - DescribeKvUsageDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeKvUsageDataResponse
+     *
+     * @param DescribeKvUsageDataRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeKvUsageDataResponse
      */
     public function describeKvUsageDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessType)) {
-            $query['AccessType'] = $request->accessType;
+        if (null !== $request->accessType) {
+            @$query['AccessType'] = $request->accessType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->field)) {
-            $query['Field'] = $request->field;
+
+        if (null !== $request->field) {
+            @$query['Field'] = $request->field;
         }
-        if (!Utils::isUnset($request->namespaceId)) {
-            $query['NamespaceId'] = $request->namespaceId;
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
         }
-        if (!Utils::isUnset($request->responseType)) {
-            $query['ResponseType'] = $request->responseType;
+
+        if (null !== $request->responseType) {
+            @$query['ResponseType'] = $request->responseType;
         }
-        if (!Utils::isUnset($request->splitBy)) {
-            $query['SplitBy'] = $request->splitBy;
+
+        if (null !== $request->splitBy) {
+            @$query['SplitBy'] = $request->splitBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeKvUsageData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeKvUsageData',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeKvUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the usage data of KV storage.
-     *  *
-     * @description **Note*** You can call this operation up to 5 times per second per account.
+     * Queries the usage data of KV storage.
+     *
+     * @remarks
+     * *Note*** You can call this operation up to 5 times per second per account.
      * * The usage data indicates the number of requests.
      * **Time granularity:** This operation supports only the time granularity of 1 hour.
      * |Time granularity|Time range to query|Historical data available|Data latency|
      * |---|---|---|---|
      * |1 hour|31 days|90 days|3 to 4 hours|
-     *  *
-     * @param DescribeKvUsageDataRequest $request DescribeKvUsageDataRequest
      *
-     * @return DescribeKvUsageDataResponse DescribeKvUsageDataResponse
+     * @param Request - DescribeKvUsageDataRequest
+     *
+     * @returns DescribeKvUsageDataResponse
+     *
+     * @param DescribeKvUsageDataRequest $request
+     *
+     * @return DescribeKvUsageDataResponse
      */
     public function describeKvUsageData($request)
     {
@@ -10970,47 +13499,58 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the feature configurations of an accelerated domain name in the resource directory.
-     *  *
-     * @param DescribeRDDomainConfigRequest $request DescribeRDDomainConfigRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the feature configurations of an accelerated domain name in the resource directory.
      *
-     * @return DescribeRDDomainConfigResponse DescribeRDDomainConfigResponse
+     * @param Request - DescribeRDDomainConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRDDomainConfigResponse
+     *
+     * @param DescribeRDDomainConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeRDDomainConfigResponse
      */
     public function describeRDDomainConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->functionName)) {
-            $query['FunctionName'] = $request->functionName;
+
+        if (null !== $request->functionName) {
+            @$query['FunctionName'] = $request->functionName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRDDomainConfig',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRDDomainConfig',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRDDomainConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the feature configurations of an accelerated domain name in the resource directory.
-     *  *
-     * @param DescribeRDDomainConfigRequest $request DescribeRDDomainConfigRequest
+     * Queries the feature configurations of an accelerated domain name in the resource directory.
      *
-     * @return DescribeRDDomainConfigResponse DescribeRDDomainConfigResponse
+     * @param Request - DescribeRDDomainConfigRequest
+     *
+     * @returns DescribeRDDomainConfigResponse
+     *
+     * @param DescribeRDDomainConfigRequest $request
+     *
+     * @return DescribeRDDomainConfigResponse
      */
     public function describeRDDomainConfig($request)
     {
@@ -11020,63 +13560,76 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries all domain names of Alibaba Cloud CDN and Dynamic Content Delivery Network (DCDN) in a Resource Directory (RD).
-     *  *
-     * @description A domain name can be in one of the following states:
+     * Queries all domain names of Alibaba Cloud CDN and Dynamic Content Delivery Network (DCDN) in a Resource Directory (RD).
+     *
+     * @remarks
+     * A domain name can be in one of the following states:
      * *   online
      * *   offline
      * *   configuring
      * *   configure_failed
      * *   checking
      * *   check_failed
-     *  *
-     * @param DescribeRDDomainsRequest $request DescribeRDDomainsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRDDomainsResponse DescribeRDDomainsResponse
+     * @param Request - DescribeRDDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRDDomainsResponse
+     *
+     * @param DescribeRDDomainsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeRDDomainsResponse
      */
     public function describeRDDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRDDomains',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRDDomains',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRDDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all domain names of Alibaba Cloud CDN and Dynamic Content Delivery Network (DCDN) in a Resource Directory (RD).
-     *  *
-     * @description A domain name can be in one of the following states:
+     * Queries all domain names of Alibaba Cloud CDN and Dynamic Content Delivery Network (DCDN) in a Resource Directory (RD).
+     *
+     * @remarks
+     * A domain name can be in one of the following states:
      * *   online
      * *   offline
      * *   configuring
      * *   configure_failed
      * *   checking
      * *   check_failed
-     *  *
-     * @param DescribeRDDomainsRequest $request DescribeRDDomainsRequest
      *
-     * @return DescribeRDDomainsResponse DescribeRDDomainsResponse
+     * @param Request - DescribeRDDomainsRequest
+     *
+     * @returns DescribeRDDomainsResponse
+     *
+     * @param DescribeRDDomainsRequest $request
+     *
+     * @return DescribeRDDomainsResponse
      */
     public function describeRDDomains($request)
     {
@@ -11086,48 +13639,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the metadata of a specified routine. The metadata includes the routine configuration, configuration version, and code version.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeRoutineRequest $request DescribeRoutineRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the metadata of a specified routine. The metadata includes the routine configuration, configuration version, and code version.
      *
-     * @return DescribeRoutineResponse DescribeRoutineResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeRoutineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRoutineResponse
+     *
+     * @param DescribeRoutineRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRoutineResponse
      */
     public function describeRoutineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRoutine',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRoutine',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the metadata of a specified routine. The metadata includes the routine configuration, configuration version, and code version.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeRoutineRequest $request DescribeRoutineRequest
+     * Queries the metadata of a specified routine. The metadata includes the routine configuration, configuration version, and code version.
      *
-     * @return DescribeRoutineResponse DescribeRoutineResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeRoutineRequest
+     *
+     * @returns DescribeRoutineResponse
+     *
+     * @param DescribeRoutineRequest $request
+     *
+     * @return DescribeRoutineResponse
      */
     public function describeRoutine($request)
     {
@@ -11137,38 +13702,47 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the canary release environments that are supported by a routine.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the canary release environments that are supported by a routine.
      *
-     * @return DescribeRoutineCanaryEnvsResponse DescribeRoutineCanaryEnvsResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeRoutineCanaryEnvsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRoutineCanaryEnvsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeRoutineCanaryEnvsResponse
      */
     public function describeRoutineCanaryEnvsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeRoutineCanaryEnvs',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRoutineCanaryEnvs',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRoutineCanaryEnvsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the canary release environments that are supported by a routine.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @return DescribeRoutineCanaryEnvsResponse DescribeRoutineCanaryEnvsResponse
+     * Queries the canary release environments that are supported by a routine.
+     *
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @returns DescribeRoutineCanaryEnvsResponse
+     *
+     * @return DescribeRoutineCanaryEnvsResponse
      */
     public function describeRoutineCanaryEnvs()
     {
@@ -11178,51 +13752,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the JavaScript code version of a routine.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeRoutineCodeRevisionRequest $request DescribeRoutineCodeRevisionRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the JavaScript code version of a routine.
      *
-     * @return DescribeRoutineCodeRevisionResponse DescribeRoutineCodeRevisionResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeRoutineCodeRevisionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRoutineCodeRevisionResponse
+     *
+     * @param DescribeRoutineCodeRevisionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRoutineCodeRevisionResponse
      */
     public function describeRoutineCodeRevisionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->selectCodeRevision)) {
-            $body['SelectCodeRevision'] = $request->selectCodeRevision;
+
+        if (null !== $request->selectCodeRevision) {
+            @$body['SelectCodeRevision'] = $request->selectCodeRevision;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRoutineCodeRevision',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRoutineCodeRevision',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRoutineCodeRevisionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the JavaScript code version of a routine.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DescribeRoutineCodeRevisionRequest $request DescribeRoutineCodeRevisionRequest
+     * Queries the JavaScript code version of a routine.
      *
-     * @return DescribeRoutineCodeRevisionResponse DescribeRoutineCodeRevisionResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeRoutineCodeRevisionRequest
+     *
+     * @returns DescribeRoutineCodeRevisionResponse
+     *
+     * @param DescribeRoutineCodeRevisionRequest $request
+     *
+     * @return DescribeRoutineCodeRevisionResponse
      */
     public function describeRoutineCodeRevision($request)
     {
@@ -11232,44 +13819,54 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of domain names that are associated with a routine.
-     *  *
-     * @param DescribeRoutineRelatedDomainsRequest $request DescribeRoutineRelatedDomainsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the list of domain names that are associated with a routine.
      *
-     * @return DescribeRoutineRelatedDomainsResponse DescribeRoutineRelatedDomainsResponse
+     * @param Request - DescribeRoutineRelatedDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRoutineRelatedDomainsResponse
+     *
+     * @param DescribeRoutineRelatedDomainsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeRoutineRelatedDomainsResponse
      */
     public function describeRoutineRelatedDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRoutineRelatedDomains',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRoutineRelatedDomains',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRoutineRelatedDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of domain names that are associated with a routine.
-     *  *
-     * @param DescribeRoutineRelatedDomainsRequest $request DescribeRoutineRelatedDomainsRequest
+     * Queries the list of domain names that are associated with a routine.
      *
-     * @return DescribeRoutineRelatedDomainsResponse DescribeRoutineRelatedDomainsResponse
+     * @param Request - DescribeRoutineRelatedDomainsRequest
+     *
+     * @returns DescribeRoutineRelatedDomainsResponse
+     *
+     * @param DescribeRoutineRelatedDomainsRequest $request
+     *
+     * @return DescribeRoutineRelatedDomainsResponse
      */
     public function describeRoutineRelatedDomains($request)
     {
@@ -11279,38 +13876,47 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the supported specifications for routines. The private preview supports the following CPU time slice specifications: 5 ms, 50 ms, and 100 ms.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the supported specifications for routines. The private preview supports the following CPU time slice specifications: 5 ms, 50 ms, and 100 ms.
      *
-     * @return DescribeRoutineSpecResponse DescribeRoutineSpecResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeRoutineSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRoutineSpecResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeRoutineSpecResponse
      */
     public function describeRoutineSpecWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeRoutineSpec',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRoutineSpec',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRoutineSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the supported specifications for routines. The private preview supports the following CPU time slice specifications: 5 ms, 50 ms, and 100 ms.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @return DescribeRoutineSpecResponse DescribeRoutineSpecResponse
+     * Queries the supported specifications for routines. The private preview supports the following CPU time slice specifications: 5 ms, 50 ms, and 100 ms.
+     *
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @returns DescribeRoutineSpecResponse
+     *
+     * @return DescribeRoutineSpecResponse
      */
     public function describeRoutineSpec()
     {
@@ -11320,38 +13926,47 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the subdomains and routines that belong to your Alibaba Cloud account.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the subdomains and routines that belong to your Alibaba Cloud account.
      *
-     * @return DescribeRoutineUserInfoResponse DescribeRoutineUserInfoResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - DescribeRoutineUserInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRoutineUserInfoResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeRoutineUserInfoResponse
      */
     public function describeRoutineUserInfoWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeRoutineUserInfo',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRoutineUserInfo',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRoutineUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the subdomains and routines that belong to your Alibaba Cloud account.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @return DescribeRoutineUserInfoResponse DescribeRoutineUserInfoResponse
+     * Queries the subdomains and routines that belong to your Alibaba Cloud account.
+     *
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @returns DescribeRoutineUserInfoResponse
+     *
+     * @return DescribeRoutineUserInfoResponse
      */
     public function describeRoutineUserInfo()
     {
@@ -11361,53 +13976,66 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Whether IPA is enabled and whether you have overdue payments for your IPA are queried.
-     *  *
-     * @description **
-     * **The maximum number of times that each user can call this operation per second is 20.
-     *  *
-     * @param DescribeUserDcdnIpaStatusRequest $request DescribeUserDcdnIpaStatusRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Whether IPA is enabled and whether you have overdue payments for your IPA are queried.
      *
-     * @return DescribeUserDcdnIpaStatusResponse DescribeUserDcdnIpaStatusResponse
+     * @remarks
+     * *
+     * **The maximum number of times that each user can call this operation per second is 20.
+     *
+     * @param Request - DescribeUserDcdnIpaStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserDcdnIpaStatusResponse
+     *
+     * @param DescribeUserDcdnIpaStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeUserDcdnIpaStatusResponse
      */
     public function describeUserDcdnIpaStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserDcdnIpaStatus',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserDcdnIpaStatus',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeUserDcdnIpaStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Whether IPA is enabled and whether you have overdue payments for your IPA are queried.
-     *  *
-     * @description **
-     * **The maximum number of times that each user can call this operation per second is 20.
-     *  *
-     * @param DescribeUserDcdnIpaStatusRequest $request DescribeUserDcdnIpaStatusRequest
+     * Whether IPA is enabled and whether you have overdue payments for your IPA are queried.
      *
-     * @return DescribeUserDcdnIpaStatusResponse DescribeUserDcdnIpaStatusResponse
+     * @remarks
+     * *
+     * **The maximum number of times that each user can call this operation per second is 20.
+     *
+     * @param Request - DescribeUserDcdnIpaStatusRequest
+     *
+     * @returns DescribeUserDcdnIpaStatusResponse
+     *
+     * @param DescribeUserDcdnIpaStatusRequest $request
+     *
+     * @return DescribeUserDcdnIpaStatusResponse
      */
     public function describeUserDcdnIpaStatus($request)
     {
@@ -11417,48 +14045,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether DCDN is activated and whether your account has overdue payments.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeUserDcdnStatusRequest $request DescribeUserDcdnStatusRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries whether DCDN is activated and whether your account has overdue payments.
      *
-     * @return DescribeUserDcdnStatusResponse DescribeUserDcdnStatusResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeUserDcdnStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserDcdnStatusResponse
+     *
+     * @param DescribeUserDcdnStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeUserDcdnStatusResponse
      */
     public function describeUserDcdnStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserDcdnStatus',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserDcdnStatus',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeUserDcdnStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether DCDN is activated and whether your account has overdue payments.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeUserDcdnStatusRequest $request DescribeUserDcdnStatusRequest
+     * Queries whether DCDN is activated and whether your account has overdue payments.
      *
-     * @return DescribeUserDcdnStatusResponse DescribeUserDcdnStatusResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeUserDcdnStatusRequest
+     *
+     * @returns DescribeUserDcdnStatusResponse
+     *
+     * @param DescribeUserDcdnStatusRequest $request
+     *
+     * @return DescribeUserDcdnStatusResponse
      */
     public function describeUserDcdnStatus($request)
     {
@@ -11468,48 +14108,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether EdgeRoutine (ER) is activated or has an overdue payment.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeUserErStatusRequest $request DescribeUserErStatusRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries whether EdgeRoutine (ER) is activated or has an overdue payment.
      *
-     * @return DescribeUserErStatusResponse DescribeUserErStatusResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeUserErStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserErStatusResponse
+     *
+     * @param DescribeUserErStatusRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeUserErStatusResponse
      */
     public function describeUserErStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserErStatus',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserErStatus',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeUserErStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether EdgeRoutine (ER) is activated or has an overdue payment.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param DescribeUserErStatusRequest $request DescribeUserErStatusRequest
+     * Queries whether EdgeRoutine (ER) is activated or has an overdue payment.
      *
-     * @return DescribeUserErStatusResponse DescribeUserErStatusResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - DescribeUserErStatusRequest
+     *
+     * @returns DescribeUserErStatusResponse
+     *
+     * @param DescribeUserErStatusRequest $request
+     *
+     * @return DescribeUserErStatusResponse
      */
     public function describeUserErStatus($request)
     {
@@ -11519,51 +14171,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether Log Service is activated and whether you have overdue payments for your Log Service.
-     *  *
-     * @description > You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeUserLogserviceStatusRequest $request DescribeUserLogserviceStatusRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries whether Log Service is activated and whether you have overdue payments for your Log Service.
      *
-     * @return DescribeUserLogserviceStatusResponse DescribeUserLogserviceStatusResponse
+     * @remarks
+     * > You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeUserLogserviceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserLogserviceStatusResponse
+     *
+     * @param DescribeUserLogserviceStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeUserLogserviceStatusResponse
      */
     public function describeUserLogserviceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserLogserviceStatus',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserLogserviceStatus',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeUserLogserviceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether Log Service is activated and whether you have overdue payments for your Log Service.
-     *  *
-     * @description > You can call this operation up to 20 times per second per account.
-     *  *
-     * @param DescribeUserLogserviceStatusRequest $request DescribeUserLogserviceStatusRequest
+     * Queries whether Log Service is activated and whether you have overdue payments for your Log Service.
      *
-     * @return DescribeUserLogserviceStatusResponse DescribeUserLogserviceStatusResponse
+     * @remarks
+     * > You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - DescribeUserLogserviceStatusRequest
+     *
+     * @returns DescribeUserLogserviceStatusResponse
+     *
+     * @param DescribeUserLogserviceStatusRequest $request
+     *
+     * @return DescribeUserLogserviceStatusResponse
      */
     public function describeUserLogserviceStatus($request)
     {
@@ -11573,9 +14238,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a routine.
-     *  *
-     * @description >
+     * Modifies the configurations of a routine.
+     *
+     * @remarks
+     * >
      * *   This operation modifies only the specified configurations. Other configurations remain unchanged.
      * *   If you want to delete a setting, delete the parameter value.
      * *   This operation can add canary release environments. Make sure that the environment names comply with the naming rules. Otherwise, you will fail to add the environments.
@@ -11583,52 +14249,62 @@ class Dcdn extends OpenApiClient
      *     *   Outside China: presetCanaryOverseas.
      *     *   In China: The 34 canary release environments are named in the format of presetCanaryXX. For example, presetCanaryBeijing represents the canary release environment in Beijing. A canary release environment is in each of the following regions: Anhui, Beijing, Chongqing, Fujian, Gansu, Guangdong, Guangxi, Guizhou, Hainan, Hebei, Heilongjiang, Henan, Hong Kong, Hubei, Hunan, Jiangsu, Jiangxi, Jilin, Liaoning, Macao, Neimenggu, Ningxia, Qinghai, Shaanxi, Shandong, Shanghai, Shanxi, Sichuan, Taiwan, Tianjin, Xinjiang, Xizang, Yunan, and Zhejiang.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param EditRoutineConfRequest $tmpReq  EditRoutineConfRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return EditRoutineConfResponse EditRoutineConfResponse
+     * @param tmpReq - EditRoutineConfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EditRoutineConfResponse
+     *
+     * @param EditRoutineConfRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return EditRoutineConfResponse
      */
     public function editRoutineConfWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new EditRoutineConfShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->envConf)) {
-            $request->envConfShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->envConf, 'EnvConf', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->envConf) {
+            $request->envConfShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->envConf, 'EnvConf', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->envConfShrink)) {
-            $body['EnvConf'] = $request->envConfShrink;
+
+        if (null !== $request->envConfShrink) {
+            @$body['EnvConf'] = $request->envConfShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EditRoutineConf',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EditRoutineConf',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EditRoutineConfResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a routine.
-     *  *
-     * @description >
+     * Modifies the configurations of a routine.
+     *
+     * @remarks
+     * >
      * *   This operation modifies only the specified configurations. Other configurations remain unchanged.
      * *   If you want to delete a setting, delete the parameter value.
      * *   This operation can add canary release environments. Make sure that the environment names comply with the naming rules. Otherwise, you will fail to add the environments.
@@ -11636,10 +14312,14 @@ class Dcdn extends OpenApiClient
      *     *   Outside China: presetCanaryOverseas.
      *     *   In China: The 34 canary release environments are named in the format of presetCanaryXX. For example, presetCanaryBeijing represents the canary release environment in Beijing. A canary release environment is in each of the following regions: Anhui, Beijing, Chongqing, Fujian, Gansu, Guangdong, Guangxi, Guizhou, Hainan, Hebei, Heilongjiang, Henan, Hong Kong, Hubei, Hunan, Jiangsu, Jiangxi, Jilin, Liaoning, Macao, Neimenggu, Ningxia, Qinghai, Shaanxi, Shandong, Shanghai, Shanxi, Sichuan, Taiwan, Tianjin, Xinjiang, Xizang, Yunan, and Zhejiang.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param EditRoutineConfRequest $request EditRoutineConfRequest
      *
-     * @return EditRoutineConfResponse EditRoutineConfResponse
+     * @param Request - EditRoutineConfRequest
+     *
+     * @returns EditRoutineConfResponse
+     *
+     * @param EditRoutineConfRequest $request
+     *
+     * @return EditRoutineConfResponse
      */
     public function editRoutineConf($request)
     {
@@ -11649,41 +14329,50 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the value of a key in a key-value pair.
-     *  *
-     * @param GetDcdnKvRequest $request GetDcdnKvRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the value of a key in a key-value pair.
      *
-     * @return GetDcdnKvResponse GetDcdnKvResponse
+     * @param Request - GetDcdnKvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDcdnKvResponse
+     *
+     * @param GetDcdnKvRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetDcdnKvResponse
      */
     public function getDcdnKvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDcdnKv',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDcdnKv',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDcdnKvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the value of a key in a key-value pair.
-     *  *
-     * @param GetDcdnKvRequest $request GetDcdnKvRequest
+     * Queries the value of a key in a key-value pair.
      *
-     * @return GetDcdnKvResponse GetDcdnKvResponse
+     * @param Request - GetDcdnKvRequest
+     *
+     * @returns GetDcdnKvResponse
+     *
+     * @param GetDcdnKvRequest $request
+     *
+     * @return GetDcdnKvResponse
      */
     public function getDcdnKv($request)
     {
@@ -11693,41 +14382,50 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary 查询KV对的值以及TTL信息
-     *  *
-     * @param GetDcdnKvDetailRequest $request GetDcdnKvDetailRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询KV对的值以及TTL信息.
      *
-     * @return GetDcdnKvDetailResponse GetDcdnKvDetailResponse
+     * @param Request - GetDcdnKvDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDcdnKvDetailResponse
+     *
+     * @param GetDcdnKvDetailRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetDcdnKvDetailResponse
      */
     public function getDcdnKvDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDcdnKvDetail',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDcdnKvDetail',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDcdnKvDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询KV对的值以及TTL信息
-     *  *
-     * @param GetDcdnKvDetailRequest $request GetDcdnKvDetailRequest
+     * 查询KV对的值以及TTL信息.
      *
-     * @return GetDcdnKvDetailResponse GetDcdnKvDetailResponse
+     * @param Request - GetDcdnKvDetailRequest
+     *
+     * @returns GetDcdnKvDetailResponse
+     *
+     * @param GetDcdnKvDetailRequest $request
+     *
+     * @return GetDcdnKvDetailResponse
      */
     public function getDcdnKvDetail($request)
     {
@@ -11737,47 +14435,58 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the KV status by key value.
-     *  *
-     * @param GetDcdnKvStatusRequest $request GetDcdnKvStatusRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the KV status by key value.
      *
-     * @return GetDcdnKvStatusResponse GetDcdnKvStatusResponse
+     * @param Request - GetDcdnKvStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDcdnKvStatusResponse
+     *
+     * @param GetDcdnKvStatusRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetDcdnKvStatusResponse
      */
     public function getDcdnKvStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDcdnKvStatus',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDcdnKvStatus',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDcdnKvStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the KV status by key value.
-     *  *
-     * @param GetDcdnKvStatusRequest $request GetDcdnKvStatusRequest
+     * Queries the KV status by key value.
      *
-     * @return GetDcdnKvStatusResponse GetDcdnKvStatusResponse
+     * @param Request - GetDcdnKvStatusRequest
+     *
+     * @returns GetDcdnKvStatusResponse
+     *
+     * @param GetDcdnKvStatusRequest $request
+     *
+     * @return GetDcdnKvStatusResponse
      */
     public function getDcdnKvStatus($request)
     {
@@ -11787,41 +14496,50 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Traverses the values of keys in a namespace.
-     *  *
-     * @param ListDcdnKvRequest $request ListDcdnKvRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Traverses the values of keys in a namespace.
      *
-     * @return ListDcdnKvResponse ListDcdnKvResponse
+     * @param Request - ListDcdnKvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDcdnKvResponse
+     *
+     * @param ListDcdnKvRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListDcdnKvResponse
      */
     public function listDcdnKvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDcdnKv',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDcdnKv',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDcdnKvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Traverses the values of keys in a namespace.
-     *  *
-     * @param ListDcdnKvRequest $request ListDcdnKvRequest
+     * Traverses the values of keys in a namespace.
      *
-     * @return ListDcdnKvResponse ListDcdnKvResponse
+     * @param Request - ListDcdnKvRequest
+     *
+     * @returns ListDcdnKvResponse
+     *
+     * @param ListDcdnKvRequest $request
+     *
+     * @return ListDcdnKvResponse
      */
     public function listDcdnKv($request)
     {
@@ -11831,57 +14549,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a real-time log delivery project.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param ListDcdnRealTimeDeliveryProjectRequest $request ListDcdnRealTimeDeliveryProjectRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries information about a real-time log delivery project.
      *
-     * @return ListDcdnRealTimeDeliveryProjectResponse ListDcdnRealTimeDeliveryProjectResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - ListDcdnRealTimeDeliveryProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDcdnRealTimeDeliveryProjectResponse
+     *
+     * @param ListDcdnRealTimeDeliveryProjectRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListDcdnRealTimeDeliveryProjectResponse
      */
     public function listDcdnRealTimeDeliveryProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$query['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDcdnRealTimeDeliveryProject',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDcdnRealTimeDeliveryProject',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDcdnRealTimeDeliveryProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about a real-time log delivery project.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param ListDcdnRealTimeDeliveryProjectRequest $request ListDcdnRealTimeDeliveryProjectRequest
+     * Queries information about a real-time log delivery project.
      *
-     * @return ListDcdnRealTimeDeliveryProjectResponse ListDcdnRealTimeDeliveryProjectResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - ListDcdnRealTimeDeliveryProjectRequest
+     *
+     * @returns ListDcdnRealTimeDeliveryProjectResponse
+     *
+     * @param ListDcdnRealTimeDeliveryProjectRequest $request
+     *
+     * @return ListDcdnRealTimeDeliveryProjectResponse
      */
     public function listDcdnRealTimeDeliveryProject($request)
     {
@@ -11891,51 +14624,133 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Changes the acceleration region.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param ModifyDCdnDomainSchdmByPropertyRequest $request ModifyDCdnDomainSchdmByPropertyRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * A客户定制新增修改域名采样率接口.
      *
-     * @return ModifyDCdnDomainSchdmByPropertyResponse ModifyDCdnDomainSchdmByPropertyResponse
+     * @param Request - ModifyCustomDomainSampleRateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCustomDomainSampleRateResponse
+     *
+     * @param ModifyCustomDomainSampleRateRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyCustomDomainSampleRateResponse
+     */
+    public function modifyCustomDomainSampleRateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->baseConfigID) {
+            @$body['BaseConfigID'] = $request->baseConfigID;
+        }
+
+        if (null !== $request->domainNames) {
+            @$body['DomainNames'] = $request->domainNames;
+        }
+
+        if (null !== $request->sampleRate) {
+            @$body['SampleRate'] = $request->sampleRate;
+        }
+
+        if (null !== $request->sinkID) {
+            @$body['SinkID'] = $request->sinkID;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCustomDomainSampleRate',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCustomDomainSampleRateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * A客户定制新增修改域名采样率接口.
+     *
+     * @param Request - ModifyCustomDomainSampleRateRequest
+     *
+     * @returns ModifyCustomDomainSampleRateResponse
+     *
+     * @param ModifyCustomDomainSampleRateRequest $request
+     *
+     * @return ModifyCustomDomainSampleRateResponse
+     */
+    public function modifyCustomDomainSampleRate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCustomDomainSampleRateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Changes the acceleration region.
+     *
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - ModifyDCdnDomainSchdmByPropertyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDCdnDomainSchdmByPropertyResponse
+     *
+     * @param ModifyDCdnDomainSchdmByPropertyRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyDCdnDomainSchdmByPropertyResponse
      */
     public function modifyDCdnDomainSchdmByPropertyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->property)) {
-            $query['Property'] = $request->property;
+
+        if (null !== $request->property) {
+            @$query['Property'] = $request->property;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDCdnDomainSchdmByProperty',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDCdnDomainSchdmByProperty',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDCdnDomainSchdmByPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the acceleration region.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param ModifyDCdnDomainSchdmByPropertyRequest $request ModifyDCdnDomainSchdmByPropertyRequest
+     * Changes the acceleration region.
      *
-     * @return ModifyDCdnDomainSchdmByPropertyResponse ModifyDCdnDomainSchdmByPropertyResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - ModifyDCdnDomainSchdmByPropertyRequest
+     *
+     * @returns ModifyDCdnDomainSchdmByPropertyResponse
+     *
+     * @param ModifyDCdnDomainSchdmByPropertyRequest $request
+     *
+     * @return ModifyDCdnDomainSchdmByPropertyResponse
      */
     public function modifyDCdnDomainSchdmByProperty($request)
     {
@@ -11945,50 +14760,62 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a custom Web Application Firewall (WAF) rule group.
-     *  *
-     * @param ModifyDcdnWafGroupRequest $request ModifyDcdnWafGroupRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies a custom Web Application Firewall (WAF) rule group.
      *
-     * @return ModifyDcdnWafGroupResponse ModifyDcdnWafGroupResponse
+     * @param Request - ModifyDcdnWafGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDcdnWafGroupResponse
+     *
+     * @param ModifyDcdnWafGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyDcdnWafGroupResponse
      */
     public function modifyDcdnWafGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->rules)) {
-            $body['Rules'] = $request->rules;
+
+        if (null !== $request->rules) {
+            @$body['Rules'] = $request->rules;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDcdnWafGroup',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDcdnWafGroup',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDcdnWafGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a custom Web Application Firewall (WAF) rule group.
-     *  *
-     * @param ModifyDcdnWafGroupRequest $request ModifyDcdnWafGroupRequest
+     * Modifies a custom Web Application Firewall (WAF) rule group.
      *
-     * @return ModifyDcdnWafGroupResponse ModifyDcdnWafGroupResponse
+     * @param Request - ModifyDcdnWafGroupRequest
+     *
+     * @returns ModifyDcdnWafGroupResponse
+     *
+     * @param ModifyDcdnWafGroupRequest $request
+     *
+     * @return ModifyDcdnWafGroupResponse
      */
     public function modifyDcdnWafGroup($request)
     {
@@ -11998,56 +14825,70 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Changes the name or the status of a protection policy.
-     *  *
-     * @description *   You can call this operation up to 20 times per second per account.
-     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
-     *  *
-     * @param ModifyDcdnWafPolicyRequest $request ModifyDcdnWafPolicyRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Changes the name or the status of a protection policy.
      *
-     * @return ModifyDcdnWafPolicyResponse ModifyDcdnWafPolicyResponse
+     * @remarks
+     *   You can call this operation up to 20 times per second per account.
+     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
+     *
+     * @param Request - ModifyDcdnWafPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDcdnWafPolicyResponse
+     *
+     * @param ModifyDcdnWafPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyDcdnWafPolicyResponse
      */
     public function modifyDcdnWafPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $body['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$body['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $body['PolicyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$body['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyStatus)) {
-            $body['PolicyStatus'] = $request->policyStatus;
+
+        if (null !== $request->policyStatus) {
+            @$body['PolicyStatus'] = $request->policyStatus;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDcdnWafPolicy',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDcdnWafPolicy',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDcdnWafPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the name or the status of a protection policy.
-     *  *
-     * @description *   You can call this operation up to 20 times per second per account.
-     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
-     *  *
-     * @param ModifyDcdnWafPolicyRequest $request ModifyDcdnWafPolicyRequest
+     * Changes the name or the status of a protection policy.
      *
-     * @return ModifyDcdnWafPolicyResponse ModifyDcdnWafPolicyResponse
+     * @remarks
+     *   You can call this operation up to 20 times per second per account.
+     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
+     *
+     * @param Request - ModifyDcdnWafPolicyRequest
+     *
+     * @returns ModifyDcdnWafPolicyResponse
+     *
+     * @param ModifyDcdnWafPolicyRequest $request
+     *
+     * @return ModifyDcdnWafPolicyResponse
      */
     public function modifyDcdnWafPolicy($request)
     {
@@ -12057,61 +14898,76 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Changes the accelerated domain names that are bound to a protection policy.
-     *  *
-     * @description # Usage notes
+     * Changes the accelerated domain names that are bound to a protection policy.
+     *
+     * @remarks
+     * # Usage notes
      * *   You can call this operation up to 20 times per second per account.
      * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
-     *  *
-     * @param ModifyDcdnWafPolicyDomainsRequest $request ModifyDcdnWafPolicyDomainsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDcdnWafPolicyDomainsResponse ModifyDcdnWafPolicyDomainsResponse
+     * @param Request - ModifyDcdnWafPolicyDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDcdnWafPolicyDomainsResponse
+     *
+     * @param ModifyDcdnWafPolicyDomainsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyDcdnWafPolicyDomainsResponse
      */
     public function modifyDcdnWafPolicyDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->bindDomains)) {
-            $body['BindDomains'] = $request->bindDomains;
+        if (null !== $request->bindDomains) {
+            @$body['BindDomains'] = $request->bindDomains;
         }
-        if (!Utils::isUnset($request->method)) {
-            $body['Method'] = $request->method;
+
+        if (null !== $request->method) {
+            @$body['Method'] = $request->method;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $body['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$body['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->unbindDomains)) {
-            $body['UnbindDomains'] = $request->unbindDomains;
+
+        if (null !== $request->unbindDomains) {
+            @$body['UnbindDomains'] = $request->unbindDomains;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDcdnWafPolicyDomains',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDcdnWafPolicyDomains',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDcdnWafPolicyDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the accelerated domain names that are bound to a protection policy.
-     *  *
-     * @description # Usage notes
+     * Changes the accelerated domain names that are bound to a protection policy.
+     *
+     * @remarks
+     * # Usage notes
      * *   You can call this operation up to 20 times per second per account.
      * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
-     *  *
-     * @param ModifyDcdnWafPolicyDomainsRequest $request ModifyDcdnWafPolicyDomainsRequest
      *
-     * @return ModifyDcdnWafPolicyDomainsResponse ModifyDcdnWafPolicyDomainsResponse
+     * @param Request - ModifyDcdnWafPolicyDomainsRequest
+     *
+     * @returns ModifyDcdnWafPolicyDomainsResponse
+     *
+     * @param ModifyDcdnWafPolicyDomainsRequest $request
+     *
+     * @return ModifyDcdnWafPolicyDomainsResponse
      */
     public function modifyDcdnWafPolicyDomains($request)
     {
@@ -12121,61 +14977,76 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Changes the name, status, or configurations of a protection rule.
-     *  *
-     * @description *   You can call this operation up to 20 times per second per account.
+     * Changes the name, status, or configurations of a protection rule.
+     *
+     * @remarks
+     *   You can call this operation up to 20 times per second per account.
      * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
      * *   You must configure at least one of the **RuleStatus**, **RuleName** and **RuleConfig** parameters.
-     *  *
-     * @param ModifyDcdnWafRuleRequest $request ModifyDcdnWafRuleRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDcdnWafRuleResponse ModifyDcdnWafRuleResponse
+     * @param Request - ModifyDcdnWafRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDcdnWafRuleResponse
+     *
+     * @param ModifyDcdnWafRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyDcdnWafRuleResponse
      */
     public function modifyDcdnWafRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->ruleConfig)) {
-            $body['RuleConfig'] = $request->ruleConfig;
+        if (null !== $request->ruleConfig) {
+            @$body['RuleConfig'] = $request->ruleConfig;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $body['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$body['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $body['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$body['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->ruleStatus)) {
-            $body['RuleStatus'] = $request->ruleStatus;
+
+        if (null !== $request->ruleStatus) {
+            @$body['RuleStatus'] = $request->ruleStatus;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDcdnWafRule',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDcdnWafRule',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDcdnWafRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the name, status, or configurations of a protection rule.
-     *  *
-     * @description *   You can call this operation up to 20 times per second per account.
+     * Changes the name, status, or configurations of a protection rule.
+     *
+     * @remarks
+     *   You can call this operation up to 20 times per second per account.
      * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
      * *   You must configure at least one of the **RuleStatus**, **RuleName** and **RuleConfig** parameters.
-     *  *
-     * @param ModifyDcdnWafRuleRequest $request ModifyDcdnWafRuleRequest
      *
-     * @return ModifyDcdnWafRuleResponse ModifyDcdnWafRuleResponse
+     * @param Request - ModifyDcdnWafRuleRequest
+     *
+     * @returns ModifyDcdnWafRuleResponse
+     *
+     * @param ModifyDcdnWafRuleRequest $request
+     *
+     * @return ModifyDcdnWafRuleResponse
      */
     public function modifyDcdnWafRule($request)
     {
@@ -12185,61 +15056,76 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Activates Dynamic Route for CDN (DCDN).
-     *  *
-     * @description >
+     * Activates Dynamic Route for CDN (DCDN).
+     *
+     * @remarks
+     * >
      * *   DCDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must pass real-name verification.
      * *   You can call this operation up to five times per second per user.
-     *  *
-     * @param OpenDcdnServiceRequest $request OpenDcdnServiceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenDcdnServiceResponse OpenDcdnServiceResponse
+     * @param Request - OpenDcdnServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OpenDcdnServiceResponse
+     *
+     * @param OpenDcdnServiceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return OpenDcdnServiceResponse
      */
     public function openDcdnServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billType)) {
-            $query['BillType'] = $request->billType;
+        if (null !== $request->billType) {
+            @$query['BillType'] = $request->billType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->websocketBillType)) {
-            $query['WebsocketBillType'] = $request->websocketBillType;
+
+        if (null !== $request->websocketBillType) {
+            @$query['WebsocketBillType'] = $request->websocketBillType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenDcdnService',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenDcdnService',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return OpenDcdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Activates Dynamic Route for CDN (DCDN).
-     *  *
-     * @description >
+     * Activates Dynamic Route for CDN (DCDN).
+     *
+     * @remarks
+     * >
      * *   DCDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must pass real-name verification.
      * *   You can call this operation up to five times per second per user.
-     *  *
-     * @param OpenDcdnServiceRequest $request OpenDcdnServiceRequest
      *
-     * @return OpenDcdnServiceResponse OpenDcdnServiceResponse
+     * @param Request - OpenDcdnServiceRequest
+     *
+     * @returns OpenDcdnServiceResponse
+     *
+     * @param OpenDcdnServiceRequest $request
+     *
+     * @return OpenDcdnServiceResponse
      */
     public function openDcdnService($request)
     {
@@ -12249,9 +15135,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Prefetches content from origin servers to points of presence (POPs). This reduces workloads on origin servers because users can hit cache upon their first visits.
-     *  *
-     * @description *   You can call the [RefreshDcdnObjectCaches](https://help.aliyun.com/document_detail/130620.html) operation to refresh content and call the [PreloadDcdnObjectCaches](https://help.aliyun.com/document_detail/130636.html) operation to prefetch content.
+     * Prefetches content from origin servers to points of presence (POPs). This reduces workloads on origin servers because users can hit cache upon their first visits.
+     *
+     * @remarks
+     *   You can call the [RefreshDcdnObjectCaches](https://help.aliyun.com/document_detail/130620.html) operation to refresh content and call the [PreloadDcdnObjectCaches](https://help.aliyun.com/document_detail/130636.html) operation to prefetch content.
      * *   Dynamic Content Delivery Network (DCDN) supports POST requests in which parameters are sent as a form.
      * *   By default, each Alibaba Cloud account can submit up to 1,000 URLs per day. If the daily peak bandwidth value of your workloads exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to increase your daily quota. Alibaba Cloud reviews your application and then increases the quota accordingly.
      * *   You can specify up to 100 URLs to prefetch.
@@ -12261,59 +15148,72 @@ class Dcdn extends OpenApiClient
      * *   After a refresh task is submitted and completed, the POPs immediately start to retrieve resources from the origin server. Therefore, a large number of refresh tasks cause a large number of concurrent download tasks. This increases the number of requests that are redirected to the origin server. The back-to-origin routing process consumes more bandwidth resources and the origin server may be overwhelmed.
      * *   The time required for a prefetch task to complete is proportional to the size of the prefetched file. In actual practice, most prefetch tasks require 5 to 30 minutes to complete. A task with a smaller average file size requires less time.
      * *   To allow RAM users to perform this operation, you need to first grant them the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](https://help.aliyun.com/document_detail/445051.html).
-     *  *
-     * @param PreloadDcdnObjectCachesRequest $request PreloadDcdnObjectCachesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return PreloadDcdnObjectCachesResponse PreloadDcdnObjectCachesResponse
+     * @param Request - PreloadDcdnObjectCachesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreloadDcdnObjectCachesResponse
+     *
+     * @param PreloadDcdnObjectCachesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return PreloadDcdnObjectCachesResponse
      */
     public function preloadDcdnObjectCachesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->area)) {
-            $query['Area'] = $request->area;
+        if (null !== $request->area) {
+            @$query['Area'] = $request->area;
         }
-        if (!Utils::isUnset($request->l2Preload)) {
-            $query['L2Preload'] = $request->l2Preload;
+
+        if (null !== $request->l2Preload) {
+            @$query['L2Preload'] = $request->l2Preload;
         }
-        if (!Utils::isUnset($request->objectPath)) {
-            $query['ObjectPath'] = $request->objectPath;
+
+        if (null !== $request->objectPath) {
+            @$query['ObjectPath'] = $request->objectPath;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->queryHashkey)) {
-            $query['QueryHashkey'] = $request->queryHashkey;
+
+        if (null !== $request->queryHashkey) {
+            @$query['QueryHashkey'] = $request->queryHashkey;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->withHeader)) {
-            $query['WithHeader'] = $request->withHeader;
+
+        if (null !== $request->withHeader) {
+            @$query['WithHeader'] = $request->withHeader;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PreloadDcdnObjectCaches',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PreloadDcdnObjectCaches',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PreloadDcdnObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Prefetches content from origin servers to points of presence (POPs). This reduces workloads on origin servers because users can hit cache upon their first visits.
-     *  *
-     * @description *   You can call the [RefreshDcdnObjectCaches](https://help.aliyun.com/document_detail/130620.html) operation to refresh content and call the [PreloadDcdnObjectCaches](https://help.aliyun.com/document_detail/130636.html) operation to prefetch content.
+     * Prefetches content from origin servers to points of presence (POPs). This reduces workloads on origin servers because users can hit cache upon their first visits.
+     *
+     * @remarks
+     *   You can call the [RefreshDcdnObjectCaches](https://help.aliyun.com/document_detail/130620.html) operation to refresh content and call the [PreloadDcdnObjectCaches](https://help.aliyun.com/document_detail/130636.html) operation to prefetch content.
      * *   Dynamic Content Delivery Network (DCDN) supports POST requests in which parameters are sent as a form.
      * *   By default, each Alibaba Cloud account can submit up to 1,000 URLs per day. If the daily peak bandwidth value of your workloads exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to increase your daily quota. Alibaba Cloud reviews your application and then increases the quota accordingly.
      * *   You can specify up to 100 URLs to prefetch.
@@ -12323,10 +15223,14 @@ class Dcdn extends OpenApiClient
      * *   After a refresh task is submitted and completed, the POPs immediately start to retrieve resources from the origin server. Therefore, a large number of refresh tasks cause a large number of concurrent download tasks. This increases the number of requests that are redirected to the origin server. The back-to-origin routing process consumes more bandwidth resources and the origin server may be overwhelmed.
      * *   The time required for a prefetch task to complete is proportional to the size of the prefetched file. In actual practice, most prefetch tasks require 5 to 30 minutes to complete. A task with a smaller average file size requires less time.
      * *   To allow RAM users to perform this operation, you need to first grant them the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](https://help.aliyun.com/document_detail/445051.html).
-     *  *
-     * @param PreloadDcdnObjectCachesRequest $request PreloadDcdnObjectCachesRequest
      *
-     * @return PreloadDcdnObjectCachesResponse PreloadDcdnObjectCachesResponse
+     * @param Request - PreloadDcdnObjectCachesRequest
+     *
+     * @returns PreloadDcdnObjectCachesResponse
+     *
+     * @param PreloadDcdnObjectCachesRequest $request
+     *
+     * @return PreloadDcdnObjectCachesResponse
      */
     public function preloadDcdnObjectCaches($request)
     {
@@ -12336,51 +15240,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Publishes the configurations of an accelerated domain name from the staging environment to the production environment.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param PublishDcdnStagingConfigToProductionRequest $request PublishDcdnStagingConfigToProductionRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Publishes the configurations of an accelerated domain name from the staging environment to the production environment.
      *
-     * @return PublishDcdnStagingConfigToProductionResponse PublishDcdnStagingConfigToProductionResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - PublishDcdnStagingConfigToProductionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishDcdnStagingConfigToProductionResponse
+     *
+     * @param PublishDcdnStagingConfigToProductionRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return PublishDcdnStagingConfigToProductionResponse
      */
     public function publishDcdnStagingConfigToProductionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->functionName)) {
-            $query['FunctionName'] = $request->functionName;
+
+        if (null !== $request->functionName) {
+            @$query['FunctionName'] = $request->functionName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PublishDcdnStagingConfigToProduction',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PublishDcdnStagingConfigToProduction',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PublishDcdnStagingConfigToProductionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Publishes the configurations of an accelerated domain name from the staging environment to the production environment.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param PublishDcdnStagingConfigToProductionRequest $request PublishDcdnStagingConfigToProductionRequest
+     * Publishes the configurations of an accelerated domain name from the staging environment to the production environment.
      *
-     * @return PublishDcdnStagingConfigToProductionResponse PublishDcdnStagingConfigToProductionResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - PublishDcdnStagingConfigToProductionRequest
+     *
+     * @returns PublishDcdnStagingConfigToProductionResponse
+     *
+     * @param PublishDcdnStagingConfigToProductionRequest $request
+     *
+     * @return PublishDcdnStagingConfigToProductionResponse
      */
     public function publishDcdnStagingConfigToProduction($request)
     {
@@ -12390,59 +15307,74 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Publishes a specified version of routine code to an environment.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param PublishRoutineCodeRevisionRequest $tmpReq  PublishRoutineCodeRevisionRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Publishes a specified version of routine code to an environment.
      *
-     * @return PublishRoutineCodeRevisionResponse PublishRoutineCodeRevisionResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param tmpReq - PublishRoutineCodeRevisionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishRoutineCodeRevisionResponse
+     *
+     * @param PublishRoutineCodeRevisionRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return PublishRoutineCodeRevisionResponse
      */
     public function publishRoutineCodeRevisionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PublishRoutineCodeRevisionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->envs)) {
-            $request->envsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->envs, 'Envs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->envs) {
+            $request->envsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->envs, 'Envs', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->envsShrink)) {
-            $body['Envs'] = $request->envsShrink;
+        if (null !== $request->envsShrink) {
+            @$body['Envs'] = $request->envsShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->selectCodeRevision)) {
-            $body['SelectCodeRevision'] = $request->selectCodeRevision;
+
+        if (null !== $request->selectCodeRevision) {
+            @$body['SelectCodeRevision'] = $request->selectCodeRevision;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PublishRoutineCodeRevision',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PublishRoutineCodeRevision',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PublishRoutineCodeRevisionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Publishes a specified version of routine code to an environment.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param PublishRoutineCodeRevisionRequest $request PublishRoutineCodeRevisionRequest
+     * Publishes a specified version of routine code to an environment.
      *
-     * @return PublishRoutineCodeRevisionResponse PublishRoutineCodeRevisionResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - PublishRoutineCodeRevisionRequest
+     *
+     * @returns PublishRoutineCodeRevisionResponse
+     *
+     * @param PublishRoutineCodeRevisionRequest $request
+     *
+     * @return PublishRoutineCodeRevisionResponse
      */
     public function publishRoutineCodeRevision($request)
     {
@@ -12452,58 +15384,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Sets key-value pairs in a namespace.
-     *  *
-     * @param PutDcdnKvRequest $request PutDcdnKvRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Sets key-value pairs in a namespace.
      *
-     * @return PutDcdnKvResponse PutDcdnKvResponse
+     * @param Request - PutDcdnKvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutDcdnKvResponse
+     *
+     * @param PutDcdnKvRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return PutDcdnKvResponse
      */
     public function putDcdnKvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->expiration)) {
-            $query['Expiration'] = $request->expiration;
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
         }
-        if (!Utils::isUnset($request->expirationTtl)) {
-            $query['ExpirationTtl'] = $request->expirationTtl;
+
+        if (null !== $request->expirationTtl) {
+            @$query['ExpirationTtl'] = $request->expirationTtl;
         }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->value)) {
-            $body['Value'] = $request->value;
+        if (null !== $request->value) {
+            @$body['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PutDcdnKv',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutDcdnKv',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutDcdnKvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Sets key-value pairs in a namespace.
-     *  *
-     * @param PutDcdnKvRequest $request PutDcdnKvRequest
+     * Sets key-value pairs in a namespace.
      *
-     * @return PutDcdnKvResponse PutDcdnKvResponse
+     * @param Request - PutDcdnKvRequest
+     *
+     * @returns PutDcdnKvResponse
+     *
+     * @param PutDcdnKvRequest $request
+     *
+     * @return PutDcdnKvResponse
      */
     public function putDcdnKv($request)
     {
@@ -12513,47 +15459,58 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Adds namespaces to your account.
-     *  *
-     * @param PutDcdnKvNamespaceRequest $request PutDcdnKvNamespaceRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Adds namespaces to your account.
      *
-     * @return PutDcdnKvNamespaceResponse PutDcdnKvNamespaceResponse
+     * @param Request - PutDcdnKvNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutDcdnKvNamespaceResponse
+     *
+     * @param PutDcdnKvNamespaceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PutDcdnKvNamespaceResponse
      */
     public function putDcdnKvNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $body['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PutDcdnKvNamespace',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutDcdnKvNamespace',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutDcdnKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds namespaces to your account.
-     *  *
-     * @param PutDcdnKvNamespaceRequest $request PutDcdnKvNamespaceRequest
+     * Adds namespaces to your account.
      *
-     * @return PutDcdnKvNamespaceResponse PutDcdnKvNamespaceResponse
+     * @param Request - PutDcdnKvNamespaceRequest
+     *
+     * @returns PutDcdnKvNamespaceResponse
+     *
+     * @param PutDcdnKvNamespaceRequest $request
+     *
+     * @return PutDcdnKvNamespaceResponse
      */
     public function putDcdnKvNamespace($request)
     {
@@ -12563,50 +15520,62 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary 设置Namespace的key-value对，支持最大25M的请求体
-     *  *
-     * @param PutDcdnKvWithHighCapacityRequest $request PutDcdnKvWithHighCapacityRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 设置Namespace的key-value对，支持最大25M的请求体.
      *
-     * @return PutDcdnKvWithHighCapacityResponse PutDcdnKvWithHighCapacityResponse
+     * @param Request - PutDcdnKvWithHighCapacityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutDcdnKvWithHighCapacityResponse
+     *
+     * @param PutDcdnKvWithHighCapacityRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return PutDcdnKvWithHighCapacityResponse
      */
     public function putDcdnKvWithHighCapacityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutDcdnKvWithHighCapacity',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutDcdnKvWithHighCapacity',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutDcdnKvWithHighCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 设置Namespace的key-value对，支持最大25M的请求体
-     *  *
-     * @param PutDcdnKvWithHighCapacityRequest $request PutDcdnKvWithHighCapacityRequest
+     * 设置Namespace的key-value对，支持最大25M的请求体.
      *
-     * @return PutDcdnKvWithHighCapacityResponse PutDcdnKvWithHighCapacityResponse
+     * @param Request - PutDcdnKvWithHighCapacityRequest
+     *
+     * @returns PutDcdnKvWithHighCapacityResponse
+     *
+     * @param PutDcdnKvWithHighCapacityRequest $request
+     *
+     * @return PutDcdnKvWithHighCapacityResponse
      */
     public function putDcdnKvWithHighCapacity($request)
     {
@@ -12616,50 +15585,62 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary 指定缓存tag刷新节点上的文件内容
-     *  *
-     * @param RefreshDcdnObjectCacheByCacheTagRequest $request RefreshDcdnObjectCacheByCacheTagRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 指定缓存tag刷新节点上的文件内容.
      *
-     * @return RefreshDcdnObjectCacheByCacheTagResponse RefreshDcdnObjectCacheByCacheTagResponse
+     * @param Request - RefreshDcdnObjectCacheByCacheTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshDcdnObjectCacheByCacheTagResponse
+     *
+     * @param RefreshDcdnObjectCacheByCacheTagRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RefreshDcdnObjectCacheByCacheTagResponse
      */
     public function refreshDcdnObjectCacheByCacheTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cacheTag)) {
-            $query['CacheTag'] = $request->cacheTag;
+        if (null !== $request->cacheTag) {
+            @$query['CacheTag'] = $request->cacheTag;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->force)) {
-            $query['Force'] = $request->force;
+
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RefreshDcdnObjectCacheByCacheTag',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RefreshDcdnObjectCacheByCacheTag',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RefreshDcdnObjectCacheByCacheTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 指定缓存tag刷新节点上的文件内容
-     *  *
-     * @param RefreshDcdnObjectCacheByCacheTagRequest $request RefreshDcdnObjectCacheByCacheTagRequest
+     * 指定缓存tag刷新节点上的文件内容.
      *
-     * @return RefreshDcdnObjectCacheByCacheTagResponse RefreshDcdnObjectCacheByCacheTagResponse
+     * @param Request - RefreshDcdnObjectCacheByCacheTagRequest
+     *
+     * @returns RefreshDcdnObjectCacheByCacheTagResponse
+     *
+     * @param RefreshDcdnObjectCacheByCacheTagRequest $request
+     *
+     * @return RefreshDcdnObjectCacheByCacheTagResponse
      */
     public function refreshDcdnObjectCacheByCacheTag($request)
     {
@@ -12669,9 +15650,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Refreshes specified objects on points of presence (POPs). The objects can be included in the content of files or URLs. You can refresh multiple URLs in each request.
-     *  *
-     * @description *   Dynamic Content Delivery Network (DCDN) supports POST requests in which parameters are sent as a form.
+     * Refreshes specified objects on points of presence (POPs). The objects can be included in the content of files or URLs. You can refresh multiple URLs in each request.
+     *
+     * @remarks
+     *   Dynamic Content Delivery Network (DCDN) supports POST requests in which parameters are sent as a form.
      * *   You can call the [RefreshDcdnObjectCaches](https://help.aliyun.com/document_detail/130620.html) operation to purge content and call the [PreloadDcdnObjectCaches](https://help.aliyun.com/document_detail/130636.html) operation to prefetch content.
      * *   By default, each Alibaba Cloud account can purge content from a maximum of 10,000 URLs and 100 directories including subdirectories per day. If the daily peak bandwidth of your Alibaba Cloud account exceeds 200 Mbit/s, [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to request a quota increase. Alibaba Cloud determines whether to approve your application based on your workloads.
      * *   You can specify up to 1,000 URLs or 100 directories that you want to purge in each request.
@@ -12681,53 +15663,64 @@ class Dcdn extends OpenApiClient
      * *   After a purge task is completed, your resources that are cached on points of presence (POPs) are removed. When a POP receives a request for your resources, the request is redirected to the origin server to retrieve the resources. Then, the resources are returned to the client and cached on POPs. If you frequently run purge tasks, more requests are redirected to the origin server for resources. This results in high bandwidth costs and more loads on the origin server.
      * *   A purge task takes effect 5 to 6 minutes after being submitted. If the resource you want to purge has a TTL of less than 5 minutes, you wait for it to expire instead of manually running a purge task.
      * *   To allow RAM users to perform this operation, you need to first grant them the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](https://help.aliyun.com/document_detail/445051.html).
-     *  *
-     * @param RefreshDcdnObjectCachesRequest $request RefreshDcdnObjectCachesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshDcdnObjectCachesResponse RefreshDcdnObjectCachesResponse
+     * @param Request - RefreshDcdnObjectCachesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshDcdnObjectCachesResponse
+     *
+     * @param RefreshDcdnObjectCachesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RefreshDcdnObjectCachesResponse
      */
     public function refreshDcdnObjectCachesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->force)) {
-            $query['Force'] = $request->force;
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
-        if (!Utils::isUnset($request->objectPath)) {
-            $query['ObjectPath'] = $request->objectPath;
+
+        if (null !== $request->objectPath) {
+            @$query['ObjectPath'] = $request->objectPath;
         }
-        if (!Utils::isUnset($request->objectType)) {
-            $query['ObjectType'] = $request->objectType;
+
+        if (null !== $request->objectType) {
+            @$query['ObjectType'] = $request->objectType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RefreshDcdnObjectCaches',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RefreshDcdnObjectCaches',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RefreshDcdnObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Refreshes specified objects on points of presence (POPs). The objects can be included in the content of files or URLs. You can refresh multiple URLs in each request.
-     *  *
-     * @description *   Dynamic Content Delivery Network (DCDN) supports POST requests in which parameters are sent as a form.
+     * Refreshes specified objects on points of presence (POPs). The objects can be included in the content of files or URLs. You can refresh multiple URLs in each request.
+     *
+     * @remarks
+     *   Dynamic Content Delivery Network (DCDN) supports POST requests in which parameters are sent as a form.
      * *   You can call the [RefreshDcdnObjectCaches](https://help.aliyun.com/document_detail/130620.html) operation to purge content and call the [PreloadDcdnObjectCaches](https://help.aliyun.com/document_detail/130636.html) operation to prefetch content.
      * *   By default, each Alibaba Cloud account can purge content from a maximum of 10,000 URLs and 100 directories including subdirectories per day. If the daily peak bandwidth of your Alibaba Cloud account exceeds 200 Mbit/s, [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to request a quota increase. Alibaba Cloud determines whether to approve your application based on your workloads.
      * *   You can specify up to 1,000 URLs or 100 directories that you want to purge in each request.
@@ -12737,10 +15730,14 @@ class Dcdn extends OpenApiClient
      * *   After a purge task is completed, your resources that are cached on points of presence (POPs) are removed. When a POP receives a request for your resources, the request is redirected to the origin server to retrieve the resources. Then, the resources are returned to the client and cached on POPs. If you frequently run purge tasks, more requests are redirected to the origin server for resources. This results in high bandwidth costs and more loads on the origin server.
      * *   A purge task takes effect 5 to 6 minutes after being submitted. If the resource you want to purge has a TTL of less than 5 minutes, you wait for it to expire instead of manually running a purge task.
      * *   To allow RAM users to perform this operation, you need to first grant them the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](https://help.aliyun.com/document_detail/445051.html).
-     *  *
-     * @param RefreshDcdnObjectCachesRequest $request RefreshDcdnObjectCachesRequest
      *
-     * @return RefreshDcdnObjectCachesResponse RefreshDcdnObjectCachesResponse
+     * @param Request - RefreshDcdnObjectCachesRequest
+     *
+     * @returns RefreshDcdnObjectCachesResponse
+     *
+     * @param RefreshDcdnObjectCachesRequest $request
+     *
+     * @return RefreshDcdnObjectCachesResponse
      */
     public function refreshDcdnObjectCaches($request)
     {
@@ -12750,70 +15747,86 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Refreshes the cache that is written by calling the cache operation of EdgeRoutine. You can refresh multiple URLs in each request.
-     *  *
-     * @description > *   Dynamic Content Delivery Network (DCDN) supports POST requests in which parameters are sent as a form.
+     * Refreshes the cache that is written by calling the cache operation of EdgeRoutine. You can refresh multiple URLs in each request.
+     *
+     * @remarks
+     * > *   Dynamic Content Delivery Network (DCDN) supports POST requests in which parameters are sent as a form.
      * > *   Related operation: [RefreshDcdnObjectCaches](https://help.aliyun.com/document_detail/130620.html).
      * > *   By default, each Alibaba Cloud account can purge content from a maxim> um of 10,000 URLs and 100 directories including subdirectories per day.
      * > *   You can specify up to 1,000 URLs or 100 directories that you want to purge in each request.
      * > *   You can specify up to 1,000 URLs that you want to purge per minute for each domain name.
      * > *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param RefreshErObjectCachesRequest $request RefreshErObjectCachesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshErObjectCachesResponse RefreshErObjectCachesResponse
+     * @param Request - RefreshErObjectCachesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshErObjectCachesResponse
+     *
+     * @param RefreshErObjectCachesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RefreshErObjectCachesResponse
      */
     public function refreshErObjectCachesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->force)) {
-            $query['Force'] = $request->force;
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
-        if (!Utils::isUnset($request->mergeDomainName)) {
-            $query['MergeDomainName'] = $request->mergeDomainName;
+
+        if (null !== $request->mergeDomainName) {
+            @$query['MergeDomainName'] = $request->mergeDomainName;
         }
-        if (!Utils::isUnset($request->objectPath)) {
-            $query['ObjectPath'] = $request->objectPath;
+
+        if (null !== $request->objectPath) {
+            @$query['ObjectPath'] = $request->objectPath;
         }
-        if (!Utils::isUnset($request->objectType)) {
-            $query['ObjectType'] = $request->objectType;
+
+        if (null !== $request->objectType) {
+            @$query['ObjectType'] = $request->objectType;
         }
-        if (!Utils::isUnset($request->routineId)) {
-            $query['RoutineId'] = $request->routineId;
+
+        if (null !== $request->routineId) {
+            @$query['RoutineId'] = $request->routineId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RefreshErObjectCaches',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RefreshErObjectCaches',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RefreshErObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Refreshes the cache that is written by calling the cache operation of EdgeRoutine. You can refresh multiple URLs in each request.
-     *  *
-     * @description > *   Dynamic Content Delivery Network (DCDN) supports POST requests in which parameters are sent as a form.
+     * Refreshes the cache that is written by calling the cache operation of EdgeRoutine. You can refresh multiple URLs in each request.
+     *
+     * @remarks
+     * > *   Dynamic Content Delivery Network (DCDN) supports POST requests in which parameters are sent as a form.
      * > *   Related operation: [RefreshDcdnObjectCaches](https://help.aliyun.com/document_detail/130620.html).
      * > *   By default, each Alibaba Cloud account can purge content from a maxim> um of 10,000 URLs and 100 directories including subdirectories per day.
      * > *   You can specify up to 1,000 URLs or 100 directories that you want to purge in each request.
      * > *   You can specify up to 1,000 URLs that you want to purge per minute for each domain name.
      * > *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param RefreshErObjectCachesRequest $request RefreshErObjectCachesRequest
      *
-     * @return RefreshErObjectCachesResponse RefreshErObjectCachesResponse
+     * @param Request - RefreshErObjectCachesRequest
+     *
+     * @returns RefreshErObjectCachesResponse
+     *
+     * @param RefreshErObjectCachesRequest $request
+     *
+     * @return RefreshErObjectCachesResponse
      */
     public function refreshErObjectCaches($request)
     {
@@ -12823,48 +15836,60 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Rolls back the configurations of an accelerated domain name from the staging environment to the production environment.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param RollbackDcdnStagingConfigRequest $request RollbackDcdnStagingConfigRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Rolls back the configurations of an accelerated domain name from the staging environment to the production environment.
      *
-     * @return RollbackDcdnStagingConfigResponse RollbackDcdnStagingConfigResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - RollbackDcdnStagingConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RollbackDcdnStagingConfigResponse
+     *
+     * @param RollbackDcdnStagingConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RollbackDcdnStagingConfigResponse
      */
     public function rollbackDcdnStagingConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RollbackDcdnStagingConfig',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RollbackDcdnStagingConfig',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RollbackDcdnStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Rolls back the configurations of an accelerated domain name from the staging environment to the production environment.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param RollbackDcdnStagingConfigRequest $request RollbackDcdnStagingConfigRequest
+     * Rolls back the configurations of an accelerated domain name from the staging environment to the production environment.
      *
-     * @return RollbackDcdnStagingConfigResponse RollbackDcdnStagingConfigResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - RollbackDcdnStagingConfigRequest
+     *
+     * @returns RollbackDcdnStagingConfigResponse
+     *
+     * @param RollbackDcdnStagingConfigRequest $request
+     *
+     * @return RollbackDcdnStagingConfigResponse
      */
     public function rollbackDcdnStagingConfig($request)
     {
@@ -12874,47 +15899,58 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Configures an SSL certificate for a specified domain name.
-     *  *
-     * @param SetDcdnDomainCSRCertificateRequest $request SetDcdnDomainCSRCertificateRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Configures an SSL certificate for a specified domain name.
      *
-     * @return SetDcdnDomainCSRCertificateResponse SetDcdnDomainCSRCertificateResponse
+     * @param Request - SetDcdnDomainCSRCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetDcdnDomainCSRCertificateResponse
+     *
+     * @param SetDcdnDomainCSRCertificateRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetDcdnDomainCSRCertificateResponse
      */
     public function setDcdnDomainCSRCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->serverCertificate)) {
-            $query['ServerCertificate'] = $request->serverCertificate;
+
+        if (null !== $request->serverCertificate) {
+            @$query['ServerCertificate'] = $request->serverCertificate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDcdnDomainCSRCertificate',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDcdnDomainCSRCertificate',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetDcdnDomainCSRCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures an SSL certificate for a specified domain name.
-     *  *
-     * @param SetDcdnDomainCSRCertificateRequest $request SetDcdnDomainCSRCertificateRequest
+     * Configures an SSL certificate for a specified domain name.
      *
-     * @return SetDcdnDomainCSRCertificateResponse SetDcdnDomainCSRCertificateResponse
+     * @param Request - SetDcdnDomainCSRCertificateRequest
+     *
+     * @returns SetDcdnDomainCSRCertificateResponse
+     *
+     * @param SetDcdnDomainCSRCertificateRequest $request
+     *
+     * @return SetDcdnDomainCSRCertificateResponse
      */
     public function setDcdnDomainCSRCertificate($request)
     {
@@ -12924,146 +15960,76 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @deprecated openAPI SetDcdnDomainCertificate is deprecated, please use dcdn::2018-01-15::SetDcdnDomainSSLCertificate instead
-     *  *
-     * @summary Enables or disables the SSL certificate for a domain name and modifies certificate details.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * Deprecated
+     * Enables or disables the ShangMi (SM) certificate for a domain name.
      *
-     * @param SetDcdnDomainCertificateRequest $request SetDcdnDomainCertificateRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
      *
-     * @return SetDcdnDomainCertificateResponse SetDcdnDomainCertificateResponse
-     */
-    public function setDcdnDomainCertificateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->certName)) {
-            $query['CertName'] = $request->certName;
-        }
-        if (!Utils::isUnset($request->certType)) {
-            $query['CertType'] = $request->certType;
-        }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->forceSet)) {
-            $query['ForceSet'] = $request->forceSet;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->SSLPri)) {
-            $query['SSLPri'] = $request->SSLPri;
-        }
-        if (!Utils::isUnset($request->SSLProtocol)) {
-            $query['SSLProtocol'] = $request->SSLProtocol;
-        }
-        if (!Utils::isUnset($request->SSLPub)) {
-            $query['SSLPub'] = $request->SSLPub;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetDcdnDomainCertificate',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetDcdnDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated openAPI SetDcdnDomainCertificate is deprecated, please use dcdn::2018-01-15::SetDcdnDomainSSLCertificate instead
-     *  *
-     * @summary Enables or disables the SSL certificate for a domain name and modifies certificate details.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * Deprecated
+     * @param Request - SetDcdnDomainSMCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @param SetDcdnDomainCertificateRequest $request SetDcdnDomainCertificateRequest
+     * @returns SetDcdnDomainSMCertificateResponse
      *
-     * @return SetDcdnDomainCertificateResponse SetDcdnDomainCertificateResponse
-     */
-    public function setDcdnDomainCertificate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setDcdnDomainCertificateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Enables or disables the ShangMi (SM) certificate for a domain name.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param SetDcdnDomainSMCertificateRequest $request SetDcdnDomainSMCertificateRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param SetDcdnDomainSMCertificateRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return SetDcdnDomainSMCertificateResponse SetDcdnDomainSMCertificateResponse
+     * @return SetDcdnDomainSMCertificateResponse
      */
     public function setDcdnDomainSMCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certIdentifier)) {
-            $query['CertIdentifier'] = $request->certIdentifier;
+        if (null !== $request->certIdentifier) {
+            @$query['CertIdentifier'] = $request->certIdentifier;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->SSLProtocol)) {
-            $query['SSLProtocol'] = $request->SSLProtocol;
+
+        if (null !== $request->SSLProtocol) {
+            @$query['SSLProtocol'] = $request->SSLProtocol;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDcdnDomainSMCertificate',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDcdnDomainSMCertificate',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetDcdnDomainSMCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables the ShangMi (SM) certificate for a domain name.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param SetDcdnDomainSMCertificateRequest $request SetDcdnDomainSMCertificateRequest
+     * Enables or disables the ShangMi (SM) certificate for a domain name.
      *
-     * @return SetDcdnDomainSMCertificateResponse SetDcdnDomainSMCertificateResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - SetDcdnDomainSMCertificateRequest
+     *
+     * @returns SetDcdnDomainSMCertificateResponse
+     *
+     * @param SetDcdnDomainSMCertificateRequest $request
+     *
+     * @return SetDcdnDomainSMCertificateResponse
      */
     public function setDcdnDomainSMCertificate($request)
     {
@@ -13073,74 +16039,90 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the SSL certificate for a domain name and updates certificate details.
-     *  *
-     * @param SetDcdnDomainSSLCertificateRequest $request SetDcdnDomainSSLCertificateRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Enables or disables the SSL certificate for a domain name and updates certificate details.
      *
-     * @return SetDcdnDomainSSLCertificateResponse SetDcdnDomainSSLCertificateResponse
+     * @param Request - SetDcdnDomainSSLCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetDcdnDomainSSLCertificateResponse
+     *
+     * @param SetDcdnDomainSSLCertificateRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetDcdnDomainSSLCertificateResponse
      */
     public function setDcdnDomainSSLCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certId)) {
-            $query['CertId'] = $request->certId;
+        if (null !== $request->certId) {
+            @$query['CertId'] = $request->certId;
         }
-        if (!Utils::isUnset($request->certName)) {
-            $query['CertName'] = $request->certName;
+
+        if (null !== $request->certName) {
+            @$query['CertName'] = $request->certName;
         }
-        if (!Utils::isUnset($request->certRegion)) {
-            $query['CertRegion'] = $request->certRegion;
+
+        if (null !== $request->certRegion) {
+            @$query['CertRegion'] = $request->certRegion;
         }
-        if (!Utils::isUnset($request->certType)) {
-            $query['CertType'] = $request->certType;
+
+        if (null !== $request->certType) {
+            @$query['CertType'] = $request->certType;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->SSLPri) {
+            @$query['SSLPri'] = $request->SSLPri;
         }
-        if (!Utils::isUnset($request->SSLPri)) {
-            $query['SSLPri'] = $request->SSLPri;
+
+        if (null !== $request->SSLProtocol) {
+            @$query['SSLProtocol'] = $request->SSLProtocol;
         }
-        if (!Utils::isUnset($request->SSLProtocol)) {
-            $query['SSLProtocol'] = $request->SSLProtocol;
+
+        if (null !== $request->SSLPub) {
+            @$query['SSLPub'] = $request->SSLPub;
         }
-        if (!Utils::isUnset($request->SSLPub)) {
-            $query['SSLPub'] = $request->SSLPub;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDcdnDomainSSLCertificate',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDcdnDomainSSLCertificate',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetDcdnDomainSSLCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables the SSL certificate for a domain name and updates certificate details.
-     *  *
-     * @param SetDcdnDomainSSLCertificateRequest $request SetDcdnDomainSSLCertificateRequest
+     * Enables or disables the SSL certificate for a domain name and updates certificate details.
      *
-     * @return SetDcdnDomainSSLCertificateResponse SetDcdnDomainSSLCertificateResponse
+     * @param Request - SetDcdnDomainSSLCertificateRequest
+     *
+     * @returns SetDcdnDomainSSLCertificateResponse
+     *
+     * @param SetDcdnDomainSSLCertificateRequest $request
+     *
+     * @return SetDcdnDomainSSLCertificateResponse
      */
     public function setDcdnDomainSSLCertificate($request)
     {
@@ -13150,51 +16132,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Sets or modifies the domain name configuration in the canary release environment.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param SetDcdnDomainStagingConfigRequest $request SetDcdnDomainStagingConfigRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Sets or modifies the domain name configuration in the canary release environment.
      *
-     * @return SetDcdnDomainStagingConfigResponse SetDcdnDomainStagingConfigResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - SetDcdnDomainStagingConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetDcdnDomainStagingConfigResponse
+     *
+     * @param SetDcdnDomainStagingConfigRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SetDcdnDomainStagingConfigResponse
      */
     public function setDcdnDomainStagingConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->functions)) {
-            $query['Functions'] = $request->functions;
+
+        if (null !== $request->functions) {
+            @$query['Functions'] = $request->functions;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDcdnDomainStagingConfig',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDcdnDomainStagingConfig',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetDcdnDomainStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Sets or modifies the domain name configuration in the canary release environment.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param SetDcdnDomainStagingConfigRequest $request SetDcdnDomainStagingConfigRequest
+     * Sets or modifies the domain name configuration in the canary release environment.
      *
-     * @return SetDcdnDomainStagingConfigResponse SetDcdnDomainStagingConfigResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - SetDcdnDomainStagingConfigRequest
+     *
+     * @returns SetDcdnDomainStagingConfigResponse
+     *
+     * @param SetDcdnDomainStagingConfigRequest $request
+     *
+     * @return SetDcdnDomainStagingConfigResponse
      */
     public function setDcdnDomainStagingConfig($request)
     {
@@ -13204,57 +16199,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Blocks or unblocks IP addresses or CIDR blocks.
-     *  *
-     * @description >  You can call this operation to block or unblock a large number of IP addresses or CIDR blocks. You can block or unblock up to 1,000 IP addresses or CIDR blocks in a request.
-     *  *
-     * @param SetDcdnFullDomainsBlockIPRequest $request SetDcdnFullDomainsBlockIPRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Blocks or unblocks IP addresses or CIDR blocks.
      *
-     * @return SetDcdnFullDomainsBlockIPResponse SetDcdnFullDomainsBlockIPResponse
+     * @remarks
+     * >  You can call this operation to block or unblock a large number of IP addresses or CIDR blocks. You can block or unblock up to 1,000 IP addresses or CIDR blocks in a request.
+     *
+     * @param Request - SetDcdnFullDomainsBlockIPRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetDcdnFullDomainsBlockIPResponse
+     *
+     * @param SetDcdnFullDomainsBlockIPRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SetDcdnFullDomainsBlockIPResponse
      */
     public function setDcdnFullDomainsBlockIPWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->blockInterval)) {
-            $body['BlockInterval'] = $request->blockInterval;
+        if (null !== $request->blockInterval) {
+            @$body['BlockInterval'] = $request->blockInterval;
         }
-        if (!Utils::isUnset($request->IPList)) {
-            $body['IPList'] = $request->IPList;
+
+        if (null !== $request->IPList) {
+            @$body['IPList'] = $request->IPList;
         }
-        if (!Utils::isUnset($request->operationType)) {
-            $body['OperationType'] = $request->operationType;
+
+        if (null !== $request->operationType) {
+            @$body['OperationType'] = $request->operationType;
         }
-        if (!Utils::isUnset($request->updateType)) {
-            $body['UpdateType'] = $request->updateType;
+
+        if (null !== $request->updateType) {
+            @$body['UpdateType'] = $request->updateType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetDcdnFullDomainsBlockIP',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDcdnFullDomainsBlockIP',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetDcdnFullDomainsBlockIPResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Blocks or unblocks IP addresses or CIDR blocks.
-     *  *
-     * @description >  You can call this operation to block or unblock a large number of IP addresses or CIDR blocks. You can block or unblock up to 1,000 IP addresses or CIDR blocks in a request.
-     *  *
-     * @param SetDcdnFullDomainsBlockIPRequest $request SetDcdnFullDomainsBlockIPRequest
+     * Blocks or unblocks IP addresses or CIDR blocks.
      *
-     * @return SetDcdnFullDomainsBlockIPResponse SetDcdnFullDomainsBlockIPResponse
+     * @remarks
+     * >  You can call this operation to block or unblock a large number of IP addresses or CIDR blocks. You can block or unblock up to 1,000 IP addresses or CIDR blocks in a request.
+     *
+     * @param Request - SetDcdnFullDomainsBlockIPRequest
+     *
+     * @returns SetDcdnFullDomainsBlockIPResponse
+     *
+     * @param SetDcdnFullDomainsBlockIPRequest $request
+     *
+     * @return SetDcdnFullDomainsBlockIPResponse
      */
     public function setDcdnFullDomainsBlockIP($request)
     {
@@ -13264,60 +16274,76 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Configures features for a user.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param SetDcdnUserConfigRequest $request SetDcdnUserConfigRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Configures features for a user.
      *
-     * @return SetDcdnUserConfigResponse SetDcdnUserConfigResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - SetDcdnUserConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetDcdnUserConfigResponse
+     *
+     * @param SetDcdnUserConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SetDcdnUserConfigResponse
      */
     public function setDcdnUserConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configs)) {
-            $query['Configs'] = $request->configs;
+        if (null !== $request->configs) {
+            @$query['Configs'] = $request->configs;
         }
-        if (!Utils::isUnset($request->functionId)) {
-            $query['FunctionId'] = $request->functionId;
+
+        if (null !== $request->functionId) {
+            @$query['FunctionId'] = $request->functionId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDcdnUserConfig',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDcdnUserConfig',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetDcdnUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures features for a user.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param SetDcdnUserConfigRequest $request SetDcdnUserConfigRequest
+     * Configures features for a user.
      *
-     * @return SetDcdnUserConfigResponse SetDcdnUserConfigResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - SetDcdnUserConfigRequest
+     *
+     * @returns SetDcdnUserConfigResponse
+     *
+     * @param SetDcdnUserConfigRequest $request
+     *
+     * @return SetDcdnUserConfigResponse
      */
     public function setDcdnUserConfig($request)
     {
@@ -13327,57 +16353,70 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Configures a subdomain for a routine.
-     *  *
-     * @description >
+     * Configures a subdomain for a routine.
+     *
+     * @remarks
+     * >
      * *   Each subdomain is globally unique. Resource Access Management (RAM) users cannot create duplicate subdomains.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param SetRoutineSubdomainRequest $tmpReq  SetRoutineSubdomainRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetRoutineSubdomainResponse SetRoutineSubdomainResponse
+     * @param tmpReq - SetRoutineSubdomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetRoutineSubdomainResponse
+     *
+     * @param SetRoutineSubdomainRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetRoutineSubdomainResponse
      */
     public function setRoutineSubdomainWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SetRoutineSubdomainShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->subdomains)) {
-            $request->subdomainsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subdomains, 'Subdomains', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->subdomains) {
+            $request->subdomainsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->subdomains, 'Subdomains', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->subdomainsShrink)) {
-            $body['Subdomains'] = $request->subdomainsShrink;
+        if (null !== $request->subdomainsShrink) {
+            @$body['Subdomains'] = $request->subdomainsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetRoutineSubdomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetRoutineSubdomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetRoutineSubdomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures a subdomain for a routine.
-     *  *
-     * @description >
+     * Configures a subdomain for a routine.
+     *
+     * @remarks
+     * >
      * *   Each subdomain is globally unique. Resource Access Management (RAM) users cannot create duplicate subdomains.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param SetRoutineSubdomainRequest $request SetRoutineSubdomainRequest
      *
-     * @return SetRoutineSubdomainResponse SetRoutineSubdomainResponse
+     * @param Request - SetRoutineSubdomainRequest
+     *
+     * @returns SetRoutineSubdomainResponse
+     *
+     * @param SetRoutineSubdomainRequest $request
+     *
+     * @return SetRoutineSubdomainResponse
      */
     public function setRoutineSubdomain($request)
     {
@@ -13387,58 +16426,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Enables a specified disabled accelerated domain. After the accelerated domain is enabled, the value of the DomainStatus parameter changes to Online for the domain.
-     *  *
-     * @description >
+     * Enables a specified disabled accelerated domain. After the accelerated domain is enabled, the value of the DomainStatus parameter changes to Online for the domain.
+     *
+     * @remarks
+     * >
      * *   If an accelerated domain name is in invalid state or your account has an overdue payment, the accelerated domain name cannot be enabled.
      * *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param StartDcdnDomainRequest $request StartDcdnDomainRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartDcdnDomainResponse StartDcdnDomainResponse
+     * @param Request - StartDcdnDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartDcdnDomainResponse
+     *
+     * @param StartDcdnDomainRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return StartDcdnDomainResponse
      */
     public function startDcdnDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartDcdnDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartDcdnDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables a specified disabled accelerated domain. After the accelerated domain is enabled, the value of the DomainStatus parameter changes to Online for the domain.
-     *  *
-     * @description >
+     * Enables a specified disabled accelerated domain. After the accelerated domain is enabled, the value of the DomainStatus parameter changes to Online for the domain.
+     *
+     * @remarks
+     * >
      * *   If an accelerated domain name is in invalid state or your account has an overdue payment, the accelerated domain name cannot be enabled.
      * *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param StartDcdnDomainRequest $request StartDcdnDomainRequest
      *
-     * @return StartDcdnDomainResponse StartDcdnDomainResponse
+     * @param Request - StartDcdnDomainRequest
+     *
+     * @returns StartDcdnDomainResponse
+     *
+     * @param StartDcdnDomainRequest $request
+     *
+     * @return StartDcdnDomainResponse
      */
     public function startDcdnDomain($request)
     {
@@ -13448,56 +16501,70 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Enables one or more accelerated domain names. After the accelerated domain names are enabled, the value of the DomainStatus parameter for the domain names changes to Online.
-     *  *
-     * @description *   If an accelerated domain name is in invalid state or your account has an overdue payment, the accelerated domain name cannot be enabled.
-     * *   You can call this operation up to 20 times per second per account.
-     *  *
-     * @param StartDcdnIpaDomainRequest $request StartDcdnIpaDomainRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Enables one or more accelerated domain names. After the accelerated domain names are enabled, the value of the DomainStatus parameter for the domain names changes to Online.
      *
-     * @return StartDcdnIpaDomainResponse StartDcdnIpaDomainResponse
+     * @remarks
+     *   If an accelerated domain name is in invalid state or your account has an overdue payment, the accelerated domain name cannot be enabled.
+     * *   You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - StartDcdnIpaDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartDcdnIpaDomainResponse
+     *
+     * @param StartDcdnIpaDomainRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StartDcdnIpaDomainResponse
      */
     public function startDcdnIpaDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartDcdnIpaDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartDcdnIpaDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartDcdnIpaDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables one or more accelerated domain names. After the accelerated domain names are enabled, the value of the DomainStatus parameter for the domain names changes to Online.
-     *  *
-     * @description *   If an accelerated domain name is in invalid state or your account has an overdue payment, the accelerated domain name cannot be enabled.
-     * *   You can call this operation up to 20 times per second per account.
-     *  *
-     * @param StartDcdnIpaDomainRequest $request StartDcdnIpaDomainRequest
+     * Enables one or more accelerated domain names. After the accelerated domain names are enabled, the value of the DomainStatus parameter for the domain names changes to Online.
      *
-     * @return StartDcdnIpaDomainResponse StartDcdnIpaDomainResponse
+     * @remarks
+     *   If an accelerated domain name is in invalid state or your account has an overdue payment, the accelerated domain name cannot be enabled.
+     * *   You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - StartDcdnIpaDomainRequest
+     *
+     * @returns StartDcdnIpaDomainResponse
+     *
+     * @param StartDcdnIpaDomainRequest $request
+     *
+     * @return StartDcdnIpaDomainResponse
      */
     public function startDcdnIpaDomain($request)
     {
@@ -13507,60 +16574,74 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Disables a specified accelerated domain. After the accelerated domain is disabled,
+     * Disables a specified accelerated domain. After the accelerated domain is disabled,
      *                   the value of the DomainStatus parameter changes to Offline for the domain.
-     *  *
-     * @description >
+     *
+     * @remarks
+     * >
      * *   After an accelerated domain is disabled, Dynamic Content Delivery Network (DCDN) retains its information and routes all the requests that are destined for the accelerated domain to the origin server.
      * *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param StopDcdnDomainRequest $request StopDcdnDomainRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopDcdnDomainResponse StopDcdnDomainResponse
+     * @param Request - StopDcdnDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopDcdnDomainResponse
+     *
+     * @param StopDcdnDomainRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StopDcdnDomainResponse
      */
     public function stopDcdnDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopDcdnDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopDcdnDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables a specified accelerated domain. After the accelerated domain is disabled,
+     * Disables a specified accelerated domain. After the accelerated domain is disabled,
      *                   the value of the DomainStatus parameter changes to Offline for the domain.
-     *  *
-     * @description >
+     *
+     * @remarks
+     * >
      * *   After an accelerated domain is disabled, Dynamic Content Delivery Network (DCDN) retains its information and routes all the requests that are destined for the accelerated domain to the origin server.
      * *   You can call this operation up to 30 times per second per account.
-     *  *
-     * @param StopDcdnDomainRequest $request StopDcdnDomainRequest
      *
-     * @return StopDcdnDomainResponse StopDcdnDomainResponse
+     * @param Request - StopDcdnDomainRequest
+     *
+     * @returns StopDcdnDomainResponse
+     *
+     * @param StopDcdnDomainRequest $request
+     *
+     * @return StopDcdnDomainResponse
      */
     public function stopDcdnDomain($request)
     {
@@ -13570,58 +16651,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Disables an accelerated domain name. After an accelerated domain name is disabled, the value of the DomainStatus parameter for the domain name changes to Offline.
-     *  *
-     * @description >
+     * Disables an accelerated domain name. After an accelerated domain name is disabled, the value of the DomainStatus parameter for the domain name changes to Offline.
+     *
+     * @remarks
+     * >
      * *   If you disable an accelerated domain, the configurations of the accelerated domain are still retained. The system automatically forwards all the requests that are destined for this domain to the origin.
      * *   You can call this operation up to 20 times per second per account.
-     *  *
-     * @param StopDcdnIpaDomainRequest $request StopDcdnIpaDomainRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopDcdnIpaDomainResponse StopDcdnIpaDomainResponse
+     * @param Request - StopDcdnIpaDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopDcdnIpaDomainResponse
+     *
+     * @param StopDcdnIpaDomainRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return StopDcdnIpaDomainResponse
      */
     public function stopDcdnIpaDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopDcdnIpaDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopDcdnIpaDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopDcdnIpaDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables an accelerated domain name. After an accelerated domain name is disabled, the value of the DomainStatus parameter for the domain name changes to Offline.
-     *  *
-     * @description >
+     * Disables an accelerated domain name. After an accelerated domain name is disabled, the value of the DomainStatus parameter for the domain name changes to Offline.
+     *
+     * @remarks
+     * >
      * *   If you disable an accelerated domain, the configurations of the accelerated domain are still retained. The system automatically forwards all the requests that are destined for this domain to the origin.
      * *   You can call this operation up to 20 times per second per account.
-     *  *
-     * @param StopDcdnIpaDomainRequest $request StopDcdnIpaDomainRequest
      *
-     * @return StopDcdnIpaDomainResponse StopDcdnIpaDomainResponse
+     * @param Request - StopDcdnIpaDomainRequest
+     *
+     * @returns StopDcdnIpaDomainResponse
+     *
+     * @param StopDcdnIpaDomainRequest $request
+     *
+     * @return StopDcdnIpaDomainResponse
      */
     public function stopDcdnIpaDomain($request)
     {
@@ -13631,54 +16726,68 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Adds one or more tags to a resource.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param TagDcdnResourcesRequest $request TagDcdnResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Adds one or more tags to a resource.
      *
-     * @return TagDcdnResourcesResponse TagDcdnResourcesResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - TagDcdnResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagDcdnResourcesResponse
+     *
+     * @param TagDcdnResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return TagDcdnResourcesResponse
      */
     public function tagDcdnResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagDcdnResources',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagDcdnResources',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TagDcdnResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds one or more tags to a resource.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param TagDcdnResourcesRequest $request TagDcdnResourcesRequest
+     * Adds one or more tags to a resource.
      *
-     * @return TagDcdnResourcesResponse TagDcdnResourcesResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - TagDcdnResourcesRequest
+     *
+     * @returns TagDcdnResourcesResponse
+     *
+     * @param TagDcdnResourcesRequest $request
+     *
+     * @return TagDcdnResourcesResponse
      */
     public function tagDcdnResources($request)
     {
@@ -13688,57 +16797,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Removes one or more tags from a resource.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param UntagDcdnResourcesRequest $request UntagDcdnResourcesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Removes one or more tags from a resource.
      *
-     * @return UntagDcdnResourcesResponse UntagDcdnResourcesResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - UntagDcdnResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagDcdnResourcesResponse
+     *
+     * @param UntagDcdnResourcesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UntagDcdnResourcesResponse
      */
     public function untagDcdnResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagDcdnResources',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagDcdnResources',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UntagDcdnResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes one or more tags from a resource.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param UntagDcdnResourcesRequest $request UntagDcdnResourcesRequest
+     * Removes one or more tags from a resource.
      *
-     * @return UntagDcdnResourcesResponse UntagDcdnResourcesResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - UntagDcdnResourcesRequest
+     *
+     * @returns UntagDcdnResourcesResponse
+     *
+     * @param UntagDcdnResourcesRequest $request
+     *
+     * @return UntagDcdnResourcesResponse
      */
     public function untagDcdnResources($request)
     {
@@ -13748,63 +16872,80 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Updates a tracking task by task ID.
-     *  *
-     * @description > You can call this operation up to three times per second per account.
-     *  *
-     * @param UpdateDcdnDeliverTaskRequest $request UpdateDcdnDeliverTaskRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Updates a tracking task by task ID.
      *
-     * @return UpdateDcdnDeliverTaskResponse UpdateDcdnDeliverTaskResponse
+     * @remarks
+     * > You can call this operation up to three times per second per account.
+     *
+     * @param Request - UpdateDcdnDeliverTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDcdnDeliverTaskResponse
+     *
+     * @param UpdateDcdnDeliverTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDcdnDeliverTaskResponse
      */
     public function updateDcdnDeliverTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->deliver)) {
-            $body['Deliver'] = $request->deliver;
+        if (null !== $request->deliver) {
+            @$body['Deliver'] = $request->deliver;
         }
-        if (!Utils::isUnset($request->deliverId)) {
-            $body['DeliverId'] = $request->deliverId;
+
+        if (null !== $request->deliverId) {
+            @$body['DeliverId'] = $request->deliverId;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $body['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->reports)) {
-            $body['Reports'] = $request->reports;
+
+        if (null !== $request->reports) {
+            @$body['Reports'] = $request->reports;
         }
-        if (!Utils::isUnset($request->schedule)) {
-            $body['Schedule'] = $request->schedule;
+
+        if (null !== $request->schedule) {
+            @$body['Schedule'] = $request->schedule;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDcdnDeliverTask',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDcdnDeliverTask',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDcdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a tracking task by task ID.
-     *  *
-     * @description > You can call this operation up to three times per second per account.
-     *  *
-     * @param UpdateDcdnDeliverTaskRequest $request UpdateDcdnDeliverTaskRequest
+     * Updates a tracking task by task ID.
      *
-     * @return UpdateDcdnDeliverTaskResponse UpdateDcdnDeliverTaskResponse
+     * @remarks
+     * > You can call this operation up to three times per second per account.
+     *
+     * @param Request - UpdateDcdnDeliverTaskRequest
+     *
+     * @returns UpdateDcdnDeliverTaskResponse
+     *
+     * @param UpdateDcdnDeliverTaskRequest $request
+     *
+     * @return UpdateDcdnDeliverTaskResponse
      */
     public function updateDcdnDeliverTask($request)
     {
@@ -13814,63 +16955,80 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an accelerated domain name.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param UpdateDcdnDomainRequest $request UpdateDcdnDomainRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies an accelerated domain name.
      *
-     * @return UpdateDcdnDomainResponse UpdateDcdnDomainResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - UpdateDcdnDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDcdnDomainResponse
+     *
+     * @param UpdateDcdnDomainRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDcdnDomainResponse
      */
     public function updateDcdnDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->sources)) {
-            $query['Sources'] = $request->sources;
+
+        if (null !== $request->sources) {
+            @$query['Sources'] = $request->sources;
         }
-        if (!Utils::isUnset($request->topLevelDomain)) {
-            $query['TopLevelDomain'] = $request->topLevelDomain;
+
+        if (null !== $request->topLevelDomain) {
+            @$query['TopLevelDomain'] = $request->topLevelDomain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDcdnDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDcdnDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies an accelerated domain name.
-     *  *
-     * @description > You can call this operation up to 30 times per second per account.
-     *  *
-     * @param UpdateDcdnDomainRequest $request UpdateDcdnDomainRequest
+     * Modifies an accelerated domain name.
      *
-     * @return UpdateDcdnDomainResponse UpdateDcdnDomainResponse
+     * @remarks
+     * > You can call this operation up to 30 times per second per account.
+     *
+     * @param Request - UpdateDcdnDomainRequest
+     *
+     * @returns UpdateDcdnDomainResponse
+     *
+     * @param UpdateDcdnDomainRequest $request
+     *
+     * @return UpdateDcdnDomainResponse
      */
     public function updateDcdnDomain($request)
     {
@@ -13880,63 +17038,80 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a domain name that is accelerated by IP Application Accelerator (IPA).
-     *  *
-     * @description >  You can call this operation up to 20 times per second per account.
-     *  *
-     * @param UpdateDcdnIpaDomainRequest $request UpdateDcdnIpaDomainRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Modifies a domain name that is accelerated by IP Application Accelerator (IPA).
      *
-     * @return UpdateDcdnIpaDomainResponse UpdateDcdnIpaDomainResponse
+     * @remarks
+     * >  You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - UpdateDcdnIpaDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDcdnIpaDomainResponse
+     *
+     * @param UpdateDcdnIpaDomainRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateDcdnIpaDomainResponse
      */
     public function updateDcdnIpaDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->sources)) {
-            $query['Sources'] = $request->sources;
+
+        if (null !== $request->sources) {
+            @$query['Sources'] = $request->sources;
         }
-        if (!Utils::isUnset($request->topLevelDomain)) {
-            $query['TopLevelDomain'] = $request->topLevelDomain;
+
+        if (null !== $request->topLevelDomain) {
+            @$query['TopLevelDomain'] = $request->topLevelDomain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDcdnIpaDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDcdnIpaDomain',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDcdnIpaDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a domain name that is accelerated by IP Application Accelerator (IPA).
-     *  *
-     * @description >  You can call this operation up to 20 times per second per account.
-     *  *
-     * @param UpdateDcdnIpaDomainRequest $request UpdateDcdnIpaDomainRequest
+     * Modifies a domain name that is accelerated by IP Application Accelerator (IPA).
      *
-     * @return UpdateDcdnIpaDomainResponse UpdateDcdnIpaDomainResponse
+     * @remarks
+     * >  You can call this operation up to 20 times per second per account.
+     *
+     * @param Request - UpdateDcdnIpaDomainRequest
+     *
+     * @returns UpdateDcdnIpaDomainResponse
+     *
+     * @param UpdateDcdnIpaDomainRequest $request
+     *
+     * @return UpdateDcdnIpaDomainResponse
      */
     public function updateDcdnIpaDomain($request)
     {
@@ -13946,66 +17121,84 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Updates a real-time log delivery project.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param UpdateDcdnSLSRealtimeLogDeliveryRequest $request UpdateDcdnSLSRealtimeLogDeliveryRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Updates a real-time log delivery project.
      *
-     * @return UpdateDcdnSLSRealtimeLogDeliveryResponse UpdateDcdnSLSRealtimeLogDeliveryResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - UpdateDcdnSLSRealtimeLogDeliveryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDcdnSLSRealtimeLogDeliveryResponse
+     *
+     * @param UpdateDcdnSLSRealtimeLogDeliveryRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpdateDcdnSLSRealtimeLogDeliveryResponse
      */
     public function updateDcdnSLSRealtimeLogDeliveryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dataCenter)) {
-            $body['DataCenter'] = $request->dataCenter;
+        if (null !== $request->dataCenter) {
+            @$body['DataCenter'] = $request->dataCenter;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $body['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->SLSLogStore)) {
-            $body['SLSLogStore'] = $request->SLSLogStore;
+
+        if (null !== $request->SLSLogStore) {
+            @$body['SLSLogStore'] = $request->SLSLogStore;
         }
-        if (!Utils::isUnset($request->SLSProject)) {
-            $body['SLSProject'] = $request->SLSProject;
+
+        if (null !== $request->SLSProject) {
+            @$body['SLSProject'] = $request->SLSProject;
         }
-        if (!Utils::isUnset($request->SLSRegion)) {
-            $body['SLSRegion'] = $request->SLSRegion;
+
+        if (null !== $request->SLSRegion) {
+            @$body['SLSRegion'] = $request->SLSRegion;
         }
-        if (!Utils::isUnset($request->samplingRate)) {
-            $body['SamplingRate'] = $request->samplingRate;
+
+        if (null !== $request->samplingRate) {
+            @$body['SamplingRate'] = $request->samplingRate;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDcdnSLSRealtimeLogDelivery',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDcdnSLSRealtimeLogDelivery',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDcdnSLSRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a real-time log delivery project.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param UpdateDcdnSLSRealtimeLogDeliveryRequest $request UpdateDcdnSLSRealtimeLogDeliveryRequest
+     * Updates a real-time log delivery project.
      *
-     * @return UpdateDcdnSLSRealtimeLogDeliveryResponse UpdateDcdnSLSRealtimeLogDeliveryResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - UpdateDcdnSLSRealtimeLogDeliveryRequest
+     *
+     * @returns UpdateDcdnSLSRealtimeLogDeliveryResponse
+     *
+     * @param UpdateDcdnSLSRealtimeLogDeliveryRequest $request
+     *
+     * @return UpdateDcdnSLSRealtimeLogDeliveryResponse
      */
     public function updateDcdnSLSRealtimeLogDelivery($request)
     {
@@ -14015,57 +17208,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Updates one or more operations reports.
-     *  *
-     * @description > You can call this operation up to three times per second per account.
-     *  *
-     * @param UpdateDcdnSubTaskRequest $request UpdateDcdnSubTaskRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Updates one or more operations reports.
      *
-     * @return UpdateDcdnSubTaskResponse UpdateDcdnSubTaskResponse
+     * @remarks
+     * > You can call this operation up to three times per second per account.
+     *
+     * @param Request - UpdateDcdnSubTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDcdnSubTaskResponse
+     *
+     * @param UpdateDcdnSubTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateDcdnSubTaskResponse
      */
     public function updateDcdnSubTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $body['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->reportIds)) {
-            $body['ReportIds'] = $request->reportIds;
+
+        if (null !== $request->reportIds) {
+            @$body['ReportIds'] = $request->reportIds;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDcdnSubTask',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDcdnSubTask',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDcdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates one or more operations reports.
-     *  *
-     * @description > You can call this operation up to three times per second per account.
-     *  *
-     * @param UpdateDcdnSubTaskRequest $request UpdateDcdnSubTaskRequest
+     * Updates one or more operations reports.
      *
-     * @return UpdateDcdnSubTaskResponse UpdateDcdnSubTaskResponse
+     * @remarks
+     * > You can call this operation up to three times per second per account.
+     *
+     * @param Request - UpdateDcdnSubTaskRequest
+     *
+     * @returns UpdateDcdnSubTaskResponse
+     *
+     * @param UpdateDcdnSubTaskRequest $request
+     *
+     * @return UpdateDcdnSubTaskResponse
      */
     public function updateDcdnSubTask($request)
     {
@@ -14075,51 +17283,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Updates the fields in real-time log entries.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param UpdateDcdnUserRealTimeDeliveryFieldRequest $request UpdateDcdnUserRealTimeDeliveryFieldRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * Updates the fields in real-time log entries.
      *
-     * @return UpdateDcdnUserRealTimeDeliveryFieldResponse UpdateDcdnUserRealTimeDeliveryFieldResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - UpdateDcdnUserRealTimeDeliveryFieldRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDcdnUserRealTimeDeliveryFieldResponse
+     *
+     * @param UpdateDcdnUserRealTimeDeliveryFieldRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return UpdateDcdnUserRealTimeDeliveryFieldResponse
      */
     public function updateDcdnUserRealTimeDeliveryFieldWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$query['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->fields)) {
-            $query['Fields'] = $request->fields;
+
+        if (null !== $request->fields) {
+            @$query['Fields'] = $request->fields;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDcdnUserRealTimeDeliveryField',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDcdnUserRealTimeDeliveryField',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDcdnUserRealTimeDeliveryFieldResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the fields in real-time log entries.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param UpdateDcdnUserRealTimeDeliveryFieldRequest $request UpdateDcdnUserRealTimeDeliveryFieldRequest
+     * Updates the fields in real-time log entries.
      *
-     * @return UpdateDcdnUserRealTimeDeliveryFieldResponse UpdateDcdnUserRealTimeDeliveryFieldResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - UpdateDcdnUserRealTimeDeliveryFieldRequest
+     *
+     * @returns UpdateDcdnUserRealTimeDeliveryFieldResponse
+     *
+     * @param UpdateDcdnUserRealTimeDeliveryFieldRequest $request
+     *
+     * @return UpdateDcdnUserRealTimeDeliveryFieldResponse
      */
     public function updateDcdnUserRealTimeDeliveryField($request)
     {
@@ -14129,57 +17350,70 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Uploads code to EdgeRoutine (ER).
-     *  *
-     * @description >
+     * Uploads code to EdgeRoutine (ER).
+     *
+     * @remarks
+     * >
      * *   Each time you submit code, a version of the code is generated. You can manage and publish code by version.
      * *   Each routine can retain at most 10 versions. If the upper limit is reached, you must call the DeleteRoutineCodeRevision operation to manually delete versions that are no longer needed before new versions can be saved.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param UploadRoutineCodeRequest $request UploadRoutineCodeRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadRoutineCodeResponse UploadRoutineCodeResponse
+     * @param Request - UploadRoutineCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadRoutineCodeResponse
+     *
+     * @param UploadRoutineCodeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UploadRoutineCodeResponse
      */
     public function uploadRoutineCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->codeDescription)) {
-            $body['CodeDescription'] = $request->codeDescription;
+        if (null !== $request->codeDescription) {
+            @$body['CodeDescription'] = $request->codeDescription;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UploadRoutineCode',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadRoutineCode',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UploadRoutineCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Uploads code to EdgeRoutine (ER).
-     *  *
-     * @description >
+     * Uploads code to EdgeRoutine (ER).
+     *
+     * @remarks
+     * >
      * *   Each time you submit code, a version of the code is generated. You can manage and publish code by version.
      * *   Each routine can retain at most 10 versions. If the upper limit is reached, you must call the DeleteRoutineCodeRevision operation to manually delete versions that are no longer needed before new versions can be saved.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param UploadRoutineCodeRequest $request UploadRoutineCodeRequest
      *
-     * @return UploadRoutineCodeResponse UploadRoutineCodeResponse
+     * @param Request - UploadRoutineCodeRequest
+     *
+     * @returns UploadRoutineCodeResponse
+     *
+     * @param UploadRoutineCodeRequest $request
+     *
+     * @return UploadRoutineCodeResponse
      */
     public function uploadRoutineCode($request)
     {
@@ -14189,59 +17423,72 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Uploads code to a routine for testing.
-     *  *
-     * @description >
+     * Uploads code to a routine for testing.
+     *
+     * @remarks
+     * >
      * *   Each time you upload code to a routine, a version is generated. The number of versions is counted by CodeRev. The uploaded code is used only for testing.
      * *   The code is automatically published to a staging environment.
      * *   Each routine can retain at most 10 versions. If the upper limit is reached, you need to call the DeleteRoutineCodeRevision operation to manually delete versions that are no longer needed before new versions can be saved.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param UploadStagingRoutineCodeRequest $request UploadStagingRoutineCodeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadStagingRoutineCodeResponse UploadStagingRoutineCodeResponse
+     * @param Request - UploadStagingRoutineCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadStagingRoutineCodeResponse
+     *
+     * @param UploadStagingRoutineCodeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UploadStagingRoutineCodeResponse
      */
     public function uploadStagingRoutineCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->codeDescription)) {
-            $body['CodeDescription'] = $request->codeDescription;
+        if (null !== $request->codeDescription) {
+            @$body['CodeDescription'] = $request->codeDescription;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UploadStagingRoutineCode',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadStagingRoutineCode',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UploadStagingRoutineCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Uploads code to a routine for testing.
-     *  *
-     * @description >
+     * Uploads code to a routine for testing.
+     *
+     * @remarks
+     * >
      * *   Each time you upload code to a routine, a version is generated. The number of versions is counted by CodeRev. The uploaded code is used only for testing.
      * *   The code is automatically published to a staging environment.
      * *   Each routine can retain at most 10 versions. If the upper limit is reached, you need to call the DeleteRoutineCodeRevision operation to manually delete versions that are no longer needed before new versions can be saved.
      * *   You can call this operation up to 100 times per second per account.
-     *  *
-     * @param UploadStagingRoutineCodeRequest $request UploadStagingRoutineCodeRequest
      *
-     * @return UploadStagingRoutineCodeResponse UploadStagingRoutineCodeResponse
+     * @param Request - UploadStagingRoutineCodeRequest
+     *
+     * @returns UploadStagingRoutineCodeResponse
+     *
+     * @param UploadStagingRoutineCodeRequest $request
+     *
+     * @return UploadStagingRoutineCodeResponse
      */
     public function uploadStagingRoutineCode($request)
     {
@@ -14251,51 +17498,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @summary Verifies the ownership of a domain name.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param VerifyDcdnDomainOwnerRequest $request VerifyDcdnDomainOwnerRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Verifies the ownership of a domain name.
      *
-     * @return VerifyDcdnDomainOwnerResponse VerifyDcdnDomainOwnerResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - VerifyDcdnDomainOwnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyDcdnDomainOwnerResponse
+     *
+     * @param VerifyDcdnDomainOwnerRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return VerifyDcdnDomainOwnerResponse
      */
     public function verifyDcdnDomainOwnerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->verifyType)) {
-            $query['VerifyType'] = $request->verifyType;
+
+        if (null !== $request->verifyType) {
+            @$query['VerifyType'] = $request->verifyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyDcdnDomainOwner',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyDcdnDomainOwner',
+            'version' => '2018-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VerifyDcdnDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Verifies the ownership of a domain name.
-     *  *
-     * @description > You can call this operation up to 100 times per second per account.
-     *  *
-     * @param VerifyDcdnDomainOwnerRequest $request VerifyDcdnDomainOwnerRequest
+     * Verifies the ownership of a domain name.
      *
-     * @return VerifyDcdnDomainOwnerResponse VerifyDcdnDomainOwnerResponse
+     * @remarks
+     * > You can call this operation up to 100 times per second per account.
+     *
+     * @param Request - VerifyDcdnDomainOwnerRequest
+     *
+     * @returns VerifyDcdnDomainOwnerResponse
+     *
+     * @param VerifyDcdnDomainOwnerRequest $request
+     *
+     * @return VerifyDcdnDomainOwnerResponse
      */
     public function verifyDcdnDomainOwner($request)
     {

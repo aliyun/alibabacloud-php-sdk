@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnHttpsDomainListResponseBody\certInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnHttpsDomainListResponseBody extends Model
 {
     /**
-     * @description The information about the certificate.
-     *
      * @var certInfos
      */
     public $certInfos;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example F5E8DF64-7175-4186-9B06-F002C0BBD0C5
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 16
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'certInfos'  => 'CertInfos',
-        'requestId'  => 'RequestId',
+        'certInfos' => 'CertInfos',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (null !== $this->certInfos) {
+            $this->certInfos->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certInfos) {
-            $res['CertInfos'] = null !== $this->certInfos ? $this->certInfos->toMap() : null;
+            $res['CertInfos'] = null !== $this->certInfos ? $this->certInfos->toArray($noStream) : $this->certInfos;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -59,20 +55,22 @@ class DescribeDcdnHttpsDomainListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnHttpsDomainListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertInfos'])) {
             $model->certInfos = certInfos::fromMap($map['CertInfos']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

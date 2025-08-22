@@ -4,23 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnWafScenesRequest extends Model
 {
     /**
-     * @description The types of the protection policies that you want to query. Separate multiple types with commas (,). Valid values:
-     *
-     *   waf_group: basic web protection
-     *   custom_acl: custom protection
-     *   whitelist: IP address whitelist
-     *   ip_blacklist: IP address blacklist
-     *   region_block: region blacklist
-     *   bot: bot management
-     *
-     * > If you do not set this parameter, all types of protection policies are queried.
-     * @example waf_group,custom_acl,whitelist
-     *
      * @var string
      */
     public $defenseScenes;
@@ -30,9 +18,10 @@ class DescribeDcdnWafScenesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defenseScenes) {
@@ -42,11 +31,11 @@ class DescribeDcdnWafScenesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnWafScenesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

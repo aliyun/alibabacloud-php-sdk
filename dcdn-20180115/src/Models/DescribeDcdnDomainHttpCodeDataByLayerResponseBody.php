@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainHttpCodeDataByLayerResponseBody\httpCodeDataInterval;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnDomainHttpCodeDataByLayerResponseBody extends Model
 {
     /**
-     * @description The time interval between the data entries returned. Unit: seconds.
-     *
-     * @example 300
-     *
      * @var string
      */
     public $dataInterval;
 
     /**
-     * @description The distribution of HTTP status codes at each time interval.
-     *
      * @var httpCodeDataInterval
      */
     public $httpCodeDataInterval;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'dataInterval'         => 'DataInterval',
+        'dataInterval' => 'DataInterval',
         'httpCodeDataInterval' => 'HttpCodeDataInterval',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->httpCodeDataInterval) {
+            $this->httpCodeDataInterval->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
         }
+
         if (null !== $this->httpCodeDataInterval) {
-            $res['HttpCodeDataInterval'] = null !== $this->httpCodeDataInterval ? $this->httpCodeDataInterval->toMap() : null;
+            $res['HttpCodeDataInterval'] = null !== $this->httpCodeDataInterval ? $this->httpCodeDataInterval->toArray($noStream) : $this->httpCodeDataInterval;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +55,22 @@ class DescribeDcdnDomainHttpCodeDataByLayerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnDomainHttpCodeDataByLayerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
         }
+
         if (isset($map['HttpCodeDataInterval'])) {
             $model->httpCodeDataInterval = httpCodeDataInterval::fromMap($map['HttpCodeDataInterval']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

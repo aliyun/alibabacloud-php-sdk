@@ -4,48 +4,47 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainsBySourceResponseBody\domainInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnDomainsBySourceResponseBody extends Model
 {
     /**
-     * @description The information about each origin server and the corresponding domain names.
-     *
-     * This parameter is required.
      * @var domainInfo[]
      */
     public $domainInfo;
 
     /**
-     * @description The request ID.
-     *
-     * @example F61CDR30-E83C-4FDA-BF73-9A94CDD44229
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainInfo' => 'DomainInfo',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domainInfo)) {
+            Model::validateArray($this->domainInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainInfo) {
-            $res['DomainInfo'] = [];
-            if (null !== $this->domainInfo && \is_array($this->domainInfo)) {
-                $n = 0;
-                foreach ($this->domainInfo as $item) {
-                    $res['DomainInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainInfo)) {
+                $res['DomainInfo'] = [];
+                $n1 = 0;
+                foreach ($this->domainInfo as $item1) {
+                    $res['DomainInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -53,23 +52,25 @@ class DescribeDcdnDomainsBySourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnDomainsBySourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainInfo'])) {
             if (!empty($map['DomainInfo'])) {
                 $model->domainInfo = [];
-                $n                 = 0;
-                foreach ($map['DomainInfo'] as $item) {
-                    $model->domainInfo[$n++] = null !== $item ? domainInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DomainInfo'] as $item1) {
+                    $model->domainInfo[$n1] = domainInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

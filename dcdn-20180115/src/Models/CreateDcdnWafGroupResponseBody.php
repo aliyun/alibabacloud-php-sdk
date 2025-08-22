@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDcdnWafGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the created WAF rule group.
-     *
-     * @example 30000166
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The request ID.
-     *
-     * @example 675F4820-400E-5929-8B03-2C031A5D5391
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'id'        => 'Id',
+        'id' => 'Id',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class CreateDcdnWafGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDcdnWafGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,64 +4,54 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PublishRoutineCodeRevisionRequest extends Model
 {
     /**
-     * @description The environment to which you want to publish the code.
-     *
-     * >
-     *
-     *   production: the name of the environment, including the environment name (SpecName) and the domain name whitelist (AllowedHosts).
-     *
-     *   presetCanary: You can add canary release environments based on your business requirements. This parameter is optional.
-     *
-     * This parameter is required.
-     * @example ["production","presetCanaryZhejiang"]
-     *
      * @var mixed[]
      */
     public $envs;
 
     /**
-     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The version of the routine code that you want to publish.
-     *
-     * This parameter is required.
-     * @example 1620876959997924701
-     *
      * @var string
      */
     public $selectCodeRevision;
     protected $_name = [
-        'envs'               => 'Envs',
-        'name'               => 'Name',
+        'envs' => 'Envs',
+        'name' => 'Name',
         'selectCodeRevision' => 'SelectCodeRevision',
     ];
 
     public function validate()
     {
+        if (\is_array($this->envs)) {
+            Model::validateArray($this->envs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->envs) {
-            $res['Envs'] = $this->envs;
+            if (\is_array($this->envs)) {
+                $res['Envs'] = [];
+                foreach ($this->envs as $key1 => $value1) {
+                    $res['Envs'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->selectCodeRevision) {
             $res['SelectCodeRevision'] = $this->selectCodeRevision;
         }
@@ -69,20 +59,27 @@ class PublishRoutineCodeRevisionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PublishRoutineCodeRevisionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Envs'])) {
-            $model->envs = $map['Envs'];
+            if (!empty($map['Envs'])) {
+                $model->envs = [];
+                foreach ($map['Envs'] as $key1 => $value1) {
+                    $model->envs[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SelectCodeRevision'])) {
             $model->selectCodeRevision = $map['SelectCodeRevision'];
         }

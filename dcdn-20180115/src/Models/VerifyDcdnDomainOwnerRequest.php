@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VerifyDcdnDomainOwnerRequest extends Model
 {
     /**
-     * @description The domain name of which you want to verify the ownership. You can specify only one domain name in each call.
-     *
-     * This parameter is required.
-     * @example **example**.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The verification method. Valid values:
-     *
-     *   **dnsCheck**: by DNS record
-     *   **fileCheck**: by verification file
-     *
-     * This parameter is required.
-     * @example dnsCheck
-     *
      * @var string
      */
     public $verifyType;
@@ -37,14 +24,16 @@ class VerifyDcdnDomainOwnerRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->verifyType) {
             $res['VerifyType'] = $this->verifyType;
         }
@@ -52,17 +41,18 @@ class VerifyDcdnDomainOwnerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifyDcdnDomainOwnerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['VerifyType'])) {
             $model->verifyType = $map['VerifyType'];
         }

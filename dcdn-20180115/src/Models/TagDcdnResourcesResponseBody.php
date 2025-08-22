@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TagDcdnResourcesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 97C68796-EB7F-4D41-9D5B-12B909D76508
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class TagDcdnResourcesResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class TagDcdnResourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TagDcdnResourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

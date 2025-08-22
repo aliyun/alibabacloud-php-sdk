@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDcdnWafPolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the protection policy that you created.
-     *
-     * @example 10000001
-     *
      * @var int
      */
     public $policyId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'policyId'  => 'PolicyId',
+        'policyId' => 'PolicyId',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class CreateDcdnWafPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDcdnWafPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

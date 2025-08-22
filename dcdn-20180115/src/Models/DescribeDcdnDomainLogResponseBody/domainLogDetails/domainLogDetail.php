@@ -4,74 +4,77 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainLogResponseBody\domainLogDetails;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainLogResponseBody\domainLogDetails\domainLogDetail\logInfos;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainLogResponseBody\domainLogDetails\domainLogDetail\pageInfos;
-use AlibabaCloud\Tea\Model;
 
 class domainLogDetail extends Model
 {
     /**
-     * @description The total number of entries returned on the current page.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $logCount;
 
     /**
-     * @description The log information. The log information is indicated by the LogInfoDetail parameter.
-     *
      * @var logInfos
      */
     public $logInfos;
 
     /**
-     * @description The page information. The page information is indicated by the PageInfoDetail parameter.
-     *
      * @var pageInfos
      */
     public $pageInfos;
     protected $_name = [
-        'logCount'  => 'LogCount',
-        'logInfos'  => 'LogInfos',
+        'logCount' => 'LogCount',
+        'logInfos' => 'LogInfos',
         'pageInfos' => 'PageInfos',
     ];
 
     public function validate()
     {
+        if (null !== $this->logInfos) {
+            $this->logInfos->validate();
+        }
+        if (null !== $this->pageInfos) {
+            $this->pageInfos->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logCount) {
             $res['LogCount'] = $this->logCount;
         }
+
         if (null !== $this->logInfos) {
-            $res['LogInfos'] = null !== $this->logInfos ? $this->logInfos->toMap() : null;
+            $res['LogInfos'] = null !== $this->logInfos ? $this->logInfos->toArray($noStream) : $this->logInfos;
         }
+
         if (null !== $this->pageInfos) {
-            $res['PageInfos'] = null !== $this->pageInfos ? $this->pageInfos->toMap() : null;
+            $res['PageInfos'] = null !== $this->pageInfos ? $this->pageInfos->toArray($noStream) : $this->pageInfos;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainLogDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogCount'])) {
             $model->logCount = $map['LogCount'];
         }
+
         if (isset($map['LogInfos'])) {
             $model->logInfos = logInfos::fromMap($map['LogInfos']);
         }
+
         if (isset($map['PageInfos'])) {
             $model->pageInfos = pageInfos::fromMap($map['PageInfos']);
         }

@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainsBySourceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainsBySourceResponseBody\domainInfo\domainList;
-use AlibabaCloud\Tea\Model;
 
 class domainInfo extends Model
 {
     /**
-     * @description The information about the domain names.
-     *
      * @var domainList[]
      */
     public $domainList;
 
     /**
-     * @description The origin server.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $source;
     protected $_name = [
         'domainList' => 'DomainList',
-        'source'     => 'Source',
+        'source' => 'Source',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domainList)) {
+            Model::validateArray($this->domainList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainList) {
-            $res['DomainList'] = [];
-            if (null !== $this->domainList && \is_array($this->domainList)) {
-                $n = 0;
-                foreach ($this->domainList as $item) {
-                    $res['DomainList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainList)) {
+                $res['DomainList'] = [];
+                $n1 = 0;
+                foreach ($this->domainList as $item1) {
+                    $res['DomainList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -52,23 +52,25 @@ class domainInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainList'])) {
             if (!empty($map['DomainList'])) {
                 $model->domainList = [];
-                $n                 = 0;
-                foreach ($map['DomainList'] as $item) {
-                    $model->domainList[$n++] = null !== $item ? domainList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DomainList'] as $item1) {
+                    $model->domainList[$n1] = domainList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

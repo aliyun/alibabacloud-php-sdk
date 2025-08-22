@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\CheckDcdnProjectExistResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
     /**
-     * @description Indicates whether the real-time log delivery project exists. Valid values:
-     *
-     *   **false**
-     *   **true**
-     *
-     * @example false
-     *
      * @var string
      */
     public $exist;
@@ -25,9 +18,10 @@ class content extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exist) {
@@ -37,11 +31,11 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

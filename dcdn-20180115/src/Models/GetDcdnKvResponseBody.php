@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDcdnKvResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example D61E4801-EAFF-4A63-AAE1-FBF6CE1CFD1C
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The value of the key.
-     *
-     * @example value1
-     *
      * @var string
      */
     public $value;
     protected $_name = [
         'requestId' => 'RequestId',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -47,17 +41,18 @@ class GetDcdnKvResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDcdnKvResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

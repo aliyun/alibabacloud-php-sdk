@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainDetailResponseBody\domain\defenseScenes;
-use AlibabaCloud\Tea\Model;
 
 class domain extends Model
 {
     /**
-     * @description The types of the protection policies.
-     *
      * @var defenseScenes[]
      */
     public $defenseScenes;
 
     /**
-     * @description The accelerated domain name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
     protected $_name = [
         'defenseScenes' => 'DefenseScenes',
-        'domainName'    => 'DomainName',
+        'domainName' => 'DomainName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->defenseScenes)) {
+            Model::validateArray($this->defenseScenes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defenseScenes) {
-            $res['DefenseScenes'] = [];
-            if (null !== $this->defenseScenes && \is_array($this->defenseScenes)) {
-                $n = 0;
-                foreach ($this->defenseScenes as $item) {
-                    $res['DefenseScenes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->defenseScenes)) {
+                $res['DefenseScenes'] = [];
+                $n1 = 0;
+                foreach ($this->defenseScenes as $item1) {
+                    $res['DefenseScenes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -52,23 +52,25 @@ class domain extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domain
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefenseScenes'])) {
             if (!empty($map['DefenseScenes'])) {
                 $model->defenseScenes = [];
-                $n                    = 0;
-                foreach ($map['DefenseScenes'] as $item) {
-                    $model->defenseScenes[$n++] = null !== $item ? defenseScenes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DefenseScenes'] as $item1) {
+                    $model->defenseScenes[$n1] = defenseScenes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

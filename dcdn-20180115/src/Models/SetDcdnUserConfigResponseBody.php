@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetDcdnUserConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example F8AA0364-0FDB-4AD5-AC74-D69FAB8924ED
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class SetDcdnUserConfigResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class SetDcdnUserConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetDcdnUserConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

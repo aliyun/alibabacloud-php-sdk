@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnKvNamespaceRequest extends Model
 {
     /**
-     * @description The name of the namespace.
-     *
-     * This parameter is required.
-     * @example ns1
-     *
      * @var string
      */
     public $namespace;
@@ -23,9 +18,10 @@ class DescribeDcdnKvNamespaceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespace) {
@@ -35,11 +31,11 @@ class DescribeDcdnKvNamespaceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnKvNamespaceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

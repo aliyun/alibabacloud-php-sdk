@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRoutineConfEnvsRequest extends Model
 {
     /**
-     * @description The custom canary release environments that you want to delete.
-     *
-     * This parameter is required.
-     * @example ["presetCanaryZheJiang"]
-     *
      * @var mixed[]
      */
     public $envs;
 
     /**
-     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $name;
@@ -34,14 +24,24 @@ class DeleteRoutineConfEnvsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->envs)) {
+            Model::validateArray($this->envs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->envs) {
-            $res['Envs'] = $this->envs;
+            if (\is_array($this->envs)) {
+                $res['Envs'] = [];
+                foreach ($this->envs as $key1 => $value1) {
+                    $res['Envs'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -49,17 +49,23 @@ class DeleteRoutineConfEnvsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRoutineConfEnvsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Envs'])) {
-            $model->envs = $map['Envs'];
+            if (!empty($map['Envs'])) {
+                $model->envs = [];
+                foreach ($map['Envs'] as $key1 => $value1) {
+                    $model->envs[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CheckDcdnProjectExistResponseBody\content;
-use AlibabaCloud\Tea\Model;
 
 class CheckDcdnProjectExistResponseBody extends Model
 {
     /**
-     * @description The returned results.
-     *
      * @var content
      */
     public $content;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example b021e538-9dde-46ed-a1f2-9469da8f3e77
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'content'   => 'Content',
+        'content' => 'Content',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->content) {
+            $this->content->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
-            $res['Content'] = null !== $this->content ? $this->content->toMap() : null;
+            $res['Content'] = null !== $this->content ? $this->content->toArray($noStream) : $this->content;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class CheckDcdnProjectExistResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckDcdnProjectExistResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = content::fromMap($map['Content']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

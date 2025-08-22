@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchStartDcdnDomainRequest extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify multiple accelerated domain names and separate them with commas (,).
-     *
-     * This parameter is required.
-     * @example example.com
-     *
      * @var string
      */
     public $domainNames;
@@ -28,24 +23,27 @@ class BatchStartDcdnDomainRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainNames'   => 'DomainNames',
-        'ownerId'       => 'OwnerId',
+        'domainNames' => 'DomainNames',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainNames) {
             $res['DomainNames'] = $this->domainNames;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -53,20 +51,22 @@ class BatchStartDcdnDomainRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchStartDcdnDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainNames'])) {
             $model->domainNames = $map['DomainNames'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

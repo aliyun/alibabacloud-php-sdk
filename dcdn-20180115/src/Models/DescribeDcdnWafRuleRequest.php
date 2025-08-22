@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnWafRuleRequest extends Model
 {
     /**
-     * @description The ID of the protection rule. You can specify only one ID in each request.
-     *
-     * This parameter is required.
-     * @example 1000001
-     *
      * @var int
      */
     public $ruleId;
@@ -23,9 +18,10 @@ class DescribeDcdnWafRuleRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleId) {
@@ -35,11 +31,11 @@ class DescribeDcdnWafRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnWafRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

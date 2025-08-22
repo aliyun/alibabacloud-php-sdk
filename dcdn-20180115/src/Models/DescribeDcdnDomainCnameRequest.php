@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnDomainCnameRequest extends Model
 {
     /**
-     * @description The accelerated domain name. Separate multiple domain names with commas (,).
-     *
-     * This parameter is required.
-     * @example example.com,example.org
-     *
      * @var string
      */
     public $domainName;
@@ -23,9 +18,10 @@ class DescribeDcdnDomainCnameRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
@@ -35,11 +31,11 @@ class DescribeDcdnDomainCnameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnDomainCnameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

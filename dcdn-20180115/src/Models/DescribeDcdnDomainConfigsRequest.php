@@ -4,34 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnDomainConfigsRequest extends Model
 {
     /**
-     * @description The ID of the configuration.
-     *
-     * @example 5003576
-     *
      * @var string
      */
     public $configId;
 
     /**
-     * @description The accelerated domain name. You can specify only one domain name in each request.
-     *
-     * This parameter is required.
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The names of the features to query. Separate features with commas (,).
-     *
-     * @example filetype_based_ttl_set,set_req_host_header
-     *
      * @var string
      */
     public $functionNames;
@@ -46,32 +33,37 @@ class DescribeDcdnDomainConfigsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'configId'      => 'ConfigId',
-        'domainName'    => 'DomainName',
+        'configId' => 'ConfigId',
+        'domainName' => 'DomainName',
         'functionNames' => 'FunctionNames',
-        'ownerId'       => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->functionNames) {
             $res['FunctionNames'] = $this->functionNames;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -79,26 +71,30 @@ class DescribeDcdnDomainConfigsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnDomainConfigsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['FunctionNames'])) {
             $model->functionNames = $map['FunctionNames'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

@@ -4,134 +4,96 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnDomainIpaTrafficDataRequest extends Model
 {
     /**
-     * @description The accelerated domain name.
-     *
-     * Separate multiple domain names with commas (,). If you do not specify a value for this parameter, data for all accelerated domain names is queried.
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The end of the time range to query.
-     *
-     * > The end time must be later than the start time.
-     * @example 2017-12-10T21:00:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description Specify whether to implement padding with zeros. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example false
-     *
      * @var string
      */
     public $fixTimeGap;
 
     /**
-     * @description The time granularity of data entries. Unit: seconds.
-     *
-     * The time granularity varies with the time range specified by **StartTime** and **EndTime**.
-     *
-     *   If the time range between StartTime and EndTime is less than 3 days, the valid values are **300**, **3600**, and **86400**. If you do not specify a value for this parameter, **300** is used.
-     *   If the time range between StartTime and EndTime is greater than or equal to 3 days and less than 31 days, the valid values are **3600** and **86400**. Default value: **3600**.
-     *   If the time range between StartTime and EndTime is 31 days or longer, the valid value is **86400**. Default value: **86400**.
-     *
-     * @example 300
-     *
      * @var string
      */
     public $interval;
 
     /**
-     * @description The name of the Internet service provider (ISP).
-     *
-     * You can call the [DescribeDcdnRegionAndIsp](https://help.aliyun.com/document_detail/207199.html) operation to query ISPs.
-     * @example unicom
-     *
      * @var string
      */
     public $ispNameEn;
 
     /**
-     * @description The name of the region.
-     *
-     * You can call the [DescribeDcdnRegionAndIsp](https://help.aliyun.com/document_detail/207199.html) operation to query regions.
-     * @example beijing
-     *
      * @var string
      */
     public $locationNameEn;
 
     /**
-     * @description The beginning of the time range to query.
-     *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-     * @example 2017-12-10T20:00:00Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description Specifies whether to automatically calculate the value of the **interval**. If the **timeMerge** parameter is set to **1**, the value of **inteval** is calculated based on **StartTime** and **EndTime**. You can set either this parameter or the **interval** parameter.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $timeMerge;
     protected $_name = [
-        'domainName'     => 'DomainName',
-        'endTime'        => 'EndTime',
-        'fixTimeGap'     => 'FixTimeGap',
-        'interval'       => 'Interval',
-        'ispNameEn'      => 'IspNameEn',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'fixTimeGap' => 'FixTimeGap',
+        'interval' => 'Interval',
+        'ispNameEn' => 'IspNameEn',
         'locationNameEn' => 'LocationNameEn',
-        'startTime'      => 'StartTime',
-        'timeMerge'      => 'TimeMerge',
+        'startTime' => 'StartTime',
+        'timeMerge' => 'TimeMerge',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->fixTimeGap) {
             $res['FixTimeGap'] = $this->fixTimeGap;
         }
+
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
+
         if (null !== $this->ispNameEn) {
             $res['IspNameEn'] = $this->ispNameEn;
         }
+
         if (null !== $this->locationNameEn) {
             $res['LocationNameEn'] = $this->locationNameEn;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->timeMerge) {
             $res['TimeMerge'] = $this->timeMerge;
         }
@@ -139,35 +101,42 @@ class DescribeDcdnDomainIpaTrafficDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnDomainIpaTrafficDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['FixTimeGap'])) {
             $model->fixTimeGap = $map['FixTimeGap'];
         }
+
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
+
         if (isset($map['IspNameEn'])) {
             $model->ispNameEn = $map['IspNameEn'];
         }
+
         if (isset($map['LocationNameEn'])) {
             $model->locationNameEn = $map['LocationNameEn'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TimeMerge'])) {
             $model->timeMerge = $map['TimeMerge'];
         }

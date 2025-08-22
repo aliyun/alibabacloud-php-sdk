@@ -4,56 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnWafPoliciesRequest extends Model
 {
     /**
-     * @description The number of the page to return. Valid values: **1** to **100000**. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of protection policies to return on each page. Valid values: an integer from **1** to **500**. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The query conditions. The value is a JSON string. The format is `QueryArgs={"PolicyIds":"The IDs of protection policies","RuleIds":"The IDs of protection rules","PolicyNameLike":"The name of the protection policy","DomainNames":"The protected domain names","PolicyType":"default","DefenseScenes":"waf_group","PolicyStatus":"on","OrderBy":"GmtModified","Desc":"false"}`
-     *
-     * > If you do not set this parameter, all protection policies are queried.
-     * @example {"PolicyNameLIike":"test_policy"}
-     *
      * @var string
      */
     public $queryArgs;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'queryArgs'  => 'QueryArgs',
+        'pageSize' => 'PageSize',
+        'queryArgs' => 'QueryArgs',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->queryArgs) {
             $res['QueryArgs'] = $this->queryArgs;
         }
@@ -61,20 +51,22 @@ class DescribeDcdnWafPoliciesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnWafPoliciesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['QueryArgs'])) {
             $model->queryArgs = $map['QueryArgs'];
         }

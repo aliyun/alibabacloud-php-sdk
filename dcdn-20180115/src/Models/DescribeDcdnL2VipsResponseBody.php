@@ -4,77 +4,87 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnL2VipsResponseBody extends Model
 {
     /**
-     * @description The accelerated domain name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 820E7900-5CA9-4AEF-B0DD-20ED5F64BE55
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The virtual IP addresses (VIPs).
-     *
      * @var string[]
      */
     public $vips;
     protected $_name = [
         'domainName' => 'DomainName',
-        'requestId'  => 'RequestId',
-        'vips'       => 'Vips',
+        'requestId' => 'RequestId',
+        'vips' => 'Vips',
     ];
 
     public function validate()
     {
+        if (\is_array($this->vips)) {
+            Model::validateArray($this->vips);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->vips) {
-            $res['Vips'] = $this->vips;
+            if (\is_array($this->vips)) {
+                $res['Vips'] = [];
+                $n1 = 0;
+                foreach ($this->vips as $item1) {
+                    $res['Vips'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnL2VipsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Vips'])) {
             if (!empty($map['Vips'])) {
-                $model->vips = $map['Vips'];
+                $model->vips = [];
+                $n1 = 0;
+                foreach ($map['Vips'] as $item1) {
+                    $model->vips[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

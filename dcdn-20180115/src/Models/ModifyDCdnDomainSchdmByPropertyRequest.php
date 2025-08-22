@@ -4,48 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDCdnDomainSchdmByPropertyRequest extends Model
 {
     /**
-     * @description The name of the accelerated domain for which you want to change the acceleration region. You can specify only one domain name.
-     *
-     * This parameter is required.
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The region where the acceleration service is deployed. Valid values:
-     *
-     *   **domestic**: Chinese mainland
-     *   **overseas**: global (excluding mainland China)
-     *   **global**: global
-     *
-     * This parameter is required.
-     * @example {"coverage":"overseas"}
-     *
      * @var string
      */
     public $property;
     protected $_name = [
         'domainName' => 'DomainName',
-        'property'   => 'Property',
+        'property' => 'Property',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->property) {
             $res['Property'] = $this->property;
         }
@@ -53,17 +41,18 @@ class ModifyDCdnDomainSchdmByPropertyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDCdnDomainSchdmByPropertyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Property'])) {
             $model->property = $map['Property'];
         }

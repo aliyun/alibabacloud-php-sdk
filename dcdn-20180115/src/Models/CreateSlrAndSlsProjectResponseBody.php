@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateSlrAndSlsProjectResponseBody\slsInfo;
-use AlibabaCloud\Tea\Model;
 
 class CreateSlrAndSlsProjectResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example fe33a379-5053-4f22-a73c-826e2b44355d
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about Log Service.
-     *
      * @var slsInfo
      */
     public $slsInfo;
     protected $_name = [
         'requestId' => 'RequestId',
-        'slsInfo'   => 'SlsInfo',
+        'slsInfo' => 'SlsInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->slsInfo) {
+            $this->slsInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->slsInfo) {
-            $res['SlsInfo'] = null !== $this->slsInfo ? $this->slsInfo->toMap() : null;
+            $res['SlsInfo'] = null !== $this->slsInfo ? $this->slsInfo->toArray($noStream) : $this->slsInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSlrAndSlsProjectResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SlsInfo'])) {
             $model->slsInfo = slsInfo::fromMap($map['SlsInfo']);
         }

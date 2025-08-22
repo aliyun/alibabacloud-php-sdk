@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserResourcePackageResponseBody\resourcePackageInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnUserResourcePackageResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 96ED3127-EC7A-57C5-AFA6-A689B24B2530
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The detailed information about resource plans. The returned information is displayed in the format that is specified by the ResourcePackageInfo parameter.
-     *
      * @var resourcePackageInfos
      */
     public $resourcePackageInfos;
     protected $_name = [
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
         'resourcePackageInfos' => 'ResourcePackageInfos',
     ];
 
     public function validate()
     {
+        if (null !== $this->resourcePackageInfos) {
+            $this->resourcePackageInfos->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourcePackageInfos) {
-            $res['ResourcePackageInfos'] = null !== $this->resourcePackageInfos ? $this->resourcePackageInfos->toMap() : null;
+            $res['ResourcePackageInfos'] = null !== $this->resourcePackageInfos ? $this->resourcePackageInfos->toArray($noStream) : $this->resourcePackageInfos;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnUserResourcePackageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourcePackageInfos'])) {
             $model->resourcePackageInfos = resourcePackageInfos::fromMap($map['ResourcePackageInfos']);
         }

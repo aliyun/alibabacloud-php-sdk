@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainTopReferVisitResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainTopReferVisitResponseBody\topReferList\referList;
-use AlibabaCloud\Tea\Model;
 
 class topReferList extends Model
 {
@@ -19,17 +19,22 @@ class topReferList extends Model
 
     public function validate()
     {
+        if (\is_array($this->referList)) {
+            Model::validateArray($this->referList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->referList) {
-            $res['ReferList'] = [];
-            if (null !== $this->referList && \is_array($this->referList)) {
-                $n = 0;
-                foreach ($this->referList as $item) {
-                    $res['ReferList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->referList)) {
+                $res['ReferList'] = [];
+                $n1 = 0;
+                foreach ($this->referList as $item1) {
+                    $res['ReferList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class topReferList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return topReferList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReferList'])) {
             if (!empty($map['ReferList'])) {
                 $model->referList = [];
-                $n                = 0;
-                foreach ($map['ReferList'] as $item) {
-                    $model->referList[$n++] = null !== $item ? referList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ReferList'] as $item1) {
+                    $model->referList[$n1] = referList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

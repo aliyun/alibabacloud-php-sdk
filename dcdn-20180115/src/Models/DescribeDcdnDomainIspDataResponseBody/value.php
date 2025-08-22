@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainIspDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainIspDataResponseBody\value\ispProportionData;
-use AlibabaCloud\Tea\Model;
 
 class value extends Model
 {
@@ -19,17 +19,22 @@ class value extends Model
 
     public function validate()
     {
+        if (\is_array($this->ispProportionData)) {
+            Model::validateArray($this->ispProportionData);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ispProportionData) {
-            $res['IspProportionData'] = [];
-            if (null !== $this->ispProportionData && \is_array($this->ispProportionData)) {
-                $n = 0;
-                foreach ($this->ispProportionData as $item) {
-                    $res['IspProportionData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ispProportionData)) {
+                $res['IspProportionData'] = [];
+                $n1 = 0;
+                foreach ($this->ispProportionData as $item1) {
+                    $res['IspProportionData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class value extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return value
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IspProportionData'])) {
             if (!empty($map['IspProportionData'])) {
                 $model->ispProportionData = [];
-                $n                        = 0;
-                foreach ($map['IspProportionData'] as $item) {
-                    $model->ispProportionData[$n++] = null !== $item ? ispProportionData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IspProportionData'] as $item1) {
+                    $model->ispProportionData[$n1] = ispProportionData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

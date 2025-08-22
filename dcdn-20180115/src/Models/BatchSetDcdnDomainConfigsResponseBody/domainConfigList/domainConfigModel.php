@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainConfigsResponseBody\domainConfigList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainConfigModel extends Model
 {
     /**
-     * @description The ID of the configuration.
-     *
-     * @example 123456
-     *
      * @var int
      */
     public $configId;
 
     /**
-     * @description The domain name.
-     *
-     * @example www.example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The name of the feature.
-     *
-     * @example set_resp_header
-     *
      * @var string
      */
     public $functionName;
     protected $_name = [
-        'configId'     => 'ConfigId',
-        'domainName'   => 'DomainName',
+        'configId' => 'ConfigId',
+        'domainName' => 'DomainName',
         'functionName' => 'FunctionName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
         }
@@ -60,20 +51,22 @@ class domainConfigModel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainConfigModel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
         }

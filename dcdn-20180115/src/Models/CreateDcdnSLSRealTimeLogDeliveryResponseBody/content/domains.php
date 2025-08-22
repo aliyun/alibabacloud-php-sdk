@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSLSRealTimeLogDeliveryResponseBody\content;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domains extends Model
 {
     /**
-     * @description The description of the returned result.
-     *
-     * @example ok
-     *
      * @var string
      */
     public $desc;
 
     /**
-     * @description The domain name from which real-time logs were collected.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The region to which real-time logs were delivered.
-     *
-     * @example cn
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description The status of real-time logs.
-     *
-     * @example success
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'desc'       => 'Desc',
+        'desc' => 'Desc',
         'domainName' => 'DomainName',
-        'region'     => 'Region',
-        'status'     => 'Status',
+        'region' => 'Region',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -73,23 +61,26 @@ class domains extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domains
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

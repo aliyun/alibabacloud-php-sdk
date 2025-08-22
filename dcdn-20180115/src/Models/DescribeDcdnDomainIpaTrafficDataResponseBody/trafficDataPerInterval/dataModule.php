@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainIpaTrafficDataResponseBody\trafficDataPerInterval;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataModule extends Model
 {
     /**
-     * @description The total amount of network traffic.
-     *
-     * @example 423304182
-     *
      * @var float
      */
     public $ipaTraffic;
 
     /**
-     * @description The timestamp of the returned data.
-     *
-     * @example 2017-12-10T20:00:00Z
-     *
      * @var string
      */
     public $timeStamp;
     protected $_name = [
         'ipaTraffic' => 'IpaTraffic',
-        'timeStamp'  => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipaTraffic) {
             $res['IpaTraffic'] = $this->ipaTraffic;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -47,17 +41,18 @@ class dataModule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataModule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpaTraffic'])) {
             $model->ipaTraffic = $map['IpaTraffic'];
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

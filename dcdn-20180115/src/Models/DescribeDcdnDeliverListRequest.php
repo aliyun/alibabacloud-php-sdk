@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnDeliverListRequest extends Model
 {
     /**
-     * @description The ID of the tracking task that you want to query. If you do not specify an ID, all tracking tasks are queried.
-     *
-     * @example 92
-     *
      * @var int
      */
     public $deliverId;
@@ -22,9 +18,10 @@ class DescribeDcdnDeliverListRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deliverId) {
@@ -34,11 +31,11 @@ class DescribeDcdnDeliverListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnDeliverListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

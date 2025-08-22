@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetRoutineSubdomainRequest extends Model
 {
     /**
-     * @description The parameters of the subdomain.
-     *
-     * This parameter is required.
-     * @example ["subdomain-test"]
-     *
      * @var mixed[]
      */
     public $subdomains;
@@ -23,28 +18,42 @@ class SetRoutineSubdomainRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->subdomains)) {
+            Model::validateArray($this->subdomains);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subdomains) {
-            $res['Subdomains'] = $this->subdomains;
+            if (\is_array($this->subdomains)) {
+                $res['Subdomains'] = [];
+                foreach ($this->subdomains as $key1 => $value1) {
+                    $res['Subdomains'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetRoutineSubdomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Subdomains'])) {
-            $model->subdomains = $map['Subdomains'];
+            if (!empty($map['Subdomains'])) {
+                $model->subdomains = [];
+                foreach ($map['Subdomains'] as $key1 => $value1) {
+                    $model->subdomains[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

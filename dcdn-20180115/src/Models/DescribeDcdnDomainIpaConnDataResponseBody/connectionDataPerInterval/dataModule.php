@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainIpaConnDataResponseBody\connectionDataPerInterval;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataModule extends Model
 {
     /**
-     * @description The number of IPA user connections.
-     *
-     * @example 189095
-     *
      * @var int
      */
     public $connections;
 
     /**
-     * @description The accelerated domain name.
-     *
-     * @example example1.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The timestamp of the data returned.
-     *
-     * @example 2022-02-21T15:00:00+08:00
-     *
      * @var string
      */
     public $timeStamp;
     protected $_name = [
         'connections' => 'Connections',
-        'domain'      => 'Domain',
-        'timeStamp'   => 'TimeStamp',
+        'domain' => 'Domain',
+        'timeStamp' => 'TimeStamp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connections) {
             $res['Connections'] = $this->connections;
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -60,20 +51,22 @@ class dataModule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataModule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Connections'])) {
             $model->connections = $map['Connections'];
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

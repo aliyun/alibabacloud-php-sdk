@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetDcdnDomainSMCertificateRequest extends Model
 {
     /**
-     * @description The identifier of the certificate. The value is Certificate ID-cn-hangzhou. If the ID of the certificate is 123, CertIdentifier is set to 123-cn-hangzhou.
-     *
-     * This parameter is required.
-     * @example 123-cn-hangzhou
-     *
      * @var string
      */
     public $certIdentifier;
 
     /**
-     * @description The accelerated domain name for which the SM certificate is configured.
-     *
-     * This parameter is required.
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
@@ -34,14 +24,6 @@ class SetDcdnDomainSMCertificateRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to enable the SSL certificate. Valid values:
-     *
-     *   **on**
-     *   **off**
-     *
-     * This parameter is required.
-     * @example on
-     *
      * @var string
      */
     public $SSLProtocol;
@@ -52,31 +34,36 @@ class SetDcdnDomainSMCertificateRequest extends Model
     public $securityToken;
     protected $_name = [
         'certIdentifier' => 'CertIdentifier',
-        'domainName'     => 'DomainName',
-        'ownerId'        => 'OwnerId',
-        'SSLProtocol'    => 'SSLProtocol',
-        'securityToken'  => 'SecurityToken',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
+        'SSLProtocol' => 'SSLProtocol',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certIdentifier) {
             $res['CertIdentifier'] = $this->certIdentifier;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->SSLProtocol) {
             $res['SSLProtocol'] = $this->SSLProtocol;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -84,26 +71,30 @@ class SetDcdnDomainSMCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetDcdnDomainSMCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertIdentifier'])) {
             $model->certIdentifier = $map['CertIdentifier'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['SSLProtocol'])) {
             $model->SSLProtocol = $map['SSLProtocol'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

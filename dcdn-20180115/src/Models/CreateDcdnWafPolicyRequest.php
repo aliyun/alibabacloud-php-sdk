@@ -4,85 +4,56 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDcdnWafPolicyRequest extends Model
 {
     /**
-     * @description The type of the WAF protection policy. Valid values:
-     *
-     *   waf_group: basic web protection
-     *   custom_acl: custom protection
-     *   whitelist: IP address whitelist
-     *   ip_blacklist: IP address blacklist
-     *   region_block: region blacklist
-     *   bot: bot management
-     *
-     * This parameter is required.
-     * @example waf_group
-     *
      * @var string
      */
     public $defenseScene;
 
     /**
-     * @description The name of the protection policy. The name can be up to 64 characters in length and can contain letters, digits, and underscores (_).
-     *
-     * This parameter is required.
-     * @example policy_test
-     *
      * @var string
      */
     public $policyName;
 
     /**
-     * @description The status of the protection policy. Valid values:
-     *
-     *   on: The policy is enabled.
-     *   off: The policy is disabled.
-     *
-     * This parameter is required.
-     * @example on
-     *
      * @var string
      */
     public $policyStatus;
 
     /**
-     * @description Specifies whether to set the current policy as the default policy. Valid values:
-     *
-     *   default: sets the current policy as the default policy.
-     *   custom: does not set the current policy as the default policy.
-     *
-     * This parameter is required.
-     * @example default
-     *
      * @var string
      */
     public $policyType;
     protected $_name = [
         'defenseScene' => 'DefenseScene',
-        'policyName'   => 'PolicyName',
+        'policyName' => 'PolicyName',
         'policyStatus' => 'PolicyStatus',
-        'policyType'   => 'PolicyType',
+        'policyType' => 'PolicyType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defenseScene) {
             $res['DefenseScene'] = $this->defenseScene;
         }
+
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
+
         if (null !== $this->policyStatus) {
             $res['PolicyStatus'] = $this->policyStatus;
         }
+
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
         }
@@ -90,23 +61,26 @@ class CreateDcdnWafPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDcdnWafPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefenseScene'])) {
             $model->defenseScene = $map['DefenseScene'];
         }
+
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
+
         if (isset($map['PolicyStatus'])) {
             $model->policyStatus = $map['PolicyStatus'];
         }
+
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
         }

@@ -4,41 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchPutDcdnKvShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $kvListShrink;
 
     /**
-     * @description The name of the namespace.
-     *
-     * This parameter is required.
-     * @example ns1
-     *
      * @var string
      */
     public $namespace;
     protected $_name = [
         'kvListShrink' => 'KvList',
-        'namespace'    => 'Namespace',
+        'namespace' => 'Namespace',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->kvListShrink) {
             $res['KvList'] = $this->kvListShrink;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -46,17 +41,18 @@ class BatchPutDcdnKvShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchPutDcdnKvShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KvList'])) {
             $model->kvListShrink = $map['KvList'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

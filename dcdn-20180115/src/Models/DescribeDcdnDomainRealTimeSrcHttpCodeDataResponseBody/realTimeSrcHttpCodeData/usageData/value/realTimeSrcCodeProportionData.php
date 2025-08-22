@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBody\realTimeSrcHttpCodeData\usageData\value;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class realTimeSrcCodeProportionData extends Model
 {
     /**
-     * @description The HTTP status code returned.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The number of HTTP status codes.
-     *
-     * @example 2
-     *
      * @var string
      */
     public $count;
 
     /**
-     * @description The proportion of the HTTP status code.
-     *
-     * @example 66.046511627907
-     *
      * @var string
      */
     public $proportion;
     protected $_name = [
-        'code'       => 'Code',
-        'count'      => 'Count',
+        'code' => 'Code',
+        'count' => 'Count',
         'proportion' => 'Proportion',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->proportion) {
             $res['Proportion'] = $this->proportion;
         }
@@ -60,20 +51,22 @@ class realTimeSrcCodeProportionData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return realTimeSrcCodeProportionData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Proportion'])) {
             $model->proportion = $map['Proportion'];
         }

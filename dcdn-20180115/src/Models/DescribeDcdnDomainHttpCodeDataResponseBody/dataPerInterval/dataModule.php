@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainHttpCodeDataResponseBody\dataPerInterval;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainHttpCodeDataResponseBody\dataPerInterval\dataModule\httpCodeDataPerInterval;
-use AlibabaCloud\Tea\Model;
 
 class dataModule extends Model
 {
     /**
-     * @description The proportions of the HTTP status codes.
-     *
      * @var httpCodeDataPerInterval
      */
     public $httpCodeDataPerInterval;
 
     /**
-     * @description The timestamp of the data returned.
-     *
-     * @example 2019-03-01T13:00:00Z
-     *
      * @var string
      */
     public $timeStamp;
     protected $_name = [
         'httpCodeDataPerInterval' => 'HttpCodeDataPerInterval',
-        'timeStamp'               => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
     public function validate()
     {
+        if (null !== $this->httpCodeDataPerInterval) {
+            $this->httpCodeDataPerInterval->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->httpCodeDataPerInterval) {
-            $res['HttpCodeDataPerInterval'] = null !== $this->httpCodeDataPerInterval ? $this->httpCodeDataPerInterval->toMap() : null;
+            $res['HttpCodeDataPerInterval'] = null !== $this->httpCodeDataPerInterval ? $this->httpCodeDataPerInterval->toArray($noStream) : $this->httpCodeDataPerInterval;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -46,17 +45,18 @@ class dataModule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataModule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HttpCodeDataPerInterval'])) {
             $model->httpCodeDataPerInterval = httpCodeDataPerInterval::fromMap($map['HttpCodeDataPerInterval']);
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

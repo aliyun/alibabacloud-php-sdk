@@ -4,67 +4,60 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainIpaConnDataResponseBody\connectionDataPerInterval;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnDomainIpaConnDataResponseBody extends Model
 {
     /**
-     * @description The number of user connections at each time interval.
-     *
      * @var connectionDataPerInterval
      */
     public $connectionDataPerInterval;
 
     /**
-     * @description The end of the time range during which data was queried.
-     *
-     * @example 2015-02-22T15:00:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The request ID.
-     *
-     * @example A2A1EEF8-043E-43A1-807C-BEAC18EA1807
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried.
-     *
-     * @example 2015-02-21T15:00:00Z
-     *
      * @var string
      */
     public $startTime;
     protected $_name = [
         'connectionDataPerInterval' => 'ConnectionDataPerInterval',
-        'endTime'                   => 'EndTime',
-        'requestId'                 => 'RequestId',
-        'startTime'                 => 'StartTime',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        if (null !== $this->connectionDataPerInterval) {
+            $this->connectionDataPerInterval->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionDataPerInterval) {
-            $res['ConnectionDataPerInterval'] = null !== $this->connectionDataPerInterval ? $this->connectionDataPerInterval->toMap() : null;
+            $res['ConnectionDataPerInterval'] = null !== $this->connectionDataPerInterval ? $this->connectionDataPerInterval->toArray($noStream) : $this->connectionDataPerInterval;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -72,23 +65,26 @@ class DescribeDcdnDomainIpaConnDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnDomainIpaConnDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionDataPerInterval'])) {
             $model->connectionDataPerInterval = connectionDataPerInterval::fromMap($map['ConnectionDataPerInterval']);
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

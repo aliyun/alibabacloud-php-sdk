@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnUserRealTimeDeliveryFieldRequest extends Model
 {
     /**
-     * @description The type of the collected logs. Default value: cdn_log_access_l1. Valid values:
-     *
-     *   **cdn_log_access_l1**: access logs of L1 Dynamic Content Delivery Network (DCDN) points of presence (POPs)
-     *   **cdn_log_origin**: back-to-origin logs
-     *   **cdn_log_er**: EdgeRoutine logs
-     *
-     * @example cdn_log_access_l1
-     *
      * @var string
      */
     public $businessType;
@@ -26,9 +18,10 @@ class DescribeDcdnUserRealTimeDeliveryFieldRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->businessType) {
@@ -38,11 +31,11 @@ class DescribeDcdnUserRealTimeDeliveryFieldRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnUserRealTimeDeliveryFieldRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

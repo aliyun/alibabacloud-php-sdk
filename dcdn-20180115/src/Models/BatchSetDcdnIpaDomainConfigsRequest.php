@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchSetDcdnIpaDomainConfigsRequest extends Model
 {
     /**
-     * @description The domain names accelerated by IPA. Separate multiple domain names with commas (,).
-     *
-     * This parameter is required.
-     * @example example.com
-     *
      * @var string
      */
     public $domainNames;
 
     /**
-     * @description The list of features. `[{"functionArgs":[{"argName":"parameter name","argValue":"parameter value"}],"functionName":"feature name"}]`
-     *
-     * This parameter is required.
-     * @example [{"functionArgs":[{"argName":"domain_name","argValue":"api.*com"}],"functionName":"protogw"}]
-     *
      * @var string
      */
     public $functions;
@@ -43,32 +33,37 @@ class BatchSetDcdnIpaDomainConfigsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainNames'   => 'DomainNames',
-        'functions'     => 'Functions',
-        'ownerAccount'  => 'OwnerAccount',
-        'ownerId'       => 'OwnerId',
+        'domainNames' => 'DomainNames',
+        'functions' => 'Functions',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainNames) {
             $res['DomainNames'] = $this->domainNames;
         }
+
         if (null !== $this->functions) {
             $res['Functions'] = $this->functions;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -76,26 +71,30 @@ class BatchSetDcdnIpaDomainConfigsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchSetDcdnIpaDomainConfigsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainNames'])) {
             $model->domainNames = $map['DomainNames'];
         }
+
         if (isset($map['Functions'])) {
             $model->functions = $map['Functions'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

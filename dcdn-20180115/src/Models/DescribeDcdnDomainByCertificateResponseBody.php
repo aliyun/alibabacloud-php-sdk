@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainByCertificateResponseBody\certInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnDomainByCertificateResponseBody extends Model
 {
     /**
-     * @description The information about the certificate.
-     *
      * @var certInfos
      */
     public $certInfos;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example ASAF2FDS-12SADSA-DDSAE3D-DSADCD4C-CDADS2D
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +25,19 @@ class DescribeDcdnDomainByCertificateResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->certInfos) {
+            $this->certInfos->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certInfos) {
-            $res['CertInfos'] = null !== $this->certInfos ? $this->certInfos->toMap() : null;
+            $res['CertInfos'] = null !== $this->certInfos ? $this->certInfos->toArray($noStream) : $this->certInfos;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeDcdnDomainByCertificateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnDomainByCertificateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertInfos'])) {
             $model->certInfos = certInfos::fromMap($map['CertInfos']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

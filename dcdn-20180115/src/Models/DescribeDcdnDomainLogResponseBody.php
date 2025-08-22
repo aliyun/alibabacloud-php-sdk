@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainLogResponseBody\domainLogDetails;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnDomainLogResponseBody extends Model
 {
     /**
-     * @description The log information. The log information is indicated by the DomainLogDetail parameter.
-     *
      * @var domainLogDetails
      */
     public $domainLogDetails;
 
     /**
-     * @description The domain name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 95594003-CAC5-5636-AF72-2A094364****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainLogDetails' => 'DomainLogDetails',
-        'domainName'       => 'DomainName',
-        'requestId'        => 'RequestId',
+        'domainName' => 'DomainName',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->domainLogDetails) {
+            $this->domainLogDetails->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainLogDetails) {
-            $res['DomainLogDetails'] = null !== $this->domainLogDetails ? $this->domainLogDetails->toMap() : null;
+            $res['DomainLogDetails'] = null !== $this->domainLogDetails ? $this->domainLogDetails->toArray($noStream) : $this->domainLogDetails;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +55,22 @@ class DescribeDcdnDomainLogResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnDomainLogResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainLogDetails'])) {
             $model->domainLogDetails = domainLogDetails::fromMap($map['DomainLogDetails']);
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

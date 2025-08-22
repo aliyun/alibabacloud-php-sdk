@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetDcdnUserConfigRequest extends Model
 {
     /**
-     * @description The configuration parameters of the feature.
-     *
-     * This parameter is required.
-     * @example \\"argId\\":12,\\"argValue\\":\\"on\\"
-     *
      * @var string
      */
     public $configs;
 
     /**
-     * @description The ID of the feature.
-     *
-     * This parameter is required.
-     * @example 6
-     *
      * @var int
      */
     public $functionId;
@@ -43,32 +33,37 @@ class SetDcdnUserConfigRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'configs'       => 'Configs',
-        'functionId'    => 'FunctionId',
-        'ownerAccount'  => 'OwnerAccount',
-        'ownerId'       => 'OwnerId',
+        'configs' => 'Configs',
+        'functionId' => 'FunctionId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configs) {
             $res['Configs'] = $this->configs;
         }
+
         if (null !== $this->functionId) {
             $res['FunctionId'] = $this->functionId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -76,26 +71,30 @@ class SetDcdnUserConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetDcdnUserConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Configs'])) {
             $model->configs = $map['Configs'];
         }
+
         if (isset($map['FunctionId'])) {
             $model->functionId = $map['FunctionId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

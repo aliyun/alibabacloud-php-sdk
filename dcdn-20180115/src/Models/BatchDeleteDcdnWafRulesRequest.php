@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchDeleteDcdnWafRulesRequest extends Model
 {
     /**
-     * @description The IDs of the protection rules that you want to delete. Separate multiple IDs with commas (,).
-     *
-     * This parameter is required.
-     * @example 20000001,20000002
-     *
      * @var string
      */
     public $ruleIds;
@@ -23,9 +18,10 @@ class BatchDeleteDcdnWafRulesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleIds) {
@@ -35,11 +31,11 @@ class BatchDeleteDcdnWafRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchDeleteDcdnWafRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

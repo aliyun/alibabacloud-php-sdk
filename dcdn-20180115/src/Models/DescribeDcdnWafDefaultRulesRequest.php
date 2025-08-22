@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnWafDefaultRulesRequest extends Model
 {
     /**
-     * @description The query conditions. The value is a string in the JSON format. Format: `QueryArgs={"DefenseScene":"anti_scan"}`
-     *
-     * @example {"DefenseScene":"anti_scan"}
-     *
      * @var string
      */
     public $queryArgs;
@@ -22,9 +18,10 @@ class DescribeDcdnWafDefaultRulesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->queryArgs) {
@@ -34,11 +31,11 @@ class DescribeDcdnWafDefaultRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnWafDefaultRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

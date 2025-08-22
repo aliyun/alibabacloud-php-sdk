@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectResponseBody\content\projects;
-use AlibabaCloud\Tea\Model;
 
 class content extends Model
 {
@@ -19,17 +19,22 @@ class content extends Model
 
     public function validate()
     {
+        if (\is_array($this->projects)) {
+            Model::validateArray($this->projects);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projects) {
-            $res['Projects'] = [];
-            if (null !== $this->projects && \is_array($this->projects)) {
-                $n = 0;
-                foreach ($this->projects as $item) {
-                    $res['Projects'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->projects)) {
+                $res['Projects'] = [];
+                $n1 = 0;
+                foreach ($this->projects as $item1) {
+                    $res['Projects'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Projects'])) {
             if (!empty($map['Projects'])) {
                 $model->projects = [];
-                $n               = 0;
-                foreach ($map['Projects'] as $item) {
-                    $model->projects[$n++] = null !== $item ? projects::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Projects'] as $item1) {
+                    $model->projects[$n1] = projects::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

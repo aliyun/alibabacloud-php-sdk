@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDcdnKvNamespaceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example D61E4801-EAFF-4A63-AAE1-FBF6CE1CFD1C
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteDcdnKvNamespaceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteDcdnKvNamespaceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDcdnKvNamespaceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

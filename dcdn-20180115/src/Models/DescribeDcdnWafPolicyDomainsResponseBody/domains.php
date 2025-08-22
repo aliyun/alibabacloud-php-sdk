@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPolicyDomainsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domains extends Model
 {
     /**
-     * @description The accelerated domain name that is protected by the specified protection policy.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
@@ -22,9 +18,10 @@ class domains extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
@@ -34,11 +31,11 @@ class domains extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domains
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

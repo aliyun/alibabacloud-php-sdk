@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnWafBotAppKeyResponseBody extends Model
 {
     /**
-     * @description The SDK authentication key for the Alibaba Cloud account.
-     *
-     * @example examp1eapp_key_xxxiuMWTX4Gw
-     *
      * @var string
      */
     public $appKey;
 
     /**
-     * @description The request ID.
-     *
-     * @example F2542B96-B535-5BF9-8EEE-1CF11B20CCA8
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'appKey'    => 'AppKey',
+        'appKey' => 'AppKey',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class DescribeDcdnWafBotAppKeyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnWafBotAppKeyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

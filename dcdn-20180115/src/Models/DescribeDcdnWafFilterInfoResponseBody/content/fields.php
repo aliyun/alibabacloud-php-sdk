@@ -4,60 +4,57 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafFilterInfoResponseBody\content;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafFilterInfoResponseBody\content\fields\logicalSymbol;
-use AlibabaCloud\Tea\Model;
 
 class fields extends Model
 {
     /**
-     * @description The description of the match field. This parameter is not returned or is empty if no match fields are found.
-     *
-     * @example Custom Header
-     *
      * @var string
      */
     public $extendField;
 
     /**
-     * @description The information about the logical symbol.
-     *
      * @var logicalSymbol[]
      */
     public $logicalSymbol;
 
     /**
-     * @description The match field.
-     *
-     * @example Header
-     *
      * @var string
      */
     public $matchField;
     protected $_name = [
-        'extendField'   => 'ExtendField',
+        'extendField' => 'ExtendField',
         'logicalSymbol' => 'LogicalSymbol',
-        'matchField'    => 'MatchField',
+        'matchField' => 'MatchField',
     ];
 
     public function validate()
     {
+        if (\is_array($this->logicalSymbol)) {
+            Model::validateArray($this->logicalSymbol);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extendField) {
             $res['ExtendField'] = $this->extendField;
         }
+
         if (null !== $this->logicalSymbol) {
-            $res['LogicalSymbol'] = [];
-            if (null !== $this->logicalSymbol && \is_array($this->logicalSymbol)) {
-                $n = 0;
-                foreach ($this->logicalSymbol as $item) {
-                    $res['LogicalSymbol'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logicalSymbol)) {
+                $res['LogicalSymbol'] = [];
+                $n1 = 0;
+                foreach ($this->logicalSymbol as $item1) {
+                    $res['LogicalSymbol'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->matchField) {
             $res['MatchField'] = $this->matchField;
         }
@@ -65,26 +62,29 @@ class fields extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fields
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExtendField'])) {
             $model->extendField = $map['ExtendField'];
         }
+
         if (isset($map['LogicalSymbol'])) {
             if (!empty($map['LogicalSymbol'])) {
                 $model->logicalSymbol = [];
-                $n                    = 0;
-                foreach ($map['LogicalSymbol'] as $item) {
-                    $model->logicalSymbol[$n++] = null !== $item ? logicalSymbol::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LogicalSymbol'] as $item1) {
+                    $model->logicalSymbol[$n1] = logicalSymbol::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MatchField'])) {
             $model->matchField = $map['MatchField'];
         }

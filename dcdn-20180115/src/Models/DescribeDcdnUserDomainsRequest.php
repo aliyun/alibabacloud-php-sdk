@@ -4,91 +4,42 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserDomainsRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnUserDomainsRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
-     *
-     * > The end time must be later than the start time.
-     * @example 2018-05-10T14:00:00Z
-     *
      * @var string
      */
     public $changeEndTime;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
-     *
-     * @example 2018-05-10T12:00:00Z
-     *
      * @var string
      */
     public $changeStartTime;
 
     /**
-     * @description Specifies whether to display domain names that are under review, failed the review, or failed to be configured. Valid values:
-     *
-     *   true: displays domain names.
-     *   false: does not display detailed information.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $checkDomainShow;
 
     /**
-     * @description The acceleration region. By default, all acceleration regions are queried.
-     *
-     *   **domestic**: Chinese mainland
-     *   **overseas**: outside the Chinese mainland
-     *   **global**: global
-     *
-     * @example domestic
-     *
      * @var string
      */
     public $coverage;
 
     /**
-     * @description The accelerated domain names. If you do not set this parameter, configurations of all domain names that match the conditions are returned.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The search method. Default value: full_match. Valid values:
-     *
-     *   **fuzzy_match**: fuzzy match
-     *   **pre_match**: prefix match
-     *   **suf_match**: suffix match
-     *   **full_match** (default): exact match
-     *
-     * > If you specify the domain names to query but do not set the DomainSearchType parameter, the exact match mode is used.
-     * @example fuzzy_match
-     *
      * @var string
      */
     public $domainSearchType;
 
     /**
-     * @description The status of the domain name. Valid values:
-     *
-     *   **online**: enabled
-     *   **offline**: disabled
-     *   **configuring**: configuring
-     *   **configure_failed**: configuration failed
-     *   **checking**: reviewing
-     *   **check_failed:** review failed
-     *
-     * @example online
-     *
      * @var string
      */
     public $domainStatus;
@@ -99,28 +50,16 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of returned pages. Valid values: **1** to **100000**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**. Valid values: **1** to **500**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfmv6jutt**
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -131,89 +70,101 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $securityToken;
 
     /**
-     * @description The list of tags.
-     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The business type of the domain. Separate multiple values with commas (,). Default value: **dynamic**. To query common domains, keep the default value. To query domains of the computing business type, enter **computing_routine** or **computing_image**.
-     *
-     * @example computing_routine
-     *
      * @var string
      */
     public $webSiteType;
     protected $_name = [
-        'changeEndTime'    => 'ChangeEndTime',
-        'changeStartTime'  => 'ChangeStartTime',
-        'checkDomainShow'  => 'CheckDomainShow',
-        'coverage'         => 'Coverage',
-        'domainName'       => 'DomainName',
+        'changeEndTime' => 'ChangeEndTime',
+        'changeStartTime' => 'ChangeStartTime',
+        'checkDomainShow' => 'CheckDomainShow',
+        'coverage' => 'Coverage',
+        'domainName' => 'DomainName',
         'domainSearchType' => 'DomainSearchType',
-        'domainStatus'     => 'DomainStatus',
-        'ownerId'          => 'OwnerId',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'securityToken'    => 'SecurityToken',
-        'tag'              => 'Tag',
-        'webSiteType'      => 'WebSiteType',
+        'domainStatus' => 'DomainStatus',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityToken' => 'SecurityToken',
+        'tag' => 'Tag',
+        'webSiteType' => 'WebSiteType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeEndTime) {
             $res['ChangeEndTime'] = $this->changeEndTime;
         }
+
         if (null !== $this->changeStartTime) {
             $res['ChangeStartTime'] = $this->changeStartTime;
         }
+
         if (null !== $this->checkDomainShow) {
             $res['CheckDomainShow'] = $this->checkDomainShow;
         }
+
         if (null !== $this->coverage) {
             $res['Coverage'] = $this->coverage;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->domainSearchType) {
             $res['DomainSearchType'] = $this->domainSearchType;
         }
+
         if (null !== $this->domainStatus) {
             $res['DomainStatus'] = $this->domainStatus;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->webSiteType) {
             $res['WebSiteType'] = $this->webSiteType;
         }
@@ -221,59 +172,73 @@ class DescribeDcdnUserDomainsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnUserDomainsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChangeEndTime'])) {
             $model->changeEndTime = $map['ChangeEndTime'];
         }
+
         if (isset($map['ChangeStartTime'])) {
             $model->changeStartTime = $map['ChangeStartTime'];
         }
+
         if (isset($map['CheckDomainShow'])) {
             $model->checkDomainShow = $map['CheckDomainShow'];
         }
+
         if (isset($map['Coverage'])) {
             $model->coverage = $map['Coverage'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['DomainSearchType'])) {
             $model->domainSearchType = $map['DomainSearchType'];
         }
+
         if (isset($map['DomainStatus'])) {
             $model->domainStatus = $map['DomainStatus'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['WebSiteType'])) {
             $model->webSiteType = $map['WebSiteType'];
         }

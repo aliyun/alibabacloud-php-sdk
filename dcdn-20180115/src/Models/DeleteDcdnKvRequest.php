@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDcdnKvRequest extends Model
 {
     /**
-     * @description The name of the key that you want to delete.
-     *
-     * This parameter is required.
-     * @example test_key_1
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The namespace that you specify when you call the PutDcdnKvNamespace operation.
-     *
-     * This parameter is required.
-     * @example ns1
-     *
      * @var string
      */
     public $namespace;
     protected $_name = [
-        'key'       => 'Key',
+        'key' => 'Key',
         'namespace' => 'Namespace',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -49,17 +41,18 @@ class DeleteDcdnKvRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDcdnKvRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

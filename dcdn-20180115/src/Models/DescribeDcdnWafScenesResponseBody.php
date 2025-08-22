@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafScenesResponseBody\defenseScenes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnWafScenesResponseBody extends Model
 {
     /**
-     * @description The types of the protection policies.
-     *
      * @var defenseScenes[]
      */
     public $defenseScenes;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 3D7BB13C-DD84-5654-A835-B8E1385DE274
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'defenseScenes' => 'DefenseScenes',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->defenseScenes)) {
+            Model::validateArray($this->defenseScenes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defenseScenes) {
-            $res['DefenseScenes'] = [];
-            if (null !== $this->defenseScenes && \is_array($this->defenseScenes)) {
-                $n = 0;
-                foreach ($this->defenseScenes as $item) {
-                    $res['DefenseScenes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->defenseScenes)) {
+                $res['DefenseScenes'] = [];
+                $n1 = 0;
+                foreach ($this->defenseScenes as $item1) {
+                    $res['DefenseScenes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +52,25 @@ class DescribeDcdnWafScenesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnWafScenesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefenseScenes'])) {
             if (!empty($map['DefenseScenes'])) {
                 $model->defenseScenes = [];
-                $n                    = 0;
-                foreach ($map['DefenseScenes'] as $item) {
-                    $model->defenseScenes[$n++] = null !== $item ? defenseScenes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DefenseScenes'] as $item1) {
+                    $model->defenseScenes[$n1] = defenseScenes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

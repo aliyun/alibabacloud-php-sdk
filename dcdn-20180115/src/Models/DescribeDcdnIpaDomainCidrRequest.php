@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnIpaDomainCidrRequest extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify only one domain name in each request.
-     *
-     * This parameter is required.
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
@@ -23,9 +18,10 @@ class DescribeDcdnIpaDomainCidrRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
@@ -35,11 +31,11 @@ class DescribeDcdnIpaDomainCidrRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnIpaDomainCidrRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

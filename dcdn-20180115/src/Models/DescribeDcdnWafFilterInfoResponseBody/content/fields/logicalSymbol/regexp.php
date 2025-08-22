@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafFilterInfoResponseBody\content\fields\logicalSymbol;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class regexp extends Model
 {
     /**
-     * @description The error message returned when no items match the regular expression.
-     *
-     * @example Specify this field.
-     *
      * @var string
      */
     public $errMsg;
 
     /**
-     * @description The regular expression.
-     *
-     * @example ^\\S+$
-     *
      * @var string
      */
     public $pattern;
     protected $_name = [
-        'errMsg'  => 'ErrMsg',
+        'errMsg' => 'ErrMsg',
         'pattern' => 'Pattern',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errMsg) {
             $res['ErrMsg'] = $this->errMsg;
         }
+
         if (null !== $this->pattern) {
             $res['Pattern'] = $this->pattern;
         }
@@ -47,17 +41,18 @@ class regexp extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regexp
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrMsg'])) {
             $model->errMsg = $map['ErrMsg'];
         }
+
         if (isset($map['Pattern'])) {
             $model->pattern = $map['Pattern'];
         }

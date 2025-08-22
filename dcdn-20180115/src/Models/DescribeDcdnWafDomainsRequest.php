@@ -4,56 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnWafDomainsRequest extends Model
 {
     /**
-     * @description The number of the page to return. Valid values: **1** to **100000**.
-     *
-     * Default value: **1**.
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of domain names to return on each page. Valid values: an integer from **1** to **500**. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The query conditions. You can filter domain names by name. Fuzzy match is supported `QueryArgs={"DomainName":"Accelerated domain name"}`
-     *
-     * @example {"DomainName":"example.com"}
-     *
      * @var string
      */
     public $queryArgs;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'queryArgs'  => 'QueryArgs',
+        'pageSize' => 'PageSize',
+        'queryArgs' => 'QueryArgs',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->queryArgs) {
             $res['QueryArgs'] = $this->queryArgs;
         }
@@ -61,20 +51,22 @@ class DescribeDcdnWafDomainsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnWafDomainsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['QueryArgs'])) {
             $model->queryArgs = $map['QueryArgs'];
         }

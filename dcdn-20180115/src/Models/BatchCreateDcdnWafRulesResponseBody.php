@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchCreateDcdnWafRulesResponseBody\ruleIds;
-use AlibabaCloud\Tea\Model;
 
 class BatchCreateDcdnWafRulesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The IDs of created rules.
-     *
      * @var ruleIds
      */
     public $ruleIds;
     protected $_name = [
         'requestId' => 'RequestId',
-        'ruleIds'   => 'RuleIds',
+        'ruleIds' => 'RuleIds',
     ];
 
     public function validate()
     {
+        if (null !== $this->ruleIds) {
+            $this->ruleIds->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->ruleIds) {
-            $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toMap() : null;
+            $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toArray($noStream) : $this->ruleIds;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchCreateDcdnWafRulesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RuleIds'])) {
             $model->ruleIds = ruleIds::fromMap($map['RuleIds']);
         }

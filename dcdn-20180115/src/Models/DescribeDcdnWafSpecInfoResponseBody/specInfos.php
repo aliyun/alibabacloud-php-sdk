@@ -4,54 +4,47 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafSpecInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafSpecInfoResponseBody\specInfos\configs;
-use AlibabaCloud\Tea\Model;
 
 class specInfos extends Model
 {
     /**
-     * @description The configuration information of the protection rule.
-     *
      * @var configs[]
      */
     public $configs;
 
     /**
-     * @description The type of the protection policy. Valid values:
-     *
-     *   waf_group: basic web protection
-     *   custom_acl: custom
-     *   whitelist: whitelist
-     *   ip_blacklist: IP address blacklist
-     *   region_block: region blacklist
-     *   bot: bot management
-     *
-     * @example custom_acl
-     *
      * @var string
      */
     public $defenseScene;
     protected $_name = [
-        'configs'      => 'Configs',
+        'configs' => 'Configs',
         'defenseScene' => 'DefenseScene',
     ];
 
     public function validate()
     {
+        if (\is_array($this->configs)) {
+            Model::validateArray($this->configs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configs) {
-            $res['Configs'] = [];
-            if (null !== $this->configs && \is_array($this->configs)) {
-                $n = 0;
-                foreach ($this->configs as $item) {
-                    $res['Configs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configs)) {
+                $res['Configs'] = [];
+                $n1 = 0;
+                foreach ($this->configs as $item1) {
+                    $res['Configs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->defenseScene) {
             $res['DefenseScene'] = $this->defenseScene;
         }
@@ -59,23 +52,25 @@ class specInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return specInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Configs'])) {
             if (!empty($map['Configs'])) {
                 $model->configs = [];
-                $n              = 0;
-                foreach ($map['Configs'] as $item) {
-                    $model->configs[$n++] = null !== $item ? configs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Configs'] as $item1) {
+                    $model->configs[$n1] = configs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['DefenseScene'])) {
             $model->defenseScene = $map['DefenseScene'];
         }

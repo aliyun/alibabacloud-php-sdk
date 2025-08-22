@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainWebsocketHttpCodeDataResponseBody\httpCodeDataPerInterval\dataModule;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainWebsocketHttpCodeDataResponseBody\httpCodeDataPerInterval\dataModule\websocketHttpCode\httpCodeDataModule;
-use AlibabaCloud\Tea\Model;
 
 class websocketHttpCode extends Model
 {
@@ -19,17 +19,22 @@ class websocketHttpCode extends Model
 
     public function validate()
     {
+        if (\is_array($this->httpCodeDataModule)) {
+            Model::validateArray($this->httpCodeDataModule);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->httpCodeDataModule) {
-            $res['HttpCodeDataModule'] = [];
-            if (null !== $this->httpCodeDataModule && \is_array($this->httpCodeDataModule)) {
-                $n = 0;
-                foreach ($this->httpCodeDataModule as $item) {
-                    $res['HttpCodeDataModule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->httpCodeDataModule)) {
+                $res['HttpCodeDataModule'] = [];
+                $n1 = 0;
+                foreach ($this->httpCodeDataModule as $item1) {
+                    $res['HttpCodeDataModule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class websocketHttpCode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return websocketHttpCode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HttpCodeDataModule'])) {
             if (!empty($map['HttpCodeDataModule'])) {
                 $model->httpCodeDataModule = [];
-                $n                         = 0;
-                foreach ($map['HttpCodeDataModule'] as $item) {
-                    $model->httpCodeDataModule[$n++] = null !== $item ? httpCodeDataModule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HttpCodeDataModule'] as $item1) {
+                    $model->httpCodeDataModule[$n1] = httpCodeDataModule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

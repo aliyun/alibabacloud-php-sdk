@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnIpInfoRequest extends Model
 {
     /**
-     * @description The IP address. You can specify only one IP address.
-     *
-     * This parameter is required.
-     * @example 10.10.10.10
-     *
      * @var string
      */
     public $IP;
@@ -23,9 +18,10 @@ class DescribeDcdnIpInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->IP) {
@@ -35,11 +31,11 @@ class DescribeDcdnIpInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnIpInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

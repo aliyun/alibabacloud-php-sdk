@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnDomainStagingConfigRequest extends Model
 {
     /**
-     * @description The accelerated domain name.
-     *
-     * This parameter is required.
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The names of the features to query. You can separate multiple features with commas (,).
-     *
-     * This parameter is required.
-     * @example aliauth
-     *
      * @var string
      */
     public $functionNames;
     protected $_name = [
-        'domainName'    => 'DomainName',
+        'domainName' => 'DomainName',
         'functionNames' => 'FunctionNames',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->functionNames) {
             $res['FunctionNames'] = $this->functionNames;
         }
@@ -49,17 +41,18 @@ class DescribeDcdnDomainStagingConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnDomainStagingConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['FunctionNames'])) {
             $model->functionNames = $map['FunctionNames'];
         }

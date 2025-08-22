@@ -4,40 +4,44 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRoutineUserInfoResponseBody extends Model
 {
     /**
-     * @description The content returned by calling the operation.
-     *
      * @var mixed[]
      */
     public $content;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 691DEEE5-4BDB-47F3-930E-F57176427717
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'content'   => 'Content',
+        'content' => 'Content',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->content)) {
+            Model::validateArray($this->content);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
-            $res['Content'] = $this->content;
+            if (\is_array($this->content)) {
+                $res['Content'] = [];
+                foreach ($this->content as $key1 => $value1) {
+                    $res['Content'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +49,23 @@ class DescribeRoutineUserInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRoutineUserInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+            if (!empty($map['Content'])) {
+                $model->content = [];
+                foreach ($map['Content'] as $key1 => $value1) {
+                    $model->content[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

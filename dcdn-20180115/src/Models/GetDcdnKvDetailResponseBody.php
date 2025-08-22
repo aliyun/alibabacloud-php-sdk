@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDcdnKvDetailResponseBody extends Model
 {
     /**
-     * @example 3600
-     *
      * @var string
      */
     public $expirationTtl;
 
     /**
-     * @example EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $value;
     protected $_name = [
         'expirationTtl' => 'ExpirationTtl',
-        'requestId'     => 'RequestId',
-        'value'         => 'Value',
+        'requestId' => 'RequestId',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expirationTtl) {
             $res['ExpirationTtl'] = $this->expirationTtl;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -54,20 +51,22 @@ class GetDcdnKvDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDcdnKvDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpirationTtl'])) {
             $model->expirationTtl = $map['ExpirationTtl'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

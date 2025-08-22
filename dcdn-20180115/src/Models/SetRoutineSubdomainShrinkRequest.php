@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetRoutineSubdomainShrinkRequest extends Model
 {
     /**
-     * @description The parameters of the subdomain.
-     *
-     * This parameter is required.
-     * @example ["subdomain-test"]
-     *
      * @var string
      */
     public $subdomainsShrink;
@@ -23,9 +18,10 @@ class SetRoutineSubdomainShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subdomainsShrink) {
@@ -35,11 +31,11 @@ class SetRoutineSubdomainShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetRoutineSubdomainShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,73 +4,67 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeKvUsageDataResponseBody\kvUsageData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeKvUsageDataResponseBody extends Model
 {
     /**
-     * @description The end of the time range during which data was queried.
-     *
-     * @example 2022-11-18T15:59:59Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The usage details.
-     *
      * @var kvUsageData[]
      */
     public $kvUsageData;
 
     /**
-     * @description The request ID.
-     *
-     * @example 9732E117-8A37-49FD-A36F-ABBB87556CA7
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried.
-     *
-     * @example 2022-11-06T16:00:00Z
-     *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'     => 'EndTime',
+        'endTime' => 'EndTime',
         'kvUsageData' => 'KvUsageData',
-        'requestId'   => 'RequestId',
-        'startTime'   => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->kvUsageData)) {
+            Model::validateArray($this->kvUsageData);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->kvUsageData) {
-            $res['KvUsageData'] = [];
-            if (null !== $this->kvUsageData && \is_array($this->kvUsageData)) {
-                $n = 0;
-                foreach ($this->kvUsageData as $item) {
-                    $res['KvUsageData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->kvUsageData)) {
+                $res['KvUsageData'] = [];
+                $n1 = 0;
+                foreach ($this->kvUsageData as $item1) {
+                    $res['KvUsageData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -78,29 +72,33 @@ class DescribeKvUsageDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeKvUsageDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['KvUsageData'])) {
             if (!empty($map['KvUsageData'])) {
                 $model->kvUsageData = [];
-                $n                  = 0;
-                foreach ($map['KvUsageData'] as $item) {
-                    $model->kvUsageData[$n++] = null !== $item ? kvUsageData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['KvUsageData'] as $item1) {
+                    $model->kvUsageData[$n1] = kvUsageData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

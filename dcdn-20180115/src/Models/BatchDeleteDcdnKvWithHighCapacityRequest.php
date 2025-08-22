@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchDeleteDcdnKvWithHighCapacityRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example test_namespace
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
-     *
      * @var string
      */
     public $url;
     protected $_name = [
         'namespace' => 'Namespace',
-        'url'       => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -47,17 +41,18 @@ class BatchDeleteDcdnKvWithHighCapacityRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchDeleteDcdnKvWithHighCapacityRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

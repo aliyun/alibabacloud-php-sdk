@@ -4,60 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnDomainByCertificateRequest extends Model
 {
     /**
-     * @description Specifies whether the domain name list to return matches the SSL certificate.
-     * - **true**: The domain name list matches the SSL certificate.
-     * - **false**: The domain name list does not match the SSL certificate.
-     * @example true
-     *
      * @var bool
      */
     public $exact;
 
     /**
-     * @description The public key of the certificate.
-     *
-     * This parameter is required.
-     * @example xxx
-     *
      * @var string
      */
     public $SSLPub;
 
     /**
-     * @description Specifies whether the domain name list to return contains only domain names with HTTPS enabled or disabled.
-     *
-     *   true: The list contains only domain names with HTTPS enabled.
-     *   false: The list contains only domain names with HTTPS disabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $SSLStatus;
     protected $_name = [
-        'exact'     => 'Exact',
-        'SSLPub'    => 'SSLPub',
+        'exact' => 'Exact',
+        'SSLPub' => 'SSLPub',
         'SSLStatus' => 'SSLStatus',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exact) {
             $res['Exact'] = $this->exact;
         }
+
         if (null !== $this->SSLPub) {
             $res['SSLPub'] = $this->SSLPub;
         }
+
         if (null !== $this->SSLStatus) {
             $res['SSLStatus'] = $this->SSLStatus;
         }
@@ -65,20 +51,22 @@ class DescribeDcdnDomainByCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnDomainByCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Exact'])) {
             $model->exact = $map['Exact'];
         }
+
         if (isset($map['SSLPub'])) {
             $model->SSLPub = $map['SSLPub'];
         }
+
         if (isset($map['SSLStatus'])) {
             $model->SSLStatus = $map['SSLStatus'];
         }

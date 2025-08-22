@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserBillTypeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserBillTypeResponseBody\billTypeData\billTypeDataItem;
-use AlibabaCloud\Tea\Model;
 
 class billTypeData extends Model
 {
@@ -19,17 +19,22 @@ class billTypeData extends Model
 
     public function validate()
     {
+        if (\is_array($this->billTypeDataItem)) {
+            Model::validateArray($this->billTypeDataItem);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->billTypeDataItem) {
-            $res['BillTypeDataItem'] = [];
-            if (null !== $this->billTypeDataItem && \is_array($this->billTypeDataItem)) {
-                $n = 0;
-                foreach ($this->billTypeDataItem as $item) {
-                    $res['BillTypeDataItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->billTypeDataItem)) {
+                $res['BillTypeDataItem'] = [];
+                $n1 = 0;
+                foreach ($this->billTypeDataItem as $item1) {
+                    $res['BillTypeDataItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class billTypeData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return billTypeData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BillTypeDataItem'])) {
             if (!empty($map['BillTypeDataItem'])) {
                 $model->billTypeDataItem = [];
-                $n                       = 0;
-                foreach ($map['BillTypeDataItem'] as $item) {
-                    $model->billTypeDataItem[$n++] = null !== $item ? billTypeDataItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BillTypeDataItem'] as $item1) {
+                    $model->billTypeDataItem[$n1] = billTypeDataItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

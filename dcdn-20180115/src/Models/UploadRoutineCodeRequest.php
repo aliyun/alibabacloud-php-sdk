@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UploadRoutineCodeRequest extends Model
 {
     /**
-     * @description The description of the code version.
-     *
-     * This parameter is required.
-     * @example Hello World
-     *
      * @var string
      */
     public $codeDescription;
 
     /**
-     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $name;
     protected $_name = [
         'codeDescription' => 'CodeDescription',
-        'name'            => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->codeDescription) {
             $res['CodeDescription'] = $this->codeDescription;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -49,17 +41,18 @@ class UploadRoutineCodeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UploadRoutineCodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CodeDescription'])) {
             $model->codeDescription = $map['CodeDescription'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

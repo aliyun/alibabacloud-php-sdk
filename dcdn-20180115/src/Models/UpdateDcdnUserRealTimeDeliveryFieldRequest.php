@@ -4,47 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDcdnUserRealTimeDeliveryFieldRequest extends Model
 {
     /**
-     * @description The type of the collected logs. Default value: cdn_log_access_l1. Valid values:
-     *
-     *   **cdn_log_access_l1**: access logs of L1 Dynamic Route for CDN (DCDN) points of presence (POPs)
-     *   **cdn_log_origin**: back-to-origin logs
-     *   **cdn_log_er**: EdgeRoutine logs
-     *
-     * @example cdn_log_access_l1
-     *
      * @var string
      */
     public $businessType;
 
     /**
-     * @description The list of fields. Separate multiple fields with commas (,). For more information, see [Fields in a real-time log](https://help.aliyun.com/document_detail/324199.html).
-     *
-     * This parameter is required.
-     * @example body_bytes_sent,client_ip,content_type
-     *
      * @var string
      */
     public $fields;
     protected $_name = [
         'businessType' => 'BusinessType',
-        'fields'       => 'Fields',
+        'fields' => 'Fields',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
         }
+
         if (null !== $this->fields) {
             $res['Fields'] = $this->fields;
         }
@@ -52,17 +41,18 @@ class UpdateDcdnUserRealTimeDeliveryFieldRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDcdnUserRealTimeDeliveryFieldRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
         }
+
         if (isset($map['Fields'])) {
             $model->fields = $map['Fields'];
         }

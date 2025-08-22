@@ -4,112 +4,97 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserSecDropByMinuteResponseBody\rows;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
 {
     /**
-     * @description The description of HTTP responses.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $len;
 
     /**
-     * @description The number of the returned page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 8143fA8A-B2B2-4915-538D-546B538D25FA
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array.
-     *
      * @var rows[]
      */
     public $rows;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 5738
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'description' => 'Description',
-        'len'         => 'Len',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'rows'        => 'Rows',
-        'totalCount'  => 'TotalCount',
+        'len' => 'Len',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'rows' => 'Rows',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->rows)) {
+            Model::validateArray($this->rows);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->len) {
             $res['Len'] = $this->len;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->rows) {
-            $res['Rows'] = [];
-            if (null !== $this->rows && \is_array($this->rows)) {
-                $n = 0;
-                foreach ($this->rows as $item) {
-                    $res['Rows'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rows)) {
+                $res['Rows'] = [];
+                $n1 = 0;
+                foreach ($this->rows as $item1) {
+                    $res['Rows'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -117,38 +102,45 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnUserSecDropByMinuteResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Len'])) {
             $model->len = $map['Len'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Rows'])) {
             if (!empty($map['Rows'])) {
                 $model->rows = [];
-                $n           = 0;
-                foreach ($map['Rows'] as $item) {
-                    $model->rows[$n++] = null !== $item ? rows::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Rows'] as $item1) {
+                    $model->rows[$n1] = rows::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateListResponseBody\certificateListModel\certList;
-use AlibabaCloud\Tea\Model;
 
 class certificateListModel extends Model
 {
     /**
-     * @description A list of certificates.
-     *
      * @var certList[]
      */
     public $certList;
 
     /**
-     * @description The number of certificates that are returned.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
     protected $_name = [
         'certList' => 'CertList',
-        'count'    => 'Count',
+        'count' => 'Count',
     ];
 
     public function validate()
     {
+        if (\is_array($this->certList)) {
+            Model::validateArray($this->certList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certList) {
-            $res['CertList'] = [];
-            if (null !== $this->certList && \is_array($this->certList)) {
-                $n = 0;
-                foreach ($this->certList as $item) {
-                    $res['CertList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->certList)) {
+                $res['CertList'] = [];
+                $n1 = 0;
+                foreach ($this->certList as $item1) {
+                    $res['CertList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
@@ -52,23 +52,25 @@ class certificateListModel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return certificateListModel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertList'])) {
             if (!empty($map['CertList'])) {
                 $model->certList = [];
-                $n               = 0;
-                foreach ($map['CertList'] as $item) {
-                    $model->certList[$n++] = null !== $item ? certList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CertList'] as $item1) {
+                    $model->certList[$n1] = certList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }

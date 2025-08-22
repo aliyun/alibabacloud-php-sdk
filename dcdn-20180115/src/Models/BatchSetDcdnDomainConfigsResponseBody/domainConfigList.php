@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainConfigsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainConfigsResponseBody\domainConfigList\domainConfigModel;
-use AlibabaCloud\Tea\Model;
 
 class domainConfigList extends Model
 {
@@ -19,17 +19,22 @@ class domainConfigList extends Model
 
     public function validate()
     {
+        if (\is_array($this->domainConfigModel)) {
+            Model::validateArray($this->domainConfigModel);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainConfigModel) {
-            $res['DomainConfigModel'] = [];
-            if (null !== $this->domainConfigModel && \is_array($this->domainConfigModel)) {
-                $n = 0;
-                foreach ($this->domainConfigModel as $item) {
-                    $res['DomainConfigModel'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainConfigModel)) {
+                $res['DomainConfigModel'] = [];
+                $n1 = 0;
+                foreach ($this->domainConfigModel as $item1) {
+                    $res['DomainConfigModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class domainConfigList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainConfigList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainConfigModel'])) {
             if (!empty($map['DomainConfigModel'])) {
                 $model->domainConfigModel = [];
-                $n                        = 0;
-                foreach ($map['DomainConfigModel'] as $item) {
-                    $model->domainConfigModel[$n++] = null !== $item ? domainConfigModel::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DomainConfigModel'] as $item1) {
+                    $model->domainConfigModel[$n1] = domainConfigModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

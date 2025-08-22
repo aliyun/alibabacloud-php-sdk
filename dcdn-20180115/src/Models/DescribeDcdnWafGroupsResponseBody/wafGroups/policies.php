@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafGroupsResponseBody\wafGroups;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class policies extends Model
 {
     /**
-     * @description The ID of the policy.
-     *
-     * @example 30000165
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The name of the policy.
-     *
-     * @example wasm-testmaster
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The type of the policy. Valid values:
-     *
-     *   **custom**: a custom policy
-     *   **default**: the default policy
-     *
-     * @example default
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'name' => 'Name',
         'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -63,20 +51,22 @@ class policies extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return policies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

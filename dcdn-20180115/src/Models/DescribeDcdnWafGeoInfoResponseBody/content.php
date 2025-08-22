@@ -4,50 +4,47 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafGeoInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafGeoInfoResponseBody\content\continents;
-use AlibabaCloud\Tea\Model;
 
 class content extends Model
 {
     /**
-     * @description The information about the country or region.
-     *
      * @var continents[]
      */
     public $continents;
 
     /**
-     * @description The type of the region.
-     *
-     *   CN: China
-     *   Other: outside China
-     *
-     * @example CN
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'continents' => 'Continents',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->continents)) {
+            Model::validateArray($this->continents);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->continents) {
-            $res['Continents'] = [];
-            if (null !== $this->continents && \is_array($this->continents)) {
-                $n = 0;
-                foreach ($this->continents as $item) {
-                    $res['Continents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->continents)) {
+                $res['Continents'] = [];
+                $n1 = 0;
+                foreach ($this->continents as $item1) {
+                    $res['Continents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -55,23 +52,25 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Continents'])) {
             if (!empty($map['Continents'])) {
                 $model->continents = [];
-                $n                 = 0;
-                foreach ($map['Continents'] as $item) {
-                    $model->continents[$n++] = null !== $item ? continents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Continents'] as $item1) {
+                    $model->continents[$n1] = continents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

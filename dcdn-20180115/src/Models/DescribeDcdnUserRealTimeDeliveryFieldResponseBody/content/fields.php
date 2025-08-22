@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserRealTimeDeliveryFieldResponseBody\content;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fields extends Model
 {
     /**
-     * @description The description of the field.
-     *
-     * @example The timestamp of the request
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the field.
-     *
-     * @example unixtime
-     *
      * @var string
      */
     public $fieldName;
 
     /**
-     * @description Indicates whether the field was selected.
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $selected;
     protected $_name = [
         'description' => 'Description',
-        'fieldName'   => 'FieldName',
-        'selected'    => 'Selected',
+        'fieldName' => 'FieldName',
+        'selected' => 'Selected',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->fieldName) {
             $res['FieldName'] = $this->fieldName;
         }
+
         if (null !== $this->selected) {
             $res['Selected'] = $this->selected;
         }
@@ -63,20 +51,22 @@ class fields extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fields
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FieldName'])) {
             $model->fieldName = $map['FieldName'];
         }
+
         if (isset($map['Selected'])) {
             $model->selected = $map['Selected'];
         }

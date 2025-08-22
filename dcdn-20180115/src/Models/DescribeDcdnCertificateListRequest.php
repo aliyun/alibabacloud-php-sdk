@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnCertificateListRequest extends Model
 {
     /**
-     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
-     *
-     * By default, this operation queries the certificates of all accelerated domain names.
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
@@ -28,24 +23,27 @@ class DescribeDcdnCertificateListRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainName'    => 'DomainName',
-        'ownerId'       => 'OwnerId',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -53,20 +51,22 @@ class DescribeDcdnCertificateListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnCertificateListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

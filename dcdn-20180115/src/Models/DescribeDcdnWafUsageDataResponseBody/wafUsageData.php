@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafUsageDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafUsageDataResponseBody\wafUsageData\wafUsageDataItem;
-use AlibabaCloud\Tea\Model;
 
 class wafUsageData extends Model
 {
@@ -19,17 +19,22 @@ class wafUsageData extends Model
 
     public function validate()
     {
+        if (\is_array($this->wafUsageDataItem)) {
+            Model::validateArray($this->wafUsageDataItem);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->wafUsageDataItem) {
-            $res['WafUsageDataItem'] = [];
-            if (null !== $this->wafUsageDataItem && \is_array($this->wafUsageDataItem)) {
-                $n = 0;
-                foreach ($this->wafUsageDataItem as $item) {
-                    $res['WafUsageDataItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->wafUsageDataItem)) {
+                $res['WafUsageDataItem'] = [];
+                $n1 = 0;
+                foreach ($this->wafUsageDataItem as $item1) {
+                    $res['WafUsageDataItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class wafUsageData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return wafUsageData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WafUsageDataItem'])) {
             if (!empty($map['WafUsageDataItem'])) {
                 $model->wafUsageDataItem = [];
-                $n                       = 0;
-                foreach ($map['WafUsageDataItem'] as $item) {
-                    $model->wafUsageDataItem[$n++] = null !== $item ? wafUsageDataItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WafUsageDataItem'] as $item1) {
+                    $model->wafUsageDataItem[$n1] = wafUsageDataItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

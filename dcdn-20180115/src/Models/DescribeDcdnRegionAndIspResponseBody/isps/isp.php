@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRegionAndIspResponseBody\isps;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class isp extends Model
 {
     /**
-     * @description The English name of the region.
-     *
-     * @example unicom
-     *
      * @var string
      */
     public $nameEn;
 
     /**
-     * @description The Chinese name of the ISP.
-     *
-     * @example 联通
-     *
      * @var string
      */
     public $nameZh;
@@ -32,14 +24,16 @@ class isp extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nameEn) {
             $res['NameEn'] = $this->nameEn;
         }
+
         if (null !== $this->nameZh) {
             $res['NameZh'] = $this->nameZh;
         }
@@ -47,17 +41,18 @@ class isp extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return isp
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NameEn'])) {
             $model->nameEn = $map['NameEn'];
         }
+
         if (isset($map['NameZh'])) {
             $model->nameZh = $map['NameZh'];
         }

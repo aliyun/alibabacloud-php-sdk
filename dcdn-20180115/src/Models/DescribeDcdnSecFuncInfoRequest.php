@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnSecFuncInfoRequest extends Model
 {
     /**
-     * @description The language. Valid values: en and zh. Default value: en.
-     *
-     * This parameter is required.
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The type of the drop-down list. Valid values: RobotRuleName and RobotObject.
-     *
-     * This parameter is required.
-     * @example RobotRuleName
-     *
      * @var string
      */
     public $secFuncType;
     protected $_name = [
-        'lang'        => 'Lang',
+        'lang' => 'Lang',
         'secFuncType' => 'SecFuncType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->secFuncType) {
             $res['SecFuncType'] = $this->secFuncType;
         }
@@ -49,17 +41,18 @@ class DescribeDcdnSecFuncInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnSecFuncInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['SecFuncType'])) {
             $model->secFuncType = $map['SecFuncType'];
         }

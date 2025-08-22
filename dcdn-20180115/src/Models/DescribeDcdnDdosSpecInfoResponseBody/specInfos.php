@@ -4,51 +4,47 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosSpecInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosSpecInfoResponseBody\specInfos\configs;
-use AlibabaCloud\Tea\Model;
 
 class specInfos extends Model
 {
     /**
-     * @description The configurations of the version rule.
-     *
      * @var configs[]
      */
     public $configs;
 
     /**
-     * @description The version rule. Valid values:
-     *
-     *   **version_defense_num**: the rule for the number of version mitigation sessions
-     *   **domain_num**: the rule for the limit on the number of domain names
-     *   **defence_package_num**: the rule for extra mitigation session plans
-     *
-     * @example version_defense_num
-     *
      * @var string
      */
     public $rule;
     protected $_name = [
         'configs' => 'Configs',
-        'rule'    => 'Rule',
+        'rule' => 'Rule',
     ];
 
     public function validate()
     {
+        if (\is_array($this->configs)) {
+            Model::validateArray($this->configs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configs) {
-            $res['Configs'] = [];
-            if (null !== $this->configs && \is_array($this->configs)) {
-                $n = 0;
-                foreach ($this->configs as $item) {
-                    $res['Configs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configs)) {
+                $res['Configs'] = [];
+                $n1 = 0;
+                foreach ($this->configs as $item1) {
+                    $res['Configs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->rule) {
             $res['Rule'] = $this->rule;
         }
@@ -56,23 +52,25 @@ class specInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return specInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Configs'])) {
             if (!empty($map['Configs'])) {
                 $model->configs = [];
-                $n              = 0;
-                foreach ($map['Configs'] as $item) {
-                    $model->configs[$n++] = null !== $item ? configs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Configs'] as $item1) {
+                    $model->configs[$n1] = configs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Rule'])) {
             $model->rule = $map['Rule'];
         }

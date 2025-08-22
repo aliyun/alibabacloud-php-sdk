@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRoutineConfEnvsShrinkRequest extends Model
 {
     /**
-     * @description The custom canary release environments that you want to delete.
-     *
-     * This parameter is required.
-     * @example ["presetCanaryZheJiang"]
-     *
      * @var string
      */
     public $envsShrink;
 
     /**
-     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $name;
     protected $_name = [
         'envsShrink' => 'Envs',
-        'name'       => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->envsShrink) {
             $res['Envs'] = $this->envsShrink;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -49,17 +41,18 @@ class DeleteRoutineConfEnvsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRoutineConfEnvsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Envs'])) {
             $model->envsShrink = $map['Envs'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

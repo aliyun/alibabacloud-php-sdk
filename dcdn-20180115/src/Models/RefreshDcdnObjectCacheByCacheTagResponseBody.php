@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefreshDcdnObjectCacheByCacheTagResponseBody extends Model
 {
     /**
-     * @example 17410889914
-     *
      * @var string
      */
     public $refreshTaskId;
 
     /**
-     * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'refreshTaskId' => 'RefreshTaskId',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->refreshTaskId) {
             $res['RefreshTaskId'] = $this->refreshTaskId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class RefreshDcdnObjectCacheByCacheTagResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefreshDcdnObjectCacheByCacheTagResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RefreshTaskId'])) {
             $model->refreshTaskId = $map['RefreshTaskId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

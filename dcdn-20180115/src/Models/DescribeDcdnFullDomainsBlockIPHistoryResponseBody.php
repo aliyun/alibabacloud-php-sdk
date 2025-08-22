@@ -4,79 +4,67 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnFullDomainsBlockIPHistoryResponseBody\IPBlockInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnFullDomainsBlockIPHistoryResponseBody extends Model
 {
     /**
-     * @description The response code.
-     *
-     * The value of Code is not 0 in the following scenarios:
-     *
-     *   The format of the IP address is invalid.
-     *   The format of the time is invalid.
-     *   Other abnormal scenarios
-     *
-     * @example 0
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The description of the status returned.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The result of the operation.
-     *
      * @var IPBlockInfo[]
      */
     public $IPBlockInfo;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 13A2B792-9212-1CC9-8525-59EBEF3FFE01
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'        => 'Code',
+        'code' => 'Code',
         'description' => 'Description',
         'IPBlockInfo' => 'IPBlockInfo',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->IPBlockInfo)) {
+            Model::validateArray($this->IPBlockInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->IPBlockInfo) {
-            $res['IPBlockInfo'] = [];
-            if (null !== $this->IPBlockInfo && \is_array($this->IPBlockInfo)) {
-                $n = 0;
-                foreach ($this->IPBlockInfo as $item) {
-                    $res['IPBlockInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->IPBlockInfo)) {
+                $res['IPBlockInfo'] = [];
+                $n1 = 0;
+                foreach ($this->IPBlockInfo as $item1) {
+                    $res['IPBlockInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -84,29 +72,33 @@ class DescribeDcdnFullDomainsBlockIPHistoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnFullDomainsBlockIPHistoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['IPBlockInfo'])) {
             if (!empty($map['IPBlockInfo'])) {
                 $model->IPBlockInfo = [];
-                $n                  = 0;
-                foreach ($map['IPBlockInfo'] as $item) {
-                    $model->IPBlockInfo[$n++] = null !== $item ? IPBlockInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IPBlockInfo'] as $item1) {
+                    $model->IPBlockInfo[$n1] = IPBlockInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

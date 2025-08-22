@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnBgpBpsDataResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bgpDataInterval extends Model
 {
     /**
-     * @description The inbound bandwidth. Unit: bit/s.
-     *
-     * @example 318
-     *
      * @var float
      */
     public $in;
 
     /**
-     * @description The outbound bandwidth. Unit: bit/s.
-     *
-     * @example 183
-     *
      * @var float
      */
     public $out;
 
     /**
-     * @description The timestamp of the returned data.
-     *
-     * @example 2018-11-29T20:00:00Z
-     *
      * @var string
      */
     public $timeStamp;
     protected $_name = [
-        'in'        => 'In',
-        'out'       => 'Out',
+        'in' => 'In',
+        'out' => 'Out',
         'timeStamp' => 'TimeStamp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->in) {
             $res['In'] = $this->in;
         }
+
         if (null !== $this->out) {
             $res['Out'] = $this->out;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -60,20 +51,22 @@ class bgpDataInterval extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bgpDataInterval
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['In'])) {
             $model->in = $map['In'];
         }
+
         if (isset($map['Out'])) {
             $model->out = $map['Out'];
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

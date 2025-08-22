@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PutDcdnKvNamespaceRequest extends Model
 {
     /**
-     * @description The description of the namespace.
-     *
-     * This parameter is required.
-     * @example the first namespace
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the namespace. The name can contain letters, digits, hyphens (-), and underscores (_).
-     *
-     * This parameter is required.
-     * @example ns1
-     *
      * @var string
      */
     public $namespace;
     protected $_name = [
         'description' => 'Description',
-        'namespace'   => 'Namespace',
+        'namespace' => 'Namespace',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -49,17 +41,18 @@ class PutDcdnKvNamespaceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutDcdnKvNamespaceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

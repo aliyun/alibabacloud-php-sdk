@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafScenesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class defenseScenes extends Model
 {
     /**
-     * @description The type of the protection policy, which is the same as the DefenseScenes parameter in request parameters.
-     *
-     * @example waf_group
-     *
      * @var string
      */
     public $defenseScene;
 
     /**
-     * @description The total number of policies of this type that were configured.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $policyCount;
 
     /**
-     * @description The total number of protection rules that were configured in this type of the policy.
-     *
-     * @example 12
-     *
      * @var int
      */
     public $ruleCount;
     protected $_name = [
         'defenseScene' => 'DefenseScene',
-        'policyCount'  => 'PolicyCount',
-        'ruleCount'    => 'RuleCount',
+        'policyCount' => 'PolicyCount',
+        'ruleCount' => 'RuleCount',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defenseScene) {
             $res['DefenseScene'] = $this->defenseScene;
         }
+
         if (null !== $this->policyCount) {
             $res['PolicyCount'] = $this->policyCount;
         }
+
         if (null !== $this->ruleCount) {
             $res['RuleCount'] = $this->ruleCount;
         }
@@ -60,20 +51,22 @@ class defenseScenes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return defenseScenes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefenseScene'])) {
             $model->defenseScene = $map['DefenseScene'];
         }
+
         if (isset($map['PolicyCount'])) {
             $model->policyCount = $map['PolicyCount'];
         }
+
         if (isset($map['RuleCount'])) {
             $model->ruleCount = $map['RuleCount'];
         }

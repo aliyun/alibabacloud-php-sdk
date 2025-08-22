@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainWebsocketTrafficDataResponseBody\trafficDataPerInterval;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataModule extends Model
 {
     /**
-     * @description The timestamp of the returned data.
-     *
-     * @example 2017-12-10T20:00:00Z
-     *
      * @var string
      */
     public $timeStamp;
 
     /**
-     * @description The total volume of traffic.
-     *
-     * @example 423304182
-     *
      * @var float
      */
     public $websocketTraffic;
     protected $_name = [
-        'timeStamp'        => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
         'websocketTraffic' => 'WebsocketTraffic',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
+
         if (null !== $this->websocketTraffic) {
             $res['WebsocketTraffic'] = $this->websocketTraffic;
         }
@@ -47,17 +41,18 @@ class dataModule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataModule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
+
         if (isset($map['WebsocketTraffic'])) {
             $model->websocketTraffic = $map['WebsocketTraffic'];
         }

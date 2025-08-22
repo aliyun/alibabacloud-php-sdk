@@ -4,81 +4,66 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainTopReferVisitResponseBody\topReferList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class referList extends Model
 {
     /**
-     * @description The amount of network traffic. (Unit: bytes)
-     *
-     * @example 460486880
-     *
      * @var string
      */
     public $flow;
 
     /**
-     * @description The proportion of network traffic consumed to access the URL.
-     *
-     * @example 0.35
-     *
      * @var float
      */
     public $flowProportion;
 
     /**
-     * @description The complete referenced URL.
-     *
-     * @example 192.168.0.1
-     *
      * @var string
      */
     public $referDetail;
 
     /**
-     * @description The number of visits.
-     *
-     * @example 229567
-     *
      * @var string
      */
     public $visitData;
 
     /**
-     * @description The proportion of visits to the URL.
-     *
-     * @example 0.35
-     *
      * @var float
      */
     public $visitProportion;
     protected $_name = [
-        'flow'            => 'Flow',
-        'flowProportion'  => 'FlowProportion',
-        'referDetail'     => 'ReferDetail',
-        'visitData'       => 'VisitData',
+        'flow' => 'Flow',
+        'flowProportion' => 'FlowProportion',
+        'referDetail' => 'ReferDetail',
+        'visitData' => 'VisitData',
         'visitProportion' => 'VisitProportion',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flow) {
             $res['Flow'] = $this->flow;
         }
+
         if (null !== $this->flowProportion) {
             $res['FlowProportion'] = $this->flowProportion;
         }
+
         if (null !== $this->referDetail) {
             $res['ReferDetail'] = $this->referDetail;
         }
+
         if (null !== $this->visitData) {
             $res['VisitData'] = $this->visitData;
         }
+
         if (null !== $this->visitProportion) {
             $res['VisitProportion'] = $this->visitProportion;
         }
@@ -86,26 +71,30 @@ class referList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return referList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Flow'])) {
             $model->flow = $map['Flow'];
         }
+
         if (isset($map['FlowProportion'])) {
             $model->flowProportion = $map['FlowProportion'];
         }
+
         if (isset($map['ReferDetail'])) {
             $model->referDetail = $map['ReferDetail'];
         }
+
         if (isset($map['VisitData'])) {
             $model->visitData = $map['VisitData'];
         }
+
         if (isset($map['VisitProportion'])) {
             $model->visitProportion = $map['VisitProportion'];
         }

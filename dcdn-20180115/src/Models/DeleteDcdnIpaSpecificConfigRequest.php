@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDcdnIpaSpecificConfigRequest extends Model
 {
     /**
-     * @description The ID of the configuration. You can call the [DescribeDcdnDomainConfigs](https://help.aliyun.com/document_detail/130625.html) operation to query configuration IDs.
-     *
-     * This parameter is required.
-     * @example 50035**
-     *
      * @var string
      */
     public $configId;
 
     /**
-     * @description The accelerated domain name. You can specify only one domain name in each request.
-     *
-     * This parameter is required.
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
@@ -38,28 +28,32 @@ class DeleteDcdnIpaSpecificConfigRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'configId'      => 'ConfigId',
-        'domainName'    => 'DomainName',
-        'ownerId'       => 'OwnerId',
+        'configId' => 'ConfigId',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -67,23 +61,26 @@ class DeleteDcdnIpaSpecificConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDcdnIpaSpecificConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnHttpsDomainListRequest extends Model
 {
     /**
-     * @description The keyword that is used to search for certificates.
-     *
-     * @example cert
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description The number of returned pages. Valid values: **1 to 100000**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1 to 500**. Default value: **20**.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'keyword'    => 'Keyword',
+        'keyword' => 'Keyword',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,20 +51,22 @@ class DescribeDcdnHttpsDomainListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnHttpsDomainListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafLogsResponseBody\domainLogDetails;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnWafLogsResponseBody extends Model
 {
     /**
-     * @description Details about logs returned.
-     *
      * @var domainLogDetails[]
      */
     public $domainLogDetails;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 0985A362-C81E-5A56-891D-90226BEECA7C
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainLogDetails' => 'DomainLogDetails',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domainLogDetails)) {
+            Model::validateArray($this->domainLogDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainLogDetails) {
-            $res['DomainLogDetails'] = [];
-            if (null !== $this->domainLogDetails && \is_array($this->domainLogDetails)) {
-                $n = 0;
-                foreach ($this->domainLogDetails as $item) {
-                    $res['DomainLogDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainLogDetails)) {
+                $res['DomainLogDetails'] = [];
+                $n1 = 0;
+                foreach ($this->domainLogDetails as $item1) {
+                    $res['DomainLogDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +52,25 @@ class DescribeDcdnWafLogsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnWafLogsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainLogDetails'])) {
             if (!empty($map['DomainLogDetails'])) {
                 $model->domainLogDetails = [];
-                $n                       = 0;
-                foreach ($map['DomainLogDetails'] as $item) {
-                    $model->domainLogDetails[$n++] = null !== $item ? domainLogDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DomainLogDetails'] as $item1) {
+                    $model->domainLogDetails[$n1] = domainLogDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

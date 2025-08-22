@@ -4,51 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDcdnWafFilterInfoRequest extends Model
 {
     /**
-     * @description The type of the protection policy. Separate multiple types with commas (,). Valid values:
-     *
-     *   waf_group: basic web protection
-     *   custom_acl: custom protection
-     *   whitelist: IP address whitelist
-     *
-     * >If you do not specify this parameter, all types are returned.
-     * @example custom_acl
-     *
      * @var string
      */
     public $defenseScenes;
 
     /**
-     * @description The language of the returned information. Valid values:
-     *
-     *   en: English
-     *   cn: Simplified Chinese
-     *
-     * This parameter is required.
-     * @example cn
-     *
      * @var string
      */
     public $language;
     protected $_name = [
         'defenseScenes' => 'DefenseScenes',
-        'language'      => 'Language',
+        'language' => 'Language',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defenseScenes) {
             $res['DefenseScenes'] = $this->defenseScenes;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
@@ -56,17 +41,18 @@ class DescribeDcdnWafFilterInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnWafFilterInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefenseScenes'])) {
             $model->defenseScenes = $map['DefenseScenes'];
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }

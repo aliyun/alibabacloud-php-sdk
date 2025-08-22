@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetDcdnDomainCSRCertificateRequest extends Model
 {
     /**
-     * @description The domain name that is secured by the certificate. The domain name uses HTTPS acceleration.
-     *
-     * This parameter is required.
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The content of the certificate. The certificate must match the certificate signing request (CSR) created by calling the [CreateDcdnCertificateSigningRequest](https://help.aliyun.com/document_detail/144478.html) operation. Make sure that the certificate is in PEM format and its content is Base64-encoded and then encoded by encodeURIComponent.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $serverCertificate;
     protected $_name = [
-        'domainName'        => 'DomainName',
+        'domainName' => 'DomainName',
         'serverCertificate' => 'ServerCertificate',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->serverCertificate) {
             $res['ServerCertificate'] = $this->serverCertificate;
         }
@@ -49,17 +41,18 @@ class SetDcdnDomainCSRCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetDcdnDomainCSRCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['ServerCertificate'])) {
             $model->serverCertificate = $map['ServerCertificate'];
         }

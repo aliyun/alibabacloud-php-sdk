@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefreshDcdnObjectCacheByCacheTagRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example tag1,tag2
-     *
      * @var string
      */
     public $cacheTag;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $force;
     protected $_name = [
-        'cacheTag'   => 'CacheTag',
+        'cacheTag' => 'CacheTag',
         'domainName' => 'DomainName',
-        'force'      => 'Force',
+        'force' => 'Force',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cacheTag) {
             $res['CacheTag'] = $this->cacheTag;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
@@ -58,20 +51,22 @@ class RefreshDcdnObjectCacheByCacheTagRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefreshDcdnObjectCacheByCacheTagRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CacheTag'])) {
             $model->cacheTag = $map['CacheTag'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }

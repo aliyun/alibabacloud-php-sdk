@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnOriginSiteHealthStatusResponseBody\originSiteStatus;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnOriginSiteHealthStatusResponseBody extends Model
 {
     /**
-     * @description The information about the origin server of the accelerated domain name.
-     *
      * @var originSiteStatus[]
      */
     public $originSiteStatus;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'originSiteStatus' => 'OriginSiteStatus',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->originSiteStatus)) {
+            Model::validateArray($this->originSiteStatus);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->originSiteStatus) {
-            $res['OriginSiteStatus'] = [];
-            if (null !== $this->originSiteStatus && \is_array($this->originSiteStatus)) {
-                $n = 0;
-                foreach ($this->originSiteStatus as $item) {
-                    $res['OriginSiteStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->originSiteStatus)) {
+                $res['OriginSiteStatus'] = [];
+                $n1 = 0;
+                foreach ($this->originSiteStatus as $item1) {
+                    $res['OriginSiteStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +52,25 @@ class DescribeDcdnOriginSiteHealthStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDcdnOriginSiteHealthStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OriginSiteStatus'])) {
             if (!empty($map['OriginSiteStatus'])) {
                 $model->originSiteStatus = [];
-                $n                       = 0;
-                foreach ($map['OriginSiteStatus'] as $item) {
-                    $model->originSiteStatus[$n++] = null !== $item ? originSiteStatus::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OriginSiteStatus'] as $item1) {
+                    $model->originSiteStatus[$n1] = originSiteStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

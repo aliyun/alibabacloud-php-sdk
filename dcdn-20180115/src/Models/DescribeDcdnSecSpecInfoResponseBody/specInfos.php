@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSecSpecInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSecSpecInfoResponseBody\specInfos\ruleConfigs;
-use AlibabaCloud\Tea\Model;
 
 class specInfos extends Model
 {
     /**
-     * @description The code of the security rule.
-     *
-     * @example accurate_***
-     *
      * @var string
      */
     public $ruleCode;
 
     /**
-     * @description The configurations of the security rule.
-     *
      * @var ruleConfigs[]
      */
     public $ruleConfigs;
     protected $_name = [
-        'ruleCode'    => 'RuleCode',
+        'ruleCode' => 'RuleCode',
         'ruleConfigs' => 'RuleConfigs',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ruleConfigs)) {
+            Model::validateArray($this->ruleConfigs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleCode) {
             $res['RuleCode'] = $this->ruleCode;
         }
+
         if (null !== $this->ruleConfigs) {
-            $res['RuleConfigs'] = [];
-            if (null !== $this->ruleConfigs && \is_array($this->ruleConfigs)) {
-                $n = 0;
-                foreach ($this->ruleConfigs as $item) {
-                    $res['RuleConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ruleConfigs)) {
+                $res['RuleConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->ruleConfigs as $item1) {
+                    $res['RuleConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,23 +52,25 @@ class specInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return specInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleCode'])) {
             $model->ruleCode = $map['RuleCode'];
         }
+
         if (isset($map['RuleConfigs'])) {
             if (!empty($map['RuleConfigs'])) {
                 $model->ruleConfigs = [];
-                $n                  = 0;
-                foreach ($map['RuleConfigs'] as $item) {
-                    $model->ruleConfigs[$n++] = null !== $item ? ruleConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RuleConfigs'] as $item1) {
+                    $model->ruleConfigs[$n1] = ruleConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

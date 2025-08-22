@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDcdnRealTimeLogProjectResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 9732E117-8A37-49FD-A36F-ABBB87556CA7
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteDcdnRealTimeLogProjectResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteDcdnRealTimeLogProjectResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDcdnRealTimeLogProjectResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
