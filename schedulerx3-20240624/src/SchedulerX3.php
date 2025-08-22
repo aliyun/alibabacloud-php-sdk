@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateAppRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateAppResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterRequest;
@@ -98,11 +97,10 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateJobResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateJobScriptRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateJobScriptResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateJobShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class SchedulerX3 extends OpenApiClient
 {
@@ -127,51 +125,68 @@ class SchedulerX3 extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 创建应用
-     *  *
-     * @param CreateAppRequest $request CreateAppRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 创建应用.
      *
-     * @return CreateAppResponse CreateAppResponse
+     * @param request - CreateAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppResponse
+     *
+     * @param CreateAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateAppResponse
      */
     public function createAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $body['AccessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$body['AccessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->appType) {
+            @$body['AppType'] = $request->appType;
         }
-        if (!Utils::isUnset($request->enableLog)) {
-            $body['EnableLog'] = $request->enableLog;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->labelRouteStrategy)) {
-            $body['LabelRouteStrategy'] = $request->labelRouteStrategy;
+
+        if (null !== $request->enableLog) {
+            @$body['EnableLog'] = $request->enableLog;
         }
-        if (!Utils::isUnset($request->maxConcurrency)) {
-            $body['MaxConcurrency'] = $request->maxConcurrency;
+
+        if (null !== $request->labelRouteStrategy) {
+            @$body['LabelRouteStrategy'] = $request->labelRouteStrategy;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->maxConcurrency) {
+            @$body['MaxConcurrency'] = $request->maxConcurrency;
         }
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateApp',
@@ -189,11 +204,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 创建应用
-     *  *
-     * @param CreateAppRequest $request CreateAppRequest
+     * 创建应用.
      *
-     * @return CreateAppResponse CreateAppResponse
+     * @param request - CreateAppRequest
+     *
+     * @returns CreateAppResponse
+     *
+     * @param CreateAppRequest $request
+     *
+     * @return CreateAppResponse
      */
     public function createApp($request)
     {
@@ -203,44 +222,56 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 创建集群
-     *  *
-     * @param CreateClusterRequest $tmpReq  CreateClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 创建集群.
      *
-     * @return CreateClusterResponse CreateClusterResponse
+     * @param tmpReq - CreateClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateClusterResponse
+     *
+     * @param CreateClusterRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateClusterResponse
      */
     public function createClusterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateClusterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->vSwitches)) {
-            $request->vSwitchesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vSwitches, 'VSwitches', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->vSwitches) {
+            $request->vSwitchesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vSwitches, 'VSwitches', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clusterName)) {
-            $body['ClusterName'] = $request->clusterName;
+        if (null !== $request->clusterName) {
+            @$body['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->clusterSpec)) {
-            $body['ClusterSpec'] = $request->clusterSpec;
+
+        if (null !== $request->clusterSpec) {
+            @$body['ClusterSpec'] = $request->clusterSpec;
         }
-        if (!Utils::isUnset($request->engineType)) {
-            $body['EngineType'] = $request->engineType;
+
+        if (null !== $request->engineType) {
+            @$body['EngineType'] = $request->engineType;
         }
-        if (!Utils::isUnset($request->vSwitchesShrink)) {
-            $body['VSwitches'] = $request->vSwitchesShrink;
+
+        if (null !== $request->vSwitchesShrink) {
+            @$body['VSwitches'] = $request->vSwitchesShrink;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateCluster',
@@ -258,11 +289,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 创建集群
-     *  *
-     * @param CreateClusterRequest $request CreateClusterRequest
+     * 创建集群.
      *
-     * @return CreateClusterResponse CreateClusterResponse
+     * @param request - CreateClusterRequest
+     *
+     * @returns CreateClusterResponse
+     *
+     * @param CreateClusterRequest $request
+     *
+     * @return CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -272,96 +307,130 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 创建任务
-     *  *
-     * @param CreateJobRequest $tmpReq  CreateJobRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 创建任务
      *
-     * @return CreateJobResponse CreateJobResponse
+     * @param tmpReq - CreateJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateJobResponse
+     *
+     * @param CreateJobRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateJobResponse
      */
     public function createJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->noticeConfig)) {
-            $request->noticeConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->noticeConfig, 'NoticeConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->noticeConfig) {
+            $request->noticeConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->noticeConfig, 'NoticeConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->noticeContacts)) {
-            $request->noticeContactsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->noticeContacts, 'NoticeContacts', 'json');
+
+        if (null !== $tmpReq->noticeContacts) {
+            $request->noticeContactsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->noticeContacts, 'NoticeContacts', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->attemptInterval)) {
-            $body['AttemptInterval'] = $request->attemptInterval;
+
+        if (null !== $request->attemptInterval) {
+            @$body['AttemptInterval'] = $request->attemptInterval;
         }
-        if (!Utils::isUnset($request->calendar)) {
-            $body['Calendar'] = $request->calendar;
+
+        if (null !== $request->calendar) {
+            @$body['Calendar'] = $request->calendar;
         }
-        if (!Utils::isUnset($request->childJobId)) {
-            $body['ChildJobId'] = $request->childJobId;
+
+        if (null !== $request->childJobId) {
+            @$body['ChildJobId'] = $request->childJobId;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->executorBlockStrategy)) {
-            $body['ExecutorBlockStrategy'] = $request->executorBlockStrategy;
+
+        if (null !== $request->executorBlockStrategy) {
+            @$body['ExecutorBlockStrategy'] = $request->executorBlockStrategy;
         }
-        if (!Utils::isUnset($request->jobHandler)) {
-            $body['JobHandler'] = $request->jobHandler;
+
+        if (null !== $request->jobHandler) {
+            @$body['JobHandler'] = $request->jobHandler;
         }
-        if (!Utils::isUnset($request->jobType)) {
-            $body['JobType'] = $request->jobType;
+
+        if (null !== $request->jobType) {
+            @$body['JobType'] = $request->jobType;
         }
-        if (!Utils::isUnset($request->maxAttempt)) {
-            $body['MaxAttempt'] = $request->maxAttempt;
+
+        if (null !== $request->maxAttempt) {
+            @$body['MaxAttempt'] = $request->maxAttempt;
         }
-        if (!Utils::isUnset($request->maxConcurrency)) {
-            $body['MaxConcurrency'] = $request->maxConcurrency;
+
+        if (null !== $request->maxConcurrency) {
+            @$body['MaxConcurrency'] = $request->maxConcurrency;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->noticeConfigShrink)) {
-            $body['NoticeConfig'] = $request->noticeConfigShrink;
+
+        if (null !== $request->noticeConfigShrink) {
+            @$body['NoticeConfig'] = $request->noticeConfigShrink;
         }
-        if (!Utils::isUnset($request->noticeContactsShrink)) {
-            $body['NoticeContacts'] = $request->noticeContactsShrink;
+
+        if (null !== $request->noticeContactsShrink) {
+            @$body['NoticeContacts'] = $request->noticeContactsShrink;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $body['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$body['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $body['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->routeStrategy)) {
-            $body['RouteStrategy'] = $request->routeStrategy;
+
+        if (null !== $request->routeStrategy) {
+            @$body['RouteStrategy'] = $request->routeStrategy;
         }
-        if (!Utils::isUnset($request->script)) {
-            $body['Script'] = $request->script;
+
+        if (null !== $request->script) {
+            @$body['Script'] = $request->script;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->timeExpression)) {
-            $body['TimeExpression'] = $request->timeExpression;
+
+        if (null !== $request->timeExpression) {
+            @$body['TimeExpression'] = $request->timeExpression;
         }
-        if (!Utils::isUnset($request->timeType)) {
-            $body['TimeType'] = $request->timeType;
+
+        if (null !== $request->timeType) {
+            @$body['TimeType'] = $request->timeType;
         }
-        if (!Utils::isUnset($request->timezone)) {
-            $body['Timezone'] = $request->timezone;
+
+        if (null !== $request->timezone) {
+            @$body['Timezone'] = $request->timezone;
         }
+
+        if (null !== $request->weight) {
+            @$body['Weight'] = $request->weight;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateJob',
@@ -379,11 +448,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 创建任务
-     *  *
-     * @param CreateJobRequest $request CreateJobRequest
+     * 创建任务
      *
-     * @return CreateJobResponse CreateJobResponse
+     * @param request - CreateJobRequest
+     *
+     * @returns CreateJobResponse
+     *
+     * @param CreateJobRequest $request
+     *
+     * @return CreateJobResponse
      */
     public function createJob($request)
     {
@@ -393,25 +466,32 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 删除应用分组
-     *  *
-     * @param DeleteAppRequest $request DeleteAppRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 删除应用分组.
      *
-     * @return DeleteAppResponse DeleteAppResponse
+     * @param request - DeleteAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppResponse
+     *
+     * @param DeleteAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteAppResponse
      */
     public function deleteAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteApp',
@@ -429,11 +509,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 删除应用分组
-     *  *
-     * @param DeleteAppRequest $request DeleteAppRequest
+     * 删除应用分组.
      *
-     * @return DeleteAppResponse DeleteAppResponse
+     * @param request - DeleteAppRequest
+     *
+     * @returns DeleteAppResponse
+     *
+     * @param DeleteAppRequest $request
+     *
+     * @return DeleteAppResponse
      */
     public function deleteApp($request)
     {
@@ -443,22 +527,28 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 释放删除集群
-     *  *
-     * @param DeleteClusterRequest $request DeleteClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 释放删除集群.
      *
-     * @return DeleteClusterResponse DeleteClusterResponse
+     * @param request - DeleteClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteClusterResponse
+     *
+     * @param DeleteClusterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteClusterResponse
      */
     public function deleteClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCluster',
@@ -476,11 +566,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 释放删除集群
-     *  *
-     * @param DeleteClusterRequest $request DeleteClusterRequest
+     * 释放删除集群.
      *
-     * @return DeleteClusterResponse DeleteClusterResponse
+     * @param request - DeleteClusterRequest
+     *
+     * @returns DeleteClusterResponse
+     *
+     * @param DeleteClusterRequest $request
+     *
+     * @return DeleteClusterResponse
      */
     public function deleteCluster($request)
     {
@@ -490,33 +584,42 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除任务
-     *  *
-     * @param DeleteJobsRequest $tmpReq  DeleteJobsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 批量删除任务
      *
-     * @return DeleteJobsResponse DeleteJobsResponse
+     * @param tmpReq - DeleteJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteJobsResponse
+     *
+     * @param DeleteJobsRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteJobsResponse
      */
     public function deleteJobsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteJobsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->jobIds)) {
-            $request->jobIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobIds, 'JobIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->jobIds) {
+            $request->jobIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobIds, 'JobIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobIdsShrink)) {
-            $body['JobIds'] = $request->jobIdsShrink;
+
+        if (null !== $request->jobIdsShrink) {
+            @$body['JobIds'] = $request->jobIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteJobs',
@@ -534,11 +637,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除任务
-     *  *
-     * @param DeleteJobsRequest $request DeleteJobsRequest
+     * 批量删除任务
      *
-     * @return DeleteJobsResponse DeleteJobsResponse
+     * @param request - DeleteJobsRequest
+     *
+     * @returns DeleteJobsResponse
+     *
+     * @param DeleteJobsRequest $request
+     *
+     * @return DeleteJobsResponse
      */
     public function deleteJobs($request)
     {
@@ -548,36 +655,46 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 批量导出任务信息
-     *  *
-     * @param ExportJobsRequest $tmpReq  ExportJobsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 批量导出任务信息.
      *
-     * @return ExportJobsResponse ExportJobsResponse
+     * @param tmpReq - ExportJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportJobsResponse
+     *
+     * @param ExportJobsRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ExportJobsResponse
      */
     public function exportJobsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ExportJobsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->jobIds)) {
-            $request->jobIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobIds, 'JobIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->jobIds) {
+            $request->jobIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobIds, 'JobIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->exportJobType)) {
-            $body['ExportJobType'] = $request->exportJobType;
+
+        if (null !== $request->exportJobType) {
+            @$body['ExportJobType'] = $request->exportJobType;
         }
-        if (!Utils::isUnset($request->jobIdsShrink)) {
-            $body['JobIds'] = $request->jobIdsShrink;
+
+        if (null !== $request->jobIdsShrink) {
+            @$body['JobIds'] = $request->jobIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExportJobs',
@@ -595,11 +712,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 批量导出任务信息
-     *  *
-     * @param ExportJobsRequest $request ExportJobsRequest
+     * 批量导出任务信息.
      *
-     * @return ExportJobsResponse ExportJobsResponse
+     * @param request - ExportJobsRequest
+     *
+     * @returns ExportJobsResponse
+     *
+     * @param ExportJobsRequest $request
+     *
+     * @return ExportJobsResponse
      */
     public function exportJobs($request)
     {
@@ -609,25 +730,32 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定应用
-     *  *
-     * @param GetAppRequest  $request GetAppRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取指定应用.
      *
-     * @return GetAppResponse GetAppResponse
+     * @param request - GetAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppResponse
+     *
+     * @param GetAppRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAppResponse
      */
     public function getAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetApp',
@@ -645,11 +773,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定应用
-     *  *
-     * @param GetAppRequest $request GetAppRequest
+     * 获取指定应用.
      *
-     * @return GetAppResponse GetAppResponse
+     * @param request - GetAppRequest
+     *
+     * @returns GetAppResponse
+     *
+     * @param GetAppRequest $request
+     *
+     * @return GetAppResponse
      */
     public function getApp($request)
     {
@@ -659,19 +791,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取集群详细信息
-     *  *
-     * @param GetClusterRequest $request GetClusterRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 获取集群详细信息.
      *
-     * @return GetClusterResponse GetClusterResponse
+     * @param request - GetClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetClusterResponse
+     *
+     * @param GetClusterRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetClusterResponse
      */
     public function getClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetCluster',
@@ -689,11 +826,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取集群详细信息
-     *  *
-     * @param GetClusterRequest $request GetClusterRequest
+     * 获取集群详细信息.
      *
-     * @return GetClusterResponse GetClusterResponse
+     * @param request - GetClusterRequest
+     *
+     * @returns GetClusterResponse
+     *
+     * @param GetClusterRequest $request
+     *
+     * @return GetClusterResponse
      */
     public function getCluster($request)
     {
@@ -703,19 +844,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定机器信息
-     *  *
-     * @param GetDesigateInfoRequest $request GetDesigateInfoRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取指定机器信息.
      *
-     * @return GetDesigateInfoResponse GetDesigateInfoResponse
+     * @param request - GetDesigateInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDesigateInfoResponse
+     *
+     * @param GetDesigateInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetDesigateInfoResponse
      */
     public function getDesigateInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDesigateInfo',
@@ -733,11 +879,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定机器信息
-     *  *
-     * @param GetDesigateInfoRequest $request GetDesigateInfoRequest
+     * 获取指定机器信息.
      *
-     * @return GetDesigateInfoResponse GetDesigateInfoResponse
+     * @param request - GetDesigateInfoRequest
+     *
+     * @returns GetDesigateInfoResponse
+     *
+     * @param GetDesigateInfoRequest $request
+     *
+     * @return GetDesigateInfoResponse
      */
     public function getDesigateInfo($request)
     {
@@ -747,31 +897,40 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务执行的详细信息
-     *  *
-     * @param GetJobExecutionRequest $request GetJobExecutionRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取任务执行的详细信息.
      *
-     * @return GetJobExecutionResponse GetJobExecutionResponse
+     * @param request - GetJobExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobExecutionResponse
+     *
+     * @param GetJobExecutionRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetJobExecutionResponse
      */
     public function getJobExecutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobExecutionId)) {
-            $query['JobExecutionId'] = $request->jobExecutionId;
+
+        if (null !== $request->jobExecutionId) {
+            @$query['JobExecutionId'] = $request->jobExecutionId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
+
+        if (null !== $request->mseSessionId) {
+            @$query['MseSessionId'] = $request->mseSessionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJobExecution',
@@ -789,11 +948,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务执行的详细信息
-     *  *
-     * @param GetJobExecutionRequest $request GetJobExecutionRequest
+     * 获取任务执行的详细信息.
      *
-     * @return GetJobExecutionResponse GetJobExecutionResponse
+     * @param request - GetJobExecutionRequest
+     *
+     * @returns GetJobExecutionResponse
+     *
+     * @param GetJobExecutionRequest $request
+     *
+     * @return GetJobExecutionResponse
      */
     public function getJobExecution($request)
     {
@@ -803,19 +966,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务执行的详情
-     *  *
-     * @param GetJobExecutionProgressRequest $request GetJobExecutionProgressRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 获取任务执行的详情.
      *
-     * @return GetJobExecutionProgressResponse GetJobExecutionProgressResponse
+     * @param request - GetJobExecutionProgressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobExecutionProgressResponse
+     *
+     * @param GetJobExecutionProgressRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetJobExecutionProgressResponse
      */
     public function getJobExecutionProgressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJobExecutionProgress',
@@ -833,11 +1001,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务执行的详情
-     *  *
-     * @param GetJobExecutionProgressRequest $request GetJobExecutionProgressRequest
+     * 获取任务执行的详情.
      *
-     * @return GetJobExecutionProgressResponse GetJobExecutionProgressResponse
+     * @param request - GetJobExecutionProgressRequest
+     *
+     * @returns GetJobExecutionProgressResponse
+     *
+     * @param GetJobExecutionProgressRequest $request
+     *
+     * @return GetJobExecutionProgressResponse
      */
     public function getJobExecutionProgress($request)
     {
@@ -847,19 +1019,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务的线程堆栈
-     *  *
-     * @param GetJobExecutionThreadDumpRequest $request GetJobExecutionThreadDumpRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 查询任务的线程堆栈.
      *
-     * @return GetJobExecutionThreadDumpResponse GetJobExecutionThreadDumpResponse
+     * @param request - GetJobExecutionThreadDumpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobExecutionThreadDumpResponse
+     *
+     * @param GetJobExecutionThreadDumpRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetJobExecutionThreadDumpResponse
      */
     public function getJobExecutionThreadDumpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJobExecutionThreadDump',
@@ -877,11 +1054,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务的线程堆栈
-     *  *
-     * @param GetJobExecutionThreadDumpRequest $request GetJobExecutionThreadDumpRequest
+     * 查询任务的线程堆栈.
      *
-     * @return GetJobExecutionThreadDumpResponse GetJobExecutionThreadDumpResponse
+     * @param request - GetJobExecutionThreadDumpRequest
+     *
+     * @returns GetJobExecutionThreadDumpResponse
+     *
+     * @param GetJobExecutionThreadDumpRequest $request
+     *
+     * @return GetJobExecutionThreadDumpResponse
      */
     public function getJobExecutionThreadDump($request)
     {
@@ -891,19 +1072,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 查询日志
-     *  *
-     * @param GetLogRequest  $request GetLogRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询日志.
      *
-     * @return GetLogResponse GetLogResponse
+     * @param request - GetLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLogResponse
+     *
+     * @param GetLogRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetLogResponse
      */
     public function getLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetLog',
@@ -921,11 +1107,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 查询日志
-     *  *
-     * @param GetLogRequest $request GetLogRequest
+     * 查询日志.
      *
-     * @return GetLogResponse GetLogResponse
+     * @param request - GetLogRequest
+     *
+     * @returns GetLogResponse
+     *
+     * @param GetLogRequest $request
+     *
+     * @return GetLogResponse
      */
     public function getLog($request)
     {
@@ -935,19 +1125,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 查询事件
-     *  *
-     * @param GetLogEventRequest $request GetLogEventRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 查询事件.
      *
-     * @return GetLogEventResponse GetLogEventResponse
+     * @param request - GetLogEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLogEventResponse
+     *
+     * @param GetLogEventRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetLogEventResponse
      */
     public function getLogEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetLogEvent',
@@ -965,11 +1160,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 查询事件
-     *  *
-     * @param GetLogEventRequest $request GetLogEventRequest
+     * 查询事件.
      *
-     * @return GetLogEventResponse GetLogEventResponse
+     * @param request - GetLogEventRequest
+     *
+     * @returns GetLogEventResponse
+     *
+     * @param GetLogEventRequest $request
+     *
+     * @return GetLogEventResponse
      */
     public function getLogEvent($request)
     {
@@ -979,31 +1178,40 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 导入日历
-     *  *
-     * @param ImportCalendarRequest $request ImportCalendarRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 导入日历.
      *
-     * @return ImportCalendarResponse ImportCalendarResponse
+     * @param request - ImportCalendarRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportCalendarResponse
+     *
+     * @param ImportCalendarRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ImportCalendarResponse
      */
     public function importCalendarWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->months)) {
-            $body['Months'] = $request->months;
+
+        if (null !== $request->months) {
+            @$body['Months'] = $request->months;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->year)) {
-            $body['Year'] = $request->year;
+
+        if (null !== $request->year) {
+            @$body['Year'] = $request->year;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ImportCalendar',
@@ -1021,11 +1229,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 导入日历
-     *  *
-     * @param ImportCalendarRequest $request ImportCalendarRequest
+     * 导入日历.
      *
-     * @return ImportCalendarResponse ImportCalendarResponse
+     * @param request - ImportCalendarRequest
+     *
+     * @returns ImportCalendarResponse
+     *
+     * @param ImportCalendarRequest $request
+     *
+     * @return ImportCalendarResponse
      */
     public function importCalendar($request)
     {
@@ -1035,31 +1247,40 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 批量导入任务
-     *  *
-     * @param ImportJobsRequest $request ImportJobsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 批量导入任务
      *
-     * @return ImportJobsResponse ImportJobsResponse
+     * @param request - ImportJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportJobsResponse
+     *
+     * @param ImportJobsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ImportJobsResponse
      */
     public function importJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoCreateApp)) {
-            $body['AutoCreateApp'] = $request->autoCreateApp;
+        if (null !== $request->autoCreateApp) {
+            @$body['AutoCreateApp'] = $request->autoCreateApp;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->overwrite)) {
-            $body['Overwrite'] = $request->overwrite;
+
+        if (null !== $request->overwrite) {
+            @$body['Overwrite'] = $request->overwrite;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ImportJobs',
@@ -1077,11 +1298,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 批量导入任务
-     *  *
-     * @param ImportJobsRequest $request ImportJobsRequest
+     * 批量导入任务
      *
-     * @return ImportJobsResponse ImportJobsResponse
+     * @param request - ImportJobsRequest
+     *
+     * @returns ImportJobsResponse
+     *
+     * @param ImportJobsRequest $request
+     *
+     * @return ImportJobsResponse
      */
     public function importJobs($request)
     {
@@ -1091,19 +1316,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取报警事件
-     *  *
-     * @param ListAlarmEventRequest $request ListAlarmEventRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取报警事件.
      *
-     * @return ListAlarmEventResponse ListAlarmEventResponse
+     * @param request - ListAlarmEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlarmEventResponse
+     *
+     * @param ListAlarmEventRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAlarmEventResponse
      */
     public function listAlarmEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAlarmEvent',
@@ -1121,11 +1351,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取报警事件
-     *  *
-     * @param ListAlarmEventRequest $request ListAlarmEventRequest
+     * 获取报警事件.
      *
-     * @return ListAlarmEventResponse ListAlarmEventResponse
+     * @param request - ListAlarmEventRequest
+     *
+     * @returns ListAlarmEventResponse
+     *
+     * @param ListAlarmEventRequest $request
+     *
+     * @return ListAlarmEventResponse
      */
     public function listAlarmEvent($request)
     {
@@ -1135,19 +1369,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取应用名字列表
-     *  *
-     * @param ListAppNamesRequest $request ListAppNamesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取应用名字列表.
      *
-     * @return ListAppNamesResponse ListAppNamesResponse
+     * @param request - ListAppNamesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppNamesResponse
+     *
+     * @param ListAppNamesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListAppNamesResponse
      */
     public function listAppNamesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAppNames',
@@ -1165,11 +1404,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取应用名字列表
-     *  *
-     * @param ListAppNamesRequest $request ListAppNamesRequest
+     * 获取应用名字列表.
      *
-     * @return ListAppNamesResponse ListAppNamesResponse
+     * @param request - ListAppNamesRequest
+     *
+     * @returns ListAppNamesResponse
+     *
+     * @param ListAppNamesRequest $request
+     *
+     * @return ListAppNamesResponse
      */
     public function listAppNames($request)
     {
@@ -1179,19 +1422,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取应用列表
-     *  *
-     * @param ListAppsRequest $request ListAppsRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 获取应用列表.
      *
-     * @return ListAppsResponse ListAppsResponse
+     * @param request - ListAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppsResponse
+     *
+     * @param ListAppsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListAppsResponse
      */
     public function listAppsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApps',
@@ -1209,11 +1457,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取应用列表
-     *  *
-     * @param ListAppsRequest $request ListAppsRequest
+     * 获取应用列表.
      *
-     * @return ListAppsResponse ListAppsResponse
+     * @param request - ListAppsRequest
+     *
+     * @returns ListAppsResponse
+     *
+     * @param ListAppsRequest $request
+     *
+     * @return ListAppsResponse
      */
     public function listApps($request)
     {
@@ -1223,19 +1475,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取日历名字列表
-     *  *
-     * @param ListCalendarNamesRequest $request ListCalendarNamesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取日历名字列表.
      *
-     * @return ListCalendarNamesResponse ListCalendarNamesResponse
+     * @param request - ListCalendarNamesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCalendarNamesResponse
+     *
+     * @param ListCalendarNamesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListCalendarNamesResponse
      */
     public function listCalendarNamesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCalendarNames',
@@ -1253,11 +1510,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取日历名字列表
-     *  *
-     * @param ListCalendarNamesRequest $request ListCalendarNamesRequest
+     * 获取日历名字列表.
      *
-     * @return ListCalendarNamesResponse ListCalendarNamesResponse
+     * @param request - ListCalendarNamesRequest
+     *
+     * @returns ListCalendarNamesResponse
+     *
+     * @param ListCalendarNamesRequest $request
+     *
+     * @return ListCalendarNamesResponse
      */
     public function listCalendarNames($request)
     {
@@ -1267,19 +1528,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例列表
-     *  *
-     * @param ListClustersRequest $request ListClustersRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 查询实例列表.
      *
-     * @return ListClustersResponse ListClustersResponse
+     * @param request - ListClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClustersResponse
+     *
+     * @param ListClustersRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListClustersResponse
      */
     public function listClustersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListClusters',
@@ -1297,11 +1563,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例列表
-     *  *
-     * @param ListClustersRequest $request ListClustersRequest
+     * 查询实例列表.
      *
-     * @return ListClustersResponse ListClustersResponse
+     * @param request - ListClustersRequest
+     *
+     * @returns ListClustersResponse
+     *
+     * @param ListClustersRequest $request
+     *
+     * @return ListClustersResponse
      */
     public function listClusters($request)
     {
@@ -1311,19 +1581,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 查询Executor列表
-     *  *
-     * @param ListExecutorsRequest $request ListExecutorsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 查询Executor列表.
      *
-     * @return ListExecutorsResponse ListExecutorsResponse
+     * @param request - ListExecutorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListExecutorsResponse
+     *
+     * @param ListExecutorsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListExecutorsResponse
      */
     public function listExecutorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListExecutors',
@@ -1341,11 +1616,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 查询Executor列表
-     *  *
-     * @param ListExecutorsRequest $request ListExecutorsRequest
+     * 查询Executor列表.
      *
-     * @return ListExecutorsResponse ListExecutorsResponse
+     * @param request - ListExecutorsRequest
+     *
+     * @returns ListExecutorsResponse
+     *
+     * @param ListExecutorsRequest $request
+     *
+     * @return ListExecutorsResponse
      */
     public function listExecutors($request)
     {
@@ -1355,19 +1634,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务实例列表
-     *  *
-     * @param ListJobExecutionsRequest $request ListJobExecutionsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取任务实例列表.
      *
-     * @return ListJobExecutionsResponse ListJobExecutionsResponse
+     * @param request - ListJobExecutionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobExecutionsResponse
+     *
+     * @param ListJobExecutionsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListJobExecutionsResponse
      */
     public function listJobExecutionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListJobExecutions',
@@ -1385,11 +1669,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务实例列表
-     *  *
-     * @param ListJobExecutionsRequest $request ListJobExecutionsRequest
+     * 获取任务实例列表.
      *
-     * @return ListJobExecutionsResponse ListJobExecutionsResponse
+     * @param request - ListJobExecutionsRequest
+     *
+     * @returns ListJobExecutionsResponse
+     *
+     * @param ListJobExecutionsRequest $request
+     *
+     * @return ListJobExecutionsResponse
      */
     public function listJobExecutions($request)
     {
@@ -1399,34 +1687,44 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务脚本历史列表
-     *  *
-     * @param ListJobScriptHistoryRequest $request ListJobScriptHistoryRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取任务脚本历史列表.
      *
-     * @return ListJobScriptHistoryResponse ListJobScriptHistoryResponse
+     * @param request - ListJobScriptHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobScriptHistoryResponse
+     *
+     * @param ListJobScriptHistoryRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListJobScriptHistoryResponse
      */
     public function listJobScriptHistoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListJobScriptHistory',
@@ -1444,11 +1742,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务脚本历史列表
-     *  *
-     * @param ListJobScriptHistoryRequest $request ListJobScriptHistoryRequest
+     * 获取任务脚本历史列表.
      *
-     * @return ListJobScriptHistoryResponse ListJobScriptHistoryResponse
+     * @param request - ListJobScriptHistoryRequest
+     *
+     * @returns ListJobScriptHistoryResponse
+     *
+     * @param ListJobScriptHistoryRequest $request
+     *
+     * @return ListJobScriptHistoryResponse
      */
     public function listJobScriptHistory($request)
     {
@@ -1458,19 +1760,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务列表
-     *  *
-     * @param ListJobsRequest $request ListJobsRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 获取任务列表.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param request - ListJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobsResponse
+     *
+     * @param ListJobsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListJobsResponse
      */
     public function listJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListJobs',
@@ -1488,11 +1795,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务列表
-     *  *
-     * @param ListJobsRequest $request ListJobsRequest
+     * 获取任务列表.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param request - ListJobsRequest
+     *
+     * @returns ListJobsResponse
+     *
+     * @param ListJobsRequest $request
+     *
+     * @return ListJobsResponse
      */
     public function listJobs($request)
     {
@@ -1502,19 +1813,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取executor的label列表
-     *  *
-     * @param ListLablesRequest $request ListLablesRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 获取executor的label列表.
      *
-     * @return ListLablesResponse ListLablesResponse
+     * @param request - ListLablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLablesResponse
+     *
+     * @param ListLablesRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListLablesResponse
      */
     public function listLablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListLables',
@@ -1532,11 +1848,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取executor的label列表
-     *  *
-     * @param ListLablesRequest $request ListLablesRequest
+     * 获取executor的label列表.
      *
-     * @return ListLablesResponse ListLablesResponse
+     * @param request - ListLablesRequest
+     *
+     * @returns ListLablesResponse
+     *
+     * @param ListLablesRequest $request
+     *
+     * @return ListLablesResponse
      */
     public function listLables($request)
     {
@@ -1546,11 +1866,16 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取可用区列表
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取可用区列表.
      *
-     * @return ListRegionZoneResponse ListRegionZoneResponse
+     * @param request - ListRegionZoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRegionZoneResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListRegionZoneResponse
      */
     public function listRegionZoneWithOptions($runtime)
     {
@@ -1571,9 +1896,11 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取可用区列表
-     *  *
-     * @return ListRegionZoneResponse ListRegionZoneResponse
+     * 获取可用区列表.
+     *
+     * @returns ListRegionZoneResponse
+     *
+     * @return ListRegionZoneResponse
      */
     public function listRegionZone()
     {
@@ -1583,11 +1910,16 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取所有region列表
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取所有region列表.
      *
-     * @return ListRegionsResponse ListRegionsResponse
+     * @param request - ListRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRegionsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListRegionsResponse
      */
     public function listRegionsWithOptions($runtime)
     {
@@ -1608,9 +1940,11 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取所有region列表
-     *  *
-     * @return ListRegionsResponse ListRegionsResponse
+     * 获取所有region列表.
+     *
+     * @returns ListRegionsResponse
+     *
+     * @return ListRegionsResponse
      */
     public function listRegions()
     {
@@ -1620,19 +1954,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 查询调度事件
-     *  *
-     * @param ListScheduleEventRequest $request ListScheduleEventRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询调度事件.
      *
-     * @return ListScheduleEventResponse ListScheduleEventResponse
+     * @param request - ListScheduleEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListScheduleEventResponse
+     *
+     * @param ListScheduleEventRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListScheduleEventResponse
      */
     public function listScheduleEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListScheduleEvent',
@@ -1650,11 +1989,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 查询调度事件
-     *  *
-     * @param ListScheduleEventRequest $request ListScheduleEventRequest
+     * 查询调度事件.
      *
-     * @return ListScheduleEventResponse ListScheduleEventResponse
+     * @param request - ListScheduleEventRequest
+     *
+     * @returns ListScheduleEventResponse
+     *
+     * @param ListScheduleEventRequest $request
+     *
+     * @return ListScheduleEventResponse
      */
     public function listScheduleEvent($request)
     {
@@ -1664,19 +2007,24 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定时间类型和表达式未来5次调度时间
-     *  *
-     * @param ListScheduleTimesRequest $request ListScheduleTimesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取指定时间类型和表达式未来5次调度时间.
      *
-     * @return ListScheduleTimesResponse ListScheduleTimesResponse
+     * @param request - ListScheduleTimesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListScheduleTimesResponse
+     *
+     * @param ListScheduleTimesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListScheduleTimesResponse
      */
     public function listScheduleTimesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListScheduleTimes',
@@ -1694,11 +2042,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定时间类型和表达式未来5次调度时间
-     *  *
-     * @param ListScheduleTimesRequest $request ListScheduleTimesRequest
+     * 获取指定时间类型和表达式未来5次调度时间.
      *
-     * @return ListScheduleTimesResponse ListScheduleTimesResponse
+     * @param request - ListScheduleTimesRequest
+     *
+     * @returns ListScheduleTimesResponse
+     *
+     * @param ListScheduleTimesRequest $request
+     *
+     * @return ListScheduleTimesResponse
      */
     public function listScheduleTimes($request)
     {
@@ -1708,42 +2060,54 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 指定执行器
-     *  *
-     * @param OperateDesignateExecutorsRequest $tmpReq  OperateDesignateExecutorsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 指定执行器.
      *
-     * @return OperateDesignateExecutorsResponse OperateDesignateExecutorsResponse
+     * @param tmpReq - OperateDesignateExecutorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateDesignateExecutorsResponse
+     *
+     * @param OperateDesignateExecutorsRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return OperateDesignateExecutorsResponse
      */
     public function operateDesignateExecutorsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new OperateDesignateExecutorsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->addressList)) {
-            $request->addressListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addressList, 'AddressList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addressList) {
+            $request->addressListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addressList, 'AddressList', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->addressListShrink)) {
-            $body['AddressList'] = $request->addressListShrink;
+        if (null !== $request->addressListShrink) {
+            @$body['AddressList'] = $request->addressListShrink;
         }
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->designateType)) {
-            $body['DesignateType'] = $request->designateType;
+
+        if (null !== $request->designateType) {
+            @$body['DesignateType'] = $request->designateType;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->transferable)) {
-            $body['Transferable'] = $request->transferable;
+
+        if (null !== $request->transferable) {
+            @$body['Transferable'] = $request->transferable;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'OperateDesignateExecutors',
@@ -1761,11 +2125,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 指定执行器
-     *  *
-     * @param OperateDesignateExecutorsRequest $request OperateDesignateExecutorsRequest
+     * 指定执行器.
      *
-     * @return OperateDesignateExecutorsResponse OperateDesignateExecutorsResponse
+     * @param request - OperateDesignateExecutorsRequest
+     *
+     * @returns OperateDesignateExecutorsResponse
+     *
+     * @param OperateDesignateExecutorsRequest $request
+     *
+     * @return OperateDesignateExecutorsResponse
      */
     public function operateDesignateExecutors($request)
     {
@@ -1775,33 +2143,42 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 批量禁用任务
-     *  *
-     * @param OperateDisableJobsRequest $tmpReq  OperateDisableJobsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 批量禁用任务
      *
-     * @return OperateDisableJobsResponse OperateDisableJobsResponse
+     * @param tmpReq - OperateDisableJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateDisableJobsResponse
+     *
+     * @param OperateDisableJobsRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return OperateDisableJobsResponse
      */
     public function operateDisableJobsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new OperateDisableJobsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->jobIds)) {
-            $request->jobIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobIds, 'JobIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->jobIds) {
+            $request->jobIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobIds, 'JobIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobIdsShrink)) {
-            $body['JobIds'] = $request->jobIdsShrink;
+
+        if (null !== $request->jobIdsShrink) {
+            @$body['JobIds'] = $request->jobIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'OperateDisableJobs',
@@ -1819,11 +2196,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 批量禁用任务
-     *  *
-     * @param OperateDisableJobsRequest $request OperateDisableJobsRequest
+     * 批量禁用任务
      *
-     * @return OperateDisableJobsResponse OperateDisableJobsResponse
+     * @param request - OperateDisableJobsRequest
+     *
+     * @returns OperateDisableJobsResponse
+     *
+     * @param OperateDisableJobsRequest $request
+     *
+     * @return OperateDisableJobsResponse
      */
     public function operateDisableJobs($request)
     {
@@ -1833,33 +2214,42 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 批量启用任务
-     *  *
-     * @param OperateEnableJobsRequest $tmpReq  OperateEnableJobsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 批量启用任务
      *
-     * @return OperateEnableJobsResponse OperateEnableJobsResponse
+     * @param tmpReq - OperateEnableJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateEnableJobsResponse
+     *
+     * @param OperateEnableJobsRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return OperateEnableJobsResponse
      */
     public function operateEnableJobsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new OperateEnableJobsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->jobIds)) {
-            $request->jobIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobIds, 'JobIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->jobIds) {
+            $request->jobIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobIds, 'JobIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobIdsShrink)) {
-            $body['JobIds'] = $request->jobIdsShrink;
+
+        if (null !== $request->jobIdsShrink) {
+            @$body['JobIds'] = $request->jobIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'OperateEnableJobs',
@@ -1877,11 +2267,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 批量启用任务
-     *  *
-     * @param OperateEnableJobsRequest $request OperateEnableJobsRequest
+     * 批量启用任务
      *
-     * @return OperateEnableJobsResponse OperateEnableJobsResponse
+     * @param request - OperateEnableJobsRequest
+     *
+     * @returns OperateEnableJobsResponse
+     *
+     * @param OperateEnableJobsRequest $request
+     *
+     * @return OperateEnableJobsResponse
      */
     public function operateEnableJobs($request)
     {
@@ -1891,37 +2285,48 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 运行一次任务
-     *  *
-     * @param OperateExecuteJobRequest $request OperateExecuteJobRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 运行一次任务
      *
-     * @return OperateExecuteJobResponse OperateExecuteJobResponse
+     * @param request - OperateExecuteJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateExecuteJobResponse
+     *
+     * @param OperateExecuteJobRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return OperateExecuteJobResponse
      */
     public function operateExecuteJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceParameters)) {
-            $body['InstanceParameters'] = $request->instanceParameters;
+
+        if (null !== $request->instanceParameters) {
+            @$body['InstanceParameters'] = $request->instanceParameters;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->label)) {
-            $body['Label'] = $request->label;
+
+        if (null !== $request->label) {
+            @$body['Label'] = $request->label;
         }
-        if (!Utils::isUnset($request->worker)) {
-            $body['Worker'] = $request->worker;
+
+        if (null !== $request->worker) {
+            @$body['Worker'] = $request->worker;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'OperateExecuteJob',
@@ -1939,11 +2344,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 运行一次任务
-     *  *
-     * @param OperateExecuteJobRequest $request OperateExecuteJobRequest
+     * 运行一次任务
      *
-     * @return OperateExecuteJobResponse OperateExecuteJobResponse
+     * @param request - OperateExecuteJobRequest
+     *
+     * @returns OperateExecuteJobResponse
+     *
+     * @param OperateExecuteJobRequest $request
+     *
+     * @return OperateExecuteJobResponse
      */
     public function operateExecuteJob($request)
     {
@@ -1953,37 +2362,48 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 重刷任务历史数据
-     *  *
-     * @param OperateRerunJobRequest $request OperateRerunJobRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 重刷任务历史数据.
      *
-     * @return OperateRerunJobResponse OperateRerunJobResponse
+     * @param request - OperateRerunJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateRerunJobResponse
+     *
+     * @param OperateRerunJobRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return OperateRerunJobResponse
      */
     public function operateRerunJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->dataTime)) {
-            $query['DataTime'] = $request->dataTime;
+
+        if (null !== $request->dataTime) {
+            @$query['DataTime'] = $request->dataTime;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'OperateRerunJob',
@@ -2001,11 +2421,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 重刷任务历史数据
-     *  *
-     * @param OperateRerunJobRequest $request OperateRerunJobRequest
+     * 重刷任务历史数据.
      *
-     * @return OperateRerunJobResponse OperateRerunJobResponse
+     * @param request - OperateRerunJobRequest
+     *
+     * @returns OperateRerunJobResponse
+     *
+     * @param OperateRerunJobRequest $request
+     *
+     * @return OperateRerunJobResponse
      */
     public function operateRerunJob($request)
     {
@@ -2015,36 +2439,46 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 重跑失败的任务实例
-     *  *
-     * @param OperateRetryJobExecutionRequest $tmpReq  OperateRetryJobExecutionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 重跑失败的任务实例.
      *
-     * @return OperateRetryJobExecutionResponse OperateRetryJobExecutionResponse
+     * @param tmpReq - OperateRetryJobExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateRetryJobExecutionResponse
+     *
+     * @param OperateRetryJobExecutionRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return OperateRetryJobExecutionResponse
      */
     public function operateRetryJobExecutionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new OperateRetryJobExecutionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->taskList)) {
-            $request->taskListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskList, 'TaskList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskList) {
+            $request->taskListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskList, 'TaskList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobExecutionId)) {
-            $query['JobExecutionId'] = $request->jobExecutionId;
+
+        if (null !== $request->jobExecutionId) {
+            @$query['JobExecutionId'] = $request->jobExecutionId;
         }
-        if (!Utils::isUnset($request->taskListShrink)) {
-            $query['TaskList'] = $request->taskListShrink;
+
+        if (null !== $request->taskListShrink) {
+            @$query['TaskList'] = $request->taskListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'OperateRetryJobExecution',
@@ -2062,11 +2496,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 重跑失败的任务实例
-     *  *
-     * @param OperateRetryJobExecutionRequest $request OperateRetryJobExecutionRequest
+     * 重跑失败的任务实例.
      *
-     * @return OperateRetryJobExecutionResponse OperateRetryJobExecutionResponse
+     * @param request - OperateRetryJobExecutionRequest
+     *
+     * @returns OperateRetryJobExecutionResponse
+     *
+     * @param OperateRetryJobExecutionRequest $request
+     *
+     * @return OperateRetryJobExecutionResponse
      */
     public function operateRetryJobExecution($request)
     {
@@ -2076,36 +2514,46 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 停止正在运行的任务实例
-     *  *
-     * @param OperateStopJobExecutionRequest $tmpReq  OperateStopJobExecutionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 停止正在运行的任务实例.
      *
-     * @return OperateStopJobExecutionResponse OperateStopJobExecutionResponse
+     * @param tmpReq - OperateStopJobExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateStopJobExecutionResponse
+     *
+     * @param OperateStopJobExecutionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return OperateStopJobExecutionResponse
      */
     public function operateStopJobExecutionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new OperateStopJobExecutionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->taskList)) {
-            $request->taskListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskList, 'TaskList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskList) {
+            $request->taskListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskList, 'TaskList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobExecutionId)) {
-            $query['JobExecutionId'] = $request->jobExecutionId;
+
+        if (null !== $request->jobExecutionId) {
+            @$query['JobExecutionId'] = $request->jobExecutionId;
         }
-        if (!Utils::isUnset($request->taskListShrink)) {
-            $query['TaskList'] = $request->taskListShrink;
+
+        if (null !== $request->taskListShrink) {
+            @$query['TaskList'] = $request->taskListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'OperateStopJobExecution',
@@ -2123,11 +2571,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 停止正在运行的任务实例
-     *  *
-     * @param OperateStopJobExecutionRequest $request OperateStopJobExecutionRequest
+     * 停止正在运行的任务实例.
      *
-     * @return OperateStopJobExecutionResponse OperateStopJobExecutionResponse
+     * @param request - OperateStopJobExecutionRequest
+     *
+     * @returns OperateStopJobExecutionResponse
+     *
+     * @param OperateStopJobExecutionRequest $request
+     *
+     * @return OperateStopJobExecutionResponse
      */
     public function operateStopJobExecution($request)
     {
@@ -2137,40 +2589,52 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 更新应用分组
-     *  *
-     * @param UpdateAppRequest $request UpdateAppRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 更新应用分组.
      *
-     * @return UpdateAppResponse UpdateAppResponse
+     * @param request - UpdateAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAppResponse
+     *
+     * @param UpdateAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateAppResponse
      */
     public function updateAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $body['AccessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$body['AccessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->enableLog)) {
-            $body['EnableLog'] = $request->enableLog;
+
+        if (null !== $request->enableLog) {
+            @$body['EnableLog'] = $request->enableLog;
         }
-        if (!Utils::isUnset($request->labelRouteStrategy)) {
-            $body['LabelRouteStrategy'] = $request->labelRouteStrategy;
+
+        if (null !== $request->labelRouteStrategy) {
+            @$body['LabelRouteStrategy'] = $request->labelRouteStrategy;
         }
-        if (!Utils::isUnset($request->maxConcurrency)) {
-            $body['MaxConcurrency'] = $request->maxConcurrency;
+
+        if (null !== $request->maxConcurrency) {
+            @$body['MaxConcurrency'] = $request->maxConcurrency;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateApp',
@@ -2188,11 +2652,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 更新应用分组
-     *  *
-     * @param UpdateAppRequest $request UpdateAppRequest
+     * 更新应用分组.
      *
-     * @return UpdateAppResponse UpdateAppResponse
+     * @param request - UpdateAppRequest
+     *
+     * @returns UpdateAppResponse
+     *
+     * @param UpdateAppRequest $request
+     *
+     * @return UpdateAppResponse
      */
     public function updateApp($request)
     {
@@ -2202,25 +2670,32 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 更新集群
-     *  *
-     * @param UpdateClusterRequest $request UpdateClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 更新集群.
      *
-     * @return UpdateClusterResponse UpdateClusterResponse
+     * @param request - UpdateClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateClusterResponse
+     *
+     * @param UpdateClusterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateClusterResponse
      */
     public function updateClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCluster',
@@ -2238,11 +2713,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 更新集群
-     *  *
-     * @param UpdateClusterRequest $request UpdateClusterRequest
+     * 更新集群.
      *
-     * @return UpdateClusterResponse UpdateClusterResponse
+     * @param request - UpdateClusterRequest
+     *
+     * @returns UpdateClusterResponse
+     *
+     * @param UpdateClusterRequest $request
+     *
+     * @return UpdateClusterResponse
      */
     public function updateCluster($request)
     {
@@ -2252,93 +2731,126 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 更新任务信息
-     *  *
-     * @param UpdateJobRequest $tmpReq  UpdateJobRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 更新任务信息.
      *
-     * @return UpdateJobResponse UpdateJobResponse
+     * @param tmpReq - UpdateJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateJobResponse
+     *
+     * @param UpdateJobRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateJobResponse
      */
     public function updateJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->noticeConfig)) {
-            $request->noticeConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->noticeConfig, 'NoticeConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->noticeConfig) {
+            $request->noticeConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->noticeConfig, 'NoticeConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->noticeContacts)) {
-            $request->noticeContactsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->noticeContacts, 'NoticeContacts', 'json');
+
+        if (null !== $tmpReq->noticeContacts) {
+            $request->noticeContactsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->noticeContacts, 'NoticeContacts', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->attemptInterval)) {
-            $body['AttemptInterval'] = $request->attemptInterval;
+
+        if (null !== $request->attemptInterval) {
+            @$body['AttemptInterval'] = $request->attemptInterval;
         }
-        if (!Utils::isUnset($request->calendar)) {
-            $body['Calendar'] = $request->calendar;
+
+        if (null !== $request->calendar) {
+            @$body['Calendar'] = $request->calendar;
         }
-        if (!Utils::isUnset($request->childJobId)) {
-            $body['ChildJobId'] = $request->childJobId;
+
+        if (null !== $request->childJobId) {
+            @$body['ChildJobId'] = $request->childJobId;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->executorBlockStrategy)) {
-            $body['ExecutorBlockStrategy'] = $request->executorBlockStrategy;
+
+        if (null !== $request->executorBlockStrategy) {
+            @$body['ExecutorBlockStrategy'] = $request->executorBlockStrategy;
         }
-        if (!Utils::isUnset($request->jobHandler)) {
-            $body['JobHandler'] = $request->jobHandler;
+
+        if (null !== $request->jobHandler) {
+            @$body['JobHandler'] = $request->jobHandler;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->maxAttempt)) {
-            $body['MaxAttempt'] = $request->maxAttempt;
+
+        if (null !== $request->maxAttempt) {
+            @$body['MaxAttempt'] = $request->maxAttempt;
         }
-        if (!Utils::isUnset($request->maxConcurrency)) {
-            $body['MaxConcurrency'] = $request->maxConcurrency;
+
+        if (null !== $request->maxConcurrency) {
+            @$body['MaxConcurrency'] = $request->maxConcurrency;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->noticeConfigShrink)) {
-            $body['NoticeConfig'] = $request->noticeConfigShrink;
+
+        if (null !== $request->noticeConfigShrink) {
+            @$body['NoticeConfig'] = $request->noticeConfigShrink;
         }
-        if (!Utils::isUnset($request->noticeContactsShrink)) {
-            $body['NoticeContacts'] = $request->noticeContactsShrink;
+
+        if (null !== $request->noticeContactsShrink) {
+            @$body['NoticeContacts'] = $request->noticeContactsShrink;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $body['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$body['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $body['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->routeStrategy)) {
-            $body['RouteStrategy'] = $request->routeStrategy;
+
+        if (null !== $request->routeStrategy) {
+            @$body['RouteStrategy'] = $request->routeStrategy;
         }
-        if (!Utils::isUnset($request->script)) {
-            $body['Script'] = $request->script;
+
+        if (null !== $request->script) {
+            @$body['Script'] = $request->script;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->timeExpression)) {
-            $body['TimeExpression'] = $request->timeExpression;
+
+        if (null !== $request->timeExpression) {
+            @$body['TimeExpression'] = $request->timeExpression;
         }
-        if (!Utils::isUnset($request->timeType)) {
-            $body['TimeType'] = $request->timeType;
+
+        if (null !== $request->timeType) {
+            @$body['TimeType'] = $request->timeType;
         }
-        if (!Utils::isUnset($request->timezone)) {
-            $body['Timezone'] = $request->timezone;
+
+        if (null !== $request->timezone) {
+            @$body['Timezone'] = $request->timezone;
         }
+
+        if (null !== $request->weight) {
+            @$body['Weight'] = $request->weight;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateJob',
@@ -2356,11 +2868,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 更新任务信息
-     *  *
-     * @param UpdateJobRequest $request UpdateJobRequest
+     * 更新任务信息.
      *
-     * @return UpdateJobResponse UpdateJobResponse
+     * @param request - UpdateJobRequest
+     *
+     * @returns UpdateJobResponse
+     *
+     * @param UpdateJobRequest $request
+     *
+     * @return UpdateJobResponse
      */
     public function updateJob($request)
     {
@@ -2370,34 +2886,44 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 更新任务脚本内容
-     *  *
-     * @param UpdateJobScriptRequest $request UpdateJobScriptRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 更新任务脚本内容.
      *
-     * @return UpdateJobScriptResponse UpdateJobScriptResponse
+     * @param request - UpdateJobScriptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateJobScriptResponse
+     *
+     * @param UpdateJobScriptRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateJobScriptResponse
      */
     public function updateJobScriptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->scriptContent)) {
-            $body['ScriptContent'] = $request->scriptContent;
+
+        if (null !== $request->scriptContent) {
+            @$body['ScriptContent'] = $request->scriptContent;
         }
-        if (!Utils::isUnset($request->versionDescription)) {
-            $body['VersionDescription'] = $request->versionDescription;
+
+        if (null !== $request->versionDescription) {
+            @$body['VersionDescription'] = $request->versionDescription;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateJobScript',
@@ -2415,11 +2941,15 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * @summary 更新任务脚本内容
-     *  *
-     * @param UpdateJobScriptRequest $request UpdateJobScriptRequest
+     * 更新任务脚本内容.
      *
-     * @return UpdateJobScriptResponse UpdateJobScriptResponse
+     * @param request - UpdateJobScriptRequest
+     *
+     * @returns UpdateJobScriptResponse
+     *
+     * @param UpdateJobScriptRequest $request
+     *
+     * @return UpdateJobScriptResponse
      */
     public function updateJobScript($request)
     {

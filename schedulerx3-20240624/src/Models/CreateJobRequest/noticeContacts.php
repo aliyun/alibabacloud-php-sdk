@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateJobRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class noticeContacts extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $contactType;
 
     /**
-     * @example xiaoming
-     *
      * @var string
      */
     public $name;
@@ -26,14 +22,18 @@ class noticeContacts extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactType) {
             $res['ContactType'] = $this->contactType;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -41,17 +41,18 @@ class noticeContacts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return noticeContacts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactType'])) {
             $model->contactType = $map['ContactType'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

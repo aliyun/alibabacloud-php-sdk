@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateAppResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 4a0fae835cd741f3b12376d8a5a8e549v3
-     *
      * @var string
      */
     public $accessToken;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $appGroupId;
@@ -26,14 +22,18 @@ class data extends Model
         'appGroupId' => 'AppGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
+
         if (null !== $this->appGroupId) {
             $res['AppGroupId'] = $this->appGroupId;
         }
@@ -41,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
+
         if (isset($map['AppGroupId'])) {
             $model->appGroupId = $map['AppGroupId'];
         }

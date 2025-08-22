@@ -4,38 +4,31 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAppRequest extends Model
 {
     /**
-     * @example ltk1ZXHv6LvibZypFkPHzRA
-     *
      * @var string
      */
     public $accessToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example test-app
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example xxljob-b6ec1xxxx
-     *
+     * @var int
+     */
+    public $appType;
+
+    /**
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enableLog;
@@ -46,21 +39,18 @@ class CreateAppRequest extends Model
     public $labelRouteStrategy;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxConcurrency;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $title;
     protected $_name = [
         'accessToken' => 'AccessToken',
         'appName' => 'AppName',
+        'appType' => 'AppType',
         'clusterId' => 'ClusterId',
         'enableLog' => 'EnableLog',
         'labelRouteStrategy' => 'LabelRouteStrategy',
@@ -68,29 +58,42 @@ class CreateAppRequest extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
+        }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->enableLog) {
             $res['EnableLog'] = $this->enableLog;
         }
+
         if (null !== $this->labelRouteStrategy) {
             $res['LabelRouteStrategy'] = $this->labelRouteStrategy;
         }
+
         if (null !== $this->maxConcurrency) {
             $res['MaxConcurrency'] = $this->maxConcurrency;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -98,32 +101,42 @@ class CreateAppRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
+        }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['EnableLog'])) {
             $model->enableLog = $map['EnableLog'];
         }
+
         if (isset($map['LabelRouteStrategy'])) {
             $model->labelRouteStrategy = $map['LabelRouteStrategy'];
         }
+
         if (isset($map['MaxConcurrency'])) {
             $model->maxConcurrency = $map['MaxConcurrency'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

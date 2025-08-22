@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListCalendarNamesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example xxljob-b6ec1xxxx
-     *
      * @var string
      */
     public $clusterId;
@@ -20,9 +16,12 @@ class ListCalendarNamesRequest extends Model
         'clusterId' => 'ClusterId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -32,11 +31,11 @@ class ListCalendarNamesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCalendarNamesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,34 +4,22 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterShrinkRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class CreateClusterShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example qianxi-test-0812
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example scx.dev.x1
-     *
      * @var string
      */
     public $clusterSpec;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example xxljob
-     *
      * @var string
      */
     public $engineType;
@@ -42,19 +30,11 @@ class CreateClusterShrinkRequest extends Model
     public $tag;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $vSwitchesShrink;
 
     /**
-     * @description VPC id
-     *
-     * This parameter is required.
-     *
-     * @example vpc-aa1a18236n90rqhuhhnhh
-     *
      * @var string
      */
     public $vpcId;
@@ -67,32 +47,44 @@ class CreateClusterShrinkRequest extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->clusterSpec) {
             $res['ClusterSpec'] = $this->clusterSpec;
         }
+
         if (null !== $this->engineType) {
             $res['EngineType'] = $this->engineType;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->vSwitchesShrink) {
             $res['VSwitches'] = $this->vSwitchesShrink;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -100,35 +92,41 @@ class CreateClusterShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateClusterShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['ClusterSpec'])) {
             $model->clusterSpec = $map['ClusterSpec'];
         }
+
         if (isset($map['EngineType'])) {
             $model->engineType = $map['EngineType'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['VSwitches'])) {
             $model->vSwitchesShrink = $map['VSwitches'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

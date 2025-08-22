@@ -4,55 +4,41 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetLogEventResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class records extends Model
 {
     /**
-     * @example portal-dev
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @example hello word
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @example info
-     *
      * @var string
      */
     public $event;
 
     /**
-     * @example 101
-     *
      * @var string
      */
     public $jobExecutionId;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $jobName;
 
     /**
-     * @example 2024-10-31 16:43:51
-     *
      * @var string
      */
     public $time;
 
     /**
-     * @example 030225016025_9357_60125@127.0.0.1:51363
-     *
      * @var string
      */
     public $workerAddr;
@@ -66,29 +52,38 @@ class records extends Model
         'workerAddr' => 'WorkerAddr',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->event) {
             $res['Event'] = $this->event;
         }
+
         if (null !== $this->jobExecutionId) {
             $res['JobExecutionId'] = $this->jobExecutionId;
         }
+
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
         }
+
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
+
         if (null !== $this->workerAddr) {
             $res['WorkerAddr'] = $this->workerAddr;
         }
@@ -96,32 +91,38 @@ class records extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return records
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
         }
+
         if (isset($map['JobExecutionId'])) {
             $model->jobExecutionId = $map['JobExecutionId'];
         }
+
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
         }
+
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }
+
         if (isset($map['WorkerAddr'])) {
             $model->workerAddr = $map['WorkerAddr'];
         }

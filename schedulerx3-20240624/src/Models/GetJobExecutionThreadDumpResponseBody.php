@@ -4,42 +4,32 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionThreadDumpResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class GetJobExecutionThreadDumpResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description -
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @example Parameter error: appId is null.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 3835AA29-2298-5434-BC53-9CC377CDFD2C
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -51,23 +41,33 @@ class GetJobExecutionThreadDumpResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -75,26 +75,30 @@ class GetJobExecutionThreadDumpResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetJobExecutionThreadDumpResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListJobScriptHistoryResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class records extends Model
 {
     /**
-     * @example 2025-06-29 15:56:36
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @example 1963096506470832
-     *
      * @var string
      */
     public $creator;
@@ -28,8 +24,6 @@ class records extends Model
     public $scriptContent;
 
     /**
-     * @example init version
-     *
      * @var string
      */
     public $versionDescription;
@@ -40,20 +34,26 @@ class records extends Model
         'versionDescription' => 'VersionDescription',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
+
         if (null !== $this->scriptContent) {
             $res['ScriptContent'] = $this->scriptContent;
         }
+
         if (null !== $this->versionDescription) {
             $res['VersionDescription'] = $this->versionDescription;
         }
@@ -61,23 +61,26 @@ class records extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return records
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }
+
         if (isset($map['ScriptContent'])) {
             $model->scriptContent = $map['ScriptContent'];
         }
+
         if (isset($map['VersionDescription'])) {
             $model->versionDescription = $map['VersionDescription'];
         }

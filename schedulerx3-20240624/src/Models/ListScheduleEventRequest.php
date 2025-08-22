@@ -4,36 +4,26 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListScheduleEventRequest extends Model
 {
     /**
-     * @example test-app
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example xxljob-b6ec1xxxx
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example 1728872796295
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example INFO
-     *
      * @var string
      */
     public $event;
@@ -44,50 +34,36 @@ class ListScheduleEventRequest extends Model
     public $eventType;
 
     /**
-     * @example 1310630367761285120
-     *
      * @var string
      */
     public $jobExecutionId;
 
     /**
-     * @example test-job
-     *
      * @var string
      */
     public $jobName;
 
     /**
-     * @example hello word
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $reverse;
 
     /**
-     * @example 1581317873000
-     *
      * @var int
      */
     public $startTime;
@@ -106,44 +82,58 @@ class ListScheduleEventRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->event) {
             $res['Event'] = $this->event;
         }
+
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
+
         if (null !== $this->jobExecutionId) {
             $res['JobExecutionId'] = $this->jobExecutionId;
         }
+
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->reverse) {
             $res['Reverse'] = $this->reverse;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -151,47 +141,58 @@ class ListScheduleEventRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListScheduleEventRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
         }
+
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
+
         if (isset($map['JobExecutionId'])) {
             $model->jobExecutionId = $map['JobExecutionId'];
         }
+
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Reverse'])) {
             $model->reverse = $map['Reverse'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

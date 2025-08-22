@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example xxljob-b21969c2309
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example 229317760970086
-     *
      * @var int
      */
     public $orderId;
@@ -26,14 +22,18 @@ class data extends Model
         'orderId' => 'OrderId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
@@ -41,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
