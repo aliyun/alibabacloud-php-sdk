@@ -41,7 +41,17 @@ class GetRumUploadFilesRequest extends Model
     /**
      * @var string
      */
+    public $serviceId;
+
+    /**
+     * @var string
+     */
     public $versionId;
+
+    /**
+     * @var string
+     */
+    public $workspace;
     protected $_name = [
         'appType' => 'AppType',
         'fileName' => 'FileName',
@@ -49,7 +59,9 @@ class GetRumUploadFilesRequest extends Model
         'pageSize' => 'PageSize',
         'pid' => 'Pid',
         'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
         'versionId' => 'VersionId',
+        'workspace' => 'Workspace',
     ];
 
     public function validate()
@@ -84,8 +96,16 @@ class GetRumUploadFilesRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
+        }
+
+        if (null !== $this->workspace) {
+            $res['Workspace'] = $this->workspace;
         }
 
         return $res;
@@ -123,8 +143,16 @@ class GetRumUploadFilesRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
+        }
+
+        if (isset($map['Workspace'])) {
+            $model->workspace = $map['Workspace'];
         }
 
         return $model;

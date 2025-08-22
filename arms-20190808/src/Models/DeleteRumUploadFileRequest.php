@@ -31,19 +31,31 @@ class DeleteRumUploadFileRequest extends Model
     /**
      * @var string
      */
+    public $serviceId;
+
+    /**
+     * @var string
+     */
     public $uuid;
 
     /**
      * @var string
      */
     public $versionId;
+
+    /**
+     * @var string
+     */
+    public $workspace;
     protected $_name = [
         'batchItems' => 'BatchItems',
         'fileName' => 'FileName',
         'pid' => 'Pid',
         'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
         'uuid' => 'Uuid',
         'versionId' => 'VersionId',
+        'workspace' => 'Workspace',
     ];
 
     public function validate()
@@ -70,12 +82,20 @@ class DeleteRumUploadFileRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
 
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
+        }
+
+        if (null !== $this->workspace) {
+            $res['Workspace'] = $this->workspace;
         }
 
         return $res;
@@ -105,12 +125,20 @@ class DeleteRumUploadFileRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }
 
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
+        }
+
+        if (isset($map['Workspace'])) {
+            $model->workspace = $map['Workspace'];
         }
 
         return $model;

@@ -41,7 +41,17 @@ class GetRumExceptionStackRequest extends Model
     /**
      * @var string
      */
+    public $serviceId;
+
+    /**
+     * @var string
+     */
     public $sourcemapType;
+
+    /**
+     * @var string
+     */
+    public $workspace;
     protected $_name = [
         'exceptionBinaryImages' => 'ExceptionBinaryImages',
         'exceptionStack' => 'ExceptionStack',
@@ -49,7 +59,9 @@ class GetRumExceptionStackRequest extends Model
         'extraInfo' => 'ExtraInfo',
         'pid' => 'Pid',
         'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
         'sourcemapType' => 'SourcemapType',
+        'workspace' => 'Workspace',
     ];
 
     public function validate()
@@ -84,8 +96,16 @@ class GetRumExceptionStackRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+
         if (null !== $this->sourcemapType) {
             $res['SourcemapType'] = $this->sourcemapType;
+        }
+
+        if (null !== $this->workspace) {
+            $res['Workspace'] = $this->workspace;
         }
 
         return $res;
@@ -123,8 +143,16 @@ class GetRumExceptionStackRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+
         if (isset($map['SourcemapType'])) {
             $model->sourcemapType = $map['SourcemapType'];
+        }
+
+        if (isset($map['Workspace'])) {
+            $model->workspace = $map['Workspace'];
         }
 
         return $model;

@@ -4102,6 +4102,10 @@ class ARMS extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
         if (null !== $request->sourcemapType) {
             @$query['SourcemapType'] = $request->sourcemapType;
         }
@@ -4112,6 +4116,10 @@ class ARMS extends OpenApiClient
 
         if (null !== $request->versionId) {
             @$query['VersionId'] = $request->versionId;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['Workspace'] = $request->workspace;
         }
 
         $req = new OpenApiRequest([
@@ -6411,12 +6419,20 @@ class ARMS extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
         if (null !== $request->uuid) {
             @$query['Uuid'] = $request->uuid;
         }
 
         if (null !== $request->versionId) {
             @$query['VersionId'] = $request->versionId;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['Workspace'] = $request->workspace;
         }
 
         $req = new OpenApiRequest([
@@ -10009,8 +10025,16 @@ class ARMS extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
         if (null !== $request->sourcemapType) {
             @$query['SourcemapType'] = $request->sourcemapType;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['Workspace'] = $request->workspace;
         }
 
         $req = new OpenApiRequest([
@@ -10165,8 +10189,16 @@ class ARMS extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
         if (null !== $request->versionId) {
             @$query['VersionId'] = $request->versionId;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['Workspace'] = $request->workspace;
         }
 
         $req = new OpenApiRequest([

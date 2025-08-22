@@ -36,6 +36,11 @@ class CreateRumUploadFileUrlRequest extends Model
     /**
      * @var string
      */
+    public $serviceId;
+
+    /**
+     * @var string
+     */
     public $sourcemapType;
 
     /**
@@ -47,15 +52,22 @@ class CreateRumUploadFileUrlRequest extends Model
      * @var string
      */
     public $versionId;
+
+    /**
+     * @var string
+     */
+    public $workspace;
     protected $_name = [
         'appName' => 'AppName',
         'contentType' => 'ContentType',
         'fileName' => 'FileName',
         'pid' => 'Pid',
         'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
         'sourcemapType' => 'SourcemapType',
         'uuid' => 'Uuid',
         'versionId' => 'VersionId',
+        'workspace' => 'Workspace',
     ];
 
     public function validate()
@@ -86,6 +98,10 @@ class CreateRumUploadFileUrlRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+
         if (null !== $this->sourcemapType) {
             $res['SourcemapType'] = $this->sourcemapType;
         }
@@ -96,6 +112,10 @@ class CreateRumUploadFileUrlRequest extends Model
 
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
+        }
+
+        if (null !== $this->workspace) {
+            $res['Workspace'] = $this->workspace;
         }
 
         return $res;
@@ -129,6 +149,10 @@ class CreateRumUploadFileUrlRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+
         if (isset($map['SourcemapType'])) {
             $model->sourcemapType = $map['SourcemapType'];
         }
@@ -139,6 +163,10 @@ class CreateRumUploadFileUrlRequest extends Model
 
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
+        }
+
+        if (isset($map['Workspace'])) {
+            $model->workspace = $map['Workspace'];
         }
 
         return $model;
