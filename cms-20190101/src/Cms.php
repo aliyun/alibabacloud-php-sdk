@@ -1319,6 +1319,10 @@ class Cms extends OpenApiClient
             @$query['Address'] = $request->address;
         }
 
+        if (null !== $request->agentGroup) {
+            @$query['AgentGroup'] = $request->agentGroup;
+        }
+
         if (null !== $request->ispCities) {
             @$query['IspCities'] = $request->ispCities;
         }

@@ -16,6 +16,11 @@ class CreateInstantSiteMonitorRequest extends Model
     /**
      * @var string
      */
+    public $agentGroup;
+
+    /**
+     * @var string
+     */
     public $ispCities;
 
     /**
@@ -44,6 +49,7 @@ class CreateInstantSiteMonitorRequest extends Model
     public $taskType;
     protected $_name = [
         'address' => 'Address',
+        'agentGroup' => 'AgentGroup',
         'ispCities' => 'IspCities',
         'optionsJson' => 'OptionsJson',
         'randomIspCity' => 'RandomIspCity',
@@ -62,6 +68,10 @@ class CreateInstantSiteMonitorRequest extends Model
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
+        }
+
+        if (null !== $this->agentGroup) {
+            $res['AgentGroup'] = $this->agentGroup;
         }
 
         if (null !== $this->ispCities) {
@@ -101,6 +111,10 @@ class CreateInstantSiteMonitorRequest extends Model
         $model = new self();
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
+        }
+
+        if (isset($map['AgentGroup'])) {
+            $model->agentGroup = $map['AgentGroup'];
         }
 
         if (isset($map['IspCities'])) {
