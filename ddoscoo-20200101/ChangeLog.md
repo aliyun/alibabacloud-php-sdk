@@ -1,3 +1,6 @@
+2025-08-22 Version: 2.6.4
+- Generated php 2020-01-01 for ddoscoo.
+
 2025-08-21 Version: 2.6.3
 - Update API DescribeAttackAnalysisMaxQps: add request parameters Ip.
 - Update API DescribeDDosAllEventList: add request parameters Ip.
