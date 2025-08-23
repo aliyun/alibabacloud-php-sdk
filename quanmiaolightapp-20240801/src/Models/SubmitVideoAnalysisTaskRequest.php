@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest\frameSampleMethod;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest\textProcessTasks;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest\videoCaptionInfo;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest\videoRoles;
-use AlibabaCloud\Tea\Model;
 
 class SubmitVideoAnalysisTaskRequest extends Model
 {
@@ -18,8 +18,6 @@ class SubmitVideoAnalysisTaskRequest extends Model
     public $autoRoleRecognitionVideoUrl;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $deduplicationId;
@@ -45,8 +43,6 @@ class SubmitVideoAnalysisTaskRequest extends Model
     public $generateOptions;
 
     /**
-     * @example chinese
-     *
      * @var string
      */
     public $language;
@@ -57,29 +53,21 @@ class SubmitVideoAnalysisTaskRequest extends Model
     public $modelCustomPromptTemplate;
 
     /**
-     * @example PlotDetail
-     *
      * @var string
      */
     public $modelCustomPromptTemplateId;
 
     /**
-     * @example qwen-max
-     *
      * @var string
      */
     public $modelId;
 
     /**
-     * @example 2
-     *
      * @var float
      */
     public $snapshotInterval;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $splitInterval;
@@ -105,8 +93,6 @@ class SubmitVideoAnalysisTaskRequest extends Model
     public $videoModelCustomPromptTemplate;
 
     /**
-     * @example qwen-vl-max-latest
-     *
      * @var string
      */
     public $videoModelId;
@@ -122,10 +108,6 @@ class SubmitVideoAnalysisTaskRequest extends Model
     public $videoShotFaceIdentityCount;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example http://xxxx.mp4
-     *
      * @var string
      */
     public $videoUrl;
@@ -152,80 +134,136 @@ class SubmitVideoAnalysisTaskRequest extends Model
         'videoUrl' => 'videoUrl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->excludeGenerateOptions)) {
+            Model::validateArray($this->excludeGenerateOptions);
+        }
+        if (null !== $this->frameSampleMethod) {
+            $this->frameSampleMethod->validate();
+        }
+        if (\is_array($this->generateOptions)) {
+            Model::validateArray($this->generateOptions);
+        }
+        if (\is_array($this->textProcessTasks)) {
+            Model::validateArray($this->textProcessTasks);
+        }
+        if (null !== $this->videoCaptionInfo) {
+            $this->videoCaptionInfo->validate();
+        }
+        if (\is_array($this->videoRoles)) {
+            Model::validateArray($this->videoRoles);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRoleRecognitionVideoUrl) {
             $res['autoRoleRecognitionVideoUrl'] = $this->autoRoleRecognitionVideoUrl;
         }
+
         if (null !== $this->deduplicationId) {
             $res['deduplicationId'] = $this->deduplicationId;
         }
+
         if (null !== $this->excludeGenerateOptions) {
-            $res['excludeGenerateOptions'] = $this->excludeGenerateOptions;
+            if (\is_array($this->excludeGenerateOptions)) {
+                $res['excludeGenerateOptions'] = [];
+                $n1 = 0;
+                foreach ($this->excludeGenerateOptions as $item1) {
+                    $res['excludeGenerateOptions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->faceIdentitySimilarityMinScore) {
             $res['faceIdentitySimilarityMinScore'] = $this->faceIdentitySimilarityMinScore;
         }
+
         if (null !== $this->frameSampleMethod) {
-            $res['frameSampleMethod'] = null !== $this->frameSampleMethod ? $this->frameSampleMethod->toMap() : null;
+            $res['frameSampleMethod'] = null !== $this->frameSampleMethod ? $this->frameSampleMethod->toArray($noStream) : $this->frameSampleMethod;
         }
+
         if (null !== $this->generateOptions) {
-            $res['generateOptions'] = $this->generateOptions;
+            if (\is_array($this->generateOptions)) {
+                $res['generateOptions'] = [];
+                $n1 = 0;
+                foreach ($this->generateOptions as $item1) {
+                    $res['generateOptions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->language) {
             $res['language'] = $this->language;
         }
+
         if (null !== $this->modelCustomPromptTemplate) {
             $res['modelCustomPromptTemplate'] = $this->modelCustomPromptTemplate;
         }
+
         if (null !== $this->modelCustomPromptTemplateId) {
             $res['modelCustomPromptTemplateId'] = $this->modelCustomPromptTemplateId;
         }
+
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
         }
+
         if (null !== $this->snapshotInterval) {
             $res['snapshotInterval'] = $this->snapshotInterval;
         }
+
         if (null !== $this->splitInterval) {
             $res['splitInterval'] = $this->splitInterval;
         }
+
         if (null !== $this->textProcessTasks) {
-            $res['textProcessTasks'] = [];
-            if (null !== $this->textProcessTasks && \is_array($this->textProcessTasks)) {
-                $n = 0;
-                foreach ($this->textProcessTasks as $item) {
-                    $res['textProcessTasks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->textProcessTasks)) {
+                $res['textProcessTasks'] = [];
+                $n1 = 0;
+                foreach ($this->textProcessTasks as $item1) {
+                    $res['textProcessTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->videoCaptionInfo) {
-            $res['videoCaptionInfo'] = null !== $this->videoCaptionInfo ? $this->videoCaptionInfo->toMap() : null;
+            $res['videoCaptionInfo'] = null !== $this->videoCaptionInfo ? $this->videoCaptionInfo->toArray($noStream) : $this->videoCaptionInfo;
         }
+
         if (null !== $this->videoExtraInfo) {
             $res['videoExtraInfo'] = $this->videoExtraInfo;
         }
+
         if (null !== $this->videoModelCustomPromptTemplate) {
             $res['videoModelCustomPromptTemplate'] = $this->videoModelCustomPromptTemplate;
         }
+
         if (null !== $this->videoModelId) {
             $res['videoModelId'] = $this->videoModelId;
         }
+
         if (null !== $this->videoRoles) {
-            $res['videoRoles'] = [];
-            if (null !== $this->videoRoles && \is_array($this->videoRoles)) {
-                $n = 0;
-                foreach ($this->videoRoles as $item) {
-                    $res['videoRoles'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoRoles)) {
+                $res['videoRoles'] = [];
+                $n1 = 0;
+                foreach ($this->videoRoles as $item1) {
+                    $res['videoRoles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->videoShotFaceIdentityCount) {
             $res['videoShotFaceIdentityCount'] = $this->videoShotFaceIdentityCount;
         }
+
         if (null !== $this->videoUrl) {
             $res['videoUrl'] = $this->videoUrl;
         }
@@ -233,87 +271,118 @@ class SubmitVideoAnalysisTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitVideoAnalysisTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['autoRoleRecognitionVideoUrl'])) {
             $model->autoRoleRecognitionVideoUrl = $map['autoRoleRecognitionVideoUrl'];
         }
+
         if (isset($map['deduplicationId'])) {
             $model->deduplicationId = $map['deduplicationId'];
         }
+
         if (isset($map['excludeGenerateOptions'])) {
             if (!empty($map['excludeGenerateOptions'])) {
-                $model->excludeGenerateOptions = $map['excludeGenerateOptions'];
+                $model->excludeGenerateOptions = [];
+                $n1 = 0;
+                foreach ($map['excludeGenerateOptions'] as $item1) {
+                    $model->excludeGenerateOptions[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['faceIdentitySimilarityMinScore'])) {
             $model->faceIdentitySimilarityMinScore = $map['faceIdentitySimilarityMinScore'];
         }
+
         if (isset($map['frameSampleMethod'])) {
             $model->frameSampleMethod = frameSampleMethod::fromMap($map['frameSampleMethod']);
         }
+
         if (isset($map['generateOptions'])) {
             if (!empty($map['generateOptions'])) {
-                $model->generateOptions = $map['generateOptions'];
+                $model->generateOptions = [];
+                $n1 = 0;
+                foreach ($map['generateOptions'] as $item1) {
+                    $model->generateOptions[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['language'])) {
             $model->language = $map['language'];
         }
+
         if (isset($map['modelCustomPromptTemplate'])) {
             $model->modelCustomPromptTemplate = $map['modelCustomPromptTemplate'];
         }
+
         if (isset($map['modelCustomPromptTemplateId'])) {
             $model->modelCustomPromptTemplateId = $map['modelCustomPromptTemplateId'];
         }
+
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
         }
+
         if (isset($map['snapshotInterval'])) {
             $model->snapshotInterval = $map['snapshotInterval'];
         }
+
         if (isset($map['splitInterval'])) {
             $model->splitInterval = $map['splitInterval'];
         }
+
         if (isset($map['textProcessTasks'])) {
             if (!empty($map['textProcessTasks'])) {
                 $model->textProcessTasks = [];
-                $n = 0;
-                foreach ($map['textProcessTasks'] as $item) {
-                    $model->textProcessTasks[$n++] = null !== $item ? textProcessTasks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['textProcessTasks'] as $item1) {
+                    $model->textProcessTasks[$n1] = textProcessTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['videoCaptionInfo'])) {
             $model->videoCaptionInfo = videoCaptionInfo::fromMap($map['videoCaptionInfo']);
         }
+
         if (isset($map['videoExtraInfo'])) {
             $model->videoExtraInfo = $map['videoExtraInfo'];
         }
+
         if (isset($map['videoModelCustomPromptTemplate'])) {
             $model->videoModelCustomPromptTemplate = $map['videoModelCustomPromptTemplate'];
         }
+
         if (isset($map['videoModelId'])) {
             $model->videoModelId = $map['videoModelId'];
         }
+
         if (isset($map['videoRoles'])) {
             if (!empty($map['videoRoles'])) {
                 $model->videoRoles = [];
-                $n = 0;
-                foreach ($map['videoRoles'] as $item) {
-                    $model->videoRoles[$n++] = null !== $item ? videoRoles::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['videoRoles'] as $item1) {
+                    $model->videoRoles[$n1] = videoRoles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['videoShotFaceIdentityCount'])) {
             $model->videoShotFaceIdentityCount = $map['videoShotFaceIdentityCount'];
         }
+
         if (isset($map['videoUrl'])) {
             $model->videoUrl = $map['videoUrl'];
         }

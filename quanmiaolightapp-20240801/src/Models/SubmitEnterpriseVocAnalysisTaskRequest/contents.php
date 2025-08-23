@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalysisTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contents extends Model
 {
     /**
-     * @example id-xxxxx
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example xxxx
-     *
      * @var string
      */
     public $text;
@@ -26,14 +22,18 @@ class contents extends Model
         'text' => 'text',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
@@ -41,17 +41,18 @@ class contents extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contents
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }

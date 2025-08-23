@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoRoleRecognitionResult\videoRoles;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class timeIntervals extends Model
 {
@@ -34,20 +34,26 @@ class timeIntervals extends Model
         'url' => 'url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
+
         if (null !== $this->timestamp) {
             $res['timestamp'] = $this->timestamp;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -55,23 +61,26 @@ class timeIntervals extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return timeIntervals
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }
+
         if (isset($map['timestamp'])) {
             $model->timestamp = $map['timestamp'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

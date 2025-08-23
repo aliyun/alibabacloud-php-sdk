@@ -4,48 +4,36 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEssayCorrectionTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tasks extends Model
 {
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $answer;
 
     /**
-     * @example 高中二年级
-     *
      * @var string
      */
     public $grade;
 
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $otherReviewPoints;
 
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $question;
 
     /**
-     * @example 语文
-     *
      * @var string
      */
     public $subject;
 
     /**
-     * @example 60
-     *
      * @var int
      */
     public $totalScore;
@@ -58,26 +46,34 @@ class tasks extends Model
         'totalScore' => 'totalScore',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->answer) {
             $res['answer'] = $this->answer;
         }
+
         if (null !== $this->grade) {
             $res['grade'] = $this->grade;
         }
+
         if (null !== $this->otherReviewPoints) {
             $res['otherReviewPoints'] = $this->otherReviewPoints;
         }
+
         if (null !== $this->question) {
             $res['question'] = $this->question;
         }
+
         if (null !== $this->subject) {
             $res['subject'] = $this->subject;
         }
+
         if (null !== $this->totalScore) {
             $res['totalScore'] = $this->totalScore;
         }
@@ -85,29 +81,34 @@ class tasks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['answer'])) {
             $model->answer = $map['answer'];
         }
+
         if (isset($map['grade'])) {
             $model->grade = $map['grade'];
         }
+
         if (isset($map['otherReviewPoints'])) {
             $model->otherReviewPoints = $map['otherReviewPoints'];
         }
+
         if (isset($map['question'])) {
             $model->question = $map['question'];
         }
+
         if (isset($map['subject'])) {
             $model->subject = $map['subject'];
         }
+
         if (isset($map['totalScore'])) {
             $model->totalScore = $map['totalScore'];
         }

@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\header;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload;
-use AlibabaCloud\Tea\Model;
 
 class RunVideoAnalysisResponseBody extends Model
 {
@@ -21,8 +21,6 @@ class RunVideoAnalysisResponseBody extends Model
     public $payload;
 
     /**
-     * @example 117F5ABE-CF02-5502-9A3F-E56BC9081A64
-     *
      * @var string
      */
     public $requestId;
@@ -32,17 +30,28 @@ class RunVideoAnalysisResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->header) {
+            $this->header->validate();
+        }
+        if (null !== $this->payload) {
+            $this->payload->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->header) {
-            $res['header'] = null !== $this->header ? $this->header->toMap() : null;
+            $res['header'] = null !== $this->header ? $this->header->toArray($noStream) : $this->header;
         }
+
         if (null !== $this->payload) {
-            $res['payload'] = null !== $this->payload ? $this->payload->toMap() : null;
+            $res['payload'] = null !== $this->payload ? $this->payload->toArray($noStream) : $this->payload;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -50,20 +59,22 @@ class RunVideoAnalysisResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunVideoAnalysisResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['header'])) {
             $model->header = header::fromMap($map['header']);
         }
+
         if (isset($map['payload'])) {
             $model->payload = payload::fromMap($map['payload']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

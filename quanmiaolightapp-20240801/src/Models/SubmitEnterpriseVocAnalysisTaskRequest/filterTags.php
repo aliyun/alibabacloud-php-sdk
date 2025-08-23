@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalysisTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filterTags extends Model
 {
@@ -22,14 +22,18 @@ class filterTags extends Model
         'tagName' => 'tagName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagDefinePrompt) {
             $res['tagDefinePrompt'] = $this->tagDefinePrompt;
         }
+
         if (null !== $this->tagName) {
             $res['tagName'] = $this->tagName;
         }
@@ -37,17 +41,18 @@ class filterTags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filterTags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['tagDefinePrompt'])) {
             $model->tagDefinePrompt = $map['tagDefinePrompt'];
         }
+
         if (isset($map['tagName'])) {
             $model->tagName = $map['tagName'];
         }

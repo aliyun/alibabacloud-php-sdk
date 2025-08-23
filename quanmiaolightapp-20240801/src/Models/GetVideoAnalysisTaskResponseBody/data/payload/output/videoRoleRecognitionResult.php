@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoRoleRecognitionResult\videoRoles;
-use AlibabaCloud\Tea\Model;
 
 class videoRoleRecognitionResult extends Model
 {
@@ -17,17 +17,24 @@ class videoRoleRecognitionResult extends Model
         'videoRoles' => 'videoRoles',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->videoRoles)) {
+            Model::validateArray($this->videoRoles);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoRoles) {
-            $res['videoRoles'] = [];
-            if (null !== $this->videoRoles && \is_array($this->videoRoles)) {
-                $n = 0;
-                foreach ($this->videoRoles as $item) {
-                    $res['videoRoles'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoRoles)) {
+                $res['videoRoles'] = [];
+                $n1 = 0;
+                foreach ($this->videoRoles as $item1) {
+                    $res['videoRoles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class videoRoleRecognitionResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoRoleRecognitionResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['videoRoles'])) {
             if (!empty($map['videoRoles'])) {
                 $model->videoRoles = [];
-                $n = 0;
-                foreach ($map['videoRoles'] as $item) {
-                    $model->videoRoles[$n++] = null !== $item ? videoRoles::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['videoRoles'] as $item1) {
+                    $model->videoRoles[$n1] = videoRoles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

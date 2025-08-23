@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesResponseBody\data\news;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class comments extends Model
 {
     /**
-     * @example xx
-     *
      * @var string
      */
     public $text;
@@ -18,9 +16,12 @@ class comments extends Model
         'text' => 'text',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->text) {
@@ -30,11 +31,11 @@ class comments extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return comments
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

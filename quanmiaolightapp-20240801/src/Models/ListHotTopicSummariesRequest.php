@@ -4,41 +4,31 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListHotTopicSummariesRequest extends Model
 {
     /**
-     * @example xx
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @example xx
-     *
      * @var string
      */
     public $hotTopic;
 
     /**
-     * @example 2024-09-13_12
-     *
      * @var string
      */
     public $hotTopicVersion;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example JlroP3CjgQh5PQDlH3ArzADkBTPZgVqo+64jhZRglNq0mEYoV5SlGb/Juvo8CdfYE9rlwEr2pIJQwdaYotak9g==
-     *
      * @var string
      */
     public $nextToken;
@@ -50,23 +40,30 @@ class ListHotTopicSummariesRequest extends Model
         'nextToken' => 'nextToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
+
         if (null !== $this->hotTopic) {
             $res['hotTopic'] = $this->hotTopic;
         }
+
         if (null !== $this->hotTopicVersion) {
             $res['hotTopicVersion'] = $this->hotTopicVersion;
         }
+
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
@@ -74,26 +71,30 @@ class ListHotTopicSummariesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListHotTopicSummariesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
+
         if (isset($map['hotTopic'])) {
             $model->hotTopic = $map['hotTopic'];
         }
+
         if (isset($map['hotTopicVersion'])) {
             $model->hotTopicVersion = $map['hotTopicVersion'];
         }
+
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }

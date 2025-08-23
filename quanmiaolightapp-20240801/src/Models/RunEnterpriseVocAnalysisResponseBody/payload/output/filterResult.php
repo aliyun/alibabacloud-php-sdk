@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEnterpriseVocAnalysisResponseBody\payload\output;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEnterpriseVocAnalysisResponseBody\payload\output\filterResult\filterResults;
-use AlibabaCloud\Tea\Model;
 
 class filterResult extends Model
 {
@@ -17,17 +17,24 @@ class filterResult extends Model
         'filterResults' => 'filterResults',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->filterResults)) {
+            Model::validateArray($this->filterResults);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filterResults) {
-            $res['filterResults'] = [];
-            if (null !== $this->filterResults && \is_array($this->filterResults)) {
-                $n = 0;
-                foreach ($this->filterResults as $item) {
-                    $res['filterResults'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->filterResults)) {
+                $res['filterResults'] = [];
+                $n1 = 0;
+                foreach ($this->filterResults as $item1) {
+                    $res['filterResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class filterResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filterResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['filterResults'])) {
             if (!empty($map['filterResults'])) {
                 $model->filterResults = [];
-                $n = 0;
-                foreach ($map['filterResults'] as $item) {
-                    $model->filterResults[$n++] = null !== $item ? filterResults::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['filterResults'] as $item1) {
+                    $model->filterResults[$n1] = filterResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
