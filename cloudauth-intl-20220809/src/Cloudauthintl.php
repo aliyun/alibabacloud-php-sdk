@@ -1887,6 +1887,10 @@ class Cloudauthintl extends OpenApiClient
             @$query['DocumentNumber'] = $request->documentNumber;
         }
 
+        if (null !== $request->editOcrResult) {
+            @$query['EditOcrResult'] = $request->editOcrResult;
+        }
+
         if (null !== $request->experienceCode) {
             @$query['ExperienceCode'] = $request->experienceCode;
         }

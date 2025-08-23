@@ -86,6 +86,11 @@ class InitializeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $editOcrResult;
+
+    /**
+     * @var string
+     */
     public $experienceCode;
 
     /**
@@ -223,6 +228,7 @@ class InitializeShrinkRequest extends Model
         'docType' => 'DocType',
         'docVideo' => 'DocVideo',
         'documentNumber' => 'DocumentNumber',
+        'editOcrResult' => 'EditOcrResult',
         'experienceCode' => 'ExperienceCode',
         'facePictureBase64' => 'FacePictureBase64',
         'facePictureUrl' => 'FacePictureUrl',
@@ -316,6 +322,10 @@ class InitializeShrinkRequest extends Model
 
         if (null !== $this->documentNumber) {
             $res['DocumentNumber'] = $this->documentNumber;
+        }
+
+        if (null !== $this->editOcrResult) {
+            $res['EditOcrResult'] = $this->editOcrResult;
         }
 
         if (null !== $this->experienceCode) {
@@ -487,6 +497,10 @@ class InitializeShrinkRequest extends Model
 
         if (isset($map['DocumentNumber'])) {
             $model->documentNumber = $map['DocumentNumber'];
+        }
+
+        if (isset($map['EditOcrResult'])) {
+            $model->editOcrResult = $map['EditOcrResult'];
         }
 
         if (isset($map['ExperienceCode'])) {

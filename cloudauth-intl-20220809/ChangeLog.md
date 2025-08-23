@@ -1,3 +1,7 @@
+2025-08-23 Version: 3.11.1
+- Update API Initialize: add request parameters EditOcrResult.
+
+
 2025-08-15 Version: 3.11.0
 - Support API AddressCompareIntl.
 - Support API AddressVerifyV2Intl.
