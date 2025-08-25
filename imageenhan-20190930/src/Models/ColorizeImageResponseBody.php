@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\ColorizeImageResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class ColorizeImageResponseBody extends Model
 {
@@ -15,26 +15,29 @@ class ColorizeImageResponseBody extends Model
     public $data;
 
     /**
-     * @example 124A4B09-68EF-4178-B98D-319089D4268B
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class ColorizeImageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ColorizeImageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

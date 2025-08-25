@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models\RecolorImageResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description 1
-     *
      * @var string[]
      */
     public $imageList;
@@ -20,29 +18,45 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->imageList)) {
+            Model::validateArray($this->imageList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageList) {
-            $res['ImageList'] = $this->imageList;
+            if (\is_array($this->imageList)) {
+                $res['ImageList'] = [];
+                $n1 = 0;
+                foreach ($this->imageList as $item1) {
+                    $res['ImageList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageList'])) {
             if (!empty($map['ImageList'])) {
-                $model->imageList = $map['ImageList'];
+                $model->imageList = [];
+                $n1 = 0;
+                foreach ($map['ImageList'] as $item1) {
+                    $model->imageList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

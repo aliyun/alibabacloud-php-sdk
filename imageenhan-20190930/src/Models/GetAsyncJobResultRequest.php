@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAsyncJobResultRequest extends Model
 {
     /**
-     * @example 11A898F7-29D7-4AB3-B639-8BBDE671BBD5
-     *
      * @var string
      */
     public $jobId;
@@ -20,9 +18,10 @@ class GetAsyncJobResultRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -32,11 +31,11 @@ class GetAsyncJobResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAsyncJobResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

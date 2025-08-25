@@ -4,50 +4,47 @@
 
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class GenerateCartoonizedImageAdvanceRequest extends Model
 {
     /**
-     * @example girl
-     *
      * @var string
      */
     public $imageType;
 
     /**
-     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/zhangchaorun/1025.jpg
-     *
      * @var Stream
      */
     public $imageUrlObject;
 
     /**
-     * @example 0
-     *
      * @var string
      */
     public $index;
     protected $_name = [
-        'imageType'      => 'ImageType',
+        'imageType' => 'ImageType',
         'imageUrlObject' => 'ImageUrl',
-        'index'          => 'Index',
+        'index' => 'Index',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
         }
+
         if (null !== $this->imageUrlObject) {
             $res['ImageUrl'] = $this->imageUrlObject;
         }
+
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
@@ -55,20 +52,22 @@ class GenerateCartoonizedImageAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateCartoonizedImageAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
         }
+
         if (isset($map['ImageUrl'])) {
             $model->imageUrlObject = $map['ImageUrl'];
         }
+
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }

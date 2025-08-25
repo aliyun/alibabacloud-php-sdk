@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IntelligentCompositionRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/IntelligentComposition/IntelligentComposition3.jpg
-     *
      * @var string
      */
     public $imageURL;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $numBoxes;
@@ -28,14 +24,16 @@ class IntelligentCompositionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
+
         if (null !== $this->numBoxes) {
             $res['NumBoxes'] = $this->numBoxes;
         }
@@ -43,17 +41,18 @@ class IntelligentCompositionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IntelligentCompositionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
+
         if (isset($map['NumBoxes'])) {
             $model->numBoxes = $map['NumBoxes'];
         }

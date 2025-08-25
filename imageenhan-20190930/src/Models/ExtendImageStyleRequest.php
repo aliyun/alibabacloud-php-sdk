@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExtendImageStyleRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ExtendImageStyle/ExtendImageStyle1.jpg
-     *
      * @var string
      */
     public $majorUrl;
 
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ExtendImageStyle/ExtendImageStyle6.jpg
-     *
      * @var string
      */
     public $styleUrl;
@@ -28,14 +24,16 @@ class ExtendImageStyleRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->majorUrl) {
             $res['MajorUrl'] = $this->majorUrl;
         }
+
         if (null !== $this->styleUrl) {
             $res['StyleUrl'] = $this->styleUrl;
         }
@@ -43,17 +41,18 @@ class ExtendImageStyleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExtendImageStyleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MajorUrl'])) {
             $model->majorUrl = $map['MajorUrl'];
         }
+
         if (isset($map['StyleUrl'])) {
             $model->styleUrl = $map['StyleUrl'];
         }

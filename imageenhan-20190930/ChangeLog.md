@@ -1,3 +1,6 @@
+2025-08-25 Version: 1.0.12
+- Generated php 2019-09-30 for imageenhan.
+
 2023-02-24 Version: 1.0.11
 - Release GenerateSuperResolutionImage.
 

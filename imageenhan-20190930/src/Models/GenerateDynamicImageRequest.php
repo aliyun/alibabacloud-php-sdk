@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateDynamicImageRequest extends Model
 {
     /**
-     * @example 11
-     *
      * @var string
      */
     public $operation;
 
     /**
-     * @example https://vigen-invi.oss-cn-shanghai.aliyuncs.com/temp/xl/dynamicPhoto/viapi_test_images/xxxx.jpg
-     *
      * @var string
      */
     public $url;
     protected $_name = [
         'operation' => 'Operation',
-        'url'       => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -43,17 +41,18 @@ class GenerateDynamicImageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateDynamicImageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

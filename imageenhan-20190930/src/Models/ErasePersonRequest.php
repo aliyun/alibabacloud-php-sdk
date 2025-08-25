@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ErasePersonRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ErasePerson/ErasePerson1.jpg
-     *
      * @var string
      */
     public $imageURL;
 
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ErasePerson/ErasePerson6.jpg
-     *
      * @var string
      */
     public $userMask;
@@ -28,14 +24,16 @@ class ErasePersonRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
+
         if (null !== $this->userMask) {
             $res['UserMask'] = $this->userMask;
         }
@@ -43,17 +41,18 @@ class ErasePersonRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ErasePersonRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
+
         if (isset($map['UserMask'])) {
             $model->userMask = $map['UserMask'];
         }

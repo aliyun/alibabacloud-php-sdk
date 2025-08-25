@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models\RecolorHDImageAdvanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class colorTemplate extends Model
 {
     /**
-     * @example [3F6A6B,0A0A6F]
-     *
      * @var string
      */
     public $color;
@@ -20,9 +18,10 @@ class colorTemplate extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->color) {
@@ -32,11 +31,11 @@ class colorTemplate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return colorTemplate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class ImitatePhotoStyleAdvanceRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ImitatePhotoStyle/ImitatePhotoStyle1.jpg
-     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageenhan/ImitatePhotoStyle/ImitatePhotoStyle7.jpg
-     *
      * @var Stream
      */
     public $styleUrlObject;
@@ -29,14 +25,16 @@ class ImitatePhotoStyleAdvanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURLObject) {
             $res['ImageURL'] = $this->imageURLObject;
         }
+
         if (null !== $this->styleUrlObject) {
             $res['StyleUrl'] = $this->styleUrlObject;
         }
@@ -44,17 +42,18 @@ class ImitatePhotoStyleAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImitatePhotoStyleAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURLObject = $map['ImageURL'];
         }
+
         if (isset($map['StyleUrl'])) {
             $model->styleUrlObject = $map['StyleUrl'];
         }

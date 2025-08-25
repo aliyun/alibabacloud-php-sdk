@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateImageWithTextRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $number;
 
     /**
-     * @example 1024*1024
-     *
      * @var string
      */
     public $resolution;
@@ -27,24 +23,27 @@ class GenerateImageWithTextRequest extends Model
      */
     public $text;
     protected $_name = [
-        'number'     => 'Number',
+        'number' => 'Number',
         'resolution' => 'Resolution',
-        'text'       => 'Text',
+        'text' => 'Text',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
+
         if (null !== $this->resolution) {
             $res['Resolution'] = $this->resolution;
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
@@ -52,20 +51,22 @@ class GenerateImageWithTextRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateImageWithTextRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
+
         if (isset($map['Resolution'])) {
             $model->resolution = $map['Resolution'];
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
