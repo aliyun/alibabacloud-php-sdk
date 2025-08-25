@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSummaryTemplateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 43c2671b-8939-4223-86d0-6bd187905cc8_1717664210492
-     *
      * @var string
      */
     public $templateId;
@@ -30,14 +22,18 @@ class GetSummaryTemplateRequest extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -45,17 +41,18 @@ class GetSummaryTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSummaryTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

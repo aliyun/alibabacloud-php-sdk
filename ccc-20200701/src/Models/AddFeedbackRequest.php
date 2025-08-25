@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddFeedbackRequest extends Model
 {
@@ -14,31 +14,21 @@ class AddFeedbackRequest extends Model
     public $feedback;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example thumbsUp
-     *
      * @var int
      */
     public $rating;
 
     /**
-     * @example f780ade8-****-458b-b067-63077946a570
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @example Abstract:fields
-     *
      * @var string
      */
     public $taskName;
@@ -50,23 +40,30 @@ class AddFeedbackRequest extends Model
         'taskName' => 'TaskName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->feedback) {
             $res['Feedback'] = $this->feedback;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->rating) {
             $res['Rating'] = $this->rating;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -74,26 +71,30 @@ class AddFeedbackRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddFeedbackRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Feedback'])) {
             $model->feedback = $map['Feedback'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Rating'])) {
             $model->rating = $map['Rating'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }

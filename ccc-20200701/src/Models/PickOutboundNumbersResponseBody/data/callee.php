@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\PickOutboundNumbersResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class callee extends Model
 {
@@ -14,8 +14,6 @@ class callee extends Model
     public $city;
 
     /**
-     * @example 1388888****
-     *
      * @var string
      */
     public $number;
@@ -30,17 +28,22 @@ class callee extends Model
         'province' => 'Province',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->city) {
             $res['City'] = $this->city;
         }
+
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
+
         if (null !== $this->province) {
             $res['Province'] = $this->province;
         }
@@ -48,20 +51,22 @@ class callee extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return callee
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['City'])) {
             $model->city = $map['City'];
         }
+
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
+
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
         }

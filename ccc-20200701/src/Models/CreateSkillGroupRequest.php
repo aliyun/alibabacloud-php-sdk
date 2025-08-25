@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSkillGroupRequest extends Model
 {
@@ -14,17 +14,11 @@ class CreateSkillGroupRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
@@ -35,10 +29,6 @@ class CreateSkillGroupRequest extends Model
     public $mediaType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example skillgroup
-     *
      * @var string
      */
     public $name;
@@ -50,23 +40,30 @@ class CreateSkillGroupRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -74,26 +71,30 @@ class CreateSkillGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSkillGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

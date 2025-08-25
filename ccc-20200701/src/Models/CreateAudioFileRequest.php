@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAudioFileRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example test-file.wav
-     *
      * @var string
      */
     public $audioFileName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test/test-file.wav
-     *
      * @var string
      */
     public $ossFileKey;
@@ -54,23 +40,30 @@ class CreateAudioFileRequest extends Model
         'usage' => 'Usage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioFileName) {
             $res['AudioFileName'] = $this->audioFileName;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ossFileKey) {
             $res['OssFileKey'] = $this->ossFileKey;
         }
+
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
@@ -78,26 +71,30 @@ class CreateAudioFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAudioFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioFileName'])) {
             $model->audioFileName = $map['AudioFileName'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OssFileKey'])) {
             $model->ossFileKey = $map['OssFileKey'];
         }
+
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
         }

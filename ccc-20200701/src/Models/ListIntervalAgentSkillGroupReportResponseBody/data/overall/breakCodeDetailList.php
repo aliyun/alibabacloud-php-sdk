@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalAgentSkillGroupReportResponseBody\data\overall;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class breakCodeDetailList extends Model
 {
@@ -14,15 +14,11 @@ class breakCodeDetailList extends Model
     public $breakCode;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $duration;
@@ -32,17 +28,22 @@ class breakCodeDetailList extends Model
         'duration' => 'Duration',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->breakCode) {
             $res['BreakCode'] = $this->breakCode;
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
@@ -50,20 +51,22 @@ class breakCodeDetailList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return breakCodeDetailList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BreakCode'])) {
             $model->breakCode = $map['BreakCode'];
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }

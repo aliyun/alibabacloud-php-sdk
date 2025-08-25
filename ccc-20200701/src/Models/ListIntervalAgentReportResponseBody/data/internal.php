@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalAgentReportResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class internal extends Model
 {
@@ -46,26 +46,34 @@ class internal extends Model
         'callsTalked' => 'CallsTalked',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->averageTalkTime) {
             $res['AverageTalkTime'] = $this->averageTalkTime;
         }
+
         if (null !== $this->callsAnswered) {
             $res['CallsAnswered'] = $this->callsAnswered;
         }
+
         if (null !== $this->callsDialed) {
             $res['CallsDialed'] = $this->callsDialed;
         }
+
         if (null !== $this->callsHandled) {
             $res['CallsHandled'] = $this->callsHandled;
         }
+
         if (null !== $this->callsOffered) {
             $res['CallsOffered'] = $this->callsOffered;
         }
+
         if (null !== $this->callsTalked) {
             $res['CallsTalked'] = $this->callsTalked;
         }
@@ -73,29 +81,34 @@ class internal extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return internal
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AverageTalkTime'])) {
             $model->averageTalkTime = $map['AverageTalkTime'];
         }
+
         if (isset($map['CallsAnswered'])) {
             $model->callsAnswered = $map['CallsAnswered'];
         }
+
         if (isset($map['CallsDialed'])) {
             $model->callsDialed = $map['CallsDialed'];
         }
+
         if (isset($map['CallsHandled'])) {
             $model->callsHandled = $map['CallsHandled'];
         }
+
         if (isset($map['CallsOffered'])) {
             $model->callsOffered = $map['CallsOffered'];
         }
+
         if (isset($map['CallsTalked'])) {
             $model->callsTalked = $map['CallsTalked'];
         }

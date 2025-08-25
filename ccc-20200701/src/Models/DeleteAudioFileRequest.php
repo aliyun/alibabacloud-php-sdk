@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAudioFileRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example d5cd7a94-3b6a-47d2-b7fd-0b1cd839bf77
-     *
      * @var string
      */
     public $audioResourceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
@@ -30,14 +22,18 @@ class DeleteAudioFileRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioResourceId) {
             $res['AudioResourceId'] = $this->audioResourceId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -45,17 +41,18 @@ class DeleteAudioFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAudioFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioResourceId'])) {
             $model->audioResourceId = $map['AudioResourceId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

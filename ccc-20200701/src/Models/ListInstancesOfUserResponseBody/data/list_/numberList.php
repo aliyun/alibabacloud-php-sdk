@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListInstancesOfUserResponseBody\data\list_;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListInstancesOfUserResponseBody\data\list_\numberList\skillGroups;
-use AlibabaCloud\Tea\Model;
 
 class numberList extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $active;
@@ -22,22 +20,16 @@ class numberList extends Model
     public $city;
 
     /**
-     * @example a3fb6c62-9b49-4942-ae5b-cf2abd4123ek
-     *
      * @var string
      */
     public $contactFlowId;
 
     /**
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 0830011****
-     *
      * @var string
      */
     public $number;
@@ -53,15 +45,11 @@ class numberList extends Model
     public $skillGroups;
 
     /**
-     * @example Bidirection
-     *
      * @var string
      */
     public $usage;
 
     /**
-     * @example agent@ccc-test
-     *
      * @var string
      */
     public $userId;
@@ -77,41 +65,56 @@ class numberList extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->skillGroups)) {
+            Model::validateArray($this->skillGroups);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->active) {
             $res['Active'] = $this->active;
         }
+
         if (null !== $this->city) {
             $res['City'] = $this->city;
         }
+
         if (null !== $this->contactFlowId) {
             $res['ContactFlowId'] = $this->contactFlowId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
+
         if (null !== $this->province) {
             $res['Province'] = $this->province;
         }
+
         if (null !== $this->skillGroups) {
-            $res['SkillGroups'] = [];
-            if (null !== $this->skillGroups && \is_array($this->skillGroups)) {
-                $n = 0;
-                foreach ($this->skillGroups as $item) {
-                    $res['SkillGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->skillGroups)) {
+                $res['SkillGroups'] = [];
+                $n1 = 0;
+                foreach ($this->skillGroups as $item1) {
+                    $res['SkillGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -119,44 +122,53 @@ class numberList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return numberList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Active'])) {
             $model->active = $map['Active'];
         }
+
         if (isset($map['City'])) {
             $model->city = $map['City'];
         }
+
         if (isset($map['ContactFlowId'])) {
             $model->contactFlowId = $map['ContactFlowId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
+
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
         }
+
         if (isset($map['SkillGroups'])) {
             if (!empty($map['SkillGroups'])) {
                 $model->skillGroups = [];
-                $n = 0;
-                foreach ($map['SkillGroups'] as $item) {
-                    $model->skillGroups[$n++] = null !== $item ? skillGroups::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SkillGroups'] as $item1) {
+                    $model->skillGroups[$n1] = skillGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

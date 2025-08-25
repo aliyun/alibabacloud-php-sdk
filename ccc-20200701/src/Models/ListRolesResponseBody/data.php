@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListRolesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example Admin
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example Admin@ccc-test
-     *
      * @var string
      */
     public $roleId;
@@ -26,14 +22,18 @@ class data extends Model
         'roleId' => 'RoleId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
         }
@@ -41,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
         }

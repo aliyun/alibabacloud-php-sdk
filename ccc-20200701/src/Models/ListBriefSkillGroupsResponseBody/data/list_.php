@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListBriefSkillGroupsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class list_ extends Model
 {
@@ -19,8 +19,6 @@ class list_ extends Model
     public $displayName;
 
     /**
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
@@ -31,29 +29,21 @@ class list_ extends Model
     public $mediaType;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $phoneNumberCount;
 
     /**
-     * @example skillgroup@ccc-test
-     *
      * @var string
      */
     public $skillGroupId;
 
     /**
-     * @example skillgroup
-     *
      * @var string
      */
     public $skillGroupName;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $userCount;
@@ -68,32 +58,42 @@ class list_ extends Model
         'userCount' => 'UserCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
         }
+
         if (null !== $this->phoneNumberCount) {
             $res['PhoneNumberCount'] = $this->phoneNumberCount;
         }
+
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
         }
+
         if (null !== $this->skillGroupName) {
             $res['SkillGroupName'] = $this->skillGroupName;
         }
+
         if (null !== $this->userCount) {
             $res['UserCount'] = $this->userCount;
         }
@@ -101,35 +101,42 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
         }
+
         if (isset($map['PhoneNumberCount'])) {
             $model->phoneNumberCount = $map['PhoneNumberCount'];
         }
+
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
         }
+
         if (isset($map['SkillGroupName'])) {
             $model->skillGroupName = $map['SkillGroupName'];
         }
+
         if (isset($map['UserCount'])) {
             $model->userCount = $map['UserCount'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSchemaPropertyShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example b0eb2742-f37e-4c67-82d4-25c651c1xxxx
-     *
      * @var string
      */
     public $instanceId;
@@ -23,19 +19,11 @@ class UpdateSchemaPropertyShrinkRequest extends Model
     public $propertyShrink;
 
     /**
-     * @example BC976D32-AC4C-4E0F-8AA9-F4BC6C4E2B3E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description schema id
-     *
-     * This parameter is required.
-     *
-     * @example profile
-     *
      * @var string
      */
     public $schemaId;
@@ -46,20 +34,26 @@ class UpdateSchemaPropertyShrinkRequest extends Model
         'schemaId' => 'SchemaId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->propertyShrink) {
             $res['Property'] = $this->propertyShrink;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->schemaId) {
             $res['SchemaId'] = $this->schemaId;
         }
@@ -67,23 +61,26 @@ class UpdateSchemaPropertyShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSchemaPropertyShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Property'])) {
             $model->propertyShrink = $map['Property'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SchemaId'])) {
             $model->schemaId = $map['SchemaId'];
         }

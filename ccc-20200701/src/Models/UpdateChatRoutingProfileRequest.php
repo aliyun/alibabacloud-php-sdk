@@ -4,41 +4,16 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateChatRoutingProfileRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example {
-     * "RoutingType": "Automatic",
-     * "AgentConcurrencySettings": {
-     * "AllowExceedingLimitWhenTransferring": false,
-     * "ConcurrencyLimit": 4,
-     * "AllowExceedingLimitWhenClaiming": true,
-     * "Enabled": true
-     * },
-     * "ChatSettings": {
-     * "IdleChatTimeoutSeconds": 300
-     * },
-     * "DistributionSettings": {
-     * "Enabled": true,
-     * "AgentRingTimeoutSeconds": 119,
-     * "MaxNumberOfConversationsAgentCanMiss": 5,
-     * "PostAgentMissingConversionsAction": "Nothing"
-     * }
-     * }
-     *
      * @var string
      */
     public $routingProfiles;
@@ -47,14 +22,18 @@ class UpdateChatRoutingProfileRequest extends Model
         'routingProfiles' => 'RoutingProfiles',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->routingProfiles) {
             $res['RoutingProfiles'] = $this->routingProfiles;
         }
@@ -62,17 +41,18 @@ class UpdateChatRoutingProfileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateChatRoutingProfileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RoutingProfiles'])) {
             $model->routingProfiles = $map['RoutingProfiles'];
         }

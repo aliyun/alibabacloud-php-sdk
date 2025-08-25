@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ReleaseCallResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ReleaseCallResponseBody\data\callContext\channelContexts;
-use AlibabaCloud\Tea\Model;
 
 class callContext extends Model
 {
@@ -15,15 +15,11 @@ class callContext extends Model
     public $channelContexts;
 
     /**
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example job-6538214103685****
-     *
      * @var string
      */
     public $jobId;
@@ -33,23 +29,32 @@ class callContext extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->channelContexts)) {
+            Model::validateArray($this->channelContexts);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelContexts) {
-            $res['ChannelContexts'] = [];
-            if (null !== $this->channelContexts && \is_array($this->channelContexts)) {
-                $n = 0;
-                foreach ($this->channelContexts as $item) {
-                    $res['ChannelContexts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->channelContexts)) {
+                $res['ChannelContexts'] = [];
+                $n1 = 0;
+                foreach ($this->channelContexts as $item1) {
+                    $res['ChannelContexts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -57,26 +62,29 @@ class callContext extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return callContext
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelContexts'])) {
             if (!empty($map['ChannelContexts'])) {
                 $model->channelContexts = [];
-                $n = 0;
-                foreach ($map['ChannelContexts'] as $item) {
-                    $model->channelContexts[$n++] = null !== $item ? channelContexts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ChannelContexts'] as $item1) {
+                    $model->channelContexts[$n1] = channelContexts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }

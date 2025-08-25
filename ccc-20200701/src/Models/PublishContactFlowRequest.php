@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PublishContactFlowRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example b0a063bf-f138-42a4-ad9f-9babe3ec1a9e
-     *
      * @var string
      */
     public $contactFlowId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 0e0b8e78-af3e-4360-a5c5-f9bb5c2b8af2
-     *
      * @var string
      */
     public $draftId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
@@ -40,17 +28,22 @@ class PublishContactFlowRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactFlowId) {
             $res['ContactFlowId'] = $this->contactFlowId;
         }
+
         if (null !== $this->draftId) {
             $res['DraftId'] = $this->draftId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -58,20 +51,22 @@ class PublishContactFlowRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PublishContactFlowRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactFlowId'])) {
             $model->contactFlowId = $map['ContactFlowId'];
         }
+
         if (isset($map['DraftId'])) {
             $model->draftId = $map['DraftId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

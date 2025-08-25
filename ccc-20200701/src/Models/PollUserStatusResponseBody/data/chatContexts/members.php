@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\PollUserStatusResponseBody\data\chatContexts;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class members extends Model
 {
@@ -52,29 +52,38 @@ class members extends Model
         'userType' => 'UserType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
+
         if (null !== $this->releaseInitiator) {
             $res['ReleaseInitiator'] = $this->releaseInitiator;
         }
+
         if (null !== $this->releaseReason) {
             $res['ReleaseReason'] = $this->releaseReason;
         }
+
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
         }
@@ -82,32 +91,38 @@ class members extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return members
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
+
         if (isset($map['ReleaseInitiator'])) {
             $model->releaseInitiator = $map['ReleaseInitiator'];
         }
+
         if (isset($map['ReleaseReason'])) {
             $model->releaseReason = $map['ReleaseReason'];
         }
+
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
         }

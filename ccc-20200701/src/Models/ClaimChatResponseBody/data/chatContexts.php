@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ClaimChatResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class chatContexts extends Model
 {
     /**
-     * @example 226****-cbb6-****-8fea-1e71baf7bfa7
-     *
      * @var string
      */
     public $accessChannelId;
@@ -21,15 +19,11 @@ class chatContexts extends Model
     public $accessChannelName;
 
     /**
-     * @example Web
-     *
      * @var string
      */
     public $accessChannelType;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $beingAssigned;
@@ -40,22 +34,16 @@ class chatContexts extends Model
     public $callVariables;
 
     /**
-     * @example INBOUND
-     *
      * @var string
      */
     public $chatType;
 
     /**
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example chat-65382141036853491
-     *
      * @var string
      */
     public $jobId;
@@ -70,32 +58,42 @@ class chatContexts extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessChannelId) {
             $res['AccessChannelId'] = $this->accessChannelId;
         }
+
         if (null !== $this->accessChannelName) {
             $res['AccessChannelName'] = $this->accessChannelName;
         }
+
         if (null !== $this->accessChannelType) {
             $res['AccessChannelType'] = $this->accessChannelType;
         }
+
         if (null !== $this->beingAssigned) {
             $res['BeingAssigned'] = $this->beingAssigned;
         }
+
         if (null !== $this->callVariables) {
             $res['CallVariables'] = $this->callVariables;
         }
+
         if (null !== $this->chatType) {
             $res['ChatType'] = $this->chatType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -103,35 +101,42 @@ class chatContexts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return chatContexts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessChannelId'])) {
             $model->accessChannelId = $map['AccessChannelId'];
         }
+
         if (isset($map['AccessChannelName'])) {
             $model->accessChannelName = $map['AccessChannelName'];
         }
+
         if (isset($map['AccessChannelType'])) {
             $model->accessChannelType = $map['AccessChannelType'];
         }
+
         if (isset($map['BeingAssigned'])) {
             $model->beingAssigned = $map['BeingAssigned'];
         }
+
         if (isset($map['CallVariables'])) {
             $model->callVariables = $map['CallVariables'];
         }
+
         if (isset($map['ChatType'])) {
             $model->chatType = $map['ChatType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }

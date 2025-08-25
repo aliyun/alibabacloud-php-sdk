@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListCallSummariesRequest extends Model
 {
@@ -14,10 +14,6 @@ class ListCallSummariesRequest extends Model
     public $contactIdList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
@@ -26,14 +22,28 @@ class ListCallSummariesRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->contactIdList)) {
+            Model::validateArray($this->contactIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactIdList) {
-            $res['ContactIdList'] = $this->contactIdList;
+            if (\is_array($this->contactIdList)) {
+                $res['ContactIdList'] = [];
+                $n1 = 0;
+                foreach ($this->contactIdList as $item1) {
+                    $res['ContactIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -41,19 +51,25 @@ class ListCallSummariesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCallSummariesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactIdList'])) {
             if (!empty($map['ContactIdList'])) {
-                $model->contactIdList = $map['ContactIdList'];
+                $model->contactIdList = [];
+                $n1 = 0;
+                foreach ($map['ContactIdList'] as $item1) {
+                    $model->contactIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

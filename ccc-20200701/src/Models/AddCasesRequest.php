@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddCasesRequest\caseList;
-use AlibabaCloud\Tea\Model;
 
 class AddCasesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example c58b9719-3bc3-441d-a4d3-fc0309ef7066
-     *
      * @var string
      */
     public $campaignId;
@@ -24,10 +20,6 @@ class AddCasesRequest extends Model
     public $caseList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
@@ -37,23 +29,32 @@ class AddCasesRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->caseList)) {
+            Model::validateArray($this->caseList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->campaignId) {
             $res['CampaignId'] = $this->campaignId;
         }
+
         if (null !== $this->caseList) {
-            $res['CaseList'] = [];
-            if (null !== $this->caseList && \is_array($this->caseList)) {
-                $n = 0;
-                foreach ($this->caseList as $item) {
-                    $res['CaseList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->caseList)) {
+                $res['CaseList'] = [];
+                $n1 = 0;
+                foreach ($this->caseList as $item1) {
+                    $res['CaseList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -61,26 +62,29 @@ class AddCasesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddCasesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CampaignId'])) {
             $model->campaignId = $map['CampaignId'];
         }
+
         if (isset($map['CaseList'])) {
             if (!empty($map['CaseList'])) {
                 $model->caseList = [];
-                $n = 0;
-                foreach ($map['CaseList'] as $item) {
-                    $model->caseList[$n++] = null !== $item ? caseList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CaseList'] as $item1) {
+                    $model->caseList[$n1] = caseList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalSkillGroupReportResponseBody\data\list_\inbound;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accessChannelTypeDetails extends Model
 {
@@ -22,14 +22,18 @@ class accessChannelTypeDetails extends Model
         'callsOffered' => 'CallsOffered',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessChannelType) {
             $res['AccessChannelType'] = $this->accessChannelType;
         }
+
         if (null !== $this->callsOffered) {
             $res['CallsOffered'] = $this->callsOffered;
         }
@@ -37,17 +41,18 @@ class accessChannelTypeDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accessChannelTypeDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessChannelType'])) {
             $model->accessChannelType = $map['AccessChannelType'];
         }
+
         if (isset($map['CallsOffered'])) {
             $model->callsOffered = $map['CallsOffered'];
         }

@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListCommonTicketFieldsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DataPropertiesValue;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 1703517780627
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description Schema ID。
-     *
-     * @example ticketing
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
@@ -38,8 +30,6 @@ class data extends Model
     public $properties;
 
     /**
-     * @example 1716211430928
-     *
      * @var string
      */
     public $updatedTime;
@@ -51,28 +41,38 @@ class data extends Model
         'updatedTime' => 'UpdatedTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->properties)) {
+            Model::validateArray($this->properties);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->properties) {
-            $res['Properties'] = [];
-            if (null !== $this->properties && \is_array($this->properties)) {
-                foreach ($this->properties as $key => $val) {
-                    $res['Properties'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->properties)) {
+                $res['Properties'] = [];
+                foreach ($this->properties as $key1 => $value1) {
+                    $res['Properties'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
+
         if (null !== $this->updatedTime) {
             $res['UpdatedTime'] = $this->updatedTime;
         }
@@ -80,26 +80,35 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Properties'])) {
-            $model->properties = $map['Properties'];
+            if (!empty($map['Properties'])) {
+                $model->properties = [];
+                foreach ($map['Properties'] as $key1 => $value1) {
+                    $model->properties[$key1] = DataPropertiesValue::fromMap($value1);
+                }
+            }
         }
+
         if (isset($map['UpdatedTime'])) {
             $model->updatedTime = $map['UpdatedTime'];
         }

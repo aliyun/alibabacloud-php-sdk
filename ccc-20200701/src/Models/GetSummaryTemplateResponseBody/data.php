@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\GetSummaryTemplateResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetSummaryTemplateResponseBody\data\propertyList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 8939-4223-86d0-6bd187905cc8
-     *
      * @var string
      */
     public $categoryId;
 
     /**
-     * @example editor-xxx@ccc-test
-     *
      * @var string
      */
     public $editor;
 
     /**
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
@@ -41,15 +35,11 @@ class data extends Model
     public $propertyList;
 
     /**
-     * @example Enabled
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @example 43c2671b-8939-4223-86d0-6bd187905cc8_1717664210492
-     *
      * @var string
      */
     public $templateId;
@@ -63,35 +53,48 @@ class data extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->propertyList)) {
+            Model::validateArray($this->propertyList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
+
         if (null !== $this->editor) {
             $res['Editor'] = $this->editor;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->propertyList) {
-            $res['PropertyList'] = [];
-            if (null !== $this->propertyList && \is_array($this->propertyList)) {
-                $n = 0;
-                foreach ($this->propertyList as $item) {
-                    $res['PropertyList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->propertyList)) {
+                $res['PropertyList'] = [];
+                $n1 = 0;
+                foreach ($this->propertyList as $item1) {
+                    $res['PropertyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -99,38 +102,45 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
+
         if (isset($map['Editor'])) {
             $model->editor = $map['Editor'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PropertyList'])) {
             if (!empty($map['PropertyList'])) {
                 $model->propertyList = [];
-                $n = 0;
-                foreach ($map['PropertyList'] as $item) {
-                    $model->propertyList[$n++] = null !== $item ? propertyList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PropertyList'] as $item1) {
+                    $model->propertyList[$n1] = propertyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

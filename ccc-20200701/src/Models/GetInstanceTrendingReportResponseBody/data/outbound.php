@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceTrendingReportResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class outbound extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $callsAnswered;
 
     /**
-     * @example 1604639129000
-     *
      * @var int
      */
     public $statsTime;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $totalCalls;
@@ -34,17 +28,22 @@ class outbound extends Model
         'totalCalls' => 'TotalCalls',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callsAnswered) {
             $res['CallsAnswered'] = $this->callsAnswered;
         }
+
         if (null !== $this->statsTime) {
             $res['StatsTime'] = $this->statsTime;
         }
+
         if (null !== $this->totalCalls) {
             $res['TotalCalls'] = $this->totalCalls;
         }
@@ -52,20 +51,22 @@ class outbound extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return outbound
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallsAnswered'])) {
             $model->callsAnswered = $map['CallsAnswered'];
         }
+
         if (isset($map['StatsTime'])) {
             $model->statsTime = $map['StatsTime'];
         }
+
         if (isset($map['TotalCalls'])) {
             $model->totalCalls = $map['TotalCalls'];
         }

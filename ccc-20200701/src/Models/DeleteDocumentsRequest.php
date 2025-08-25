@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDocumentsRequest extends Model
 {
@@ -14,28 +14,16 @@ class DeleteDocumentsRequest extends Model
     public $documentIds;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 0630E5DF-CEB0-445B-8626-D5C7481181C3
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description schema id
-     *
-     * This parameter is required.
-     *
-     * @example profile
-     *
      * @var string
      */
     public $schemaId;
@@ -46,20 +34,36 @@ class DeleteDocumentsRequest extends Model
         'schemaId' => 'SchemaId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->documentIds)) {
+            Model::validateArray($this->documentIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->documentIds) {
-            $res['DocumentIds'] = $this->documentIds;
+            if (\is_array($this->documentIds)) {
+                $res['DocumentIds'] = [];
+                $n1 = 0;
+                foreach ($this->documentIds as $item1) {
+                    $res['DocumentIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->schemaId) {
             $res['SchemaId'] = $this->schemaId;
         }
@@ -67,25 +71,33 @@ class DeleteDocumentsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDocumentsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocumentIds'])) {
             if (!empty($map['DocumentIds'])) {
-                $model->documentIds = $map['DocumentIds'];
+                $model->documentIds = [];
+                $n1 = 0;
+                foreach ($map['DocumentIds'] as $item1) {
+                    $model->documentIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SchemaId'])) {
             $model->schemaId = $map['SchemaId'];
         }

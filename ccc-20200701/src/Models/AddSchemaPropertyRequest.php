@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddSchemaPropertyRequest\property;
-use AlibabaCloud\Tea\Model;
 
 class AddSchemaPropertyRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example b0eb2742-f37e-4c67-82d4-25c651c1xxxx
-     *
      * @var string
      */
     public $instanceId;
@@ -24,19 +20,11 @@ class AddSchemaPropertyRequest extends Model
     public $property;
 
     /**
-     * @example 03C67DAD-EB26-41D8-949D-9B0C470FB716
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description schema id
-     *
-     * This parameter is required.
-     *
-     * @example profile
-     *
      * @var string
      */
     public $schemaId;
@@ -47,20 +35,29 @@ class AddSchemaPropertyRequest extends Model
         'schemaId' => 'SchemaId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->property) {
+            $this->property->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->property) {
-            $res['Property'] = null !== $this->property ? $this->property->toMap() : null;
+            $res['Property'] = null !== $this->property ? $this->property->toArray($noStream) : $this->property;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->schemaId) {
             $res['SchemaId'] = $this->schemaId;
         }
@@ -68,23 +65,26 @@ class AddSchemaPropertyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddSchemaPropertyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Property'])) {
             $model->property = property::fromMap($map['Property']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SchemaId'])) {
             $model->schemaId = $map['SchemaId'];
         }

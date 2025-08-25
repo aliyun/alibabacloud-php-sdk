@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddSkillGroupsToUserRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example [{"skillGroupId":"test1@ccc-test","skillLevel":5},{"skillGroupId":"test2@ccc-test","skillLevel":5}]
-     *
      * @var string
      */
     public $skillLevelList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example agent@ccc-test
-     *
      * @var string
      */
     public $userId;
@@ -40,17 +28,22 @@ class AddSkillGroupsToUserRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->skillLevelList) {
             $res['SkillLevelList'] = $this->skillLevelList;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -58,20 +51,22 @@ class AddSkillGroupsToUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddSkillGroupsToUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['SkillLevelList'])) {
             $model->skillLevelList = $map['SkillLevelList'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

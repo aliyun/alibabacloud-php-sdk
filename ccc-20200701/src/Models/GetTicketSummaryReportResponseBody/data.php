@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\GetTicketSummaryReportResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 3
-     *
      * @var string
      */
     public $ticketsAssigned;
 
     /**
-     * @example 10
-     *
      * @var string
      */
     public $ticketsCreated;
 
     /**
-     * @example 5
-     *
      * @var string
      */
     public $ticketsParticipated;
@@ -34,17 +28,22 @@ class data extends Model
         'ticketsParticipated' => 'TicketsParticipated',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ticketsAssigned) {
             $res['TicketsAssigned'] = $this->ticketsAssigned;
         }
+
         if (null !== $this->ticketsCreated) {
             $res['TicketsCreated'] = $this->ticketsCreated;
         }
+
         if (null !== $this->ticketsParticipated) {
             $res['TicketsParticipated'] = $this->ticketsParticipated;
         }
@@ -52,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TicketsAssigned'])) {
             $model->ticketsAssigned = $map['TicketsAssigned'];
         }
+
         if (isset($map['TicketsCreated'])) {
             $model->ticketsCreated = $map['TicketsCreated'];
         }
+
         if (isset($map['TicketsParticipated'])) {
             $model->ticketsParticipated = $map['TicketsParticipated'];
         }

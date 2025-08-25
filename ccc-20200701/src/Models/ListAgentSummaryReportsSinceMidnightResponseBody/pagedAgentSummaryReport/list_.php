@@ -4,16 +4,14 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListAgentSummaryReportsSinceMidnightResponseBody\pagedAgentSummaryReport;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAgentSummaryReportsSinceMidnightResponseBody\pagedAgentSummaryReport\list_\inbound;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAgentSummaryReportsSinceMidnightResponseBody\pagedAgentSummaryReport\list_\outbound;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAgentSummaryReportsSinceMidnightResponseBody\pagedAgentSummaryReport\list_\overall;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
     /**
-     * @example agent@ccc-test
-     *
      * @var string
      */
     public $agentId;
@@ -29,15 +27,11 @@ class list_ extends Model
     public $inbound;
 
     /**
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example agent
-     *
      * @var string
      */
     public $loginName;
@@ -53,8 +47,6 @@ class list_ extends Model
     public $overall;
 
     /**
-     * @example ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
-     *
      * @var string
      */
     public $skillGroupIds;
@@ -65,8 +57,6 @@ class list_ extends Model
     public $skillGroupNames;
 
     /**
-     * @example 2018-09-13 00:00:00
-     *
      * @var string
      */
     public $timestamp;
@@ -83,38 +73,59 @@ class list_ extends Model
         'timestamp' => 'Timestamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->inbound) {
+            $this->inbound->validate();
+        }
+        if (null !== $this->outbound) {
+            $this->outbound->validate();
+        }
+        if (null !== $this->overall) {
+            $this->overall->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
+
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
+
         if (null !== $this->inbound) {
-            $res['Inbound'] = null !== $this->inbound ? $this->inbound->toMap() : null;
+            $res['Inbound'] = null !== $this->inbound ? $this->inbound->toArray($noStream) : $this->inbound;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->loginName) {
             $res['LoginName'] = $this->loginName;
         }
+
         if (null !== $this->outbound) {
-            $res['Outbound'] = null !== $this->outbound ? $this->outbound->toMap() : null;
+            $res['Outbound'] = null !== $this->outbound ? $this->outbound->toArray($noStream) : $this->outbound;
         }
+
         if (null !== $this->overall) {
-            $res['Overall'] = null !== $this->overall ? $this->overall->toMap() : null;
+            $res['Overall'] = null !== $this->overall ? $this->overall->toArray($noStream) : $this->overall;
         }
+
         if (null !== $this->skillGroupIds) {
             $res['SkillGroupIds'] = $this->skillGroupIds;
         }
+
         if (null !== $this->skillGroupNames) {
             $res['SkillGroupNames'] = $this->skillGroupNames;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -122,41 +133,50 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }
+
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
+
         if (isset($map['Inbound'])) {
             $model->inbound = inbound::fromMap($map['Inbound']);
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['LoginName'])) {
             $model->loginName = $map['LoginName'];
         }
+
         if (isset($map['Outbound'])) {
             $model->outbound = outbound::fromMap($map['Outbound']);
         }
+
         if (isset($map['Overall'])) {
             $model->overall = overall::fromMap($map['Overall']);
         }
+
         if (isset($map['SkillGroupIds'])) {
             $model->skillGroupIds = $map['SkillGroupIds'];
         }
+
         if (isset($map['SkillGroupNames'])) {
             $model->skillGroupNames = $map['SkillGroupNames'];
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

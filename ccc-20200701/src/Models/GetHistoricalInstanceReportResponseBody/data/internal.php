@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalInstanceReportResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class internal extends Model
 {
@@ -22,14 +22,18 @@ class internal extends Model
         'callsDialed' => 'CallsDialed',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callsAnswered) {
             $res['CallsAnswered'] = $this->callsAnswered;
         }
+
         if (null !== $this->callsDialed) {
             $res['CallsDialed'] = $this->callsDialed;
         }
@@ -37,17 +41,18 @@ class internal extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return internal
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallsAnswered'])) {
             $model->callsAnswered = $map['CallsAnswered'];
         }
+
         if (isset($map['CallsDialed'])) {
             $model->callsDialed = $map['CallsDialed'];
         }
