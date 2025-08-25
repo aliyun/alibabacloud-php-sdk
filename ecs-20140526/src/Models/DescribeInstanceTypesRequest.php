@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DescribeInstanceTypesRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $additionalAttributes;
+
+    /**
      * @var string
      */
     public $cpuArchitecture;
@@ -243,6 +248,7 @@ class DescribeInstanceTypesRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'additionalAttributes' => 'AdditionalAttributes',
         'cpuArchitecture' => 'CpuArchitecture',
         'cpuArchitectures' => 'CpuArchitectures',
         'GPUSpec' => 'GPUSpec',
@@ -294,6 +300,9 @@ class DescribeInstanceTypesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->additionalAttributes)) {
+            Model::validateArray($this->additionalAttributes);
+        }
         if (\is_array($this->cpuArchitectures)) {
             Model::validateArray($this->cpuArchitectures);
         }
@@ -321,6 +330,17 @@ class DescribeInstanceTypesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->additionalAttributes) {
+            if (\is_array($this->additionalAttributes)) {
+                $res['AdditionalAttributes'] = [];
+                $n1 = 0;
+                foreach ($this->additionalAttributes as $item1) {
+                    $res['AdditionalAttributes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->cpuArchitecture) {
             $res['CpuArchitecture'] = $this->cpuArchitecture;
         }
@@ -569,6 +589,17 @@ class DescribeInstanceTypesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdditionalAttributes'])) {
+            if (!empty($map['AdditionalAttributes'])) {
+                $model->additionalAttributes = [];
+                $n1 = 0;
+                foreach ($map['AdditionalAttributes'] as $item1) {
+                    $model->additionalAttributes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['CpuArchitecture'])) {
             $model->cpuArchitecture = $map['CpuArchitecture'];
         }

@@ -1,3 +1,11 @@
+2025-08-25 Version: 7.2.0
+- Support API ModifyInstanceClockOptions.
+- Update API DescribeInstanceTypes: add request parameters AdditionalAttributes.
+- Update API DescribeInstanceTypes: add response parameters Body.InstanceTypes.$.NetworkInfo.
+- Update API DescribeSecurityGroupAttribute: add request parameters Attribute.
+- Update API DescribeSecurityGroupAttribute: add response parameters Body.SnapshotPolicyIds.
+
+
 2025-08-06 Version: 7.1.3
 - Update API RunInstances: add request parameters ClockOptions.
 

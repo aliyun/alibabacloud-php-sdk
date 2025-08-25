@@ -6,32 +6,22 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeSecurityGroupAttributeRequest extends Model
+class ModifyInstanceClockOptionsRequest extends Model
 {
     /**
      * @var string
      */
-    public $attribute;
+    public $clientToken;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
 
     /**
      * @var string
      */
-    public $direction;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $nicType;
+    public $instanceId;
 
     /**
      * @var string
@@ -42,6 +32,11 @@ class DescribeSecurityGroupAttributeRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $ptpStatus;
 
     /**
      * @var string
@@ -57,23 +52,16 @@ class DescribeSecurityGroupAttributeRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $securityGroupId;
     protected $_name = [
-        'attribute' => 'Attribute',
-        'direction' => 'Direction',
-        'maxResults' => 'MaxResults',
-        'nextToken' => 'NextToken',
-        'nicType' => 'NicType',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'ptpStatus' => 'PtpStatus',
         'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'securityGroupId' => 'SecurityGroupId',
     ];
 
     public function validate()
@@ -84,24 +72,16 @@ class DescribeSecurityGroupAttributeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->attribute) {
-            $res['Attribute'] = $this->attribute;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
-        if (null !== $this->direction) {
-            $res['Direction'] = $this->direction;
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-
-        if (null !== $this->nicType) {
-            $res['NicType'] = $this->nicType;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->ownerAccount) {
@@ -110,6 +90,10 @@ class DescribeSecurityGroupAttributeRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->ptpStatus) {
+            $res['PtpStatus'] = $this->ptpStatus;
         }
 
         if (null !== $this->regionId) {
@@ -124,10 +108,6 @@ class DescribeSecurityGroupAttributeRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-
         return $res;
     }
 
@@ -139,24 +119,16 @@ class DescribeSecurityGroupAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Attribute'])) {
-            $model->attribute = $map['Attribute'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
-        if (isset($map['Direction'])) {
-            $model->direction = $map['Direction'];
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-
-        if (isset($map['NicType'])) {
-            $model->nicType = $map['NicType'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['OwnerAccount'])) {
@@ -165,6 +137,10 @@ class DescribeSecurityGroupAttributeRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['PtpStatus'])) {
+            $model->ptpStatus = $map['PtpStatus'];
         }
 
         if (isset($map['RegionId'])) {
@@ -177,10 +153,6 @@ class DescribeSecurityGroupAttributeRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
         }
 
         return $model;

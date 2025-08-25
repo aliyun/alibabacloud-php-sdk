@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSecurityGroupAttributeResponseBody\permissions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSecurityGroupAttributeResponseBody\snapshotPolicyIds;
 
 class DescribeSecurityGroupAttributeResponseBody extends Model
 {
@@ -50,6 +51,11 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     public $securityGroupName;
 
     /**
+     * @var snapshotPolicyIds
+     */
+    public $snapshotPolicyIds;
+
+    /**
      * @var string
      */
     public $vpcId;
@@ -62,6 +68,7 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
         'requestId' => 'RequestId',
         'securityGroupId' => 'SecurityGroupId',
         'securityGroupName' => 'SecurityGroupName',
+        'snapshotPolicyIds' => 'SnapshotPolicyIds',
         'vpcId' => 'VpcId',
     ];
 
@@ -69,6 +76,9 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     {
         if (null !== $this->permissions) {
             $this->permissions->validate();
+        }
+        if (null !== $this->snapshotPolicyIds) {
+            $this->snapshotPolicyIds->validate();
         }
         parent::validate();
     }
@@ -106,6 +116,10 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
 
         if (null !== $this->securityGroupName) {
             $res['SecurityGroupName'] = $this->securityGroupName;
+        }
+
+        if (null !== $this->snapshotPolicyIds) {
+            $res['SnapshotPolicyIds'] = null !== $this->snapshotPolicyIds ? $this->snapshotPolicyIds->toArray($noStream) : $this->snapshotPolicyIds;
         }
 
         if (null !== $this->vpcId) {
@@ -153,6 +167,10 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
 
         if (isset($map['SecurityGroupName'])) {
             $model->securityGroupName = $map['SecurityGroupName'];
+        }
+
+        if (isset($map['SnapshotPolicyIds'])) {
+            $model->snapshotPolicyIds = snapshotPolicyIds::fromMap($map['SnapshotPolicyIds']);
         }
 
         if (isset($map['VpcId'])) {

@@ -572,6 +572,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceAutoRenewAttributeReques
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceChargeTypeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceChargeTypeResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceClockOptionsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceClockOptionsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceDeploymentRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceDeploymentResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceMaintenanceAttributesRequest;
@@ -18689,6 +18691,10 @@ class Ecs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->additionalAttributes) {
+            @$query['AdditionalAttributes'] = $request->additionalAttributes;
+        }
+
         if (null !== $request->cpuArchitecture) {
             @$query['CpuArchitecture'] = $request->cpuArchitecture;
         }
@@ -22814,6 +22820,10 @@ class Ecs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->attribute) {
+            @$query['Attribute'] = $request->attribute;
+        }
+
         if (null !== $request->direction) {
             @$query['Direction'] = $request->direction;
         }
@@ -31464,6 +31474,105 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * Modifies the instance clock options.
+     *
+     * @remarks
+     * When you call this operation, note that:
+     * *   This is an asynchronous operation. The ID of the asynchronous task is returned after the call. Query the asynchronous task result to determine whether the execution is complete.
+     * *   To modify the PtpStatus parameter, you must specify the parameter. The instance types that are supported. You can query the instance type list ([DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) ).
+     *
+     * @param request - ModifyInstanceClockOptionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceClockOptionsResponse
+     *
+     * @param ModifyInstanceClockOptionsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyInstanceClockOptionsResponse
+     */
+    public function modifyInstanceClockOptionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->ptpStatus) {
+            @$query['PtpStatus'] = $request->ptpStatus;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInstanceClockOptions',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInstanceClockOptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the instance clock options.
+     *
+     * @remarks
+     * When you call this operation, note that:
+     * *   This is an asynchronous operation. The ID of the asynchronous task is returned after the call. Query the asynchronous task result to determine whether the execution is complete.
+     * *   To modify the PtpStatus parameter, you must specify the parameter. The instance types that are supported. You can query the instance type list ([DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) ).
+     *
+     * @param request - ModifyInstanceClockOptionsRequest
+     *
+     * @returns ModifyInstanceClockOptionsResponse
+     *
+     * @param ModifyInstanceClockOptionsRequest $request
+     *
+     * @return ModifyInstanceClockOptionsResponse
+     */
+    public function modifyInstanceClockOptions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceClockOptionsWithOptions($request, $runtime);
+    }
+
+    /**
      * Changes the deployment set of an Elastic Compute Service (ECS) instance or migrates an ECS instance to a dedicated host. You can change the instance type of an ECS instance when you migrate the instance.
      *
      * @remarks
@@ -31787,7 +31896,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * 修改实例网络选项.
+     * Modifies instance network configurations.
+     *
+     * @remarks
+     * When you call this operation, take note of the following item:
+     * *   This is an asynchronous operation. The ID of the asynchronous task is returned after the call. Query the asynchronous task result to determine whether the execution is complete.
+     * *   You can modify only one attribute at a time. If you modify multiple attributes, call this operation multiple times.
+     * *   To modify the BandwidthWeighting, you must specify the specifications of the instance. The instance types that are supported. You can query the instance type list (DescribeInstanceTypes).
      *
      * @param request - ModifyInstanceNetworkOptionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31842,7 +31957,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * 修改实例网络选项.
+     * Modifies instance network configurations.
+     *
+     * @remarks
+     * When you call this operation, take note of the following item:
+     * *   This is an asynchronous operation. The ID of the asynchronous task is returned after the call. Query the asynchronous task result to determine whether the execution is complete.
+     * *   You can modify only one attribute at a time. If you modify multiple attributes, call this operation multiple times.
+     * *   To modify the BandwidthWeighting, you must specify the specifications of the instance. The instance types that are supported. You can query the instance type list (DescribeInstanceTypes).
      *
      * @param request - ModifyInstanceNetworkOptionsRequest
      *
@@ -34460,11 +34581,9 @@ class Ecs extends OpenApiClient
      * Changes the type of a snapshot. You can call this operation to convert a standard snapshot into an archive snapshot.
      *
      * @remarks
-     *   Archive snapshots cannot be restored to standard snapshots.
+     *   Archived snapshots cannot be restored to standard snapshots.
      * *   You can archive only standard snapshots that have been retained for at least 14 days.
-     * *   You cannot archive encrypted snapshots.
      * *   You cannot archive snapshots that are shared to you, snapshots managed by Cloud Backup, or snapshots in cloud boxes.
-     * *   The archive snapshot feature is available only in the China (Hohhot), Malaysia (Kuala Lumpur), South Korea (Seoul), Philippines (Manila), Thailand (Bangkok), and Mexico regions. The availability of the feature in other regions is subject to notice.
      *
      * @param request - ModifySnapshotCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -34530,11 +34649,9 @@ class Ecs extends OpenApiClient
      * Changes the type of a snapshot. You can call this operation to convert a standard snapshot into an archive snapshot.
      *
      * @remarks
-     *   Archive snapshots cannot be restored to standard snapshots.
+     *   Archived snapshots cannot be restored to standard snapshots.
      * *   You can archive only standard snapshots that have been retained for at least 14 days.
-     * *   You cannot archive encrypted snapshots.
      * *   You cannot archive snapshots that are shared to you, snapshots managed by Cloud Backup, or snapshots in cloud boxes.
-     * *   The archive snapshot feature is available only in the China (Hohhot), Malaysia (Kuala Lumpur), South Korea (Seoul), Philippines (Manila), Thailand (Bangkok), and Mexico regions. The availability of the feature in other regions is subject to notice.
      *
      * @param request - ModifySnapshotCategoryRequest
      *

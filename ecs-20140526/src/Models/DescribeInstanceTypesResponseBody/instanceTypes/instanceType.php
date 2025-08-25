@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\inst
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\cpuOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\enhancedNetwork;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\networkCards;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\networkInfo;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\supportedBootModes;
 
 class instanceType extends Model
@@ -200,6 +201,11 @@ class instanceType extends Model
     public $networkEncryptionSupport;
 
     /**
+     * @var networkInfo
+     */
+    public $networkInfo;
+
+    /**
      * @var string
      */
     public $nvmeSupport;
@@ -271,6 +277,7 @@ class instanceType extends Model
         'networkCardQuantity' => 'NetworkCardQuantity',
         'networkCards' => 'NetworkCards',
         'networkEncryptionSupport' => 'NetworkEncryptionSupport',
+        'networkInfo' => 'NetworkInfo',
         'nvmeSupport' => 'NvmeSupport',
         'physicalProcessorModel' => 'PhysicalProcessorModel',
         'primaryEniQueueNumber' => 'PrimaryEniQueueNumber',
@@ -296,6 +303,9 @@ class instanceType extends Model
         }
         if (null !== $this->networkCards) {
             $this->networkCards->validate();
+        }
+        if (null !== $this->networkInfo) {
+            $this->networkInfo->validate();
         }
         if (null !== $this->supportedBootModes) {
             $this->supportedBootModes->validate();
@@ -452,6 +462,10 @@ class instanceType extends Model
 
         if (null !== $this->networkEncryptionSupport) {
             $res['NetworkEncryptionSupport'] = $this->networkEncryptionSupport;
+        }
+
+        if (null !== $this->networkInfo) {
+            $res['NetworkInfo'] = null !== $this->networkInfo ? $this->networkInfo->toArray($noStream) : $this->networkInfo;
         }
 
         if (null !== $this->nvmeSupport) {
@@ -639,6 +653,10 @@ class instanceType extends Model
 
         if (isset($map['NetworkEncryptionSupport'])) {
             $model->networkEncryptionSupport = $map['NetworkEncryptionSupport'];
+        }
+
+        if (isset($map['NetworkInfo'])) {
+            $model->networkInfo = networkInfo::fromMap($map['NetworkInfo']);
         }
 
         if (isset($map['NvmeSupport'])) {
