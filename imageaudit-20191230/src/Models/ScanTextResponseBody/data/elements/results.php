@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponseBody\data\elements;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponseBody\data\elements\results\details;
-use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
@@ -15,54 +15,56 @@ class results extends Model
     public $details;
 
     /**
-     * @example ad
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @example 99.91
-     *
      * @var float
      */
     public $rate;
 
     /**
-     * @example block
-     *
      * @var string
      */
     public $suggestion;
     protected $_name = [
-        'details'    => 'Details',
-        'label'      => 'Label',
-        'rate'       => 'Rate',
+        'details' => 'Details',
+        'label' => 'Label',
+        'rate' => 'Rate',
         'suggestion' => 'Suggestion',
     ];
 
     public function validate()
     {
+        if (\is_array($this->details)) {
+            Model::validateArray($this->details);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->details) {
-            $res['Details'] = [];
-            if (null !== $this->details && \is_array($this->details)) {
-                $n = 0;
-                foreach ($this->details as $item) {
-                    $res['Details'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->details)) {
+                $res['Details'] = [];
+                $n1 = 0;
+                foreach ($this->details as $item1) {
+                    $res['Details'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
         }
+
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
         }
@@ -70,29 +72,33 @@ class results extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
-                $n              = 0;
-                foreach ($map['Details'] as $item) {
-                    $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Details'] as $item1) {
+                    $model->details[$n1] = details::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];
         }
+
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
         }

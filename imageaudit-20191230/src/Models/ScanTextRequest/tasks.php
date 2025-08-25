@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tasks extends Model
 {
@@ -18,9 +18,10 @@ class tasks extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
@@ -30,11 +31,11 @@ class tasks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

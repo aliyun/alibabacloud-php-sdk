@@ -1,3 +1,6 @@
+2025-08-25 Version: 1.0.8
+- Generated php 2019-12-30 for imageaudit.
+
 2023-01-13 Version: 1.0.7
 - Update imageaudit.
 

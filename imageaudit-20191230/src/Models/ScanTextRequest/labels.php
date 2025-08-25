@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class labels extends Model
 {
     /**
-     * @example ad
-     *
      * @var string
      */
     public $label;
@@ -20,9 +18,10 @@ class labels extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->label) {
@@ -32,11 +31,11 @@ class labels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return labels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

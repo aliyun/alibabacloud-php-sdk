@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponseBody\data\results;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponseBody\data\results\subResults\frames;
 use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponseBody\data\results\subResults\hintWordsInfoList;
 use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponseBody\data\results\subResults\logoDataList;
 use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponseBody\data\results\subResults\programCodeDataList;
 use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponseBody\data\results\subResults\sfaceDataList;
-use AlibabaCloud\Tea\Model;
 
 class subResults extends Model
 {
@@ -24,8 +24,6 @@ class subResults extends Model
     public $hintWordsInfoList;
 
     /**
-     * @example normal
-     *
      * @var string
      */
     public $label;
@@ -36,8 +34,6 @@ class subResults extends Model
     public $logoDataList;
 
     /**
-     * @description 1
-     *
      * @var string[]
      */
     public $OCRDataList;
@@ -48,15 +44,11 @@ class subResults extends Model
     public $programCodeDataList;
 
     /**
-     * @example 99.91
-     *
      * @var float
      */
     public $rate;
 
     /**
-     * @example ad
-     *
      * @var string
      */
     public $scene;
@@ -67,88 +59,126 @@ class subResults extends Model
     public $sfaceDataList;
 
     /**
-     * @example block
-     *
      * @var string
      */
     public $suggestion;
     protected $_name = [
-        'frames'              => 'Frames',
-        'hintWordsInfoList'   => 'HintWordsInfoList',
-        'label'               => 'Label',
-        'logoDataList'        => 'LogoDataList',
-        'OCRDataList'         => 'OCRDataList',
+        'frames' => 'Frames',
+        'hintWordsInfoList' => 'HintWordsInfoList',
+        'label' => 'Label',
+        'logoDataList' => 'LogoDataList',
+        'OCRDataList' => 'OCRDataList',
         'programCodeDataList' => 'ProgramCodeDataList',
-        'rate'                => 'Rate',
-        'scene'               => 'Scene',
-        'sfaceDataList'       => 'SfaceDataList',
-        'suggestion'          => 'Suggestion',
+        'rate' => 'Rate',
+        'scene' => 'Scene',
+        'sfaceDataList' => 'SfaceDataList',
+        'suggestion' => 'Suggestion',
     ];
 
     public function validate()
     {
+        if (\is_array($this->frames)) {
+            Model::validateArray($this->frames);
+        }
+        if (\is_array($this->hintWordsInfoList)) {
+            Model::validateArray($this->hintWordsInfoList);
+        }
+        if (\is_array($this->logoDataList)) {
+            Model::validateArray($this->logoDataList);
+        }
+        if (\is_array($this->OCRDataList)) {
+            Model::validateArray($this->OCRDataList);
+        }
+        if (\is_array($this->programCodeDataList)) {
+            Model::validateArray($this->programCodeDataList);
+        }
+        if (\is_array($this->sfaceDataList)) {
+            Model::validateArray($this->sfaceDataList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->frames) {
-            $res['Frames'] = [];
-            if (null !== $this->frames && \is_array($this->frames)) {
-                $n = 0;
-                foreach ($this->frames as $item) {
-                    $res['Frames'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->frames)) {
+                $res['Frames'] = [];
+                $n1 = 0;
+                foreach ($this->frames as $item1) {
+                    $res['Frames'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->hintWordsInfoList) {
-            $res['HintWordsInfoList'] = [];
-            if (null !== $this->hintWordsInfoList && \is_array($this->hintWordsInfoList)) {
-                $n = 0;
-                foreach ($this->hintWordsInfoList as $item) {
-                    $res['HintWordsInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hintWordsInfoList)) {
+                $res['HintWordsInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->hintWordsInfoList as $item1) {
+                    $res['HintWordsInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->logoDataList) {
-            $res['LogoDataList'] = [];
-            if (null !== $this->logoDataList && \is_array($this->logoDataList)) {
-                $n = 0;
-                foreach ($this->logoDataList as $item) {
-                    $res['LogoDataList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logoDataList)) {
+                $res['LogoDataList'] = [];
+                $n1 = 0;
+                foreach ($this->logoDataList as $item1) {
+                    $res['LogoDataList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->OCRDataList) {
-            $res['OCRDataList'] = $this->OCRDataList;
-        }
-        if (null !== $this->programCodeDataList) {
-            $res['ProgramCodeDataList'] = [];
-            if (null !== $this->programCodeDataList && \is_array($this->programCodeDataList)) {
-                $n = 0;
-                foreach ($this->programCodeDataList as $item) {
-                    $res['ProgramCodeDataList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->OCRDataList)) {
+                $res['OCRDataList'] = [];
+                $n1 = 0;
+                foreach ($this->OCRDataList as $item1) {
+                    $res['OCRDataList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->programCodeDataList) {
+            if (\is_array($this->programCodeDataList)) {
+                $res['ProgramCodeDataList'] = [];
+                $n1 = 0;
+                foreach ($this->programCodeDataList as $item1) {
+                    $res['ProgramCodeDataList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
         }
+
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
+
         if (null !== $this->sfaceDataList) {
-            $res['SfaceDataList'] = [];
-            if (null !== $this->sfaceDataList && \is_array($this->sfaceDataList)) {
-                $n = 0;
-                foreach ($this->sfaceDataList as $item) {
-                    $res['SfaceDataList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sfaceDataList)) {
+                $res['SfaceDataList'] = [];
+                $n1 = 0;
+                foreach ($this->sfaceDataList as $item1) {
+                    $res['SfaceDataList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
         }
@@ -156,73 +186,92 @@ class subResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Frames'])) {
             if (!empty($map['Frames'])) {
                 $model->frames = [];
-                $n             = 0;
-                foreach ($map['Frames'] as $item) {
-                    $model->frames[$n++] = null !== $item ? frames::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Frames'] as $item1) {
+                    $model->frames[$n1] = frames::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['HintWordsInfoList'])) {
             if (!empty($map['HintWordsInfoList'])) {
                 $model->hintWordsInfoList = [];
-                $n                        = 0;
-                foreach ($map['HintWordsInfoList'] as $item) {
-                    $model->hintWordsInfoList[$n++] = null !== $item ? hintWordsInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HintWordsInfoList'] as $item1) {
+                    $model->hintWordsInfoList[$n1] = hintWordsInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['LogoDataList'])) {
             if (!empty($map['LogoDataList'])) {
                 $model->logoDataList = [];
-                $n                   = 0;
-                foreach ($map['LogoDataList'] as $item) {
-                    $model->logoDataList[$n++] = null !== $item ? logoDataList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LogoDataList'] as $item1) {
+                    $model->logoDataList[$n1] = logoDataList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['OCRDataList'])) {
             if (!empty($map['OCRDataList'])) {
-                $model->OCRDataList = $map['OCRDataList'];
+                $model->OCRDataList = [];
+                $n1 = 0;
+                foreach ($map['OCRDataList'] as $item1) {
+                    $model->OCRDataList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ProgramCodeDataList'])) {
             if (!empty($map['ProgramCodeDataList'])) {
                 $model->programCodeDataList = [];
-                $n                          = 0;
-                foreach ($map['ProgramCodeDataList'] as $item) {
-                    $model->programCodeDataList[$n++] = null !== $item ? programCodeDataList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ProgramCodeDataList'] as $item1) {
+                    $model->programCodeDataList[$n1] = programCodeDataList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];
         }
+
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }
+
         if (isset($map['SfaceDataList'])) {
             if (!empty($map['SfaceDataList'])) {
                 $model->sfaceDataList = [];
-                $n                    = 0;
-                foreach ($map['SfaceDataList'] as $item) {
-                    $model->sfaceDataList[$n++] = null !== $item ? sfaceDataList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SfaceDataList'] as $item1) {
+                    $model->sfaceDataList[$n1] = sfaceDataList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
         }
