@@ -32,7 +32,8 @@ class data extends Model
                 $res['ShotFrameIds'] = [];
                 $n1 = 0;
                 foreach ($this->shotFrameIds as $item1) {
-                    $res['ShotFrameIds'][$n1++] = $item1;
+                    $res['ShotFrameIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class data extends Model
                 $model->shotFrameIds = [];
                 $n1 = 0;
                 foreach ($map['ShotFrameIds'] as $item1) {
-                    $model->shotFrameIds[$n1++] = $item1;
+                    $model->shotFrameIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

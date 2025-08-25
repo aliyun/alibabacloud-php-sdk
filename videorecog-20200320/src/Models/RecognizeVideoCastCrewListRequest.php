@@ -39,7 +39,8 @@ class RecognizeVideoCastCrewListRequest extends Model
                 $res['Params'] = [];
                 $n1 = 0;
                 foreach ($this->params as $item1) {
-                    $res['Params'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Params'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class RecognizeVideoCastCrewListRequest extends Model
                 $model->params = [];
                 $n1 = 0;
                 foreach ($map['Params'] as $item1) {
-                    $model->params[$n1++] = params::fromMap($item1);
+                    $model->params[$n1] = params::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

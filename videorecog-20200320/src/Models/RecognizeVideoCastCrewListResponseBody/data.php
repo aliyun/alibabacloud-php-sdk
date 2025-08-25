@@ -75,7 +75,8 @@ class data extends Model
                 $res['CastResults'] = [];
                 $n1 = 0;
                 foreach ($this->castResults as $item1) {
-                    $res['CastResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CastResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +86,8 @@ class data extends Model
                 $res['OcrResults'] = [];
                 $n1 = 0;
                 foreach ($this->ocrResults as $item1) {
-                    $res['OcrResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OcrResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +105,8 @@ class data extends Model
                 $res['SubtitlesResults'] = [];
                 $n1 = 0;
                 foreach ($this->subtitlesResults as $item1) {
-                    $res['SubtitlesResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubtitlesResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +116,8 @@ class data extends Model
                 $res['VideoOcrResults'] = [];
                 $n1 = 0;
                 foreach ($this->videoOcrResults as $item1) {
-                    $res['VideoOcrResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VideoOcrResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +138,8 @@ class data extends Model
                 $model->castResults = [];
                 $n1 = 0;
                 foreach ($map['CastResults'] as $item1) {
-                    $model->castResults[$n1++] = castResults::fromMap($item1);
+                    $model->castResults[$n1] = castResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +149,8 @@ class data extends Model
                 $model->ocrResults = [];
                 $n1 = 0;
                 foreach ($map['OcrResults'] as $item1) {
-                    $model->ocrResults[$n1++] = ocrResults::fromMap($item1);
+                    $model->ocrResults[$n1] = ocrResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +168,8 @@ class data extends Model
                 $model->subtitlesResults = [];
                 $n1 = 0;
                 foreach ($map['SubtitlesResults'] as $item1) {
-                    $model->subtitlesResults[$n1++] = subtitlesResults::fromMap($item1);
+                    $model->subtitlesResults[$n1] = subtitlesResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +179,8 @@ class data extends Model
                 $model->videoOcrResults = [];
                 $n1 = 0;
                 foreach ($map['VideoOcrResults'] as $item1) {
-                    $model->videoOcrResults[$n1++] = videoOcrResults::fromMap($item1);
+                    $model->videoOcrResults[$n1] = videoOcrResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class data extends Model
                 $res['Elements'] = [];
                 $n1 = 0;
                 foreach ($this->elements as $item1) {
-                    $res['Elements'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Elements'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class data extends Model
                 $res['SplitVideoPartResults'] = [];
                 $n1 = 0;
                 foreach ($this->splitVideoPartResults as $item1) {
-                    $res['SplitVideoPartResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SplitVideoPartResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class data extends Model
                 $model->elements = [];
                 $n1 = 0;
                 foreach ($map['Elements'] as $item1) {
-                    $model->elements[$n1++] = elements::fromMap($item1);
+                    $model->elements[$n1] = elements::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class data extends Model
                 $model->splitVideoPartResults = [];
                 $n1 = 0;
                 foreach ($map['SplitVideoPartResults'] as $item1) {
-                    $model->splitVideoPartResults[$n1++] = splitVideoPartResults::fromMap($item1);
+                    $model->splitVideoPartResults[$n1] = splitVideoPartResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

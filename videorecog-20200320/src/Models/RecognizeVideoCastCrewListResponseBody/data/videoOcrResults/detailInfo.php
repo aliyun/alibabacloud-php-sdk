@@ -60,7 +60,8 @@ class detailInfo extends Model
                 $res['Boxes'] = [];
                 $n1 = 0;
                 foreach ($this->boxes as $item1) {
-                    $res['Boxes'][$n1++] = $item1;
+                    $res['Boxes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,7 +71,8 @@ class detailInfo extends Model
                 $res['Position'] = [];
                 $n1 = 0;
                 foreach ($this->position as $item1) {
-                    $res['Position'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Position'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +105,8 @@ class detailInfo extends Model
                 $model->boxes = [];
                 $n1 = 0;
                 foreach ($map['Boxes'] as $item1) {
-                    $model->boxes[$n1++] = $item1;
+                    $model->boxes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +116,8 @@ class detailInfo extends Model
                 $model->position = [];
                 $n1 = 0;
                 foreach ($map['Position'] as $item1) {
-                    $model->position[$n1++] = position::fromMap($item1);
+                    $model->position[$n1] = position::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
