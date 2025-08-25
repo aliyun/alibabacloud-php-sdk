@@ -1,3 +1,6 @@
+2025-08-25 Version: 1.0.12
+- Generated php 2020-03-20 for videorecog.
+
 2025-08-25 Version: 1.0.11
 - Generated php 2020-03-20 for videorecog.
 
