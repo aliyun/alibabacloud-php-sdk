@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVirtualMFADevicesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVirtualMFADevicesResponseBody\virtualMFADevices\adUser;
 
 class virtualMFADevices extends Model
 {
+    /**
+     * @var adUser
+     */
+    public $adUser;
+
     /**
      * @var int
      */
@@ -48,6 +54,7 @@ class virtualMFADevices extends Model
      */
     public $status;
     protected $_name = [
+        'adUser' => 'AdUser',
         'consecutiveFails' => 'ConsecutiveFails',
         'directoryId' => 'DirectoryId',
         'endUserId' => 'EndUserId',
@@ -60,12 +67,19 @@ class virtualMFADevices extends Model
 
     public function validate()
     {
+        if (null !== $this->adUser) {
+            $this->adUser->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->adUser) {
+            $res['AdUser'] = null !== $this->adUser ? $this->adUser->toArray($noStream) : $this->adUser;
+        }
+
         if (null !== $this->consecutiveFails) {
             $res['ConsecutiveFails'] = $this->consecutiveFails;
         }
@@ -109,6 +123,10 @@ class virtualMFADevices extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdUser'])) {
+            $model->adUser = adUser::fromMap($map['AdUser']);
+        }
+
         if (isset($map['ConsecutiveFails'])) {
             $model->consecutiveFails = $map['ConsecutiveFails'];
         }

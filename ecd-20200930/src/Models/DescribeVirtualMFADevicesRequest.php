@@ -14,6 +14,11 @@ class DescribeVirtualMFADevicesRequest extends Model
     public $endUserId;
 
     /**
+     * @var string
+     */
+    public $filter;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -34,6 +39,7 @@ class DescribeVirtualMFADevicesRequest extends Model
     public $regionId;
     protected $_name = [
         'endUserId' => 'EndUserId',
+        'filter' => 'Filter',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'officeSiteId' => 'OfficeSiteId',
@@ -60,6 +66,10 @@ class DescribeVirtualMFADevicesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->filter) {
+            $res['Filter'] = $this->filter;
         }
 
         if (null !== $this->maxResults) {
@@ -98,6 +108,10 @@ class DescribeVirtualMFADevicesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Filter'])) {
+            $model->filter = $map['Filter'];
         }
 
         if (isset($map['MaxResults'])) {

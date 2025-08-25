@@ -13995,6 +13995,10 @@ class Ecd extends OpenApiClient
             @$query['EndUserId'] = $request->endUserId;
         }
 
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }
