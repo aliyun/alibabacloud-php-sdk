@@ -4,52 +4,47 @@
 
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class ToneSdrVideoAdvanceRequest extends Model
 {
     /**
-     * @example 30
-     *
      * @var int
      */
     public $bitrate;
 
     /**
-     * @example auto_l2
-     *
      * @var string
      */
     public $recolorModel;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example https://invi-label.oss-cn-shanghai.aliyuncs.com/label/temp/faceswap/test_for_api/xxxx.mp4
-     *
      * @var Stream
      */
     public $videoURLObject;
     protected $_name = [
-        'bitrate'        => 'Bitrate',
-        'recolorModel'   => 'RecolorModel',
+        'bitrate' => 'Bitrate',
+        'recolorModel' => 'RecolorModel',
         'videoURLObject' => 'VideoURL',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
         }
+
         if (null !== $this->recolorModel) {
             $res['RecolorModel'] = $this->recolorModel;
         }
+
         if (null !== $this->videoURLObject) {
             $res['VideoURL'] = $this->videoURLObject;
         }
@@ -57,20 +52,22 @@ class ToneSdrVideoAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ToneSdrVideoAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
         }
+
         if (isset($map['RecolorModel'])) {
             $model->recolorModel = $map['RecolorModel'];
         }
+
         if (isset($map['VideoURL'])) {
             $model->videoURLObject = $map['VideoURL'];
         }

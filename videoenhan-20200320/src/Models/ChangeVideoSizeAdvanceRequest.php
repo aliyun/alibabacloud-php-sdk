@@ -4,122 +4,107 @@
 
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class ChangeVideoSizeAdvanceRequest extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $b;
 
     /**
-     * @example smart
-     *
      * @var string
      */
     public $cropType;
 
     /**
-     * @example image
-     *
      * @var string
      */
     public $fillType;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $g;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $r;
 
     /**
-     * @example 0.5
-     *
      * @var float
      */
     public $tightness;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/ChangeVideoSize/ChangeVideoSize1.mp4
-     *
      * @var Stream
      */
     public $videoUrlObject;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 600
-     *
      * @var int
      */
     public $width;
     protected $_name = [
-        'b'              => 'B',
-        'cropType'       => 'CropType',
-        'fillType'       => 'FillType',
-        'g'              => 'G',
-        'height'         => 'Height',
-        'r'              => 'R',
-        'tightness'      => 'Tightness',
+        'b' => 'B',
+        'cropType' => 'CropType',
+        'fillType' => 'FillType',
+        'g' => 'G',
+        'height' => 'Height',
+        'r' => 'R',
+        'tightness' => 'Tightness',
         'videoUrlObject' => 'VideoUrl',
-        'width'          => 'Width',
+        'width' => 'Width',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->b) {
             $res['B'] = $this->b;
         }
+
         if (null !== $this->cropType) {
             $res['CropType'] = $this->cropType;
         }
+
         if (null !== $this->fillType) {
             $res['FillType'] = $this->fillType;
         }
+
         if (null !== $this->g) {
             $res['G'] = $this->g;
         }
+
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+
         if (null !== $this->r) {
             $res['R'] = $this->r;
         }
+
         if (null !== $this->tightness) {
             $res['Tightness'] = $this->tightness;
         }
+
         if (null !== $this->videoUrlObject) {
             $res['VideoUrl'] = $this->videoUrlObject;
         }
+
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
@@ -127,38 +112,46 @@ class ChangeVideoSizeAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeVideoSizeAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['B'])) {
             $model->b = $map['B'];
         }
+
         if (isset($map['CropType'])) {
             $model->cropType = $map['CropType'];
         }
+
         if (isset($map['FillType'])) {
             $model->fillType = $map['FillType'];
         }
+
         if (isset($map['G'])) {
             $model->g = $map['G'];
         }
+
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+
         if (isset($map['R'])) {
             $model->r = $map['R'];
         }
+
         if (isset($map['Tightness'])) {
             $model->tightness = $map['Tightness'];
         }
+
         if (isset($map['VideoUrl'])) {
             $model->videoUrlObject = $map['VideoUrl'];
         }
+
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }

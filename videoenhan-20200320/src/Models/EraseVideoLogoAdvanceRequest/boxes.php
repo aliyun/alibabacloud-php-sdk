@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models\EraseVideoLogoAdvanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class boxes extends Model
 {
     /**
-     * @example 1.0
-     *
      * @var float
      */
     public $h;
 
     /**
-     * @example 1.0
-     *
      * @var float
      */
     public $w;
 
     /**
-     * @example 0.0
-     *
      * @var float
      */
     public $x;
 
     /**
-     * @example 0.0
-     *
      * @var float
      */
     public $y;
@@ -44,20 +36,24 @@ class boxes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->h) {
             $res['H'] = $this->h;
         }
+
         if (null !== $this->w) {
             $res['W'] = $this->w;
         }
+
         if (null !== $this->x) {
             $res['X'] = $this->x;
         }
+
         if (null !== $this->y) {
             $res['Y'] = $this->y;
         }
@@ -65,23 +61,26 @@ class boxes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return boxes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['H'])) {
             $model->h = $map['H'];
         }
+
         if (isset($map['W'])) {
             $model->w = $map['W'];
         }
+
         if (isset($map['X'])) {
             $model->x = $map['X'];
         }
+
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
         }

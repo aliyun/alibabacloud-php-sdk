@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models\MergeVideoModelFaceAdvanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mergeInfos extends Model
 {
@@ -23,24 +23,27 @@ class mergeInfos extends Model
      */
     public $templateFaceURL;
     protected $_name = [
-        'imageURL'        => 'ImageURL',
-        'templateFaceID'  => 'TemplateFaceID',
+        'imageURL' => 'ImageURL',
+        'templateFaceID' => 'TemplateFaceID',
         'templateFaceURL' => 'TemplateFaceURL',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
+
         if (null !== $this->templateFaceID) {
             $res['TemplateFaceID'] = $this->templateFaceID;
         }
+
         if (null !== $this->templateFaceURL) {
             $res['TemplateFaceURL'] = $this->templateFaceURL;
         }
@@ -48,20 +51,22 @@ class mergeInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mergeInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
+
         if (isset($map['TemplateFaceID'])) {
             $model->templateFaceID = $map['TemplateFaceID'];
         }
+
         if (isset($map['TemplateFaceURL'])) {
             $model->templateFaceURL = $map['TemplateFaceURL'];
         }

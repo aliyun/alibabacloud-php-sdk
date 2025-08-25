@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteFaceVideoTemplateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 3bf2418c-7adf-4002-a9d6-2f7cf1889c0d
-     *
      * @var string
      */
     public $templateId;
@@ -22,9 +18,10 @@ class DeleteFaceVideoTemplateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->templateId) {
@@ -34,11 +31,11 @@ class DeleteFaceVideoTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteFaceVideoTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

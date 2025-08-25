@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class ReduceVideoNoiseAdvanceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xxx/shang/video/SD%289516100%29.mp4
-     *
      * @var Stream
      */
     public $videoUrlObject;
@@ -23,9 +19,10 @@ class ReduceVideoNoiseAdvanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoUrlObject) {
@@ -35,11 +32,11 @@ class ReduceVideoNoiseAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReduceVideoNoiseAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddFaceVideoTemplateRequest extends Model
 {
@@ -14,28 +14,26 @@ class AddFaceVideoTemplateRequest extends Model
     public $videoScene;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example http://invi-label.oss-cn-shanghai.aliyuncs.com/labl/temp/faceswap/test_for_api/xxxx.mp4
-     *
      * @var string
      */
     public $videoURL;
     protected $_name = [
         'videoScene' => 'VideoScene',
-        'videoURL'   => 'VideoURL',
+        'videoURL' => 'VideoURL',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoScene) {
             $res['VideoScene'] = $this->videoScene;
         }
+
         if (null !== $this->videoURL) {
             $res['VideoURL'] = $this->videoURL;
         }
@@ -43,17 +41,18 @@ class AddFaceVideoTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddFaceVideoTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VideoScene'])) {
             $model->videoScene = $map['VideoScene'];
         }
+
         if (isset($map['VideoURL'])) {
             $model->videoURL = $map['VideoURL'];
         }

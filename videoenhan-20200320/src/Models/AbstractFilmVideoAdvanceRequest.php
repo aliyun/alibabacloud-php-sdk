@@ -4,43 +4,37 @@
 
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class AbstractFilmVideoAdvanceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $length;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/AbstractFilmVideo/AbstractFilmVideo1.mp4
-     *
      * @var Stream
      */
     public $videoUrlObject;
     protected $_name = [
-        'length'         => 'Length',
+        'length' => 'Length',
         'videoUrlObject' => 'VideoUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->length) {
             $res['Length'] = $this->length;
         }
+
         if (null !== $this->videoUrlObject) {
             $res['VideoUrl'] = $this->videoUrlObject;
         }
@@ -48,17 +42,18 @@ class AbstractFilmVideoAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AbstractFilmVideoAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Length'])) {
             $model->length = $map['Length'];
         }
+
         if (isset($map['VideoUrl'])) {
             $model->videoUrlObject = $map['VideoUrl'];
         }

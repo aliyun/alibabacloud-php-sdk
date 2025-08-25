@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AbstractFilmVideoRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $length;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/AbstractFilmVideo/AbstractFilmVideo1.mp4
-     *
      * @var string
      */
     public $videoUrl;
     protected $_name = [
-        'length'   => 'Length',
+        'length' => 'Length',
         'videoUrl' => 'VideoUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->length) {
             $res['Length'] = $this->length;
         }
+
         if (null !== $this->videoUrl) {
             $res['VideoUrl'] = $this->videoUrl;
         }
@@ -47,17 +41,18 @@ class AbstractFilmVideoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AbstractFilmVideoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Length'])) {
             $model->length = $map['Length'];
         }
+
         if (isset($map['VideoUrl'])) {
             $model->videoUrl = $map['VideoUrl'];
         }

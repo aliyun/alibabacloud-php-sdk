@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class AddFaceVideoTemplateAdvanceRequest extends Model
@@ -15,28 +15,26 @@ class AddFaceVideoTemplateAdvanceRequest extends Model
     public $videoScene;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example http://invi-label.oss-cn-shanghai.aliyuncs.com/labl/temp/faceswap/test_for_api/xxxx.mp4
-     *
      * @var Stream
      */
     public $videoURLObject;
     protected $_name = [
-        'videoScene'     => 'VideoScene',
+        'videoScene' => 'VideoScene',
         'videoURLObject' => 'VideoURL',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoScene) {
             $res['VideoScene'] = $this->videoScene;
         }
+
         if (null !== $this->videoURLObject) {
             $res['VideoURL'] = $this->videoURLObject;
         }
@@ -44,17 +42,18 @@ class AddFaceVideoTemplateAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddFaceVideoTemplateAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VideoScene'])) {
             $model->videoScene = $map['VideoScene'];
         }
+
         if (isset($map['VideoURL'])) {
             $model->videoURLObject = $map['VideoURL'];
         }

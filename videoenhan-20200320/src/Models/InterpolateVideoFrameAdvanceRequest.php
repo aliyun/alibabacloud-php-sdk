@@ -4,52 +4,47 @@
 
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class InterpolateVideoFrameAdvanceRequest extends Model
 {
     /**
-     * @example 30
-     *
      * @var int
      */
     public $bitrate;
 
     /**
-     * @example 70
-     *
      * @var int
      */
     public $frameRate;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/InterpolateVideoFrame/InterpolateVideoFrame3.mp4
-     *
      * @var Stream
      */
     public $videoURLObject;
     protected $_name = [
-        'bitrate'        => 'Bitrate',
-        'frameRate'      => 'FrameRate',
+        'bitrate' => 'Bitrate',
+        'frameRate' => 'FrameRate',
         'videoURLObject' => 'VideoURL',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
         }
+
         if (null !== $this->frameRate) {
             $res['FrameRate'] = $this->frameRate;
         }
+
         if (null !== $this->videoURLObject) {
             $res['VideoURL'] = $this->videoURLObject;
         }
@@ -57,20 +52,22 @@ class InterpolateVideoFrameAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InterpolateVideoFrameAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
         }
+
         if (isset($map['FrameRate'])) {
             $model->frameRate = $map['FrameRate'];
         }
+
         if (isset($map['VideoURL'])) {
             $model->videoURLObject = $map['VideoURL'];
         }

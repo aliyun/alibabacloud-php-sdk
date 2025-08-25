@@ -4,43 +4,37 @@
 
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class GenerateHumanAnimeStyleVideoAdvanceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example anime
-     *
      * @var string
      */
     public $cartoonStyle;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test/xxx/eas/EvaluateVideoQuality/123.mp4
-     *
      * @var Stream
      */
     public $videoUrlObject;
     protected $_name = [
-        'cartoonStyle'   => 'CartoonStyle',
+        'cartoonStyle' => 'CartoonStyle',
         'videoUrlObject' => 'VideoUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cartoonStyle) {
             $res['CartoonStyle'] = $this->cartoonStyle;
         }
+
         if (null !== $this->videoUrlObject) {
             $res['VideoUrl'] = $this->videoUrlObject;
         }
@@ -48,17 +42,18 @@ class GenerateHumanAnimeStyleVideoAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateHumanAnimeStyleVideoAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CartoonStyle'])) {
             $model->cartoonStyle = $map['CartoonStyle'];
         }
+
         if (isset($map['VideoUrl'])) {
             $model->videoUrlObject = $map['VideoUrl'];
         }
