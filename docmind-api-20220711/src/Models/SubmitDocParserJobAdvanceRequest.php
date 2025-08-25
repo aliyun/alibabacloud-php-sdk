@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Docmindapi\V20220711\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocParserJobAdvanceRequest\multimediaParameters;
 use GuzzleHttp\Psr7\Stream;
 
 class SubmitDocParserJobAdvanceRequest extends Model
@@ -40,6 +41,11 @@ class SubmitDocParserJobAdvanceRequest extends Model
     public $llmEnhancement;
 
     /**
+     * @var multimediaParameters
+     */
+    public $multimediaParameters;
+
+    /**
      * @var string
      */
     public $option;
@@ -70,6 +76,7 @@ class SubmitDocParserJobAdvanceRequest extends Model
         'fileUrlObject' => 'FileUrl',
         'formulaEnhancement' => 'FormulaEnhancement',
         'llmEnhancement' => 'LlmEnhancement',
+        'multimediaParameters' => 'MultimediaParameters',
         'option' => 'Option',
         'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
@@ -79,6 +86,9 @@ class SubmitDocParserJobAdvanceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->multimediaParameters) {
+            $this->multimediaParameters->validate();
+        }
         parent::validate();
     }
 
@@ -107,6 +117,10 @@ class SubmitDocParserJobAdvanceRequest extends Model
 
         if (null !== $this->llmEnhancement) {
             $res['LlmEnhancement'] = $this->llmEnhancement;
+        }
+
+        if (null !== $this->multimediaParameters) {
+            $res['MultimediaParameters'] = null !== $this->multimediaParameters ? $this->multimediaParameters->toArray($noStream) : $this->multimediaParameters;
         }
 
         if (null !== $this->option) {
@@ -162,6 +176,10 @@ class SubmitDocParserJobAdvanceRequest extends Model
 
         if (isset($map['LlmEnhancement'])) {
             $model->llmEnhancement = $map['LlmEnhancement'];
+        }
+
+        if (isset($map['MultimediaParameters'])) {
+            $model->multimediaParameters = multimediaParameters::fromMap($map['MultimediaParameters']);
         }
 
         if (isset($map['Option'])) {

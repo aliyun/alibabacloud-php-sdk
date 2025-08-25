@@ -60,6 +60,7 @@ use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDigitalDocStructureJobRes
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocParserJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocParserJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocParserJobResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocParserJobShrinkRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobResponse;
@@ -1948,19 +1949,25 @@ class Docmindapi extends OpenApiClient
     /**
      * 文档智能解析流式输出.
      *
-     * @param Request - SubmitDocParserJobRequest
+     * @param tmpReq - SubmitDocParserJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SubmitDocParserJobResponse
      *
-     * @param SubmitDocParserJobRequest $request
+     * @param SubmitDocParserJobRequest $tmpReq
      * @param RuntimeOptions            $runtime
      *
      * @return SubmitDocParserJobResponse
      */
-    public function submitDocParserJobWithOptions($request, $runtime)
+    public function submitDocParserJobWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new SubmitDocParserJobShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->multimediaParameters) {
+            $request->multimediaParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->multimediaParameters, 'MultimediaParameters', 'json');
+        }
+
         $query = [];
         if (null !== $request->enhancementMode) {
             @$query['EnhancementMode'] = $request->enhancementMode;
@@ -1984,6 +1991,10 @@ class Docmindapi extends OpenApiClient
 
         if (null !== $request->llmEnhancement) {
             @$query['LlmEnhancement'] = $request->llmEnhancement;
+        }
+
+        if (null !== $request->multimediaParametersShrink) {
+            @$query['MultimediaParameters'] = $request->multimediaParametersShrink;
         }
 
         if (null !== $request->option) {

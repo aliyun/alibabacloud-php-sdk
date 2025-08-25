@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Docmindapi\V20220711\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocParserJobRequest\multimediaParameters;
 
-class SubmitDocParserJobRequest extends Model
+class SubmitDocParserJobShrinkRequest extends Model
 {
     /**
      * @var string
@@ -40,9 +39,9 @@ class SubmitDocParserJobRequest extends Model
     public $llmEnhancement;
 
     /**
-     * @var multimediaParameters
+     * @var string
      */
-    public $multimediaParameters;
+    public $multimediaParametersShrink;
 
     /**
      * @var string
@@ -75,7 +74,7 @@ class SubmitDocParserJobRequest extends Model
         'fileUrl' => 'FileUrl',
         'formulaEnhancement' => 'FormulaEnhancement',
         'llmEnhancement' => 'LlmEnhancement',
-        'multimediaParameters' => 'MultimediaParameters',
+        'multimediaParametersShrink' => 'MultimediaParameters',
         'option' => 'Option',
         'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
@@ -85,9 +84,6 @@ class SubmitDocParserJobRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->multimediaParameters) {
-            $this->multimediaParameters->validate();
-        }
         parent::validate();
     }
 
@@ -118,8 +114,8 @@ class SubmitDocParserJobRequest extends Model
             $res['LlmEnhancement'] = $this->llmEnhancement;
         }
 
-        if (null !== $this->multimediaParameters) {
-            $res['MultimediaParameters'] = null !== $this->multimediaParameters ? $this->multimediaParameters->toArray($noStream) : $this->multimediaParameters;
+        if (null !== $this->multimediaParametersShrink) {
+            $res['MultimediaParameters'] = $this->multimediaParametersShrink;
         }
 
         if (null !== $this->option) {
@@ -178,7 +174,7 @@ class SubmitDocParserJobRequest extends Model
         }
 
         if (isset($map['MultimediaParameters'])) {
-            $model->multimediaParameters = multimediaParameters::fromMap($map['MultimediaParameters']);
+            $model->multimediaParametersShrink = $map['MultimediaParameters'];
         }
 
         if (isset($map['Option'])) {
