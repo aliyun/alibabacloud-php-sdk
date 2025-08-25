@@ -242,6 +242,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UnlockUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UnlockUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationAuthorizationTypeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationAuthorizationTypeResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationClientSecretExpirationTimeRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationClientSecretExpirationTimeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationDescriptionRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationDescriptionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyDescriptionRequest;
@@ -8332,6 +8334,75 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateApplicationAuthorizationTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新应用的指定ClientSecret的到期时间.
+     *
+     * @param request - UpdateApplicationClientSecretExpirationTimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApplicationClientSecretExpirationTimeResponse
+     *
+     * @param UpdateApplicationClientSecretExpirationTimeRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return UpdateApplicationClientSecretExpirationTimeResponse
+     */
+    public function updateApplicationClientSecretExpirationTimeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->expirationTime) {
+            @$query['ExpirationTime'] = $request->expirationTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->secretId) {
+            @$query['SecretId'] = $request->secretId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApplicationClientSecretExpirationTime',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApplicationClientSecretExpirationTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新应用的指定ClientSecret的到期时间.
+     *
+     * @param request - UpdateApplicationClientSecretExpirationTimeRequest
+     *
+     * @returns UpdateApplicationClientSecretExpirationTimeResponse
+     *
+     * @param UpdateApplicationClientSecretExpirationTimeRequest $request
+     *
+     * @return UpdateApplicationClientSecretExpirationTimeResponse
+     */
+    public function updateApplicationClientSecretExpirationTime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationClientSecretExpirationTimeWithOptions($request, $runtime);
     }
 
     /**
