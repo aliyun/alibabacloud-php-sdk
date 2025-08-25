@@ -19,6 +19,11 @@ class DescribeMfaDevicesRequest extends Model
     public $endUserIds;
 
     /**
+     * @var string
+     */
+    public $filter;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -35,6 +40,7 @@ class DescribeMfaDevicesRequest extends Model
     protected $_name = [
         'adDomain' => 'AdDomain',
         'endUserIds' => 'EndUserIds',
+        'filter' => 'Filter',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'serialNumbers' => 'SerialNumbers',
@@ -67,6 +73,10 @@ class DescribeMfaDevicesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->filter) {
+            $res['Filter'] = $this->filter;
         }
 
         if (null !== $this->maxResults) {
@@ -112,6 +122,10 @@ class DescribeMfaDevicesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Filter'])) {
+            $model->filter = $map['Filter'];
         }
 
         if (isset($map['MaxResults'])) {

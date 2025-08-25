@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeMfaDevicesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeMfaDevicesResponseBody\mfaDevices\adUser;
 
 class mfaDevices extends Model
 {
+    /**
+     * @var adUser
+     */
+    public $adUser;
+
     /**
      * @var int
      */
@@ -53,6 +59,7 @@ class mfaDevices extends Model
      */
     public $status;
     protected $_name = [
+        'adUser' => 'AdUser',
         'consecutiveFails' => 'ConsecutiveFails',
         'deviceType' => 'DeviceType',
         'email' => 'Email',
@@ -66,12 +73,19 @@ class mfaDevices extends Model
 
     public function validate()
     {
+        if (null !== $this->adUser) {
+            $this->adUser->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->adUser) {
+            $res['AdUser'] = null !== $this->adUser ? $this->adUser->toArray($noStream) : $this->adUser;
+        }
+
         if (null !== $this->consecutiveFails) {
             $res['ConsecutiveFails'] = $this->consecutiveFails;
         }
@@ -119,6 +133,10 @@ class mfaDevices extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdUser'])) {
+            $model->adUser = adUser::fromMap($map['AdUser']);
+        }
+
         if (isset($map['ConsecutiveFails'])) {
             $model->consecutiveFails = $map['ConsecutiveFails'];
         }
