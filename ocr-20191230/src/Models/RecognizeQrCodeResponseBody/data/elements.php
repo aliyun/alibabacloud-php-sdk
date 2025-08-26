@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeQrCodeResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeQrCodeResponseBody\data\elements\results;
-use AlibabaCloud\Tea\Model;
 
 class elements extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeQrCode/RecognizeQrCode6.jpg
-     *
      * @var string
      */
     public $imageURL;
@@ -22,36 +20,41 @@ class elements extends Model
     public $results;
 
     /**
-     * @example img5iGtwVIxQzc4Nqy$L84yHd-1v****
-     *
      * @var string
      */
     public $taskId;
     protected $_name = [
         'imageURL' => 'ImageURL',
-        'results'  => 'Results',
-        'taskId'   => 'TaskId',
+        'results' => 'Results',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->results)) {
+            Model::validateArray($this->results);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
+
         if (null !== $this->results) {
-            $res['Results'] = [];
-            if (null !== $this->results && \is_array($this->results)) {
-                $n = 0;
-                foreach ($this->results as $item) {
-                    $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->results)) {
+                $res['Results'] = [];
+                $n1 = 0;
+                foreach ($this->results as $item1) {
+                    $res['Results'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -59,26 +62,29 @@ class elements extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return elements
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
+
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n              = 0;
-                foreach ($map['Results'] as $item) {
-                    $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Results'] as $item1) {
+                    $model->results[$n1] = results::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

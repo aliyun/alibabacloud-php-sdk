@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTaxiInvoiceResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTaxiInvoiceResponseBody\data\invoices\invoiceRoi;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTaxiInvoiceResponseBody\data\invoices\items;
-use AlibabaCloud\Tea\Model;
 
 class invoices extends Model
 {
@@ -21,36 +21,44 @@ class invoices extends Model
     public $items;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $rotateType;
     protected $_name = [
         'invoiceRoi' => 'InvoiceRoi',
-        'items'      => 'Items',
+        'items' => 'Items',
         'rotateType' => 'RotateType',
     ];
 
     public function validate()
     {
+        if (null !== $this->invoiceRoi) {
+            $this->invoiceRoi->validate();
+        }
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->invoiceRoi) {
-            $res['InvoiceRoi'] = null !== $this->invoiceRoi ? $this->invoiceRoi->toMap() : null;
+            $res['InvoiceRoi'] = null !== $this->invoiceRoi ? $this->invoiceRoi->toArray($noStream) : $this->invoiceRoi;
         }
+
         if (null !== $this->items) {
-            $res['Items'] = [];
-            if (null !== $this->items && \is_array($this->items)) {
-                $n = 0;
-                foreach ($this->items as $item) {
-                    $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->items)) {
+                $res['Items'] = [];
+                $n1 = 0;
+                foreach ($this->items as $item1) {
+                    $res['Items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->rotateType) {
             $res['RotateType'] = $this->rotateType;
         }
@@ -58,26 +66,29 @@ class invoices extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return invoices
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InvoiceRoi'])) {
             $model->invoiceRoi = invoiceRoi::fromMap($map['InvoiceRoi']);
         }
+
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n            = 0;
-                foreach ($map['Items'] as $item) {
-                    $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Items'] as $item1) {
+                    $model->items[$n1] = items::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RotateType'])) {
             $model->rotateType = $map['RotateType'];
         }

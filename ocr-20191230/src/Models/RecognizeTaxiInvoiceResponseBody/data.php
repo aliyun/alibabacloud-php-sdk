@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTaxiInvoiceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTaxiInvoiceResponseBody\data\invoices;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->invoices)) {
+            Model::validateArray($this->invoices);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->invoices) {
-            $res['Invoices'] = [];
-            if (null !== $this->invoices && \is_array($this->invoices)) {
-                $n = 0;
-                foreach ($this->invoices as $item) {
-                    $res['Invoices'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->invoices)) {
+                $res['Invoices'] = [];
+                $n1 = 0;
+                foreach ($this->invoices as $item1) {
+                    $res['Invoices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Invoices'])) {
             if (!empty($map['Invoices'])) {
                 $model->invoices = [];
-                $n               = 0;
-                foreach ($map['Invoices'] as $item) {
-                    $model->invoices[$n++] = null !== $item ? invoices::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Invoices'] as $item1) {
+                    $model->invoices[$n1] = invoices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

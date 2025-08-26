@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeDrivingLicenseResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeDrivingLicenseResponseBody\data\backResult;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeDrivingLicenseResponseBody\data\faceResult;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -26,32 +26,41 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->backResult) {
+            $this->backResult->validate();
+        }
+        if (null !== $this->faceResult) {
+            $this->faceResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backResult) {
-            $res['BackResult'] = null !== $this->backResult ? $this->backResult->toMap() : null;
+            $res['BackResult'] = null !== $this->backResult ? $this->backResult->toArray($noStream) : $this->backResult;
         }
+
         if (null !== $this->faceResult) {
-            $res['FaceResult'] = null !== $this->faceResult ? $this->faceResult->toMap() : null;
+            $res['FaceResult'] = null !== $this->faceResult ? $this->faceResult->toArray($noStream) : $this->faceResult;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackResult'])) {
             $model->backResult = backResult::fromMap($map['BackResult']);
         }
+
         if (isset($map['FaceResult'])) {
             $model->faceResult = faceResult::fromMap($map['FaceResult']);
         }

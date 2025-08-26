@@ -4,49 +4,37 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizePdfResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizePdfResponseBody\data\wordsInfo;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $angle;
 
     /**
-     * @example 788
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @example 610
-     *
      * @var int
      */
     public $orgHeight;
 
     /**
-     * @example 394
-     *
      * @var int
      */
     public $orgWidth;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageIndex;
 
     /**
-     * @example 1220
-     *
      * @var int
      */
     public $width;
@@ -56,46 +44,57 @@ class data extends Model
      */
     public $wordsInfo;
     protected $_name = [
-        'angle'     => 'Angle',
-        'height'    => 'Height',
+        'angle' => 'Angle',
+        'height' => 'Height',
         'orgHeight' => 'OrgHeight',
-        'orgWidth'  => 'OrgWidth',
+        'orgWidth' => 'OrgWidth',
         'pageIndex' => 'PageIndex',
-        'width'     => 'Width',
+        'width' => 'Width',
         'wordsInfo' => 'WordsInfo',
     ];
 
     public function validate()
     {
+        if (\is_array($this->wordsInfo)) {
+            Model::validateArray($this->wordsInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->angle) {
             $res['Angle'] = $this->angle;
         }
+
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+
         if (null !== $this->orgHeight) {
             $res['OrgHeight'] = $this->orgHeight;
         }
+
         if (null !== $this->orgWidth) {
             $res['OrgWidth'] = $this->orgWidth;
         }
+
         if (null !== $this->pageIndex) {
             $res['PageIndex'] = $this->pageIndex;
         }
+
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
+
         if (null !== $this->wordsInfo) {
-            $res['WordsInfo'] = [];
-            if (null !== $this->wordsInfo && \is_array($this->wordsInfo)) {
-                $n = 0;
-                foreach ($this->wordsInfo as $item) {
-                    $res['WordsInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->wordsInfo)) {
+                $res['WordsInfo'] = [];
+                $n1 = 0;
+                foreach ($this->wordsInfo as $item1) {
+                    $res['WordsInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,38 +102,45 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Angle'])) {
             $model->angle = $map['Angle'];
         }
+
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+
         if (isset($map['OrgHeight'])) {
             $model->orgHeight = $map['OrgHeight'];
         }
+
         if (isset($map['OrgWidth'])) {
             $model->orgWidth = $map['OrgWidth'];
         }
+
         if (isset($map['PageIndex'])) {
             $model->pageIndex = $map['PageIndex'];
         }
+
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }
+
         if (isset($map['WordsInfo'])) {
             if (!empty($map['WordsInfo'])) {
                 $model->wordsInfo = [];
-                $n                = 0;
-                foreach ($map['WordsInfo'] as $item) {
-                    $model->wordsInfo[$n++] = null !== $item ? wordsInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WordsInfo'] as $item1) {
+                    $model->wordsInfo[$n1] = wordsInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

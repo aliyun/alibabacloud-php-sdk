@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVideoCharacterResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVideoCharacterResponseBody\data\frames\elements;
-use AlibabaCloud\Tea\Model;
 
 class frames extends Model
 {
@@ -15,32 +15,36 @@ class frames extends Model
     public $elements;
 
     /**
-     * @example 6124533574
-     *
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'elements'  => 'Elements',
+        'elements' => 'Elements',
         'timestamp' => 'Timestamp',
     ];
 
     public function validate()
     {
+        if (\is_array($this->elements)) {
+            Model::validateArray($this->elements);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elements) {
-            $res['Elements'] = [];
-            if (null !== $this->elements && \is_array($this->elements)) {
-                $n = 0;
-                foreach ($this->elements as $item) {
-                    $res['Elements'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->elements)) {
+                $res['Elements'] = [];
+                $n1 = 0;
+                foreach ($this->elements as $item1) {
+                    $res['Elements'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -48,23 +52,25 @@ class frames extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return frames
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Elements'])) {
             if (!empty($map['Elements'])) {
                 $model->elements = [];
-                $n               = 0;
-                foreach ($map['Elements'] as $item) {
-                    $model->elements[$n++] = null !== $item ? elements::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Elements'] as $item1) {
+                    $model->elements[$n1] = elements::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

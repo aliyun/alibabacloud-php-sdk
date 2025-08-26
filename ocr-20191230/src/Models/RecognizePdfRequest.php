@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RecognizePdfRequest extends Model
 {
     /**
-     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/ocr/xxxx.pdf
-     *
      * @var string
      */
     public $fileURL;
@@ -20,9 +18,10 @@ class RecognizePdfRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileURL) {
@@ -32,11 +31,11 @@ class RecognizePdfRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecognizePdfRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

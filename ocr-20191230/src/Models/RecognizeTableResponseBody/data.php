@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTableResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTableResponseBody\data\tables;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example UEsDBBQAAAAIAAAAIQBukMk4WAIAA****
-     *
      * @var string
      */
     public $fileContent;
@@ -22,25 +20,31 @@ class data extends Model
     public $tables;
     protected $_name = [
         'fileContent' => 'FileContent',
-        'tables'      => 'Tables',
+        'tables' => 'Tables',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tables)) {
+            Model::validateArray($this->tables);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileContent) {
             $res['FileContent'] = $this->fileContent;
         }
+
         if (null !== $this->tables) {
-            $res['Tables'] = [];
-            if (null !== $this->tables && \is_array($this->tables)) {
-                $n = 0;
-                foreach ($this->tables as $item) {
-                    $res['Tables'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tables)) {
+                $res['Tables'] = [];
+                $n1 = 0;
+                foreach ($this->tables as $item1) {
+                    $res['Tables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,23 +52,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileContent'])) {
             $model->fileContent = $map['FileContent'];
         }
+
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
-                $n             = 0;
-                foreach ($map['Tables'] as $item) {
-                    $model->tables[$n++] = null !== $item ? tables::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tables'] as $item1) {
+                    $model->tables[$n1] = tables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

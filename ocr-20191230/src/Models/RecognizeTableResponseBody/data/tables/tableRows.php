@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTableResponseBody\data\tables;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTableResponseBody\data\tables\tableRows\tableColumns;
-use AlibabaCloud\Tea\Model;
 
 class tableRows extends Model
 {
@@ -19,17 +19,22 @@ class tableRows extends Model
 
     public function validate()
     {
+        if (\is_array($this->tableColumns)) {
+            Model::validateArray($this->tableColumns);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tableColumns) {
-            $res['TableColumns'] = [];
-            if (null !== $this->tableColumns && \is_array($this->tableColumns)) {
-                $n = 0;
-                foreach ($this->tableColumns as $item) {
-                    $res['TableColumns'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tableColumns)) {
+                $res['TableColumns'] = [];
+                $n1 = 0;
+                foreach ($this->tableColumns as $item1) {
+                    $res['TableColumns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class tableRows extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableRows
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TableColumns'])) {
             if (!empty($map['TableColumns'])) {
                 $model->tableColumns = [];
-                $n                   = 0;
-                foreach ($map['TableColumns'] as $item) {
-                    $model->tableColumns[$n++] = null !== $item ? tableColumns::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TableColumns'] as $item1) {
+                    $model->tableColumns[$n1] = tableColumns::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

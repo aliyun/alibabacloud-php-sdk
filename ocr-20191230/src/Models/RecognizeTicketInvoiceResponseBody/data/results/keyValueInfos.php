@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTicketInvoiceResponseBody\data\results;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTicketInvoiceResponseBody\data\results\keyValueInfos\valuePositions;
-use AlibabaCloud\Tea\Model;
 
 class keyValueInfos extends Model
 {
@@ -15,8 +15,6 @@ class keyValueInfos extends Model
     public $key;
 
     /**
-     * @example 044031860107
-     *
      * @var string
      */
     public $value;
@@ -27,40 +25,46 @@ class keyValueInfos extends Model
     public $valuePositions;
 
     /**
-     * @example 100
-     *
      * @var float
      */
     public $valueScore;
     protected $_name = [
-        'key'            => 'Key',
-        'value'          => 'Value',
+        'key' => 'Key',
+        'value' => 'Value',
         'valuePositions' => 'ValuePositions',
-        'valueScore'     => 'ValueScore',
+        'valueScore' => 'ValueScore',
     ];
 
     public function validate()
     {
+        if (\is_array($this->valuePositions)) {
+            Model::validateArray($this->valuePositions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
+
         if (null !== $this->valuePositions) {
-            $res['ValuePositions'] = [];
-            if (null !== $this->valuePositions && \is_array($this->valuePositions)) {
-                $n = 0;
-                foreach ($this->valuePositions as $item) {
-                    $res['ValuePositions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->valuePositions)) {
+                $res['ValuePositions'] = [];
+                $n1 = 0;
+                foreach ($this->valuePositions as $item1) {
+                    $res['ValuePositions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->valueScore) {
             $res['ValueScore'] = $this->valueScore;
         }
@@ -68,29 +72,33 @@ class keyValueInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return keyValueInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
+
         if (isset($map['ValuePositions'])) {
             if (!empty($map['ValuePositions'])) {
                 $model->valuePositions = [];
-                $n                     = 0;
-                foreach ($map['ValuePositions'] as $item) {
-                    $model->valuePositions[$n++] = null !== $item ? valuePositions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ValuePositions'] as $item1) {
+                    $model->valuePositions[$n1] = valuePositions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ValueScore'])) {
             $model->valueScore = $map['ValueScore'];
         }

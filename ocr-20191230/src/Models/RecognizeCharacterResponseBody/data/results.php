@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeCharacterResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeCharacterResponseBody\data\results\textRectangles;
-use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
     /**
-     * @example 0.99
-     *
      * @var float
      */
     public $probability;
@@ -26,45 +24,53 @@ class results extends Model
      */
     public $textRectangles;
     protected $_name = [
-        'probability'    => 'Probability',
-        'text'           => 'Text',
+        'probability' => 'Probability',
+        'text' => 'Text',
         'textRectangles' => 'TextRectangles',
     ];
 
     public function validate()
     {
+        if (null !== $this->textRectangles) {
+            $this->textRectangles->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->probability) {
             $res['Probability'] = $this->probability;
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
+
         if (null !== $this->textRectangles) {
-            $res['TextRectangles'] = null !== $this->textRectangles ? $this->textRectangles->toMap() : null;
+            $res['TextRectangles'] = null !== $this->textRectangles ? $this->textRectangles->toArray($noStream) : $this->textRectangles;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Probability'])) {
             $model->probability = $map['Probability'];
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
+
         if (isset($map['TextRectangles'])) {
             $model->textRectangles = textRectangles::fromMap($map['TextRectangles']);
         }

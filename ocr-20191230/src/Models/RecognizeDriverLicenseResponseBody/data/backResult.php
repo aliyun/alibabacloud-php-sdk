@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeDriverLicenseResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backResult extends Model
 {
     /**
-     * @example 130601473955
-     *
      * @var string
      */
     public $archiveNumber;
 
     /**
-     * @example 210288898898898888
-     *
      * @var string
      */
     public $cardNumber;
@@ -33,27 +29,31 @@ class backResult extends Model
     public $record;
     protected $_name = [
         'archiveNumber' => 'ArchiveNumber',
-        'cardNumber'    => 'CardNumber',
-        'name'          => 'Name',
-        'record'        => 'Record',
+        'cardNumber' => 'CardNumber',
+        'name' => 'Name',
+        'record' => 'Record',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->archiveNumber) {
             $res['ArchiveNumber'] = $this->archiveNumber;
         }
+
         if (null !== $this->cardNumber) {
             $res['CardNumber'] = $this->cardNumber;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->record) {
             $res['Record'] = $this->record;
         }
@@ -61,23 +61,26 @@ class backResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArchiveNumber'])) {
             $model->archiveNumber = $map['ArchiveNumber'];
         }
+
         if (isset($map['CardNumber'])) {
             $model->cardNumber = $map['CardNumber'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Record'])) {
             $model->record = $map['Record'];
         }

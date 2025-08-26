@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeIdentityCardResponseBody\data\frontResult\faceRectangle;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class center extends Model
 {
     /**
-     * @example 475.59390258789062
-     *
      * @var float
      */
     public $x;
 
     /**
-     * @example 225.20643615722656
-     *
      * @var float
      */
     public $y;
@@ -28,14 +24,16 @@ class center extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->x) {
             $res['X'] = $this->x;
         }
+
         if (null !== $this->y) {
             $res['Y'] = $this->y;
         }
@@ -43,17 +41,18 @@ class center extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return center
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['X'])) {
             $model->x = $map['X'];
         }
+
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
         }

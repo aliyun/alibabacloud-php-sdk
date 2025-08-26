@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTaxiInvoiceResponseBody\data\invoices;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTaxiInvoiceResponseBody\data\invoices\items\itemRoi;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -15,26 +15,29 @@ class items extends Model
     public $itemRoi;
 
     /**
-     * @example 86655664
-     *
      * @var string
      */
     public $text;
     protected $_name = [
         'itemRoi' => 'ItemRoi',
-        'text'    => 'Text',
+        'text' => 'Text',
     ];
 
     public function validate()
     {
+        if (null !== $this->itemRoi) {
+            $this->itemRoi->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->itemRoi) {
-            $res['ItemRoi'] = null !== $this->itemRoi ? $this->itemRoi->toMap() : null;
+            $res['ItemRoi'] = null !== $this->itemRoi ? $this->itemRoi->toArray($noStream) : $this->itemRoi;
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
@@ -42,17 +45,18 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ItemRoi'])) {
             $model->itemRoi = itemRoi::fromMap($map['ItemRoi']);
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }

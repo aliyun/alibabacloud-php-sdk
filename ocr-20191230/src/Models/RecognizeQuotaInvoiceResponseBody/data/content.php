@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeQuotaInvoiceResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
     /**
-     * @example 10
-     *
      * @var string
      */
     public $invoiceAmount;
 
     /**
-     * @example 144031800103
-     *
      * @var string
      */
     public $invoiceCode;
@@ -28,8 +24,6 @@ class content extends Model
     public $invoiceDetails;
 
     /**
-     * @example 40637706
-     *
      * @var string
      */
     public $invoiceNo;
@@ -39,32 +33,37 @@ class content extends Model
      */
     public $sumAmount;
     protected $_name = [
-        'invoiceAmount'  => 'InvoiceAmount',
-        'invoiceCode'    => 'InvoiceCode',
+        'invoiceAmount' => 'InvoiceAmount',
+        'invoiceCode' => 'InvoiceCode',
         'invoiceDetails' => 'InvoiceDetails',
-        'invoiceNo'      => 'InvoiceNo',
-        'sumAmount'      => 'SumAmount',
+        'invoiceNo' => 'InvoiceNo',
+        'sumAmount' => 'SumAmount',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->invoiceAmount) {
             $res['InvoiceAmount'] = $this->invoiceAmount;
         }
+
         if (null !== $this->invoiceCode) {
             $res['InvoiceCode'] = $this->invoiceCode;
         }
+
         if (null !== $this->invoiceDetails) {
             $res['InvoiceDetails'] = $this->invoiceDetails;
         }
+
         if (null !== $this->invoiceNo) {
             $res['InvoiceNo'] = $this->invoiceNo;
         }
+
         if (null !== $this->sumAmount) {
             $res['SumAmount'] = $this->sumAmount;
         }
@@ -72,26 +71,30 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InvoiceAmount'])) {
             $model->invoiceAmount = $map['InvoiceAmount'];
         }
+
         if (isset($map['InvoiceCode'])) {
             $model->invoiceCode = $map['InvoiceCode'];
         }
+
         if (isset($map['InvoiceDetails'])) {
             $model->invoiceDetails = $map['InvoiceDetails'];
         }
+
         if (isset($map['InvoiceNo'])) {
             $model->invoiceNo = $map['InvoiceNo'];
         }
+
         if (isset($map['SumAmount'])) {
             $model->sumAmount = $map['SumAmount'];
         }

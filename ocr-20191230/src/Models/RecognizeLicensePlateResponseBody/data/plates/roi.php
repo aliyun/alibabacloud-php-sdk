@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeLicensePlateResponseBody\data\plates;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class roi extends Model
 {
     /**
-     * @example 53
-     *
      * @var int
      */
     public $h;
 
     /**
-     * @example 141
-     *
      * @var int
      */
     public $w;
 
     /**
-     * @example 294
-     *
      * @var int
      */
     public $x;
 
     /**
-     * @example 256
-     *
      * @var int
      */
     public $y;
@@ -44,20 +36,24 @@ class roi extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->h) {
             $res['H'] = $this->h;
         }
+
         if (null !== $this->w) {
             $res['W'] = $this->w;
         }
+
         if (null !== $this->x) {
             $res['X'] = $this->x;
         }
+
         if (null !== $this->y) {
             $res['Y'] = $this->y;
         }
@@ -65,23 +61,26 @@ class roi extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return roi
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['H'])) {
             $model->h = $map['H'];
         }
+
         if (isset($map['W'])) {
             $model->w = $map['W'];
         }
+
         if (isset($map['X'])) {
             $model->x = $map['X'];
         }
+
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
         }

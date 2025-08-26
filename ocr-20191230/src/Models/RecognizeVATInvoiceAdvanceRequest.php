@@ -4,39 +4,37 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class RecognizeVATInvoiceAdvanceRequest extends Model
 {
     /**
-     * @example jpg
-     *
      * @var string
      */
     public $fileType;
 
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/ocr/RecognizeVATInvoice/RecognizeVATInvoice3.jpg
-     *
      * @var Stream
      */
     public $fileURLObject;
     protected $_name = [
-        'fileType'      => 'FileType',
+        'fileType' => 'FileType',
         'fileURLObject' => 'FileURL',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
         }
+
         if (null !== $this->fileURLObject) {
             $res['FileURL'] = $this->fileURLObject;
         }
@@ -44,17 +42,18 @@ class RecognizeVATInvoiceAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecognizeVATInvoiceAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
         }
+
         if (isset($map['FileURL'])) {
             $model->fileURLObject = $map['FileURL'];
         }

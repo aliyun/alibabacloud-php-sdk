@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeIdentityCardResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backResult extends Model
 {
     /**
-     * @example 19800101
-     *
      * @var string
      */
     public $endDate;
@@ -21,30 +19,31 @@ class backResult extends Model
     public $issue;
 
     /**
-     * @example 19970101
-     *
      * @var string
      */
     public $startDate;
     protected $_name = [
-        'endDate'   => 'EndDate',
-        'issue'     => 'Issue',
+        'endDate' => 'EndDate',
+        'issue' => 'Issue',
         'startDate' => 'StartDate',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->issue) {
             $res['Issue'] = $this->issue;
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
@@ -52,20 +51,22 @@ class backResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['Issue'])) {
             $model->issue = $map['Issue'];
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }

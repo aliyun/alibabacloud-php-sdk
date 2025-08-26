@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeDrivingLicenseResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class faceResult extends Model
 {
@@ -14,15 +14,11 @@ class faceResult extends Model
     public $address;
 
     /**
-     * @example 111111
-     *
      * @var string
      */
     public $engineNumber;
 
     /**
-     * @example 20180313
-     *
      * @var string
      */
     public $issueDate;
@@ -43,8 +39,6 @@ class faceResult extends Model
     public $plateNumber;
 
     /**
-     * @example 20180312
-     *
      * @var string
      */
     public $registerDate;
@@ -60,58 +54,66 @@ class faceResult extends Model
     public $vehicleType;
 
     /**
-     * @example SSVUDDTT2J2022555
-     *
      * @var string
      */
     public $vin;
     protected $_name = [
-        'address'      => 'Address',
+        'address' => 'Address',
         'engineNumber' => 'EngineNumber',
-        'issueDate'    => 'IssueDate',
-        'model'        => 'Model',
-        'owner'        => 'Owner',
-        'plateNumber'  => 'PlateNumber',
+        'issueDate' => 'IssueDate',
+        'model' => 'Model',
+        'owner' => 'Owner',
+        'plateNumber' => 'PlateNumber',
         'registerDate' => 'RegisterDate',
         'useCharacter' => 'UseCharacter',
-        'vehicleType'  => 'VehicleType',
-        'vin'          => 'Vin',
+        'vehicleType' => 'VehicleType',
+        'vin' => 'Vin',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
+
         if (null !== $this->engineNumber) {
             $res['EngineNumber'] = $this->engineNumber;
         }
+
         if (null !== $this->issueDate) {
             $res['IssueDate'] = $this->issueDate;
         }
+
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
+
         if (null !== $this->plateNumber) {
             $res['PlateNumber'] = $this->plateNumber;
         }
+
         if (null !== $this->registerDate) {
             $res['RegisterDate'] = $this->registerDate;
         }
+
         if (null !== $this->useCharacter) {
             $res['UseCharacter'] = $this->useCharacter;
         }
+
         if (null !== $this->vehicleType) {
             $res['VehicleType'] = $this->vehicleType;
         }
+
         if (null !== $this->vin) {
             $res['Vin'] = $this->vin;
         }
@@ -119,41 +121,50 @@ class faceResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return faceResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
+
         if (isset($map['EngineNumber'])) {
             $model->engineNumber = $map['EngineNumber'];
         }
+
         if (isset($map['IssueDate'])) {
             $model->issueDate = $map['IssueDate'];
         }
+
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
+
         if (isset($map['PlateNumber'])) {
             $model->plateNumber = $map['PlateNumber'];
         }
+
         if (isset($map['RegisterDate'])) {
             $model->registerDate = $map['RegisterDate'];
         }
+
         if (isset($map['UseCharacter'])) {
             $model->useCharacter = $map['UseCharacter'];
         }
+
         if (isset($map['VehicleType'])) {
             $model->vehicleType = $map['VehicleType'];
         }
+
         if (isset($map['Vin'])) {
             $model->vin = $map['Vin'];
         }
