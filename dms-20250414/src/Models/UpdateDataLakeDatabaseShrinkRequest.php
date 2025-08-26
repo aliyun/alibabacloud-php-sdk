@@ -1,0 +1,132 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Dms\V20250414\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class UpdateDataLakeDatabaseShrinkRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $catalogName;
+
+    /**
+     * @var string
+     */
+    public $dbName;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $location;
+
+    /**
+     * @var string
+     */
+    public $parametersShrink;
+
+    /**
+     * @var int
+     */
+    public $tid;
+
+    /**
+     * @var int
+     */
+    public $workspaceId;
+    protected $_name = [
+        'catalogName' => 'CatalogName',
+        'dbName' => 'DbName',
+        'description' => 'Description',
+        'location' => 'Location',
+        'parametersShrink' => 'Parameters',
+        'tid' => 'Tid',
+        'workspaceId' => 'WorkspaceId',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->catalogName) {
+            $res['CatalogName'] = $this->catalogName;
+        }
+
+        if (null !== $this->dbName) {
+            $res['DbName'] = $this->dbName;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->location) {
+            $res['Location'] = $this->location;
+        }
+
+        if (null !== $this->parametersShrink) {
+            $res['Parameters'] = $this->parametersShrink;
+        }
+
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['CatalogName'])) {
+            $model->catalogName = $map['CatalogName'];
+        }
+
+        if (isset($map['DbName'])) {
+            $model->dbName = $map['DbName'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+
+        if (isset($map['Location'])) {
+            $model->location = $map['Location'];
+        }
+
+        if (isset($map['Parameters'])) {
+            $model->parametersShrink = $map['Parameters'];
+        }
+
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
+        }
+
+        return $model;
+    }
+}
