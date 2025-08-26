@@ -75,7 +75,8 @@ class PodcastTaskSubmitRequest extends Model
                 $res['fileUrls'] = [];
                 $n1 = 0;
                 foreach ($this->fileUrls as $item1) {
-                    $res['fileUrls'][$n1++] = $item1;
+                    $res['fileUrls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class PodcastTaskSubmitRequest extends Model
                 $res['voices'] = [];
                 $n1 = 0;
                 foreach ($this->voices as $item1) {
-                    $res['voices'][$n1++] = $item1;
+                    $res['voices'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +128,8 @@ class PodcastTaskSubmitRequest extends Model
                 $model->fileUrls = [];
                 $n1 = 0;
                 foreach ($map['fileUrls'] as $item1) {
-                    $model->fileUrls[$n1++] = $item1;
+                    $model->fileUrls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +151,8 @@ class PodcastTaskSubmitRequest extends Model
                 $model->voices = [];
                 $n1 = 0;
                 foreach ($map['voices'] as $item1) {
-                    $model->voices[$n1++] = $item1;
+                    $model->voices[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
