@@ -4,56 +4,38 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterRequest\ipAllocationPolicy;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterRequest\nodeGroups;
-use AlibabaCloud\Tea\Model;
 
 class ExtendClusterRequest extends Model
 {
     /**
-     * @description Cluster ID
-     *
-     * @example i15b480fbd2fcdbc2869cd80
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description Whether to allow skipping failed node tasks, default value is False
-     *
-     * @example False
-     *
      * @var bool
      */
     public $ignoreFailedNodeTasks;
 
     /**
-     * @description IP allocation combination policy: Each policy can only choose one type, and multiple policies can be combined
-     *
      * @var ipAllocationPolicy[]
      */
     public $ipAllocationPolicy;
 
     /**
-     * @description Node Groups
-     *
      * @var nodeGroups[]
      */
     public $nodeGroups;
 
     /**
-     * @description VSwitch availability zone ID
-     *
-     * @example cn-shanghai-b
-     *
      * @var string
      */
     public $vSwitchZoneId;
 
     /**
-     * @description List of cluster subnets
-     *
      * @var string[]
      */
     public $vpdSubnets;
@@ -66,83 +48,121 @@ class ExtendClusterRequest extends Model
         'vpdSubnets' => 'VpdSubnets',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ipAllocationPolicy)) {
+            Model::validateArray($this->ipAllocationPolicy);
+        }
+        if (\is_array($this->nodeGroups)) {
+            Model::validateArray($this->nodeGroups);
+        }
+        if (\is_array($this->vpdSubnets)) {
+            Model::validateArray($this->vpdSubnets);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->ignoreFailedNodeTasks) {
             $res['IgnoreFailedNodeTasks'] = $this->ignoreFailedNodeTasks;
         }
+
         if (null !== $this->ipAllocationPolicy) {
-            $res['IpAllocationPolicy'] = [];
-            if (null !== $this->ipAllocationPolicy && \is_array($this->ipAllocationPolicy)) {
-                $n = 0;
-                foreach ($this->ipAllocationPolicy as $item) {
-                    $res['IpAllocationPolicy'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipAllocationPolicy)) {
+                $res['IpAllocationPolicy'] = [];
+                $n1 = 0;
+                foreach ($this->ipAllocationPolicy as $item1) {
+                    $res['IpAllocationPolicy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nodeGroups) {
-            $res['NodeGroups'] = [];
-            if (null !== $this->nodeGroups && \is_array($this->nodeGroups)) {
-                $n = 0;
-                foreach ($this->nodeGroups as $item) {
-                    $res['NodeGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodeGroups)) {
+                $res['NodeGroups'] = [];
+                $n1 = 0;
+                foreach ($this->nodeGroups as $item1) {
+                    $res['NodeGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->vSwitchZoneId) {
             $res['VSwitchZoneId'] = $this->vSwitchZoneId;
         }
+
         if (null !== $this->vpdSubnets) {
-            $res['VpdSubnets'] = $this->vpdSubnets;
+            if (\is_array($this->vpdSubnets)) {
+                $res['VpdSubnets'] = [];
+                $n1 = 0;
+                foreach ($this->vpdSubnets as $item1) {
+                    $res['VpdSubnets'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExtendClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['IgnoreFailedNodeTasks'])) {
             $model->ignoreFailedNodeTasks = $map['IgnoreFailedNodeTasks'];
         }
+
         if (isset($map['IpAllocationPolicy'])) {
             if (!empty($map['IpAllocationPolicy'])) {
                 $model->ipAllocationPolicy = [];
-                $n = 0;
-                foreach ($map['IpAllocationPolicy'] as $item) {
-                    $model->ipAllocationPolicy[$n++] = null !== $item ? ipAllocationPolicy::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IpAllocationPolicy'] as $item1) {
+                    $model->ipAllocationPolicy[$n1] = ipAllocationPolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['NodeGroups'])) {
             if (!empty($map['NodeGroups'])) {
                 $model->nodeGroups = [];
-                $n = 0;
-                foreach ($map['NodeGroups'] as $item) {
-                    $model->nodeGroups[$n++] = null !== $item ? nodeGroups::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NodeGroups'] as $item1) {
+                    $model->nodeGroups[$n1] = nodeGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['VSwitchZoneId'])) {
             $model->vSwitchZoneId = $map['VSwitchZoneId'];
         }
+
         if (isset($map['VpdSubnets'])) {
             if (!empty($map['VpdSubnets'])) {
-                $model->vpdSubnets = $map['VpdSubnets'];
+                $model->vpdSubnets = [];
+                $n1 = 0;
+                foreach ($map['VpdSubnets'] as $item1) {
+                    $model->vpdSubnets[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,74 +4,42 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListVscsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListVscsResponseBody\vscs\tags;
-use AlibabaCloud\Tea\Model;
 
 class vscs extends Model
 {
     /**
-     * @description The ID of the Lingjun node.
-     *
-     * @example e01-cn-fzh47xd7u08
-     *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @description The resource group ID.
-     *
-     * @example rg-acfm2zkwhkns57i
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The VSC status.
-     *
-     * Valid values:
-     *
-     *   Creating
-     *   Normal
-     *   Deleting
-     *
-     * @example Normal
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The tags.
-     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The VSC ID.
-     *
-     * @example vsc-001
-     *
      * @var string
      */
     public $vscId;
 
     /**
-     * @description The custom name of the VSC.
-     *
-     * @example test_name
-     *
      * @var string
      */
     public $vscName;
 
     /**
-     * @description The VSC type. Valid values: primary and standard.
-     *
-     * @example primary
-     *
      * @var string
      */
     public $vscType;
@@ -85,35 +53,48 @@ class vscs extends Model
         'vscType' => 'VscType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->vscId) {
             $res['VscId'] = $this->vscId;
         }
+
         if (null !== $this->vscName) {
             $res['VscName'] = $this->vscName;
         }
+
         if (null !== $this->vscType) {
             $res['VscType'] = $this->vscType;
         }
@@ -121,38 +102,45 @@ class vscs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vscs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['VscId'])) {
             $model->vscId = $map['VscId'];
         }
+
         if (isset($map['VscName'])) {
             $model->vscName = $map['VscName'];
         }
+
         if (isset($map['VscType'])) {
             $model->vscType = $map['VscType'];
         }

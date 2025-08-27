@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListImagesResponseBody\images;
-use AlibabaCloud\Tea\Model;
 
 class ListImagesResponseBody extends Model
 {
     /**
-     * @description The image details.
-     *
      * @var images[]
      */
     public $images;
 
     /**
-     * @description The token that is used in the next request to retrieve a new page of results.
-     *
-     * @example 3a6b93229825ac667104463b56790c91
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Id of the request
-     *
-     * @example 0FC4A1C7-421C-5EAB-9361-4C0338EFA287
-     *
      * @var string
      */
     public $requestId;
@@ -39,23 +29,32 @@ class ListImagesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->images)) {
+            Model::validateArray($this->images);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->images) {
-            $res['Images'] = [];
-            if (null !== $this->images && \is_array($this->images)) {
-                $n = 0;
-                foreach ($this->images as $item) {
-                    $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->images)) {
+                $res['Images'] = [];
+                $n1 = 0;
+                foreach ($this->images as $item1) {
+                    $res['Images'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,26 +62,29 @@ class ListImagesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListImagesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n = 0;
-                foreach ($map['Images'] as $item) {
-                    $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Images'] as $item1) {
+                    $model->images[$n1] = images::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

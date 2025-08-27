@@ -4,36 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateNodeGroupRequest\nodeGroup;
-use AlibabaCloud\Tea\Model;
 
 class CreateNodeGroupRequest extends Model
 {
     /**
-     * @description Cluster ID
-     *
-     * This parameter is required.
-     *
-     * @example i118191731740041623425
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description Node ID.
-     *
-     * This parameter is required.
-     *
      * @var nodeGroup
      */
     public $nodeGroup;
 
     /**
-     * @description Node information
-     *
-     * @example {\\"NodeUnitId\\":\\"3c2999a8-2b95-4409-93c5-ad3985fc5c9f\\",\\"ResourceGroupId\\":\\"\\",\\"MaxNodes\\":0,\\"NodeUnitName\\":\\"asi_cn-serverless-sale_e01-lingjun-psale\\"}
-     *
      * @var mixed[]
      */
     public $nodeUnit;
@@ -43,40 +29,63 @@ class CreateNodeGroupRequest extends Model
         'nodeUnit' => 'NodeUnit',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->nodeGroup) {
+            $this->nodeGroup->validate();
+        }
+        if (\is_array($this->nodeUnit)) {
+            Model::validateArray($this->nodeUnit);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->nodeGroup) {
-            $res['NodeGroup'] = null !== $this->nodeGroup ? $this->nodeGroup->toMap() : null;
+            $res['NodeGroup'] = null !== $this->nodeGroup ? $this->nodeGroup->toArray($noStream) : $this->nodeGroup;
         }
+
         if (null !== $this->nodeUnit) {
-            $res['NodeUnit'] = $this->nodeUnit;
+            if (\is_array($this->nodeUnit)) {
+                $res['NodeUnit'] = [];
+                foreach ($this->nodeUnit as $key1 => $value1) {
+                    $res['NodeUnit'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateNodeGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['NodeGroup'])) {
             $model->nodeGroup = nodeGroup::fromMap($map['NodeGroup']);
         }
+
         if (isset($map['NodeUnit'])) {
-            $model->nodeUnit = $map['NodeUnit'];
+            if (!empty($map['NodeUnit'])) {
+                $model->nodeUnit = [];
+                foreach ($map['NodeUnit'] as $key1 => $value1) {
+                    $model->nodeUnit[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

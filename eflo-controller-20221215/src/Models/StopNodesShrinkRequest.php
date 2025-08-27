@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopNodesShrinkRequest extends Model
 {
     /**
-     * @description Specifies whether to allow skipping failed nodes. Default value: False.
-     *
-     * @example False
-     *
      * @var bool
      */
     public $ignoreFailedNodeTasks;
 
     /**
-     * @description The nodes.
-     *
      * @var string
      */
     public $nodesShrink;
@@ -28,14 +22,18 @@ class StopNodesShrinkRequest extends Model
         'nodesShrink' => 'Nodes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ignoreFailedNodeTasks) {
             $res['IgnoreFailedNodeTasks'] = $this->ignoreFailedNodeTasks;
         }
+
         if (null !== $this->nodesShrink) {
             $res['Nodes'] = $this->nodesShrink;
         }
@@ -43,17 +41,18 @@ class StopNodesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopNodesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IgnoreFailedNodeTasks'])) {
             $model->ignoreFailedNodeTasks = $map['IgnoreFailedNodeTasks'];
         }
+
         if (isset($map['Nodes'])) {
             $model->nodesShrink = $map['Nodes'];
         }

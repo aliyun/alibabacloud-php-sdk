@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListMachineNetworkInfoRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class machineHpnInfo extends Model
 {
     /**
-     * @description hpn zone infomation
-     *
-     * @example C1
-     *
      * @var string
      */
     public $hpnZone;
 
     /**
-     * @description The type of machine.
-     *
-     * @example efg2.C48cNHmcn
-     *
      * @var string
      */
     public $machineType;
 
     /**
-     * @description The ID of the region in which the application is located.
-     *
-     * @example cn-heyuan
-     *
      * @var string
      */
     public $regionId;
@@ -40,17 +28,22 @@ class machineHpnInfo extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hpnZone) {
             $res['HpnZone'] = $this->hpnZone;
         }
+
         if (null !== $this->machineType) {
             $res['MachineType'] = $this->machineType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -58,20 +51,22 @@ class machineHpnInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return machineHpnInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HpnZone'])) {
             $model->hpnZone = $map['HpnZone'];
         }
+
         if (isset($map['MachineType'])) {
             $model->machineType = $map['MachineType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

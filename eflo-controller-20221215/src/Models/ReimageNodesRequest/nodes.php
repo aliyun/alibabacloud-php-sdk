@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReimageNodesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodes extends Model
 {
     /**
-     * @description The hostname.
-     *
-     * @example 457db5ca-241d-11ed-9fd7-acde48001122
-     *
      * @var string
      */
     public $hostname;
 
     /**
-     * @description The system image ID.
-     *
-     * @example m-8vbf8rpv2nn14y7oybjy
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The logon password.
-     *
-     * @example ***
-     *
      * @var string
      */
     public $loginPassword;
 
     /**
-     * @description The node ID.
-     *
-     * @example e01-cn-zvp2tgykr0b
-     *
      * @var string
      */
     public $nodeId;
@@ -50,20 +34,26 @@ class nodes extends Model
         'nodeId' => 'NodeId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
         }
+
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->loginPassword) {
             $res['LoginPassword'] = $this->loginPassword;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -71,23 +61,26 @@ class nodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
         }
+
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['LoginPassword'])) {
             $model->loginPassword = $map['LoginPassword'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

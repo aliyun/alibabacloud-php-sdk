@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNetTestResultResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNetTestResultResponseBody\trafficTest\clients;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNetTestResultResponseBody\trafficTest\servers;
-use AlibabaCloud\Tea\Model;
 
 /**
  * @internal
@@ -16,61 +16,36 @@ use AlibabaCloud\Tea\Model;
 class trafficTest extends Model
 {
     /**
-     * @description All clients information
-     *
      * @var clients[]
      */
     public $clients;
 
     /**
-     * @description Call duration, in seconds.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $duration;
 
     /**
-     * @description When the protocol is RDMA, fill in True/False,
-     * when the protocol is TCP, this field is empty.
-     *
-     * @example False
-     *
      * @var string
      */
     public $GDR;
 
     /**
-     * @description Network protocol, either RDMA or TCP.
-     *
-     * @example TCP
-     *
      * @var string
      */
     public $protocol;
 
     /**
-     * @description When the protocol is TCP, fill in the number of concurrent connections; when the protocol is RDMA, fill in the configured QP value.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $QP;
 
     /**
-     * @description Servers infomation.
-     *
      * @var servers[]
      */
     public $servers;
 
     /**
-     * @description Traffic model, either MTON or Fullmesh.
-     *
-     * @example Fullmesh
-     *
      * @var string
      */
     public $trafficModel;
@@ -84,41 +59,58 @@ class trafficTest extends Model
         'trafficModel' => 'TrafficModel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clients)) {
+            Model::validateArray($this->clients);
+        }
+        if (\is_array($this->servers)) {
+            Model::validateArray($this->servers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clients) {
-            $res['Clients'] = [];
-            if (null !== $this->clients && \is_array($this->clients)) {
-                $n = 0;
-                foreach ($this->clients as $item) {
-                    $res['Clients'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clients)) {
+                $res['Clients'] = [];
+                $n1 = 0;
+                foreach ($this->clients as $item1) {
+                    $res['Clients'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->GDR) {
             $res['GDR'] = $this->GDR;
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
+
         if (null !== $this->QP) {
             $res['QP'] = $this->QP;
         }
+
         if (null !== $this->servers) {
-            $res['Servers'] = [];
-            if (null !== $this->servers && \is_array($this->servers)) {
-                $n = 0;
-                foreach ($this->servers as $item) {
-                    $res['Servers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->servers)) {
+                $res['Servers'] = [];
+                $n1 = 0;
+                foreach ($this->servers as $item1) {
+                    $res['Servers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->trafficModel) {
             $res['TrafficModel'] = $this->trafficModel;
         }
@@ -126,44 +118,52 @@ class trafficTest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return trafficTest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Clients'])) {
             if (!empty($map['Clients'])) {
                 $model->clients = [];
-                $n = 0;
-                foreach ($map['Clients'] as $item) {
-                    $model->clients[$n++] = null !== $item ? clients::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Clients'] as $item1) {
+                    $model->clients[$n1] = clients::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['GDR'])) {
             $model->GDR = $map['GDR'];
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
+
         if (isset($map['QP'])) {
             $model->QP = $map['QP'];
         }
+
         if (isset($map['Servers'])) {
             if (!empty($map['Servers'])) {
                 $model->servers = [];
-                $n = 0;
-                foreach ($map['Servers'] as $item) {
-                    $model->servers[$n++] = null !== $item ? servers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Servers'] as $item1) {
+                    $model->servers[$n1] = servers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TrafficModel'])) {
             $model->trafficModel = $map['TrafficModel'];
         }

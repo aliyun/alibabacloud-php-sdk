@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\nodeGroups;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\nodeGroups\nodes\dataDisk;
-use AlibabaCloud\Tea\Model;
 
 class nodes extends Model
 {
     /**
-     * @description Data disk specifications.
-     *
      * @var dataDisk[]
      */
     public $dataDisk;
 
     /**
-     * @description Hostname
-     *
-     * @example 8d13b784-17a9-11ed-bc7b-acde48001122
-     *
      * @var string
      */
     public $hostname;
 
     /**
-     * @description Login password
-     *
-     * @example ***
-     *
      * @var string
      */
     public $loginPassword;
 
     /**
-     * @description Node ID
-     *
-     * @example e01poc-cn-i7m2wnivf0d
-     *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @description VSwitch ID
-     *
-     * @example vsw-bp169pi5fj151rrms4sia
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description VPC ID
-     *
-     * @example vpc-0jlasms92fdxqd3wlf8ny
-     *
      * @var string
      */
     public $vpcId;
@@ -69,32 +47,44 @@ class nodes extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataDisk)) {
+            Model::validateArray($this->dataDisk);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataDisk) {
-            $res['DataDisk'] = [];
-            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
-                $n = 0;
-                foreach ($this->dataDisk as $item) {
-                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataDisk)) {
+                $res['DataDisk'] = [];
+                $n1 = 0;
+                foreach ($this->dataDisk as $item1) {
+                    $res['DataDisk'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
         }
+
         if (null !== $this->loginPassword) {
             $res['LoginPassword'] = $this->loginPassword;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -102,35 +92,41 @@ class nodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataDisk'])) {
             if (!empty($map['DataDisk'])) {
                 $model->dataDisk = [];
-                $n = 0;
-                foreach ($map['DataDisk'] as $item) {
-                    $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DataDisk'] as $item1) {
+                    $model->dataDisk[$n1] = dataDisk::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
         }
+
         if (isset($map['LoginPassword'])) {
             $model->loginPassword = $map['LoginPassword'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

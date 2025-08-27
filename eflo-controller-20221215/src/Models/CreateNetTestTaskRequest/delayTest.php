@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateNetTestTaskRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateNetTestTaskRequest\delayTest\hosts;
-use AlibabaCloud\Tea\Model;
 
 /**
  * @internal
@@ -15,8 +15,6 @@ use AlibabaCloud\Tea\Model;
 class delayTest extends Model
 {
     /**
-     * @description The hosts of the test node.
-     *
      * @var hosts[]
      */
     public $hosts;
@@ -24,17 +22,24 @@ class delayTest extends Model
         'hosts' => 'Hosts',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->hosts)) {
+            Model::validateArray($this->hosts);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hosts) {
-            $res['Hosts'] = [];
-            if (null !== $this->hosts && \is_array($this->hosts)) {
-                $n = 0;
-                foreach ($this->hosts as $item) {
-                    $res['Hosts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hosts)) {
+                $res['Hosts'] = [];
+                $n1 = 0;
+                foreach ($this->hosts as $item1) {
+                    $res['Hosts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -42,20 +47,21 @@ class delayTest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return delayTest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Hosts'])) {
             if (!empty($map['Hosts'])) {
                 $model->hosts = [];
-                $n = 0;
-                foreach ($map['Hosts'] as $item) {
-                    $model->hosts[$n++] = null !== $item ? hosts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Hosts'] as $item1) {
+                    $model->hosts[$n1] = hosts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,108 +4,46 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeSendFileResultsResponseBody\invocations\invocation\invokeNodes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class invokeNode extends Model
 {
     /**
-     * @description The time when the file sending task was created.
-     *
-     * @example 2023-02-06T07:12:50Z
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The error code returned when the file failed to be sent to the instance. Valid values:
-     *
-     * Null: The file is sent to the instance. NodeNotExists: The specified instance does not exist or has been released. NodeReleased: The instance was released while the file was being sent. NodeNotRunning: The instance was not running while the file sending task was being created. AccountNotExists: The specified account does not exist. ClientNotRunning: Cloud Assistant Agent is not running. ClientNotResponse: Cloud Assistant Agent did not respond. ClientIsUpgrading: Cloud Assistant Agent was being upgraded. ClientNeedUpgrade: Cloud Assistant Agent needs to be upgraded. DeliveryTimeout: The file sending task timed out. FileCreateFail: The file failed to be created. FileAlreadyExists: A file with the same name exists in the specified directory. FileContentInvalid: The file content is invalid. FileNameInvalid: The file name is invalid. FilePathInvalid: The specified directory is invalid. FileAuthorityInvalid: The specified permissions on the file are invalid. UserGroupNotExists: The specified user group does not exist.
-     *
-     * @example AccountNotExists
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The error message returned if the command failed to be sent or run. Valid values:
-     *
-     *   null: The command is run as expected.
-     *   the specified instance does not exists: The specified instance does not exist or is released.
-     *   the node has released when create task: The instance is released when the command is being run.
-     *   the node is not running when create task: The instance is not in the Running state while the command is being run.
-     *   the command is not applicable: The command is not applicable to the specified instance.
-     *   the specified account does not exists: The specified account does not exist.
-     *   the specified directory does not exists: The specified directory does not exist.
-     *   the cron job expression is invalid: The cron expression that specifies the execution time is invalid.
-     *   the aliyun service is not running on the instance: Cloud Assistant Agent is not running.
-     *   the aliyun service in the instance does not response: Cloud Assistant Agent does not respond.
-     *   the aliyun service in the node is upgrading now: Cloud Assistant Agent is being upgraded.
-     *   the aliyun service in the node need upgrade: Cloud Assistant Agent needs to be upgraded.
-     *   the command delivery has been timeout: The request to send the command timed out.
-     *   the command execution has been timeout: The command execution timed out.
-     *   the command execution got an exception: An exception occurred when the command is being run.
-     *   the command execution has been interrupted: The command execution is interrupted.
-     *   the command execution exit code is not zero: The command execution completes, but the exit code is not 0.
-     *   the specified instance has been released: The instance is released while the file is being sent.
-     *
-     * @example the specified instance does not exists
-     *
      * @var string
      */
     public $errorInfo;
 
     /**
-     * @description The time when the file sending task ends. The time is in the 2020-05-22T17:04:18 format.
-     *
-     * @example 2023-04-10T10:53:46.156+08:00
-     *
      * @var string
      */
     public $finishTime;
 
     /**
-     * @description The status of the file sending task on an instance. Valid values:
-     *
-     *   Pending: The file is being verified or sent.
-     *   Invalid: The file is invalid.
-     *   Running: The file is being sent to the instance.
-     *   Aborted: The file failed to be sent to the instance.
-     *   Success: The file is sent.
-     *   Failed: The file failed to be created on the instance.
-     *   Error: An error occurred and interrupted the file sending task.
-     *   Timeout: The file sending task timed out.
-     *
-     * @example Success
-     *
      * @var string
      */
     public $invocationStatus;
 
     /**
-     * @description The node ID.
-     *
-     * @example e01-cn-9lb3c15m81j
-     *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @description The start time.
-     *
-     * @example 2023-03-30T16:00:00Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The update time.
-     *
-     * @example 2023-03-30T16:00:00Z
-     *
      * @var string
      */
     public $updateTime;
@@ -120,32 +58,42 @@ class invokeNode extends Model
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorInfo) {
             $res['ErrorInfo'] = $this->errorInfo;
         }
+
         if (null !== $this->finishTime) {
             $res['FinishTime'] = $this->finishTime;
         }
+
         if (null !== $this->invocationStatus) {
             $res['InvocationStatus'] = $this->invocationStatus;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -153,35 +101,42 @@ class invokeNode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return invokeNode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorInfo'])) {
             $model->errorInfo = $map['ErrorInfo'];
         }
+
         if (isset($map['FinishTime'])) {
             $model->finishTime = $map['FinishTime'];
         }
+
         if (isset($map['InvocationStatus'])) {
             $model->invocationStatus = $map['InvocationStatus'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ShrinkClusterShrinkRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example i15dfa12e8f27c44f4a006c2c8bb
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description Specifies whether to allow skipping failed nodes. Default value: False.
-     *
-     * @example False
-     *
      * @var bool
      */
     public $ignoreFailedNodeTasks;
 
     /**
-     * @description The node groups.
-     *
      * @var string
      */
     public $nodeGroupsShrink;
@@ -38,17 +28,22 @@ class ShrinkClusterShrinkRequest extends Model
         'nodeGroupsShrink' => 'NodeGroups',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->ignoreFailedNodeTasks) {
             $res['IgnoreFailedNodeTasks'] = $this->ignoreFailedNodeTasks;
         }
+
         if (null !== $this->nodeGroupsShrink) {
             $res['NodeGroups'] = $this->nodeGroupsShrink;
         }
@@ -56,20 +51,22 @@ class ShrinkClusterShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ShrinkClusterShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['IgnoreFailedNodeTasks'])) {
             $model->ignoreFailedNodeTasks = $map['IgnoreFailedNodeTasks'];
         }
+
         if (isset($map['NodeGroups'])) {
             $model->nodeGroupsShrink = $map['NodeGroups'];
         }
