@@ -2870,6 +2870,8 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * 实人服务端初始化接口.
+     *
      * @param Request - InitFaceVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3053,6 +3055,8 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * 实人服务端初始化接口.
+     *
      * @param Request - InitFaceVerifyRequest
      *
      * @returns InitFaceVerifyResponse
