@@ -16,6 +16,11 @@ class ticketList extends Model
     public $issueTime;
 
     /**
+     * @var string
+     */
+    public $pnrNo;
+
+    /**
      * @var priceInfo
      */
     public $priceInfo;
@@ -36,6 +41,7 @@ class ticketList extends Model
     public $ticketSegmentList;
     protected $_name = [
         'issueTime' => 'issue_time',
+        'pnrNo' => 'pnr_no',
         'priceInfo' => 'price_info',
         'segmentKeyList' => 'segment_key_list',
         'ticketNo' => 'ticket_no',
@@ -61,6 +67,10 @@ class ticketList extends Model
         $res = [];
         if (null !== $this->issueTime) {
             $res['issue_time'] = $this->issueTime;
+        }
+
+        if (null !== $this->pnrNo) {
+            $res['pnr_no'] = $this->pnrNo;
         }
 
         if (null !== $this->priceInfo) {
@@ -106,6 +116,10 @@ class ticketList extends Model
         $model = new self();
         if (isset($map['issue_time'])) {
             $model->issueTime = $map['issue_time'];
+        }
+
+        if (isset($map['pnr_no'])) {
+            $model->pnrNo = $map['pnr_no'];
         }
 
         if (isset($map['price_info'])) {

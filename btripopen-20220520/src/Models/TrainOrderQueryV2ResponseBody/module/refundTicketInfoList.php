@@ -19,6 +19,11 @@ class refundTicketInfoList extends Model
     public $gmtModify;
 
     /**
+     * @var string
+     */
+    public $refundApplyId;
+
+    /**
      * @var float
      */
     public $refundFee;
@@ -40,6 +45,7 @@ class refundTicketInfoList extends Model
     protected $_name = [
         'gmtCreate' => 'gmt_create',
         'gmtModify' => 'gmt_modify',
+        'refundApplyId' => 'refund_apply_id',
         'refundFee' => 'refund_fee',
         'refundServiceFee' => 'refund_service_fee',
         'ticketNo' => 'ticket_no',
@@ -60,6 +66,10 @@ class refundTicketInfoList extends Model
 
         if (null !== $this->gmtModify) {
             $res['gmt_modify'] = $this->gmtModify;
+        }
+
+        if (null !== $this->refundApplyId) {
+            $res['refund_apply_id'] = $this->refundApplyId;
         }
 
         if (null !== $this->refundFee) {
@@ -95,6 +105,10 @@ class refundTicketInfoList extends Model
 
         if (isset($map['gmt_modify'])) {
             $model->gmtModify = $map['gmt_modify'];
+        }
+
+        if (isset($map['refund_apply_id'])) {
+            $model->refundApplyId = $map['refund_apply_id'];
         }
 
         if (isset($map['refund_fee'])) {

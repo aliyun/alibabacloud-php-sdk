@@ -454,9 +454,32 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightRefundApplyHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightRefundApplyRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightRefundApplyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightRefundApplyShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightRefundConsultHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightRefundConsultRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightRefundConsultResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightRefundDetailHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightRefundDetailRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightRefundDetailResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopApplyHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopApplyRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopApplyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopApplyShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopCancelHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopCancelRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopCancelResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopConsultHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopConsultRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopConsultResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopDetailHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopDetailRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopDetailResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopPayHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopPayRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopPayResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightSegmentAvailableCertHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightSegmentAvailableCertRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightSegmentAvailableCertResponse;
@@ -647,6 +670,20 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardRelateAddHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardRelateAddRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardRelateAddResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardRelateAddShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardRelateDeleteHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardRelateDeleteRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardRelateDeleteResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardRelateDeleteShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardRelateQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardRelateQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardRelateQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardScopeSaveHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardScopeSaveRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardScopeSaveResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripBusinessInstanceQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripBusinessInstanceQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripBusinessInstanceQueryResponse;
@@ -911,6 +948,14 @@ class BtripOpen extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->accountEmail) {
+            @$body['account_email'] = $request->accountEmail;
+        }
+
+        if (null !== $request->accountPhone) {
+            @$body['account_phone'] = $request->accountPhone;
+        }
+
         if (null !== $request->attribute) {
             @$body['attribute'] = $request->attribute;
         }
@@ -13671,6 +13716,204 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * 国际机票改签申请.
+     *
+     * @param tmpReq - IntlFlightReShopApplyRequest
+     * @param headers - IntlFlightReShopApplyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightReShopApplyResponse
+     *
+     * @param IntlFlightReShopApplyRequest $tmpReq
+     * @param IntlFlightReShopApplyHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return IntlFlightReShopApplyResponse
+     */
+    public function intlFlightReShopApplyWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new IntlFlightReShopApplyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->selectedJourneys) {
+            $request->selectedJourneysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->selectedJourneys, 'selected_journeys', 'json');
+        }
+
+        if (null !== $tmpReq->selectedPassengers) {
+            $request->selectedPassengersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->selectedPassengers, 'selected_passengers', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->asyncApplyKey) {
+            @$body['async_apply_key'] = $request->asyncApplyKey;
+        }
+
+        if (null !== $request->asyncApplyMode) {
+            @$body['async_apply_mode'] = $request->asyncApplyMode;
+        }
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
+        }
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
+        }
+
+        if (null !== $request->outReShopApplyId) {
+            @$body['out_re_shop_apply_id'] = $request->outReShopApplyId;
+        }
+
+        if (null !== $request->passengerJourneyGroupKey) {
+            @$body['passenger_journey_group_key'] = $request->passengerJourneyGroupKey;
+        }
+
+        if (null !== $request->reShopReasonCode) {
+            @$body['re_shop_reason_code'] = $request->reShopReasonCode;
+        }
+
+        if (null !== $request->selectedJourneysShrink) {
+            @$body['selected_journeys'] = $request->selectedJourneysShrink;
+        }
+
+        if (null !== $request->selectedPassengersShrink) {
+            @$body['selected_passengers'] = $request->selectedPassengersShrink;
+        }
+
+        if (null !== $request->userIntentionMemo) {
+            @$body['user_intention_memo'] = $request->userIntentionMemo;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'IntlFlightReShopApply',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/flights/action/reshop/apply',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return IntlFlightReShopApplyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 国际机票改签申请.
+     *
+     * @param request - IntlFlightReShopApplyRequest
+     *
+     * @returns IntlFlightReShopApplyResponse
+     *
+     * @param IntlFlightReShopApplyRequest $request
+     *
+     * @return IntlFlightReShopApplyResponse
+     */
+    public function intlFlightReShopApply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightReShopApplyHeaders([]);
+
+        return $this->intlFlightReShopApplyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 国际机票改签取消.
+     *
+     * @param request - IntlFlightReShopCancelRequest
+     * @param headers - IntlFlightReShopCancelHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightReShopCancelResponse
+     *
+     * @param IntlFlightReShopCancelRequest $request
+     * @param IntlFlightReShopCancelHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return IntlFlightReShopCancelResponse
+     */
+    public function intlFlightReShopCancelWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
+        }
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
+        }
+
+        if (null !== $request->outReShopApplyId) {
+            @$body['out_re_shop_apply_id'] = $request->outReShopApplyId;
+        }
+
+        if (null !== $request->reShopApplyId) {
+            @$body['re_shop_apply_id'] = $request->reShopApplyId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'IntlFlightReShopCancel',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/flights/action/reshop/cancel',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return IntlFlightReShopCancelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 国际机票改签取消.
+     *
+     * @param request - IntlFlightReShopCancelRequest
+     *
+     * @returns IntlFlightReShopCancelResponse
+     *
+     * @param IntlFlightReShopCancelRequest $request
+     *
+     * @return IntlFlightReShopCancelResponse
+     */
+    public function intlFlightReShopCancel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightReShopCancelHeaders([]);
+
+        return $this->intlFlightReShopCancelWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 国际机票改签咨询.
      *
      * @param request - IntlFlightReShopConsultRequest
@@ -13689,18 +13932,6 @@ class BtripOpen extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->btripUserId) {
-            @$query['btrip_user_id'] = $request->btripUserId;
-        }
-
-        if (null !== $request->buyerName) {
-            @$query['buyer_name'] = $request->buyerName;
-        }
-
-        if (null !== $request->isvName) {
-            @$query['isv_name'] = $request->isvName;
-        }
-
         if (null !== $request->orderId) {
             @$query['order_id'] = $request->orderId;
         }
@@ -13754,6 +13985,430 @@ class BtripOpen extends OpenApiClient
         $headers = new IntlFlightReShopConsultHeaders([]);
 
         return $this->intlFlightReShopConsultWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 国际机票改签详情.
+     *
+     * @param request - IntlFlightReShopDetailRequest
+     * @param headers - IntlFlightReShopDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightReShopDetailResponse
+     *
+     * @param IntlFlightReShopDetailRequest $request
+     * @param IntlFlightReShopDetailHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return IntlFlightReShopDetailResponse
+     */
+    public function intlFlightReShopDetailWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
+        }
+
+        if (null !== $request->outReShopApplyId) {
+            @$query['out_re_shop_apply_id'] = $request->outReShopApplyId;
+        }
+
+        if (null !== $request->reShopApplyId) {
+            @$query['re_shop_apply_id'] = $request->reShopApplyId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'IntlFlightReShopDetail',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/flights/action/reshop/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return IntlFlightReShopDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 国际机票改签详情.
+     *
+     * @param request - IntlFlightReShopDetailRequest
+     *
+     * @returns IntlFlightReShopDetailResponse
+     *
+     * @param IntlFlightReShopDetailRequest $request
+     *
+     * @return IntlFlightReShopDetailResponse
+     */
+    public function intlFlightReShopDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightReShopDetailHeaders([]);
+
+        return $this->intlFlightReShopDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 国际机票改签支付.
+     *
+     * @param request - IntlFlightReShopPayRequest
+     * @param headers - IntlFlightReShopPayHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightReShopPayResponse
+     *
+     * @param IntlFlightReShopPayRequest $request
+     * @param IntlFlightReShopPayHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return IntlFlightReShopPayResponse
+     */
+    public function intlFlightReShopPayWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
+        }
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
+        }
+
+        if (null !== $request->outReShopApplyId) {
+            @$body['out_re_shop_apply_id'] = $request->outReShopApplyId;
+        }
+
+        if (null !== $request->reShopApplyId) {
+            @$body['re_shop_apply_id'] = $request->reShopApplyId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'IntlFlightReShopPay',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/flights/action/reshop/pay',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return IntlFlightReShopPayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 国际机票改签支付.
+     *
+     * @param request - IntlFlightReShopPayRequest
+     *
+     * @returns IntlFlightReShopPayResponse
+     *
+     * @param IntlFlightReShopPayRequest $request
+     *
+     * @return IntlFlightReShopPayResponse
+     */
+    public function intlFlightReShopPay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightReShopPayHeaders([]);
+
+        return $this->intlFlightReShopPayWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 国际机票退票申请.
+     *
+     * @param tmpReq - IntlFlightRefundApplyRequest
+     * @param headers - IntlFlightRefundApplyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightRefundApplyResponse
+     *
+     * @param IntlFlightRefundApplyRequest $tmpReq
+     * @param IntlFlightRefundApplyHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return IntlFlightRefundApplyResponse
+     */
+    public function intlFlightRefundApplyWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new IntlFlightRefundApplyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->refundSegmentList) {
+            $request->refundSegmentListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->refundSegmentList, 'refund_segment_list', 'json');
+        }
+
+        if (null !== $tmpReq->selectedPassengers) {
+            $request->selectedPassengersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->selectedPassengers, 'selected_passengers', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
+        }
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
+        }
+
+        if (null !== $request->outRefundApplyId) {
+            @$body['out_refund_apply_id'] = $request->outRefundApplyId;
+        }
+
+        if (null !== $request->passengerJourneyGroupKey) {
+            @$body['passenger_journey_group_key'] = $request->passengerJourneyGroupKey;
+        }
+
+        if (null !== $request->refundReasonCode) {
+            @$body['refund_reason_code'] = $request->refundReasonCode;
+        }
+
+        if (null !== $request->refundSegmentListShrink) {
+            @$body['refund_segment_list'] = $request->refundSegmentListShrink;
+        }
+
+        if (null !== $request->selectedPassengersShrink) {
+            @$body['selected_passengers'] = $request->selectedPassengersShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'IntlFlightRefundApply',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/flights/action/refund/apply',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return IntlFlightRefundApplyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 国际机票退票申请.
+     *
+     * @param request - IntlFlightRefundApplyRequest
+     *
+     * @returns IntlFlightRefundApplyResponse
+     *
+     * @param IntlFlightRefundApplyRequest $request
+     *
+     * @return IntlFlightRefundApplyResponse
+     */
+    public function intlFlightRefundApply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightRefundApplyHeaders([]);
+
+        return $this->intlFlightRefundApplyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 国际机票退票咨询.
+     *
+     * @param request - IntlFlightRefundConsultRequest
+     * @param headers - IntlFlightRefundConsultHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightRefundConsultResponse
+     *
+     * @param IntlFlightRefundConsultRequest $request
+     * @param IntlFlightRefundConsultHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return IntlFlightRefundConsultResponse
+     */
+    public function intlFlightRefundConsultWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'IntlFlightRefundConsult',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/flights/action/refund/consult',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return IntlFlightRefundConsultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 国际机票退票咨询.
+     *
+     * @param request - IntlFlightRefundConsultRequest
+     *
+     * @returns IntlFlightRefundConsultResponse
+     *
+     * @param IntlFlightRefundConsultRequest $request
+     *
+     * @return IntlFlightRefundConsultResponse
+     */
+    public function intlFlightRefundConsult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightRefundConsultHeaders([]);
+
+        return $this->intlFlightRefundConsultWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 国际机票退票详情.
+     *
+     * @param request - IntlFlightRefundDetailRequest
+     * @param headers - IntlFlightRefundDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightRefundDetailResponse
+     *
+     * @param IntlFlightRefundDetailRequest $request
+     * @param IntlFlightRefundDetailHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return IntlFlightRefundDetailResponse
+     */
+    public function intlFlightRefundDetailWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
+        }
+
+        if (null !== $request->outRefundApplyId) {
+            @$query['out_refund_apply_id'] = $request->outRefundApplyId;
+        }
+
+        if (null !== $request->refundApplyId) {
+            @$query['refund_apply_id'] = $request->refundApplyId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'IntlFlightRefundDetail',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/flights/action/refund/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return IntlFlightRefundDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 国际机票退票详情.
+     *
+     * @param request - IntlFlightRefundDetailRequest
+     *
+     * @returns IntlFlightRefundDetailResponse
+     *
+     * @param IntlFlightRefundDetailRequest $request
+     *
+     * @return IntlFlightRefundDetailResponse
+     */
+    public function intlFlightRefundDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightRefundDetailHeaders([]);
+
+        return $this->intlFlightRefundDetailWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -18671,6 +19326,326 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * 新增差旅标准关联人员实体.
+     *
+     * @param tmpReq - TravelStandardRelateAddRequest
+     * @param headers - TravelStandardRelateAddHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TravelStandardRelateAddResponse
+     *
+     * @param TravelStandardRelateAddRequest $tmpReq
+     * @param TravelStandardRelateAddHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return TravelStandardRelateAddResponse
+     */
+    public function travelStandardRelateAddWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new TravelStandardRelateAddShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addList) {
+            $request->addListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addList, 'add_list', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->addListShrink) {
+            @$body['add_list'] = $request->addListShrink;
+        }
+
+        if (null !== $request->fromGroup) {
+            @$body['from_group'] = $request->fromGroup;
+        }
+
+        if (null !== $request->ruleId) {
+            @$body['rule_id'] = $request->ruleId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TravelStandardRelateAdd',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/travel-manage/v1/standards/add-relate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TravelStandardRelateAddResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增差旅标准关联人员实体.
+     *
+     * @param request - TravelStandardRelateAddRequest
+     *
+     * @returns TravelStandardRelateAddResponse
+     *
+     * @param TravelStandardRelateAddRequest $request
+     *
+     * @return TravelStandardRelateAddResponse
+     */
+    public function travelStandardRelateAdd($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TravelStandardRelateAddHeaders([]);
+
+        return $this->travelStandardRelateAddWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除差旅标准关联人员实体.
+     *
+     * @param tmpReq - TravelStandardRelateDeleteRequest
+     * @param headers - TravelStandardRelateDeleteHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TravelStandardRelateDeleteResponse
+     *
+     * @param TravelStandardRelateDeleteRequest $tmpReq
+     * @param TravelStandardRelateDeleteHeaders $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return TravelStandardRelateDeleteResponse
+     */
+    public function travelStandardRelateDeleteWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new TravelStandardRelateDeleteShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->removeList) {
+            $request->removeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->removeList, 'remove_list', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->fromGroup) {
+            @$body['from_group'] = $request->fromGroup;
+        }
+
+        if (null !== $request->removeListShrink) {
+            @$body['remove_list'] = $request->removeListShrink;
+        }
+
+        if (null !== $request->ruleId) {
+            @$body['rule_id'] = $request->ruleId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TravelStandardRelateDelete',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/travel-manage/v1/standards/delete-relate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TravelStandardRelateDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除差旅标准关联人员实体.
+     *
+     * @param request - TravelStandardRelateDeleteRequest
+     *
+     * @returns TravelStandardRelateDeleteResponse
+     *
+     * @param TravelStandardRelateDeleteRequest $request
+     *
+     * @return TravelStandardRelateDeleteResponse
+     */
+    public function travelStandardRelateDelete($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TravelStandardRelateDeleteHeaders([]);
+
+        return $this->travelStandardRelateDeleteWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询差旅标准关联人员实体.
+     *
+     * @param request - TravelStandardRelateQueryRequest
+     * @param headers - TravelStandardRelateQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TravelStandardRelateQueryResponse
+     *
+     * @param TravelStandardRelateQueryRequest $request
+     * @param TravelStandardRelateQueryHeaders $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return TravelStandardRelateQueryResponse
+     */
+    public function travelStandardRelateQueryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fromGroup) {
+            @$query['from_group'] = $request->fromGroup;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['rule_id'] = $request->ruleId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TravelStandardRelateQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/travel-manage/v1/standards/query-relate',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TravelStandardRelateQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询差旅标准关联人员实体.
+     *
+     * @param request - TravelStandardRelateQueryRequest
+     *
+     * @returns TravelStandardRelateQueryResponse
+     *
+     * @param TravelStandardRelateQueryRequest $request
+     *
+     * @return TravelStandardRelateQueryResponse
+     */
+    public function travelStandardRelateQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TravelStandardRelateQueryHeaders([]);
+
+        return $this->travelStandardRelateQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新差旅标准绑定员工类型.
+     *
+     * @param request - TravelStandardScopeSaveRequest
+     * @param headers - TravelStandardScopeSaveHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TravelStandardScopeSaveResponse
+     *
+     * @param TravelStandardScopeSaveRequest $request
+     * @param TravelStandardScopeSaveHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return TravelStandardScopeSaveResponse
+     */
+    public function travelStandardScopeSaveWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fromGroup) {
+            @$query['from_group'] = $request->fromGroup;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['rule_id'] = $request->ruleId;
+        }
+
+        if (null !== $request->scope) {
+            @$query['scope'] = $request->scope;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TravelStandardScopeSave',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/travel-manage/v1/standards/save-scope',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TravelStandardScopeSaveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新差旅标准绑定员工类型.
+     *
+     * @param request - TravelStandardScopeSaveRequest
+     *
+     * @returns TravelStandardScopeSaveResponse
+     *
+     * @param TravelStandardScopeSaveRequest $request
+     *
+     * @return TravelStandardScopeSaveResponse
+     */
+    public function travelStandardScopeSave($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TravelStandardScopeSaveHeaders([]);
+
+        return $this->travelStandardScopeSaveWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 查询业务流程.
      *
      * @param request - TripBusinessInstanceQueryRequest
@@ -19115,6 +20090,14 @@ class BtripOpen extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->accountEmail) {
+            @$body['account_email'] = $request->accountEmail;
+        }
+
+        if (null !== $request->accountPhone) {
+            @$body['account_phone'] = $request->accountPhone;
+        }
+
         if (null !== $request->attribute) {
             @$body['attribute'] = $request->attribute;
         }

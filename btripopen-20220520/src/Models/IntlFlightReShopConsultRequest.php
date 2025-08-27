@@ -11,21 +11,6 @@ class IntlFlightReShopConsultRequest extends Model
     /**
      * @var string
      */
-    public $btripUserId;
-
-    /**
-     * @var string
-     */
-    public $buyerName;
-
-    /**
-     * @var string
-     */
-    public $isvName;
-
-    /**
-     * @var string
-     */
     public $orderId;
 
     /**
@@ -33,9 +18,6 @@ class IntlFlightReShopConsultRequest extends Model
      */
     public $outOrderId;
     protected $_name = [
-        'btripUserId' => 'btrip_user_id',
-        'buyerName' => 'buyer_name',
-        'isvName' => 'isv_name',
         'orderId' => 'order_id',
         'outOrderId' => 'out_order_id',
     ];
@@ -48,18 +30,6 @@ class IntlFlightReShopConsultRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->btripUserId) {
-            $res['btrip_user_id'] = $this->btripUserId;
-        }
-
-        if (null !== $this->buyerName) {
-            $res['buyer_name'] = $this->buyerName;
-        }
-
-        if (null !== $this->isvName) {
-            $res['isv_name'] = $this->isvName;
-        }
-
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
@@ -79,18 +49,6 @@ class IntlFlightReShopConsultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['btrip_user_id'])) {
-            $model->btripUserId = $map['btrip_user_id'];
-        }
-
-        if (isset($map['buyer_name'])) {
-            $model->buyerName = $map['buyer_name'];
-        }
-
-        if (isset($map['isv_name'])) {
-            $model->isvName = $map['isv_name'];
-        }
-
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
         }

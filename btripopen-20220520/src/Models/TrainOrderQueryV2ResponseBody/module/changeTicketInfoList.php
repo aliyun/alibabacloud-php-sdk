@@ -26,6 +26,11 @@ class changeTicketInfoList extends Model
     /**
      * @var string
      */
+    public $changeOrderId;
+
+    /**
+     * @var string
+     */
     public $changeSeatNo;
 
     /**
@@ -146,6 +151,7 @@ class changeTicketInfoList extends Model
         'changeCoachNo' => 'change_coach_no',
         'changeGapFee' => 'change_gap_fee',
         'changeHandlingFee' => 'change_handling_fee',
+        'changeOrderId' => 'change_order_id',
         'changeSeatNo' => 'change_seat_no',
         'changeSeatTypeName' => 'change_seat_type_name',
         'changeServiceFee' => 'change_service_fee',
@@ -190,6 +196,10 @@ class changeTicketInfoList extends Model
 
         if (null !== $this->changeHandlingFee) {
             $res['change_handling_fee'] = $this->changeHandlingFee;
+        }
+
+        if (null !== $this->changeOrderId) {
+            $res['change_order_id'] = $this->changeOrderId;
         }
 
         if (null !== $this->changeSeatNo) {
@@ -309,6 +319,10 @@ class changeTicketInfoList extends Model
 
         if (isset($map['change_handling_fee'])) {
             $model->changeHandlingFee = $map['change_handling_fee'];
+        }
+
+        if (isset($map['change_order_id'])) {
+            $model->changeOrderId = $map['change_order_id'];
         }
 
         if (isset($map['change_seat_no'])) {

@@ -13,6 +13,16 @@ class AddEmployeeRequest extends Model
     /**
      * @var string
      */
+    public $accountEmail;
+
+    /**
+     * @var string
+     */
+    public $accountPhone;
+
+    /**
+     * @var string
+     */
     public $attribute;
 
     /**
@@ -120,6 +130,8 @@ class AddEmployeeRequest extends Model
      */
     public $userNick;
     protected $_name = [
+        'accountEmail' => 'account_email',
+        'accountPhone' => 'account_phone',
         'attribute' => 'attribute',
         'avatar' => 'avatar',
         'baseCityCodeList' => 'base_city_code_list',
@@ -167,6 +179,14 @@ class AddEmployeeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountEmail) {
+            $res['account_email'] = $this->accountEmail;
+        }
+
+        if (null !== $this->accountPhone) {
+            $res['account_phone'] = $this->accountPhone;
+        }
+
         if (null !== $this->attribute) {
             $res['attribute'] = $this->attribute;
         }
@@ -301,6 +321,14 @@ class AddEmployeeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['account_email'])) {
+            $model->accountEmail = $map['account_email'];
+        }
+
+        if (isset($map['account_phone'])) {
+            $model->accountPhone = $map['account_phone'];
+        }
+
         if (isset($map['attribute'])) {
             $model->attribute = $map['attribute'];
         }

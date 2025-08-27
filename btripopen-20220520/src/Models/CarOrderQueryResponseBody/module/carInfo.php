@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderQueryResponseBody\module;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderQueryResponseBody\module\carInfo\wayPoints;
 
 class carInfo extends Model
 {
@@ -147,6 +148,11 @@ class carInfo extends Model
      * @var string
      */
     public $travelDistance;
+
+    /**
+     * @var wayPoints[]
+     */
+    public $wayPoints;
     protected $_name = [
         'businessCategory' => 'business_category',
         'cancelTime' => 'cancel_time',
@@ -176,10 +182,14 @@ class carInfo extends Model
         'toCityAdCode' => 'to_city_ad_code',
         'toCityName' => 'to_city_name',
         'travelDistance' => 'travel_distance',
+        'wayPoints' => 'way_points',
     ];
 
     public function validate()
     {
+        if (\is_array($this->wayPoints)) {
+            Model::validateArray($this->wayPoints);
+        }
         parent::validate();
     }
 
@@ -296,6 +306,17 @@ class carInfo extends Model
 
         if (null !== $this->travelDistance) {
             $res['travel_distance'] = $this->travelDistance;
+        }
+
+        if (null !== $this->wayPoints) {
+            if (\is_array($this->wayPoints)) {
+                $res['way_points'] = [];
+                $n1 = 0;
+                foreach ($this->wayPoints as $item1) {
+                    $res['way_points'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -419,6 +440,17 @@ class carInfo extends Model
 
         if (isset($map['travel_distance'])) {
             $model->travelDistance = $map['travel_distance'];
+        }
+
+        if (isset($map['way_points'])) {
+            if (!empty($map['way_points'])) {
+                $model->wayPoints = [];
+                $n1 = 0;
+                foreach ($map['way_points'] as $item1) {
+                    $model->wayPoints[$n1] = wayPoints::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

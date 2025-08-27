@@ -14,7 +14,7 @@ class IeFlightBillSettlementQueryRequest extends Model
     public $billBatch;
 
     /**
-     * @var float
+     * @var int
      */
     public $orderId;
 

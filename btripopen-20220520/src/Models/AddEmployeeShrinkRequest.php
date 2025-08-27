@@ -11,6 +11,16 @@ class AddEmployeeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $accountEmail;
+
+    /**
+     * @var string
+     */
+    public $accountPhone;
+
+    /**
+     * @var string
+     */
     public $attribute;
 
     /**
@@ -118,6 +128,8 @@ class AddEmployeeShrinkRequest extends Model
      */
     public $userNick;
     protected $_name = [
+        'accountEmail' => 'account_email',
+        'accountPhone' => 'account_phone',
         'attribute' => 'attribute',
         'avatar' => 'avatar',
         'baseCityCodeListShrink' => 'base_city_code_list',
@@ -150,6 +162,14 @@ class AddEmployeeShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountEmail) {
+            $res['account_email'] = $this->accountEmail;
+        }
+
+        if (null !== $this->accountPhone) {
+            $res['account_phone'] = $this->accountPhone;
+        }
+
         if (null !== $this->attribute) {
             $res['attribute'] = $this->attribute;
         }
@@ -249,6 +269,14 @@ class AddEmployeeShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['account_email'])) {
+            $model->accountEmail = $map['account_email'];
+        }
+
+        if (isset($map['account_phone'])) {
+            $model->accountPhone = $map['account_phone'];
+        }
+
         if (isset($map['attribute'])) {
             $model->attribute = $map['attribute'];
         }
