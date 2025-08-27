@@ -4,132 +4,66 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeShardingNetworkAddressResponseBody\networkAddresses;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class networkAddress extends Model
 {
     /**
-     * @description The public endpoint type. Valid values:
-     *
-     *   **SRV**
-     *   **Normal**
-     *
-     * @example SRV
-     *
      * @var string
      */
     public $connectionType;
 
     /**
-     * @description The remaining duration of the classic network endpoint. Unit: seconds.
-     *
-     * @example 2591963
-     *
      * @var string
      */
     public $expiredTime;
 
     /**
-     * @description The IP address of the instance.
-     *
-     * @example 10.140.xxx.xx
-     *
      * @var string
      */
     public $IPAddress;
 
     /**
-     * @description The connection string of the instance.
-     *
-     * @example s-bpxxxxxxxx.mongodb.rds.aliyuncs.com
-     *
      * @var string
      */
     public $networkAddress;
 
     /**
-     * @description The network type of the instance.
-     *
-     *   **VPC**: virtual private cloud
-     *   **Classic**: classic network
-     *   **Public**: the Internet
-     *
-     * @example VPC
-     *
      * @var string
      */
     public $networkType;
 
     /**
-     * @description The ID of the mongos node.
-     *
-     * @example s-bpxxxxxxxx
-     *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @description The type of the node. Valid values:
-     *
-     *   **mongos**: mongos node
-     *   **shard**: shard node
-     *   **configserver**: Configserver node
-     *
-     * @example mongos
-     *
      * @var string
      */
     public $nodeType;
 
     /**
-     * @description The port that is used to connect to the instance.
-     *
-     * @example 3717
-     *
      * @var string
      */
     public $port;
 
     /**
-     * @description The role of the node. Valid values:
-     *
-     *   Primary
-     *   Secondary
-     *
-     * @example Primary
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @description Txt record which can be used to store MongoDB-related meta data, such as version, configuration parameters and etc. With the combination of txt record and other technology, for example SRV record, the MongoDB client can complete the complex service discovery and configuration passing.
-     *
-     * @example mongo.example.com. IN TXT "config=replicaSet=myReplicaSet"
-     *
      * @var string
      */
     public $txtRecord;
 
     /**
-     * @description The VPC ID of the instance.
-     *
-     * >  This parameter is returned when the network type is **VPC**.
-     *
-     * @example vpc-bpxxxxxxxx
-     *
      * @var string
      */
     public $VPCId;
 
     /**
-     * @description The ID of the vSwitch in the VPC.
-     *
-     * >  This parameter is returned when the network type is **VPC**.
-     *
-     * @example vsw-bpxxxxxxxx
-     *
      * @var string
      */
     public $vswitchId;
@@ -148,44 +82,58 @@ class networkAddress extends Model
         'vswitchId' => 'VswitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionType) {
             $res['ConnectionType'] = $this->connectionType;
         }
+
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
+
         if (null !== $this->IPAddress) {
             $res['IPAddress'] = $this->IPAddress;
         }
+
         if (null !== $this->networkAddress) {
             $res['NetworkAddress'] = $this->networkAddress;
         }
+
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
+
         if (null !== $this->txtRecord) {
             $res['TxtRecord'] = $this->txtRecord;
         }
+
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
+
         if (null !== $this->vswitchId) {
             $res['VswitchId'] = $this->vswitchId;
         }
@@ -193,47 +141,58 @@ class networkAddress extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkAddress
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionType'])) {
             $model->connectionType = $map['ConnectionType'];
         }
+
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
+
         if (isset($map['IPAddress'])) {
             $model->IPAddress = $map['IPAddress'];
         }
+
         if (isset($map['NetworkAddress'])) {
             $model->networkAddress = $map['NetworkAddress'];
         }
+
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
+
         if (isset($map['TxtRecord'])) {
             $model->txtRecord = $map['TxtRecord'];
         }
+
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
+
         if (isset($map['VswitchId'])) {
             $model->vswitchId = $map['VswitchId'];
         }

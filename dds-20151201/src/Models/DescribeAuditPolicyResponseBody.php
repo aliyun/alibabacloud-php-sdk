@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAuditPolicyResponseBody extends Model
 {
     /**
-     * @description Indicates whether the log audit feature is enabled. Valid values:
-     *
-     *   Enable
-     *   Disabled
-     *
-     * Default value: Disabled.
-     *
-     * @example Enable
-     *
      * @var string
      */
     public $logAuditStatus;
 
     /**
-     * @description The request ID.
-     *
-     * @example 111E7B16-0A87-4CBA-B271-F34AD61E099F
-     *
      * @var string
      */
     public $requestId;
@@ -35,14 +22,18 @@ class DescribeAuditPolicyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logAuditStatus) {
             $res['LogAuditStatus'] = $this->logAuditStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,17 +41,18 @@ class DescribeAuditPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAuditPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogAuditStatus'])) {
             $model->logAuditStatus = $map['LogAuditStatus'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

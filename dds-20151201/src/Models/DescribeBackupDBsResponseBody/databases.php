@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupDBsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupDBsResponseBody\databases\database;
-use AlibabaCloud\Tea\Model;
 
 class databases extends Model
 {
@@ -17,17 +17,24 @@ class databases extends Model
         'database' => 'Database',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->database)) {
+            Model::validateArray($this->database);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->database) {
-            $res['Database'] = [];
-            if (null !== $this->database && \is_array($this->database)) {
-                $n = 0;
-                foreach ($this->database as $item) {
-                    $res['Database'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->database)) {
+                $res['Database'] = [];
+                $n1 = 0;
+                foreach ($this->database as $item1) {
+                    $res['Database'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class databases extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return databases
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Database'])) {
             if (!empty($map['Database'])) {
                 $model->database = [];
-                $n = 0;
-                foreach ($map['Database'] as $item) {
-                    $model->database[$n++] = null !== $item ? database::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Database'] as $item1) {
+                    $model->database[$n1] = database::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

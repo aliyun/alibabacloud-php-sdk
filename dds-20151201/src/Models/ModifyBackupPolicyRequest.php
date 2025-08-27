@@ -4,239 +4,86 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyBackupPolicyRequest extends Model
 {
     /**
-     * @description The frequency at which high-frequency backups are generated. Valid values:
-     *
-     *   **-1**: High-frequency backup is disabled.
-     *   **30**: High-frequency backups are generated every 30 minutes.
-     *   **60**: High-frequency backups are generated every 1 hour.
-     *   **120**: High-frequency backups are generated every 2 hours.
-     *   **180**: High-frequency backups are generated every 3 hours.
-     *   **240**: High-frequency backups are generated every 4 hours.
-     *   **360**: High-frequency backups are generated every 6 hours.
-     *   **480**: High-frequency backups are generated every 8 hours.
-     *   **720**: High-frequency backups are generated every 12 hours.
-     *
-     * >
-     *
-     *   If you set the **SnapshotBackupType** parameter to **Standard**, you must fix the value of this parameter to -1.
-     *
-     *   High-frequency backup takes effect only when you set the **SnapshotBackupType** parameter to **Flash** and this parameter to a value greater than 0.
-     *
-     * @example -1
-     *
      * @var string
      */
     public $backupInterval;
 
     /**
-     * @description The retention period of full backups.
-     *
-     * >
-     *
-     *   If your instance is created before September 10, 2021, backups are retained for seven days by default.
-     *
-     *   If your instance is created after September 10, 2021, backups are retained for 30 days by default.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $backupRetentionPeriod;
 
     /**
-     * @description The backup retention policy configured for the instance. Valid values:
-     *
-     *   0: All backup sets are immediately deleted when the instance is released.
-     *   1: Automatic backup is performed when the instance is released and the backup set is retained for a long period of time.
-     *   2: Automatic backup is performed when the instance is released and all backup sets are retained for a long period of time.
-     *
-     * For more information, see [Retain the backup files of an ApsaraDB for MongoDB instance for a long period of time](https://help.aliyun.com/document_detail/2779111.html).
-     *
-     * @example 2
-     *
      * @var int
      */
     public $backupRetentionPolicyOnClusterDeletion;
 
     /**
-     * @description The day of the week on which the cross-region backup files are retained. Valid values:
-     *
-     * 1.  Monday
-     * 2.  Tuesday
-     * 3.  Wednesday
-     * 4.  Thursday
-     * 5.  Friday
-     * 6.  Saturday
-     * 7.  Sunday
-     *
-     * >  This parameter is required for a cross-region backup operation.
-     *
-     *   Separate multiple values with commas (,).
-     *
-     *   If you set the SnapshotBackupType parameter to Standard, the parameter value must fall within the value of the PreferredBackupPeriod parameter that specifies the standard backup period.
-     *
-     * @example Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday
-     *
      * @var string
      */
     public $crossBackupPeriod;
 
     /**
-     * @description The action performed for the cross-region backup policy. Valid values:
-     *
-     *   update: modifies the cross-region backup policy.
-     *   delete: deletes the cross-region backup policy.
-     *
-     * >  This parameter is required for a cross-region backup operation.
-     *
-     * @example update
-     *
      * @var string
      */
     public $crossBackupType;
 
     /**
-     * @description The retention type of the cross-region log backup files. Valid values:
-     *
-     *   delay: retains the cross-region backup files for a period of time.
-     *   never: permanently retains the cross-region backup files.
-     *
-     * >  This parameter is required for a cross-region backup operation.
-     *
-     * @example delay
-     *
      * @var string
      */
     public $crossLogRetentionType;
 
     /**
-     * @description The retention period of the cross-region log backup files. Valid values: 3 to 1825. Unit: day. The parameter value must be less than or equal to the value of the CrossRetentionValue parameter.
-     *
-     * >  This parameter is required for a cross-region backup operation.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $crossLogRetentionValue;
 
     /**
-     * @description The retention type of the cross-region backup files. Valid values:
-     *
-     *   delay: retains the cross-region backup files for a period of time.
-     *   never: permanently retains the cross-region backup files.
-     *
-     * >  This parameter is required for a cross-region backup operation.
-     *
-     * @example delay
-     *
      * @var string
      */
     public $crossRetentionType;
 
     /**
-     * @description The retention period of the cross-region backup files. Valid values: 3 to 1825. Unit: day.
-     *
-     * >
-     *
-     *   This parameter is required for a cross-region backup operation.
-     *
-     *   This parameter is required when you set the CrossRetentionType parameter to delay.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $crossRetentionValue;
 
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example dds-bp16cb162771****
-     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The region in which the backup files are retained.
-     *
-     * >  This parameter is required for a cross-region backup operation.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $destRegion;
 
     /**
-     * @description Specifies whether to enable the log backup feature. Valid values:
-     *
-     *   **0** (default): The log backup feature is disabled.
-     *   **1**: The log backup feature is enabled.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $enableBackupLog;
 
     /**
-     * @description Specifies whether to enable the cross-region log backup feature.
-     *
-     * >  This parameter is required for a cross-region backup operation.
-     *
-     *   Valid values:1: enables the feature. The parameter value must be 1 for sharded cluster instances.
-     *
-     *   0: disables the feature. The parameter value must be 0 for replica set instances.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $enableCrossLogBackup;
 
     /**
-     * @description The number of days for which high-frequency backup files are retained. Before you use this parameter, make sure that you specify the BackupInterval parameter. By default, high-frequency backup files are retained for one day.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $highFrequencyBackupRetention;
 
     /**
-     * @description The instance architecture. Valid values:
-     *
-     *   replicate
-     *   sharding
-     *
-     * >
-     *
-     *   This parameter is required when you set the RestoreType parameter to 2.
-     *
-     *   This parameter is required when you set the RestoreType parameter to 3.
-     *
-     * @example replicate
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description The number of days for which log backups are retained. Default value: 7.
-     *
-     * Valid values: 7 to 730.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $logBackupRetentionPeriod;
@@ -252,29 +99,11 @@ class ModifyBackupPolicyRequest extends Model
     public $ownerId;
 
     /**
-     * @description The day of a week when the system regularly backs up data. Valid values:
-     *
-     *   **Monday**
-     *   **Tuesday**
-     *   **Wednesday**
-     *   **Thursday**
-     *   **Friday**
-     *   **Saturday**
-     *   **Sunday**
-     * >  Separate multiple values with commas (,).
-     * @example Monday,Wednesday,Friday,Sunday
-     *
      * @var string
      */
     public $preferredBackupPeriod;
 
     /**
-     * @description The start time of the backup. Specify the time in the ISO 8601 standard in the *HH:mm*Z-*HH:mm*Z format. The time must be in UTC.
-     *
-     * >  The time range is 1 hour.
-     *
-     * @example 03:00Z-04:00Z
-     *
      * @var string
      */
     public $preferredBackupTime;
@@ -295,28 +124,11 @@ class ModifyBackupPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The snapshot backup type. Valid values:
-     *
-     *   **Flash**: single-digit second backup
-     *   **Standard** (default): standard backup
-     *
-     * @example Standard
-     *
      * @var string
      */
     public $snapshotBackupType;
 
     /**
-     * @description The region ID of the instance.
-     *
-     * >
-     *
-     *   This parameter is required for the data restoration of a deleted instance.
-     *
-     *   This parameter is required for a cross-region backup operation.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $srcRegion;
@@ -348,83 +160,110 @@ class ModifyBackupPolicyRequest extends Model
         'srcRegion' => 'SrcRegion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupInterval) {
             $res['BackupInterval'] = $this->backupInterval;
         }
+
         if (null !== $this->backupRetentionPeriod) {
             $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
         }
+
         if (null !== $this->backupRetentionPolicyOnClusterDeletion) {
             $res['BackupRetentionPolicyOnClusterDeletion'] = $this->backupRetentionPolicyOnClusterDeletion;
         }
+
         if (null !== $this->crossBackupPeriod) {
             $res['CrossBackupPeriod'] = $this->crossBackupPeriod;
         }
+
         if (null !== $this->crossBackupType) {
             $res['CrossBackupType'] = $this->crossBackupType;
         }
+
         if (null !== $this->crossLogRetentionType) {
             $res['CrossLogRetentionType'] = $this->crossLogRetentionType;
         }
+
         if (null !== $this->crossLogRetentionValue) {
             $res['CrossLogRetentionValue'] = $this->crossLogRetentionValue;
         }
+
         if (null !== $this->crossRetentionType) {
             $res['CrossRetentionType'] = $this->crossRetentionType;
         }
+
         if (null !== $this->crossRetentionValue) {
             $res['CrossRetentionValue'] = $this->crossRetentionValue;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->destRegion) {
             $res['DestRegion'] = $this->destRegion;
         }
+
         if (null !== $this->enableBackupLog) {
             $res['EnableBackupLog'] = $this->enableBackupLog;
         }
+
         if (null !== $this->enableCrossLogBackup) {
             $res['EnableCrossLogBackup'] = $this->enableCrossLogBackup;
         }
+
         if (null !== $this->highFrequencyBackupRetention) {
             $res['HighFrequencyBackupRetention'] = $this->highFrequencyBackupRetention;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->logBackupRetentionPeriod) {
             $res['LogBackupRetentionPeriod'] = $this->logBackupRetentionPeriod;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->preferredBackupPeriod) {
             $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
         }
+
         if (null !== $this->preferredBackupTime) {
             $res['PreferredBackupTime'] = $this->preferredBackupTime;
         }
+
         if (null !== $this->preserveOneEachHour) {
             $res['PreserveOneEachHour'] = $this->preserveOneEachHour;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->snapshotBackupType) {
             $res['SnapshotBackupType'] = $this->snapshotBackupType;
         }
+
         if (null !== $this->srcRegion) {
             $res['SrcRegion'] = $this->srcRegion;
         }
@@ -432,86 +271,110 @@ class ModifyBackupPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyBackupPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupInterval'])) {
             $model->backupInterval = $map['BackupInterval'];
         }
+
         if (isset($map['BackupRetentionPeriod'])) {
             $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
         }
+
         if (isset($map['BackupRetentionPolicyOnClusterDeletion'])) {
             $model->backupRetentionPolicyOnClusterDeletion = $map['BackupRetentionPolicyOnClusterDeletion'];
         }
+
         if (isset($map['CrossBackupPeriod'])) {
             $model->crossBackupPeriod = $map['CrossBackupPeriod'];
         }
+
         if (isset($map['CrossBackupType'])) {
             $model->crossBackupType = $map['CrossBackupType'];
         }
+
         if (isset($map['CrossLogRetentionType'])) {
             $model->crossLogRetentionType = $map['CrossLogRetentionType'];
         }
+
         if (isset($map['CrossLogRetentionValue'])) {
             $model->crossLogRetentionValue = $map['CrossLogRetentionValue'];
         }
+
         if (isset($map['CrossRetentionType'])) {
             $model->crossRetentionType = $map['CrossRetentionType'];
         }
+
         if (isset($map['CrossRetentionValue'])) {
             $model->crossRetentionValue = $map['CrossRetentionValue'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['DestRegion'])) {
             $model->destRegion = $map['DestRegion'];
         }
+
         if (isset($map['EnableBackupLog'])) {
             $model->enableBackupLog = $map['EnableBackupLog'];
         }
+
         if (isset($map['EnableCrossLogBackup'])) {
             $model->enableCrossLogBackup = $map['EnableCrossLogBackup'];
         }
+
         if (isset($map['HighFrequencyBackupRetention'])) {
             $model->highFrequencyBackupRetention = $map['HighFrequencyBackupRetention'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['LogBackupRetentionPeriod'])) {
             $model->logBackupRetentionPeriod = $map['LogBackupRetentionPeriod'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PreferredBackupPeriod'])) {
             $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];
         }
+
         if (isset($map['PreferredBackupTime'])) {
             $model->preferredBackupTime = $map['PreferredBackupTime'];
         }
+
         if (isset($map['PreserveOneEachHour'])) {
             $model->preserveOneEachHour = $map['PreserveOneEachHour'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SnapshotBackupType'])) {
             $model->snapshotBackupType = $map['SnapshotBackupType'];
         }
+
         if (isset($map['SrcRegion'])) {
             $model->srcRegion = $map['SrcRegion'];
         }

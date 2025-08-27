@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableEngineVersionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class engineVersions extends Model
 {
@@ -16,29 +16,47 @@ class engineVersions extends Model
         'engineVersion' => 'EngineVersion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->engineVersion)) {
+            Model::validateArray($this->engineVersion);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->engineVersion) {
-            $res['EngineVersion'] = $this->engineVersion;
+            if (\is_array($this->engineVersion)) {
+                $res['EngineVersion'] = [];
+                $n1 = 0;
+                foreach ($this->engineVersion as $item1) {
+                    $res['EngineVersion'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return engineVersions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EngineVersion'])) {
             if (!empty($map['EngineVersion'])) {
-                $model->engineVersion = $map['EngineVersion'];
+                $model->engineVersion = [];
+                $n1 = 0;
+                foreach ($map['EngineVersion'] as $item1) {
+                    $model->engineVersion[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

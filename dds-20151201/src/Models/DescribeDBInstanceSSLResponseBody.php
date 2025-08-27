@@ -4,45 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDBInstanceSSLResponseBody extends Model
 {
     /**
-     * @description The name of the SSL certificate.
-     *
-     * @example dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com
-     *
      * @var string
      */
     public $certCommonName;
 
     /**
-     * @description The request ID.
-     *
-     * @example 36BB1BC2-789C-4BBA-A519-C5B388E4B0D4
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The time when the SSL certificate expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in Coordinated Universal Time (UTC).
-     *
-     * @example 2020-03-11T02:28:25Z
-     *
      * @var string
      */
     public $SSLExpiredTime;
 
     /**
-     * @description The status of the SSL feature. Valid values:
-     *
-     *   **Open**: The SSL feature is enabled.
-     *   **Closed**: The SSL feature is disabled.
-     *
-     * @example Open
-     *
      * @var string
      */
     public $SSLStatus;
@@ -53,20 +34,26 @@ class DescribeDBInstanceSSLResponseBody extends Model
         'SSLStatus' => 'SSLStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certCommonName) {
             $res['CertCommonName'] = $this->certCommonName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->SSLExpiredTime) {
             $res['SSLExpiredTime'] = $this->SSLExpiredTime;
         }
+
         if (null !== $this->SSLStatus) {
             $res['SSLStatus'] = $this->SSLStatus;
         }
@@ -74,23 +61,26 @@ class DescribeDBInstanceSSLResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBInstanceSSLResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertCommonName'])) {
             $model->certCommonName = $map['CertCommonName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SSLExpiredTime'])) {
             $model->SSLExpiredTime = $map['SSLExpiredTime'];
         }
+
         if (isset($map['SSLStatus'])) {
             $model->SSLStatus = $map['SSLStatus'];
         }

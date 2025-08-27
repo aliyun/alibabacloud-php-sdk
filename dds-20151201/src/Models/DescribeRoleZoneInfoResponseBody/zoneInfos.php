@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRoleZoneInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRoleZoneInfoResponseBody\zoneInfos\zoneInfo;
-use AlibabaCloud\Tea\Model;
 
 class zoneInfos extends Model
 {
@@ -17,17 +17,24 @@ class zoneInfos extends Model
         'zoneInfo' => 'ZoneInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->zoneInfo)) {
+            Model::validateArray($this->zoneInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->zoneInfo) {
-            $res['ZoneInfo'] = [];
-            if (null !== $this->zoneInfo && \is_array($this->zoneInfo)) {
-                $n = 0;
-                foreach ($this->zoneInfo as $item) {
-                    $res['ZoneInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->zoneInfo)) {
+                $res['ZoneInfo'] = [];
+                $n1 = 0;
+                foreach ($this->zoneInfo as $item1) {
+                    $res['ZoneInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class zoneInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zoneInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ZoneInfo'])) {
             if (!empty($map['ZoneInfo'])) {
                 $model->zoneInfo = [];
-                $n = 0;
-                foreach ($map['ZoneInfo'] as $item) {
-                    $model->zoneInfo[$n++] = null !== $item ? zoneInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ZoneInfo'] as $item1) {
+                    $model->zoneInfo[$n1] = zoneInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReleaseNodePrivateNetworkAddressResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 0FDDC511-7252-4A4A-ADDA-5CB1BF63873D
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class ReleaseNodePrivateNetworkAddressResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class ReleaseNodePrivateNetworkAddressResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReleaseNodePrivateNetworkAddressResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

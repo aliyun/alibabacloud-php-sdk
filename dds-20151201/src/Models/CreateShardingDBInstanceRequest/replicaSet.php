@@ -4,53 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\CreateShardingDBInstanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class replicaSet extends Model
 {
     /**
-     * @description The instance type of the shard component. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
-     *
-     * >
-     *
-     *   **N** specifies the serial number of the shard component for which the instance type is specified. For example, **ReplicaSet.2.Class** specifies the instance type of the second shard component.
-     *
-     *   Valid values of **N**: **2** to **32**.
-     *
-     * This parameter is required.
-     *
-     * @example dds.shard.standard
-     *
      * @var string
      */
     public $class;
 
     /**
-     * @description The number of read-only nodes in the shard component.
-     *
-     * Valid values: **0**, **1, 2, 3, 4, and 5**. Default value: **0**.
-     *
-     * >  **N** specifies the serial number of the shard component for which you want to set the number of read-only nodes. **ReplicaSet.2.ReadonlyReplicas** specifies the number of read-only nodes in the second shard component.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $readonlyReplicas;
 
     /**
-     * @description The storage capacity of the shard component. Unit: GB.
-     *
-     * >
-     *
-     *   The values that can be specified for this parameter vary based on the instance types. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
-     *
-     *   **N** specifies the serial number of the shard component for which the storage capacity is specified. For example, **ReplicaSet.2.Storage** specifies the storage capacity of the second shard component.
-     *
-     * This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $storage;
@@ -60,17 +28,22 @@ class replicaSet extends Model
         'storage' => 'Storage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->class) {
             $res['Class'] = $this->class;
         }
+
         if (null !== $this->readonlyReplicas) {
             $res['ReadonlyReplicas'] = $this->readonlyReplicas;
         }
+
         if (null !== $this->storage) {
             $res['Storage'] = $this->storage;
         }
@@ -78,20 +51,22 @@ class replicaSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return replicaSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Class'])) {
             $model->class = $map['Class'];
         }
+
         if (isset($map['ReadonlyReplicas'])) {
             $model->readonlyReplicas = $map['ReadonlyReplicas'];
         }
+
         if (isset($map['Storage'])) {
             $model->storage = $map['Storage'];
         }

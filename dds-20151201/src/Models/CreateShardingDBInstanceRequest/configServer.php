@@ -4,33 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\CreateShardingDBInstanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class configServer extends Model
 {
     /**
-     * @description The instance type of the ConfigServer node. Valid values:
-     *
-     *   **mdb.shard.2x.xlarge.d**: 4 cores, 8 GB (dedicated). Only instances that run MongoDB 4.4 and later support this instance type.
-     *   **dds.cs.mid** :1 core, 2 GB (general-purpose). Only instances that run MongoDB 4.2 and earlier support this instance type.
-     *
-     * This parameter is required.
-     *
-     * @example mdb.shard.2x.xlarge.d
-     *
      * @var string
      */
     public $class;
 
     /**
-     * @description The storage space of the ConfigServer node. Unit: GB.
-     *
-     * > The values that can be specified for this parameter vary based on the instance types. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
-     *
-     * This parameter is required.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $storage;
@@ -39,14 +22,18 @@ class configServer extends Model
         'storage' => 'Storage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->class) {
             $res['Class'] = $this->class;
         }
+
         if (null !== $this->storage) {
             $res['Storage'] = $this->storage;
         }
@@ -54,17 +41,18 @@ class configServer extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configServer
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Class'])) {
             $model->class = $map['Class'];
         }
+
         if (isset($map['Storage'])) {
             $model->storage = $map['Storage'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeActiveOperationTaskRegionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class regionList extends Model
 {
     /**
-     * @description The total number of tasks.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The region ID of the instance.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $region;
@@ -30,14 +22,18 @@ class regionList extends Model
         'region' => 'Region',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -45,17 +41,18 @@ class regionList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regionList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyNodeSpecBatchResponseBody extends Model
 {
     /**
-     * @description The order ID.
-     *
-     * @example 21012719476****
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0637BC25-6895-5500-871F-1127CA34****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class ModifyNodeSpecBatchResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class ModifyNodeSpecBatchResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyNodeSpecBatchResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

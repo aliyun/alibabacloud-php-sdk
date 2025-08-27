@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeKernelReleaseNotesResponseBody\releaseNotes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeKernelReleaseNotesResponseBody extends Model
 {
     /**
-     * @description The list of the version release notes.
-     *
      * @var releaseNotes
      */
     public $releaseNotes;
 
     /**
-     * @description The request ID.
-     *
-     * @example F01D4DDA-CB72-4083-B399-AF4642294FE6
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeKernelReleaseNotesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->releaseNotes) {
+            $this->releaseNotes->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->releaseNotes) {
-            $res['ReleaseNotes'] = null !== $this->releaseNotes ? $this->releaseNotes->toMap() : null;
+            $res['ReleaseNotes'] = null !== $this->releaseNotes ? $this->releaseNotes->toArray($noStream) : $this->releaseNotes;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeKernelReleaseNotesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeKernelReleaseNotesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReleaseNotes'])) {
             $model->releaseNotes = releaseNotes::fromMap($map['ReleaseNotes']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

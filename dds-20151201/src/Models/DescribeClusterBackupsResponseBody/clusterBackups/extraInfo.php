@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterBackupsResponseBody\clusterBackups;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class extraInfo extends Model
 {
     /**
-     * @description Indicates whether the cluster backups are migrated from the historical backup sets. If the value of this parameter is **1**, the cluster backups are migrated from the historical backup sets.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $registryFromHistory;
@@ -20,9 +16,12 @@ class extraInfo extends Model
         'registryFromHistory' => 'RegistryFromHistory',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->registryFromHistory) {
@@ -32,11 +31,11 @@ class extraInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return extraInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

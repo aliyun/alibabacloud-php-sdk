@@ -4,61 +4,38 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRenewalPriceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRenewalPriceResponseBody\order\coupons;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRenewalPriceResponseBody\order\ruleIds;
-use AlibabaCloud\Tea\Model;
 
 class order extends Model
 {
     /**
-     * @description Details about the coupons.
-     *
      * @var coupons
      */
     public $coupons;
 
     /**
-     * @description The type of the currency. Valid values:
-     *
-     *   USD: United States dollar
-     *   JPY: Japanese Yen
-     *
-     * @example USD
-     *
      * @var string
      */
     public $currency;
 
     /**
-     * @description The discount amount of the order.
-     *
-     * @example 1144.8
-     *
      * @var float
      */
     public $discountAmount;
 
     /**
-     * @description The original price of the order.
-     *
-     * @example 1144.8
-     *
      * @var float
      */
     public $originalAmount;
 
     /**
-     * @description The IDs of the matched rules.
-     *
      * @var ruleIds
      */
     public $ruleIds;
 
     /**
-     * @description The actual price of the order.
-     *
-     * @example 0
-     *
      * @var float
      */
     public $tradeAmount;
@@ -71,26 +48,40 @@ class order extends Model
         'tradeAmount' => 'TradeAmount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->coupons) {
+            $this->coupons->validate();
+        }
+        if (null !== $this->ruleIds) {
+            $this->ruleIds->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coupons) {
-            $res['Coupons'] = null !== $this->coupons ? $this->coupons->toMap() : null;
+            $res['Coupons'] = null !== $this->coupons ? $this->coupons->toArray($noStream) : $this->coupons;
         }
+
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
+
         if (null !== $this->discountAmount) {
             $res['DiscountAmount'] = $this->discountAmount;
         }
+
         if (null !== $this->originalAmount) {
             $res['OriginalAmount'] = $this->originalAmount;
         }
+
         if (null !== $this->ruleIds) {
-            $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toMap() : null;
+            $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toArray($noStream) : $this->ruleIds;
         }
+
         if (null !== $this->tradeAmount) {
             $res['TradeAmount'] = $this->tradeAmount;
         }
@@ -98,29 +89,34 @@ class order extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return order
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Coupons'])) {
             $model->coupons = coupons::fromMap($map['Coupons']);
         }
+
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
+
         if (isset($map['DiscountAmount'])) {
             $model->discountAmount = $map['DiscountAmount'];
         }
+
         if (isset($map['OriginalAmount'])) {
             $model->originalAmount = $map['OriginalAmount'];
         }
+
         if (isset($map['RuleIds'])) {
             $model->ruleIds = ruleIds::fromMap($map['RuleIds']);
         }
+
         if (isset($map['TradeAmount'])) {
             $model->tradeAmount = $map['TradeAmount'];
         }

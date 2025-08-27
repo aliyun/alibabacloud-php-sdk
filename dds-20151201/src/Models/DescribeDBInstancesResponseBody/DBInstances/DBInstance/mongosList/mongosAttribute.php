@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstancesResponseBody\DBInstances\DBInstance\mongosList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mongosAttribute extends Model
 {
     /**
-     * @description The instance type of the mongos node.
-     *
-     * @example dds.mongos.standard
-     *
      * @var string
      */
     public $nodeClass;
 
     /**
-     * @description The description of the mongos node.
-     *
-     * @example testmongosnode
-     *
      * @var string
      */
     public $nodeDescription;
 
     /**
-     * @description The ID of the mongos node.
-     *
-     * @example s-bp10e3b0d02f****
-     *
      * @var string
      */
     public $nodeId;
@@ -40,17 +28,22 @@ class mongosAttribute extends Model
         'nodeId' => 'NodeId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeClass) {
             $res['NodeClass'] = $this->nodeClass;
         }
+
         if (null !== $this->nodeDescription) {
             $res['NodeDescription'] = $this->nodeDescription;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -58,20 +51,22 @@ class mongosAttribute extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mongosAttribute
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeClass'])) {
             $model->nodeClass = $map['NodeClass'];
         }
+
         if (isset($map['NodeDescription'])) {
             $model->nodeDescription = $map['NodeDescription'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

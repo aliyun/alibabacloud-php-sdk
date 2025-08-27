@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeReplicaSetRoleResponseBody\replicaSets;
-use AlibabaCloud\Tea\Model;
 
 class DescribeReplicaSetRoleResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example dds-bpxxxxxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The details of the roles of the replica set instance.
-     *
      * @var replicaSets
      */
     public $replicaSets;
 
     /**
-     * @description The request ID.
-     *
-     * @example DB4A0595-FCA9-437F-B2BB-25DBFC009D3E
-     *
      * @var string
      */
     public $requestId;
@@ -39,17 +29,25 @@ class DescribeReplicaSetRoleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->replicaSets) {
+            $this->replicaSets->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->replicaSets) {
-            $res['ReplicaSets'] = null !== $this->replicaSets ? $this->replicaSets->toMap() : null;
+            $res['ReplicaSets'] = null !== $this->replicaSets ? $this->replicaSets->toArray($noStream) : $this->replicaSets;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -57,20 +55,22 @@ class DescribeReplicaSetRoleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeReplicaSetRoleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['ReplicaSets'])) {
             $model->replicaSets = replicaSets::fromMap($map['ReplicaSets']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

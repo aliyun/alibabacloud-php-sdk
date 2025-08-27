@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponseBody\supportedDBTypes\supportedDBType\availableZones\availableZone\supportedEngineVersions\supportedEngineVersion\supportedEngines\supportedEngine\supportedNodeTypes\supportedNodeType\availableResources\availableResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DBInstanceStorageRange extends Model
 {
     /**
-     * @description The maximum storage capacity. Unit: GB.
-     *
-     * @example 16000
-     *
      * @var int
      */
     public $max;
 
     /**
-     * @description The minimum storage capacity. Unit: GB.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $min;
 
     /**
-     * @description The step size for adjusting the storage capacity. Unit: GB.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $step;
@@ -40,17 +28,22 @@ class DBInstanceStorageRange extends Model
         'step' => 'Step',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->max) {
             $res['Max'] = $this->max;
         }
+
         if (null !== $this->min) {
             $res['Min'] = $this->min;
         }
+
         if (null !== $this->step) {
             $res['Step'] = $this->step;
         }
@@ -58,20 +51,22 @@ class DBInstanceStorageRange extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBInstanceStorageRange
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Max'])) {
             $model->max = $map['Max'];
         }
+
         if (isset($map['Min'])) {
             $model->min = $map['Min'];
         }
+
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
         }

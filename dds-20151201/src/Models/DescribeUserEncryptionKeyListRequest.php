@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUserEncryptionKeyListRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     *
-     * @example dds-bpxxxxxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
@@ -40,10 +34,11 @@ class DescribeUserEncryptionKeyListRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent zone list.
-     *
-     * @example cn-shanghai
-     *
+     * @var string
+     */
+    public $roleARN;
+
+    /**
      * @var string
      */
     public $targetRegionId;
@@ -53,29 +48,42 @@ class DescribeUserEncryptionKeyListRequest extends Model
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'roleARN' => 'RoleARN',
         'targetRegionId' => 'TargetRegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
+        if (null !== $this->roleARN) {
+            $res['RoleARN'] = $this->roleARN;
+        }
+
         if (null !== $this->targetRegionId) {
             $res['TargetRegionId'] = $this->targetRegionId;
         }
@@ -83,29 +91,38 @@ class DescribeUserEncryptionKeyListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUserEncryptionKeyListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
+        if (isset($map['RoleARN'])) {
+            $model->roleARN = $map['RoleARN'];
+        }
+
         if (isset($map['TargetRegionId'])) {
             $model->targetRegionId = $map['TargetRegionId'];
         }

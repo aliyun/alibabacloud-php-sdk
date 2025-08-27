@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeTagsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @description The key of the tag.
-     *
-     * @example newKey
-     *
      * @var string
      */
     public $tagKey;
 
     /**
-     * @description The values of the tags.
-     *
      * @var string[]
      */
     public $tagValues;
@@ -28,35 +22,55 @@ class tags extends Model
         'tagValues' => 'TagValues',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tagValues)) {
+            Model::validateArray($this->tagValues);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
+
         if (null !== $this->tagValues) {
-            $res['TagValues'] = $this->tagValues;
+            if (\is_array($this->tagValues)) {
+                $res['TagValues'] = [];
+                $n1 = 0;
+                foreach ($this->tagValues as $item1) {
+                    $res['TagValues'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
+
         if (isset($map['TagValues'])) {
             if (!empty($map['TagValues'])) {
-                $model->tagValues = $map['TagValues'];
+                $model->tagValues = [];
+                $n1 = 0;
+                foreach ($map['TagValues'] as $item1) {
+                    $model->tagValues[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 
