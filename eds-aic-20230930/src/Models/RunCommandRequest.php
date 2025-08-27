@@ -11,6 +11,11 @@ class RunCommandRequest extends Model
     /**
      * @var string
      */
+    public $agentType;
+
+    /**
+     * @var string
+     */
     public $commandContent;
 
     /**
@@ -28,6 +33,7 @@ class RunCommandRequest extends Model
      */
     public $timeout;
     protected $_name = [
+        'agentType' => 'AgentType',
         'commandContent' => 'CommandContent',
         'contentEncoding' => 'ContentEncoding',
         'instanceIds' => 'InstanceIds',
@@ -45,6 +51,10 @@ class RunCommandRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentType) {
+            $res['AgentType'] = $this->agentType;
+        }
+
         if (null !== $this->commandContent) {
             $res['CommandContent'] = $this->commandContent;
         }
@@ -79,6 +89,10 @@ class RunCommandRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentType'])) {
+            $model->agentType = $map['AgentType'];
+        }
+
         if (isset($map['CommandContent'])) {
             $model->commandContent = $map['CommandContent'];
         }

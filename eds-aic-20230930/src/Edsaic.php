@@ -5307,6 +5307,10 @@ class Edsaic extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentType) {
+            @$query['AgentType'] = $request->agentType;
+        }
+
         if (null !== $request->commandContent) {
             @$query['CommandContent'] = $request->commandContent;
         }
