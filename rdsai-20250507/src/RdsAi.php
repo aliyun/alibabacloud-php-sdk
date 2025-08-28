@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstancesRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstancesResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceAuthInfoRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceAuthInfoResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceEndpointsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceEndpointsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceIpWhitelistRequest;
@@ -352,6 +354,67 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAppInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看实例认证信息.
+     *
+     * @param request - DescribeInstanceAuthInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceAuthInfoResponse
+     *
+     * @param DescribeInstanceAuthInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeInstanceAuthInfoResponse
+     */
+    public function describeInstanceAuthInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstanceAuthInfo',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstanceAuthInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看实例认证信息.
+     *
+     * @param request - DescribeInstanceAuthInfoRequest
+     *
+     * @returns DescribeInstanceAuthInfoResponse
+     *
+     * @param DescribeInstanceAuthInfoRequest $request
+     *
+     * @return DescribeInstanceAuthInfoResponse
+     */
+    public function describeInstanceAuthInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceAuthInfoWithOptions($request, $runtime);
     }
 
     /**
