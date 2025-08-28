@@ -4,26 +4,17 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEditionTypes\supportedEditionType\supportedSeriesTypes;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEditionTypes\supportedEditionType\supportedSeriesTypes\supportedSeriesType\supportedEngineVersions;
-use AlibabaCloud\Tea\Model;
 
 class supportedSeriesType extends Model
 {
     /**
-     * @description The instance series. Valid values:
-     *
-     *   **enhanced_performance_type**: Tair (Enterprise Edition) DRAM-based instance
-     *   **hybrid_storage**: Redis Open-Source Edition hybrid-storage instance
-     *
-     * @example enhanced_performance_type
-     *
      * @var string
      */
     public $seriesType;
 
     /**
-     * @description The available engine versions.
-     *
      * @var supportedEngineVersions
      */
     public $supportedEngineVersions;
@@ -32,32 +23,40 @@ class supportedSeriesType extends Model
         'supportedEngineVersions' => 'SupportedEngineVersions',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->supportedEngineVersions) {
+            $this->supportedEngineVersions->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->seriesType) {
             $res['SeriesType'] = $this->seriesType;
         }
+
         if (null !== $this->supportedEngineVersions) {
-            $res['SupportedEngineVersions'] = null !== $this->supportedEngineVersions ? $this->supportedEngineVersions->toMap() : null;
+            $res['SupportedEngineVersions'] = null !== $this->supportedEngineVersions ? $this->supportedEngineVersions->toArray($noStream) : $this->supportedEngineVersions;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedSeriesType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SeriesType'])) {
             $model->seriesType = $map['SeriesType'];
         }
+
         if (isset($map['SupportedEngineVersions'])) {
             $model->supportedEngineVersions = supportedEngineVersions::fromMap($map['SupportedEngineVersions']);
         }

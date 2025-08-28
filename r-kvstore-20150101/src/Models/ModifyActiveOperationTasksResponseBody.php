@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyActiveOperationTasksResponseBody extends Model
 {
     /**
-     * @description The IDs of the O\\&M events. Separate multiple event IDs with commas (,).
-     *
-     * @example 11111,22222
-     *
      * @var string
      */
     public $ids;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example E278D833-BB4B-50BF-8646-7BC1BAB2373B
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class ModifyActiveOperationTasksResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ids) {
             $res['Ids'] = $this->ids;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class ModifyActiveOperationTasksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyActiveOperationTasksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ids'])) {
             $model->ids = $map['Ids'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

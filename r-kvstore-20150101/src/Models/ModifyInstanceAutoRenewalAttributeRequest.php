@@ -4,44 +4,21 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyInstanceAutoRenewalAttributeRequest extends Model
 {
     /**
-     * @description Specifies whether to enable auto-renewal. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * >  The default value is **false**.
-     *
-     * @example true
-     *
      * @var string
      */
     public $autoRenew;
 
     /**
-     * @description The ID of the instance. Separate multiple instance IDs with commas (,).
-     *
-     * > You can specify up to 30 instance IDs.
-     *
-     * This parameter is required.
-     *
-     * @example r-bp1zxszhcgatnx****
-     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The auto-renewal period. Valid values: **1** to **12**. Unit: months. When the instance is about to expire, the instance is automatically renewed based on the number of months specified by this parameter.
-     *
-     * > This parameter is available and required only if the **AutoRenew** parameter is set to **true**.
-     *
-     * @example 3
-     *
      * @var string
      */
     public $duration;
@@ -57,10 +34,6 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The service. Set the value to kvstore.
-     *
-     * @example kvstore
-     *
      * @var string
      */
     public $product;
@@ -91,35 +64,46 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -127,38 +111,46 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyInstanceAutoRenewalAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

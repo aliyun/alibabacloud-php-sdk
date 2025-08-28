@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\order\coupons;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class coupon extends Model
 {
     /**
-     * @description The coupon ID.
-     *
-     * @example youhuiquan_promotion_option_id_for_blank
-     *
      * @var string
      */
     public $couponNo;
 
     /**
-     * @description The coupon description.
-     *
-     * @example coupondemo
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description Indicates whether the coupon is selected.
-     *
-     * @example true
-     *
      * @var string
      */
     public $isSelected;
 
     /**
-     * @description The coupon name.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
@@ -50,20 +34,26 @@ class coupon extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->isSelected) {
             $res['IsSelected'] = $this->isSelected;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -71,23 +61,26 @@ class coupon extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return coupon
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['IsSelected'])) {
             $model->isSelected = $map['IsSelected'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

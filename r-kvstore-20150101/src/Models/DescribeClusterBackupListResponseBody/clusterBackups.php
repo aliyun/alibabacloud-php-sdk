@@ -4,72 +4,42 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeClusterBackupListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeClusterBackupListResponseBody\clusterBackups\backups;
-use AlibabaCloud\Tea\Model;
 
 class clusterBackups extends Model
 {
     /**
-     * @description The backup sets of all shards in the instance.
-     *
      * @var backups[]
      */
     public $backups;
 
     /**
-     * @description The end time of the backup.
-     *
-     * @example 2024-01-10T17:21:55Z
-     *
      * @var string
      */
     public $clusterBackupEndTime;
 
     /**
-     * @description The ID of the backup set.
-     *
-     * @example cb-zmdqj2m3xyxjtdt0
-     *
      * @var string
      */
     public $clusterBackupId;
 
     /**
-     * @description The backup mode.
-     *
-     * @example Automated
-     *
      * @var string
      */
     public $clusterBackupMode;
 
     /**
-     * @description The size of the backup set.
-     *
-     * @example 2048
-     *
      * @var string
      */
     public $clusterBackupSize;
 
     /**
-     * @description The start time of the backup.
-     *
-     * @example 2024-01-10T17:21:25Z
-     *
      * @var string
      */
     public $clusterBackupStartTime;
 
     /**
-     * @description The status of the backup set.
-     *
-     *   OK
-     *   RUNNING
-     *   Failed
-     *
-     * @example OK
-     *
      * @var string
      */
     public $clusterBackupStatus;
@@ -80,28 +50,16 @@ class clusterBackups extends Model
     public $expectExpireTime;
 
     /**
-     * @description Indicates whether the backup set is valid. A value of 0 indicates that shard-level backups failed or have not been completed.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $isAvail;
 
     /**
-     * @description The backup progress. The system displays only the progress of running backup tasks.
-     *
-     * @example 100%
-     *
      * @var string
      */
     public $progress;
 
     /**
-     * @description The memory size of a single shard during a full backup. Unit: MB.
-     *
-     * @example 1024
-     *
      * @var int
      */
     public $shardClassMemory;
@@ -119,47 +77,64 @@ class clusterBackups extends Model
         'shardClassMemory' => 'ShardClassMemory',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->backups)) {
+            Model::validateArray($this->backups);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backups) {
-            $res['Backups'] = [];
-            if (null !== $this->backups && \is_array($this->backups)) {
-                $n = 0;
-                foreach ($this->backups as $item) {
-                    $res['Backups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->backups)) {
+                $res['Backups'] = [];
+                $n1 = 0;
+                foreach ($this->backups as $item1) {
+                    $res['Backups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->clusterBackupEndTime) {
             $res['ClusterBackupEndTime'] = $this->clusterBackupEndTime;
         }
+
         if (null !== $this->clusterBackupId) {
             $res['ClusterBackupId'] = $this->clusterBackupId;
         }
+
         if (null !== $this->clusterBackupMode) {
             $res['ClusterBackupMode'] = $this->clusterBackupMode;
         }
+
         if (null !== $this->clusterBackupSize) {
             $res['ClusterBackupSize'] = $this->clusterBackupSize;
         }
+
         if (null !== $this->clusterBackupStartTime) {
             $res['ClusterBackupStartTime'] = $this->clusterBackupStartTime;
         }
+
         if (null !== $this->clusterBackupStatus) {
             $res['ClusterBackupStatus'] = $this->clusterBackupStatus;
         }
+
         if (null !== $this->expectExpireTime) {
             $res['ExpectExpireTime'] = $this->expectExpireTime;
         }
+
         if (null !== $this->isAvail) {
             $res['IsAvail'] = $this->isAvail;
         }
+
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
+
         if (null !== $this->shardClassMemory) {
             $res['ShardClassMemory'] = $this->shardClassMemory;
         }
@@ -167,50 +142,61 @@ class clusterBackups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clusterBackups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Backups'])) {
             if (!empty($map['Backups'])) {
                 $model->backups = [];
-                $n = 0;
-                foreach ($map['Backups'] as $item) {
-                    $model->backups[$n++] = null !== $item ? backups::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Backups'] as $item1) {
+                    $model->backups[$n1] = backups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ClusterBackupEndTime'])) {
             $model->clusterBackupEndTime = $map['ClusterBackupEndTime'];
         }
+
         if (isset($map['ClusterBackupId'])) {
             $model->clusterBackupId = $map['ClusterBackupId'];
         }
+
         if (isset($map['ClusterBackupMode'])) {
             $model->clusterBackupMode = $map['ClusterBackupMode'];
         }
+
         if (isset($map['ClusterBackupSize'])) {
             $model->clusterBackupSize = $map['ClusterBackupSize'];
         }
+
         if (isset($map['ClusterBackupStartTime'])) {
             $model->clusterBackupStartTime = $map['ClusterBackupStartTime'];
         }
+
         if (isset($map['ClusterBackupStatus'])) {
             $model->clusterBackupStatus = $map['ClusterBackupStatus'];
         }
+
         if (isset($map['ExpectExpireTime'])) {
             $model->expectExpireTime = $map['ExpectExpireTime'];
         }
+
         if (isset($map['IsAvail'])) {
             $model->isAvail = $map['IsAvail'];
         }
+
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
+
         if (isset($map['ShardClassMemory'])) {
             $model->shardClassMemory = $map['ShardClassMemory'];
         }

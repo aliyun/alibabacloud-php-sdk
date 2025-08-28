@@ -4,31 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAuditLogConfigRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the audit log feature. Default value: true. Valid values:
-     *
-     *   **true**: enables the audit log feature.
-     *   **false**: disables the audit log feature.
-     *
-     * > If the instance uses the [cluster architecture](https://help.aliyun.com/document_detail/52228.html) or [read/write splitting architecture](https://help.aliyun.com/document_detail/62870.html), the audit log feature is enabled or disabled for both the data nodes and proxy nodes. You cannot separately enable the audit log feature for the data nodes or proxy nodes.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $dbAudit;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the ID of the instance.
-     *
-     * This parameter is required.
-     *
-     * @example r-bp1zxszhcgatnx****
-     *
      * @var string
      */
     public $instanceId;
@@ -54,16 +39,6 @@ class ModifyAuditLogConfigRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The retention period of audit logs. Valid values: **1** to **365**. Unit: days.
-     *
-     * >
-     *
-     *   This parameter is required only when the **DbAudit** parameter is set to **true**.
-     *
-     *   The value of this parameter takes effect for all instances in the current region.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $retention;
@@ -83,32 +58,42 @@ class ModifyAuditLogConfigRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbAudit) {
             $res['DbAudit'] = $this->dbAudit;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->retention) {
             $res['Retention'] = $this->retention;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -116,35 +101,42 @@ class ModifyAuditLogConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAuditLogConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbAudit'])) {
             $model->dbAudit = $map['DbAudit'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Retention'])) {
             $model->retention = $map['Retention'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheCustomInstanceAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheCustomInstanceAttributeResponseBody\disks\disk;
-use AlibabaCloud\Tea\Model;
 
 class disks extends Model
 {
@@ -17,17 +17,24 @@ class disks extends Model
         'disk' => 'Disk',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->disk)) {
+            Model::validateArray($this->disk);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->disk) {
-            $res['Disk'] = [];
-            if (null !== $this->disk && \is_array($this->disk)) {
-                $n = 0;
-                foreach ($this->disk as $item) {
-                    $res['Disk'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->disk)) {
+                $res['Disk'] = [];
+                $n1 = 0;
+                foreach ($this->disk as $item1) {
+                    $res['Disk'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class disks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return disks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Disk'])) {
             if (!empty($map['Disk'])) {
                 $model->disk = [];
-                $n = 0;
-                foreach ($map['Disk'] as $item) {
-                    $model->disk[$n++] = null !== $item ? disk::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Disk'] as $item1) {
+                    $model->disk[$n1] = disk::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

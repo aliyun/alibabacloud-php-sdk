@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEditionTypes\supportedEditionType\supportedSeriesTypes\supportedSeriesType\supportedEngineVersions\supportedEngineVersion;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEditionTypes\supportedEditionType\supportedSeriesTypes\supportedSeriesType\supportedEngineVersions\supportedEngineVersion\supportedArchitectureTypes\supportedArchitectureType;
-use AlibabaCloud\Tea\Model;
 
 class supportedArchitectureTypes extends Model
 {
@@ -17,17 +17,24 @@ class supportedArchitectureTypes extends Model
         'supportedArchitectureType' => 'SupportedArchitectureType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->supportedArchitectureType)) {
+            Model::validateArray($this->supportedArchitectureType);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportedArchitectureType) {
-            $res['SupportedArchitectureType'] = [];
-            if (null !== $this->supportedArchitectureType && \is_array($this->supportedArchitectureType)) {
-                $n = 0;
-                foreach ($this->supportedArchitectureType as $item) {
-                    $res['SupportedArchitectureType'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportedArchitectureType)) {
+                $res['SupportedArchitectureType'] = [];
+                $n1 = 0;
+                foreach ($this->supportedArchitectureType as $item1) {
+                    $res['SupportedArchitectureType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class supportedArchitectureTypes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedArchitectureTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedArchitectureType'])) {
             if (!empty($map['SupportedArchitectureType'])) {
                 $model->supportedArchitectureType = [];
-                $n = 0;
-                foreach ($map['SupportedArchitectureType'] as $item) {
-                    $model->supportedArchitectureType[$n++] = null !== $item ? supportedArchitectureType::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SupportedArchitectureType'] as $item1) {
+                    $model->supportedArchitectureType[$n1] = supportedArchitectureType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

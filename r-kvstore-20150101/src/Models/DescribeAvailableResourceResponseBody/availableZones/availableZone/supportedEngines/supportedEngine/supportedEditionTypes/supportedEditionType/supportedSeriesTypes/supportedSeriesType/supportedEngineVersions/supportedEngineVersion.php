@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEditionTypes\supportedEditionType\supportedSeriesTypes\supportedSeriesType\supportedEngineVersions;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEditionTypes\supportedEditionType\supportedSeriesTypes\supportedSeriesType\supportedEngineVersions\supportedEngineVersion\supportedArchitectureTypes;
-use AlibabaCloud\Tea\Model;
 
 class supportedEngineVersion extends Model
 {
     /**
-     * @description The available architectures.
-     *
      * @var supportedArchitectureTypes
      */
     public $supportedArchitectureTypes;
 
     /**
-     * @description The engine version of the instance.
-     *
-     * @example 5.0
-     *
      * @var string
      */
     public $version;
@@ -29,14 +23,21 @@ class supportedEngineVersion extends Model
         'version' => 'Version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->supportedArchitectureTypes) {
+            $this->supportedArchitectureTypes->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportedArchitectureTypes) {
-            $res['SupportedArchitectureTypes'] = null !== $this->supportedArchitectureTypes ? $this->supportedArchitectureTypes->toMap() : null;
+            $res['SupportedArchitectureTypes'] = null !== $this->supportedArchitectureTypes ? $this->supportedArchitectureTypes->toArray($noStream) : $this->supportedArchitectureTypes;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -44,17 +45,18 @@ class supportedEngineVersion extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedEngineVersion
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedArchitectureTypes'])) {
             $model->supportedArchitectureTypes = supportedArchitectureTypes::fromMap($map['SupportedArchitectureTypes']);
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

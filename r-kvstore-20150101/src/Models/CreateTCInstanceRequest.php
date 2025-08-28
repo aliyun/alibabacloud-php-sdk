@@ -4,94 +4,68 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTCInstanceRequest\dataDisk;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTCInstanceRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class CreateTCInstanceRequest extends Model
 {
     /**
-     * @example false
-     *
      * @var string
      */
     public $autoRenew;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $autoRenewPeriod;
 
     /**
-     * @example false
-     *
      * @var string
      */
     public $autoUseCoupon;
 
     /**
-     * @example 000000000
-     *
      * @var string
      */
     public $businessInfo;
 
     /**
-     * @example ETnLKlblzczshOTUbOCz****
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @example youhuiquan_promotion_option_id_for_blank
-     *
      * @var string
      */
     public $couponNo;
 
     /**
-     * @description This parameter is required.
-     *
      * @var dataDisk[]
      */
     public $dataDisk;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ubuntu_20_04_64_20G_alibase_20210412
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @example PrePaid
-     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @example tair.kvcache.guis.8.gu60
-     *
      * @var string
      */
     public $instanceClass;
 
     /**
-     * @example newinstancename
-     *
      * @var string
      */
     public $instanceName;
@@ -102,8 +76,6 @@ class CreateTCInstanceRequest extends Model
     public $needEni;
 
     /**
-     * @example VPC
-     *
      * @var string
      */
     public $networkType;
@@ -119,24 +91,16 @@ class CreateTCInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @example 12
-     *
      * @var string
      */
     public $period;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example rg-acfmyiu4e******
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -152,8 +116,6 @@ class CreateTCInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @example sg-bpcfmyiu4ekp****
-     *
      * @var string
      */
     public $securityGroupId;
@@ -169,22 +131,16 @@ class CreateTCInstanceRequest extends Model
     public $tag;
 
     /**
-     * @example vsw-bp1e7clcw529l773d****
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @example vpc-bp1nme44gek34slfc****
-     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @example cn-hangzhou-b
-     *
      * @var string
      */
     public $zoneId;
@@ -218,101 +174,138 @@ class CreateTCInstanceRequest extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataDisk)) {
+            Model::validateArray($this->dataDisk);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
+
         if (null !== $this->autoRenewPeriod) {
             $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
         }
+
         if (null !== $this->autoUseCoupon) {
             $res['AutoUseCoupon'] = $this->autoUseCoupon;
         }
+
         if (null !== $this->businessInfo) {
             $res['BusinessInfo'] = $this->businessInfo;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
         }
+
         if (null !== $this->dataDisk) {
-            $res['DataDisk'] = [];
-            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
-                $n = 0;
-                foreach ($this->dataDisk as $item) {
-                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataDisk)) {
+                $res['DataDisk'] = [];
+                $n1 = 0;
+                foreach ($this->dataDisk as $item1) {
+                    $res['DataDisk'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
+
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->needEni) {
             $res['NeedEni'] = $this->needEni;
         }
+
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -320,104 +313,132 @@ class CreateTCInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTCInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
+
         if (isset($map['AutoRenewPeriod'])) {
             $model->autoRenewPeriod = $map['AutoRenewPeriod'];
         }
+
         if (isset($map['AutoUseCoupon'])) {
             $model->autoUseCoupon = $map['AutoUseCoupon'];
         }
+
         if (isset($map['BusinessInfo'])) {
             $model->businessInfo = $map['BusinessInfo'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
         }
+
         if (isset($map['DataDisk'])) {
             if (!empty($map['DataDisk'])) {
                 $model->dataDisk = [];
-                $n = 0;
-                foreach ($map['DataDisk'] as $item) {
-                    $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DataDisk'] as $item1) {
+                    $model->dataDisk[$n1] = dataDisk::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
+
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['NeedEni'])) {
             $model->needEni = $map['NeedEni'];
         }
+
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

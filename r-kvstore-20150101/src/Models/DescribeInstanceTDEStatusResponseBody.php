@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstanceTDEStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 5D622714-AEDD-4609-9167-F5DDD3D1****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether TDE is enabled. Valid values:
-     *
-     *   **Enabled**: TDE is enabled.
-     *   **Disable**: TDE is disabled.
-     *
-     * @example Enabled
-     *
      * @var string
      */
     public $TDEStatus;
@@ -33,14 +22,18 @@ class DescribeInstanceTDEStatusResponseBody extends Model
         'TDEStatus' => 'TDEStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->TDEStatus) {
             $res['TDEStatus'] = $this->TDEStatus;
         }
@@ -48,17 +41,18 @@ class DescribeInstanceTDEStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceTDEStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TDEStatus'])) {
             $model->TDEStatus = $map['TDEStatus'];
         }

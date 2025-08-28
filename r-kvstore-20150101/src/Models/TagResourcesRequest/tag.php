@@ -4,33 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\TagResourcesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
     /**
-     * @description The key of the tag associated with the instance.
-     *
-     * > * **N** specifies the serial number of the tag. For example, **Tag.1.Key** specifies the key of the first tag and **Tag.2.Key** specifies the key of the second tag.
-     * > * If the key of the tag does not exist, the key is automatically created.
-     *
-     * This parameter is required.
-     *
-     * @example demokey
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The value of the tag associated with the instance.
-     *
-     * > **N** specifies the serial number of the tag. For example, **Tag.1.Value** specifies the value of the first tag and **Tag.2.Value** specifies the value of the second tag.
-     *
-     * This parameter is required.
-     *
-     * @example demovalue
-     *
      * @var string
      */
     public $value;
@@ -39,14 +22,18 @@ class tag extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -54,17 +41,18 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

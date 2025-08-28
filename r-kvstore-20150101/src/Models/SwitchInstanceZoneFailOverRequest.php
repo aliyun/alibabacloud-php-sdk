@@ -4,40 +4,21 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SwitchInstanceZoneFailOverRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example r-bp1zxszhcgatnx****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The duration for which the fault lasts. Unit: minutes.
-     *
-     * Valid values:
-     *
-     *   5
-     *   10
-     *
-     * @example 5
-     *
      * @var string
      */
     public $siteFaultTime;
 
     /**
-     * @description The ID of the destination zone.
-     *
-     * @example cn-hangzhou-j
-     *
      * @var string
      */
     public $targetZoneId;
@@ -47,17 +28,22 @@ class SwitchInstanceZoneFailOverRequest extends Model
         'targetZoneId' => 'TargetZoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->siteFaultTime) {
             $res['SiteFaultTime'] = $this->siteFaultTime;
         }
+
         if (null !== $this->targetZoneId) {
             $res['TargetZoneId'] = $this->targetZoneId;
         }
@@ -65,20 +51,22 @@ class SwitchInstanceZoneFailOverRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SwitchInstanceZoneFailOverRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['SiteFaultTime'])) {
             $model->siteFaultTime = $map['SiteFaultTime'];
         }
+
         if (isset($map['TargetZoneId'])) {
             $model->targetZoneId = $map['TargetZoneId'];
         }

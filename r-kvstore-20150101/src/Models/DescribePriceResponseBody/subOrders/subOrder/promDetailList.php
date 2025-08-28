@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\subOrders\subOrder;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\subOrders\subOrder\promDetailList\promDetail;
-use AlibabaCloud\Tea\Model;
 
 class promDetailList extends Model
 {
@@ -17,17 +17,24 @@ class promDetailList extends Model
         'promDetail' => 'PromDetail',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->promDetail)) {
+            Model::validateArray($this->promDetail);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->promDetail) {
-            $res['PromDetail'] = [];
-            if (null !== $this->promDetail && \is_array($this->promDetail)) {
-                $n = 0;
-                foreach ($this->promDetail as $item) {
-                    $res['PromDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->promDetail)) {
+                $res['PromDetail'] = [];
+                $n1 = 0;
+                foreach ($this->promDetail as $item1) {
+                    $res['PromDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class promDetailList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return promDetailList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PromDetail'])) {
             if (!empty($map['PromDetail'])) {
                 $model->promDetail = [];
-                $n = 0;
-                foreach ($map['PromDetail'] as $item) {
-                    $model->promDetail[$n++] = null !== $item ? promDetail::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PromDetail'] as $item1) {
+                    $model->promDetail[$n1] = promDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

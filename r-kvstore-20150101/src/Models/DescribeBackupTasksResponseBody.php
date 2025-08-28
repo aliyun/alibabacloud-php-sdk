@@ -4,40 +4,28 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupTasksResponseBody\accessDeniedDetail;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupTasksResponseBody\backupJobs;
-use AlibabaCloud\Tea\Model;
 
 class DescribeBackupTasksResponseBody extends Model
 {
     /**
-     * @description The following parameters are no longer used. Ignore the parameters.
-     *
      * @var accessDeniedDetail
      */
     public $accessDeniedDetail;
 
     /**
-     * @description The details of the backup tasks.
-     *
      * @var backupJobs[]
      */
     public $backupJobs;
 
     /**
-     * @description The instance ID.
-     *
-     * @example r-bp1zxszhcgatnx****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The request ID.
-     *
-     * @example BB73740C-23E2-4392-9DA4-2660C74C****
-     *
      * @var string
      */
     public $requestId;
@@ -48,26 +36,39 @@ class DescribeBackupTasksResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->accessDeniedDetail) {
+            $this->accessDeniedDetail->validate();
+        }
+        if (\is_array($this->backupJobs)) {
+            Model::validateArray($this->backupJobs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
-            $res['AccessDeniedDetail'] = null !== $this->accessDeniedDetail ? $this->accessDeniedDetail->toMap() : null;
+            $res['AccessDeniedDetail'] = null !== $this->accessDeniedDetail ? $this->accessDeniedDetail->toArray($noStream) : $this->accessDeniedDetail;
         }
+
         if (null !== $this->backupJobs) {
-            $res['BackupJobs'] = [];
-            if (null !== $this->backupJobs && \is_array($this->backupJobs)) {
-                $n = 0;
-                foreach ($this->backupJobs as $item) {
-                    $res['BackupJobs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->backupJobs)) {
+                $res['BackupJobs'] = [];
+                $n1 = 0;
+                foreach ($this->backupJobs as $item1) {
+                    $res['BackupJobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -75,29 +76,33 @@ class DescribeBackupTasksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackupTasksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = accessDeniedDetail::fromMap($map['AccessDeniedDetail']);
         }
+
         if (isset($map['BackupJobs'])) {
             if (!empty($map['BackupJobs'])) {
                 $model->backupJobs = [];
-                $n = 0;
-                foreach ($map['BackupJobs'] as $item) {
-                    $model->backupJobs[$n++] = null !== $item ? backupJobs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BackupJobs'] as $item1) {
+                    $model->backupJobs[$n1] = backupJobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

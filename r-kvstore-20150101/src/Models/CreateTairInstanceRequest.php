@@ -4,215 +4,97 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairInstanceRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class CreateTairInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment. Set the value to **true**.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoPay;
 
     /**
-     * @description Specifies whether to enable auto-renewal for the instance. Valid values:
-     *
-     *   **true**: enables auto-renewal.
-     *   **false** (default): disables auto-renewal.
-     *
-     * @example true
-     *
      * @var string
      */
     public $autoRenew;
 
     /**
-     * @description The subscription duration that is supported by auto-renewal. Unit: month. Valid values: **1**, **2**, **3**, **6**, and **12**.
-     *
-     * >  This parameter is required if the **AutoRenew** parameter is set to **true**.
-     *
-     * @example 3
-     *
      * @var string
      */
     public $autoRenewPeriod;
 
     /**
-     * @description Specifies whether to use a coupon. Valid values:
-     *
-     *   **true**: uses a coupon.
-     *   **false** (default): does not use a coupon.
-     *
-     * @example true
-     *
      * @var string
      */
     public $autoUseCoupon;
 
     /**
-     * @description You can set the BackupId parameter to the backup set ID of the source instance. The system uses the data stored in the backup set to create an instance. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) operation to query the backup set ID. If the source instance is a cluster instance, set the BackupId parameter to the backup set IDs of all shards of the source instance, separated by commas (,). Example: "10\\*\\*,11\\*\\*,15\\*\\*".
-     *
-     * >  If your instance is a cloud-native cluster instance, we recommend that you use [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) to query the backup set ID of the cluster instance, such as cb-xx. Then, set the ClusterBackupId request parameter to the backup set ID to clone the cluster instance. This eliminates the need to specify the backup set ID of each shard.
-     *
-     * @example 11111111
-     *
      * @var string
      */
     public $backupId;
 
     /**
-     * @description The ID of the promotional event or the business information.
-     *
-     * @example 000000000
-     *
      * @var string
      */
     public $businessInfo;
 
     /**
-     * @description The billing method of the instance. Valid values:
-     *
-     *   **PrePaid** (default): subscription
-     *   **PostPaid**: pay-as-you-go
-     *
-     * @example PrePaid
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests and is case-sensitive. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-     *
-     * @example ETnLKlblzczshOTUbOCz****
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description This parameter is supported for specific new cluster instances. You can query the backup set ID by calling the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) operation.
-     *
-     *   If this parameter is supported, you can specify the backup set ID. In this case, you do not need to specify the **BackupId** parameter.
-     *   If this parameter is not supported, set the BackupId parameter to the IDs of backup sets in all shards of the source instance, separated by commas (,). Example: "2158\\*\\*\\*\\*20,2158\\*\\*\\*\\*22".
-     *
-     * @example cb-hyxdof5x9kqb****
-     *
      * @var string
      */
     public $clusterBackupId;
 
     /**
-     * @description The prefix of the endpoint. The prefix must be 8 to 40 characters in length and can contain lowercase letters and digits. It must start with a lowercase letter.
-     *
-     * >  The endpoint must be in the \\<prefix>.redis.rds.aliyuncs.com format.
-     *
-     * @example r-bp1zxszhcgatnx****
-     *
      * @var string
      */
     public $connectionStringPrefix;
 
     /**
-     * @description The coupon code.
-     *
-     * @example youhuiquan_promotion_option_id_for_blank
-     *
      * @var string
      */
     public $couponNo;
 
     /**
-     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-     *
-     *   **true**: performs a dry run and does not create the instance. The system prechecks the request parameters, request format, service limits, and available resources. If the request fails the dry run, an error code is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false** (false): performs a dry run and performs the actual request. If the request passes the dry run, the instance is directly created.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description The database engine version. Default value: **1.0**. The parameter value varies based on the Tair instance series.
-     *
-     *   To create a Tair DRAM-based instance (Tair_rdb) that is compatible with Redis 5.0, 6.0, or 7.0, set this parameter to **5.0**, **6.0**, or **7.0**.
-     *   To create a Tair persistent memory-optimized instance (tair_scm) that is compatible with Redis 6.0, set this parameter to **1.0**.
-     *   To create a Tair ESSD-based instance (tair_essd) that is compatible with Redis 6.0, set this parameter to **1.0**. To create a Tair SSD-based instance that is compatible with Redis 6.0, set this parameter to **2.0**.
-     *
-     * @example 1.0
-     *
      * @var string
      */
     public $engineVersion;
 
     /**
-     * @description Specifies whether to use the created instance as a child instance of a distributed instance.
-     *
-     *   If you want the created instance to be used as the first child instance, enter **true**.
-     *   If you want the created instance to be used as the second or third child instance, enter the ID of the distributed instance, such as gr-bp14rkqrhac\\*\\*\\*\\*.
-     *   If you do not want the created instance to be used as a distributed instance, leave the parameter empty.
-     *
-     * >  If you want the created instance to be used as a distributed instance, the created instance must be a Tair DRAM-based instance.
-     *
-     * @example gr-bp14rkqrhac****
-     *
      * @var string
      */
     public $globalInstanceId;
 
     /**
-     * @description The global IP whitelist templates of the instance. Separate multiple IP whitelist templates with commas (,). Each IP whitelist template must be unique.
-     *
-     * @example g-zsldxfiwjmti0kcm****
-     *
      * @var string
      */
     public $globalSecurityGroupIds;
 
     /**
-     * @description The instance series. For more information, see the following topics:
-     *
-     *   [DRAM-based instances](https://help.aliyun.com/document_detail/2527112.html)
-     *   [Persistent memory-optimized instances](https://help.aliyun.com/document_detail/2527110.html)
-     *   [ESSD/SSD-based instances](https://help.aliyun.com/document_detail/2527111.html)
-     *
-     * This parameter is required.
-     *
-     * @example tair.scm.standard.4m.32d
-     *
      * @var string
      */
     public $instanceClass;
 
     /**
-     * @description The name of the instance. The name must meet the following requirements:
-     *
-     *   The name must be 2 to 80 characters in length.
-     *   The name must start with a letter and cannot contain spaces or special characters. Special characters include `@ / : = " < > { [ ] }`
-     *
-     * @example apitest
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The instance series. Valid values:
-     *
-     *   **tair_rdb**: Tair DRAM-based instance
-     *   **tair_scm**: Tair persistent memory-optimized instance
-     *   **tair_essd**: Tair ESSD/SSD-based instance
-     *
-     * This parameter is required.
-     *
-     * @example tair_scm
-     *
      * @var string
      */
     public $instanceType;
@@ -228,120 +110,51 @@ class CreateTairInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the parameter template. The instance is created based on the parameters in the parameter template. The ID must be unique.
-     *
-     * @example g-50npzjcqb1ua6q6j****
-     *
      * @var string
      */
     public $paramGroupId;
 
     /**
-     * @description The password that is used to connect to the instance. The password must meet the following requirements:
-     *
-     *   The password must be 8 to 32 characters in length.
-     *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `! @ # $ % ^ & * ( ) _ + - =`
-     *
-     * @example Pass!123456
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @description The subscription duration. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**,**36**, and **60**. Unit: month.
-     *
-     * >  This parameter is required only if the **ChargeType** parameter is set to **PrePaid**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description The service port number of the instance. Valid values: 1024 to 65535. Default value: 6379.
-     *
-     * @example 6379
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @description The internal IP address of the instance.
-     *
-     * >  The IP address must be within the CIDR block of the vSwitch to which you want the instance to connect. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation of VPC to query the CIDR block information.
-     *
-     * @example 172.16.88.***
-     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
-     * @description The number of read replicas in the primary zone. This parameter applies only to cloud-native read/write splitting instances. Valid values: 1 to 9.
-     *
-     * >  The sum of the values of this parameter and the SlaveReadOnlyCount parameter cannot exceed 9.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $readOnlyCount;
 
     /**
-     * @description Specifies whether to restore the account, kernel parameter, and whitelist information from the original backup set when you create an instance from the specified backup set. For example, if you want to restore the account information, set the parameter to `{"account":true}`.
-     *
-     * This parameter is empty by default, which indicates that the account, kernel parameter, and whitelist information is not restored from the original backup set.
-     *
-     * >  This parameter applies only to cloud-native cluster instances. The account, kernel parameter, and whitelist information must be stored in the original backup set. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) operation to check whether the RecoverConfigMode configurations in the specified backup set contain the preceding information.
-     *
-     * @example {"whitelist":true,"config":true,"account":true}
-     *
      * @var string
      */
     public $recoverConfigMode;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The number of replica nodes in the primary zone. This parameter applies only to cloud-native multi-replica cluster instances. Valid values: 1 to 4.
-     *
-     * >
-     *
-     *   The sum of the values of this parameter and the SlaveReplicaCount parameter cannot exceed 4.
-     *
-     *   You can specify only one of the ReplicaCount and ReadOnlyCount parameters.
-     *
-     *   Master-replica instances do not support multiple replicas.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $replicaCount;
 
     /**
-     * @description The ID of the resource group that you want to manage.
-     *
-     * >
-     *
-     *   You can query resource group IDs in the console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View the basic information about a resource group](https://help.aliyun.com/document_detail/151181.html).
-     *
-     *   Before you modify the resource group to which an instance belongs, you can call the [ListResources](https://help.aliyun.com/document_detail/158866.html) operation to view the current resource group of the instance.
-     *
-     * @example rg-acfmyiu4ekp****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -357,21 +170,11 @@ class CreateTairInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description If data flashback is enabled for the source instance, you can use this parameter to specify a point in time within the backup retention period of the source instance. The system uses the backup data of the source instance at the point in time to create an instance. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-     *
-     * @example 2021-07-06T07:25:57Z
-     *
      * @var string
      */
     public $restoreTime;
 
     /**
-     * @description The ID of the secondary zone. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the ID of the secondary zone.
-     *
-     * >  You cannot specify multiple zone IDs or set this parameter to a value that is the same as that of the ZoneId parameter.
-     *
-     * @example cn-hangzhou-h
-     *
      * @var string
      */
     public $secondaryZoneId;
@@ -382,129 +185,56 @@ class CreateTairInstanceRequest extends Model
     public $securityToken;
 
     /**
-     * @description The number of data nodes in the instance. Valid values:
-     *
-     *   **1** (default): You can create a [standard instance](https://help.aliyun.com/document_detail/52228.html) that contains only one data node.
-     *   **2** to **32**: You can create a [cluster instance](https://help.aliyun.com/document_detail/52228.html) that contains the specified number of data nodes.
-     *
-     * >  When the **InstanceType** parameter is set to **tair_rdb** or **tair_scm**, this parameter can be set to a value in the range of **2** to **32**. Only DRAM-based and persistent memory-optimized instances support the cluster architecture.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $shardCount;
 
     /**
-     * @description The shard type of the instance. Valid values:
-     *
-     *   **MASTER_SLAVE** (default): runs in a master-replica architecture that provides high availability.
-     *   **STAND_ALONE**: runs in a standalone architecture. If the only node fails, the system creates a new instance and switches the workloads to the new instance. This may cause data loss. You can set the ShardType parameter to this value only if the instance uses the **single-zone** deployment mode. If you set the ShardType parameter to this value, you cannot create cluster or read/write splitting instances.
-     *
-     * @example MASTER_SLAVE
-     *
      * @var string
      */
     public $shardType;
 
     /**
-     * @description The number of read replicas in the secondary zone when you create a multi-zone read/write splitting instance. The sum of the values of this parameter and the ReadOnlyCount parameter cannot exceed 9.
-     *
-     * > When you create a multi-zone read/write splitting instance, you must specify both SlaveReadOnlyCount and SecondaryZoneId.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $slaveReadOnlyCount;
 
     /**
-     * @description The number of replica nodes in the secondary zone when you create a cloud-native multi-replica cluster instance deployed across multiple zones. The sum of the values of this parameter and the ReplicaCount parameter cannot exceed 4.
-     *
-     * >  When you create a cloud-native multi-replica cluster instance deployed across multiple zones, you must specify both SlaveReplicaCount and SecondaryZoneId.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $slaveReplicaCount;
 
     /**
-     * @description If you want to create an instance based on the backup set of an existing instance, set this parameter to the ID of the source instance.
-     *
-     * >  After you specify the SrcDBInstanceId parameter, use the **BackupId**, **ClusterBackupId** (recommended for cloud-native cluster instances), or **RestoreTime** parameter to specify the backup set or the specific point in time that you want to use to create an instance. The SrcDBInstanceId parameter must be used in combination with one of the preceding three parameters.
-     *
-     * @example r-bp1zxszhcgatnx****
-     *
      * @var string
      */
     public $srcDBInstanceId;
 
     /**
-     * @description The storage capacity of the ESSD/SSD-based instance. The valid values vary based on the instance type. For more information, see [ESSD/SSD-based instances](https://help.aliyun.com/document_detail/2527111.html).
-     *
-     * >  This parameter is required only when you set the **InstanceType** parameter to **tair_essd** to create an ESSD-based instance. If you create a Tair **SSD**-based instance, the Storage parameter is automatically specified based on predefined specifications. You do not need to specify this parameter.
-     *
-     * @example 60
-     *
      * @var int
      */
     public $storage;
 
     /**
-     * @description The storage type. Valid values: **essd_pl1**, **essd_pl2**, and **essd_pl3**.
-     *
-     * >  This parameter is required only when you set the **InstanceType** parameter to **tair_essd** to create an ESSD-based instance.
-     *
-     * Enumerated values:
-     *
-     *   essd_pl0
-     *   essd_pl1
-     *   essd_pl2
-     *   essd_pl3
-     *
-     * @example essd_pl1
-     *
      * @var string
      */
     public $storageType;
 
     /**
-     * @description Details of the tags.
-     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The ID of the vSwitch that belongs to the VPC. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query vSwitch IDs.
-     *
-     * This parameter is required.
-     *
-     * @example vsw-bp1e7clcw529l773d****
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description The ID of the VPC. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query VPC IDs.
-     *
-     * This parameter is required.
-     *
-     * @example vpc-bp1nme44gek34slfc****
-     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description The ID of the primary zone. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent zone list.
-     *
-     * >  You can also set the SecondaryZoneId parameter to specify the secondary zone. The primary and secondary nodes will then be deployed in the specified primary and secondary zones to implement the master-replica zone-disaster recovery architecture. For example, you can set the ZoneId parameter to cn-hangzhou-h and the SecondaryZoneId parameter to cn-hangzhou-g.
-     *
-     * @example cn-hangzhou-e
-     *
      * @var string
      */
     public $zoneId;
@@ -557,152 +287,204 @@ class CreateTairInstanceRequest extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
+
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
+
         if (null !== $this->autoRenewPeriod) {
             $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
         }
+
         if (null !== $this->autoUseCoupon) {
             $res['AutoUseCoupon'] = $this->autoUseCoupon;
         }
+
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
         }
+
         if (null !== $this->businessInfo) {
             $res['BusinessInfo'] = $this->businessInfo;
         }
+
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->clusterBackupId) {
             $res['ClusterBackupId'] = $this->clusterBackupId;
         }
+
         if (null !== $this->connectionStringPrefix) {
             $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
         }
+
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
+
         if (null !== $this->globalInstanceId) {
             $res['GlobalInstanceId'] = $this->globalInstanceId;
         }
+
         if (null !== $this->globalSecurityGroupIds) {
             $res['GlobalSecurityGroupIds'] = $this->globalSecurityGroupIds;
         }
+
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->paramGroupId) {
             $res['ParamGroupId'] = $this->paramGroupId;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
+
         if (null !== $this->readOnlyCount) {
             $res['ReadOnlyCount'] = $this->readOnlyCount;
         }
+
         if (null !== $this->recoverConfigMode) {
             $res['RecoverConfigMode'] = $this->recoverConfigMode;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->replicaCount) {
             $res['ReplicaCount'] = $this->replicaCount;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->restoreTime) {
             $res['RestoreTime'] = $this->restoreTime;
         }
+
         if (null !== $this->secondaryZoneId) {
             $res['SecondaryZoneId'] = $this->secondaryZoneId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->shardCount) {
             $res['ShardCount'] = $this->shardCount;
         }
+
         if (null !== $this->shardType) {
             $res['ShardType'] = $this->shardType;
         }
+
         if (null !== $this->slaveReadOnlyCount) {
             $res['SlaveReadOnlyCount'] = $this->slaveReadOnlyCount;
         }
+
         if (null !== $this->slaveReplicaCount) {
             $res['SlaveReplicaCount'] = $this->slaveReplicaCount;
         }
+
         if (null !== $this->srcDBInstanceId) {
             $res['SrcDBInstanceId'] = $this->srcDBInstanceId;
         }
+
         if (null !== $this->storage) {
             $res['Storage'] = $this->storage;
         }
+
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -710,155 +492,201 @@ class CreateTairInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTairInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
+
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
+
         if (isset($map['AutoRenewPeriod'])) {
             $model->autoRenewPeriod = $map['AutoRenewPeriod'];
         }
+
         if (isset($map['AutoUseCoupon'])) {
             $model->autoUseCoupon = $map['AutoUseCoupon'];
         }
+
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
         }
+
         if (isset($map['BusinessInfo'])) {
             $model->businessInfo = $map['BusinessInfo'];
         }
+
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['ClusterBackupId'])) {
             $model->clusterBackupId = $map['ClusterBackupId'];
         }
+
         if (isset($map['ConnectionStringPrefix'])) {
             $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
         }
+
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
+
         if (isset($map['GlobalInstanceId'])) {
             $model->globalInstanceId = $map['GlobalInstanceId'];
         }
+
         if (isset($map['GlobalSecurityGroupIds'])) {
             $model->globalSecurityGroupIds = $map['GlobalSecurityGroupIds'];
         }
+
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ParamGroupId'])) {
             $model->paramGroupId = $map['ParamGroupId'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
         }
+
         if (isset($map['ReadOnlyCount'])) {
             $model->readOnlyCount = $map['ReadOnlyCount'];
         }
+
         if (isset($map['RecoverConfigMode'])) {
             $model->recoverConfigMode = $map['RecoverConfigMode'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ReplicaCount'])) {
             $model->replicaCount = $map['ReplicaCount'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = $map['RestoreTime'];
         }
+
         if (isset($map['SecondaryZoneId'])) {
             $model->secondaryZoneId = $map['SecondaryZoneId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['ShardCount'])) {
             $model->shardCount = $map['ShardCount'];
         }
+
         if (isset($map['ShardType'])) {
             $model->shardType = $map['ShardType'];
         }
+
         if (isset($map['SlaveReadOnlyCount'])) {
             $model->slaveReadOnlyCount = $map['SlaveReadOnlyCount'];
         }
+
         if (isset($map['SlaveReplicaCount'])) {
             $model->slaveReplicaCount = $map['SlaveReplicaCount'];
         }
+
         if (isset($map['SrcDBInstanceId'])) {
             $model->srcDBInstanceId = $map['SrcDBInstanceId'];
         }
+
         if (isset($map['Storage'])) {
             $model->storage = $map['Storage'];
         }
+
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTCInstanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataDisk extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example cloud_essd
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example PL0
-     *
      * @var string
      */
     public $performanceLevel;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $size;
@@ -40,17 +28,22 @@ class dataDisk extends Model
         'size' => 'Size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -58,20 +51,22 @@ class dataDisk extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataDisk
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

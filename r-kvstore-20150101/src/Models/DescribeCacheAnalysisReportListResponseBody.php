@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeCacheAnalysisReportListResponseBody\dailyTasks;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCacheAnalysisReportListResponseBody extends Model
 {
     /**
-     * @description The list of the offline key analysis reports.
-     *
      * @var dailyTasks
      */
     public $dailyTasks;
 
     /**
-     * @description The ID of the instance.
-     *
-     * @example 1041xxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 743D0A03-52DE-4E6F-8D09-EC1414CF****
-     *
      * @var string
      */
     public $requestId;
@@ -39,17 +29,25 @@ class DescribeCacheAnalysisReportListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->dailyTasks) {
+            $this->dailyTasks->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dailyTasks) {
-            $res['DailyTasks'] = null !== $this->dailyTasks ? $this->dailyTasks->toMap() : null;
+            $res['DailyTasks'] = null !== $this->dailyTasks ? $this->dailyTasks->toArray($noStream) : $this->dailyTasks;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -57,20 +55,22 @@ class DescribeCacheAnalysisReportListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCacheAnalysisReportListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DailyTasks'])) {
             $model->dailyTasks = dailyTasks::fromMap($map['DailyTasks']);
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

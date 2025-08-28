@@ -4,26 +4,17 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEditionTypes\supportedEditionType\supportedSeriesTypes\supportedSeriesType\supportedEngineVersions\supportedEngineVersion\supportedArchitectureTypes\supportedArchitectureType\supportedShardNumbers\supportedShardNumber\supportedNodeTypes;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEditionTypes\supportedEditionType\supportedSeriesTypes\supportedSeriesType\supportedEngineVersions\supportedEngineVersion\supportedArchitectureTypes\supportedArchitectureType\supportedShardNumbers\supportedShardNumber\supportedNodeTypes\supportedNodeType\availableResources;
-use AlibabaCloud\Tea\Model;
 
 class supportedNodeType extends Model
 {
     /**
-     * @description The available instance types.
-     *
      * @var availableResources
      */
     public $availableResources;
 
     /**
-     * @description The node type of the instance. Valid values:
-     *
-     *   **single**: standalone
-     *   **double**: master-replica
-     *
-     * @example double
-     *
      * @var string
      */
     public $supportedNodeType;
@@ -32,14 +23,21 @@ class supportedNodeType extends Model
         'supportedNodeType' => 'SupportedNodeType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->availableResources) {
+            $this->availableResources->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableResources) {
-            $res['AvailableResources'] = null !== $this->availableResources ? $this->availableResources->toMap() : null;
+            $res['AvailableResources'] = null !== $this->availableResources ? $this->availableResources->toArray($noStream) : $this->availableResources;
         }
+
         if (null !== $this->supportedNodeType) {
             $res['SupportedNodeType'] = $this->supportedNodeType;
         }
@@ -47,17 +45,18 @@ class supportedNodeType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedNodeType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableResources'])) {
             $model->availableResources = availableResources::fromMap($map['AvailableResources']);
         }
+
         if (isset($map['SupportedNodeType'])) {
             $model->supportedNodeType = $map['SupportedNodeType'];
         }

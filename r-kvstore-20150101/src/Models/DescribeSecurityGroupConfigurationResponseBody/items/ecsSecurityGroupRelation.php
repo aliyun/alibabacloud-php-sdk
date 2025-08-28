@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSecurityGroupConfigurationResponseBody\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ecsSecurityGroupRelation extends Model
 {
     /**
-     * @description The network type of the security group. Valid values:
-     *
-     *   **classic**: the classic network.
-     *   **vpc**: the virtual private cloud (VPC).
-     *
-     * @example vpc
-     *
      * @var string
      */
     public $netType;
 
     /**
-     * @description The ID of the region where the instance is deployed.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the security group.
-     *
-     * @example sg-bp14p9y07ns3gwq****
-     *
      * @var string
      */
     public $securityGroupId;
@@ -43,17 +28,22 @@ class ecsSecurityGroupRelation extends Model
         'securityGroupId' => 'SecurityGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
@@ -61,20 +51,22 @@ class ecsSecurityGroupRelation extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ecsSecurityGroupRelation
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }

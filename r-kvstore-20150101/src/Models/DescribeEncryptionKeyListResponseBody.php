@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEncryptionKeyListResponseBody\keyIds;
-use AlibabaCloud\Tea\Model;
 
 class DescribeEncryptionKeyListResponseBody extends Model
 {
     /**
-     * @description The custom keys that are available in the region.
-     *
      * @var keyIds
      */
     public $keyIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 10E2160B-959C-5C3E-BFE6-86EC5925****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeEncryptionKeyListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->keyIds) {
+            $this->keyIds->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyIds) {
-            $res['KeyIds'] = null !== $this->keyIds ? $this->keyIds->toMap() : null;
+            $res['KeyIds'] = null !== $this->keyIds ? $this->keyIds->toArray($noStream) : $this->keyIds;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeEncryptionKeyListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEncryptionKeyListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyIds'])) {
             $model->keyIds = keyIds::fromMap($map['KeyIds']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

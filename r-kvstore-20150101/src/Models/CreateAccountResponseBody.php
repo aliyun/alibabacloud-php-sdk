@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAccountResponseBody extends Model
 {
     /**
-     * @description The name of the account.
-     *
-     * @example demoaccount
-     *
      * @var string
      */
     public $acountName;
 
     /**
-     * @description The ID of the instance.
-     *
-     * @example r-bp1zxszhcgatnx****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example ABAF95F6-35C1-4177-AF3A-70969EBD****
-     *
      * @var string
      */
     public $requestId;
@@ -40,17 +28,22 @@ class CreateAccountResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acountName) {
             $res['AcountName'] = $this->acountName;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,20 +51,22 @@ class CreateAccountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAccountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcountName'])) {
             $model->acountName = $map['AcountName'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAccountsResponseBody\accounts\account;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAccountsResponseBody\accounts\account\databasePrivileges\databasePrivilege;
-use AlibabaCloud\Tea\Model;
 
 class databasePrivileges extends Model
 {
@@ -17,17 +17,24 @@ class databasePrivileges extends Model
         'databasePrivilege' => 'DatabasePrivilege',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->databasePrivilege)) {
+            Model::validateArray($this->databasePrivilege);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databasePrivilege) {
-            $res['DatabasePrivilege'] = [];
-            if (null !== $this->databasePrivilege && \is_array($this->databasePrivilege)) {
-                $n = 0;
-                foreach ($this->databasePrivilege as $item) {
-                    $res['DatabasePrivilege'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->databasePrivilege)) {
+                $res['DatabasePrivilege'] = [];
+                $n1 = 0;
+                foreach ($this->databasePrivilege as $item1) {
+                    $res['DatabasePrivilege'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class databasePrivileges extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return databasePrivileges
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabasePrivilege'])) {
             if (!empty($map['DatabasePrivilege'])) {
                 $model->databasePrivilege = [];
-                $n = 0;
-                foreach ($map['DatabasePrivilege'] as $item) {
-                    $model->databasePrivilege[$n++] = null !== $item ? databasePrivilege::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DatabasePrivilege'] as $item1) {
+                    $model->databasePrivilege[$n1] = databasePrivilege::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

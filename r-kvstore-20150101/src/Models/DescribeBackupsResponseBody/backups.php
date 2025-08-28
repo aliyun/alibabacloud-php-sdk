@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupsResponseBody\backups\backup;
-use AlibabaCloud\Tea\Model;
 
 class backups extends Model
 {
@@ -17,17 +17,24 @@ class backups extends Model
         'backup' => 'Backup',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->backup)) {
+            Model::validateArray($this->backup);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backup) {
-            $res['Backup'] = [];
-            if (null !== $this->backup && \is_array($this->backup)) {
-                $n = 0;
-                foreach ($this->backup as $item) {
-                    $res['Backup'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->backup)) {
+                $res['Backup'] = [];
+                $n1 = 0;
+                foreach ($this->backup as $item1) {
+                    $res['Backup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class backups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Backup'])) {
             if (!empty($map['Backup'])) {
                 $model->backup = [];
-                $n = 0;
-                foreach ($map['Backup'] as $item) {
-                    $model->backup[$n++] = null !== $item ? backup::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Backup'] as $item1) {
+                    $model->backup[$n1] = backup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

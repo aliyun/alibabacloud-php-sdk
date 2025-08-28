@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSecurityGroupConfigurationResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSecurityGroupConfigurationResponseBody\items\ecsSecurityGroupRelation;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -17,17 +17,24 @@ class items extends Model
         'ecsSecurityGroupRelation' => 'EcsSecurityGroupRelation',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ecsSecurityGroupRelation)) {
+            Model::validateArray($this->ecsSecurityGroupRelation);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ecsSecurityGroupRelation) {
-            $res['EcsSecurityGroupRelation'] = [];
-            if (null !== $this->ecsSecurityGroupRelation && \is_array($this->ecsSecurityGroupRelation)) {
-                $n = 0;
-                foreach ($this->ecsSecurityGroupRelation as $item) {
-                    $res['EcsSecurityGroupRelation'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ecsSecurityGroupRelation)) {
+                $res['EcsSecurityGroupRelation'] = [];
+                $n1 = 0;
+                foreach ($this->ecsSecurityGroupRelation as $item1) {
+                    $res['EcsSecurityGroupRelation'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EcsSecurityGroupRelation'])) {
             if (!empty($map['EcsSecurityGroupRelation'])) {
                 $model->ecsSecurityGroupRelation = [];
-                $n = 0;
-                foreach ($map['EcsSecurityGroupRelation'] as $item) {
-                    $model->ecsSecurityGroupRelation[$n++] = null !== $item ? ecsSecurityGroupRelation::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EcsSecurityGroupRelation'] as $item1) {
+                    $model->ecsSecurityGroupRelation[$n1] = ecsSecurityGroupRelation::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

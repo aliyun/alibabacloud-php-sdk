@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SwitchNetworkResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example F0997EE8-F4C2-4503-9168-85177ED78C70
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the task.
-     *
-     * @example 578678678
-     *
      * @var string
      */
     public $taskId;
@@ -30,14 +22,18 @@ class SwitchNetworkResponseBody extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -45,17 +41,18 @@ class SwitchNetworkResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SwitchNetworkResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
