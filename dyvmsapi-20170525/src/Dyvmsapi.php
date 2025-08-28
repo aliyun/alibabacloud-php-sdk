@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dyvmsapi\V20170525;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddVirtualNumberRelationRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddVirtualNumberRelationResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\BatchRobotSmartCallRequest;
@@ -44,8 +43,6 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskDetailRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskDetailResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferNumberRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferNumberResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferRegisterFileRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferRegisterFileResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\PauseVideoFileRequest;
@@ -114,11 +111,10 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UpgradeVideoFileRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UpgradeVideoFileResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UploadRobotTaskCalledFileRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UploadRobotTaskCalledFileResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Dyvmsapi extends OpenApiClient
 {
@@ -143,82 +139,102 @@ class Dyvmsapi extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds the association relationship between a virtual number and real numbers in batches.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 200 times per second per account.
-     *  *
-     * @param AddVirtualNumberRelationRequest $request AddVirtualNumberRelationRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Adds the association relationship between a virtual number and real numbers in batches.
      *
-     * @return AddVirtualNumberRelationResponse AddVirtualNumberRelationResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 200 times per second per account.
+     *
+     * @param request - AddVirtualNumberRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddVirtualNumberRelationResponse
+     *
+     * @param AddVirtualNumberRelationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AddVirtualNumberRelationResponse
      */
     public function addVirtualNumberRelationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->corpNameList)) {
-            $query['CorpNameList'] = $request->corpNameList;
+        if (null !== $request->corpNameList) {
+            @$query['CorpNameList'] = $request->corpNameList;
         }
-        if (!Utils::isUnset($request->numberList)) {
-            $query['NumberList'] = $request->numberList;
+
+        if (null !== $request->numberList) {
+            @$query['NumberList'] = $request->numberList;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNum)) {
-            $query['PhoneNum'] = $request->phoneNum;
+
+        if (null !== $request->phoneNum) {
+            @$query['PhoneNum'] = $request->phoneNum;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $query['ProdCode'] = $request->prodCode;
+
+        if (null !== $request->prodCode) {
+            @$query['ProdCode'] = $request->prodCode;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->routeType)) {
-            $query['RouteType'] = $request->routeType;
+
+        if (null !== $request->routeType) {
+            @$query['RouteType'] = $request->routeType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddVirtualNumberRelation',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddVirtualNumberRelation',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddVirtualNumberRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds the association relationship between a virtual number and real numbers in batches.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 200 times per second per account.
-     *  *
-     * @param AddVirtualNumberRelationRequest $request AddVirtualNumberRelationRequest
+     * Adds the association relationship between a virtual number and real numbers in batches.
      *
-     * @return AddVirtualNumberRelationResponse AddVirtualNumberRelationResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 200 times per second per account.
+     *
+     * @param request - AddVirtualNumberRelationRequest
+     *
+     * @returns AddVirtualNumberRelationResponse
+     *
+     * @param AddVirtualNumberRelationRequest $request
+     *
+     * @return AddVirtualNumberRelationResponse
      */
     public function addVirtualNumberRelation($request)
     {
@@ -228,99 +244,124 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Initiates an outbound robocall task.
-     *  *
-     * @description *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+     * Initiates an outbound robocall task.
+     *
+     * @remarks
+     *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
      * *   The BatchRobotSmartCall operation is used to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console.
      * ## Prerequisites
      * *   You have passed the real-name verification for an enterprise user and passed the enterprise qualification review.
      * *   You have purchased numbers in the [Voice Messaging Service console](https://dyvms.console.aliyun.com/dyvms.htm#/number/normal).
      * *   You have added communication scripts on the [Communication script management](https://dyvms.console.aliyun.com/dyvms.htm#/smart-call/saas/robot/list) page, and the communication scripts have been approved.
      * > Before you call this operation, make sure that you are familiar with the [billing](https://www.aliyun.com/price/product#/vms/detail) of Voice Messaging Service (VMS).
-     *  *
-     * @param BatchRobotSmartCallRequest $request BatchRobotSmartCallRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchRobotSmartCallResponse BatchRobotSmartCallResponse
+     * @param request - BatchRobotSmartCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchRobotSmartCallResponse
+     *
+     * @param BatchRobotSmartCallRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchRobotSmartCallResponse
      */
     public function batchRobotSmartCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->calledShowNumber)) {
-            $query['CalledShowNumber'] = $request->calledShowNumber;
+
+        if (null !== $request->calledShowNumber) {
+            @$query['CalledShowNumber'] = $request->calledShowNumber;
         }
-        if (!Utils::isUnset($request->corpName)) {
-            $query['CorpName'] = $request->corpName;
+
+        if (null !== $request->corpName) {
+            @$query['CorpName'] = $request->corpName;
         }
-        if (!Utils::isUnset($request->dialogId)) {
-            $query['DialogId'] = $request->dialogId;
+
+        if (null !== $request->dialogId) {
+            @$query['DialogId'] = $request->dialogId;
         }
-        if (!Utils::isUnset($request->earlyMediaAsr)) {
-            $query['EarlyMediaAsr'] = $request->earlyMediaAsr;
+
+        if (null !== $request->earlyMediaAsr) {
+            @$query['EarlyMediaAsr'] = $request->earlyMediaAsr;
         }
-        if (!Utils::isUnset($request->isSelfLine)) {
-            $query['IsSelfLine'] = $request->isSelfLine;
+
+        if (null !== $request->isSelfLine) {
+            @$query['IsSelfLine'] = $request->isSelfLine;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->scheduleCall)) {
-            $query['ScheduleCall'] = $request->scheduleCall;
+
+        if (null !== $request->scheduleCall) {
+            @$query['ScheduleCall'] = $request->scheduleCall;
         }
-        if (!Utils::isUnset($request->scheduleTime)) {
-            $query['ScheduleTime'] = $request->scheduleTime;
+
+        if (null !== $request->scheduleTime) {
+            @$query['ScheduleTime'] = $request->scheduleTime;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->ttsParam)) {
-            $query['TtsParam'] = $request->ttsParam;
+
+        if (null !== $request->ttsParam) {
+            @$query['TtsParam'] = $request->ttsParam;
         }
-        if (!Utils::isUnset($request->ttsParamHead)) {
-            $query['TtsParamHead'] = $request->ttsParamHead;
+
+        if (null !== $request->ttsParamHead) {
+            @$query['TtsParamHead'] = $request->ttsParamHead;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchRobotSmartCall',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchRobotSmartCall',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchRobotSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Initiates an outbound robocall task.
-     *  *
-     * @description *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+     * Initiates an outbound robocall task.
+     *
+     * @remarks
+     *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
      * *   The BatchRobotSmartCall operation is used to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console.
      * ## Prerequisites
      * *   You have passed the real-name verification for an enterprise user and passed the enterprise qualification review.
      * *   You have purchased numbers in the [Voice Messaging Service console](https://dyvms.console.aliyun.com/dyvms.htm#/number/normal).
      * *   You have added communication scripts on the [Communication script management](https://dyvms.console.aliyun.com/dyvms.htm#/smart-call/saas/robot/list) page, and the communication scripts have been approved.
      * > Before you call this operation, make sure that you are familiar with the [billing](https://www.aliyun.com/price/product#/vms/detail) of Voice Messaging Service (VMS).
-     *  *
-     * @param BatchRobotSmartCallRequest $request BatchRobotSmartCallRequest
      *
-     * @return BatchRobotSmartCallResponse BatchRobotSmartCallResponse
+     * @param request - BatchRobotSmartCallRequest
+     *
+     * @returns BatchRobotSmartCallResponse
+     *
+     * @param BatchRobotSmartCallRequest $request
+     *
+     * @return BatchRobotSmartCallResponse
      */
     public function batchRobotSmartCall($request)
     {
@@ -330,59 +371,74 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Cancels a robocall task that has not been started.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CancelOrderRobotTaskRequest $request CancelOrderRobotTaskRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Cancels a robocall task that has not been started.
      *
-     * @return CancelOrderRobotTaskResponse CancelOrderRobotTaskResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - CancelOrderRobotTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelOrderRobotTaskResponse
+     *
+     * @param CancelOrderRobotTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CancelOrderRobotTaskResponse
      */
     public function cancelOrderRobotTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelOrderRobotTask',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelOrderRobotTask',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelOrderRobotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels a robocall task that has not been started.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CancelOrderRobotTaskRequest $request CancelOrderRobotTaskRequest
+     * Cancels a robocall task that has not been started.
      *
-     * @return CancelOrderRobotTaskResponse CancelOrderRobotTaskResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - CancelOrderRobotTaskRequest
+     *
+     * @returns CancelOrderRobotTaskResponse
+     *
+     * @param CancelOrderRobotTaskRequest $request
+     *
+     * @return CancelOrderRobotTaskResponse
      */
     public function cancelOrderRobotTask($request)
     {
@@ -392,61 +448,76 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Terminates a robocall task.
-     *  *
-     * @description Only a task in progress can be terminated by calling the CancelRobotTask operation, and the task cannot be resumed after it is terminated.
+     * Terminates a robocall task.
+     *
+     * @remarks
+     * Only a task in progress can be terminated by calling the CancelRobotTask operation, and the task cannot be resumed after it is terminated.
      * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CancelRobotTaskRequest $request CancelRobotTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelRobotTaskResponse CancelRobotTaskResponse
+     * @param request - CancelRobotTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelRobotTaskResponse
+     *
+     * @param CancelRobotTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CancelRobotTaskResponse
      */
     public function cancelRobotTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelRobotTask',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelRobotTask',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelRobotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Terminates a robocall task.
-     *  *
-     * @description Only a task in progress can be terminated by calling the CancelRobotTask operation, and the task cannot be resumed after it is terminated.
+     * Terminates a robocall task.
+     *
+     * @remarks
+     * Only a task in progress can be terminated by calling the CancelRobotTask operation, and the task cannot be resumed after it is terminated.
      * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CancelRobotTaskRequest $request CancelRobotTaskRequest
      *
-     * @return CancelRobotTaskResponse CancelRobotTaskResponse
+     * @param request - CancelRobotTaskRequest
+     *
+     * @returns CancelRobotTaskResponse
+     *
+     * @param CancelRobotTaskRequest $request
+     *
+     * @return CancelRobotTaskResponse
      */
     public function cancelRobotTask($request)
     {
@@ -456,62 +527,78 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary ChangeMediaType
-     *  *
-     * @param ChangeMediaTypeRequest $request ChangeMediaTypeRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * ChangeMediaType.
      *
-     * @return ChangeMediaTypeResponse ChangeMediaTypeResponse
+     * @param request - ChangeMediaTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeMediaTypeResponse
+     *
+     * @param ChangeMediaTypeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ChangeMediaTypeResponse
      */
     public function changeMediaTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->calledNum)) {
-            $query['CalledNum'] = $request->calledNum;
+
+        if (null !== $request->calledNum) {
+            @$query['CalledNum'] = $request->calledNum;
         }
-        if (!Utils::isUnset($request->mediaType)) {
-            $query['MediaType'] = $request->mediaType;
+
+        if (null !== $request->mediaType) {
+            @$query['MediaType'] = $request->mediaType;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeMediaType',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeMediaType',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ChangeMediaTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary ChangeMediaType
-     *  *
-     * @param ChangeMediaTypeRequest $request ChangeMediaTypeRequest
+     * ChangeMediaType.
      *
-     * @return ChangeMediaTypeResponse ChangeMediaTypeResponse
+     * @param request - ChangeMediaTypeRequest
+     *
+     * @returns ChangeMediaTypeResponse
+     *
+     * @param ChangeMediaTypeRequest $request
+     *
+     * @return ChangeMediaTypeResponse
      */
     public function changeMediaType($request)
     {
@@ -521,91 +608,116 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Creates a task for sending voice notifications or voice verification codes.
-     *  *
-     * @description You can create up to 1,000 voice notifications for each task.
+     * Creates a task for sending voice notifications or voice verification codes.
+     *
+     * @remarks
+     * You can create up to 1,000 voice notifications for each task.
      * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CreateCallTaskRequest $request CreateCallTaskRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCallTaskResponse CreateCallTaskResponse
+     * @param request - CreateCallTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCallTaskResponse
+     *
+     * @param CreateCallTaskRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateCallTaskResponse
      */
     public function createCallTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->data)) {
-            $query['Data'] = $request->data;
+
+        if (null !== $request->data) {
+            @$query['Data'] = $request->data;
         }
-        if (!Utils::isUnset($request->dataType)) {
-            $query['DataType'] = $request->dataType;
+
+        if (null !== $request->dataType) {
+            @$query['DataType'] = $request->dataType;
         }
-        if (!Utils::isUnset($request->fireTime)) {
-            $query['FireTime'] = $request->fireTime;
+
+        if (null !== $request->fireTime) {
+            @$query['FireTime'] = $request->fireTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->scheduleType)) {
-            $query['ScheduleType'] = $request->scheduleType;
+
+        if (null !== $request->scheduleType) {
+            @$query['ScheduleType'] = $request->scheduleType;
         }
-        if (!Utils::isUnset($request->stopTime)) {
-            $query['StopTime'] = $request->stopTime;
+
+        if (null !== $request->stopTime) {
+            @$query['StopTime'] = $request->stopTime;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->templateCode)) {
-            $query['TemplateCode'] = $request->templateCode;
+
+        if (null !== $request->templateCode) {
+            @$query['TemplateCode'] = $request->templateCode;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCallTask',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCallTask',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateCallTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a task for sending voice notifications or voice verification codes.
-     *  *
-     * @description You can create up to 1,000 voice notifications for each task.
+     * Creates a task for sending voice notifications or voice verification codes.
+     *
+     * @remarks
+     * You can create up to 1,000 voice notifications for each task.
      * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CreateCallTaskRequest $request CreateCallTaskRequest
      *
-     * @return CreateCallTaskResponse CreateCallTaskResponse
+     * @param request - CreateCallTaskRequest
+     *
+     * @returns CreateCallTaskResponse
+     *
+     * @param CreateCallTaskRequest $request
+     *
+     * @return CreateCallTaskResponse
      */
     public function createCallTask($request)
     {
@@ -615,88 +727,112 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Initiates an outbound robocall task.
-     *  *
-     * @description You can call this operation to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console. In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+     * Initiates an outbound robocall task.
+     *
+     * @remarks
+     * You can call this operation to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console. In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
      * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CreateRobotTaskRequest $request CreateRobotTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRobotTaskResponse CreateRobotTaskResponse
+     * @param request - CreateRobotTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRobotTaskResponse
+     *
+     * @param CreateRobotTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateRobotTaskResponse
      */
     public function createRobotTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->caller)) {
-            $query['Caller'] = $request->caller;
+        if (null !== $request->caller) {
+            @$query['Caller'] = $request->caller;
         }
-        if (!Utils::isUnset($request->corpName)) {
-            $query['CorpName'] = $request->corpName;
+
+        if (null !== $request->corpName) {
+            @$query['CorpName'] = $request->corpName;
         }
-        if (!Utils::isUnset($request->dialogId)) {
-            $query['DialogId'] = $request->dialogId;
+
+        if (null !== $request->dialogId) {
+            @$query['DialogId'] = $request->dialogId;
         }
-        if (!Utils::isUnset($request->isSelfLine)) {
-            $query['IsSelfLine'] = $request->isSelfLine;
+
+        if (null !== $request->isSelfLine) {
+            @$query['IsSelfLine'] = $request->isSelfLine;
         }
-        if (!Utils::isUnset($request->numberStatusIdent)) {
-            $query['NumberStatusIdent'] = $request->numberStatusIdent;
+
+        if (null !== $request->numberStatusIdent) {
+            @$query['NumberStatusIdent'] = $request->numberStatusIdent;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->recallInterval)) {
-            $query['RecallInterval'] = $request->recallInterval;
+
+        if (null !== $request->recallInterval) {
+            @$query['RecallInterval'] = $request->recallInterval;
         }
-        if (!Utils::isUnset($request->recallStateCodes)) {
-            $query['RecallStateCodes'] = $request->recallStateCodes;
+
+        if (null !== $request->recallStateCodes) {
+            @$query['RecallStateCodes'] = $request->recallStateCodes;
         }
-        if (!Utils::isUnset($request->recallTimes)) {
-            $query['RecallTimes'] = $request->recallTimes;
+
+        if (null !== $request->recallTimes) {
+            @$query['RecallTimes'] = $request->recallTimes;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->retryType)) {
-            $query['RetryType'] = $request->retryType;
+
+        if (null !== $request->retryType) {
+            @$query['RetryType'] = $request->retryType;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRobotTask',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRobotTask',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateRobotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Initiates an outbound robocall task.
-     *  *
-     * @description You can call this operation to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console. In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+     * Initiates an outbound robocall task.
+     *
+     * @remarks
+     * You can call this operation to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console. In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
      * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param CreateRobotTaskRequest $request CreateRobotTaskRequest
      *
-     * @return CreateRobotTaskResponse CreateRobotTaskResponse
+     * @param request - CreateRobotTaskRequest
+     *
+     * @returns CreateRobotTaskResponse
+     *
+     * @param CreateRobotTaskRequest $request
+     *
+     * @return CreateRobotTaskResponse
      */
     public function createRobotTask($request)
     {
@@ -706,62 +842,78 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary DegradeVideoFile
-     *  *
-     * @param DegradeVideoFileRequest $request DegradeVideoFileRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * DegradeVideoFile.
      *
-     * @return DegradeVideoFileResponse DegradeVideoFileResponse
+     * @param request - DegradeVideoFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DegradeVideoFileResponse
+     *
+     * @param DegradeVideoFileRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DegradeVideoFileResponse
      */
     public function degradeVideoFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->mediaType)) {
-            $query['MediaType'] = $request->mediaType;
+
+        if (null !== $request->mediaType) {
+            @$query['MediaType'] = $request->mediaType;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DegradeVideoFile',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DegradeVideoFile',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DegradeVideoFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary DegradeVideoFile
-     *  *
-     * @param DegradeVideoFileRequest $request DegradeVideoFileRequest
+     * DegradeVideoFile.
      *
-     * @return DegradeVideoFileResponse DegradeVideoFileResponse
+     * @param request - DegradeVideoFileRequest
+     *
+     * @returns DegradeVideoFileResponse
+     *
+     * @param DegradeVideoFileRequest $request
+     *
+     * @return DegradeVideoFileResponse
      */
     public function degradeVideoFile($request)
     {
@@ -771,61 +923,76 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a robocall task.
-     *  *
-     * @description You can call this operation to delete only tasks that are not started, that are completed, and that are terminated.
+     * Deletes a robocall task.
+     *
+     * @remarks
+     * You can call this operation to delete only tasks that are not started, that are completed, and that are terminated.
      * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DeleteRobotTaskRequest $request DeleteRobotTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRobotTaskResponse DeleteRobotTaskResponse
+     * @param request - DeleteRobotTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRobotTaskResponse
+     *
+     * @param DeleteRobotTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteRobotTaskResponse
      */
     public function deleteRobotTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRobotTask',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRobotTask',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteRobotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a robocall task.
-     *  *
-     * @description You can call this operation to delete only tasks that are not started, that are completed, and that are terminated.
+     * Deletes a robocall task.
+     *
+     * @remarks
+     * You can call this operation to delete only tasks that are not started, that are completed, and that are terminated.
      * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param DeleteRobotTaskRequest $request DeleteRobotTaskRequest
      *
-     * @return DeleteRobotTaskResponse DeleteRobotTaskResponse
+     * @param request - DeleteRobotTaskRequest
+     *
+     * @returns DeleteRobotTaskResponse
+     *
+     * @param DeleteRobotTaskRequest $request
+     *
+     * @return DeleteRobotTaskResponse
      */
     public function deleteRobotTask($request)
     {
@@ -835,65 +1002,82 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Executes a call task.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param ExecuteCallTaskRequest $request ExecuteCallTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Executes a call task.
      *
-     * @return ExecuteCallTaskResponse ExecuteCallTaskResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - ExecuteCallTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteCallTaskResponse
+     *
+     * @param ExecuteCallTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ExecuteCallTaskResponse
      */
     public function executeCallTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fireTime)) {
-            $query['FireTime'] = $request->fireTime;
+        if (null !== $request->fireTime) {
+            @$query['FireTime'] = $request->fireTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteCallTask',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExecuteCallTask',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ExecuteCallTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Executes a call task.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param ExecuteCallTaskRequest $request ExecuteCallTaskRequest
+     * Executes a call task.
      *
-     * @return ExecuteCallTaskResponse ExecuteCallTaskResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - ExecuteCallTaskRequest
+     *
+     * @returns ExecuteCallTaskResponse
+     *
+     * @param ExecuteCallTaskRequest $request
+     *
+     * @return ExecuteCallTaskResponse
      */
     public function executeCallTask($request)
     {
@@ -903,56 +1087,70 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary GetCallMediaType
-     *  *
-     * @param GetCallMediaTypeRequest $request GetCallMediaTypeRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * GetCallMediaType.
      *
-     * @return GetCallMediaTypeResponse GetCallMediaTypeResponse
+     * @param request - GetCallMediaTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCallMediaTypeResponse
+     *
+     * @param GetCallMediaTypeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetCallMediaTypeResponse
      */
     public function getCallMediaTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCallMediaType',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCallMediaType',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCallMediaTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary GetCallMediaType
-     *  *
-     * @param GetCallMediaTypeRequest $request GetCallMediaTypeRequest
+     * GetCallMediaType.
      *
-     * @return GetCallMediaTypeResponse GetCallMediaTypeResponse
+     * @param request - GetCallMediaTypeRequest
+     *
+     * @returns GetCallMediaTypeResponse
+     *
+     * @param GetCallMediaTypeRequest $request
+     *
+     * @return GetCallMediaTypeResponse
      */
     public function getCallMediaType($request)
     {
@@ -962,56 +1160,70 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary GetCallProgress
-     *  *
-     * @param GetCallProgressRequest $request GetCallProgressRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * GetCallProgress.
      *
-     * @return GetCallProgressResponse GetCallProgressResponse
+     * @param request - GetCallProgressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCallProgressResponse
+     *
+     * @param GetCallProgressRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetCallProgressResponse
      */
     public function getCallProgressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->calledNum)) {
-            $query['CalledNum'] = $request->calledNum;
+
+        if (null !== $request->calledNum) {
+            @$query['CalledNum'] = $request->calledNum;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCallProgress',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCallProgress',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCallProgressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary GetCallProgress
-     *  *
-     * @param GetCallProgressRequest $request GetCallProgressRequest
+     * GetCallProgress.
      *
-     * @return GetCallProgressResponse GetCallProgressResponse
+     * @param request - GetCallProgressRequest
+     *
+     * @returns GetCallProgressResponse
+     *
+     * @param GetCallProgressRequest $request
+     *
+     * @return GetCallProgressResponse
      */
     public function getCallProgress($request)
     {
@@ -1021,59 +1233,74 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the qualification ID based on the ID of a qualification application ticket.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param GetHotlineQualificationByOrderRequest $request GetHotlineQualificationByOrderRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Obtains the qualification ID based on the ID of a qualification application ticket.
      *
-     * @return GetHotlineQualificationByOrderResponse GetHotlineQualificationByOrderResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - GetHotlineQualificationByOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotlineQualificationByOrderResponse
+     *
+     * @param GetHotlineQualificationByOrderRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetHotlineQualificationByOrderResponse
      */
     public function getHotlineQualificationByOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotlineQualificationByOrder',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHotlineQualificationByOrder',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotlineQualificationByOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the qualification ID based on the ID of a qualification application ticket.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param GetHotlineQualificationByOrderRequest $request GetHotlineQualificationByOrderRequest
+     * Obtains the qualification ID based on the ID of a qualification application ticket.
      *
-     * @return GetHotlineQualificationByOrderResponse GetHotlineQualificationByOrderResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - GetHotlineQualificationByOrderRequest
+     *
+     * @returns GetHotlineQualificationByOrderResponse
+     *
+     * @param GetHotlineQualificationByOrderRequest $request
+     *
+     * @return GetHotlineQualificationByOrderResponse
      */
     public function getHotlineQualificationByOrder($request)
     {
@@ -1083,53 +1310,66 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary GetTemporaryFileUrl
-     *  *
-     * @param GetTemporaryFileUrlRequest $request GetTemporaryFileUrlRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * GetTemporaryFileUrl.
      *
-     * @return GetTemporaryFileUrlResponse GetTemporaryFileUrlResponse
+     * @param request - GetTemporaryFileUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTemporaryFileUrlResponse
+     *
+     * @param GetTemporaryFileUrlRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetTemporaryFileUrlResponse
      */
     public function getTemporaryFileUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTemporaryFileUrl',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTemporaryFileUrl',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTemporaryFileUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary GetTemporaryFileUrl
-     *  *
-     * @param GetTemporaryFileUrlRequest $request GetTemporaryFileUrlRequest
+     * GetTemporaryFileUrl.
      *
-     * @return GetTemporaryFileUrlResponse GetTemporaryFileUrlResponse
+     * @param request - GetTemporaryFileUrlRequest
+     *
+     * @returns GetTemporaryFileUrlResponse
+     *
+     * @param GetTemporaryFileUrlRequest $request
+     *
+     * @return GetTemporaryFileUrlResponse
      */
     public function getTemporaryFileUrl($request)
     {
@@ -1139,59 +1379,74 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the token for authentication.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to five times per second per account.
-     *  *
-     * @param GetTokenRequest $request GetTokenRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Obtains the token for authentication.
      *
-     * @return GetTokenResponse GetTokenResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to five times per second per account.
+     *
+     * @param request - GetTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTokenResponse
+     *
+     * @param GetTokenRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetTokenResponse
      */
     public function getTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tokenType)) {
-            $query['TokenType'] = $request->tokenType;
+
+        if (null !== $request->tokenType) {
+            @$query['TokenType'] = $request->tokenType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetToken',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetToken',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the token for authentication.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to five times per second per account.
-     *  *
-     * @param GetTokenRequest $request GetTokenRequest
+     * Obtains the token for authentication.
      *
-     * @return GetTokenResponse GetTokenResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to five times per second per account.
+     *
+     * @param request - GetTokenRequest
+     *
+     * @returns GetTokenResponse
+     *
+     * @param GetTokenRequest $request
+     *
+     * @return GetTokenResponse
      */
     public function getToken($request)
     {
@@ -1201,53 +1456,66 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary GetVideoFieldUrl
-     *  *
-     * @param GetVideoFieldUrlRequest $request GetVideoFieldUrlRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * GetVideoFieldUrl.
      *
-     * @return GetVideoFieldUrlResponse GetVideoFieldUrlResponse
+     * @param request - GetVideoFieldUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoFieldUrlResponse
+     *
+     * @param GetVideoFieldUrlRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetVideoFieldUrlResponse
      */
     public function getVideoFieldUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->videoFile)) {
-            $query['VideoFile'] = $request->videoFile;
+
+        if (null !== $request->videoFile) {
+            @$query['VideoFile'] = $request->videoFile;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVideoFieldUrl',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVideoFieldUrl',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetVideoFieldUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary GetVideoFieldUrl
-     *  *
-     * @param GetVideoFieldUrlRequest $request GetVideoFieldUrlRequest
+     * GetVideoFieldUrl.
      *
-     * @return GetVideoFieldUrlResponse GetVideoFieldUrlResponse
+     * @param request - GetVideoFieldUrlRequest
+     *
+     * @returns GetVideoFieldUrlResponse
+     *
+     * @param GetVideoFieldUrlRequest $request
+     *
+     * @return GetVideoFieldUrlResponse
      */
     public function getVideoFieldUrl($request)
     {
@@ -1257,92 +1525,116 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Initiates an interactive voice response (IVR) call to a specified number.
-     *  *
-     * @description *   Your enterprise qualification is approved. For more information, see [Submit enterprise qualifications](https://help.aliyun.com/document_detail/149795.html).
+     * Initiates an interactive voice response (IVR) call to a specified number.
+     *
+     * @remarks
+     *   Your enterprise qualification is approved. For more information, see [Submit enterprise qualifications](https://help.aliyun.com/document_detail/149795.html).
      * *   Voice numbers are purchased. For more information, see [Purchase numbers](https://help.aliyun.com/document_detail/149794.html).
      * *   When the subscriber answers the call, the subscriber hears a voice that instructs the subscriber to press a key as needed. If the [message receipt](https://help.aliyun.com/document_detail/112503.html) feature is enabled, the Voice Messaging Service (VMS) platform returns the information about the key pressed by the subscriber to the business system. The key information includes the order confirmation, questionnaire survey, and satisfaction survey completed by the subscriber.
      * ## QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param IvrCallRequest $request IvrCallRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return IvrCallResponse IvrCallResponse
+     * @param request - IvrCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IvrCallResponse
+     *
+     * @param IvrCallRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return IvrCallResponse
      */
     public function ivrCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->byeCode)) {
-            $query['ByeCode'] = $request->byeCode;
+        if (null !== $request->byeCode) {
+            @$query['ByeCode'] = $request->byeCode;
         }
-        if (!Utils::isUnset($request->byeTtsParams)) {
-            $query['ByeTtsParams'] = $request->byeTtsParams;
+
+        if (null !== $request->byeTtsParams) {
+            @$query['ByeTtsParams'] = $request->byeTtsParams;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->calledShowNumber)) {
-            $query['CalledShowNumber'] = $request->calledShowNumber;
+
+        if (null !== $request->calledShowNumber) {
+            @$query['CalledShowNumber'] = $request->calledShowNumber;
         }
-        if (!Utils::isUnset($request->menuKeyMap)) {
-            $query['MenuKeyMap'] = $request->menuKeyMap;
+
+        if (null !== $request->menuKeyMap) {
+            @$query['MenuKeyMap'] = $request->menuKeyMap;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->playTimes)) {
-            $query['PlayTimes'] = $request->playTimes;
+
+        if (null !== $request->playTimes) {
+            @$query['PlayTimes'] = $request->playTimes;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startCode)) {
-            $query['StartCode'] = $request->startCode;
+
+        if (null !== $request->startCode) {
+            @$query['StartCode'] = $request->startCode;
         }
-        if (!Utils::isUnset($request->startTtsParams)) {
-            $query['StartTtsParams'] = $request->startTtsParams;
+
+        if (null !== $request->startTtsParams) {
+            @$query['StartTtsParams'] = $request->startTtsParams;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $query['Timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IvrCall',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'IvrCall',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IvrCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Initiates an interactive voice response (IVR) call to a specified number.
-     *  *
-     * @description *   Your enterprise qualification is approved. For more information, see [Submit enterprise qualifications](https://help.aliyun.com/document_detail/149795.html).
+     * Initiates an interactive voice response (IVR) call to a specified number.
+     *
+     * @remarks
+     *   Your enterprise qualification is approved. For more information, see [Submit enterprise qualifications](https://help.aliyun.com/document_detail/149795.html).
      * *   Voice numbers are purchased. For more information, see [Purchase numbers](https://help.aliyun.com/document_detail/149794.html).
      * *   When the subscriber answers the call, the subscriber hears a voice that instructs the subscriber to press a key as needed. If the [message receipt](https://help.aliyun.com/document_detail/112503.html) feature is enabled, the Voice Messaging Service (VMS) platform returns the information about the key pressed by the subscriber to the business system. The key information includes the order confirmation, questionnaire survey, and satisfaction survey completed by the subscriber.
      * ## QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param IvrCallRequest $request IvrCallRequest
      *
-     * @return IvrCallResponse IvrCallResponse
+     * @param request - IvrCallRequest
+     *
+     * @returns IvrCallResponse
+     *
+     * @param IvrCallRequest $request
+     *
+     * @return IvrCallResponse
      */
     public function ivrCall($request)
     {
@@ -1352,77 +1644,98 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries task information.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param ListCallTaskRequest $request ListCallTaskRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries task information.
      *
-     * @return ListCallTaskResponse ListCallTaskResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - ListCallTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCallTaskResponse
+     *
+     * @param ListCallTaskRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListCallTaskResponse
      */
     public function listCallTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCallTask',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCallTask',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCallTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries task information.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param ListCallTaskRequest $request ListCallTaskRequest
+     * Queries task information.
      *
-     * @return ListCallTaskResponse ListCallTaskResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - ListCallTaskRequest
+     *
+     * @returns ListCallTaskResponse
+     *
+     * @param ListCallTaskRequest $request
+     *
+     * @return ListCallTaskResponse
      */
     public function listCallTask($request)
     {
@@ -1432,71 +1745,90 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a task based on the task ID.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param ListCallTaskDetailRequest $request ListCallTaskDetailRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a task based on the task ID.
      *
-     * @return ListCallTaskDetailResponse ListCallTaskDetailResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - ListCallTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCallTaskDetailResponse
+     *
+     * @param ListCallTaskDetailRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListCallTaskDetailResponse
      */
     public function listCallTaskDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNum)) {
-            $query['CalledNum'] = $request->calledNum;
+        if (null !== $request->calledNum) {
+            @$query['CalledNum'] = $request->calledNum;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCallTaskDetail',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCallTaskDetail',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCallTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a task based on the task ID.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param ListCallTaskDetailRequest $request ListCallTaskDetailRequest
+     * Queries the information about a task based on the task ID.
      *
-     * @return ListCallTaskDetailResponse ListCallTaskDetailResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - ListCallTaskDetailRequest
+     *
+     * @returns ListCallTaskDetailResponse
+     *
+     * @param ListCallTaskDetailRequest $request
+     *
+     * @return ListCallTaskDetailResponse
      */
     public function listCallTaskDetail($request)
     {
@@ -1506,139 +1838,86 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of registered phone numbers that are used to transfer calls.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param ListHotlineTransferNumberRequest $request ListHotlineTransferNumberRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the registration information about a China 400 number.
      *
-     * @return ListHotlineTransferNumberResponse ListHotlineTransferNumberResponse
-     */
-    public function listHotlineTransferNumberWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->hotlineNumber)) {
-            $query['HotlineNumber'] = $request->hotlineNumber;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->qualificationId)) {
-            $query['QualificationId'] = $request->qualificationId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListHotlineTransferNumber',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListHotlineTransferNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries a list of registered phone numbers that are used to transfer calls.
-     *  *
-     * @description ### QPS limits
+     * @remarks
+     * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param ListHotlineTransferNumberRequest $request ListHotlineTransferNumberRequest
      *
-     * @return ListHotlineTransferNumberResponse ListHotlineTransferNumberResponse
-     */
-    public function listHotlineTransferNumber($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listHotlineTransferNumberWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the registration information about a China 400 number.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param ListHotlineTransferRegisterFileRequest $request ListHotlineTransferRegisterFileRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * @param request - ListHotlineTransferRegisterFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListHotlineTransferRegisterFileResponse ListHotlineTransferRegisterFileResponse
+     * @returns ListHotlineTransferRegisterFileResponse
+     *
+     * @param ListHotlineTransferRegisterFileRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListHotlineTransferRegisterFileResponse
      */
     public function listHotlineTransferRegisterFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->hotlineNumber)) {
-            $query['HotlineNumber'] = $request->hotlineNumber;
+        if (null !== $request->hotlineNumber) {
+            @$query['HotlineNumber'] = $request->hotlineNumber;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->qualificationId)) {
-            $query['QualificationId'] = $request->qualificationId;
+
+        if (null !== $request->qualificationId) {
+            @$query['QualificationId'] = $request->qualificationId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHotlineTransferRegisterFile',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHotlineTransferRegisterFile',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListHotlineTransferRegisterFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the registration information about a China 400 number.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param ListHotlineTransferRegisterFileRequest $request ListHotlineTransferRegisterFileRequest
+     * Queries the registration information about a China 400 number.
      *
-     * @return ListHotlineTransferRegisterFileResponse ListHotlineTransferRegisterFileResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - ListHotlineTransferRegisterFileRequest
+     *
+     * @returns ListHotlineTransferRegisterFileResponse
+     *
+     * @param ListHotlineTransferRegisterFileRequest $request
+     *
+     * @return ListHotlineTransferRegisterFileResponse
      */
     public function listHotlineTransferRegisterFile($request)
     {
@@ -1648,56 +1927,70 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary PauseVideoFile
-     *  *
-     * @param PauseVideoFileRequest $request PauseVideoFileRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * PauseVideoFile.
      *
-     * @return PauseVideoFileResponse PauseVideoFileResponse
+     * @param request - PauseVideoFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PauseVideoFileResponse
+     *
+     * @param PauseVideoFileRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PauseVideoFileResponse
      */
     public function pauseVideoFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PauseVideoFile',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PauseVideoFile',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PauseVideoFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary PauseVideoFile
-     *  *
-     * @param PauseVideoFileRequest $request PauseVideoFileRequest
+     * PauseVideoFile.
      *
-     * @return PauseVideoFileResponse PauseVideoFileResponse
+     * @param request - PauseVideoFileRequest
+     *
+     * @returns PauseVideoFileResponse
+     *
+     * @param PauseVideoFileRequest $request
+     *
+     * @return PauseVideoFileResponse
      */
     public function pauseVideoFile($request)
     {
@@ -1707,65 +2000,82 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary PlayVideoFile
-     *  *
-     * @param PlayVideoFileRequest $request PlayVideoFileRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * PlayVideoFile.
      *
-     * @return PlayVideoFileResponse PlayVideoFileResponse
+     * @param request - PlayVideoFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PlayVideoFileResponse
+     *
+     * @param PlayVideoFileRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PlayVideoFileResponse
      */
     public function playVideoFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->onlyPhone)) {
-            $query['OnlyPhone'] = $request->onlyPhone;
+
+        if (null !== $request->onlyPhone) {
+            @$query['OnlyPhone'] = $request->onlyPhone;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PlayVideoFile',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PlayVideoFile',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PlayVideoFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary PlayVideoFile
-     *  *
-     * @param PlayVideoFileRequest $request PlayVideoFileRequest
+     * PlayVideoFile.
      *
-     * @return PlayVideoFileResponse PlayVideoFileResponse
+     * @param request - PlayVideoFileRequest
+     *
+     * @returns PlayVideoFileResponse
+     *
+     * @param PlayVideoFileRequest $request
+     *
+     * @return PlayVideoFileResponse
      */
     public function playVideoFile($request)
     {
@@ -1775,67 +2085,84 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a call.
-     *  *
-     * @description QueryCallDetailByCallId is a common query operation. You can call this operation to query the details of a voice notification, voice verification code, interactive voice response (IVR), intelligent inbound voice call, intelligent outbound voice call, or intelligent robocall.
+     * Queries the details of a call.
+     *
+     * @remarks
+     * QueryCallDetailByCallId is a common query operation. You can call this operation to query the details of a voice notification, voice verification code, interactive voice response (IVR), intelligent inbound voice call, intelligent outbound voice call, or intelligent robocall.
      * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryCallDetailByCallIdRequest $request QueryCallDetailByCallIdRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCallDetailByCallIdResponse QueryCallDetailByCallIdResponse
+     * @param request - QueryCallDetailByCallIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCallDetailByCallIdResponse
+     *
+     * @param QueryCallDetailByCallIdRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryCallDetailByCallIdResponse
      */
     public function queryCallDetailByCallIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->prodId)) {
-            $query['ProdId'] = $request->prodId;
+
+        if (null !== $request->prodId) {
+            @$query['ProdId'] = $request->prodId;
         }
-        if (!Utils::isUnset($request->queryDate)) {
-            $query['QueryDate'] = $request->queryDate;
+
+        if (null !== $request->queryDate) {
+            @$query['QueryDate'] = $request->queryDate;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCallDetailByCallId',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCallDetailByCallId',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryCallDetailByCallIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a call.
-     *  *
-     * @description QueryCallDetailByCallId is a common query operation. You can call this operation to query the details of a voice notification, voice verification code, interactive voice response (IVR), intelligent inbound voice call, intelligent outbound voice call, or intelligent robocall.
+     * Queries the details of a call.
+     *
+     * @remarks
+     * QueryCallDetailByCallId is a common query operation. You can call this operation to query the details of a voice notification, voice verification code, interactive voice response (IVR), intelligent inbound voice call, intelligent outbound voice call, or intelligent robocall.
      * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryCallDetailByCallIdRequest $request QueryCallDetailByCallIdRequest
      *
-     * @return QueryCallDetailByCallIdResponse QueryCallDetailByCallIdResponse
+     * @param request - QueryCallDetailByCallIdRequest
+     *
+     * @returns QueryCallDetailByCallIdResponse
+     *
+     * @param QueryCallDetailByCallIdRequest $request
+     *
+     * @return QueryCallDetailByCallIdResponse
      */
     public function queryCallDetailByCallId($request)
     {
@@ -1845,59 +2172,74 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the call details of an outbound robocall task.
-     *  *
-     * @param QueryCallDetailByTaskIdRequest $request QueryCallDetailByTaskIdRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the call details of an outbound robocall task.
      *
-     * @return QueryCallDetailByTaskIdResponse QueryCallDetailByTaskIdResponse
+     * @param request - QueryCallDetailByTaskIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCallDetailByTaskIdResponse
+     *
+     * @param QueryCallDetailByTaskIdRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryCallDetailByTaskIdResponse
      */
     public function queryCallDetailByTaskIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callee)) {
-            $query['Callee'] = $request->callee;
+        if (null !== $request->callee) {
+            @$query['Callee'] = $request->callee;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->queryDate)) {
-            $query['QueryDate'] = $request->queryDate;
+
+        if (null !== $request->queryDate) {
+            @$query['QueryDate'] = $request->queryDate;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCallDetailByTaskId',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCallDetailByTaskId',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryCallDetailByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the call details of an outbound robocall task.
-     *  *
-     * @param QueryCallDetailByTaskIdRequest $request QueryCallDetailByTaskIdRequest
+     * Queries the call details of an outbound robocall task.
      *
-     * @return QueryCallDetailByTaskIdResponse QueryCallDetailByTaskIdResponse
+     * @param request - QueryCallDetailByTaskIdRequest
+     *
+     * @returns QueryCallDetailByTaskIdResponse
+     *
+     * @param QueryCallDetailByTaskIdRequest $request
+     *
+     * @return QueryCallDetailByTaskIdResponse
      */
     public function queryCallDetailByTaskId($request)
     {
@@ -1907,59 +2249,74 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration of the phone number used to transfer a call.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryCallInPoolTransferConfigRequest $request QueryCallInPoolTransferConfigRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the configuration of the phone number used to transfer a call.
      *
-     * @return QueryCallInPoolTransferConfigResponse QueryCallInPoolTransferConfigResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryCallInPoolTransferConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCallInPoolTransferConfigResponse
+     *
+     * @param QueryCallInPoolTransferConfigRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return QueryCallInPoolTransferConfigResponse
      */
     public function queryCallInPoolTransferConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCallInPoolTransferConfig',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCallInPoolTransferConfig',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryCallInPoolTransferConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configuration of the phone number used to transfer a call.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryCallInPoolTransferConfigRequest $request QueryCallInPoolTransferConfigRequest
+     * Queries the configuration of the phone number used to transfer a call.
      *
-     * @return QueryCallInPoolTransferConfigResponse QueryCallInPoolTransferConfigResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryCallInPoolTransferConfigRequest
+     *
+     * @returns QueryCallInPoolTransferConfigResponse
+     *
+     * @param QueryCallInPoolTransferConfigRequest $request
+     *
+     * @return QueryCallInPoolTransferConfigResponse
      */
     public function queryCallInPoolTransferConfig($request)
     {
@@ -1969,71 +2326,90 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries call transfer records.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryCallInTransferRecordRequest $request QueryCallInTransferRecordRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries call transfer records.
      *
-     * @return QueryCallInTransferRecordResponse QueryCallInTransferRecordResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryCallInTransferRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCallInTransferRecordResponse
+     *
+     * @param QueryCallInTransferRecordRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryCallInTransferRecordResponse
      */
     public function queryCallInTransferRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callInCaller)) {
-            $query['CallInCaller'] = $request->callInCaller;
+        if (null !== $request->callInCaller) {
+            @$query['CallInCaller'] = $request->callInCaller;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->queryDate)) {
-            $query['QueryDate'] = $request->queryDate;
+
+        if (null !== $request->queryDate) {
+            @$query['QueryDate'] = $request->queryDate;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCallInTransferRecord',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCallInTransferRecord',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryCallInTransferRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries call transfer records.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryCallInTransferRecordRequest $request QueryCallInTransferRecordRequest
+     * Queries call transfer records.
      *
-     * @return QueryCallInTransferRecordResponse QueryCallInTransferRecordResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryCallInTransferRecordRequest
+     *
+     * @returns QueryCallInTransferRecordResponse
+     *
+     * @param QueryCallInTransferRecordRequest $request
+     *
+     * @return QueryCallInTransferRecordResponse
      */
     public function queryCallInTransferRecord($request)
     {
@@ -2043,53 +2419,66 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of robots.
-     *  *
-     * @param QueryRobotInfoListRequest $request QueryRobotInfoListRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries a list of robots.
      *
-     * @return QueryRobotInfoListResponse QueryRobotInfoListResponse
+     * @param request - QueryRobotInfoListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRobotInfoListResponse
+     *
+     * @param QueryRobotInfoListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryRobotInfoListResponse
      */
     public function queryRobotInfoListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditStatus)) {
-            $query['AuditStatus'] = $request->auditStatus;
+        if (null !== $request->auditStatus) {
+            @$query['AuditStatus'] = $request->auditStatus;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryRobotInfoList',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRobotInfoList',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryRobotInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of robots.
-     *  *
-     * @param QueryRobotInfoListRequest $request QueryRobotInfoListRequest
+     * Queries a list of robots.
      *
-     * @return QueryRobotInfoListResponse QueryRobotInfoListResponse
+     * @param request - QueryRobotInfoListRequest
+     *
+     * @returns QueryRobotInfoListResponse
+     *
+     * @param QueryRobotInfoListRequest $request
+     *
+     * @return QueryRobotInfoListResponse
      */
     public function queryRobotInfoList($request)
     {
@@ -2099,65 +2488,82 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the call details of a called number in a robocall task.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryRobotTaskCallDetailRequest $request QueryRobotTaskCallDetailRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the call details of a called number in a robocall task.
      *
-     * @return QueryRobotTaskCallDetailResponse QueryRobotTaskCallDetailResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryRobotTaskCallDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRobotTaskCallDetailResponse
+     *
+     * @param QueryRobotTaskCallDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryRobotTaskCallDetailResponse
      */
     public function queryRobotTaskCallDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callee)) {
-            $query['Callee'] = $request->callee;
+        if (null !== $request->callee) {
+            @$query['Callee'] = $request->callee;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->queryDate)) {
-            $query['QueryDate'] = $request->queryDate;
+
+        if (null !== $request->queryDate) {
+            @$query['QueryDate'] = $request->queryDate;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryRobotTaskCallDetail',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRobotTaskCallDetail',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryRobotTaskCallDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the call details of a called number in a robocall task.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryRobotTaskCallDetailRequest $request QueryRobotTaskCallDetailRequest
+     * Queries the call details of a called number in a robocall task.
      *
-     * @return QueryRobotTaskCallDetailResponse QueryRobotTaskCallDetailResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryRobotTaskCallDetailRequest
+     *
+     * @returns QueryRobotTaskCallDetailResponse
+     *
+     * @param QueryRobotTaskCallDetailRequest $request
+     *
+     * @return QueryRobotTaskCallDetailResponse
      */
     public function queryRobotTaskCallDetail($request)
     {
@@ -2167,86 +2573,110 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a robocall task.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryRobotTaskCallListRequest $request QueryRobotTaskCallListRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a robocall task.
      *
-     * @return QueryRobotTaskCallListResponse QueryRobotTaskCallListResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryRobotTaskCallListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRobotTaskCallListResponse
+     *
+     * @param QueryRobotTaskCallListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryRobotTaskCallListResponse
      */
     public function queryRobotTaskCallListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callResult)) {
-            $query['CallResult'] = $request->callResult;
+        if (null !== $request->callResult) {
+            @$query['CallResult'] = $request->callResult;
         }
-        if (!Utils::isUnset($request->called)) {
-            $query['Called'] = $request->called;
+
+        if (null !== $request->called) {
+            @$query['Called'] = $request->called;
         }
-        if (!Utils::isUnset($request->dialogCountFrom)) {
-            $query['DialogCountFrom'] = $request->dialogCountFrom;
+
+        if (null !== $request->dialogCountFrom) {
+            @$query['DialogCountFrom'] = $request->dialogCountFrom;
         }
-        if (!Utils::isUnset($request->dialogCountTo)) {
-            $query['DialogCountTo'] = $request->dialogCountTo;
+
+        if (null !== $request->dialogCountTo) {
+            @$query['DialogCountTo'] = $request->dialogCountTo;
         }
-        if (!Utils::isUnset($request->durationFrom)) {
-            $query['DurationFrom'] = $request->durationFrom;
+
+        if (null !== $request->durationFrom) {
+            @$query['DurationFrom'] = $request->durationFrom;
         }
-        if (!Utils::isUnset($request->durationTo)) {
-            $query['DurationTo'] = $request->durationTo;
+
+        if (null !== $request->durationTo) {
+            @$query['DurationTo'] = $request->durationTo;
         }
-        if (!Utils::isUnset($request->hangupDirection)) {
-            $query['HangupDirection'] = $request->hangupDirection;
+
+        if (null !== $request->hangupDirection) {
+            @$query['HangupDirection'] = $request->hangupDirection;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryRobotTaskCallList',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRobotTaskCallList',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryRobotTaskCallListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a robocall task.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryRobotTaskCallListRequest $request QueryRobotTaskCallListRequest
+     * Queries the information about a robocall task.
      *
-     * @return QueryRobotTaskCallListResponse QueryRobotTaskCallListResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryRobotTaskCallListRequest
+     *
+     * @returns QueryRobotTaskCallListResponse
+     *
+     * @param QueryRobotTaskCallListRequest $request
+     *
+     * @return QueryRobotTaskCallListResponse
      */
     public function queryRobotTaskCallList($request)
     {
@@ -2256,59 +2686,74 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a robocall task.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryRobotTaskDetailRequest $request QueryRobotTaskDetailRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a robocall task.
      *
-     * @return QueryRobotTaskDetailResponse QueryRobotTaskDetailResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryRobotTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRobotTaskDetailResponse
+     *
+     * @param QueryRobotTaskDetailRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryRobotTaskDetailResponse
      */
     public function queryRobotTaskDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryRobotTaskDetail',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRobotTaskDetail',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryRobotTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a robocall task.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryRobotTaskDetailRequest $request QueryRobotTaskDetailRequest
+     * Queries the details of a robocall task.
      *
-     * @return QueryRobotTaskDetailResponse QueryRobotTaskDetailResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryRobotTaskDetailRequest
+     *
+     * @returns QueryRobotTaskDetailResponse
+     *
+     * @param QueryRobotTaskDetailRequest $request
+     *
+     * @return QueryRobotTaskDetailResponse
      */
     public function queryRobotTaskDetail($request)
     {
@@ -2318,71 +2763,90 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about all robocall tasks.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryRobotTaskListRequest $request QueryRobotTaskListRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the information about all robocall tasks.
      *
-     * @return QueryRobotTaskListResponse QueryRobotTaskListResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryRobotTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRobotTaskListResponse
+     *
+     * @param QueryRobotTaskListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryRobotTaskListResponse
      */
     public function queryRobotTaskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->time)) {
-            $query['Time'] = $request->time;
+
+        if (null !== $request->time) {
+            @$query['Time'] = $request->time;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryRobotTaskList',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRobotTaskList',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryRobotTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about all robocall tasks.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryRobotTaskListRequest $request QueryRobotTaskListRequest
+     * Queries the information about all robocall tasks.
      *
-     * @return QueryRobotTaskListResponse QueryRobotTaskListResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryRobotTaskListRequest
+     *
+     * @returns QueryRobotTaskListResponse
+     *
+     * @param QueryRobotTaskListRequest $request
+     *
+     * @return QueryRobotTaskListResponse
      */
     public function queryRobotTaskList($request)
     {
@@ -2392,56 +2856,70 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of robot communication scripts.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryRobotv2AllListRequest $request QueryRobotv2AllListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of robot communication scripts.
      *
-     * @return QueryRobotv2AllListResponse QueryRobotv2AllListResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryRobotv2AllListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRobotv2AllListResponse
+     *
+     * @param QueryRobotv2AllListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryRobotv2AllListResponse
      */
     public function queryRobotv2AllListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryRobotv2AllList',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRobotv2AllList',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryRobotv2AllListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of robot communication scripts.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryRobotv2AllListRequest $request QueryRobotv2AllListRequest
+     * Queries a list of robot communication scripts.
      *
-     * @return QueryRobotv2AllListResponse QueryRobotv2AllListResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryRobotv2AllListRequest
+     *
+     * @returns QueryRobotv2AllListResponse
+     *
+     * @param QueryRobotv2AllListRequest $request
+     *
+     * @return QueryRobotv2AllListResponse
      */
     public function queryRobotv2AllList($request)
     {
@@ -2451,56 +2929,70 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary QueryVideoPlayProgress
-     *  *
-     * @param QueryVideoPlayProgressRequest $request QueryVideoPlayProgressRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * QueryVideoPlayProgress.
      *
-     * @return QueryVideoPlayProgressResponse QueryVideoPlayProgressResponse
+     * @param request - QueryVideoPlayProgressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryVideoPlayProgressResponse
+     *
+     * @param QueryVideoPlayProgressRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryVideoPlayProgressResponse
      */
     public function queryVideoPlayProgressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryVideoPlayProgress',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryVideoPlayProgress',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryVideoPlayProgressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary QueryVideoPlayProgress
-     *  *
-     * @param QueryVideoPlayProgressRequest $request QueryVideoPlayProgressRequest
+     * QueryVideoPlayProgress.
      *
-     * @return QueryVideoPlayProgressResponse QueryVideoPlayProgressResponse
+     * @param request - QueryVideoPlayProgressRequest
+     *
+     * @returns QueryVideoPlayProgressResponse
+     *
+     * @param QueryVideoPlayProgressRequest $request
+     *
+     * @return QueryVideoPlayProgressResponse
      */
     public function queryVideoPlayProgress($request)
     {
@@ -2510,68 +3002,86 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of virtual numbers.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryVirtualNumberRequest $request QueryVirtualNumberRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries a list of virtual numbers.
      *
-     * @return QueryVirtualNumberResponse QueryVirtualNumberResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryVirtualNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryVirtualNumberResponse
+     *
+     * @param QueryVirtualNumberRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryVirtualNumberResponse
      */
     public function queryVirtualNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $query['ProdCode'] = $request->prodCode;
+
+        if (null !== $request->prodCode) {
+            @$query['ProdCode'] = $request->prodCode;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->routeType)) {
-            $query['RouteType'] = $request->routeType;
+
+        if (null !== $request->routeType) {
+            @$query['RouteType'] = $request->routeType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryVirtualNumber',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryVirtualNumber',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryVirtualNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of virtual numbers.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param QueryVirtualNumberRequest $request QueryVirtualNumberRequest
+     * Queries a list of virtual numbers.
      *
-     * @return QueryVirtualNumberResponse QueryVirtualNumberResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - QueryVirtualNumberRequest
+     *
+     * @returns QueryVirtualNumberResponse
+     *
+     * @param QueryVirtualNumberRequest $request
+     *
+     * @return QueryVirtualNumberResponse
      */
     public function queryVirtualNumber($request)
     {
@@ -2581,83 +3091,106 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of associations between virtual numbers and real numbers.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 200 times per second per account.
-     *  *
-     * @param QueryVirtualNumberRelationRequest $request QueryVirtualNumberRelationRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries a list of associations between virtual numbers and real numbers.
      *
-     * @return QueryVirtualNumberRelationResponse QueryVirtualNumberRelationResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 200 times per second per account.
+     *
+     * @param request - QueryVirtualNumberRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryVirtualNumberRelationResponse
+     *
+     * @param QueryVirtualNumberRelationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryVirtualNumberRelationResponse
      */
     public function queryVirtualNumberRelationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->phoneNum)) {
-            $query['PhoneNum'] = $request->phoneNum;
+
+        if (null !== $request->phoneNum) {
+            @$query['PhoneNum'] = $request->phoneNum;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $query['ProdCode'] = $request->prodCode;
+
+        if (null !== $request->prodCode) {
+            @$query['ProdCode'] = $request->prodCode;
         }
-        if (!Utils::isUnset($request->qualificationId)) {
-            $query['QualificationId'] = $request->qualificationId;
+
+        if (null !== $request->qualificationId) {
+            @$query['QualificationId'] = $request->qualificationId;
         }
-        if (!Utils::isUnset($request->regionNameCity)) {
-            $query['RegionNameCity'] = $request->regionNameCity;
+
+        if (null !== $request->regionNameCity) {
+            @$query['RegionNameCity'] = $request->regionNameCity;
         }
-        if (!Utils::isUnset($request->relatedNum)) {
-            $query['RelatedNum'] = $request->relatedNum;
+
+        if (null !== $request->relatedNum) {
+            @$query['RelatedNum'] = $request->relatedNum;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->routeType)) {
-            $query['RouteType'] = $request->routeType;
+
+        if (null !== $request->routeType) {
+            @$query['RouteType'] = $request->routeType;
         }
-        if (!Utils::isUnset($request->specId)) {
-            $query['SpecId'] = $request->specId;
+
+        if (null !== $request->specId) {
+            @$query['SpecId'] = $request->specId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryVirtualNumberRelation',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryVirtualNumberRelation',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryVirtualNumberRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of associations between virtual numbers and real numbers.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 200 times per second per account.
-     *  *
-     * @param QueryVirtualNumberRelationRequest $request QueryVirtualNumberRelationRequest
+     * Queries a list of associations between virtual numbers and real numbers.
      *
-     * @return QueryVirtualNumberRelationResponse QueryVirtualNumberRelationResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 200 times per second per account.
+     *
+     * @param request - QueryVirtualNumberRelationRequest
+     *
+     * @returns QueryVirtualNumberRelationResponse
+     *
+     * @param QueryVirtualNumberRelationRequest $request
+     *
+     * @return QueryVirtualNumberRelationResponse
      */
     public function queryVirtualNumberRelation($request)
     {
@@ -2667,56 +3200,70 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the review state of a voice file.
-     *  *
-     * @param QueryVoiceFileAuditInfoRequest $request QueryVoiceFileAuditInfoRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the review state of a voice file.
      *
-     * @return QueryVoiceFileAuditInfoResponse QueryVoiceFileAuditInfoResponse
+     * @param request - QueryVoiceFileAuditInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryVoiceFileAuditInfoResponse
+     *
+     * @param QueryVoiceFileAuditInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryVoiceFileAuditInfoResponse
      */
     public function queryVoiceFileAuditInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$query['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->voiceCodes)) {
-            $query['VoiceCodes'] = $request->voiceCodes;
+
+        if (null !== $request->voiceCodes) {
+            @$query['VoiceCodes'] = $request->voiceCodes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryVoiceFileAuditInfo',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryVoiceFileAuditInfo',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryVoiceFileAuditInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the review state of a voice file.
-     *  *
-     * @param QueryVoiceFileAuditInfoRequest $request QueryVoiceFileAuditInfoRequest
+     * Queries the review state of a voice file.
      *
-     * @return QueryVoiceFileAuditInfoResponse QueryVoiceFileAuditInfoResponse
+     * @param request - QueryVoiceFileAuditInfoRequest
+     *
+     * @returns QueryVoiceFileAuditInfoResponse
+     *
+     * @param QueryVoiceFileAuditInfoRequest $request
+     *
+     * @return QueryVoiceFileAuditInfoResponse
      */
     public function queryVoiceFileAuditInfo($request)
     {
@@ -2726,53 +3273,66 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Resumes the inbound call that is transferred by using a China 400 number.
-     *  *
-     * @param RecoverCallInConfigRequest $request RecoverCallInConfigRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Resumes the inbound call that is transferred by using a China 400 number.
      *
-     * @return RecoverCallInConfigResponse RecoverCallInConfigResponse
+     * @param request - RecoverCallInConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecoverCallInConfigResponse
+     *
+     * @param RecoverCallInConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RecoverCallInConfigResponse
      */
     public function recoverCallInConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->number)) {
-            $query['Number'] = $request->number;
+        if (null !== $request->number) {
+            @$query['Number'] = $request->number;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RecoverCallInConfig',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecoverCallInConfig',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecoverCallInConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Resumes the inbound call that is transferred by using a China 400 number.
-     *  *
-     * @param RecoverCallInConfigRequest $request RecoverCallInConfigRequest
+     * Resumes the inbound call that is transferred by using a China 400 number.
      *
-     * @return RecoverCallInConfigResponse RecoverCallInConfigResponse
+     * @param request - RecoverCallInConfigRequest
+     *
+     * @returns RecoverCallInConfigResponse
+     *
+     * @param RecoverCallInConfigRequest $request
+     *
+     * @return RecoverCallInConfigResponse
      */
     public function recoverCallInConfig($request)
     {
@@ -2782,56 +3342,70 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary ResumeVideoFile
-     *  *
-     * @param ResumeVideoFileRequest $request ResumeVideoFileRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * ResumeVideoFile.
      *
-     * @return ResumeVideoFileResponse ResumeVideoFileResponse
+     * @param request - ResumeVideoFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeVideoFileResponse
+     *
+     * @param ResumeVideoFileRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ResumeVideoFileResponse
      */
     public function resumeVideoFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResumeVideoFile',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResumeVideoFile',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResumeVideoFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary ResumeVideoFile
-     *  *
-     * @param ResumeVideoFileRequest $request ResumeVideoFileRequest
+     * ResumeVideoFile.
      *
-     * @return ResumeVideoFileResponse ResumeVideoFileResponse
+     * @param request - ResumeVideoFileRequest
+     *
+     * @returns ResumeVideoFileResponse
+     *
+     * @param ResumeVideoFileRequest $request
+     *
+     * @return ResumeVideoFileResponse
      */
     public function resumeVideoFile($request)
     {
@@ -2841,59 +3415,74 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary SeekVideoFile
-     *  *
-     * @param SeekVideoFileRequest $request SeekVideoFileRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * SeekVideoFile.
      *
-     * @return SeekVideoFileResponse SeekVideoFileResponse
+     * @param request - SeekVideoFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SeekVideoFileResponse
+     *
+     * @param SeekVideoFileRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SeekVideoFileResponse
      */
     public function seekVideoFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->seekTimes)) {
-            $query['SeekTimes'] = $request->seekTimes;
+
+        if (null !== $request->seekTimes) {
+            @$query['SeekTimes'] = $request->seekTimes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SeekVideoFile',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SeekVideoFile',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SeekVideoFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary SeekVideoFile
-     *  *
-     * @param SeekVideoFileRequest $request SeekVideoFileRequest
+     * SeekVideoFile.
      *
-     * @return SeekVideoFileResponse SeekVideoFileResponse
+     * @param request - SeekVideoFileRequest
+     *
+     * @returns SeekVideoFileResponse
+     *
+     * @param SeekVideoFileRequest $request
+     *
+     * @return SeekVideoFileResponse
      */
     public function seekVideoFile($request)
     {
@@ -2903,65 +3492,82 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Sends an SMS verification code.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param SendVerificationRequest $request SendVerificationRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Sends an SMS verification code.
      *
-     * @return SendVerificationResponse SendVerificationResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - SendVerificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendVerificationResponse
+     *
+     * @param SendVerificationRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SendVerificationResponse
      */
     public function sendVerificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->target)) {
-            $query['Target'] = $request->target;
+
+        if (null !== $request->target) {
+            @$query['Target'] = $request->target;
         }
-        if (!Utils::isUnset($request->verifyType)) {
-            $query['VerifyType'] = $request->verifyType;
+
+        if (null !== $request->verifyType) {
+            @$query['VerifyType'] = $request->verifyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendVerification',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendVerification',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SendVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Sends an SMS verification code.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param SendVerificationRequest $request SendVerificationRequest
+     * Sends an SMS verification code.
      *
-     * @return SendVerificationResponse SendVerificationResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - SendVerificationRequest
+     *
+     * @returns SendVerificationResponse
+     *
+     * @param SendVerificationRequest $request
+     *
+     * @return SendVerificationResponse
      */
     public function sendVerification($request)
     {
@@ -2971,68 +3577,86 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Sets the phone numbers for transferring a call.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param SetTransferCalleePoolConfigRequest $request SetTransferCalleePoolConfigRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Sets the phone numbers for transferring a call.
      *
-     * @return SetTransferCalleePoolConfigResponse SetTransferCalleePoolConfigResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - SetTransferCalleePoolConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetTransferCalleePoolConfigResponse
+     *
+     * @param SetTransferCalleePoolConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetTransferCalleePoolConfigResponse
      */
     public function setTransferCalleePoolConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledRouteMode)) {
-            $query['CalledRouteMode'] = $request->calledRouteMode;
+        if (null !== $request->calledRouteMode) {
+            @$query['CalledRouteMode'] = $request->calledRouteMode;
         }
-        if (!Utils::isUnset($request->details)) {
-            $query['Details'] = $request->details;
+
+        if (null !== $request->details) {
+            @$query['Details'] = $request->details;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->qualificationId)) {
-            $query['QualificationId'] = $request->qualificationId;
+
+        if (null !== $request->qualificationId) {
+            @$query['QualificationId'] = $request->qualificationId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetTransferCalleePoolConfig',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetTransferCalleePoolConfig',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetTransferCalleePoolConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Sets the phone numbers for transferring a call.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param SetTransferCalleePoolConfigRequest $request SetTransferCalleePoolConfigRequest
+     * Sets the phone numbers for transferring a call.
      *
-     * @return SetTransferCalleePoolConfigResponse SetTransferCalleePoolConfigResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - SetTransferCalleePoolConfigRequest
+     *
+     * @returns SetTransferCalleePoolConfigResponse
+     *
+     * @param SetTransferCalleePoolConfigRequest $request
+     *
+     * @return SetTransferCalleePoolConfigResponse
      */
     public function setTransferCalleePoolConfig($request)
     {
@@ -3042,84 +3666,106 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Sends a voice verification code or a voice notification with variables to a specified phone number.
-     *  *
-     * @description *   Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+     * Sends a voice verification code or a voice notification with variables to a specified phone number.
+     *
+     * @remarks
+     *   Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
      * *   For more information about voice plans or voice service billing, see [Pricing of VMS on China site (aliyun.com)](https://help.aliyun.com/document_detail/150083.html).
      * ### QPS limits
      * You can call this operation up to 1,000 times per second per account.
-     *  *
-     * @param SingleCallByTtsRequest $request SingleCallByTtsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SingleCallByTtsResponse SingleCallByTtsResponse
+     * @param request - SingleCallByTtsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SingleCallByTtsResponse
+     *
+     * @param SingleCallByTtsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SingleCallByTtsResponse
      */
     public function singleCallByTtsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->calledShowNumber)) {
-            $query['CalledShowNumber'] = $request->calledShowNumber;
+
+        if (null !== $request->calledShowNumber) {
+            @$query['CalledShowNumber'] = $request->calledShowNumber;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->playTimes)) {
-            $query['PlayTimes'] = $request->playTimes;
+
+        if (null !== $request->playTimes) {
+            @$query['PlayTimes'] = $request->playTimes;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
-        if (!Utils::isUnset($request->ttsCode)) {
-            $query['TtsCode'] = $request->ttsCode;
+
+        if (null !== $request->ttsCode) {
+            @$query['TtsCode'] = $request->ttsCode;
         }
-        if (!Utils::isUnset($request->ttsParam)) {
-            $query['TtsParam'] = $request->ttsParam;
+
+        if (null !== $request->ttsParam) {
+            @$query['TtsParam'] = $request->ttsParam;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SingleCallByTts',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SingleCallByTts',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SingleCallByTtsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Sends a voice verification code or a voice notification with variables to a specified phone number.
-     *  *
-     * @description *   Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+     * Sends a voice verification code or a voice notification with variables to a specified phone number.
+     *
+     * @remarks
+     *   Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
      * *   For more information about voice plans or voice service billing, see [Pricing of VMS on China site (aliyun.com)](https://help.aliyun.com/document_detail/150083.html).
      * ### QPS limits
      * You can call this operation up to 1,000 times per second per account.
-     *  *
-     * @param SingleCallByTtsRequest $request SingleCallByTtsRequest
      *
-     * @return SingleCallByTtsResponse SingleCallByTtsResponse
+     * @param request - SingleCallByTtsRequest
+     *
+     * @returns SingleCallByTtsResponse
+     *
+     * @param SingleCallByTtsRequest $request
+     *
+     * @return SingleCallByTtsResponse
      */
     public function singleCallByTts($request)
     {
@@ -3129,74 +3775,94 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 语音视频单呼接口
-     *  *
-     * @param SingleCallByVideoRequest $request SingleCallByVideoRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 语音视频单呼接口.
      *
-     * @return SingleCallByVideoResponse SingleCallByVideoResponse
+     * @param request - SingleCallByVideoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SingleCallByVideoResponse
+     *
+     * @param SingleCallByVideoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SingleCallByVideoResponse
      */
     public function singleCallByVideoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->calledShowNumber)) {
-            $query['CalledShowNumber'] = $request->calledShowNumber;
+
+        if (null !== $request->calledShowNumber) {
+            @$query['CalledShowNumber'] = $request->calledShowNumber;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->playTimes)) {
-            $query['PlayTimes'] = $request->playTimes;
+
+        if (null !== $request->playTimes) {
+            @$query['PlayTimes'] = $request->playTimes;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
-        if (!Utils::isUnset($request->videoCode)) {
-            $query['VideoCode'] = $request->videoCode;
+
+        if (null !== $request->videoCode) {
+            @$query['VideoCode'] = $request->videoCode;
         }
-        if (!Utils::isUnset($request->voiceCode)) {
-            $query['VoiceCode'] = $request->voiceCode;
+
+        if (null !== $request->voiceCode) {
+            @$query['VoiceCode'] = $request->voiceCode;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SingleCallByVideo',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SingleCallByVideo',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SingleCallByVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 语音视频单呼接口
-     *  *
-     * @param SingleCallByVideoRequest $request SingleCallByVideoRequest
+     * 语音视频单呼接口.
      *
-     * @return SingleCallByVideoResponse SingleCallByVideoResponse
+     * @param request - SingleCallByVideoRequest
+     *
+     * @returns SingleCallByVideoResponse
+     *
+     * @param SingleCallByVideoRequest $request
+     *
+     * @return SingleCallByVideoResponse
      */
     public function singleCallByVideo($request)
     {
@@ -3206,81 +3872,102 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Sends a voice notification to a phone number by using a voice notification file.
-     *  *
-     * @description > Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+     * Sends a voice notification to a phone number by using a voice notification file.
+     *
+     * @remarks
+     * > Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
      * You can call the [SingleCallByTts](https://help.aliyun.com/document_detail/393519.html) operation to send voice notifications with variables.
      * ### QPS limits
      * You can call this operation up to 1,200 times per second per account.
-     *  *
-     * @param SingleCallByVoiceRequest $request SingleCallByVoiceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SingleCallByVoiceResponse SingleCallByVoiceResponse
+     * @param request - SingleCallByVoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SingleCallByVoiceResponse
+     *
+     * @param SingleCallByVoiceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SingleCallByVoiceResponse
      */
     public function singleCallByVoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->calledShowNumber)) {
-            $query['CalledShowNumber'] = $request->calledShowNumber;
+
+        if (null !== $request->calledShowNumber) {
+            @$query['CalledShowNumber'] = $request->calledShowNumber;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->playTimes)) {
-            $query['PlayTimes'] = $request->playTimes;
+
+        if (null !== $request->playTimes) {
+            @$query['PlayTimes'] = $request->playTimes;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
-        if (!Utils::isUnset($request->voiceCode)) {
-            $query['VoiceCode'] = $request->voiceCode;
+
+        if (null !== $request->voiceCode) {
+            @$query['VoiceCode'] = $request->voiceCode;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SingleCallByVoice',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SingleCallByVoice',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SingleCallByVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Sends a voice notification to a phone number by using a voice notification file.
-     *  *
-     * @description > Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+     * Sends a voice notification to a phone number by using a voice notification file.
+     *
+     * @remarks
+     * > Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
      * You can call the [SingleCallByTts](https://help.aliyun.com/document_detail/393519.html) operation to send voice notifications with variables.
      * ### QPS limits
      * You can call this operation up to 1,200 times per second per account.
-     *  *
-     * @param SingleCallByVoiceRequest $request SingleCallByVoiceRequest
      *
-     * @return SingleCallByVoiceResponse SingleCallByVoiceResponse
+     * @param request - SingleCallByVoiceRequest
+     *
+     * @returns SingleCallByVoiceResponse
+     *
+     * @param SingleCallByVoiceRequest $request
+     *
+     * @return SingleCallByVoiceResponse
      */
     public function singleCallByVoice($request)
     {
@@ -3290,62 +3977,78 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary SkipVideoFile
-     *  *
-     * @param SkipVideoFileRequest $request SkipVideoFileRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * SkipVideoFile.
      *
-     * @return SkipVideoFileResponse SkipVideoFileResponse
+     * @param request - SkipVideoFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SkipVideoFileResponse
+     *
+     * @param SkipVideoFileRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SkipVideoFileResponse
      */
     public function skipVideoFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->skipTimes)) {
-            $query['SkipTimes'] = $request->skipTimes;
+
+        if (null !== $request->skipTimes) {
+            @$query['SkipTimes'] = $request->skipTimes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SkipVideoFile',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SkipVideoFile',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SkipVideoFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary SkipVideoFile
-     *  *
-     * @param SkipVideoFileRequest $request SkipVideoFileRequest
+     * SkipVideoFile.
      *
-     * @return SkipVideoFileResponse SkipVideoFileResponse
+     * @param request - SkipVideoFileRequest
+     *
+     * @returns SkipVideoFileResponse
+     *
+     * @param SkipVideoFileRequest $request
+     *
+     * @return SkipVideoFileResponse
      */
     public function skipVideoFile($request)
     {
@@ -3355,141 +4058,182 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Initiates an intelligent voice call.
-     *  *
-     * @description *   The SmartCall operation must be used together with the [intelligent outbound HTTP operation](https://help.aliyun.com/document_detail/112703.html). After the call initiated by the Voice Messaging Service (VMS) platform is connected, the VMS platform sends the text converted from speech back to the business side, and the business side then returns the follow-up action to the VMS platform.
+     * Initiates an intelligent voice call.
+     *
+     * @remarks
+     *   The SmartCall operation must be used together with the [intelligent outbound HTTP operation](https://help.aliyun.com/document_detail/112703.html). After the call initiated by the Voice Messaging Service (VMS) platform is connected, the VMS platform sends the text converted from speech back to the business side, and the business side then returns the follow-up action to the VMS platform.
      * *   The SmartCall operation does not support the following characters: `@ = : "" $ { } ^ * ￥`.
      * ### QPS limits
      * You can call this operation up to 1,000 times per second per account.
-     *  *
-     * @param SmartCallRequest $request SmartCallRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SmartCallResponse SmartCallResponse
+     * @param request - SmartCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SmartCallResponse
+     *
+     * @param SmartCallRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return SmartCallResponse
      */
     public function smartCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actionCodeBreak)) {
-            $query['ActionCodeBreak'] = $request->actionCodeBreak;
+        if (null !== $request->actionCodeBreak) {
+            @$query['ActionCodeBreak'] = $request->actionCodeBreak;
         }
-        if (!Utils::isUnset($request->actionCodeTimeBreak)) {
-            $query['ActionCodeTimeBreak'] = $request->actionCodeTimeBreak;
+
+        if (null !== $request->actionCodeTimeBreak) {
+            @$query['ActionCodeTimeBreak'] = $request->actionCodeTimeBreak;
         }
-        if (!Utils::isUnset($request->asrBaseId)) {
-            $query['AsrBaseId'] = $request->asrBaseId;
+
+        if (null !== $request->asrBaseId) {
+            @$query['AsrBaseId'] = $request->asrBaseId;
         }
-        if (!Utils::isUnset($request->asrModelId)) {
-            $query['AsrModelId'] = $request->asrModelId;
+
+        if (null !== $request->asrModelId) {
+            @$query['AsrModelId'] = $request->asrModelId;
         }
-        if (!Utils::isUnset($request->backgroundFileCode)) {
-            $query['BackgroundFileCode'] = $request->backgroundFileCode;
+
+        if (null !== $request->backgroundFileCode) {
+            @$query['BackgroundFileCode'] = $request->backgroundFileCode;
         }
-        if (!Utils::isUnset($request->backgroundSpeed)) {
-            $query['BackgroundSpeed'] = $request->backgroundSpeed;
+
+        if (null !== $request->backgroundSpeed) {
+            @$query['BackgroundSpeed'] = $request->backgroundSpeed;
         }
-        if (!Utils::isUnset($request->backgroundVolume)) {
-            $query['BackgroundVolume'] = $request->backgroundVolume;
+
+        if (null !== $request->backgroundVolume) {
+            @$query['BackgroundVolume'] = $request->backgroundVolume;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->calledShowNumber)) {
-            $query['CalledShowNumber'] = $request->calledShowNumber;
+
+        if (null !== $request->calledShowNumber) {
+            @$query['CalledShowNumber'] = $request->calledShowNumber;
         }
-        if (!Utils::isUnset($request->dynamicId)) {
-            $query['DynamicId'] = $request->dynamicId;
+
+        if (null !== $request->dynamicId) {
+            @$query['DynamicId'] = $request->dynamicId;
         }
-        if (!Utils::isUnset($request->earlyMediaAsr)) {
-            $query['EarlyMediaAsr'] = $request->earlyMediaAsr;
+
+        if (null !== $request->earlyMediaAsr) {
+            @$query['EarlyMediaAsr'] = $request->earlyMediaAsr;
         }
-        if (!Utils::isUnset($request->enableITN)) {
-            $query['EnableITN'] = $request->enableITN;
+
+        if (null !== $request->enableITN) {
+            @$query['EnableITN'] = $request->enableITN;
         }
-        if (!Utils::isUnset($request->muteTime)) {
-            $query['MuteTime'] = $request->muteTime;
+
+        if (null !== $request->muteTime) {
+            @$query['MuteTime'] = $request->muteTime;
         }
-        if (!Utils::isUnset($request->noiseThreshold)) {
-            $query['NoiseThreshold'] = $request->noiseThreshold;
+
+        if (null !== $request->noiseThreshold) {
+            @$query['NoiseThreshold'] = $request->noiseThreshold;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pauseTime)) {
-            $query['PauseTime'] = $request->pauseTime;
+
+        if (null !== $request->pauseTime) {
+            @$query['PauseTime'] = $request->pauseTime;
         }
-        if (!Utils::isUnset($request->recordFlag)) {
-            $query['RecordFlag'] = $request->recordFlag;
+
+        if (null !== $request->recordFlag) {
+            @$query['RecordFlag'] = $request->recordFlag;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sessionTimeout)) {
-            $query['SessionTimeout'] = $request->sessionTimeout;
+
+        if (null !== $request->sessionTimeout) {
+            @$query['SessionTimeout'] = $request->sessionTimeout;
         }
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
-        if (!Utils::isUnset($request->streamAsr)) {
-            $query['StreamAsr'] = $request->streamAsr;
+
+        if (null !== $request->streamAsr) {
+            @$query['StreamAsr'] = $request->streamAsr;
         }
-        if (!Utils::isUnset($request->ttsConf)) {
-            $query['TtsConf'] = $request->ttsConf;
+
+        if (null !== $request->ttsConf) {
+            @$query['TtsConf'] = $request->ttsConf;
         }
-        if (!Utils::isUnset($request->ttsSpeed)) {
-            $query['TtsSpeed'] = $request->ttsSpeed;
+
+        if (null !== $request->ttsSpeed) {
+            @$query['TtsSpeed'] = $request->ttsSpeed;
         }
-        if (!Utils::isUnset($request->ttsStyle)) {
-            $query['TtsStyle'] = $request->ttsStyle;
+
+        if (null !== $request->ttsStyle) {
+            @$query['TtsStyle'] = $request->ttsStyle;
         }
-        if (!Utils::isUnset($request->ttsVolume)) {
-            $query['TtsVolume'] = $request->ttsVolume;
+
+        if (null !== $request->ttsVolume) {
+            @$query['TtsVolume'] = $request->ttsVolume;
         }
-        if (!Utils::isUnset($request->voiceCode)) {
-            $query['VoiceCode'] = $request->voiceCode;
+
+        if (null !== $request->voiceCode) {
+            @$query['VoiceCode'] = $request->voiceCode;
         }
-        if (!Utils::isUnset($request->voiceCodeParam)) {
-            $query['VoiceCodeParam'] = $request->voiceCodeParam;
+
+        if (null !== $request->voiceCodeParam) {
+            @$query['VoiceCodeParam'] = $request->voiceCodeParam;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SmartCall',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SmartCall',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Initiates an intelligent voice call.
-     *  *
-     * @description *   The SmartCall operation must be used together with the [intelligent outbound HTTP operation](https://help.aliyun.com/document_detail/112703.html). After the call initiated by the Voice Messaging Service (VMS) platform is connected, the VMS platform sends the text converted from speech back to the business side, and the business side then returns the follow-up action to the VMS platform.
+     * Initiates an intelligent voice call.
+     *
+     * @remarks
+     *   The SmartCall operation must be used together with the [intelligent outbound HTTP operation](https://help.aliyun.com/document_detail/112703.html). After the call initiated by the Voice Messaging Service (VMS) platform is connected, the VMS platform sends the text converted from speech back to the business side, and the business side then returns the follow-up action to the VMS platform.
      * *   The SmartCall operation does not support the following characters: `@ = : "" $ { } ^ * ￥`.
      * ### QPS limits
      * You can call this operation up to 1,000 times per second per account.
-     *  *
-     * @param SmartCallRequest $request SmartCallRequest
      *
-     * @return SmartCallResponse SmartCallResponse
+     * @param request - SmartCallRequest
+     *
+     * @returns SmartCallResponse
+     *
+     * @param SmartCallRequest $request
+     *
+     * @return SmartCallResponse
      */
     public function smartCall($request)
     {
@@ -3499,69 +4243,86 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Initiates an action in an outbound robocall. This operation is applicable only when the robocall is transferred to an agent or an agent is listening in on the conversation between the robot and the user.
-     *  *
-     * @description You can call this operation to initiate a specified action on the called number of an outbound robocall when the call is transferred to an agent of the call center.
+     * Initiates an action in an outbound robocall. This operation is applicable only when the robocall is transferred to an agent or an agent is listening in on the conversation between the robot and the user.
+     *
+     * @remarks
+     * You can call this operation to initiate a specified action on the called number of an outbound robocall when the call is transferred to an agent of the call center.
      * > You can only initiate the action of bridging a called number and an agent of the call center.
      * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param SmartCallOperateRequest $request SmartCallOperateRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SmartCallOperateResponse SmartCallOperateResponse
+     * @param request - SmartCallOperateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SmartCallOperateResponse
+     *
+     * @param SmartCallOperateRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SmartCallOperateResponse
      */
     public function smartCallOperateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->command)) {
-            $query['Command'] = $request->command;
+
+        if (null !== $request->command) {
+            @$query['Command'] = $request->command;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->param)) {
-            $query['Param'] = $request->param;
+
+        if (null !== $request->param) {
+            @$query['Param'] = $request->param;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SmartCallOperate',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SmartCallOperate',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SmartCallOperateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Initiates an action in an outbound robocall. This operation is applicable only when the robocall is transferred to an agent or an agent is listening in on the conversation between the robot and the user.
-     *  *
-     * @description You can call this operation to initiate a specified action on the called number of an outbound robocall when the call is transferred to an agent of the call center.
+     * Initiates an action in an outbound robocall. This operation is applicable only when the robocall is transferred to an agent or an agent is listening in on the conversation between the robot and the user.
+     *
+     * @remarks
+     * You can call this operation to initiate a specified action on the called number of an outbound robocall when the call is transferred to an agent of the call center.
      * > You can only initiate the action of bridging a called number and an agent of the call center.
      * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param SmartCallOperateRequest $request SmartCallOperateRequest
      *
-     * @return SmartCallOperateResponse SmartCallOperateResponse
+     * @param request - SmartCallOperateRequest
+     *
+     * @returns SmartCallOperateResponse
+     *
+     * @param SmartCallOperateRequest $request
+     *
+     * @return SmartCallOperateResponse
      */
     public function smartCallOperate($request)
     {
@@ -3571,62 +4332,78 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Starts a robocall task immediately or at a scheduled time.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param StartRobotTaskRequest $request StartRobotTaskRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Starts a robocall task immediately or at a scheduled time.
      *
-     * @return StartRobotTaskResponse StartRobotTaskResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - StartRobotTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartRobotTaskResponse
+     *
+     * @param StartRobotTaskRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StartRobotTaskResponse
      */
     public function startRobotTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->scheduleTime)) {
-            $query['ScheduleTime'] = $request->scheduleTime;
+
+        if (null !== $request->scheduleTime) {
+            @$query['ScheduleTime'] = $request->scheduleTime;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartRobotTask',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartRobotTask',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartRobotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Starts a robocall task immediately or at a scheduled time.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param StartRobotTaskRequest $request StartRobotTaskRequest
+     * Starts a robocall task immediately or at a scheduled time.
      *
-     * @return StartRobotTaskResponse StartRobotTaskResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - StartRobotTaskRequest
+     *
+     * @returns StartRobotTaskResponse
+     *
+     * @param StartRobotTaskRequest $request
+     *
+     * @return StartRobotTaskResponse
      */
     public function startRobotTask($request)
     {
@@ -3636,53 +4413,66 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Stops the inbound call that is transferred from a China 400 number.
-     *  *
-     * @param StopCallInConfigRequest $request StopCallInConfigRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Stops the inbound call that is transferred from a China 400 number.
      *
-     * @return StopCallInConfigResponse StopCallInConfigResponse
+     * @param request - StopCallInConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopCallInConfigResponse
+     *
+     * @param StopCallInConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StopCallInConfigResponse
      */
     public function stopCallInConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->number)) {
-            $query['Number'] = $request->number;
+        if (null !== $request->number) {
+            @$query['Number'] = $request->number;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopCallInConfig',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopCallInConfig',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopCallInConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops the inbound call that is transferred from a China 400 number.
-     *  *
-     * @param StopCallInConfigRequest $request StopCallInConfigRequest
+     * Stops the inbound call that is transferred from a China 400 number.
      *
-     * @return StopCallInConfigResponse StopCallInConfigResponse
+     * @param request - StopCallInConfigRequest
+     *
+     * @returns StopCallInConfigResponse
+     *
+     * @param StopCallInConfigRequest $request
+     *
+     * @return StopCallInConfigResponse
      */
     public function stopCallInConfig($request)
     {
@@ -3692,61 +4482,76 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Stops a robocall task that is in progress.
-     *  *
-     * @description After you stop a robocall task, you can call the [StartRobotTask](~~StartRobotTask~~) operation to start it again.
+     * Stops a robocall task that is in progress.
+     *
+     * @remarks
+     * After you stop a robocall task, you can call the [StartRobotTask](~~StartRobotTask~~) operation to start it again.
      * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param StopRobotTaskRequest $request StopRobotTaskRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopRobotTaskResponse StopRobotTaskResponse
+     * @param request - StopRobotTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopRobotTaskResponse
+     *
+     * @param StopRobotTaskRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StopRobotTaskResponse
      */
     public function stopRobotTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopRobotTask',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopRobotTask',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopRobotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops a robocall task that is in progress.
-     *  *
-     * @description After you stop a robocall task, you can call the [StartRobotTask](~~StartRobotTask~~) operation to start it again.
+     * Stops a robocall task that is in progress.
+     *
+     * @remarks
+     * After you stop a robocall task, you can call the [StartRobotTask](~~StartRobotTask~~) operation to start it again.
      * ### QPS limits
      * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param StopRobotTaskRequest $request StopRobotTaskRequest
      *
-     * @return StopRobotTaskResponse StopRobotTaskResponse
+     * @param request - StopRobotTaskRequest
+     *
+     * @returns StopRobotTaskResponse
+     *
+     * @param StopRobotTaskRequest $request
+     *
+     * @return StopRobotTaskResponse
      */
     public function stopRobotTask($request)
     {
@@ -3756,86 +4561,110 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Submits a China 400 number for registration.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param SubmitHotlineTransferRegisterRequest $request SubmitHotlineTransferRegisterRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Submits a China 400 number for registration.
      *
-     * @return SubmitHotlineTransferRegisterResponse SubmitHotlineTransferRegisterResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - SubmitHotlineTransferRegisterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitHotlineTransferRegisterResponse
+     *
+     * @param SubmitHotlineTransferRegisterRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SubmitHotlineTransferRegisterResponse
      */
     public function submitHotlineTransferRegisterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agreement)) {
-            $query['Agreement'] = $request->agreement;
+        if (null !== $request->agreement) {
+            @$query['Agreement'] = $request->agreement;
         }
-        if (!Utils::isUnset($request->hotlineNumber)) {
-            $query['HotlineNumber'] = $request->hotlineNumber;
+
+        if (null !== $request->hotlineNumber) {
+            @$query['HotlineNumber'] = $request->hotlineNumber;
         }
-        if (!Utils::isUnset($request->operatorIdentityCard)) {
-            $query['OperatorIdentityCard'] = $request->operatorIdentityCard;
+
+        if (null !== $request->operatorIdentityCard) {
+            @$query['OperatorIdentityCard'] = $request->operatorIdentityCard;
         }
-        if (!Utils::isUnset($request->operatorMail)) {
-            $query['OperatorMail'] = $request->operatorMail;
+
+        if (null !== $request->operatorMail) {
+            @$query['OperatorMail'] = $request->operatorMail;
         }
-        if (!Utils::isUnset($request->operatorMailVerifyCode)) {
-            $query['OperatorMailVerifyCode'] = $request->operatorMailVerifyCode;
+
+        if (null !== $request->operatorMailVerifyCode) {
+            @$query['OperatorMailVerifyCode'] = $request->operatorMailVerifyCode;
         }
-        if (!Utils::isUnset($request->operatorMobile)) {
-            $query['OperatorMobile'] = $request->operatorMobile;
+
+        if (null !== $request->operatorMobile) {
+            @$query['OperatorMobile'] = $request->operatorMobile;
         }
-        if (!Utils::isUnset($request->operatorMobileVerifyCode)) {
-            $query['OperatorMobileVerifyCode'] = $request->operatorMobileVerifyCode;
+
+        if (null !== $request->operatorMobileVerifyCode) {
+            @$query['OperatorMobileVerifyCode'] = $request->operatorMobileVerifyCode;
         }
-        if (!Utils::isUnset($request->operatorName)) {
-            $query['OperatorName'] = $request->operatorName;
+
+        if (null !== $request->operatorName) {
+            @$query['OperatorName'] = $request->operatorName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->qualificationId)) {
-            $query['QualificationId'] = $request->qualificationId;
+
+        if (null !== $request->qualificationId) {
+            @$query['QualificationId'] = $request->qualificationId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->transferPhoneNumberInfos)) {
-            $query['TransferPhoneNumberInfos'] = $request->transferPhoneNumberInfos;
+
+        if (null !== $request->transferPhoneNumberInfos) {
+            @$query['TransferPhoneNumberInfos'] = $request->transferPhoneNumberInfos;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitHotlineTransferRegister',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitHotlineTransferRegister',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SubmitHotlineTransferRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a China 400 number for registration.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param SubmitHotlineTransferRegisterRequest $request SubmitHotlineTransferRegisterRequest
+     * Submits a China 400 number for registration.
      *
-     * @return SubmitHotlineTransferRegisterResponse SubmitHotlineTransferRegisterResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - SubmitHotlineTransferRegisterRequest
+     *
+     * @returns SubmitHotlineTransferRegisterResponse
+     *
+     * @param SubmitHotlineTransferRegisterRequest $request
+     *
+     * @return SubmitHotlineTransferRegisterResponse
      */
     public function submitHotlineTransferRegister($request)
     {
@@ -3845,62 +4674,78 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary UpgradeVideoFile
-     *  *
-     * @param UpgradeVideoFileRequest $request UpgradeVideoFileRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * UpgradeVideoFile.
      *
-     * @return UpgradeVideoFileResponse UpgradeVideoFileResponse
+     * @param request - UpgradeVideoFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeVideoFileResponse
+     *
+     * @param UpgradeVideoFileRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpgradeVideoFileResponse
      */
     public function upgradeVideoFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->mediaType)) {
-            $query['MediaType'] = $request->mediaType;
+
+        if (null !== $request->mediaType) {
+            @$query['MediaType'] = $request->mediaType;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeVideoFile',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeVideoFile',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpgradeVideoFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary UpgradeVideoFile
-     *  *
-     * @param UpgradeVideoFileRequest $request UpgradeVideoFileRequest
+     * UpgradeVideoFile.
      *
-     * @return UpgradeVideoFileResponse UpgradeVideoFileResponse
+     * @param request - UpgradeVideoFileRequest
+     *
+     * @returns UpgradeVideoFileResponse
+     *
+     * @param UpgradeVideoFileRequest $request
+     *
+     * @return UpgradeVideoFileResponse
      */
     public function upgradeVideoFile($request)
     {
@@ -3910,68 +4755,86 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @summary Uploads the called numbers of a robocall task.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param UploadRobotTaskCalledFileRequest $request UploadRobotTaskCalledFileRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Uploads the called numbers of a robocall task.
      *
-     * @return UploadRobotTaskCalledFileResponse UploadRobotTaskCalledFileResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - UploadRobotTaskCalledFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadRobotTaskCalledFileResponse
+     *
+     * @param UploadRobotTaskCalledFileRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UploadRobotTaskCalledFileResponse
      */
     public function uploadRobotTaskCalledFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->ttsParam)) {
-            $query['TtsParam'] = $request->ttsParam;
+
+        if (null !== $request->ttsParam) {
+            @$query['TtsParam'] = $request->ttsParam;
         }
-        if (!Utils::isUnset($request->ttsParamHead)) {
-            $query['TtsParamHead'] = $request->ttsParamHead;
+
+        if (null !== $request->ttsParamHead) {
+            @$query['TtsParamHead'] = $request->ttsParamHead;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UploadRobotTaskCalledFile',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadRobotTaskCalledFile',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UploadRobotTaskCalledFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Uploads the called numbers of a robocall task.
-     *  *
-     * @description ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *  *
-     * @param UploadRobotTaskCalledFileRequest $request UploadRobotTaskCalledFileRequest
+     * Uploads the called numbers of a robocall task.
      *
-     * @return UploadRobotTaskCalledFileResponse UploadRobotTaskCalledFileResponse
+     * @remarks
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *
+     * @param request - UploadRobotTaskCalledFileRequest
+     *
+     * @returns UploadRobotTaskCalledFileResponse
+     *
+     * @param UploadRobotTaskCalledFileRequest $request
+     *
+     * @return UploadRobotTaskCalledFileResponse
      */
     public function uploadRobotTaskCalledFile($request)
     {

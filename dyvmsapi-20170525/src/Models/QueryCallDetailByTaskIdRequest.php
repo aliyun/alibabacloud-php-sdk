@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryCallDetailByTaskIdRequest extends Model
 {
     /**
-     * @description The called number. You can view the outbound call records of only one called number.
-     *
-     * This parameter is required.
-     * @example 1390000****
-     *
      * @var string
      */
     public $callee;
@@ -24,11 +19,6 @@ class QueryCallDetailByTaskIdRequest extends Model
     public $ownerId;
 
     /**
-     * @description The start time of the outbound robocall task. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * This parameter is required.
-     * @example 2020-10-09 09:02:03
-     *
      * @var int
      */
     public $queryDate;
@@ -44,45 +34,46 @@ class QueryCallDetailByTaskIdRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The unique ID of the outbound robocall task. The task ID is returned after the outbound robocall task is successfully delivered. You can view the task ID on the [Task Management](https://dyvms.console.aliyun.com/job/list) page of the Voice Messaging Service console, or call the **BatchRobotSmartCall** operation to obtain the **task ID**.
-     *
-     * This parameter is required.
-     * @example 4001112222
-     *
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'callee'               => 'Callee',
-        'ownerId'              => 'OwnerId',
-        'queryDate'            => 'QueryDate',
+        'callee' => 'Callee',
+        'ownerId' => 'OwnerId',
+        'queryDate' => 'QueryDate',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'taskId'               => 'TaskId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callee) {
             $res['Callee'] = $this->callee;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->queryDate) {
             $res['QueryDate'] = $this->queryDate;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -90,29 +81,34 @@ class QueryCallDetailByTaskIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryCallDetailByTaskIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Callee'])) {
             $model->callee = $map['Callee'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['QueryDate'])) {
             $model->queryDate = $map['QueryDate'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

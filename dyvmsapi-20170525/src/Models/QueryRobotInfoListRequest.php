@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryRobotInfoListRequest extends Model
 {
     /**
-     * @description The review state. Valid values:
-     *
-     *   **CONFIGURABLE**
-     *   **AUDITING**
-     *   **AUDITPASS**
-     *   **AUDITFAIL**
-     *
-     * @example AUDITING
-     *
      * @var string
      */
     public $auditStatus;
@@ -37,28 +28,32 @@ class QueryRobotInfoListRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'auditStatus'          => 'AuditStatus',
-        'ownerId'              => 'OwnerId',
+        'auditStatus' => 'AuditStatus',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->auditStatus) {
             $res['AuditStatus'] = $this->auditStatus;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -66,23 +61,26 @@ class QueryRobotInfoListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryRobotInfoListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuditStatus'])) {
             $model->auditStatus = $map['AuditStatus'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

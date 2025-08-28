@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetHotlineQualificationByOrderRequest extends Model
 {
     /**
-     * @description The ticket ID.
-     *
-     * You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home), choose **Qualification\\&Communication Script Management** > **Qualification Management**, and then click the **400 Qualifications** tab to view the ticket ID.
-     *
-     * This parameter is required.
-     * @example 22456****
-     *
      * @var string
      */
     public $orderId;
@@ -35,28 +28,32 @@ class GetHotlineQualificationByOrderRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'orderId'              => 'OrderId',
-        'ownerId'              => 'OwnerId',
+        'orderId' => 'OrderId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -64,23 +61,26 @@ class GetHotlineQualificationByOrderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetHotlineQualificationByOrderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

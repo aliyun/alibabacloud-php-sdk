@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SetTransferCalleePoolConfigRequest\details;
-use AlibabaCloud\Tea\Model;
 
 class SetTransferCalleePoolConfigRequest extends Model
 {
     /**
-     * @description The call mode. Valid values:
-     *
-     *   **roundRobin**
-     *   **random**
-     *
-     * This parameter is required.
-     * @example roundRobin
-     *
      * @var string
      */
     public $calledRouteMode;
 
     /**
-     * @description The information about the phone numbers for transferring the call.
-     *
-     * This parameter is required.
      * @var details[]
      */
     public $details;
@@ -36,21 +25,11 @@ class SetTransferCalleePoolConfigRequest extends Model
     public $ownerId;
 
     /**
-     * @description The phone number used for transferring the call.
-     *
-     * This parameter is required.
-     * @example 400****
-     *
      * @var string
      */
     public $phoneNumber;
 
     /**
-     * @description The qualification ID. You can call the [GetHotlineQualificationByOrder](https://help.aliyun.com/document_detail/393548.html) operation to obtain the qualification ID.
-     *
-     * This parameter is required.
-     * @example 190***
-     *
      * @var string
      */
     public $qualificationId;
@@ -65,46 +44,57 @@ class SetTransferCalleePoolConfigRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'calledRouteMode'      => 'CalledRouteMode',
-        'details'              => 'Details',
-        'ownerId'              => 'OwnerId',
-        'phoneNumber'          => 'PhoneNumber',
-        'qualificationId'      => 'QualificationId',
+        'calledRouteMode' => 'CalledRouteMode',
+        'details' => 'Details',
+        'ownerId' => 'OwnerId',
+        'phoneNumber' => 'PhoneNumber',
+        'qualificationId' => 'QualificationId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->details)) {
+            Model::validateArray($this->details);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->calledRouteMode) {
             $res['CalledRouteMode'] = $this->calledRouteMode;
         }
+
         if (null !== $this->details) {
-            $res['Details'] = [];
-            if (null !== $this->details && \is_array($this->details)) {
-                $n = 0;
-                foreach ($this->details as $item) {
-                    $res['Details'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->details)) {
+                $res['Details'] = [];
+                $n1 = 0;
+                foreach ($this->details as $item1) {
+                    $res['Details'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
+
         if (null !== $this->qualificationId) {
             $res['QualificationId'] = $this->qualificationId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -112,38 +102,45 @@ class SetTransferCalleePoolConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetTransferCalleePoolConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CalledRouteMode'])) {
             $model->calledRouteMode = $map['CalledRouteMode'];
         }
+
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
-                $n              = 0;
-                foreach ($map['Details'] as $item) {
-                    $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Details'] as $item1) {
+                    $model->details[$n1] = details::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }
+
         if (isset($map['QualificationId'])) {
             $model->qualificationId = $map['QualificationId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

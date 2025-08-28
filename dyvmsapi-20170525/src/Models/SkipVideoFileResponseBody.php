@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SkipVideoFileResponseBody extends Model
 {
@@ -14,59 +14,56 @@ class SkipVideoFileResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
-     * @example OK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $data;
 
     /**
-     * @example 示例值示例值示例值
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'data'               => 'Data',
-        'message'            => 'Message',
-        'success'            => 'Success',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -74,26 +71,30 @@ class SkipVideoFileResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SkipVideoFileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

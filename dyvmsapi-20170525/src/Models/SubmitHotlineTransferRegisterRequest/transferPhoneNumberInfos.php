@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SubmitHotlineTransferRegisterRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class transferPhoneNumberInfos extends Model
 {
     /**
-     * @description The ID card number of the number owner.
-     *
-     * This parameter is required.
-     * @example 500***
-     *
      * @var string
      */
     public $identityCard;
 
     /**
-     * @description The China 400 number that you want to submit for registration.
-     *
-     * This parameter is required.
-     * @example 1580000****
-     *
      * @var string
      */
     public $phoneNumber;
 
     /**
-     * @description The real name or company name of the number owner.
-     *
-     * This parameter is required.
-     * @example A***
-     *
      * @var string
      */
     public $phoneNumberOwnerName;
     protected $_name = [
-        'identityCard'         => 'IdentityCard',
-        'phoneNumber'          => 'PhoneNumber',
+        'identityCard' => 'IdentityCard',
+        'phoneNumber' => 'PhoneNumber',
         'phoneNumberOwnerName' => 'PhoneNumberOwnerName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identityCard) {
             $res['IdentityCard'] = $this->identityCard;
         }
+
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
+
         if (null !== $this->phoneNumberOwnerName) {
             $res['PhoneNumberOwnerName'] = $this->phoneNumberOwnerName;
         }
@@ -63,20 +51,22 @@ class transferPhoneNumberInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return transferPhoneNumberInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IdentityCard'])) {
             $model->identityCard = $map['IdentityCard'];
         }
+
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }
+
         if (isset($map['PhoneNumberOwnerName'])) {
             $model->phoneNumberOwnerName = $map['PhoneNumberOwnerName'];
         }

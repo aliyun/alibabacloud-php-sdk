@@ -4,73 +4,67 @@
 
 namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferRegisterFileResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferRegisterFileResponseBody\data\values;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $total;
 
     /**
-     * @description The registration file.
-     *
      * @var values[]
      */
     public $values;
     protected $_name = [
-        'pageNo'   => 'PageNo',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
-        'total'    => 'Total',
-        'values'   => 'Values',
+        'total' => 'Total',
+        'values' => 'Values',
     ];
 
     public function validate()
     {
+        if (\is_array($this->values)) {
+            Model::validateArray($this->values);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
+
         if (null !== $this->values) {
-            $res['Values'] = [];
-            if (null !== $this->values && \is_array($this->values)) {
-                $n = 0;
-                foreach ($this->values as $item) {
-                    $res['Values'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->values)) {
+                $res['Values'] = [];
+                $n1 = 0;
+                foreach ($this->values as $item1) {
+                    $res['Values'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,29 +72,33 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
+
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n             = 0;
-                foreach ($map['Values'] as $item) {
-                    $model->values[$n++] = null !== $item ? values::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Values'] as $item1) {
+                    $model->values[$n1] = values::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

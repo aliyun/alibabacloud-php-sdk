@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTemporaryFileUrlRequest extends Model
 {
@@ -24,36 +24,36 @@ class GetTemporaryFileUrlRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 45a04670582571eebf9e4531948c****
-     *
      * @var string
      */
     public $videoId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'videoId'              => 'VideoId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'videoId' => 'VideoId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
         }
@@ -61,23 +61,26 @@ class GetTemporaryFileUrlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTemporaryFileUrlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];
         }

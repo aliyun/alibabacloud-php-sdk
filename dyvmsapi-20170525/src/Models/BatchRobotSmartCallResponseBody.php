@@ -4,71 +4,56 @@
 
 namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchRobotSmartCallResponseBody extends Model
 {
     /**
-     * @description The response code.
-     *
-     *   The value OK indicates that the request was successful.
-     *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/112502.html).
-     *
-     * @example OK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The returned message.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The unique ID of the robocall task. You can call the [QueryCallDetailByTaskId](https://help.aliyun.com/document_detail/393537.html) operation to query the details of the task based on the task ID.
-     *
-     * @example 4001112222
-     *
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'taskId'    => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -76,23 +61,26 @@ class BatchRobotSmartCallResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchRobotSmartCallResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
