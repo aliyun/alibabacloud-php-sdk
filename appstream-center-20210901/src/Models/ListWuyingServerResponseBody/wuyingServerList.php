@@ -14,6 +14,11 @@ class wuyingServerList extends Model
     /**
      * @var string
      */
+    public $addVirtualNodePoolStatus;
+
+    /**
+     * @var string
+     */
     public $bizRegionId;
 
     /**
@@ -77,6 +82,11 @@ class wuyingServerList extends Model
     public $osType;
 
     /**
+     * @var string[]
+     */
+    public $securityGroupIds;
+
+    /**
      * @var serverInstanceTypeInfo
      */
     public $serverInstanceTypeInfo;
@@ -104,6 +114,11 @@ class wuyingServerList extends Model
     /**
      * @var string
      */
+    public $virtualNodePoolId;
+
+    /**
+     * @var string
+     */
     public $wuyingServerId;
 
     /**
@@ -111,6 +126,7 @@ class wuyingServerList extends Model
      */
     public $wuyingServerName;
     protected $_name = [
+        'addVirtualNodePoolStatus' => 'AddVirtualNodePoolStatus',
         'bizRegionId' => 'BizRegionId',
         'chargeType' => 'ChargeType',
         'createTime' => 'CreateTime',
@@ -124,11 +140,13 @@ class wuyingServerList extends Model
         'officeSiteName' => 'OfficeSiteName',
         'officeSiteType' => 'OfficeSiteType',
         'osType' => 'OsType',
+        'securityGroupIds' => 'SecurityGroupIds',
         'serverInstanceTypeInfo' => 'ServerInstanceTypeInfo',
         'status' => 'Status',
         'systemDiskCategory' => 'SystemDiskCategory',
         'systemDiskPerformanceLevel' => 'SystemDiskPerformanceLevel',
         'systemDiskSize' => 'SystemDiskSize',
+        'virtualNodePoolId' => 'VirtualNodePoolId',
         'wuyingServerId' => 'WuyingServerId',
         'wuyingServerName' => 'WuyingServerName',
     ];
@@ -141,6 +159,9 @@ class wuyingServerList extends Model
         if (\is_array($this->instanceInfoList)) {
             Model::validateArray($this->instanceInfoList);
         }
+        if (\is_array($this->securityGroupIds)) {
+            Model::validateArray($this->securityGroupIds);
+        }
         if (null !== $this->serverInstanceTypeInfo) {
             $this->serverInstanceTypeInfo->validate();
         }
@@ -150,6 +171,10 @@ class wuyingServerList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->addVirtualNodePoolStatus) {
+            $res['AddVirtualNodePoolStatus'] = $this->addVirtualNodePoolStatus;
+        }
+
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
         }
@@ -216,6 +241,17 @@ class wuyingServerList extends Model
             $res['OsType'] = $this->osType;
         }
 
+        if (null !== $this->securityGroupIds) {
+            if (\is_array($this->securityGroupIds)) {
+                $res['SecurityGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->securityGroupIds as $item1) {
+                    $res['SecurityGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->serverInstanceTypeInfo) {
             $res['ServerInstanceTypeInfo'] = null !== $this->serverInstanceTypeInfo ? $this->serverInstanceTypeInfo->toArray($noStream) : $this->serverInstanceTypeInfo;
         }
@@ -234,6 +270,10 @@ class wuyingServerList extends Model
 
         if (null !== $this->systemDiskSize) {
             $res['SystemDiskSize'] = $this->systemDiskSize;
+        }
+
+        if (null !== $this->virtualNodePoolId) {
+            $res['VirtualNodePoolId'] = $this->virtualNodePoolId;
         }
 
         if (null !== $this->wuyingServerId) {
@@ -255,6 +295,10 @@ class wuyingServerList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddVirtualNodePoolStatus'])) {
+            $model->addVirtualNodePoolStatus = $map['AddVirtualNodePoolStatus'];
+        }
+
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
         }
@@ -321,6 +365,17 @@ class wuyingServerList extends Model
             $model->osType = $map['OsType'];
         }
 
+        if (isset($map['SecurityGroupIds'])) {
+            if (!empty($map['SecurityGroupIds'])) {
+                $model->securityGroupIds = [];
+                $n1 = 0;
+                foreach ($map['SecurityGroupIds'] as $item1) {
+                    $model->securityGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ServerInstanceTypeInfo'])) {
             $model->serverInstanceTypeInfo = serverInstanceTypeInfo::fromMap($map['ServerInstanceTypeInfo']);
         }
@@ -339,6 +394,10 @@ class wuyingServerList extends Model
 
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];
+        }
+
+        if (isset($map['VirtualNodePoolId'])) {
+            $model->virtualNodePoolId = $map['VirtualNodePoolId'];
         }
 
         if (isset($map['WuyingServerId'])) {

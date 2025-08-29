@@ -105,7 +105,6 @@ class Appstreamcenter extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('appstream-center', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -652,6 +651,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->vSwitchIds) {
             @$body['VSwitchIds'] = $request->vSwitchIds;
+        }
+
+        if (null !== $request->virtualNodePoolId) {
+            @$body['VirtualNodePoolId'] = $request->virtualNodePoolId;
         }
 
         if (null !== $request->wuyingServerName) {
@@ -2147,6 +2150,11 @@ class Appstreamcenter extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        $bodyFlat = [];
+        if (null !== $request->addVirtualNodePoolStatusList) {
+            @$bodyFlat['AddVirtualNodePoolStatusList'] = $request->addVirtualNodePoolStatusList;
+        }
+
         if (null !== $request->bizRegionId) {
             @$body['BizRegionId'] = $request->bizRegionId;
         }
@@ -2179,7 +2187,10 @@ class Appstreamcenter extends OpenApiClient
             @$body['Status'] = $request->status;
         }
 
-        $bodyFlat = [];
+        if (null !== $request->virtualNodePoolId) {
+            @$body['VirtualNodePoolId'] = $request->virtualNodePoolId;
+        }
+
         if (null !== $request->wuyingServerIdList) {
             @$bodyFlat['WuyingServerIdList'] = $request->wuyingServerIdList;
         }
@@ -2553,6 +2564,15 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * Changes the scaling policy of a delivery group. The following scaling policies are supported: fixed resource number, scheduled scaling, and auto scaling.
+     *
+     * @remarks
+     * You can select one of the following scaling policies for cloud app resources:
+     * *   No scaling: Resources are not scaled.
+     * *   Auto scaling: Resources are automatically scaled based on the number of connected sessions and the duration during which no session is connected.
+     * *   Scheduled scaling: Resources are scaled during specific periods of time on specific dates.
+     * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+     *
      * @param tmpReq - ModifyNodePoolAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2612,6 +2632,15 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * Changes the scaling policy of a delivery group. The following scaling policies are supported: fixed resource number, scheduled scaling, and auto scaling.
+     *
+     * @remarks
+     * You can select one of the following scaling policies for cloud app resources:
+     * *   No scaling: Resources are not scaled.
+     * *   Auto scaling: Resources are automatically scaled based on the number of connected sessions and the duration during which no session is connected.
+     * *   Scheduled scaling: Resources are scaled during specific periods of time on specific dates.
+     * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+     *
      * @param request - ModifyNodePoolAttributeRequest
      *
      * @returns ModifyNodePoolAttributeResponse

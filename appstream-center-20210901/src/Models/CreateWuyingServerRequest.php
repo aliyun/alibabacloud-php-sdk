@@ -97,6 +97,11 @@ class CreateWuyingServerRequest extends Model
     /**
      * @var string
      */
+    public $virtualNodePoolId;
+
+    /**
+     * @var string
+     */
     public $wuyingServerName;
     protected $_name = [
         'amount' => 'Amount',
@@ -116,6 +121,7 @@ class CreateWuyingServerRequest extends Model
         'systemDiskPerformanceLevel' => 'SystemDiskPerformanceLevel',
         'systemDiskSize' => 'SystemDiskSize',
         'vSwitchIds' => 'VSwitchIds',
+        'virtualNodePoolId' => 'VirtualNodePoolId',
         'wuyingServerName' => 'WuyingServerName',
     ];
 
@@ -215,6 +221,10 @@ class CreateWuyingServerRequest extends Model
             }
         }
 
+        if (null !== $this->virtualNodePoolId) {
+            $res['VirtualNodePoolId'] = $this->virtualNodePoolId;
+        }
+
         if (null !== $this->wuyingServerName) {
             $res['WuyingServerName'] = $this->wuyingServerName;
         }
@@ -310,6 +320,10 @@ class CreateWuyingServerRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['VirtualNodePoolId'])) {
+            $model->virtualNodePoolId = $map['VirtualNodePoolId'];
         }
 
         if (isset($map['WuyingServerName'])) {

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListWuyingServerRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $addVirtualNodePoolStatusList;
+
+    /**
      * @var string
      */
     public $bizRegionId;
@@ -49,6 +54,11 @@ class ListWuyingServerRequest extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $virtualNodePoolId;
+
+    /**
      * @var string[]
      */
     public $wuyingServerIdList;
@@ -58,6 +68,7 @@ class ListWuyingServerRequest extends Model
      */
     public $wuyingServerNameOrId;
     protected $_name = [
+        'addVirtualNodePoolStatusList' => 'AddVirtualNodePoolStatusList',
         'bizRegionId' => 'BizRegionId',
         'chargeType' => 'ChargeType',
         'imageId' => 'ImageId',
@@ -66,12 +77,16 @@ class ListWuyingServerRequest extends Model
         'pageSize' => 'PageSize',
         'serverInstanceType' => 'ServerInstanceType',
         'status' => 'Status',
+        'virtualNodePoolId' => 'VirtualNodePoolId',
         'wuyingServerIdList' => 'WuyingServerIdList',
         'wuyingServerNameOrId' => 'WuyingServerNameOrId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->addVirtualNodePoolStatusList)) {
+            Model::validateArray($this->addVirtualNodePoolStatusList);
+        }
         if (\is_array($this->wuyingServerIdList)) {
             Model::validateArray($this->wuyingServerIdList);
         }
@@ -81,6 +96,17 @@ class ListWuyingServerRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->addVirtualNodePoolStatusList) {
+            if (\is_array($this->addVirtualNodePoolStatusList)) {
+                $res['AddVirtualNodePoolStatusList'] = [];
+                $n1 = 0;
+                foreach ($this->addVirtualNodePoolStatusList as $item1) {
+                    $res['AddVirtualNodePoolStatusList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
         }
@@ -113,6 +139,10 @@ class ListWuyingServerRequest extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->virtualNodePoolId) {
+            $res['VirtualNodePoolId'] = $this->virtualNodePoolId;
+        }
+
         if (null !== $this->wuyingServerIdList) {
             if (\is_array($this->wuyingServerIdList)) {
                 $res['WuyingServerIdList'] = [];
@@ -139,6 +169,17 @@ class ListWuyingServerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddVirtualNodePoolStatusList'])) {
+            if (!empty($map['AddVirtualNodePoolStatusList'])) {
+                $model->addVirtualNodePoolStatusList = [];
+                $n1 = 0;
+                foreach ($map['AddVirtualNodePoolStatusList'] as $item1) {
+                    $model->addVirtualNodePoolStatusList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
         }
@@ -169,6 +210,10 @@ class ListWuyingServerRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['VirtualNodePoolId'])) {
+            $model->virtualNodePoolId = $map['VirtualNodePoolId'];
         }
 
         if (isset($map['WuyingServerIdList'])) {
