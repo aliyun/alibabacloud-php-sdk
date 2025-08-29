@@ -40,6 +40,11 @@ class trafficControlTasks extends Model
     public $effectiveSceneIds;
 
     /**
+     * @var string[]
+     */
+    public $effectiveSceneNameList;
+
+    /**
      * @var int[]
      */
     public $effectiveSceneNames;
@@ -140,6 +145,11 @@ class trafficControlTasks extends Model
     public $serviceId;
 
     /**
+     * @var int[]
+     */
+    public $serviceIdList;
+
+    /**
      * @var string[]
      */
     public $serviceIds;
@@ -200,6 +210,7 @@ class trafficControlTasks extends Model
         'controlType' => 'ControlType',
         'description' => 'Description',
         'effectiveSceneIds' => 'EffectiveSceneIds',
+        'effectiveSceneNameList' => 'EffectiveSceneNameList',
         'effectiveSceneNames' => 'EffectiveSceneNames',
         'endTime' => 'EndTime',
         'everPublished' => 'EverPublished',
@@ -220,6 +231,7 @@ class trafficControlTasks extends Model
         'sceneId' => 'SceneId',
         'sceneName' => 'SceneName',
         'serviceId' => 'ServiceId',
+        'serviceIdList' => 'ServiceIdList',
         'serviceIds' => 'ServiceIds',
         'startTime' => 'StartTime',
         'statisBahaviorConditionExpress' => 'StatisBahaviorConditionExpress',
@@ -238,8 +250,14 @@ class trafficControlTasks extends Model
         if (\is_array($this->effectiveSceneIds)) {
             Model::validateArray($this->effectiveSceneIds);
         }
+        if (\is_array($this->effectiveSceneNameList)) {
+            Model::validateArray($this->effectiveSceneNameList);
+        }
         if (\is_array($this->effectiveSceneNames)) {
             Model::validateArray($this->effectiveSceneNames);
+        }
+        if (\is_array($this->serviceIdList)) {
+            Model::validateArray($this->serviceIdList);
         }
         if (\is_array($this->serviceIds)) {
             Model::validateArray($this->serviceIds);
@@ -279,6 +297,17 @@ class trafficControlTasks extends Model
                 $n1 = 0;
                 foreach ($this->effectiveSceneIds as $item1) {
                     $res['EffectiveSceneIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->effectiveSceneNameList) {
+            if (\is_array($this->effectiveSceneNameList)) {
+                $res['EffectiveSceneNameList'] = [];
+                $n1 = 0;
+                foreach ($this->effectiveSceneNameList as $item1) {
+                    $res['EffectiveSceneNameList'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -369,6 +398,17 @@ class trafficControlTasks extends Model
 
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
+        }
+
+        if (null !== $this->serviceIdList) {
+            if (\is_array($this->serviceIdList)) {
+                $res['ServiceIdList'] = [];
+                $n1 = 0;
+                foreach ($this->serviceIdList as $item1) {
+                    $res['ServiceIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->serviceIds) {
@@ -471,6 +511,17 @@ class trafficControlTasks extends Model
             }
         }
 
+        if (isset($map['EffectiveSceneNameList'])) {
+            if (!empty($map['EffectiveSceneNameList'])) {
+                $model->effectiveSceneNameList = [];
+                $n1 = 0;
+                foreach ($map['EffectiveSceneNameList'] as $item1) {
+                    $model->effectiveSceneNameList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['EffectiveSceneNames'])) {
             if (!empty($map['EffectiveSceneNames'])) {
                 $model->effectiveSceneNames = [];
@@ -556,6 +607,17 @@ class trafficControlTasks extends Model
 
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
+        }
+
+        if (isset($map['ServiceIdList'])) {
+            if (!empty($map['ServiceIdList'])) {
+                $model->serviceIdList = [];
+                $n1 = 0;
+                foreach ($map['ServiceIdList'] as $item1) {
+                    $model->serviceIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ServiceIds'])) {
