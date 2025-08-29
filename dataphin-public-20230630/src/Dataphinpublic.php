@@ -247,6 +247,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableColumnLineageByTask
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineageByTaskIdRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineageByTaskIdResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineageByTaskIdShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTransferInfoRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTransferInfoResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUdfByVersionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUdfByVersionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUdfRequest;
@@ -398,6 +400,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ReplaceProjectWhiteListsShr
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ResumePhysicalNodeRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ResumePhysicalNodeResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ResumePhysicalNodeShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RetryTransferOwnershipRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RetryTransferOwnershipResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RetryTransferOwnershipShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeDataServiceApiRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeDataServiceApiResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeDataServiceApiShrinkRequest;
@@ -409,6 +414,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopAdHocTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\TransferOwnershipForAllObjectRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\TransferOwnershipForAllObjectResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\TransferOwnershipForAllObjectShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileShrinkRequest;
@@ -7300,6 +7308,67 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 根据转交任务ID查询转交任务的进度.
+     *
+     * @param request - GetTransferInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTransferInfoResponse
+     *
+     * @param GetTransferInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetTransferInfoResponse
+     */
+    public function getTransferInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->proposalId) {
+            @$query['ProposalId'] = $request->proposalId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTransferInfo',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTransferInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据转交任务ID查询转交任务的进度.
+     *
+     * @param request - GetTransferInfoRequest
+     *
+     * @returns GetTransferInfoResponse
+     *
+     * @param GetTransferInfoRequest $request
+     *
+     * @return GetTransferInfoResponse
+     */
+    public function getTransferInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTransferInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取自定义函数详情。
      *
      * @param request - GetUdfRequest
@@ -10981,6 +11050,75 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 重新转交运行失败的转交任务
+     *
+     * @param tmpReq - RetryTransferOwnershipRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RetryTransferOwnershipResponse
+     *
+     * @param RetryTransferOwnershipRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RetryTransferOwnershipResponse
+     */
+    public function retryTransferOwnershipWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RetryTransferOwnershipShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->privilegeTransferRecord) {
+            $request->privilegeTransferRecordShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->privilegeTransferRecord, 'PrivilegeTransferRecord', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->privilegeTransferRecordShrink) {
+            @$body['PrivilegeTransferRecord'] = $request->privilegeTransferRecordShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RetryTransferOwnership',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RetryTransferOwnershipResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重新转交运行失败的转交任务
+     *
+     * @param request - RetryTransferOwnershipRequest
+     *
+     * @returns RetryTransferOwnershipResponse
+     *
+     * @param RetryTransferOwnershipRequest $request
+     *
+     * @return RetryTransferOwnershipResponse
+     */
+    public function retryTransferOwnership($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retryTransferOwnershipWithOptions($request, $runtime);
+    }
+
+    /**
      * 回收API授权。
      *
      * @param tmpReq - RevokeDataServiceApiRequest
@@ -11254,6 +11392,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitBatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 一键转交负责人.
+     *
+     * @param tmpReq - TransferOwnershipForAllObjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TransferOwnershipForAllObjectResponse
+     *
+     * @param TransferOwnershipForAllObjectRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return TransferOwnershipForAllObjectResponse
+     */
+    public function transferOwnershipForAllObjectWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new TransferOwnershipForAllObjectShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->privilegeTransferRecord) {
+            $request->privilegeTransferRecordShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->privilegeTransferRecord, 'PrivilegeTransferRecord', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->privilegeTransferRecordShrink) {
+            @$body['PrivilegeTransferRecord'] = $request->privilegeTransferRecordShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TransferOwnershipForAllObject',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TransferOwnershipForAllObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 一键转交负责人.
+     *
+     * @param request - TransferOwnershipForAllObjectRequest
+     *
+     * @returns TransferOwnershipForAllObjectResponse
+     *
+     * @param TransferOwnershipForAllObjectRequest $request
+     *
+     * @return TransferOwnershipForAllObjectResponse
+     */
+    public function transferOwnershipForAllObject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->transferOwnershipForAllObjectWithOptions($request, $runtime);
     }
 
     /**
