@@ -35,6 +35,16 @@ class GetTrafficControlTaskResponseBody extends Model
     public $description;
 
     /**
+     * @var int[]
+     */
+    public $effectiveSceneIds;
+
+    /**
+     * @var string[]
+     */
+    public $effectiveSceneNames;
+
+    /**
      * @var string
      */
     public $endTime;
@@ -135,6 +145,11 @@ class GetTrafficControlTaskResponseBody extends Model
     public $serviceId;
 
     /**
+     * @var int[]
+     */
+    public $serviceIds;
+
+    /**
      * @var string
      */
     public $startTime;
@@ -189,6 +204,8 @@ class GetTrafficControlTaskResponseBody extends Model
         'controlLogic' => 'ControlLogic',
         'controlType' => 'ControlType',
         'description' => 'Description',
+        'effectiveSceneIds' => 'EffectiveSceneIds',
+        'effectiveSceneNames' => 'EffectiveSceneNames',
         'endTime' => 'EndTime',
         'everPublished' => 'EverPublished',
         'executionTime' => 'ExecutionTime',
@@ -209,6 +226,7 @@ class GetTrafficControlTaskResponseBody extends Model
         'sceneId' => 'SceneId',
         'sceneName' => 'SceneName',
         'serviceId' => 'ServiceId',
+        'serviceIds' => 'ServiceIds',
         'startTime' => 'StartTime',
         'statisBehaviorConditionArray' => 'StatisBehaviorConditionArray',
         'statisBehaviorConditionExpress' => 'StatisBehaviorConditionExpress',
@@ -223,6 +241,15 @@ class GetTrafficControlTaskResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->effectiveSceneIds)) {
+            Model::validateArray($this->effectiveSceneIds);
+        }
+        if (\is_array($this->effectiveSceneNames)) {
+            Model::validateArray($this->effectiveSceneNames);
+        }
+        if (\is_array($this->serviceIds)) {
+            Model::validateArray($this->serviceIds);
+        }
         if (\is_array($this->trafficControlTargets)) {
             Model::validateArray($this->trafficControlTargets);
         }
@@ -250,6 +277,28 @@ class GetTrafficControlTaskResponseBody extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->effectiveSceneIds) {
+            if (\is_array($this->effectiveSceneIds)) {
+                $res['EffectiveSceneIds'] = [];
+                $n1 = 0;
+                foreach ($this->effectiveSceneIds as $item1) {
+                    $res['EffectiveSceneIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->effectiveSceneNames) {
+            if (\is_array($this->effectiveSceneNames)) {
+                $res['EffectiveSceneNames'] = [];
+                $n1 = 0;
+                foreach ($this->effectiveSceneNames as $item1) {
+                    $res['EffectiveSceneNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->endTime) {
@@ -332,6 +381,17 @@ class GetTrafficControlTaskResponseBody extends Model
             $res['ServiceId'] = $this->serviceId;
         }
 
+        if (null !== $this->serviceIds) {
+            if (\is_array($this->serviceIds)) {
+                $res['ServiceIds'] = [];
+                $n1 = 0;
+                foreach ($this->serviceIds as $item1) {
+                    $res['ServiceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -408,6 +468,28 @@ class GetTrafficControlTaskResponseBody extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EffectiveSceneIds'])) {
+            if (!empty($map['EffectiveSceneIds'])) {
+                $model->effectiveSceneIds = [];
+                $n1 = 0;
+                foreach ($map['EffectiveSceneIds'] as $item1) {
+                    $model->effectiveSceneIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['EffectiveSceneNames'])) {
+            if (!empty($map['EffectiveSceneNames'])) {
+                $model->effectiveSceneNames = [];
+                $n1 = 0;
+                foreach ($map['EffectiveSceneNames'] as $item1) {
+                    $model->effectiveSceneNames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['EndTime'])) {
@@ -488,6 +570,17 @@ class GetTrafficControlTaskResponseBody extends Model
 
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
+        }
+
+        if (isset($map['ServiceIds'])) {
+            if (!empty($map['ServiceIds'])) {
+                $model->serviceIds = [];
+                $n1 = 0;
+                foreach ($map['ServiceIds'] as $item1) {
+                    $model->serviceIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['StartTime'])) {

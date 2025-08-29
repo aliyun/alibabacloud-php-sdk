@@ -90,6 +90,11 @@ class GetTrafficControlTargetResponseBody extends Model
     public $trafficControlTargetId;
 
     /**
+     * @var string
+     */
+    public $trafficControlTaskId;
+
+    /**
      * @var float
      */
     public $value;
@@ -110,6 +115,7 @@ class GetTrafficControlTargetResponseBody extends Model
         'status' => 'Status',
         'toleranceValue' => 'ToleranceValue',
         'trafficControlTargetId' => 'TrafficControlTargetId',
+        'trafficControlTaskId' => 'TrafficControlTaskId',
         'value' => 'Value',
     ];
 
@@ -186,6 +192,10 @@ class GetTrafficControlTargetResponseBody extends Model
 
         if (null !== $this->trafficControlTargetId) {
             $res['TrafficControlTargetId'] = $this->trafficControlTargetId;
+        }
+
+        if (null !== $this->trafficControlTaskId) {
+            $res['TrafficControlTaskId'] = $this->trafficControlTaskId;
         }
 
         if (null !== $this->value) {
@@ -265,6 +275,10 @@ class GetTrafficControlTargetResponseBody extends Model
 
         if (isset($map['TrafficControlTargetId'])) {
             $model->trafficControlTargetId = $map['TrafficControlTargetId'];
+        }
+
+        if (isset($map['TrafficControlTaskId'])) {
+            $model->trafficControlTaskId = $map['TrafficControlTaskId'];
         }
 
         if (isset($map['Value'])) {

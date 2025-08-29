@@ -3036,6 +3036,10 @@ class PaiRecService extends OpenApiClient
             @$body['Description'] = $request->description;
         }
 
+        if (null !== $request->effectiveSceneIds) {
+            @$body['EffectiveSceneIds'] = $request->effectiveSceneIds;
+        }
+
         if (null !== $request->endTime) {
             @$body['EndTime'] = $request->endTime;
         }
@@ -3086,6 +3090,10 @@ class PaiRecService extends OpenApiClient
 
         if (null !== $request->serviceId) {
             @$body['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->serviceIds) {
+            @$body['ServiceIds'] = $request->serviceIds;
         }
 
         if (null !== $request->startTime) {
@@ -10804,6 +10812,10 @@ class PaiRecService extends OpenApiClient
             @$body['Description'] = $request->description;
         }
 
+        if (null !== $request->effectiveSceneIds) {
+            @$body['EffectiveSceneIds'] = $request->effectiveSceneIds;
+        }
+
         if (null !== $request->endTime) {
             @$body['EndTime'] = $request->endTime;
         }
@@ -10854,6 +10866,10 @@ class PaiRecService extends OpenApiClient
 
         if (null !== $request->serviceId) {
             @$body['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->serviceIds) {
+            @$body['ServiceIds'] = $request->serviceIds;
         }
 
         if (null !== $request->startTime) {

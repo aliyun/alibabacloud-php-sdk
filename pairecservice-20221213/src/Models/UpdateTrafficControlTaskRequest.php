@@ -35,6 +35,11 @@ class UpdateTrafficControlTaskRequest extends Model
     public $description;
 
     /**
+     * @var int[]
+     */
+    public $effectiveSceneIds;
+
+    /**
      * @var string
      */
     public $endTime;
@@ -100,6 +105,11 @@ class UpdateTrafficControlTaskRequest extends Model
     public $serviceId;
 
     /**
+     * @var int[]
+     */
+    public $serviceIds;
+
+    /**
      * @var string
      */
     public $startTime;
@@ -149,6 +159,7 @@ class UpdateTrafficControlTaskRequest extends Model
         'controlLogic' => 'ControlLogic',
         'controlType' => 'ControlType',
         'description' => 'Description',
+        'effectiveSceneIds' => 'EffectiveSceneIds',
         'endTime' => 'EndTime',
         'executionTime' => 'ExecutionTime',
         'flinkResourceId' => 'FlinkResourceId',
@@ -162,6 +173,7 @@ class UpdateTrafficControlTaskRequest extends Model
         'prodExperimentIds' => 'ProdExperimentIds',
         'sceneId' => 'SceneId',
         'serviceId' => 'ServiceId',
+        'serviceIds' => 'ServiceIds',
         'startTime' => 'StartTime',
         'statisBaeaviorConditionArray' => 'StatisBaeaviorConditionArray',
         'statisBehaviorConditionExpress' => 'StatisBehaviorConditionExpress',
@@ -175,6 +187,12 @@ class UpdateTrafficControlTaskRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->effectiveSceneIds)) {
+            Model::validateArray($this->effectiveSceneIds);
+        }
+        if (\is_array($this->serviceIds)) {
+            Model::validateArray($this->serviceIds);
+        }
         if (\is_array($this->trafficControlTargets)) {
             Model::validateArray($this->trafficControlTargets);
         }
@@ -202,6 +220,17 @@ class UpdateTrafficControlTaskRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->effectiveSceneIds) {
+            if (\is_array($this->effectiveSceneIds)) {
+                $res['EffectiveSceneIds'] = [];
+                $n1 = 0;
+                foreach ($this->effectiveSceneIds as $item1) {
+                    $res['EffectiveSceneIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->endTime) {
@@ -254,6 +283,17 @@ class UpdateTrafficControlTaskRequest extends Model
 
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
+        }
+
+        if (null !== $this->serviceIds) {
+            if (\is_array($this->serviceIds)) {
+                $res['ServiceIds'] = [];
+                $n1 = 0;
+                foreach ($this->serviceIds as $item1) {
+                    $res['ServiceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->startTime) {
@@ -330,6 +370,17 @@ class UpdateTrafficControlTaskRequest extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['EffectiveSceneIds'])) {
+            if (!empty($map['EffectiveSceneIds'])) {
+                $model->effectiveSceneIds = [];
+                $n1 = 0;
+                foreach ($map['EffectiveSceneIds'] as $item1) {
+                    $model->effectiveSceneIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
@@ -380,6 +431,17 @@ class UpdateTrafficControlTaskRequest extends Model
 
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
+        }
+
+        if (isset($map['ServiceIds'])) {
+            if (!empty($map['ServiceIds'])) {
+                $model->serviceIds = [];
+                $n1 = 0;
+                foreach ($map['ServiceIds'] as $item1) {
+                    $model->serviceIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['StartTime'])) {
