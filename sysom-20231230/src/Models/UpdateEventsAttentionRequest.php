@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateEventsAttentionRequest extends Model
 {
@@ -19,8 +19,6 @@ class UpdateEventsAttentionRequest extends Model
     public $range;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $uuid;
@@ -30,17 +28,22 @@ class UpdateEventsAttentionRequest extends Model
         'uuid' => 'uuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mode) {
             $res['mode'] = $this->mode;
         }
+
         if (null !== $this->range) {
             $res['range'] = $this->range;
         }
+
         if (null !== $this->uuid) {
             $res['uuid'] = $this->uuid;
         }
@@ -48,20 +51,22 @@ class UpdateEventsAttentionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateEventsAttentionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['mode'])) {
             $model->mode = $map['mode'];
         }
+
         if (isset($map['range'])) {
             $model->range = $map['range'];
         }
+
         if (isset($map['uuid'])) {
             $model->uuid = $map['uuid'];
         }

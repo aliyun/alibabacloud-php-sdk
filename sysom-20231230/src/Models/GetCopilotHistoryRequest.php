@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCopilotHistoryRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $count;
@@ -20,9 +16,12 @@ class GetCopilotHistoryRequest extends Model
         'count' => 'count',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
@@ -32,11 +31,11 @@ class GetCopilotHistoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCopilotHistoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

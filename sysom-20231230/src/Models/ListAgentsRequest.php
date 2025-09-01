@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAgentsRequest extends Model
 {
@@ -34,20 +34,26 @@ class ListAgentsRequest extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->current) {
             $res['current'] = $this->current;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -55,23 +61,26 @@ class ListAgentsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAgentsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['current'])) {
             $model->current = $map['current'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

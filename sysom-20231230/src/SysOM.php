@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CheckInstanceSupportRequest;
@@ -110,11 +109,10 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentForClusterRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentForClusterResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class SysOM extends OpenApiClient
 {
@@ -139,41 +137,51 @@ class SysOM extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 授权 SysOM 对某个机器进行诊断
-     *  *
-     * @param AuthDiagnosisRequest $request AuthDiagnosisRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 授权 SysOM 对某个机器进行诊断.
      *
-     * @return AuthDiagnosisResponse AuthDiagnosisResponse
+     * @param request - AuthDiagnosisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthDiagnosisResponse
+     *
+     * @param AuthDiagnosisRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AuthDiagnosisResponse
      */
     public function authDiagnosisWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoCreateRole)) {
-            $body['autoCreateRole'] = $request->autoCreateRole;
+        if (null !== $request->autoCreateRole) {
+            @$body['autoCreateRole'] = $request->autoCreateRole;
         }
-        if (!Utils::isUnset($request->autoInstallAgent)) {
-            $body['autoInstallAgent'] = $request->autoInstallAgent;
+
+        if (null !== $request->autoInstallAgent) {
+            @$body['autoInstallAgent'] = $request->autoInstallAgent;
         }
-        if (!Utils::isUnset($request->instances)) {
-            $body['instances'] = $request->instances;
+
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AuthDiagnosis',
@@ -191,11 +199,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 授权 SysOM 对某个机器进行诊断
-     *  *
-     * @param AuthDiagnosisRequest $request AuthDiagnosisRequest
+     * 授权 SysOM 对某个机器进行诊断.
      *
-     * @return AuthDiagnosisResponse AuthDiagnosisResponse
+     * @param request - AuthDiagnosisRequest
+     *
+     * @returns AuthDiagnosisResponse
+     *
+     * @param AuthDiagnosisRequest $request
+     *
+     * @return AuthDiagnosisResponse
      */
     public function authDiagnosis($request)
     {
@@ -206,27 +218,35 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 检查目标实例是否被 SysOM 支持
-     *  *
-     * @param CheckInstanceSupportRequest $request CheckInstanceSupportRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 检查目标实例是否被 SysOM 支持
      *
-     * @return CheckInstanceSupportResponse CheckInstanceSupportResponse
+     * @param request - CheckInstanceSupportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckInstanceSupportResponse
+     *
+     * @param CheckInstanceSupportRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CheckInstanceSupportResponse
      */
     public function checkInstanceSupportWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instances)) {
-            $body['instances'] = $request->instances;
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
         }
-        if (!Utils::isUnset($request->region)) {
-            $body['region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$body['region'] = $request->region;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CheckInstanceSupport',
@@ -244,11 +264,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 检查目标实例是否被 SysOM 支持
-     *  *
-     * @param CheckInstanceSupportRequest $request CheckInstanceSupportRequest
+     * 检查目标实例是否被 SysOM 支持
      *
-     * @return CheckInstanceSupportResponse CheckInstanceSupportResponse
+     * @param request - CheckInstanceSupportRequest
+     *
+     * @returns CheckInstanceSupportResponse
+     *
+     * @param CheckInstanceSupportRequest $request
+     *
+     * @return CheckInstanceSupportResponse
      */
     public function checkInstanceSupport($request)
     {
@@ -259,24 +283,31 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取copilot服务的返回结果
-     *  *
-     * @param GenerateCopilotResponseRequest $request GenerateCopilotResponseRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 获取copilot服务的返回结果.
      *
-     * @return GenerateCopilotResponseResponse GenerateCopilotResponseResponse
+     * @param request - GenerateCopilotResponseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateCopilotResponseResponse
+     *
+     * @param GenerateCopilotResponseRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GenerateCopilotResponseResponse
      */
     public function generateCopilotResponseWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->llmParamString)) {
-            $body['llmParamString'] = $request->llmParamString;
+        if (null !== $request->llmParamString) {
+            @$body['llmParamString'] = $request->llmParamString;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GenerateCopilotResponse',
@@ -294,11 +325,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取copilot服务的返回结果
-     *  *
-     * @param GenerateCopilotResponseRequest $request GenerateCopilotResponseRequest
+     * 获取copilot服务的返回结果.
      *
-     * @return GenerateCopilotResponseResponse GenerateCopilotResponseResponse
+     * @param request - GenerateCopilotResponseRequest
+     *
+     * @returns GenerateCopilotResponseResponse
+     *
+     * @param GenerateCopilotResponseRequest $request
+     *
+     * @return GenerateCopilotResponseResponse
      */
     public function generateCopilotResponse($request)
     {
@@ -309,24 +344,85 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 流式copilot服务接口
-     *  *
-     * @param GenerateCopilotStreamResponseRequest $request GenerateCopilotStreamResponseRequest
-     * @param string[]                             $headers map
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 流式copilot服务接口.
      *
-     * @return GenerateCopilotStreamResponseResponse GenerateCopilotStreamResponseResponse
+     * @param request - GenerateCopilotStreamResponseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateCopilotStreamResponseResponse
+     *
+     * @param GenerateCopilotStreamResponseRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GenerateCopilotStreamResponseResponse
+     */
+    public function generateCopilotStreamResponseWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->llmParamString) {
+            @$body['llmParamString'] = $request->llmParamString;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateCopilotStreamResponse',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/copilot/generate_copilot_stream_response',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield GenerateCopilotStreamResponseResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 流式copilot服务接口.
+     *
+     * @param request - GenerateCopilotStreamResponseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateCopilotStreamResponseResponse
+     *
+     * @param GenerateCopilotStreamResponseRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GenerateCopilotStreamResponseResponse
      */
     public function generateCopilotStreamResponseWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->llmParamString)) {
-            $body['llmParamString'] = $request->llmParamString;
+        if (null !== $request->llmParamString) {
+            @$body['llmParamString'] = $request->llmParamString;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GenerateCopilotStreamResponse',
@@ -344,11 +440,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 流式copilot服务接口
-     *  *
-     * @param GenerateCopilotStreamResponseRequest $request GenerateCopilotStreamResponseRequest
+     * 流式copilot服务接口.
      *
-     * @return GenerateCopilotStreamResponseResponse GenerateCopilotStreamResponseResponse
+     * @param request - GenerateCopilotStreamResponseRequest
+     *
+     * @returns GenerateCopilotStreamResponseResponse
+     *
+     * @param GenerateCopilotStreamResponseRequest $request
+     *
+     * @return GenerateCopilotStreamResponseResponse
      */
     public function generateCopilotStreamResponse($request)
     {
@@ -359,24 +459,31 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 查看AI Infra分析结果
-     *  *
-     * @param GetAIQueryResultRequest $request GetAIQueryResultRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查看AI Infra分析结果.
      *
-     * @return GetAIQueryResultResponse GetAIQueryResultResponse
+     * @param request - GetAIQueryResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAIQueryResultResponse
+     *
+     * @param GetAIQueryResultRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetAIQueryResultResponse
      */
     public function getAIQueryResultWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->analysisId)) {
-            $body['analysisId'] = $request->analysisId;
+        if (null !== $request->analysisId) {
+            @$body['analysisId'] = $request->analysisId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetAIQueryResult',
@@ -394,11 +501,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 查看AI Infra分析结果
-     *  *
-     * @param GetAIQueryResultRequest $request GetAIQueryResultRequest
+     * 查看AI Infra分析结果.
      *
-     * @return GetAIQueryResultResponse GetAIQueryResultResponse
+     * @param request - GetAIQueryResultRequest
+     *
+     * @returns GetAIQueryResultResponse
+     *
+     * @param GetAIQueryResultRequest $request
+     *
+     * @return GetAIQueryResultResponse
      */
     public function getAIQueryResult($request)
     {
@@ -409,45 +520,59 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取节点/Pod不同等级异常事件的数量
-     *  *
-     * @param GetAbnormalEventsCountRequest $request GetAbnormalEventsCountRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获取节点/Pod不同等级异常事件的数量.
      *
-     * @return GetAbnormalEventsCountResponse GetAbnormalEventsCountResponse
+     * @param request - GetAbnormalEventsCountRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAbnormalEventsCountResponse
+     *
+     * @param GetAbnormalEventsCountRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetAbnormalEventsCountResponse
      */
     public function getAbnormalEventsCountWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cluster)) {
-            $query['cluster'] = $request->cluster;
+        if (null !== $request->cluster) {
+            @$query['cluster'] = $request->cluster;
         }
-        if (!Utils::isUnset($request->end)) {
-            $query['end'] = $request->end;
+
+        if (null !== $request->end) {
+            @$query['end'] = $request->end;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $query['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$query['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['level'] = $request->level;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->pod)) {
-            $query['pod'] = $request->pod;
+
+        if (null !== $request->pod) {
+            @$query['pod'] = $request->pod;
         }
-        if (!Utils::isUnset($request->showPod)) {
-            $query['showPod'] = $request->showPod;
+
+        if (null !== $request->showPod) {
+            @$query['showPod'] = $request->showPod;
         }
-        if (!Utils::isUnset($request->start)) {
-            $query['start'] = $request->start;
+
+        if (null !== $request->start) {
+            @$query['start'] = $request->start;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAbnormalEventsCount',
@@ -465,11 +590,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取节点/Pod不同等级异常事件的数量
-     *  *
-     * @param GetAbnormalEventsCountRequest $request GetAbnormalEventsCountRequest
+     * 获取节点/Pod不同等级异常事件的数量.
      *
-     * @return GetAbnormalEventsCountResponse GetAbnormalEventsCountResponse
+     * @param request - GetAbnormalEventsCountRequest
+     *
+     * @returns GetAbnormalEventsCountResponse
+     *
+     * @param GetAbnormalEventsCountRequest $request
+     *
+     * @return GetAbnormalEventsCountResponse
      */
     public function getAbnormalEventsCount($request)
     {
@@ -480,24 +609,31 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取某个组件的详情
-     *  *
-     * @param GetAgentRequest $request GetAgentRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 获取某个组件的详情.
      *
-     * @return GetAgentResponse GetAgentResponse
+     * @param request - GetAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentResponse
+     *
+     * @param GetAgentRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetAgentResponse
      */
     public function getAgentWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $query['agent_id'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$query['agent_id'] = $request->agentId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAgent',
@@ -515,11 +651,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取某个组件的详情
-     *  *
-     * @param GetAgentRequest $request GetAgentRequest
+     * 获取某个组件的详情.
      *
-     * @return GetAgentResponse GetAgentResponse
+     * @param request - GetAgentRequest
+     *
+     * @returns GetAgentResponse
+     *
+     * @param GetAgentRequest $request
+     *
+     * @return GetAgentResponse
      */
     public function getAgent($request)
     {
@@ -530,24 +670,31 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取Agent安装任务执行状态
-     *  *
-     * @param GetAgentTaskRequest $request GetAgentTaskRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取Agent安装任务执行状态
      *
-     * @return GetAgentTaskResponse GetAgentTaskResponse
+     * @param request - GetAgentTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentTaskResponse
+     *
+     * @param GetAgentTaskRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAgentTaskResponse
      */
     public function getAgentTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $query['task_id'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$query['task_id'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAgentTask',
@@ -565,11 +712,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取Agent安装任务执行状态
-     *  *
-     * @param GetAgentTaskRequest $request GetAgentTaskRequest
+     * 获取Agent安装任务执行状态
      *
-     * @return GetAgentTaskResponse GetAgentTaskResponse
+     * @param request - GetAgentTaskRequest
+     *
+     * @returns GetAgentTaskResponse
+     *
+     * @param GetAgentTaskRequest $request
+     *
+     * @return GetAgentTaskResponse
      */
     public function getAgentTask($request)
     {
@@ -580,24 +731,31 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取copilot历史聊天记录
-     *  *
-     * @param GetCopilotHistoryRequest $request GetCopilotHistoryRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取copilot历史聊天记录.
      *
-     * @return GetCopilotHistoryResponse GetCopilotHistoryResponse
+     * @param request - GetCopilotHistoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCopilotHistoryResponse
+     *
+     * @param GetCopilotHistoryRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetCopilotHistoryResponse
      */
     public function getCopilotHistoryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->count)) {
-            $body['count'] = $request->count;
+        if (null !== $request->count) {
+            @$body['count'] = $request->count;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetCopilotHistory',
@@ -615,11 +773,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取copilot历史聊天记录
-     *  *
-     * @param GetCopilotHistoryRequest $request GetCopilotHistoryRequest
+     * 获取copilot历史聊天记录.
      *
-     * @return GetCopilotHistoryResponse GetCopilotHistoryResponse
+     * @param request - GetCopilotHistoryRequest
+     *
+     * @returns GetCopilotHistoryResponse
+     *
+     * @param GetCopilotHistoryRequest $request
+     *
+     * @return GetCopilotHistoryResponse
      */
     public function getCopilotHistory($request)
     {
@@ -630,24 +792,31 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取诊断结果
-     *  *
-     * @param GetDiagnosisResultRequest $request GetDiagnosisResultRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取诊断结果.
      *
-     * @return GetDiagnosisResultResponse GetDiagnosisResultResponse
+     * @param request - GetDiagnosisResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDiagnosisResultResponse
+     *
+     * @param GetDiagnosisResultRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetDiagnosisResultResponse
      */
     public function getDiagnosisResultWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $query['task_id'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$query['task_id'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDiagnosisResult',
@@ -665,11 +834,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取诊断结果
-     *  *
-     * @param GetDiagnosisResultRequest $request GetDiagnosisResultRequest
+     * 获取诊断结果.
      *
-     * @return GetDiagnosisResultResponse GetDiagnosisResultResponse
+     * @param request - GetDiagnosisResultRequest
+     *
+     * @returns GetDiagnosisResultResponse
+     *
+     * @param GetDiagnosisResultRequest $request
+     *
+     * @return GetDiagnosisResultResponse
      */
     public function getDiagnosisResult($request)
     {
@@ -680,33 +853,43 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取一段时间的节点/pod健康度比例
-     *  *
-     * @param GetHealthPercentageRequest $request GetHealthPercentageRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取一段时间的节点/pod健康度比例.
      *
-     * @return GetHealthPercentageResponse GetHealthPercentageResponse
+     * @param request - GetHealthPercentageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHealthPercentageResponse
+     *
+     * @param GetHealthPercentageRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetHealthPercentageResponse
      */
     public function getHealthPercentageWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cluster)) {
-            $query['cluster'] = $request->cluster;
+        if (null !== $request->cluster) {
+            @$query['cluster'] = $request->cluster;
         }
-        if (!Utils::isUnset($request->end)) {
-            $query['end'] = $request->end;
+
+        if (null !== $request->end) {
+            @$query['end'] = $request->end;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $query['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$query['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->start)) {
-            $query['start'] = $request->start;
+
+        if (null !== $request->start) {
+            @$query['start'] = $request->start;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetHealthPercentage',
@@ -724,11 +907,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取一段时间的节点/pod健康度比例
-     *  *
-     * @param GetHealthPercentageRequest $request GetHealthPercentageRequest
+     * 获取一段时间的节点/pod健康度比例.
      *
-     * @return GetHealthPercentageResponse GetHealthPercentageResponse
+     * @param request - GetHealthPercentageRequest
+     *
+     * @returns GetHealthPercentageResponse
+     *
+     * @param GetHealthPercentageRequest $request
+     *
+     * @return GetHealthPercentageResponse
      */
     public function getHealthPercentage($request)
     {
@@ -739,33 +926,43 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取集群节点数量
-     *  *
-     * @param GetHostCountRequest $request GetHostCountRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取集群节点数量.
      *
-     * @return GetHostCountResponse GetHostCountResponse
+     * @param request - GetHostCountRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHostCountResponse
+     *
+     * @param GetHostCountRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetHostCountResponse
      */
     public function getHostCountWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cluster)) {
-            $query['cluster'] = $request->cluster;
+        if (null !== $request->cluster) {
+            @$query['cluster'] = $request->cluster;
         }
-        if (!Utils::isUnset($request->end)) {
-            $query['end'] = $request->end;
+
+        if (null !== $request->end) {
+            @$query['end'] = $request->end;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $query['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$query['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->start)) {
-            $query['start'] = $request->start;
+
+        if (null !== $request->start) {
+            @$query['start'] = $request->start;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetHostCount',
@@ -783,11 +980,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取集群节点数量
-     *  *
-     * @param GetHostCountRequest $request GetHostCountRequest
+     * 获取集群节点数量.
      *
-     * @return GetHostCountResponse GetHostCountResponse
+     * @param request - GetHostCountRequest
+     *
+     * @returns GetHostCountResponse
+     *
+     * @param GetHostCountRequest $request
+     *
+     * @return GetHostCountResponse
      */
     public function getHostCount($request)
     {
@@ -798,39 +999,51 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例下的某个字段列表
-     *  *
-     * @param GetHotSpotUniqListRequest $request GetHotSpotUniqListRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取实例下的某个字段列表.
      *
-     * @return GetHotSpotUniqListResponse GetHotSpotUniqListResponse
+     * @param request - GetHotSpotUniqListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotSpotUniqListResponse
+     *
+     * @param GetHotSpotUniqListRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetHotSpotUniqListResponse
      */
     public function getHotSpotUniqListWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->begEnd)) {
-            $body['beg_end'] = $request->begEnd;
+        if (null !== $request->begEnd) {
+            @$body['beg_end'] = $request->begEnd;
         }
-        if (!Utils::isUnset($request->begStart)) {
-            $body['beg_start'] = $request->begStart;
+
+        if (null !== $request->begStart) {
+            @$body['beg_start'] = $request->begStart;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $body['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$body['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $body['pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$body['pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->table)) {
-            $body['table'] = $request->table;
+
+        if (null !== $request->table) {
+            @$body['table'] = $request->table;
         }
-        if (!Utils::isUnset($request->uniq)) {
-            $body['uniq'] = $request->uniq;
+
+        if (null !== $request->uniq) {
+            @$body['uniq'] = $request->uniq;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetHotSpotUniqList',
@@ -848,11 +1061,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例下的某个字段列表
-     *  *
-     * @param GetHotSpotUniqListRequest $request GetHotSpotUniqListRequest
+     * 获取实例下的某个字段列表.
      *
-     * @return GetHotSpotUniqListResponse GetHotSpotUniqListResponse
+     * @param request - GetHotSpotUniqListRequest
+     *
+     * @returns GetHotSpotUniqListResponse
+     *
+     * @param GetHotSpotUniqListRequest $request
+     *
+     * @return GetHotSpotUniqListResponse
      */
     public function getHotSpotUniqList($request)
     {
@@ -863,39 +1080,51 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取热定分析结果
-     *  *
-     * @param GetHotspotAnalysisRequest $request GetHotspotAnalysisRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取热定分析结果.
      *
-     * @return GetHotspotAnalysisResponse GetHotspotAnalysisResponse
+     * @param request - GetHotspotAnalysisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotspotAnalysisResponse
+     *
+     * @param GetHotspotAnalysisRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetHotspotAnalysisResponse
      */
     public function getHotspotAnalysisWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appType)) {
-            $body['appType'] = $request->appType;
+        if (null !== $request->appType) {
+            @$body['appType'] = $request->appType;
         }
-        if (!Utils::isUnset($request->begEnd)) {
-            $body['beg_end'] = $request->begEnd;
+
+        if (null !== $request->begEnd) {
+            @$body['beg_end'] = $request->begEnd;
         }
-        if (!Utils::isUnset($request->begStart)) {
-            $body['beg_start'] = $request->begStart;
+
+        if (null !== $request->begStart) {
+            @$body['beg_start'] = $request->begStart;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $body['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$body['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $body['pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$body['pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->table)) {
-            $body['table'] = $request->table;
+
+        if (null !== $request->table) {
+            @$body['table'] = $request->table;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetHotspotAnalysis',
@@ -913,11 +1142,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取热定分析结果
-     *  *
-     * @param GetHotspotAnalysisRequest $request GetHotspotAnalysisRequest
+     * 获取热定分析结果.
      *
-     * @return GetHotspotAnalysisResponse GetHotspotAnalysisResponse
+     * @param request - GetHotspotAnalysisRequest
+     *
+     * @returns GetHotspotAnalysisResponse
+     *
+     * @param GetHotspotAnalysisRequest $request
+     *
+     * @return GetHotspotAnalysisResponse
      */
     public function getHotspotAnalysis($request)
     {
@@ -928,51 +1161,67 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 热点对比
-     *  *
-     * @param GetHotspotCompareRequest $request GetHotspotCompareRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 热点对比.
      *
-     * @return GetHotspotCompareResponse GetHotspotCompareResponse
+     * @param request - GetHotspotCompareRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotspotCompareResponse
+     *
+     * @param GetHotspotCompareRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetHotspotCompareResponse
      */
     public function getHotspotCompareWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->beg1End)) {
-            $body['beg1_end'] = $request->beg1End;
+        if (null !== $request->beg1End) {
+            @$body['beg1_end'] = $request->beg1End;
         }
-        if (!Utils::isUnset($request->beg1Start)) {
-            $body['beg1_start'] = $request->beg1Start;
+
+        if (null !== $request->beg1Start) {
+            @$body['beg1_start'] = $request->beg1Start;
         }
-        if (!Utils::isUnset($request->beg2End)) {
-            $body['beg2_end'] = $request->beg2End;
+
+        if (null !== $request->beg2End) {
+            @$body['beg2_end'] = $request->beg2End;
         }
-        if (!Utils::isUnset($request->beg2Start)) {
-            $body['beg2_start'] = $request->beg2Start;
+
+        if (null !== $request->beg2Start) {
+            @$body['beg2_start'] = $request->beg2Start;
         }
-        if (!Utils::isUnset($request->hotType)) {
-            $body['hot_type'] = $request->hotType;
+
+        if (null !== $request->hotType) {
+            @$body['hot_type'] = $request->hotType;
         }
-        if (!Utils::isUnset($request->instance1)) {
-            $body['instance1'] = $request->instance1;
+
+        if (null !== $request->instance1) {
+            @$body['instance1'] = $request->instance1;
         }
-        if (!Utils::isUnset($request->instance2)) {
-            $body['instance2'] = $request->instance2;
+
+        if (null !== $request->instance2) {
+            @$body['instance2'] = $request->instance2;
         }
-        if (!Utils::isUnset($request->pid1)) {
-            $body['pid1'] = $request->pid1;
+
+        if (null !== $request->pid1) {
+            @$body['pid1'] = $request->pid1;
         }
-        if (!Utils::isUnset($request->pid2)) {
-            $body['pid2'] = $request->pid2;
+
+        if (null !== $request->pid2) {
+            @$body['pid2'] = $request->pid2;
         }
-        if (!Utils::isUnset($request->table)) {
-            $body['table'] = $request->table;
+
+        if (null !== $request->table) {
+            @$body['table'] = $request->table;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetHotspotCompare',
@@ -990,11 +1239,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 热点对比
-     *  *
-     * @param GetHotspotCompareRequest $request GetHotspotCompareRequest
+     * 热点对比.
      *
-     * @return GetHotspotCompareResponse GetHotspotCompareResponse
+     * @param request - GetHotspotCompareRequest
+     *
+     * @returns GetHotspotCompareResponse
+     *
+     * @param GetHotspotCompareRequest $request
+     *
+     * @return GetHotspotCompareResponse
      */
     public function getHotspotCompare($request)
     {
@@ -1005,30 +1258,39 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取热点实例列表
-     *  *
-     * @param GetHotspotInstanceListRequest $request GetHotspotInstanceListRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获取热点实例列表.
      *
-     * @return GetHotspotInstanceListResponse GetHotspotInstanceListResponse
+     * @param request - GetHotspotInstanceListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotspotInstanceListResponse
+     *
+     * @param GetHotspotInstanceListRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetHotspotInstanceListResponse
      */
     public function getHotspotInstanceListWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->begEnd)) {
-            $body['beg_end'] = $request->begEnd;
+        if (null !== $request->begEnd) {
+            @$body['beg_end'] = $request->begEnd;
         }
-        if (!Utils::isUnset($request->begStart)) {
-            $body['beg_start'] = $request->begStart;
+
+        if (null !== $request->begStart) {
+            @$body['beg_start'] = $request->begStart;
         }
-        if (!Utils::isUnset($request->table)) {
-            $body['table'] = $request->table;
+
+        if (null !== $request->table) {
+            @$body['table'] = $request->table;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetHotspotInstanceList',
@@ -1046,11 +1308,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取热点实例列表
-     *  *
-     * @param GetHotspotInstanceListRequest $request GetHotspotInstanceListRequest
+     * 获取热点实例列表.
      *
-     * @return GetHotspotInstanceListResponse GetHotspotInstanceListResponse
+     * @param request - GetHotspotInstanceListRequest
+     *
+     * @returns GetHotspotInstanceListResponse
+     *
+     * @param GetHotspotInstanceListRequest $request
+     *
+     * @return GetHotspotInstanceListResponse
      */
     public function getHotspotInstanceList($request)
     {
@@ -1061,33 +1327,43 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取某个实例的pid列表
-     *  *
-     * @param GetHotspotPidListRequest $request GetHotspotPidListRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取某个实例的pid列表.
      *
-     * @return GetHotspotPidListResponse GetHotspotPidListResponse
+     * @param request - GetHotspotPidListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotspotPidListResponse
+     *
+     * @param GetHotspotPidListRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetHotspotPidListResponse
      */
     public function getHotspotPidListWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->begEnd)) {
-            $body['beg_end'] = $request->begEnd;
+        if (null !== $request->begEnd) {
+            @$body['beg_end'] = $request->begEnd;
         }
-        if (!Utils::isUnset($request->begStart)) {
-            $body['beg_start'] = $request->begStart;
+
+        if (null !== $request->begStart) {
+            @$body['beg_start'] = $request->begStart;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $body['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$body['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->table)) {
-            $body['table'] = $request->table;
+
+        if (null !== $request->table) {
+            @$body['table'] = $request->table;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetHotspotPidList',
@@ -1105,11 +1381,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取某个实例的pid列表
-     *  *
-     * @param GetHotspotPidListRequest $request GetHotspotPidListRequest
+     * 获取某个实例的pid列表.
      *
-     * @return GetHotspotPidListResponse GetHotspotPidListResponse
+     * @param request - GetHotspotPidListRequest
+     *
+     * @returns GetHotspotPidListResponse
+     *
+     * @param GetHotspotPidListRequest $request
+     *
+     * @return GetHotspotPidListResponse
      */
     public function getHotspotPidList($request)
     {
@@ -1120,39 +1400,51 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 发起热点追踪
-     *  *
-     * @param GetHotspotTrackingRequest $request GetHotspotTrackingRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 发起热点追踪.
      *
-     * @return GetHotspotTrackingResponse GetHotspotTrackingResponse
+     * @param request - GetHotspotTrackingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotspotTrackingResponse
+     *
+     * @param GetHotspotTrackingRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetHotspotTrackingResponse
      */
     public function getHotspotTrackingWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->begEnd)) {
-            $body['beg_end'] = $request->begEnd;
+        if (null !== $request->begEnd) {
+            @$body['beg_end'] = $request->begEnd;
         }
-        if (!Utils::isUnset($request->begStart)) {
-            $body['beg_start'] = $request->begStart;
+
+        if (null !== $request->begStart) {
+            @$body['beg_start'] = $request->begStart;
         }
-        if (!Utils::isUnset($request->hotType)) {
-            $body['hot_type'] = $request->hotType;
+
+        if (null !== $request->hotType) {
+            @$body['hot_type'] = $request->hotType;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $body['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$body['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $body['pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$body['pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->table)) {
-            $body['table'] = $request->table;
+
+        if (null !== $request->table) {
+            @$body['table'] = $request->table;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetHotspotTracking',
@@ -1170,11 +1462,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 发起热点追踪
-     *  *
-     * @param GetHotspotTrackingRequest $request GetHotspotTrackingRequest
+     * 发起热点追踪.
      *
-     * @return GetHotspotTrackingResponse GetHotspotTrackingResponse
+     * @param request - GetHotspotTrackingRequest
+     *
+     * @returns GetHotspotTrackingResponse
+     *
+     * @param GetHotspotTrackingRequest $request
+     *
+     * @return GetHotspotTrackingResponse
      */
     public function getHotspotTracking($request)
     {
@@ -1185,27 +1481,35 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取实时集群/节点健康度分数
-     *  *
-     * @param GetInstantScoreRequest $request GetInstantScoreRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取实时集群/节点健康度分数.
      *
-     * @return GetInstantScoreResponse GetInstantScoreResponse
+     * @param request - GetInstantScoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstantScoreResponse
+     *
+     * @param GetInstantScoreRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetInstantScoreResponse
      */
     public function getInstantScoreWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cluster)) {
-            $query['cluster'] = $request->cluster;
+        if (null !== $request->cluster) {
+            @$query['cluster'] = $request->cluster;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $query['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$query['instance'] = $request->instance;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetInstantScore',
@@ -1223,11 +1527,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取实时集群/节点健康度分数
-     *  *
-     * @param GetInstantScoreRequest $request GetInstantScoreRequest
+     * 获取实时集群/节点健康度分数.
      *
-     * @return GetInstantScoreResponse GetInstantScoreResponse
+     * @param request - GetInstantScoreRequest
+     *
+     * @returns GetInstantScoreResponse
+     *
+     * @param GetInstantScoreRequest $request
+     *
+     * @return GetInstantScoreResponse
      */
     public function getInstantScore($request)
     {
@@ -1238,27 +1546,39 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary AI Infra获取分析记录列表
-     *  *
-     * @param GetListRecordRequest $request GetListRecordRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * AI Infra获取分析记录列表.
      *
-     * @return GetListRecordResponse GetListRecordResponse
+     * @param request - GetListRecordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetListRecordResponse
+     *
+     * @param GetListRecordRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetListRecordResponse
      */
     public function getListRecordWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->current)) {
-            $query['current'] = $request->current;
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetListRecord',
@@ -1276,11 +1596,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary AI Infra获取分析记录列表
-     *  *
-     * @param GetListRecordRequest $request GetListRecordRequest
+     * AI Infra获取分析记录列表.
      *
-     * @return GetListRecordResponse GetListRecordResponse
+     * @param request - GetListRecordRequest
+     *
+     * @returns GetListRecordResponse
+     *
+     * @param GetListRecordRequest $request
+     *
+     * @return GetListRecordResponse
      */
     public function getListRecord($request)
     {
@@ -1291,33 +1615,43 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取一定时间内集群中节点/节点中pod异常问题占比
-     *  *
-     * @param GetProblemPercentageRequest $request GetProblemPercentageRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取一定时间内集群中节点/节点中pod异常问题占比.
      *
-     * @return GetProblemPercentageResponse GetProblemPercentageResponse
+     * @param request - GetProblemPercentageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProblemPercentageResponse
+     *
+     * @param GetProblemPercentageRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetProblemPercentageResponse
      */
     public function getProblemPercentageWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cluster)) {
-            $query['cluster'] = $request->cluster;
+        if (null !== $request->cluster) {
+            @$query['cluster'] = $request->cluster;
         }
-        if (!Utils::isUnset($request->end)) {
-            $query['end'] = $request->end;
+
+        if (null !== $request->end) {
+            @$query['end'] = $request->end;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $query['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$query['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->start)) {
-            $query['start'] = $request->start;
+
+        if (null !== $request->start) {
+            @$query['start'] = $request->start;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetProblemPercentage',
@@ -1335,11 +1669,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取一定时间内集群中节点/节点中pod异常问题占比
-     *  *
-     * @param GetProblemPercentageRequest $request GetProblemPercentageRequest
+     * 获取一定时间内集群中节点/节点中pod异常问题占比.
      *
-     * @return GetProblemPercentageResponse GetProblemPercentageResponse
+     * @param request - GetProblemPercentageRequest
+     *
+     * @returns GetProblemPercentageResponse
+     *
+     * @param GetProblemPercentageRequest $request
+     *
+     * @return GetProblemPercentageResponse
      */
     public function getProblemPercentage($request)
     {
@@ -1350,33 +1688,43 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取健康分趋势
-     *  *
-     * @param GetRangeScoreRequest $request GetRangeScoreRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取健康分趋势
      *
-     * @return GetRangeScoreResponse GetRangeScoreResponse
+     * @param request - GetRangeScoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRangeScoreResponse
+     *
+     * @param GetRangeScoreRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetRangeScoreResponse
      */
     public function getRangeScoreWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cluster)) {
-            $query['cluster'] = $request->cluster;
+        if (null !== $request->cluster) {
+            @$query['cluster'] = $request->cluster;
         }
-        if (!Utils::isUnset($request->end)) {
-            $query['end'] = $request->end;
+
+        if (null !== $request->end) {
+            @$query['end'] = $request->end;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $query['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$query['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->start)) {
-            $query['start'] = $request->start;
+
+        if (null !== $request->start) {
+            @$query['start'] = $request->start;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRangeScore',
@@ -1394,11 +1742,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取健康分趋势
-     *  *
-     * @param GetRangeScoreRequest $request GetRangeScoreRequest
+     * 获取健康分趋势
      *
-     * @return GetRangeScoreResponse GetRangeScoreResponse
+     * @param request - GetRangeScoreRequest
+     *
+     * @returns GetRangeScoreResponse
+     *
+     * @param GetRangeScoreRequest $request
+     *
+     * @return GetRangeScoreResponse
      */
     public function getRangeScore($request)
     {
@@ -1409,30 +1761,39 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取集群/节点资源实时使用情况
-     *  *
-     * @param GetResourcesRequest $request GetResourcesRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取集群/节点资源实时使用情况.
      *
-     * @return GetResourcesResponse GetResourcesResponse
+     * @param request - GetResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourcesResponse
+     *
+     * @param GetResourcesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetResourcesResponse
      */
     public function getResourcesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cluster)) {
-            $query['cluster'] = $request->cluster;
+        if (null !== $request->cluster) {
+            @$query['cluster'] = $request->cluster;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $query['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$query['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetResources',
@@ -1450,11 +1811,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取集群/节点资源实时使用情况
-     *  *
-     * @param GetResourcesRequest $request GetResourcesRequest
+     * 获取集群/节点资源实时使用情况.
      *
-     * @return GetResourcesResponse GetResourcesResponse
+     * @param request - GetResourcesRequest
+     *
+     * @returns GetResourcesResponse
+     *
+     * @param GetResourcesRequest $request
+     *
+     * @return GetResourcesResponse
      */
     public function getResources($request)
     {
@@ -1465,35 +1830,45 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取功能模块配置
-     *  *
-     * @param GetServiceFuncStatusRequest $tmpReq  GetServiceFuncStatusRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取功能模块配置.
      *
-     * @return GetServiceFuncStatusResponse GetServiceFuncStatusResponse
+     * @param tmpReq - GetServiceFuncStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceFuncStatusResponse
+     *
+     * @param GetServiceFuncStatusRequest $tmpReq
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetServiceFuncStatusResponse
      */
     public function getServiceFuncStatusWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetServiceFuncStatusShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->params)) {
-            $request->paramsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->params, 'params', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'params', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->channel)) {
-            $query['channel'] = $request->channel;
+        if (null !== $request->channel) {
+            @$query['channel'] = $request->channel;
         }
-        if (!Utils::isUnset($request->paramsShrink)) {
-            $query['params'] = $request->paramsShrink;
+
+        if (null !== $request->paramsShrink) {
+            @$query['params'] = $request->paramsShrink;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['service_name'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['service_name'] = $request->serviceName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetServiceFuncStatus',
@@ -1511,11 +1886,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取功能模块配置
-     *  *
-     * @param GetServiceFuncStatusRequest $request GetServiceFuncStatusRequest
+     * 获取功能模块配置.
      *
-     * @return GetServiceFuncStatusResponse GetServiceFuncStatusResponse
+     * @param request - GetServiceFuncStatusRequest
+     *
+     * @returns GetServiceFuncStatusResponse
+     *
+     * @param GetServiceFuncStatusRequest $request
+     *
+     * @return GetServiceFuncStatusResponse
      */
     public function getServiceFuncStatus($request)
     {
@@ -1526,27 +1905,35 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 初始化SysOM，确保角色存在
-     *  *
-     * @param InitialSysomRequest $request InitialSysomRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 初始化SysOM，确保角色存在.
      *
-     * @return InitialSysomResponse InitialSysomResponse
+     * @param request - InitialSysomRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitialSysomResponse
+     *
+     * @param InitialSysomRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return InitialSysomResponse
      */
     public function initialSysomWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->checkOnly)) {
-            $body['check_only'] = $request->checkOnly;
+        if (null !== $request->checkOnly) {
+            @$body['check_only'] = $request->checkOnly;
         }
-        if (!Utils::isUnset($request->source)) {
-            $body['source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$body['source'] = $request->source;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'InitialSysom',
@@ -1564,11 +1951,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 初始化SysOM，确保角色存在
-     *  *
-     * @param InitialSysomRequest $request InitialSysomRequest
+     * 初始化SysOM，确保角色存在.
      *
-     * @return InitialSysomResponse InitialSysomResponse
+     * @param request - InitialSysomRequest
+     *
+     * @returns InitialSysomResponse
+     *
+     * @param InitialSysomRequest $request
+     *
+     * @return InitialSysomResponse
      */
     public function initialSysom($request)
     {
@@ -1579,33 +1970,43 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 在指定的实例上安装 Agent
-     *  *
-     * @param InstallAgentRequest $request InstallAgentRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 在指定的实例上安装 Agent.
      *
-     * @return InstallAgentResponse InstallAgentResponse
+     * @param request - InstallAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallAgentResponse
+     *
+     * @param InstallAgentRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return InstallAgentResponse
      */
     public function installAgentWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $body['agent_id'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$body['agent_id'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentVersion)) {
-            $body['agent_version'] = $request->agentVersion;
+
+        if (null !== $request->agentVersion) {
+            @$body['agent_version'] = $request->agentVersion;
         }
-        if (!Utils::isUnset($request->installType)) {
-            $body['install_type'] = $request->installType;
+
+        if (null !== $request->installType) {
+            @$body['install_type'] = $request->installType;
         }
-        if (!Utils::isUnset($request->instances)) {
-            $body['instances'] = $request->instances;
+
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'InstallAgent',
@@ -1623,11 +2024,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 在指定的实例上安装 Agent
-     *  *
-     * @param InstallAgentRequest $request InstallAgentRequest
+     * 在指定的实例上安装 Agent.
      *
-     * @return InstallAgentResponse InstallAgentResponse
+     * @param request - InstallAgentRequest
+     *
+     * @returns InstallAgentResponse
+     *
+     * @param InstallAgentRequest $request
+     *
+     * @return InstallAgentResponse
      */
     public function installAgent($request)
     {
@@ -1638,36 +2043,47 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 给集群安装组件
-     *  *
-     * @param InstallAgentForClusterRequest $request InstallAgentForClusterRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 给集群安装组件.
      *
-     * @return InstallAgentForClusterResponse InstallAgentForClusterResponse
+     * @param request - InstallAgentForClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallAgentForClusterResponse
+     *
+     * @param InstallAgentForClusterRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return InstallAgentForClusterResponse
      */
     public function installAgentForClusterWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $body['agent_id'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$body['agent_id'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentVersion)) {
-            $body['agent_version'] = $request->agentVersion;
+
+        if (null !== $request->agentVersion) {
+            @$body['agent_version'] = $request->agentVersion;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['cluster_id'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['cluster_id'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->configId)) {
-            $body['config_id'] = $request->configId;
+
+        if (null !== $request->configId) {
+            @$body['config_id'] = $request->configId;
         }
-        if (!Utils::isUnset($request->grayscaleConfig)) {
-            $body['grayscale_config'] = $request->grayscaleConfig;
+
+        if (null !== $request->grayscaleConfig) {
+            @$body['grayscale_config'] = $request->grayscaleConfig;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'InstallAgentForCluster',
@@ -1685,11 +2101,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 给集群安装组件
-     *  *
-     * @param InstallAgentForClusterRequest $request InstallAgentForClusterRequest
+     * 给集群安装组件.
      *
-     * @return InstallAgentForClusterResponse InstallAgentForClusterResponse
+     * @param request - InstallAgentForClusterRequest
+     *
+     * @returns InstallAgentForClusterResponse
+     *
+     * @param InstallAgentForClusterRequest $request
+     *
+     * @return InstallAgentForClusterResponse
      */
     public function installAgentForCluster($request)
     {
@@ -1700,24 +2120,31 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 异常项诊断跳转
-     *  *
-     * @param InvokeAnomalyDiagnosisRequest $request InvokeAnomalyDiagnosisRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 异常项诊断跳转.
      *
-     * @return InvokeAnomalyDiagnosisResponse InvokeAnomalyDiagnosisResponse
+     * @param request - InvokeAnomalyDiagnosisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvokeAnomalyDiagnosisResponse
+     *
+     * @param InvokeAnomalyDiagnosisRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return InvokeAnomalyDiagnosisResponse
      */
     public function invokeAnomalyDiagnosisWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->uuid)) {
-            $query['uuid'] = $request->uuid;
+        if (null !== $request->uuid) {
+            @$query['uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'InvokeAnomalyDiagnosis',
@@ -1735,11 +2162,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 异常项诊断跳转
-     *  *
-     * @param InvokeAnomalyDiagnosisRequest $request InvokeAnomalyDiagnosisRequest
+     * 异常项诊断跳转.
      *
-     * @return InvokeAnomalyDiagnosisResponse InvokeAnomalyDiagnosisResponse
+     * @param request - InvokeAnomalyDiagnosisRequest
+     *
+     * @returns InvokeAnomalyDiagnosisResponse
+     *
+     * @param InvokeAnomalyDiagnosisRequest $request
+     *
+     * @return InvokeAnomalyDiagnosisResponse
      */
     public function invokeAnomalyDiagnosis($request)
     {
@@ -1750,30 +2181,39 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 发起诊断
-     *  *
-     * @param InvokeDiagnosisRequest $request InvokeDiagnosisRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 发起诊断.
      *
-     * @return InvokeDiagnosisResponse InvokeDiagnosisResponse
+     * @param request - InvokeDiagnosisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvokeDiagnosisResponse
+     *
+     * @param InvokeDiagnosisRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return InvokeDiagnosisResponse
      */
     public function invokeDiagnosisWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->channel)) {
-            $body['channel'] = $request->channel;
+        if (null !== $request->channel) {
+            @$body['channel'] = $request->channel;
         }
-        if (!Utils::isUnset($request->params)) {
-            $body['params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$body['params'] = $request->params;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $body['service_name'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$body['service_name'] = $request->serviceName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'InvokeDiagnosis',
@@ -1791,11 +2231,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 发起诊断
-     *  *
-     * @param InvokeDiagnosisRequest $request InvokeDiagnosisRequest
+     * 发起诊断.
      *
-     * @return InvokeDiagnosisResponse InvokeDiagnosisResponse
+     * @param request - InvokeDiagnosisRequest
+     *
+     * @returns InvokeDiagnosisResponse
+     *
+     * @param InvokeDiagnosisRequest $request
+     *
+     * @return InvokeDiagnosisResponse
      */
     public function invokeDiagnosis($request)
     {
@@ -1806,54 +2250,71 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取一定时间段内的异常事件
-     *  *
-     * @param ListAbnormalyEventsRequest $request ListAbnormalyEventsRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取一定时间段内的异常事件.
      *
-     * @return ListAbnormalyEventsResponse ListAbnormalyEventsResponse
+     * @param request - ListAbnormalyEventsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAbnormalyEventsResponse
+     *
+     * @param ListAbnormalyEventsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAbnormalyEventsResponse
      */
     public function listAbnormalyEventsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cluster)) {
-            $query['cluster'] = $request->cluster;
+        if (null !== $request->cluster) {
+            @$query['cluster'] = $request->cluster;
         }
-        if (!Utils::isUnset($request->current)) {
-            $query['current'] = $request->current;
+
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
         }
-        if (!Utils::isUnset($request->end)) {
-            $query['end'] = $request->end;
+
+        if (null !== $request->end) {
+            @$query['end'] = $request->end;
         }
-        if (!Utils::isUnset($request->event)) {
-            $query['event'] = $request->event;
+
+        if (null !== $request->event) {
+            @$query['event'] = $request->event;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $query['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$query['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['level'] = $request->level;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pod)) {
-            $query['pod'] = $request->pod;
+
+        if (null !== $request->pod) {
+            @$query['pod'] = $request->pod;
         }
-        if (!Utils::isUnset($request->showPod)) {
-            $query['showPod'] = $request->showPod;
+
+        if (null !== $request->showPod) {
+            @$query['showPod'] = $request->showPod;
         }
-        if (!Utils::isUnset($request->start)) {
-            $query['start'] = $request->start;
+
+        if (null !== $request->start) {
+            @$query['start'] = $request->start;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAbnormalyEvents',
@@ -1871,11 +2332,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取一定时间段内的异常事件
-     *  *
-     * @param ListAbnormalyEventsRequest $request ListAbnormalyEventsRequest
+     * 获取一定时间段内的异常事件.
      *
-     * @return ListAbnormalyEventsResponse ListAbnormalyEventsResponse
+     * @param request - ListAbnormalyEventsRequest
+     *
+     * @returns ListAbnormalyEventsResponse
+     *
+     * @param ListAbnormalyEventsRequest $request
+     *
+     * @return ListAbnormalyEventsResponse
      */
     public function listAbnormalyEvents($request)
     {
@@ -1886,42 +2351,55 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 列出 Agent 的安装记录
-     *  *
-     * @param ListAgentInstallRecordsRequest $request ListAgentInstallRecordsRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 列出 Agent 的安装记录.
      *
-     * @return ListAgentInstallRecordsResponse ListAgentInstallRecordsResponse
+     * @param request - ListAgentInstallRecordsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentInstallRecordsResponse
+     *
+     * @param ListAgentInstallRecordsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListAgentInstallRecordsResponse
      */
     public function listAgentInstallRecordsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->current)) {
-            $query['current'] = $request->current;
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['instance_id'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['instance_id'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pluginId)) {
-            $query['plugin_id'] = $request->pluginId;
+
+        if (null !== $request->pluginId) {
+            @$query['plugin_id'] = $request->pluginId;
         }
-        if (!Utils::isUnset($request->pluginVersion)) {
-            $query['plugin_version'] = $request->pluginVersion;
+
+        if (null !== $request->pluginVersion) {
+            @$query['plugin_version'] = $request->pluginVersion;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAgentInstallRecords',
@@ -1939,11 +2417,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 列出 Agent 的安装记录
-     *  *
-     * @param ListAgentInstallRecordsRequest $request ListAgentInstallRecordsRequest
+     * 列出 Agent 的安装记录.
      *
-     * @return ListAgentInstallRecordsResponse ListAgentInstallRecordsResponse
+     * @param request - ListAgentInstallRecordsRequest
+     *
+     * @returns ListAgentInstallRecordsResponse
+     *
+     * @param ListAgentInstallRecordsRequest $request
+     *
+     * @return ListAgentInstallRecordsResponse
      */
     public function listAgentInstallRecords($request)
     {
@@ -1954,33 +2436,43 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取 Agent 列表
-     *  *
-     * @param ListAgentsRequest $request ListAgentsRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 获取 Agent 列表.
      *
-     * @return ListAgentsResponse ListAgentsResponse
+     * @param request - ListAgentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentsResponse
+     *
+     * @param ListAgentsRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListAgentsResponse
      */
     public function listAgentsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->current)) {
-            $query['current'] = $request->current;
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAgents',
@@ -1998,11 +2490,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取 Agent 列表
-     *  *
-     * @param ListAgentsRequest $request ListAgentsRequest
+     * 获取 Agent 列表.
      *
-     * @return ListAgentsResponse ListAgentsResponse
+     * @param request - ListAgentsRequest
+     *
+     * @returns ListAgentsResponse
+     *
+     * @param ListAgentsRequest $request
+     *
+     * @return ListAgentsResponse
      */
     public function listAgents($request)
     {
@@ -2013,39 +2509,51 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取集群组件安装记录
-     *  *
-     * @param ListClusterAgentInstallRecordsRequest $request ListClusterAgentInstallRecordsRequest
-     * @param string[]                              $headers map
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 获取集群组件安装记录.
      *
-     * @return ListClusterAgentInstallRecordsResponse ListClusterAgentInstallRecordsResponse
+     * @param request - ListClusterAgentInstallRecordsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClusterAgentInstallRecordsResponse
+     *
+     * @param ListClusterAgentInstallRecordsRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListClusterAgentInstallRecordsResponse
      */
     public function listClusterAgentInstallRecordsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentConfigId)) {
-            $query['agent_config_id'] = $request->agentConfigId;
+        if (null !== $request->agentConfigId) {
+            @$query['agent_config_id'] = $request->agentConfigId;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['cluster_id'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['cluster_id'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->current)) {
-            $query['current'] = $request->current;
+
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pluginId)) {
-            $query['plugin_id'] = $request->pluginId;
+
+        if (null !== $request->pluginId) {
+            @$query['plugin_id'] = $request->pluginId;
         }
-        if (!Utils::isUnset($request->pluginVersion)) {
-            $query['plugin_version'] = $request->pluginVersion;
+
+        if (null !== $request->pluginVersion) {
+            @$query['plugin_version'] = $request->pluginVersion;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListClusterAgentInstallRecords',
@@ -2063,11 +2571,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取集群组件安装记录
-     *  *
-     * @param ListClusterAgentInstallRecordsRequest $request ListClusterAgentInstallRecordsRequest
+     * 获取集群组件安装记录.
      *
-     * @return ListClusterAgentInstallRecordsResponse ListClusterAgentInstallRecordsResponse
+     * @param request - ListClusterAgentInstallRecordsRequest
+     *
+     * @returns ListClusterAgentInstallRecordsResponse
+     *
+     * @param ListClusterAgentInstallRecordsRequest $request
+     *
+     * @return ListClusterAgentInstallRecordsResponse
      */
     public function listClusterAgentInstallRecords($request)
     {
@@ -2078,42 +2590,55 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取当前用户的所有集群
-     *  *
-     * @param ListClustersRequest $request ListClustersRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取当前用户的所有集群.
      *
-     * @return ListClustersResponse ListClustersResponse
+     * @param request - ListClustersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClustersResponse
+     *
+     * @param ListClustersRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListClustersResponse
      */
     public function listClustersWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['cluster_id'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['cluster_id'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterStatus)) {
-            $query['cluster_status'] = $request->clusterStatus;
+
+        if (null !== $request->clusterStatus) {
+            @$query['cluster_status'] = $request->clusterStatus;
         }
-        if (!Utils::isUnset($request->clusterType)) {
-            $query['cluster_type'] = $request->clusterType;
+
+        if (null !== $request->clusterType) {
+            @$query['cluster_type'] = $request->clusterType;
         }
-        if (!Utils::isUnset($request->current)) {
-            $query['current'] = $request->current;
+
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListClusters',
@@ -2131,11 +2656,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取当前用户的所有集群
-     *  *
-     * @param ListClustersRequest $request ListClustersRequest
+     * 获取当前用户的所有集群.
      *
-     * @return ListClustersResponse ListClustersResponse
+     * @param request - ListClustersRequest
+     *
+     * @returns ListClustersResponse
+     *
+     * @param ListClustersRequest $request
+     *
+     * @return ListClustersResponse
      */
     public function listClusters($request)
     {
@@ -2146,36 +2675,47 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取诊断历史记录列表
-     *  *
-     * @param ListDiagnosisRequest $request ListDiagnosisRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取诊断历史记录列表.
      *
-     * @return ListDiagnosisResponse ListDiagnosisResponse
+     * @param request - ListDiagnosisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDiagnosisResponse
+     *
+     * @param ListDiagnosisRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListDiagnosisResponse
      */
     public function listDiagnosisWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->current)) {
-            $query['current'] = $request->current;
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->params)) {
-            $query['params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$query['params'] = $request->params;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['service_name'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['service_name'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDiagnosis',
@@ -2193,11 +2733,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取诊断历史记录列表
-     *  *
-     * @param ListDiagnosisRequest $request ListDiagnosisRequest
+     * 获取诊断历史记录列表.
      *
-     * @return ListDiagnosisResponse ListDiagnosisResponse
+     * @param request - ListDiagnosisRequest
+     *
+     * @returns ListDiagnosisResponse
+     *
+     * @param ListDiagnosisRequest $request
+     *
+     * @return ListDiagnosisResponse
      */
     public function listDiagnosis($request)
     {
@@ -2208,39 +2752,51 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取一定时间内集群节点/Pod健康度列表
-     *  *
-     * @param ListInstanceHealthRequest $request ListInstanceHealthRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取一定时间内集群节点/Pod健康度列表.
      *
-     * @return ListInstanceHealthResponse ListInstanceHealthResponse
+     * @param request - ListInstanceHealthRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceHealthResponse
+     *
+     * @param ListInstanceHealthRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListInstanceHealthResponse
      */
     public function listInstanceHealthWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cluster)) {
-            $query['cluster'] = $request->cluster;
+        if (null !== $request->cluster) {
+            @$query['cluster'] = $request->cluster;
         }
-        if (!Utils::isUnset($request->current)) {
-            $query['current'] = $request->current;
+
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
         }
-        if (!Utils::isUnset($request->end)) {
-            $query['end'] = $request->end;
+
+        if (null !== $request->end) {
+            @$query['end'] = $request->end;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $query['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$query['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->start)) {
-            $query['start'] = $request->start;
+
+        if (null !== $request->start) {
+            @$query['start'] = $request->start;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListInstanceHealth',
@@ -2258,11 +2814,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取一定时间内集群节点/Pod健康度列表
-     *  *
-     * @param ListInstanceHealthRequest $request ListInstanceHealthRequest
+     * 获取一定时间内集群节点/Pod健康度列表.
      *
-     * @return ListInstanceHealthResponse ListInstanceHealthResponse
+     * @param request - ListInstanceHealthRequest
+     *
+     * @returns ListInstanceHealthResponse
+     *
+     * @param ListInstanceHealthRequest $request
+     *
+     * @return ListInstanceHealthResponse
      */
     public function listInstanceHealth($request)
     {
@@ -2273,36 +2833,47 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例状态
-     *  *
-     * @param ListInstanceStatusRequest $request ListInstanceStatusRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取实例状态
      *
-     * @return ListInstanceStatusResponse ListInstanceStatusResponse
+     * @param request - ListInstanceStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceStatusResponse
+     *
+     * @param ListInstanceStatusRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListInstanceStatusResponse
      */
     public function listInstanceStatusWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->current)) {
-            $query['current'] = $request->current;
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $query['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$query['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListInstanceStatus',
@@ -2320,11 +2891,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例状态
-     *  *
-     * @param ListInstanceStatusRequest $request ListInstanceStatusRequest
+     * 获取实例状态
      *
-     * @return ListInstanceStatusResponse ListInstanceStatusResponse
+     * @param request - ListInstanceStatusRequest
+     *
+     * @returns ListInstanceStatusResponse
+     *
+     * @param ListInstanceStatusRequest $request
+     *
+     * @return ListInstanceStatusResponse
      */
     public function listInstanceStatus($request)
     {
@@ -2335,39 +2910,51 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例列表
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取实例列表.
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['cluster_id'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['cluster_id'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->current)) {
-            $query['current'] = $request->current;
+
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $query['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$query['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListInstances',
@@ -2385,11 +2972,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例列表
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
+     * 获取实例列表.
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -2400,36 +2991,47 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取ecs信息的列表，如标签列表，公网ip列表等
-     *  *
-     * @param ListInstancesEcsInfoListRequest $request ListInstancesEcsInfoListRequest
-     * @param string[]                        $headers map
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 获取ecs信息的列表，如标签列表，公网ip列表等.
      *
-     * @return ListInstancesEcsInfoListResponse ListInstancesEcsInfoListResponse
+     * @param request - ListInstancesEcsInfoListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesEcsInfoListResponse
+     *
+     * @param ListInstancesEcsInfoListRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListInstancesEcsInfoListResponse
      */
     public function listInstancesEcsInfoListWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->infoType)) {
-            $query['info_type'] = $request->infoType;
+        if (null !== $request->infoType) {
+            @$query['info_type'] = $request->infoType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['instance_id'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['instance_id'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->managedType)) {
-            $query['managed_type'] = $request->managedType;
+
+        if (null !== $request->managedType) {
+            @$query['managed_type'] = $request->managedType;
         }
-        if (!Utils::isUnset($request->pluginId)) {
-            $query['plugin_id'] = $request->pluginId;
+
+        if (null !== $request->pluginId) {
+            @$query['plugin_id'] = $request->pluginId;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListInstancesEcsInfoList',
@@ -2447,11 +3049,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取ecs信息的列表，如标签列表，公网ip列表等
-     *  *
-     * @param ListInstancesEcsInfoListRequest $request ListInstancesEcsInfoListRequest
+     * 获取ecs信息的列表，如标签列表，公网ip列表等.
      *
-     * @return ListInstancesEcsInfoListResponse ListInstancesEcsInfoListResponse
+     * @param request - ListInstancesEcsInfoListRequest
+     *
+     * @returns ListInstancesEcsInfoListResponse
+     *
+     * @param ListInstancesEcsInfoListRequest $request
+     *
+     * @return ListInstancesEcsInfoListResponse
      */
     public function listInstancesEcsInfoList($request)
     {
@@ -2462,71 +3068,93 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取已纳管/未纳管实例信息，信息中包含ECS信息
-     *  *
-     * @param ListInstancesWithEcsInfoRequest $tmpReq  ListInstancesWithEcsInfoRequest
-     * @param string[]                        $headers map
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 获取已纳管/未纳管实例信息，信息中包含ECS信息.
      *
-     * @return ListInstancesWithEcsInfoResponse ListInstancesWithEcsInfoResponse
+     * @param tmpReq - ListInstancesWithEcsInfoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesWithEcsInfoResponse
+     *
+     * @param ListInstancesWithEcsInfoRequest $tmpReq
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListInstancesWithEcsInfoResponse
      */
     public function listInstancesWithEcsInfoWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListInstancesWithEcsInfoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceTag)) {
-            $request->instanceTagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceTag, 'instance_tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceTag) {
+            $request->instanceTagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceTag, 'instance_tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->current)) {
-            $query['current'] = $request->current;
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
         }
-        if (!Utils::isUnset($request->healthStatus)) {
-            $query['health_status'] = $request->healthStatus;
+
+        if (null !== $request->healthStatus) {
+            @$query['health_status'] = $request->healthStatus;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['instance_id'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['instance_id'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceIdName)) {
-            $query['instance_id_name'] = $request->instanceIdName;
+
+        if (null !== $request->instanceIdName) {
+            @$query['instance_id_name'] = $request->instanceIdName;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['instance_name'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['instance_name'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->instanceTagShrink)) {
-            $query['instance_tag'] = $request->instanceTagShrink;
+
+        if (null !== $request->instanceTagShrink) {
+            @$query['instance_tag'] = $request->instanceTagShrink;
         }
-        if (!Utils::isUnset($request->isManaged)) {
-            $query['is_managed'] = $request->isManaged;
+
+        if (null !== $request->isManaged) {
+            @$query['is_managed'] = $request->isManaged;
         }
-        if (!Utils::isUnset($request->osName)) {
-            $query['os_name'] = $request->osName;
+
+        if (null !== $request->osName) {
+            @$query['os_name'] = $request->osName;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->privateIp)) {
-            $query['private_ip'] = $request->privateIp;
+
+        if (null !== $request->privateIp) {
+            @$query['private_ip'] = $request->privateIp;
         }
-        if (!Utils::isUnset($request->publicIp)) {
-            $query['public_ip'] = $request->publicIp;
+
+        if (null !== $request->publicIp) {
+            @$query['public_ip'] = $request->publicIp;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resource_group_id'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resource_group_id'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceGroupIdName)) {
-            $query['resource_group_id_name'] = $request->resourceGroupIdName;
+
+        if (null !== $request->resourceGroupIdName) {
+            @$query['resource_group_id_name'] = $request->resourceGroupIdName;
         }
-        if (!Utils::isUnset($request->resourceGroupName)) {
-            $query['resource_group_name'] = $request->resourceGroupName;
+
+        if (null !== $request->resourceGroupName) {
+            @$query['resource_group_name'] = $request->resourceGroupName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListInstancesWithEcsInfo',
@@ -2544,11 +3172,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取已纳管/未纳管实例信息，信息中包含ECS信息
-     *  *
-     * @param ListInstancesWithEcsInfoRequest $request ListInstancesWithEcsInfoRequest
+     * 获取已纳管/未纳管实例信息，信息中包含ECS信息.
      *
-     * @return ListInstancesWithEcsInfoResponse ListInstancesWithEcsInfoResponse
+     * @param request - ListInstancesWithEcsInfoRequest
+     *
+     * @returns ListInstancesWithEcsInfoResponse
+     *
+     * @param ListInstancesWithEcsInfoRequest $request
+     *
+     * @return ListInstancesWithEcsInfoResponse
      */
     public function listInstancesWithEcsInfo($request)
     {
@@ -2559,42 +3191,55 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取插件的安装/更新/卸载实例列表
-     *  *
-     * @param ListPluginsInstancesRequest $request ListPluginsInstancesRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取插件的安装/更新/卸载实例列表.
      *
-     * @return ListPluginsInstancesResponse ListPluginsInstancesResponse
+     * @param request - ListPluginsInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPluginsInstancesResponse
+     *
+     * @param ListPluginsInstancesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListPluginsInstancesResponse
      */
     public function listPluginsInstancesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->current)) {
-            $query['current'] = $request->current;
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
         }
-        if (!Utils::isUnset($request->instanceIdName)) {
-            $query['instance_id_name'] = $request->instanceIdName;
+
+        if (null !== $request->instanceIdName) {
+            @$query['instance_id_name'] = $request->instanceIdName;
         }
-        if (!Utils::isUnset($request->instanceTag)) {
-            $query['instance_tag'] = $request->instanceTag;
+
+        if (null !== $request->instanceTag) {
+            @$query['instance_tag'] = $request->instanceTag;
         }
-        if (!Utils::isUnset($request->operationType)) {
-            $query['operation_type'] = $request->operationType;
+
+        if (null !== $request->operationType) {
+            @$query['operation_type'] = $request->operationType;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pluginId)) {
-            $query['plugin_id'] = $request->pluginId;
+
+        if (null !== $request->pluginId) {
+            @$query['plugin_id'] = $request->pluginId;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPluginsInstances',
@@ -2612,11 +3257,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取插件的安装/更新/卸载实例列表
-     *  *
-     * @param ListPluginsInstancesRequest $request ListPluginsInstancesRequest
+     * 获取插件的安装/更新/卸载实例列表.
      *
-     * @return ListPluginsInstancesResponse ListPluginsInstancesResponse
+     * @param request - ListPluginsInstancesRequest
+     *
+     * @returns ListPluginsInstancesResponse
+     *
+     * @param ListPluginsInstancesRequest $request
+     *
+     * @return ListPluginsInstancesResponse
      */
     public function listPluginsInstances($request)
     {
@@ -2627,33 +3276,43 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例中的pod列表
-     *  *
-     * @param ListPodsOfInstanceRequest $request ListPodsOfInstanceRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取实例中的pod列表.
      *
-     * @return ListPodsOfInstanceResponse ListPodsOfInstanceResponse
+     * @param request - ListPodsOfInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPodsOfInstanceResponse
+     *
+     * @param ListPodsOfInstanceRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListPodsOfInstanceResponse
      */
     public function listPodsOfInstanceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['cluster_id'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['cluster_id'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->current)) {
-            $query['current'] = $request->current;
+
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $query['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$query['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPodsOfInstance',
@@ -2671,11 +3330,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例中的pod列表
-     *  *
-     * @param ListPodsOfInstanceRequest $request ListPodsOfInstanceRequest
+     * 获取实例中的pod列表.
      *
-     * @return ListPodsOfInstanceResponse ListPodsOfInstanceResponse
+     * @param request - ListPodsOfInstanceRequest
+     *
+     * @returns ListPodsOfInstanceResponse
+     *
+     * @param ListPodsOfInstanceRequest $request
+     *
+     * @return ListPodsOfInstanceResponse
      */
     public function listPodsOfInstance($request)
     {
@@ -2686,12 +3349,17 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 列出所有纳管了机器的区域
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 列出所有纳管了机器的区域
      *
-     * @return ListRegionsResponse ListRegionsResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRegionsResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListRegionsResponse
      */
     public function listRegionsWithOptions($headers, $runtime)
     {
@@ -2714,9 +3382,11 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 列出所有纳管了机器的区域
-     *  *
-     * @return ListRegionsResponse ListRegionsResponse
+     * 列出所有纳管了机器的区域
+     *
+     * @returns ListRegionsResponse
+     *
+     * @return ListRegionsResponse
      */
     public function listRegions()
     {
@@ -2727,63 +3397,83 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 启动AI作业分析
-     *  *
-     * @param StartAIAnalysisRequest $request StartAIAnalysisRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 启动AI作业分析.
      *
-     * @return StartAIAnalysisResponse StartAIAnalysisResponse
+     * @param request - StartAIAnalysisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartAIAnalysisResponse
+     *
+     * @param StartAIAnalysisRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return StartAIAnalysisResponse
      */
     public function startAIAnalysisWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->analysisTool)) {
-            $body['analysisTool'] = $request->analysisTool;
+        if (null !== $request->analysisTool) {
+            @$body['analysisTool'] = $request->analysisTool;
         }
-        if (!Utils::isUnset($request->analysisParams)) {
-            $body['analysis_params'] = $request->analysisParams;
+
+        if (null !== $request->analysisParams) {
+            @$body['analysis_params'] = $request->analysisParams;
         }
-        if (!Utils::isUnset($request->channel)) {
-            $body['channel'] = $request->channel;
+
+        if (null !== $request->channel) {
+            @$body['channel'] = $request->channel;
         }
-        if (!Utils::isUnset($request->comms)) {
-            $body['comms'] = $request->comms;
+
+        if (null !== $request->comms) {
+            @$body['comms'] = $request->comms;
         }
-        if (!Utils::isUnset($request->createdBy)) {
-            $body['created_by'] = $request->createdBy;
+
+        if (null !== $request->createdBy) {
+            @$body['created_by'] = $request->createdBy;
         }
-        if (!Utils::isUnset($request->instance)) {
-            $body['instance'] = $request->instance;
+
+        if (null !== $request->instance) {
+            @$body['instance'] = $request->instance;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $body['instance_type'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$body['instance_type'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->iterationFunc)) {
-            $body['iteration_func'] = $request->iterationFunc;
+
+        if (null !== $request->iterationFunc) {
+            @$body['iteration_func'] = $request->iterationFunc;
         }
-        if (!Utils::isUnset($request->iterationMod)) {
-            $body['iteration_mod'] = $request->iterationMod;
+
+        if (null !== $request->iterationMod) {
+            @$body['iteration_mod'] = $request->iterationMod;
         }
-        if (!Utils::isUnset($request->iterationRange)) {
-            $body['iteration_range'] = $request->iterationRange;
+
+        if (null !== $request->iterationRange) {
+            @$body['iteration_range'] = $request->iterationRange;
         }
-        if (!Utils::isUnset($request->pids)) {
-            $body['pids'] = $request->pids;
+
+        if (null !== $request->pids) {
+            @$body['pids'] = $request->pids;
         }
-        if (!Utils::isUnset($request->region)) {
-            $body['region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$body['region'] = $request->region;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $body['timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$body['timeout'] = $request->timeout;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $body['uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$body['uid'] = $request->uid;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'StartAIAnalysis',
@@ -2801,11 +3491,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 启动AI作业分析
-     *  *
-     * @param StartAIAnalysisRequest $request StartAIAnalysisRequest
+     * 启动AI作业分析.
      *
-     * @return StartAIAnalysisResponse StartAIAnalysisResponse
+     * @param request - StartAIAnalysisRequest
+     *
+     * @returns StartAIAnalysisResponse
+     *
+     * @param StartAIAnalysisRequest $request
+     *
+     * @return StartAIAnalysisResponse
      */
     public function startAIAnalysis($request)
     {
@@ -2816,27 +3510,35 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 查看AI Infra差分分析结果
-     *  *
-     * @param StartAIDiffAnalysisRequest $request StartAIDiffAnalysisRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查看AI Infra差分分析结果.
      *
-     * @return StartAIDiffAnalysisResponse StartAIDiffAnalysisResponse
+     * @param request - StartAIDiffAnalysisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartAIDiffAnalysisResponse
+     *
+     * @param StartAIDiffAnalysisRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StartAIDiffAnalysisResponse
      */
     public function startAIDiffAnalysisWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->task1)) {
-            $body['task1'] = $request->task1;
+        if (null !== $request->task1) {
+            @$body['task1'] = $request->task1;
         }
-        if (!Utils::isUnset($request->task2)) {
-            $body['task2'] = $request->task2;
+
+        if (null !== $request->task2) {
+            @$body['task2'] = $request->task2;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'StartAIDiffAnalysis',
@@ -2854,11 +3556,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 查看AI Infra差分分析结果
-     *  *
-     * @param StartAIDiffAnalysisRequest $request StartAIDiffAnalysisRequest
+     * 查看AI Infra差分分析结果.
      *
-     * @return StartAIDiffAnalysisResponse StartAIDiffAnalysisResponse
+     * @param request - StartAIDiffAnalysisRequest
+     *
+     * @returns StartAIDiffAnalysisResponse
+     *
+     * @param StartAIDiffAnalysisRequest $request
+     *
+     * @return StartAIDiffAnalysisResponse
      */
     public function startAIDiffAnalysis($request)
     {
@@ -2869,30 +3575,39 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 卸载 SysOM Agent
-     *  *
-     * @param UninstallAgentRequest $request UninstallAgentRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 卸载 SysOM Agent.
      *
-     * @return UninstallAgentResponse UninstallAgentResponse
+     * @param request - UninstallAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UninstallAgentResponse
+     *
+     * @param UninstallAgentRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UninstallAgentResponse
      */
     public function uninstallAgentWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $body['agent_id'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$body['agent_id'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentVersion)) {
-            $body['agent_version'] = $request->agentVersion;
+
+        if (null !== $request->agentVersion) {
+            @$body['agent_version'] = $request->agentVersion;
         }
-        if (!Utils::isUnset($request->instances)) {
-            $body['instances'] = $request->instances;
+
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UninstallAgent',
@@ -2910,11 +3625,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 卸载 SysOM Agent
-     *  *
-     * @param UninstallAgentRequest $request UninstallAgentRequest
+     * 卸载 SysOM Agent.
      *
-     * @return UninstallAgentResponse UninstallAgentResponse
+     * @param request - UninstallAgentRequest
+     *
+     * @returns UninstallAgentResponse
+     *
+     * @param UninstallAgentRequest $request
+     *
+     * @return UninstallAgentResponse
      */
     public function uninstallAgent($request)
     {
@@ -2925,30 +3644,39 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 给集群卸载组件
-     *  *
-     * @param UninstallAgentForClusterRequest $request UninstallAgentForClusterRequest
-     * @param string[]                        $headers map
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 给集群卸载组件.
      *
-     * @return UninstallAgentForClusterResponse UninstallAgentForClusterResponse
+     * @param request - UninstallAgentForClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UninstallAgentForClusterResponse
+     *
+     * @param UninstallAgentForClusterRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UninstallAgentForClusterResponse
      */
     public function uninstallAgentForClusterWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $body['agent_id'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$body['agent_id'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentVersion)) {
-            $body['agent_version'] = $request->agentVersion;
+
+        if (null !== $request->agentVersion) {
+            @$body['agent_version'] = $request->agentVersion;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['cluster_id'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['cluster_id'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UninstallAgentForCluster',
@@ -2966,11 +3694,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 给集群卸载组件
-     *  *
-     * @param UninstallAgentForClusterRequest $request UninstallAgentForClusterRequest
+     * 给集群卸载组件.
      *
-     * @return UninstallAgentForClusterResponse UninstallAgentForClusterResponse
+     * @param request - UninstallAgentForClusterRequest
+     *
+     * @returns UninstallAgentForClusterResponse
+     *
+     * @param UninstallAgentForClusterRequest $request
+     *
+     * @return UninstallAgentForClusterResponse
      */
     public function uninstallAgentForCluster($request)
     {
@@ -2981,30 +3713,39 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 异常项关注度更新
-     *  *
-     * @param UpdateEventsAttentionRequest $request UpdateEventsAttentionRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 异常项关注度更新.
      *
-     * @return UpdateEventsAttentionResponse UpdateEventsAttentionResponse
+     * @param request - UpdateEventsAttentionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEventsAttentionResponse
+     *
+     * @param UpdateEventsAttentionRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateEventsAttentionResponse
      */
     public function updateEventsAttentionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->mode)) {
-            $body['mode'] = $request->mode;
+        if (null !== $request->mode) {
+            @$body['mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->range)) {
-            $body['range'] = $request->range;
+
+        if (null !== $request->range) {
+            @$body['range'] = $request->range;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateEventsAttention',
@@ -3022,11 +3763,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 异常项关注度更新
-     *  *
-     * @param UpdateEventsAttentionRequest $request UpdateEventsAttentionRequest
+     * 异常项关注度更新.
      *
-     * @return UpdateEventsAttentionResponse UpdateEventsAttentionResponse
+     * @param request - UpdateEventsAttentionRequest
+     *
+     * @returns UpdateEventsAttentionResponse
+     *
+     * @param UpdateEventsAttentionRequest $request
+     *
+     * @return UpdateEventsAttentionResponse
      */
     public function updateEventsAttention($request)
     {
@@ -3037,35 +3782,45 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取功能模块配置
-     *  *
-     * @param UpdateFuncSwitchRecordRequest $tmpReq  UpdateFuncSwitchRecordRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获取功能模块配置.
      *
-     * @return UpdateFuncSwitchRecordResponse UpdateFuncSwitchRecordResponse
+     * @param tmpReq - UpdateFuncSwitchRecordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFuncSwitchRecordResponse
+     *
+     * @param UpdateFuncSwitchRecordRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateFuncSwitchRecordResponse
      */
     public function updateFuncSwitchRecordWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateFuncSwitchRecordShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->params)) {
-            $request->paramsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->params, 'params', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'params', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->channel)) {
-            $query['channel'] = $request->channel;
+        if (null !== $request->channel) {
+            @$query['channel'] = $request->channel;
         }
-        if (!Utils::isUnset($request->paramsShrink)) {
-            $query['params'] = $request->paramsShrink;
+
+        if (null !== $request->paramsShrink) {
+            @$query['params'] = $request->paramsShrink;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['service_name'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['service_name'] = $request->serviceName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateFuncSwitchRecord',
@@ -3083,11 +3838,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 获取功能模块配置
-     *  *
-     * @param UpdateFuncSwitchRecordRequest $request UpdateFuncSwitchRecordRequest
+     * 获取功能模块配置.
      *
-     * @return UpdateFuncSwitchRecordResponse UpdateFuncSwitchRecordResponse
+     * @param request - UpdateFuncSwitchRecordRequest
+     *
+     * @returns UpdateFuncSwitchRecordResponse
+     *
+     * @param UpdateFuncSwitchRecordRequest $request
+     *
+     * @return UpdateFuncSwitchRecordResponse
      */
     public function updateFuncSwitchRecord($request)
     {
@@ -3098,30 +3857,39 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 更新 SysOM Agent
-     *  *
-     * @param UpgradeAgentRequest $request UpgradeAgentRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 更新 SysOM Agent.
      *
-     * @return UpgradeAgentResponse UpgradeAgentResponse
+     * @param request - UpgradeAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeAgentResponse
+     *
+     * @param UpgradeAgentRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpgradeAgentResponse
      */
     public function upgradeAgentWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $body['agent_id'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$body['agent_id'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentVersion)) {
-            $body['agent_version'] = $request->agentVersion;
+
+        if (null !== $request->agentVersion) {
+            @$body['agent_version'] = $request->agentVersion;
         }
-        if (!Utils::isUnset($request->instances)) {
-            $body['instances'] = $request->instances;
+
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpgradeAgent',
@@ -3139,11 +3907,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 更新 SysOM Agent
-     *  *
-     * @param UpgradeAgentRequest $request UpgradeAgentRequest
+     * 更新 SysOM Agent.
      *
-     * @return UpgradeAgentResponse UpgradeAgentResponse
+     * @param request - UpgradeAgentRequest
+     *
+     * @returns UpgradeAgentResponse
+     *
+     * @param UpgradeAgentRequest $request
+     *
+     * @return UpgradeAgentResponse
      */
     public function upgradeAgent($request)
     {
@@ -3154,30 +3926,39 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 给集群更新组件
-     *  *
-     * @param UpgradeAgentForClusterRequest $request UpgradeAgentForClusterRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 给集群更新组件.
      *
-     * @return UpgradeAgentForClusterResponse UpgradeAgentForClusterResponse
+     * @param request - UpgradeAgentForClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeAgentForClusterResponse
+     *
+     * @param UpgradeAgentForClusterRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpgradeAgentForClusterResponse
      */
     public function upgradeAgentForClusterWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $body['agent_id'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$body['agent_id'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentVersion)) {
-            $body['agent_version'] = $request->agentVersion;
+
+        if (null !== $request->agentVersion) {
+            @$body['agent_version'] = $request->agentVersion;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['cluster_id'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['cluster_id'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpgradeAgentForCluster',
@@ -3195,11 +3976,15 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @summary 给集群更新组件
-     *  *
-     * @param UpgradeAgentForClusterRequest $request UpgradeAgentForClusterRequest
+     * 给集群更新组件.
      *
-     * @return UpgradeAgentForClusterResponse UpgradeAgentForClusterResponse
+     * @param request - UpgradeAgentForClusterRequest
+     *
+     * @returns UpgradeAgentForClusterResponse
+     *
+     * @param UpgradeAgentForClusterRequest $request
+     *
+     * @return UpgradeAgentForClusterResponse
      */
     public function upgradeAgentForCluster($request)
     {

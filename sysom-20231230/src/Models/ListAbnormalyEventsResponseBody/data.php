@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\ListAbnormalyEventsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAbnormalyEventsResponseBody\data\opts;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 1725801090000
-     *
      * @var int
      */
     public $createdAt;
@@ -32,8 +30,6 @@ class data extends Model
     public $endAt;
 
     /**
-     * @example i-wz9d00ut2ska3mlyhn6j
-     *
      * @var string
      */
     public $instance;
@@ -64,15 +60,11 @@ class data extends Model
     public $pod;
 
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example saturation
-     *
      * @var string
      */
     public $type;
@@ -97,53 +89,72 @@ class data extends Model
         'uuid' => 'uuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->opts)) {
+            Model::validateArray($this->opts);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->diagStatus) {
             $res['diag_status'] = $this->diagStatus;
         }
+
         if (null !== $this->endAt) {
             $res['end_at'] = $this->endAt;
         }
+
         if (null !== $this->instance) {
             $res['instance'] = $this->instance;
         }
+
         if (null !== $this->item) {
             $res['item'] = $this->item;
         }
+
         if (null !== $this->level) {
             $res['level'] = $this->level;
         }
+
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
         }
+
         if (null !== $this->opts) {
-            $res['opts'] = [];
-            if (null !== $this->opts && \is_array($this->opts)) {
-                $n = 0;
-                foreach ($this->opts as $item) {
-                    $res['opts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->opts)) {
+                $res['opts'] = [];
+                $n1 = 0;
+                foreach ($this->opts as $item1) {
+                    $res['opts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pod) {
             $res['pod'] = $this->pod;
         }
+
         if (null !== $this->regionId) {
             $res['region_id'] = $this->regionId;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->uuid) {
             $res['uuid'] = $this->uuid;
         }
@@ -151,56 +162,69 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['diag_status'])) {
             $model->diagStatus = $map['diag_status'];
         }
+
         if (isset($map['end_at'])) {
             $model->endAt = $map['end_at'];
         }
+
         if (isset($map['instance'])) {
             $model->instance = $map['instance'];
         }
+
         if (isset($map['item'])) {
             $model->item = $map['item'];
         }
+
         if (isset($map['level'])) {
             $model->level = $map['level'];
         }
+
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
         }
+
         if (isset($map['opts'])) {
             if (!empty($map['opts'])) {
                 $model->opts = [];
-                $n = 0;
-                foreach ($map['opts'] as $item) {
-                    $model->opts[$n++] = null !== $item ? opts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['opts'] as $item1) {
+                    $model->opts[$n1] = opts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['pod'])) {
             $model->pod = $map['pod'];
         }
+
         if (isset($map['region_id'])) {
             $model->regionId = $map['region_id'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['uuid'])) {
             $model->uuid = $map['uuid'];
         }

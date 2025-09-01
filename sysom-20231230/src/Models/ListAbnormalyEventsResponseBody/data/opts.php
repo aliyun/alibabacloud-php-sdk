@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\ListAbnormalyEventsResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAbnormalyEventsResponseBody\data\opts\result;
-use AlibabaCloud\Tea\Model;
 
 class opts extends Model
 {
@@ -29,17 +29,25 @@ class opts extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->label) {
             $res['label'] = $this->label;
         }
+
         if (null !== $this->result) {
-            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -47,20 +55,22 @@ class opts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return opts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['label'])) {
             $model->label = $map['label'];
         }
+
         if (isset($map['result'])) {
             $model->result = result::fromMap($map['result']);
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

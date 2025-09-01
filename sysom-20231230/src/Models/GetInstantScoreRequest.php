@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInstantScoreRequest extends Model
 {
     /**
-     * @example 1808078950770264
-     *
      * @var string
      */
     public $cluster;
 
     /**
-     * @example i-wz9d00ut2ska3mlyhn6j
-     *
      * @var string
      */
     public $instance;
@@ -26,14 +22,18 @@ class GetInstantScoreRequest extends Model
         'instance' => 'instance',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cluster) {
             $res['cluster'] = $this->cluster;
         }
+
         if (null !== $this->instance) {
             $res['instance'] = $this->instance;
         }
@@ -41,17 +41,18 @@ class GetInstantScoreRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstantScoreRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cluster'])) {
             $model->cluster = $map['cluster'];
         }
+
         if (isset($map['instance'])) {
             $model->instance = $map['instance'];
         }

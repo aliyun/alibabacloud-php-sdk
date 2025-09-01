@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\ListDiagnosisResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -76,41 +76,54 @@ class data extends Model
         'url' => 'url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->command) {
             $res['command'] = $this->command;
         }
+
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
         }
+
         if (null !== $this->errMsg) {
             $res['err_msg'] = $this->errMsg;
         }
+
         if (null !== $this->params) {
             $res['params'] = $this->params;
         }
+
         if (null !== $this->result) {
             $res['result'] = $this->result;
         }
+
         if (null !== $this->serviceName) {
             $res['service_name'] = $this->serviceName;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->taskId) {
             $res['task_id'] = $this->taskId;
         }
+
         if (null !== $this->updatedAt) {
             $res['updated_at'] = $this->updatedAt;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -118,44 +131,54 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['command'])) {
             $model->command = $map['command'];
         }
+
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
         }
+
         if (isset($map['err_msg'])) {
             $model->errMsg = $map['err_msg'];
         }
+
         if (isset($map['params'])) {
             $model->params = $map['params'];
         }
+
         if (isset($map['result'])) {
             $model->result = $map['result'];
         }
+
         if (isset($map['service_name'])) {
             $model->serviceName = $map['service_name'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['task_id'])) {
             $model->taskId = $map['task_id'];
         }
+
         if (isset($map['updated_at'])) {
             $model->updatedAt = $map['updated_at'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

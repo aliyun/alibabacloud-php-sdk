@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\ListPodsOfInstanceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example default
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @example test-pod
-     *
      * @var string
      */
     public $pod;
@@ -26,14 +22,18 @@ class data extends Model
         'pod' => 'pod',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
         }
+
         if (null !== $this->pod) {
             $res['pod'] = $this->pod;
         }
@@ -41,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
         }
+
         if (isset($map['pod'])) {
             $model->pod = $map['pod'];
         }

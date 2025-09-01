@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\GetAbnormalEventsCountResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -14,15 +14,11 @@ class data extends Model
     public $eventList;
 
     /**
-     * @example health
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $value;
@@ -32,17 +28,32 @@ class data extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->eventList)) {
+            Model::validateArray($this->eventList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventList) {
-            $res['eventList'] = $this->eventList;
+            if (\is_array($this->eventList)) {
+                $res['eventList'] = [];
+                $n1 = 0;
+                foreach ($this->eventList as $item1) {
+                    $res['eventList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -50,22 +61,29 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['eventList'])) {
             if (!empty($map['eventList'])) {
-                $model->eventList = $map['eventList'];
+                $model->eventList = [];
+                $n1 = 0;
+                foreach ($map['eventList'] as $item1) {
+                    $model->eventList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentRequest\instances;
-use AlibabaCloud\Tea\Model;
 
 class UninstallAgentRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $agentId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $agentVersion;
 
     /**
-     * @description This parameter is required.
-     *
      * @var instances[]
      */
     public $instances;
@@ -35,23 +29,32 @@ class UninstallAgentRequest extends Model
         'instances' => 'instances',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instances)) {
+            Model::validateArray($this->instances);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentId) {
             $res['agent_id'] = $this->agentId;
         }
+
         if (null !== $this->agentVersion) {
             $res['agent_version'] = $this->agentVersion;
         }
+
         if (null !== $this->instances) {
-            $res['instances'] = [];
-            if (null !== $this->instances && \is_array($this->instances)) {
-                $n = 0;
-                foreach ($this->instances as $item) {
-                    $res['instances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instances)) {
+                $res['instances'] = [];
+                $n1 = 0;
+                foreach ($this->instances as $item1) {
+                    $res['instances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -59,26 +62,29 @@ class UninstallAgentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UninstallAgentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['agent_id'])) {
             $model->agentId = $map['agent_id'];
         }
+
         if (isset($map['agent_version'])) {
             $model->agentVersion = $map['agent_version'];
         }
+
         if (isset($map['instances'])) {
             if (!empty($map['instances'])) {
                 $model->instances = [];
-                $n = 0;
-                foreach ($map['instances'] as $item) {
-                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['instances'] as $item1) {
+                    $model->instances[$n1] = instances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

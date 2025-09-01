@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListRegionsResponseBody extends Model
 {
@@ -14,22 +14,16 @@ class ListRegionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @example Success
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example ["cn-hangzhou", "cn-shengzhen"]
-     *
      * @var string[]
      */
     public $data;
 
     /**
-     * @example SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom
-     *
      * @var string
      */
     public $message;
@@ -40,20 +34,36 @@ class ListRegionsResponseBody extends Model
         'message' => 'message',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['data'] = $this->data;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    $res['data'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
@@ -61,25 +71,33 @@ class ListRegionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRegionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
-                $model->data = $map['data'];
+                $model->data = [];
+                $n1 = 0;
+                foreach ($map['data'] as $item1) {
+                    $model->data[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }

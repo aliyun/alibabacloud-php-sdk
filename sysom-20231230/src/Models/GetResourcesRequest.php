@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetResourcesRequest extends Model
 {
     /**
-     * @example 1808078950770264
-     *
      * @var string
      */
     public $cluster;
 
     /**
-     * @example i-wz9d00ut2ska3mlyhn6j
-     *
      * @var string
      */
     public $instance;
 
     /**
-     * @example mem
-     *
      * @var string
      */
     public $type;
@@ -34,17 +28,22 @@ class GetResourcesRequest extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cluster) {
             $res['cluster'] = $this->cluster;
         }
+
         if (null !== $this->instance) {
             $res['instance'] = $this->instance;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -52,20 +51,22 @@ class GetResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cluster'])) {
             $model->cluster = $map['cluster'];
         }
+
         if (isset($map['instance'])) {
             $model->instance = $map['instance'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

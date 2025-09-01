@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\GetCopilotHistoryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -14,16 +14,11 @@ class data extends Model
     public $content;
 
     /**
-     * @example 2024-09-02 10:02:39
-     *
      * @var string
      */
     public $time;
 
     /**
-     * @example user
-     * copilot
-     *
      * @var string
      */
     public $user;
@@ -33,17 +28,22 @@ class data extends Model
         'user' => 'user',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->time) {
             $res['time'] = $this->time;
         }
+
         if (null !== $this->user) {
             $res['user'] = $this->user;
         }
@@ -51,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['time'])) {
             $model->time = $map['time'];
         }
+
         if (isset($map['user'])) {
             $model->user = $map['user'];
         }

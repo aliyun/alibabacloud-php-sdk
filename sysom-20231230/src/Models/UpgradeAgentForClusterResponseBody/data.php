@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentForClusterResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 7523e9e0ddc74d99a5236f4f4d5056e6
-     *
      * @var string
      */
     public $taskId;
@@ -18,9 +16,12 @@ class data extends Model
         'taskId' => 'task_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -30,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InvokeAnomalyDiagnosisResponseBody extends Model
 {
     /**
-     * @example Success
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
-     *
-     * @example 2D693121-C925-5154-8DF6-C09A8B369822
-     *
      * @var string
      */
     public $requestId;
@@ -36,17 +28,22 @@ class InvokeAnomalyDiagnosisResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -54,20 +51,22 @@ class InvokeAnomalyDiagnosisResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InvokeAnomalyDiagnosisResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

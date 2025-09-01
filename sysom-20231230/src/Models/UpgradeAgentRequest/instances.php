@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instances extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example i-wz9b9vucz1iubsz8sjqo
-     *
      * @var string
      */
     public $instance;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
@@ -30,14 +22,18 @@ class instances extends Model
         'region' => 'region',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instance) {
             $res['instance'] = $this->instance;
         }
+
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
@@ -45,17 +41,18 @@ class instances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instance'])) {
             $model->instance = $map['instance'];
         }
+
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }

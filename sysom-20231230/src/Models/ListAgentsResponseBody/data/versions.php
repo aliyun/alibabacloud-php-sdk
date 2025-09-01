@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\ListAgentsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class versions extends Model
 {
@@ -46,26 +46,34 @@ class versions extends Model
         'version' => 'version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
         }
+
         if (null !== $this->installScript) {
             $res['install_script'] = $this->installScript;
         }
+
         if (null !== $this->uninstallScript) {
             $res['uninstall_script'] = $this->uninstallScript;
         }
+
         if (null !== $this->updatedAt) {
             $res['updated_at'] = $this->updatedAt;
         }
+
         if (null !== $this->upgradeScript) {
             $res['upgrade_script'] = $this->upgradeScript;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -73,29 +81,34 @@ class versions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return versions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
         }
+
         if (isset($map['install_script'])) {
             $model->installScript = $map['install_script'];
         }
+
         if (isset($map['uninstall_script'])) {
             $model->uninstallScript = $map['uninstall_script'];
         }
+
         if (isset($map['updated_at'])) {
             $model->updatedAt = $map['updated_at'];
         }
+
         if (isset($map['upgrade_script'])) {
             $model->upgradeScript = $map['upgrade_script'];
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }
