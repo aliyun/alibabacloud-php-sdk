@@ -1,3 +1,7 @@
+2025-09-01 Version: 1.2.1
+- Update API ThirdImmediateMsgPush: add request parameters Source.
+
+
 2025-08-21 Version: 1.2.0
 - Support API CreatePlayingListOAuth2.
 - Support API ThirdImmediateMsgPush.

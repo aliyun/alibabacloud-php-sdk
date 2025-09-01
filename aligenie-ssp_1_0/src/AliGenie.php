@@ -6724,6 +6724,10 @@ class AliGenie extends OpenApiClient
             @$query['PsgIds'] = $request->psgIds;
         }
 
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
         if (null !== $request->trafficChangeType) {
             @$query['TrafficChangeType'] = $request->trafficChangeType;
         }

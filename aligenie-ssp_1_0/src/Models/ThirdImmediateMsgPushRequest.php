@@ -31,6 +31,11 @@ class ThirdImmediateMsgPushRequest extends Model
     /**
      * @var string
      */
+    public $source;
+
+    /**
+     * @var string
+     */
     public $trafficChangeType;
 
     /**
@@ -57,6 +62,7 @@ class ThirdImmediateMsgPushRequest extends Model
         'changeDetail' => 'ChangeDetail',
         'orderId' => 'OrderId',
         'psgIds' => 'PsgIds',
+        'source' => 'Source',
         'trafficChangeType' => 'TrafficChangeType',
         'trafficChangeTypeDesc' => 'TrafficChangeTypeDesc',
         'trafficJourneyIds' => 'TrafficJourneyIds',
@@ -86,6 +92,10 @@ class ThirdImmediateMsgPushRequest extends Model
 
         if (null !== $this->psgIds) {
             $res['PsgIds'] = $this->psgIds;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         if (null !== $this->trafficChangeType) {
@@ -133,6 +143,10 @@ class ThirdImmediateMsgPushRequest extends Model
 
         if (isset($map['PsgIds'])) {
             $model->psgIds = $map['PsgIds'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         if (isset($map['TrafficChangeType'])) {
