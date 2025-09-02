@@ -1,3 +1,6 @@
+2025-09-02 Version: 1.2.2
+- Generated php ssp_1.0 for AliGenie.
+
 2025-09-01 Version: 1.2.1
 - Update API ThirdImmediateMsgPush: add request parameters Source.
 
