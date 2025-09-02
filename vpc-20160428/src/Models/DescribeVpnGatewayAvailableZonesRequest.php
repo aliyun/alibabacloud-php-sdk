@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVpnGatewayAvailableZonesRequest extends Model
 {
     /**
-     * @description The language in which the returned results are displayed. Valid values:
-     *
-     *   **zh-CN**: Chinese
-     *   **en-US** (default): English
-     *
-     * @example zh-CN
-     *
      * @var string
      */
     public $acceptLanguage;
@@ -31,12 +24,6 @@ class DescribeVpnGatewayAvailableZonesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -52,26 +39,6 @@ class DescribeVpnGatewayAvailableZonesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The bandwidth specification.
-     *
-     *   If an IPsec-VPN connection can be associated with the VPN gateway, this parameter specifies the bandwidth specification of the VPN gateway.
-     *   In scenarios where an IPsec-VPN connection can be associated with a transit router. This parameter specifies the bandwidth specification supported by an IPsec-VPN connection.
-     *
-     * Different bandwidth specifications may affect returned zone information. Valid values:
-     *
-     *   **5M**
-     *   **10M**
-     *   **20M**
-     *   **50M**
-     *   **100M**
-     *   **200M**
-     *   **500M**
-     *   **1000M**
-     *
-     * This parameter is required.
-     *
-     * @example 5M
-     *
      * @var string
      */
     public $spec;
@@ -85,29 +52,38 @@ class DescribeVpnGatewayAvailableZonesRequest extends Model
         'spec' => 'Spec',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
         }
@@ -115,32 +91,38 @@ class DescribeVpnGatewayAvailableZonesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVpnGatewayAvailableZonesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
         }

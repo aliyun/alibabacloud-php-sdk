@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeServerRelatedGlobalAccelerationInstancesResponseBody\globalAccelerationInstances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class globalAccelerationInstance extends Model
 {
     /**
-     * @description The ID of the GA instance.
-     *
-     * @example ga-t4nku6vv9****
-     *
      * @var string
      */
     public $globalAccelerationInstanceId;
 
     /**
-     * @description The public IP address of the GA instance.
-     *
-     * @example 12.34.56.78
-     *
      * @var string
      */
     public $ipAddress;
 
     /**
-     * @description The region ID of the GA instance.
-     *
-     * @example ap-southeast-1
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The IP address of the backend service.
-     *
-     * @example 172.24.52.234
-     *
      * @var string
      */
     public $serverIpAddress;
@@ -50,20 +34,26 @@ class globalAccelerationInstance extends Model
         'serverIpAddress' => 'ServerIpAddress',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->globalAccelerationInstanceId) {
             $res['GlobalAccelerationInstanceId'] = $this->globalAccelerationInstanceId;
         }
+
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serverIpAddress) {
             $res['ServerIpAddress'] = $this->serverIpAddress;
         }
@@ -71,23 +61,26 @@ class globalAccelerationInstance extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return globalAccelerationInstance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GlobalAccelerationInstanceId'])) {
             $model->globalAccelerationInstanceId = $map['GlobalAccelerationInstanceId'];
         }
+
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServerIpAddress'])) {
             $model->serverIpAddress = $map['ServerIpAddress'];
         }

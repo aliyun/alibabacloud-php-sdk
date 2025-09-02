@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigResponseBody\vpnConnectionConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigResponseBody\vpnConnectionConfig\bgpConfigs\bgpConfig;
-use AlibabaCloud\Tea\Model;
 
 class bgpConfigs extends Model
 {
@@ -17,17 +17,24 @@ class bgpConfigs extends Model
         'bgpConfig' => 'BgpConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bgpConfig)) {
+            Model::validateArray($this->bgpConfig);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bgpConfig) {
-            $res['BgpConfig'] = [];
-            if (null !== $this->bgpConfig && \is_array($this->bgpConfig)) {
-                $n = 0;
-                foreach ($this->bgpConfig as $item) {
-                    $res['BgpConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bgpConfig)) {
+                $res['BgpConfig'] = [];
+                $n1 = 0;
+                foreach ($this->bgpConfig as $item1) {
+                    $res['BgpConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class bgpConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bgpConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BgpConfig'])) {
             if (!empty($map['BgpConfig'])) {
                 $model->bgpConfig = [];
-                $n = 0;
-                foreach ($map['BgpConfig'] as $item) {
-                    $model->bgpConfig[$n++] = null !== $item ? bgpConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BgpConfig'] as $item1) {
+                    $model->bgpConfig[$n1] = bgpConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

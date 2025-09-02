@@ -1,3 +1,23 @@
+2025-09-02 Version: 6.12.0
+- Support API DescribeVpcGrantRulesToEcr.
+- Update API AssociateVpcCidrBlock: add request parameters Ipv6CidrMask.
+- Update API CreateNatGateway: add request parameters Ipv4Prefix.
+- Update API CreateNatGateway: add request parameters NatIp.
+- Update API CreateNatIp: add request parameters Ipv4Prefix.
+- Update API CreateNatIp: add request parameters Ipv4PrefixCount.
+- Update API CreateNatIp: add response parameters Body.Ipv4Prefix.
+- Update API CreatePhysicalConnectionOccupancyOrder: add request parameters AutoRenew.
+- Update API CreatePhysicalConnectionOccupancyOrder: add request parameters AutoRenewDuration.
+- Update API CreateVpc: add request parameters Ipv6CidrMask.
+- Update API CreateVpc: add request parameters Ipv6IpamPoolId.
+- Update API DeleteNatIp: add request parameters Ipv4Prefix.
+- Update API DeleteNatIp: add request parameters NatGatewayId.
+- Update API DescribeNatGateways: add response parameters Body.NatGateways.$.IpPrefixList.
+- Update API DescribeVirtualBorderRouters: add response parameters Body.VirtualBorderRouterSet.$.Mtu.
+- Update API ListNatIps: add response parameters Body.NatIps.$.Ipv4Prefix.
+- Update API ModifyVirtualBorderRouterAttribute: add request parameters Mtu.
+
+
 2025-07-15 Version: 6.11.7
 - Update API DescribeNatGatewayAssociateNetworkInterfaces: add response parameters Body.AssociateNetworkInterfaces.$.ResourceVpcId.
 - Update API GetVpcPrefixListAssociations: add response parameters Body.PrefixListAssociation.$.CidrList.

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclAttributesResponseBody\networkAclAttribute;
-use AlibabaCloud\Tea\Model;
 
 class DescribeNetworkAclAttributesResponseBody extends Model
 {
     /**
-     * @description The details of the network ACLs.
-     *
      * @var networkAclAttribute
      */
     public $networkAclAttribute;
 
     /**
-     * @description The request ID.
-     *
-     * @example F5905F9C-0161-4E72-9CB1-1F3F3CF6268A
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeNetworkAclAttributesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->networkAclAttribute) {
+            $this->networkAclAttribute->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkAclAttribute) {
-            $res['NetworkAclAttribute'] = null !== $this->networkAclAttribute ? $this->networkAclAttribute->toMap() : null;
+            $res['NetworkAclAttribute'] = null !== $this->networkAclAttribute ? $this->networkAclAttribute->toArray($noStream) : $this->networkAclAttribute;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeNetworkAclAttributesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNetworkAclAttributesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkAclAttribute'])) {
             $model->networkAclAttribute = networkAclAttribute::fromMap($map['NetworkAclAttribute']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

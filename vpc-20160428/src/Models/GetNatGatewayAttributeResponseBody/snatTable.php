@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class snatTable extends Model
 {
     /**
-     * @description The number of SNAT entries.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $snatEntryCount;
 
     /**
-     * @description The ID of the SNAT table.
-     *
-     * @example stb-SnatTableIds****
-     *
      * @var string
      */
     public $snatTableId;
@@ -30,14 +22,18 @@ class snatTable extends Model
         'snatTableId' => 'SnatTableId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->snatEntryCount) {
             $res['SnatEntryCount'] = $this->snatEntryCount;
         }
+
         if (null !== $this->snatTableId) {
             $res['SnatTableId'] = $this->snatTableId;
         }
@@ -45,17 +41,18 @@ class snatTable extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return snatTable
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SnatEntryCount'])) {
             $model->snatEntryCount = $map['SnatEntryCount'];
         }
+
         if (isset($map['SnatTableId'])) {
             $model->snatTableId = $map['SnatTableId'];
         }

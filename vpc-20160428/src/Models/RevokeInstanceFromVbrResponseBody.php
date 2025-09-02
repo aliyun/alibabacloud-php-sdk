@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RevokeInstanceFromVbrResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 45B7AA4A-4658-5FFC-90DD-9B8729F301BB
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class RevokeInstanceFromVbrResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class RevokeInstanceFromVbrResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RevokeInstanceFromVbrResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

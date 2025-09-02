@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\GetVpcRouteEntrySummaryResponseBody\routeEntrySummarys;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class entrySummarys extends Model
 {
     /**
-     * @description The number of entries returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The type of the route. Valid values:
-     *
-     *   **All**: all route types
-     *   **Custom**: a custom route
-     *   **System**: a system route
-     *   **BGP**: a BGP route
-     *   **CEN**: a CEN route
-     *
-     * @example Custom
-     *
      * @var string
      */
     public $routeEntryType;
@@ -36,14 +22,18 @@ class entrySummarys extends Model
         'routeEntryType' => 'RouteEntryType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->routeEntryType) {
             $res['RouteEntryType'] = $this->routeEntryType;
         }
@@ -51,17 +41,18 @@ class entrySummarys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return entrySummarys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['RouteEntryType'])) {
             $model->routeEntryType = $map['RouteEntryType'];
         }

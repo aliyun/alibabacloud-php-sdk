@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipGatewayInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipGatewayInfoResponseBody\eipInfos\eipInfo;
-use AlibabaCloud\Tea\Model;
 
 class eipInfos extends Model
 {
@@ -17,17 +17,24 @@ class eipInfos extends Model
         'eipInfo' => 'EipInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->eipInfo)) {
+            Model::validateArray($this->eipInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eipInfo) {
-            $res['EipInfo'] = [];
-            if (null !== $this->eipInfo && \is_array($this->eipInfo)) {
-                $n = 0;
-                foreach ($this->eipInfo as $item) {
-                    $res['EipInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->eipInfo)) {
+                $res['EipInfo'] = [];
+                $n1 = 0;
+                foreach ($this->eipInfo as $item1) {
+                    $res['EipInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class eipInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eipInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EipInfo'])) {
             if (!empty($map['EipInfo'])) {
                 $model->eipInfo = [];
-                $n = 0;
-                foreach ($map['EipInfo'] as $item) {
-                    $model->eipInfo[$n++] = null !== $item ? eipInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EipInfo'] as $item1) {
+                    $model->eipInfo[$n1] = eipInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyNatGatewayAttributeShrinkRequest extends Model
 {
     /**
-     * @description The description of the NAT gateway.
-     *
-     * The description must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
-     *
-     * @example Description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The mode in which the NAT gateway is associated with an elastic IP address (EIP). You can leave this parameter empty. If you want to specify a value for this parameter, set the value to **NAT**, which indicates that the NAT gateway is associated with the EIP in NAT mode.
-     *   After the mode is changed to **NAT**, the Internet NAT gateway is compatible with the IPv4 gateway. However, if you associate an EIP with the NAT gateway, the EIP occupies one private IP address on the vSwitch of the NAT gateway. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, the EIP fails to be associated with the NAT gateway.
-     * @example NAT
-     *
      * @var string
      */
     public $eipBindMode;
@@ -34,13 +24,6 @@ class ModifyNatGatewayAttributeShrinkRequest extends Model
     public $enableSessionLog;
 
     /**
-     * @description Specifies whether to enable the Internet Control Message Protocol (ICMP) non-retrieval feature. Valid values:
-     *
-     *   **false** (default)
-     *   **true**
-     *
-     * @example false
-     *
      * @var bool
      */
     public $icmpReplyEnabled;
@@ -51,23 +34,11 @@ class ModifyNatGatewayAttributeShrinkRequest extends Model
     public $logDeliveryShrink;
 
     /**
-     * @description The name of the NAT gateway.
-     *
-     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
-     *
-     * @example nat123
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The ID of the NAT gateway.
-     *
-     * This parameter is required.
-     *
-     * @example ngw-2ze0dcn4mq31qx2jc****
-     *
      * @var string
      */
     public $natGatewayId;
@@ -83,14 +54,6 @@ class ModifyNatGatewayAttributeShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the NAT gateway.
-     *
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -119,44 +82,58 @@ class ModifyNatGatewayAttributeShrinkRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->eipBindMode) {
             $res['EipBindMode'] = $this->eipBindMode;
         }
+
         if (null !== $this->enableSessionLog) {
             $res['EnableSessionLog'] = $this->enableSessionLog;
         }
+
         if (null !== $this->icmpReplyEnabled) {
             $res['IcmpReplyEnabled'] = $this->icmpReplyEnabled;
         }
+
         if (null !== $this->logDeliveryShrink) {
             $res['LogDelivery'] = $this->logDeliveryShrink;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -164,47 +141,58 @@ class ModifyNatGatewayAttributeShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyNatGatewayAttributeShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EipBindMode'])) {
             $model->eipBindMode = $map['EipBindMode'];
         }
+
         if (isset($map['EnableSessionLog'])) {
             $model->enableSessionLog = $map['EnableSessionLog'];
         }
+
         if (isset($map['IcmpReplyEnabled'])) {
             $model->icmpReplyEnabled = $map['IcmpReplyEnabled'];
         }
+
         if (isset($map['LogDelivery'])) {
             $model->logDeliveryShrink = $map['LogDelivery'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionLOAResponseBody\physicalConnectionLOAType;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionLOAResponseBody\physicalConnectionLOAType\PMInfo\PMInfo;
 
 class PMInfo extends Model
 {
     /**
-     * @var PMInfo\PMInfo[]
+     * @var PMInfo[]
      */
     public $PMInfo;
     protected $_name = [
         'PMInfo' => 'PMInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->PMInfo)) {
+            Model::validateArray($this->PMInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->PMInfo) {
-            $res['PMInfo'] = [];
-            if (null !== $this->PMInfo && \is_array($this->PMInfo)) {
-                $n = 0;
-                foreach ($this->PMInfo as $item) {
-                    $res['PMInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->PMInfo)) {
+                $res['PMInfo'] = [];
+                $n1 = 0;
+                foreach ($this->PMInfo as $item1) {
+                    $res['PMInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class PMInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PMInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PMInfo'])) {
             if (!empty($map['PMInfo'])) {
                 $model->PMInfo = [];
-                $n = 0;
-                foreach ($map['PMInfo'] as $item) {
-                    $model->PMInfo[$n++] = null !== $item ? PMInfo\PMInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PMInfo'] as $item1) {
+                    $model->PMInfo[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

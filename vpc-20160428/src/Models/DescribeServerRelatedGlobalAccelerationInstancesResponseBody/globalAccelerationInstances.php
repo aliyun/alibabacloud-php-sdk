@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeServerRelatedGlobalAccelerationInstancesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeServerRelatedGlobalAccelerationInstancesResponseBody\globalAccelerationInstances\globalAccelerationInstance;
-use AlibabaCloud\Tea\Model;
 
 class globalAccelerationInstances extends Model
 {
@@ -17,17 +17,24 @@ class globalAccelerationInstances extends Model
         'globalAccelerationInstance' => 'GlobalAccelerationInstance',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->globalAccelerationInstance)) {
+            Model::validateArray($this->globalAccelerationInstance);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->globalAccelerationInstance) {
-            $res['GlobalAccelerationInstance'] = [];
-            if (null !== $this->globalAccelerationInstance && \is_array($this->globalAccelerationInstance)) {
-                $n = 0;
-                foreach ($this->globalAccelerationInstance as $item) {
-                    $res['GlobalAccelerationInstance'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->globalAccelerationInstance)) {
+                $res['GlobalAccelerationInstance'] = [];
+                $n1 = 0;
+                foreach ($this->globalAccelerationInstance as $item1) {
+                    $res['GlobalAccelerationInstance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class globalAccelerationInstances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return globalAccelerationInstances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GlobalAccelerationInstance'])) {
             if (!empty($map['GlobalAccelerationInstance'])) {
                 $model->globalAccelerationInstance = [];
-                $n = 0;
-                foreach ($map['GlobalAccelerationInstance'] as $item) {
-                    $model->globalAccelerationInstance[$n++] = null !== $item ? globalAccelerationInstance::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GlobalAccelerationInstance'] as $item1) {
+                    $model->globalAccelerationInstance[$n1] = globalAccelerationInstance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

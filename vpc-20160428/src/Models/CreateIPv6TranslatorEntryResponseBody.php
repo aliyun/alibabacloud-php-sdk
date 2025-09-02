@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateIPv6TranslatorEntryResponseBody extends Model
 {
     /**
-     * @description The ID of the IPv6 Translation Service instance.
-     *
-     * @example ipv6transentry-xxxxxxxx
-     *
      * @var string
      */
     public $ipv6TranslatorEntryId;
 
     /**
-     * @description The request ID.
-     *
-     * @example DCE5D25-FFC9-492A-8371-12A4E0EE2E05
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateIPv6TranslatorEntryResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipv6TranslatorEntryId) {
             $res['Ipv6TranslatorEntryId'] = $this->ipv6TranslatorEntryId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateIPv6TranslatorEntryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateIPv6TranslatorEntryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv6TranslatorEntryId'])) {
             $model->ipv6TranslatorEntryId = $map['Ipv6TranslatorEntryId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateIpv6GatewayResponseBody extends Model
 {
     /**
-     * @description The ID of the IPv6 gateway.
-     *
-     * @example ipv6gw-hp3y0l3ln89j8cdvf****
-     *
      * @var string
      */
     public $ipv6GatewayId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the resource group to which the IPv6 gateway belongs.
-     *
-     * @example rg-acfmxazb4ph6aiy****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -40,17 +28,22 @@ class CreateIpv6GatewayResponseBody extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipv6GatewayId) {
             $res['Ipv6GatewayId'] = $this->ipv6GatewayId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -58,20 +51,22 @@ class CreateIpv6GatewayResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateIpv6GatewayResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv6GatewayId'])) {
             $model->ipv6GatewayId = $map['Ipv6GatewayId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

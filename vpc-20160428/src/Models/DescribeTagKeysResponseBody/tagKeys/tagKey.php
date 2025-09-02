@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeTagKeysResponseBody\tagKeys;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tagKey extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * @example FinanceDept
-     *
      * @var string
      */
     public $tagKey;
 
     /**
-     * @description The type of the tag key. Valid values:
-     *
-     *   **Custom**: custom
-     *   **System**: system
-     *
-     * @example Custom
-     *
      * @var string
      */
     public $type;
@@ -33,14 +22,18 @@ class tagKey extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -48,17 +41,18 @@ class tagKey extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagKey
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

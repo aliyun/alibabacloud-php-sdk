@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnGatewaysResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnGatewaysResponseBody\vpnGateways\vpnGateway;
-use AlibabaCloud\Tea\Model;
 
 class vpnGateways extends Model
 {
@@ -17,17 +17,24 @@ class vpnGateways extends Model
         'vpnGateway' => 'VpnGateway',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->vpnGateway)) {
+            Model::validateArray($this->vpnGateway);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vpnGateway) {
-            $res['VpnGateway'] = [];
-            if (null !== $this->vpnGateway && \is_array($this->vpnGateway)) {
-                $n = 0;
-                foreach ($this->vpnGateway as $item) {
-                    $res['VpnGateway'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vpnGateway)) {
+                $res['VpnGateway'] = [];
+                $n1 = 0;
+                foreach ($this->vpnGateway as $item1) {
+                    $res['VpnGateway'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class vpnGateways extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vpnGateways
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VpnGateway'])) {
             if (!empty($map['VpnGateway'])) {
                 $model->vpnGateway = [];
-                $n = 0;
-                foreach ($map['VpnGateway'] as $item) {
-                    $model->vpnGateway[$n++] = null !== $item ? vpnGateway::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VpnGateway'] as $item1) {
+                    $model->vpnGateway[$n1] = vpnGateway::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

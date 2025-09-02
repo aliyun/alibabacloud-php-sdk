@@ -4,17 +4,13 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ListDhcpOptionsSetsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListDhcpOptionsSetsResponseBody\dhcpOptionsSets\dhcpOptions;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListDhcpOptionsSetsResponseBody\dhcpOptionsSets\tags;
-use AlibabaCloud\Tea\Model;
 
 class dhcpOptionsSets extends Model
 {
     /**
-     * @description The number of VPCs with which the DHCP options set is associated.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $associateVpcCount;
@@ -25,74 +21,41 @@ class dhcpOptionsSets extends Model
     public $creationTime;
 
     /**
-     * @description The configuration information about the DHCP options set.
-     *
      * @var dhcpOptions
      */
     public $dhcpOptions;
 
     /**
-     * @description The description of the DHCP options set.
-     *
-     * @example test
-     *
      * @var string
      */
     public $dhcpOptionsSetDescription;
 
     /**
-     * @description The ID of the DHCP options set.
-     *
-     * @example dopt-o6w0df4epg9zo8isy****
-     *
      * @var string
      */
     public $dhcpOptionsSetId;
 
     /**
-     * @description The name of the DHCP options set.
-     *
-     * @example test
-     *
      * @var string
      */
     public $dhcpOptionsSetName;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the DHCP options set belongs.
-     *
-     * @example 253460731706911258
-     *
      * @var int
      */
     public $ownerId;
 
     /**
-     * @description The ID of the resource group to which the DHCP options set belongs.
-     *
-     * @example rg-acfmxazb4ph****
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The status of the DHCP options set. Valid values:
-     *
-     *   **Available**
-     *   **InUse**
-     *   **Pending**
-     *   **Deleted**
-     *
-     * @example Available
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The tag list.
-     *
      * @var tags[]
      */
     public $tags;
@@ -109,44 +72,63 @@ class dhcpOptionsSets extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->dhcpOptions) {
+            $this->dhcpOptions->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->associateVpcCount) {
             $res['AssociateVpcCount'] = $this->associateVpcCount;
         }
+
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->dhcpOptions) {
-            $res['DhcpOptions'] = null !== $this->dhcpOptions ? $this->dhcpOptions->toMap() : null;
+            $res['DhcpOptions'] = null !== $this->dhcpOptions ? $this->dhcpOptions->toArray($noStream) : $this->dhcpOptions;
         }
+
         if (null !== $this->dhcpOptionsSetDescription) {
             $res['DhcpOptionsSetDescription'] = $this->dhcpOptionsSetDescription;
         }
+
         if (null !== $this->dhcpOptionsSetId) {
             $res['DhcpOptionsSetId'] = $this->dhcpOptionsSetId;
         }
+
         if (null !== $this->dhcpOptionsSetName) {
             $res['DhcpOptionsSetName'] = $this->dhcpOptionsSetName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,47 +136,57 @@ class dhcpOptionsSets extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dhcpOptionsSets
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssociateVpcCount'])) {
             $model->associateVpcCount = $map['AssociateVpcCount'];
         }
+
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['DhcpOptions'])) {
             $model->dhcpOptions = dhcpOptions::fromMap($map['DhcpOptions']);
         }
+
         if (isset($map['DhcpOptionsSetDescription'])) {
             $model->dhcpOptionsSetDescription = $map['DhcpOptionsSetDescription'];
         }
+
         if (isset($map['DhcpOptionsSetId'])) {
             $model->dhcpOptionsSetId = $map['DhcpOptionsSetId'];
         }
+
         if (isset($map['DhcpOptionsSetName'])) {
             $model->dhcpOptionsSetName = $map['DhcpOptionsSetName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

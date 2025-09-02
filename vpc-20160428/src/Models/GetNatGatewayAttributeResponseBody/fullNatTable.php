@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fullNatTable extends Model
 {
     /**
-     * @description The number of FULLNAT entries.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $fullNatEntryCount;
 
     /**
-     * @description The ID of the FULLNAT table.
-     *
-     * @example fulltb-gw88z7hhlv43rmb26****
-     *
      * @var string
      */
     public $fullNatTableId;
@@ -30,14 +22,18 @@ class fullNatTable extends Model
         'fullNatTableId' => 'FullNatTableId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fullNatEntryCount) {
             $res['FullNatEntryCount'] = $this->fullNatEntryCount;
         }
+
         if (null !== $this->fullNatTableId) {
             $res['FullNatTableId'] = $this->fullNatTableId;
         }
@@ -45,17 +41,18 @@ class fullNatTable extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fullNatTable
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FullNatEntryCount'])) {
             $model->fullNatEntryCount = $map['FullNatEntryCount'];
         }
+
         if (isset($map['FullNatTableId'])) {
             $model->fullNatTableId = $map['FullNatTableId'];
         }

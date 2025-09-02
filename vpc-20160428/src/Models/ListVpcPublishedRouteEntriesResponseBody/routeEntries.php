@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ListVpcPublishedRouteEntriesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVpcPublishedRouteEntriesResponseBody\routeEntries\routePublishTargets;
-use AlibabaCloud\Tea\Model;
 
 class routeEntries extends Model
 {
     /**
-     * @description The destination CIDR block of the route entry.
-     *
-     * @example 10.0.0.0/24
-     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
-     * @description The ID of the route entry.
-     *
-     * @example rte-bp1mnnr2al0naomnpv****
-     *
      * @var string
      */
     public $routeEntryId;
 
     /**
-     * @description List of route entry publishing status information in the publishing targets.
-     *
      * @var routePublishTargets[]
      */
     public $routePublishTargets;
 
     /**
-     * @description The ID of the route table.
-     *
-     * @example vtb-2ze3jgygk9bmsj23s****
-     *
      * @var string
      */
     public $routeTableId;
@@ -49,26 +35,36 @@ class routeEntries extends Model
         'routeTableId' => 'RouteTableId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->routePublishTargets)) {
+            Model::validateArray($this->routePublishTargets);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
+
         if (null !== $this->routeEntryId) {
             $res['RouteEntryId'] = $this->routeEntryId;
         }
+
         if (null !== $this->routePublishTargets) {
-            $res['RoutePublishTargets'] = [];
-            if (null !== $this->routePublishTargets && \is_array($this->routePublishTargets)) {
-                $n = 0;
-                foreach ($this->routePublishTargets as $item) {
-                    $res['RoutePublishTargets'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->routePublishTargets)) {
+                $res['RoutePublishTargets'] = [];
+                $n1 = 0;
+                foreach ($this->routePublishTargets as $item1) {
+                    $res['RoutePublishTargets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
         }
@@ -76,29 +72,33 @@ class routeEntries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routeEntries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
+
         if (isset($map['RouteEntryId'])) {
             $model->routeEntryId = $map['RouteEntryId'];
         }
+
         if (isset($map['RoutePublishTargets'])) {
             if (!empty($map['RoutePublishTargets'])) {
                 $model->routePublishTargets = [];
-                $n = 0;
-                foreach ($map['RoutePublishTargets'] as $item) {
-                    $model->routePublishTargets[$n++] = null !== $item ? routePublishTargets::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RoutePublishTargets'] as $item1) {
+                    $model->routePublishTargets[$n1] = routePublishTargets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
         }

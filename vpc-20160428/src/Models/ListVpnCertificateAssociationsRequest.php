@@ -4,74 +4,36 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListVpnCertificateAssociationsRequest extends Model
 {
     /**
-     * @description The list of certificate IDs.
-     *
-     * You can query the association between at most 20 SSL certificates and VPN gateways.
-     *
-     * @example 6bfe4218-ea1d****
-     *
      * @var string[]
      */
     public $certificateId;
 
     /**
-     * @description The certificate type. Valid values:
-     *
-     *   **Encryption**
-     *   **Signature**
-     *
-     * @example Signature
-     *
      * @var string
      */
     public $certificateType;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **20**. Default value: **1**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-     *
-     *   You do not need to specify this parameter for the first request.
-     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
-     *
-     * @example caeba0bbb2be0****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The region ID of the VPN gateway.
-     *
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The list of VPN gateway IDs.
-     *
-     * You can query the association between at most 20 VPN gateways and SSL certificates.
-     *
-     * @example vpn-bp1q8bgx4xnkm****
-     *
      * @var string[]
      */
     public $vpnGatewayId;
@@ -84,61 +46,104 @@ class ListVpnCertificateAssociationsRequest extends Model
         'vpnGatewayId' => 'VpnGatewayId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->certificateId)) {
+            Model::validateArray($this->certificateId);
+        }
+        if (\is_array($this->vpnGatewayId)) {
+            Model::validateArray($this->vpnGatewayId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificateId) {
-            $res['CertificateId'] = $this->certificateId;
+            if (\is_array($this->certificateId)) {
+                $res['CertificateId'] = [];
+                $n1 = 0;
+                foreach ($this->certificateId as $item1) {
+                    $res['CertificateId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->certificateType) {
             $res['CertificateType'] = $this->certificateType;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->vpnGatewayId) {
-            $res['VpnGatewayId'] = $this->vpnGatewayId;
+            if (\is_array($this->vpnGatewayId)) {
+                $res['VpnGatewayId'] = [];
+                $n1 = 0;
+                foreach ($this->vpnGatewayId as $item1) {
+                    $res['VpnGatewayId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListVpnCertificateAssociationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertificateId'])) {
             if (!empty($map['CertificateId'])) {
-                $model->certificateId = $map['CertificateId'];
+                $model->certificateId = [];
+                $n1 = 0;
+                foreach ($map['CertificateId'] as $item1) {
+                    $model->certificateId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['CertificateType'])) {
             $model->certificateType = $map['CertificateType'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['VpnGatewayId'])) {
             if (!empty($map['VpnGatewayId'])) {
-                $model->vpnGatewayId = $map['VpnGatewayId'];
+                $model->vpnGatewayId = [];
+                $n1 = 0;
+                foreach ($map['VpnGatewayId'] as $item1) {
+                    $model->vpnGatewayId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

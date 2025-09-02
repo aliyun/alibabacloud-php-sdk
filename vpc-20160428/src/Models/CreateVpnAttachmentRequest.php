@@ -4,70 +4,28 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpnAttachmentRequest\tags;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpnAttachmentRequest\tunnelOptionsSpecification;
-use AlibabaCloud\Tea\Model;
 
 class CreateVpnAttachmentRequest extends Model
 {
     /**
-     * @description Specifies whether to automatically configure routes. Valid values:
-     *
-     *   **true** (default)
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoConfigRoute;
 
     /**
-     * @description This parameter is supported when you create an IPsec-VPN connection in single-tunnel mode.
-     *
-     * BGP configuration:
-     *
-     *   **BgpConfig.EnableBgp**: specifies whether to enable BGP. Valid values: **true** and **false** (default).
-     *
-     *   **BgpConfig.LocalAsn**: the ASN on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
-     *
-     * You can enter a value in two segments separated by a period (.). Each segment is 16 bits in length. Enter the number in each segment in decimal format.
-     *
-     * For example, if you enter 123.456, the ASN is 8061384. The ASN is calculated by using the following formula: 123 × 65536 + 456 = 8061384.
-     *
-     *   **BgpConfig.TunnelCidr**: The CIDR block of the IPsec tunnel. The CIDR block must fall into 169.254.0.0/16 and the mask of the CIDR block must be 30 bits in length. The CIDR block cannot be 169.254.0.0/30, 169.254.1.0/30, 169.254.2.0/30, 169.254.3.0/30, 169.254.4.0/30, 169.254.5.0/30, 169.254.6.0/30, or 169.254.169.252/30.
-     *
-     *   **LocalBgpIp**: the BGP address on the Alibaba Cloud side. It must be an IP address that falls within the CIDR block of the IPsec tunnel.
-     *
-     * > - Before you add BGP configurations, we recommend that you learn about how BGP works and the limits. For more information, see [Configure BGP dynamic routing](https://help.aliyun.com/document_detail/445767.html).
-     * > - We recommend that you use a private ASN to establish BGP connections to Alibaba Cloud. Refer to the relevant documentation for the private ASN range.
-     *
-     * @example {"EnableBgp":"true","LocalAsn":"45104","TunnelCidr":"169.254.11.0/30","LocalBgpIp":"169.254.11.1"}
-     *
      * @var string
      */
     public $bgpConfig;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
-     *
-     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
-     *
-     * @example 123e4567-e89b-12d3-a456-4266****
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The customer gateway ID.
-     *
-     * >  This parameter is required only when you create a single-tunnel IPsec-VPN connection.
-     *
-     * @example cgw-p0w2jemrcj5u61un8****
-     *
      * @var string
      */
     public $customerGatewayId;
@@ -78,171 +36,51 @@ class CreateVpnAttachmentRequest extends Model
     public $dryRun;
 
     /**
-     * @description Specifies whether to immediately start IPsec negotiations after the configuration takes effect. Valid values:
-     *
-     *   **true**: immediately starts IPsec negotiations after the configuration is complete.
-     *   **false** (default): starts IPsec negotiations when inbound traffic is received.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $effectImmediately;
 
     /**
-     * @description This parameter is supported if you create an IPsec-VPN connection in single-tunnel mode.
-     *
-     * Specifies whether to enable DPD. Valid values: Valid values:
-     *
-     *   **true** (default): enables DPD. The initiator of the IPsec-VPN connection sends DPD packets to check the existence and availability of the peer. If no feedback is received from the peer within the specified period of time, the connection fails. In this case, ISAKMP SA and IPsec SA are deleted along with the security tunnel.
-     *   **false**: disables DPD. The initiator of the IPsec-VPN connection does not send DPD packets.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableDpd;
 
     /**
-     * @description This parameter is supported if you create an IPsec-VPN connection in single-tunnel mode.
-     *
-     * Specifies whether to enable NAT traversal. Valid values:
-     *
-     *   **true** (default): enables NAT traversal. After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the IPsec-VPN tunnel.
-     *   **false**: disables NAT traversal.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableNatTraversal;
 
     /**
-     * @description This parameter is available if you create an IPsec-VPN connection in dual-tunnel mode.
-     *
-     * Specifies whether to enable the BGP feature for the tunnel. Valid values: **true** and **false**. Default value: false.
-     *
-     * >  Before you add BGP configurations, we recommend that you learn about how BGP works and the limits. For more information, see [Configure BGP dynamic routing](https://help.aliyun.com/document_detail/445767.html)
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enableTunnelsBgp;
 
     /**
-     * @description This parameter is supported if you create an IPsec-VPN connection in single-tunnel mode.
-     *
-     * The health check configurations:
-     *
-     *   **HealthCheckConfig.enable**: indicates whether the health check is enabled. Valid values: **true** and **false** (default).
-     *
-     *   **HealthCheckConfig.dip**: the destination IP address configured for health checks. Enter the IP address of the on-premises data center that the VPC can access through the IPsec connection.
-     *
-     *   **HealthCheckConfig.sip**: the source IP address configured for health checks. Enter the IP address of the VPC that the on-premises data center can access through the IPsec connection.
-     *
-     *   **HealthCheckConfig.interval**: the time interval of health check retries. Unit: seconds. Default value: **3**.
-     *
-     *   **HealthCheckConfig.retry**: the maximum number of health check retries. Default value: **3**.
-     *
-     *   **HealthCheckConfig.Policy**: specifies whether to withdraw published routes when health checks fail. Valid values:
-     *
-     *   **revoke_route** (default): withdraws published routes.
-     *   **reserve_route**: does not withdraw published routes.
-     *
-     * @example {"enable":"true","dip":"192.168.1.1","sip":"10.1.1.1","interval":"3","retry":"3","Policy": "revoke_route"}
-     *
      * @var string
      */
     public $healthCheckConfig;
 
     /**
-     * @description This parameter is supported if you create an IPsec-VPN connection in single-tunnel mode.
-     *
-     * The configurations of Phase 1 negotiations:
-     *
-     *   **IkeConfig.Psk**: the pre-shared key that is used for identity authentication between the VPN gateway and the on-premises data center.
-     *
-     *   The key cannot contain space characters. The key must be 1 to 100 characters in length, and can contain digits, letters, and the following special characters: ``~!`@#$%^&*()_-+={}[]|;:\\",.<>/?``
-     *   If you do not specify a pre-shared key, the system randomly generates a 16-bit string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the pre-shared key that is automatically generated by the system.
-     *
-     * > The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the on-premises data center. Otherwise, connections between the on-premises data center and the VPN gateway cannot be established.
-     *
-     *   **IkeConfig.IkeVersion**: the version of the Internet Key Exchange (IKE) protocol. Valid values: **ikev1** and **ikev2**. Default value: **ikev1**.
-     *
-     *   **IkeConfig.IkeMode**: the negotiation mode. Valid values: **main** and **aggressive**. Default value: **main**.
-     *
-     *   **IkeConfig.IkeEncAlg:** the encryption algorithm that is used in Phase 1 negotiations. Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**. Default value: **aes**.
-     *
-     *   **IkeConfig.IkeAuthAlg**: the authentication algorithm that is used in Phase 1 negotiations. Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**. Default value: **md5**.
-     *
-     *   **IkeConfig.IkePfs**: the Diffie-Hellman key exchange algorithm that is used in Phase 1 negotiations. Valid values: **group1**, **group2**, **group5**, and **group14**. Default value: **group2**.
-     *
-     *   **IkeConfig.IkeLifetime**: the SA lifetime as a result of Phase 1 negotiations. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
-     *
-     *   **IkeConfig.LocalId**: the identifier on the Alibaba Cloud side. The identifier cannot exceed 100 characters in length and cannot contain space characters. This parameter is empty by default.
-     *
-     *   **IkeConfig.RemoteId**: the identifier on the data center side. The identifier cannot exceed 100 characters in length and cannot contain space characters. The default value is the IP address of the customer gateway.
-     *
-     * @example {"Psk":"1234****","IkeVersion":"ikev1","IkeMode":"main","IkeEncAlg":"aes","IkeAuthAlg":"sha1","IkePfs":"group2","IkeLifetime":86400,"LocalId":"47.XX.XX.1","RemoteId":"47.XX.XX.2"}
-     *
      * @var string
      */
     public $ikeConfig;
 
     /**
-     * @description This parameter is supported if you create an IPsec-VPN connection in single-tunnel mode.
-     *
-     * The configurations of Phase 2 negotiations:
-     *
-     *   **IpsecConfig.IpsecEncAlg**: the encryption algorithm that is used in Phase 2 negotiations. Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**. Default value: **aes**.
-     *   **IpsecConfig. IpsecAuthAlg**: the authentication algorithm that is used in Phase 2 negotiations. Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**. Default value: **md5**.
-     *   **IpsecConfig. IpsecPfs**: The Diffie-Hellman key exchange algorithm used in the second phase negotiation. Valid values: **disabled**, **group1**, **group2**, **group5**, and **group14**. Default value: **group2**.
-     *   **IkeConfig.IkeLifetime**: the SA lifetime determined by Phase 2 negotiations. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
-     *
-     * @example {"IpsecEncAlg":"aes","IpsecAuthAlg":"sha1","IpsecPfs":"group2","IpsecLifetime":86400}
-     *
      * @var string
      */
     public $ipsecConfig;
 
     /**
-     * @description The CIDR block on the VPC side. The CIDR block is used in Phase 2 negotiations.
-     *
-     * Separate multiple CIDR blocks with commas (,). Example: 192.168.1.0/24,192.168.2.0/24.
-     *
-     * The following routing modes are supported:
-     *
-     *   If you set **LocalSubnet** and **RemoteSubnet** to 0.0.0.0/0, the routing mode of the IPsec-VPN connection is set to Destination Routing Mode.
-     *   If you set **LocalSubnet** and **RemoteSubnet** to specific CIDR blocks, the routing mode of the IPsec-VPN connection is set to Protected Data Flows.
-     *
-     * This parameter is required.
-     *
-     * @example 10.1.1.0/24,10.1.2.0/24
-     *
      * @var string
      */
     public $localSubnet;
 
     /**
-     * @description The name of the IPsec-VPN connection.
-     *
-     * The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
-     *
-     * @example nametest
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The network type of the IPsec-VPN connection. Valid values:
-     *
-     *   **public** (default)
-     *   **private**
-     *
-     * @example public
-     *
      * @var string
      */
     public $networkType;
@@ -253,53 +91,21 @@ class CreateVpnAttachmentRequest extends Model
     public $ownerAccount;
 
     /**
-     * @description The region ID of the IPsec-VPN connection.
-     *
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The peer CA certificate when a ShangMi (SM) VPN gateway is used to create the IPsec-VPN connection.
-     *
-     * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
-     *
      * @var string
      */
     public $remoteCaCert;
 
     /**
-     * @description The CIDR block on the data center side. This CIDR block is used in Phase 2 negotiations.
-     *
-     * Separate multiple CIDR blocks with commas (,). Example: 192.168.3.0/24,192.168.4.0/24.
-     *
-     * The following routing modes are supported:
-     *
-     *   If you set **LocalSubnet** and **RemoteSubnet** to 0.0.0.0/0, the routing mode of the IPsec-VPN connection is set to Destination Routing Mode.
-     *   If you set **LocalSubnet** and **RemoteSubnet** to specific CIDR blocks, the routing mode of the IPsec-VPN connection is set to Protected Data Flows.
-     *
-     * This parameter is required.
-     *
-     * @example 10.1.3.0/24,10.1.4.0/24
-     *
      * @var string
      */
     public $remoteSubnet;
 
     /**
-     * @description The ID of the resource group to which the IPsec-VPN connection belongs.
-     *
-     *   You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group IDs.
-     *   If you do not specify a resource group ID, the IPsec-VPN connection belongs to the default resource group.
-     *
-     * @example rg-acfmzs372yg****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -315,22 +121,11 @@ class CreateVpnAttachmentRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tag value.
-     *
-     * The tag value can be an empty string and cannot exceed 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
-     *
-     * Each tag key corresponds to one tag value. You can specify up to 20 tag values in each call.
-     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The tunnel configurations.
-     *
-     *   You can specify parameters in the **TunnelOptionsSpecification** array when you create an IPsec-VPN connection in dual tunnel mode.
-     *   When you create a IPsec-VPN connection in dual-tunnel mode, you must add both tunnels to IPsec-VPN connection to ensure that the IPsec-VPN connection has connection redundancy. Each IPsec-VPN connection supports only two tunnels.
-     *
      * @var tunnelOptionsSpecification[]
      */
     public $tunnelOptionsSpecification;
@@ -361,92 +156,126 @@ class CreateVpnAttachmentRequest extends Model
         'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        if (\is_array($this->tunnelOptionsSpecification)) {
+            Model::validateArray($this->tunnelOptionsSpecification);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoConfigRoute) {
             $res['AutoConfigRoute'] = $this->autoConfigRoute;
         }
+
         if (null !== $this->bgpConfig) {
             $res['BgpConfig'] = $this->bgpConfig;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->customerGatewayId) {
             $res['CustomerGatewayId'] = $this->customerGatewayId;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->effectImmediately) {
             $res['EffectImmediately'] = $this->effectImmediately;
         }
+
         if (null !== $this->enableDpd) {
             $res['EnableDpd'] = $this->enableDpd;
         }
+
         if (null !== $this->enableNatTraversal) {
             $res['EnableNatTraversal'] = $this->enableNatTraversal;
         }
+
         if (null !== $this->enableTunnelsBgp) {
             $res['EnableTunnelsBgp'] = $this->enableTunnelsBgp;
         }
+
         if (null !== $this->healthCheckConfig) {
             $res['HealthCheckConfig'] = $this->healthCheckConfig;
         }
+
         if (null !== $this->ikeConfig) {
             $res['IkeConfig'] = $this->ikeConfig;
         }
+
         if (null !== $this->ipsecConfig) {
             $res['IpsecConfig'] = $this->ipsecConfig;
         }
+
         if (null !== $this->localSubnet) {
             $res['LocalSubnet'] = $this->localSubnet;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->remoteCaCert) {
             $res['RemoteCaCert'] = $this->remoteCaCert;
         }
+
         if (null !== $this->remoteSubnet) {
             $res['RemoteSubnet'] = $this->remoteSubnet;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->tunnelOptionsSpecification) {
-            $res['TunnelOptionsSpecification'] = [];
-            if (null !== $this->tunnelOptionsSpecification && \is_array($this->tunnelOptionsSpecification)) {
-                $n = 0;
-                foreach ($this->tunnelOptionsSpecification as $item) {
-                    $res['TunnelOptionsSpecification'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tunnelOptionsSpecification)) {
+                $res['TunnelOptionsSpecification'] = [];
+                $n1 = 0;
+                foreach ($this->tunnelOptionsSpecification as $item1) {
+                    $res['TunnelOptionsSpecification'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -454,95 +283,120 @@ class CreateVpnAttachmentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateVpnAttachmentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoConfigRoute'])) {
             $model->autoConfigRoute = $map['AutoConfigRoute'];
         }
+
         if (isset($map['BgpConfig'])) {
             $model->bgpConfig = $map['BgpConfig'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['CustomerGatewayId'])) {
             $model->customerGatewayId = $map['CustomerGatewayId'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['EffectImmediately'])) {
             $model->effectImmediately = $map['EffectImmediately'];
         }
+
         if (isset($map['EnableDpd'])) {
             $model->enableDpd = $map['EnableDpd'];
         }
+
         if (isset($map['EnableNatTraversal'])) {
             $model->enableNatTraversal = $map['EnableNatTraversal'];
         }
+
         if (isset($map['EnableTunnelsBgp'])) {
             $model->enableTunnelsBgp = $map['EnableTunnelsBgp'];
         }
+
         if (isset($map['HealthCheckConfig'])) {
             $model->healthCheckConfig = $map['HealthCheckConfig'];
         }
+
         if (isset($map['IkeConfig'])) {
             $model->ikeConfig = $map['IkeConfig'];
         }
+
         if (isset($map['IpsecConfig'])) {
             $model->ipsecConfig = $map['IpsecConfig'];
         }
+
         if (isset($map['LocalSubnet'])) {
             $model->localSubnet = $map['LocalSubnet'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RemoteCaCert'])) {
             $model->remoteCaCert = $map['RemoteCaCert'];
         }
+
         if (isset($map['RemoteSubnet'])) {
             $model->remoteSubnet = $map['RemoteSubnet'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TunnelOptionsSpecification'])) {
             if (!empty($map['TunnelOptionsSpecification'])) {
                 $model->tunnelOptionsSpecification = [];
-                $n = 0;
-                foreach ($map['TunnelOptionsSpecification'] as $item) {
-                    $model->tunnelOptionsSpecification[$n++] = null !== $item ? tunnelOptionsSpecification::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TunnelOptionsSpecification'] as $item1) {
+                    $model->tunnelOptionsSpecification[$n1] = tunnelOptionsSpecification::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

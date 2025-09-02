@@ -4,44 +4,26 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateVpnConnectionResponseBody extends Model
 {
     /**
-     * @description The timestamp generated when the IPsec-VPN connection was established. Unit: milliseconds.
-     *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
-     *
-     * @example 1544666102000
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description The name of the IPsec-VPN connection.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The request ID.
-     *
-     * @example 082AD562-B8DB-4BB2-861F-DA1FCA01FD76
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the IPsec-VPN connection.
-     *
-     * @example vco-bp15oes1py4i6****
-     *
      * @var string
      */
     public $vpnConnectionId;
@@ -52,20 +34,26 @@ class CreateVpnConnectionResponseBody extends Model
         'vpnConnectionId' => 'VpnConnectionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->vpnConnectionId) {
             $res['VpnConnectionId'] = $this->vpnConnectionId;
         }
@@ -73,23 +61,26 @@ class CreateVpnConnectionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateVpnConnectionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VpnConnectionId'])) {
             $model->vpnConnectionId = $map['VpnConnectionId'];
         }

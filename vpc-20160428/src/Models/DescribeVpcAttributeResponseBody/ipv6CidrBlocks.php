@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeResponseBody\ipv6CidrBlocks\ipv6CidrBlock;
-use AlibabaCloud\Tea\Model;
 
 class ipv6CidrBlocks extends Model
 {
@@ -17,17 +17,24 @@ class ipv6CidrBlocks extends Model
         'ipv6CidrBlock' => 'Ipv6CidrBlock',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ipv6CidrBlock)) {
+            Model::validateArray($this->ipv6CidrBlock);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipv6CidrBlock) {
-            $res['Ipv6CidrBlock'] = [];
-            if (null !== $this->ipv6CidrBlock && \is_array($this->ipv6CidrBlock)) {
-                $n = 0;
-                foreach ($this->ipv6CidrBlock as $item) {
-                    $res['Ipv6CidrBlock'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipv6CidrBlock)) {
+                $res['Ipv6CidrBlock'] = [];
+                $n1 = 0;
+                foreach ($this->ipv6CidrBlock as $item1) {
+                    $res['Ipv6CidrBlock'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class ipv6CidrBlocks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipv6CidrBlocks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv6CidrBlock'])) {
             if (!empty($map['Ipv6CidrBlock'])) {
                 $model->ipv6CidrBlock = [];
-                $n = 0;
-                foreach ($map['Ipv6CidrBlock'] as $item) {
-                    $model->ipv6CidrBlock[$n++] = null !== $item ? ipv6CidrBlock::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Ipv6CidrBlock'] as $item1) {
+                    $model->ipv6CidrBlock[$n1] = ipv6CidrBlock::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

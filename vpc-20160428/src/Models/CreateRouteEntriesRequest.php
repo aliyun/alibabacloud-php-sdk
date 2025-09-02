@@ -4,19 +4,12 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouteEntriesRequest\routeEntries;
-use AlibabaCloud\Tea\Model;
 
 class CreateRouteEntriesRequest extends Model
 {
     /**
-     * @description Specifies whether to only precheck the request. Valid values:
-     *
-     *   **true**: prechecks the request without performing the operation. The system prechecks the required parameters, request syntax, and limits. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the request. After the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $dryRun;
@@ -32,14 +25,6 @@ class CreateRouteEntriesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the route table.
-     *
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -55,10 +40,6 @@ class CreateRouteEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The routes.
-     *
-     * This parameter is required.
-     *
      * @var routeEntries[]
      */
     public $routeEntries;
@@ -72,35 +53,48 @@ class CreateRouteEntriesRequest extends Model
         'routeEntries' => 'RouteEntries',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->routeEntries)) {
+            Model::validateArray($this->routeEntries);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->routeEntries) {
-            $res['RouteEntries'] = [];
-            if (null !== $this->routeEntries && \is_array($this->routeEntries)) {
-                $n = 0;
-                foreach ($this->routeEntries as $item) {
-                    $res['RouteEntries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->routeEntries)) {
+                $res['RouteEntries'] = [];
+                $n1 = 0;
+                foreach ($this->routeEntries as $item1) {
+                    $res['RouteEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,38 +102,45 @@ class CreateRouteEntriesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRouteEntriesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['RouteEntries'])) {
             if (!empty($map['RouteEntries'])) {
                 $model->routeEntries = [];
-                $n = 0;
-                foreach ($map['RouteEntries'] as $item) {
-                    $model->routeEntries[$n++] = null !== $item ? routeEntries::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RouteEntries'] as $item1) {
+                    $model->routeEntries[$n1] = routeEntries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

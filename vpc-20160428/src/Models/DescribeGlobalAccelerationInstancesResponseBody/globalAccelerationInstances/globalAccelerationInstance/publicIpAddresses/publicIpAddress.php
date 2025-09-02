@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeGlobalAccelerationInstancesResponseBody\globalAccelerationInstances\globalAccelerationInstance\publicIpAddresses;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class publicIpAddress extends Model
 {
     /**
-     * @description The ID of the public IP address of the GA instance.
-     *
-     * @example eip-bp19yqraac4w3y0jd****
-     *
      * @var string
      */
     public $allocationId;
 
     /**
-     * @description The public IP address of the GA instance.
-     *
-     * @example 12.xx.xx.78
-     *
      * @var string
      */
     public $ipAddress;
@@ -30,14 +22,18 @@ class publicIpAddress extends Model
         'ipAddress' => 'IpAddress',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allocationId) {
             $res['AllocationId'] = $this->allocationId;
         }
+
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
@@ -45,17 +41,18 @@ class publicIpAddress extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return publicIpAddress
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllocationId'])) {
             $model->allocationId = $map['AllocationId'];
         }
+
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDefaultVSwitchResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the default vSwitch.
-     *
-     * @example vsw-bp1a4b5qhmxftjimq****
-     *
      * @var string
      */
     public $vSwitchId;
@@ -30,14 +22,18 @@ class CreateDefaultVSwitchResponseBody extends Model
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -45,17 +41,18 @@ class CreateDefaultVSwitchResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDefaultVSwitchResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

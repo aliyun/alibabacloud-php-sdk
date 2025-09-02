@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AllocateEipAddressResponseBody extends Model
 {
     /**
-     * @description The EIP ID.
-     *
-     * @example eip-25877c70gddh****
-     *
      * @var string
      */
     public $allocationId;
 
     /**
-     * @description The EIP that is allocated. This parameter is returned only when **InstanceChargeType** is set to **PostPaid**.
-     *
-     * @example 192.0.XX.XX
-     *
      * @var string
      */
     public $eipAddress;
 
     /**
-     * @description The order ID. This parameter is returned only when **InstanceChargeType** is set to **PrePaid**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $orderId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the resource group. This parameter is returned only when **InstanceChargeType** is set to **PostPaid**.
-     *
-     * @example rg-acfmxazfdgdg****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -60,23 +40,30 @@ class AllocateEipAddressResponseBody extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allocationId) {
             $res['AllocationId'] = $this->allocationId;
         }
+
         if (null !== $this->eipAddress) {
             $res['EipAddress'] = $this->eipAddress;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -84,26 +71,30 @@ class AllocateEipAddressResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AllocateEipAddressResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllocationId'])) {
             $model->allocationId = $map['AllocationId'];
         }
+
         if (isset($map['EipAddress'])) {
             $model->eipAddress = $map['EipAddress'];
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

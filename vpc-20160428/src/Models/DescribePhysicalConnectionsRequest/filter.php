@@ -4,71 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filter extends Model
 {
     /**
-     * @description The key of the filter. Valid values:
-     *
-     *   **PhysicalConnectionId**: the ID of the Express Connect circuit.
-     *
-     *   **AccessPointId**: the ID of the access point.
-     *
-     *   **Type**: the type of resource to which the Express Connect circuit is connected. You can set Type only to **VPC**.
-     *
-     *   **LineOperator**: the connectivity provider of the Express Connect circuit. Valid values:
-     *
-     *   **CT**: China Telecom.
-     *   **CU**: China Unicom.
-     *   **CM**: China Mobile.
-     *   **CO**: other connectivity providers in the Chinese mainland.
-     *   **Equinix**: Equinix.
-     *   **Other**: other connectivity providers outside the Chinese mainland.
-     *
-     *   **Spec**: the specification of the Express Connect circuit. Valid values:
-     *
-     *   **1G and below**
-     *   **10G**
-     *   **40G**
-     *   **100G**
-     *
-     * >  By default, you cannot set the value to **40G** or **100G**. To use these values, you must first contact your account manager.
-     *
-     *   **Status**: the status of the Express Connect circuit. Valid values:
-     *
-     *   **Initial**: The application is under review.
-     *   **Approved**: The application is approved.
-     *   **Allocating**: The system is allocating resources.
-     *   **Allocated**: The Express Connect circuit is under construction.
-     *   **Confirmed**: The Express Connect circuit is pending for user confirmation.
-     *   **Enabled**: The Express Connect circuit is enabled.
-     *   **Rejected**: The application is rejected.
-     *   **Canceled**: The application is canceled.
-     *   **Allocation Failed**: The system failed to allocate resources.
-     *   **Terminating**: The Express Connect circuit is being disabled.
-     *   **Terminated**: The Express Connect circuit is disabled.
-     *
-     *   **Name**: the name of the Express Connect circuit.
-     *
-     *   **ProductType**: the type of the Express Connect circuit. Valid values:
-     *
-     *   **VirtualPhysicalConnection**: shared Express Connect circuit
-     *   **PhysicalConnection**: dedicated Express Connect circuit.
-     *
-     * You can specify at most five filter conditions in each request. The logical relation among the filter conditions is **AND**. Therefore, an Express Connect circuit is returned only when all specified filter conditions are matched.
-     *
-     * @example Name
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The filter values.
-     *
-     * @example 1
-     *
      * @var string[]
      */
     public $value;
@@ -77,35 +22,55 @@ class filter extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->value)) {
+            Model::validateArray($this->value);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
-            $res['Value'] = $this->value;
+            if (\is_array($this->value)) {
+                $res['Value'] = [];
+                $n1 = 0;
+                foreach ($this->value as $item1) {
+                    $res['Value'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             if (!empty($map['Value'])) {
-                $model->value = $map['Value'];
+                $model->value = [];
+                $n1 = 0;
+                foreach ($map['Value'] as $item1) {
+                    $model->value[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

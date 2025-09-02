@@ -4,113 +4,70 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclAttributesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclAttributesResponseBody\networkAclAttribute\egressAclEntries;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclAttributesResponseBody\networkAclAttribute\ingressAclEntries;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclAttributesResponseBody\networkAclAttribute\resources;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclAttributesResponseBody\networkAclAttribute\tags;
-use AlibabaCloud\Tea\Model;
 
 class networkAclAttribute extends Model
 {
     /**
-     * @description The time when the network ACL was created.
-     *
-     * @example 2021-12-25 11:33:27
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The description of the network ACL.
-     *
-     * @example This is my NetworkAcl.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The information about the outbound rules of the network ACL.
-     *
      * @var egressAclEntries
      */
     public $egressAclEntries;
 
     /**
-     * @description The information about the inbound rules of the network ACL.
-     *
      * @var ingressAclEntries
      */
     public $ingressAclEntries;
 
     /**
-     * @description The ID of the network ACL.
-     *
-     * @example nacl-a2do9e413e0spnhmj****
-     *
      * @var string
      */
     public $networkAclId;
 
     /**
-     * @description The name of the network ACL.
-     *
-     * @example acl-1
-     *
      * @var string
      */
     public $networkAclName;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the network ACL belongs.
-     *
-     * @example 253460731706911258
-     *
      * @var int
      */
     public $ownerId;
 
     /**
-     * @description The region ID of the network ACL.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The resources that are associated with the network ACL.
-     *
      * @var resources
      */
     public $resources;
 
     /**
-     * @description The association status of the resource. Valid values:
-     *
-     *   **Available**
-     *   **Modifying**
-     *
-     * @example Available
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The information about the tags.
-     *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The ID of the VPC to which the network ACL belongs.
-     *
-     * @example vpc-a2d33rfpl72k5defr****
-     *
      * @var string
      */
     public $vpcId;
@@ -129,44 +86,70 @@ class networkAclAttribute extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->egressAclEntries) {
+            $this->egressAclEntries->validate();
+        }
+        if (null !== $this->ingressAclEntries) {
+            $this->ingressAclEntries->validate();
+        }
+        if (null !== $this->resources) {
+            $this->resources->validate();
+        }
+        if (null !== $this->tags) {
+            $this->tags->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->egressAclEntries) {
-            $res['EgressAclEntries'] = null !== $this->egressAclEntries ? $this->egressAclEntries->toMap() : null;
+            $res['EgressAclEntries'] = null !== $this->egressAclEntries ? $this->egressAclEntries->toArray($noStream) : $this->egressAclEntries;
         }
+
         if (null !== $this->ingressAclEntries) {
-            $res['IngressAclEntries'] = null !== $this->ingressAclEntries ? $this->ingressAclEntries->toMap() : null;
+            $res['IngressAclEntries'] = null !== $this->ingressAclEntries ? $this->ingressAclEntries->toArray($noStream) : $this->ingressAclEntries;
         }
+
         if (null !== $this->networkAclId) {
             $res['NetworkAclId'] = $this->networkAclId;
         }
+
         if (null !== $this->networkAclName) {
             $res['NetworkAclName'] = $this->networkAclName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resources) {
-            $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
+            $res['Resources'] = null !== $this->resources ? $this->resources->toArray($noStream) : $this->resources;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -174,47 +157,58 @@ class networkAclAttribute extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkAclAttribute
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EgressAclEntries'])) {
             $model->egressAclEntries = egressAclEntries::fromMap($map['EgressAclEntries']);
         }
+
         if (isset($map['IngressAclEntries'])) {
             $model->ingressAclEntries = ingressAclEntries::fromMap($map['IngressAclEntries']);
         }
+
         if (isset($map['NetworkAclId'])) {
             $model->networkAclId = $map['NetworkAclId'];
         }
+
         if (isset($map['NetworkAclName'])) {
             $model->networkAclName = $map['NetworkAclName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Resources'])) {
             $model->resources = resources::fromMap($map['Resources']);
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

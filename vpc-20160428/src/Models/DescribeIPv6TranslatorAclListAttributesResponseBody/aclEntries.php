@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIPv6TranslatorAclListAttributesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIPv6TranslatorAclListAttributesResponseBody\aclEntries\aclEntry;
-use AlibabaCloud\Tea\Model;
 
 class aclEntries extends Model
 {
@@ -17,17 +17,24 @@ class aclEntries extends Model
         'aclEntry' => 'AclEntry',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->aclEntry)) {
+            Model::validateArray($this->aclEntry);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclEntry) {
-            $res['AclEntry'] = [];
-            if (null !== $this->aclEntry && \is_array($this->aclEntry)) {
-                $n = 0;
-                foreach ($this->aclEntry as $item) {
-                    $res['AclEntry'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->aclEntry)) {
+                $res['AclEntry'] = [];
+                $n1 = 0;
+                foreach ($this->aclEntry as $item1) {
+                    $res['AclEntry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class aclEntries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aclEntries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclEntry'])) {
             if (!empty($map['AclEntry'])) {
                 $model->aclEntry = [];
-                $n = 0;
-                foreach ($map['AclEntry'] as $item) {
-                    $model->aclEntry[$n++] = null !== $item ? aclEntry::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AclEntry'] as $item1) {
+                    $model->aclEntry[$n1] = aclEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

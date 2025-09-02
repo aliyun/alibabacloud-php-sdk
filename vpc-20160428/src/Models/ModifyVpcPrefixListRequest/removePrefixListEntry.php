@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpcPrefixListRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class removePrefixListEntry extends Model
 {
     /**
-     * @description The CIDR block that you want to delete from the prefix list.
-     *
-     * @example 192.168.0.0/16
-     *
      * @var string
      */
     public $cidr;
 
     /**
-     * @description The description of the CIDR block that you want to delete.
-     *
-     * @example cidr
-     *
      * @var string
      */
     public $description;
@@ -30,14 +22,18 @@ class removePrefixListEntry extends Model
         'description' => 'Description',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cidr) {
             $res['Cidr'] = $this->cidr;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -45,17 +41,18 @@ class removePrefixListEntry extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return removePrefixListEntry
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cidr'])) {
             $model->cidr = $map['Cidr'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyExpressConnectTrafficQosQueueResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 079874CD-AEC1-43E6-AC03-ADD96B6E4907
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class ModifyExpressConnectTrafficQosQueueResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class ModifyExpressConnectTrafficQosQueueResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyExpressConnectTrafficQosQueueResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveSourcesFromTrafficMirrorSessionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example A33B2C6A-89D1-4DEA-A807-A6E8CC552484
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class RemoveSourcesFromTrafficMirrorSessionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class RemoveSourcesFromTrafficMirrorSessionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveSourcesFromTrafficMirrorSessionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

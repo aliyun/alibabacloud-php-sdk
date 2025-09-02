@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionLOAResponseBody\physicalConnectionLOAType;
-use AlibabaCloud\Tea\Model;
 
 class DescribePhysicalConnectionLOAResponseBody extends Model
 {
     /**
-     * @description The LOA information about the Express Connect circuit.
-     *
      * @var physicalConnectionLOAType
      */
     public $physicalConnectionLOAType;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 318BB676-0A2B-43A0-9AD8-F1D34E93750F
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribePhysicalConnectionLOAResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->physicalConnectionLOAType) {
+            $this->physicalConnectionLOAType->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->physicalConnectionLOAType) {
-            $res['PhysicalConnectionLOAType'] = null !== $this->physicalConnectionLOAType ? $this->physicalConnectionLOAType->toMap() : null;
+            $res['PhysicalConnectionLOAType'] = null !== $this->physicalConnectionLOAType ? $this->physicalConnectionLOAType->toArray($noStream) : $this->physicalConnectionLOAType;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribePhysicalConnectionLOAResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePhysicalConnectionLOAResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PhysicalConnectionLOAType'])) {
             $model->physicalConnectionLOAType = physicalConnectionLOAType::fromMap($map['PhysicalConnectionLOAType']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

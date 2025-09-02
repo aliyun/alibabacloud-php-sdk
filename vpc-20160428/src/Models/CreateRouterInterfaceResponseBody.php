@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateRouterInterfaceResponseBody extends Model
 {
     /**
-     * @description The order number. This parameter is returned if InstanceChargeType is set to PrePaid.
-     *
-     * @example 202008594930117
-     *
      * @var int
      */
     public $orderId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 079874CD-AEC1-43E6-AC03-ADD96B6E4907
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the router interface.
-     *
-     * @example ri-2ze7fbuohm****
-     *
      * @var string
      */
     public $routerInterfaceId;
@@ -40,17 +28,22 @@ class CreateRouterInterfaceResponseBody extends Model
         'routerInterfaceId' => 'RouterInterfaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->routerInterfaceId) {
             $res['RouterInterfaceId'] = $this->routerInterfaceId;
         }
@@ -58,20 +51,22 @@ class CreateRouterInterfaceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRouterInterfaceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RouterInterfaceId'])) {
             $model->routerInterfaceId = $map['RouterInterfaceId'];
         }

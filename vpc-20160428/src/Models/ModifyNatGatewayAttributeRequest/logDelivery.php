@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyNatGatewayAttributeRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class logDelivery extends Model
 {
@@ -22,14 +22,18 @@ class logDelivery extends Model
         'logDestination' => 'LogDestination',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logDeliveryType) {
             $res['LogDeliveryType'] = $this->logDeliveryType;
         }
+
         if (null !== $this->logDestination) {
             $res['LogDestination'] = $this->logDestination;
         }
@@ -37,17 +41,18 @@ class logDelivery extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logDelivery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogDeliveryType'])) {
             $model->logDeliveryType = $map['LogDeliveryType'];
         }
+
         if (isset($map['LogDestination'])) {
             $model->logDestination = $map['LogDestination'];
         }

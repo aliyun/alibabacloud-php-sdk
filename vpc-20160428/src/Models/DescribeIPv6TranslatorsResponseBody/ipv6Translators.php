@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIPv6TranslatorsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIPv6TranslatorsResponseBody\ipv6Translators\ipv6Translator;
-use AlibabaCloud\Tea\Model;
 
 class ipv6Translators extends Model
 {
@@ -17,17 +17,24 @@ class ipv6Translators extends Model
         'ipv6Translator' => 'Ipv6Translator',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ipv6Translator)) {
+            Model::validateArray($this->ipv6Translator);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipv6Translator) {
-            $res['Ipv6Translator'] = [];
-            if (null !== $this->ipv6Translator && \is_array($this->ipv6Translator)) {
-                $n = 0;
-                foreach ($this->ipv6Translator as $item) {
-                    $res['Ipv6Translator'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipv6Translator)) {
+                $res['Ipv6Translator'] = [];
+                $n1 = 0;
+                foreach ($this->ipv6Translator as $item1) {
+                    $res['Ipv6Translator'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class ipv6Translators extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipv6Translators
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv6Translator'])) {
             if (!empty($map['Ipv6Translator'])) {
                 $model->ipv6Translator = [];
-                $n = 0;
-                foreach ($map['Ipv6Translator'] as $item) {
-                    $model->ipv6Translator[$n++] = null !== $item ? ipv6Translator::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Ipv6Translator'] as $item1) {
+                    $model->ipv6Translator[$n1] = ipv6Translator::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

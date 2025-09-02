@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ListEnhanhcedNatGatewayAvailableZonesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class zones extends Model
 {
     /**
-     * @description The name of the zone.
-     *
-     * @example Dubai Zone A
-     *
      * @var string
      */
     public $localName;
 
     /**
-     * @description The ID of the zone where the instance is deployed.
-     *
-     * @example me-east-1a
-     *
      * @var string
      */
     public $zoneId;
@@ -30,14 +22,18 @@ class zones extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -45,17 +41,18 @@ class zones extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zones
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

@@ -4,41 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyIPv6TranslatorAclListEntryRequest extends Model
 {
     /**
-     * @description The remarks of the ACL rule.
-     *
-     * It must be 2 to 100 characters in length, and can contain digits, underscores (_), and hyphens (-). It must start with a letter.
-     *
-     * This parameter is required.
-     *
-     * @example client IP
-     *
      * @var string
      */
     public $aclEntryComment;
 
     /**
-     * @description The ID of the ACL rule to which the IP entry belongs.
-     *
-     * This parameter is required.
-     *
-     * @example ipv6transaclentry-bp1jzyn7ra8pyxehd****
-     *
      * @var string
      */
     public $aclEntryId;
 
     /**
-     * @description The ID of the ACL to which the IP entry belongs.
-     *
-     * This parameter is required.
-     *
-     * @example ipv6transacl-bp1b4z3tleyhq1s50****
-     *
      * @var string
      */
     public $aclId;
@@ -54,12 +34,6 @@ class ModifyIPv6TranslatorAclListEntryRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region of the ACL.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -84,32 +58,42 @@ class ModifyIPv6TranslatorAclListEntryRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclEntryComment) {
             $res['AclEntryComment'] = $this->aclEntryComment;
         }
+
         if (null !== $this->aclEntryId) {
             $res['AclEntryId'] = $this->aclEntryId;
         }
+
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -117,35 +101,42 @@ class ModifyIPv6TranslatorAclListEntryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyIPv6TranslatorAclListEntryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclEntryComment'])) {
             $model->aclEntryComment = $map['AclEntryComment'];
         }
+
         if (isset($map['AclEntryId'])) {
             $model->aclEntryId = $map['AclEntryId'];
         }
+
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

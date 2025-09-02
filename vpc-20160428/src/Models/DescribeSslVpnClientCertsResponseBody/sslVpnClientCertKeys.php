@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeSslVpnClientCertsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeSslVpnClientCertsResponseBody\sslVpnClientCertKeys\sslVpnClientCertKey;
-use AlibabaCloud\Tea\Model;
 
 class sslVpnClientCertKeys extends Model
 {
@@ -17,17 +17,24 @@ class sslVpnClientCertKeys extends Model
         'sslVpnClientCertKey' => 'SslVpnClientCertKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sslVpnClientCertKey)) {
+            Model::validateArray($this->sslVpnClientCertKey);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sslVpnClientCertKey) {
-            $res['SslVpnClientCertKey'] = [];
-            if (null !== $this->sslVpnClientCertKey && \is_array($this->sslVpnClientCertKey)) {
-                $n = 0;
-                foreach ($this->sslVpnClientCertKey as $item) {
-                    $res['SslVpnClientCertKey'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sslVpnClientCertKey)) {
+                $res['SslVpnClientCertKey'] = [];
+                $n1 = 0;
+                foreach ($this->sslVpnClientCertKey as $item1) {
+                    $res['SslVpnClientCertKey'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class sslVpnClientCertKeys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sslVpnClientCertKeys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SslVpnClientCertKey'])) {
             if (!empty($map['SslVpnClientCertKey'])) {
                 $model->sslVpnClientCertKey = [];
-                $n = 0;
-                foreach ($map['SslVpnClientCertKey'] as $item) {
-                    $model->sslVpnClientCertKey[$n++] = null !== $item ? sslVpnClientCertKey::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SslVpnClientCertKey'] as $item1) {
+                    $model->sslVpnClientCertKey[$n1] = sslVpnClientCertKey::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

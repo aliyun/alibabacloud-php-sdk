@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateVpconnFromVbrResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 5356F028-0F5C-56FC-8574-897D24379041
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the hosted connection.
-     *
-     * @example pc-bp1mrgfbtmc9brre7****
-     *
      * @var string
      */
     public $virtualPhysicalConnection;
@@ -30,14 +22,18 @@ class CreateVpconnFromVbrResponseBody extends Model
         'virtualPhysicalConnection' => 'VirtualPhysicalConnection',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->virtualPhysicalConnection) {
             $res['VirtualPhysicalConnection'] = $this->virtualPhysicalConnection;
         }
@@ -45,17 +41,18 @@ class CreateVpconnFromVbrResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateVpconnFromVbrResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VirtualPhysicalConnection'])) {
             $model->virtualPhysicalConnection = $map['VirtualPhysicalConnection'];
         }

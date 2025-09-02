@@ -4,31 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeResponseBody\ipv6CidrBlocks;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipv6CidrBlock extends Model
 {
     /**
-     * @description The IPv6 CIDR block of the VPC.
-     *
-     * @example 2408:XXXX:0:6a::/56
-     *
      * @var string
      */
     public $ipv6CidrBlock;
 
     /**
-     * @description The IPv6 CIDR block type of the VPC. Valid values:
-     *
-     *   **BGP** (default)
-     *   **ChinaMobile**
-     *   **ChinaUnicom**
-     *   **ChinaTelecom**
-     *
-     * >  If you are allowed to use single-ISP bandwidth, valid values are **ChinaTelecom**, **ChinaUnicom**, and **ChinaMobile**
-     *
-     * @example BGP
-     *
      * @var string
      */
     public $ipv6Isp;
@@ -37,14 +22,18 @@ class ipv6CidrBlock extends Model
         'ipv6Isp' => 'Ipv6Isp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipv6CidrBlock) {
             $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
         }
+
         if (null !== $this->ipv6Isp) {
             $res['Ipv6Isp'] = $this->ipv6Isp;
         }
@@ -52,17 +41,18 @@ class ipv6CidrBlock extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipv6CidrBlock
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv6CidrBlock'])) {
             $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];
         }
+
         if (isset($map['Ipv6Isp'])) {
             $model->ipv6Isp = $map['Ipv6Isp'];
         }

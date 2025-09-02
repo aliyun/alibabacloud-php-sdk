@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeCustomerGatewaysResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeCustomerGatewaysResponseBody\customerGateways\customerGateway;
-use AlibabaCloud\Tea\Model;
 
 class customerGateways extends Model
 {
@@ -17,17 +17,24 @@ class customerGateways extends Model
         'customerGateway' => 'CustomerGateway',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->customerGateway)) {
+            Model::validateArray($this->customerGateway);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customerGateway) {
-            $res['CustomerGateway'] = [];
-            if (null !== $this->customerGateway && \is_array($this->customerGateway)) {
-                $n = 0;
-                foreach ($this->customerGateway as $item) {
-                    $res['CustomerGateway'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customerGateway)) {
+                $res['CustomerGateway'] = [];
+                $n1 = 0;
+                foreach ($this->customerGateway as $item1) {
+                    $res['CustomerGateway'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class customerGateways extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customerGateways
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomerGateway'])) {
             if (!empty($map['CustomerGateway'])) {
                 $model->customerGateway = [];
-                $n = 0;
-                foreach ($map['CustomerGateway'] as $item) {
-                    $model->customerGateway[$n++] = null !== $item ? customerGateway::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CustomerGateway'] as $item1) {
+                    $model->customerGateway[$n1] = customerGateway::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
