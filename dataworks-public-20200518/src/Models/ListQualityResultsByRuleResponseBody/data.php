@@ -59,7 +59,8 @@ class data extends Model
                 $res['RuleChecks'] = [];
                 $n1 = 0;
                 foreach ($this->ruleChecks as $item1) {
-                    $res['RuleChecks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleChecks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class data extends Model
                 $model->ruleChecks = [];
                 $n1 = 0;
                 foreach ($map['RuleChecks'] as $item1) {
-                    $model->ruleChecks[$n1++] = ruleChecks::fromMap($item1);
+                    $model->ruleChecks[$n1] = ruleChecks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

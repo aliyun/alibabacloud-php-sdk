@@ -59,7 +59,8 @@ class paging extends Model
                 $res['ShiftSchedules'] = [];
                 $n1 = 0;
                 foreach ($this->shiftSchedules as $item1) {
-                    $res['ShiftSchedules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ShiftSchedules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class paging extends Model
                 $model->shiftSchedules = [];
                 $n1 = 0;
                 foreach ($map['ShiftSchedules'] as $item1) {
-                    $model->shiftSchedules[$n1++] = shiftSchedules::fromMap($item1);
+                    $model->shiftSchedules[$n1] = shiftSchedules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

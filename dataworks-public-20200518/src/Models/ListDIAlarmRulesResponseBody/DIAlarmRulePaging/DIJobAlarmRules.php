@@ -97,7 +97,8 @@ class DIJobAlarmRules extends Model
                 $res['TriggerConditions'] = [];
                 $n1 = 0;
                 foreach ($this->triggerConditions as $item1) {
-                    $res['TriggerConditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TriggerConditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +143,8 @@ class DIJobAlarmRules extends Model
                 $model->triggerConditions = [];
                 $n1 = 0;
                 foreach ($map['TriggerConditions'] as $item1) {
-                    $model->triggerConditions[$n1++] = triggerConditions::fromMap($item1);
+                    $model->triggerConditions[$n1] = triggerConditions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

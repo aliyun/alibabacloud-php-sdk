@@ -50,7 +50,8 @@ class columnMetaList extends Model
                 $res['ColumnActions'] = [];
                 $n1 = 0;
                 foreach ($this->columnActions as $item1) {
-                    $res['ColumnActions'][$n1++] = $item1;
+                    $res['ColumnActions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class columnMetaList extends Model
                 $model->columnActions = [];
                 $n1 = 0;
                 foreach ($map['ColumnActions'] as $item1) {
-                    $model->columnActions[$n1++] = $item1;
+                    $model->columnActions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

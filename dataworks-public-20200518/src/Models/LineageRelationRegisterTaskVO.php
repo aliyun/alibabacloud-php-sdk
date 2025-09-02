@@ -81,7 +81,8 @@ class LineageRelationRegisterTaskVO extends Model
                 $res['InputEntities'] = [];
                 $n1 = 0;
                 foreach ($this->inputEntities as $item1) {
-                    $res['InputEntities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InputEntities'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class LineageRelationRegisterTaskVO extends Model
                 $res['OutputEntities'] = [];
                 $n1 = 0;
                 foreach ($this->outputEntities as $item1) {
-                    $res['OutputEntities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutputEntities'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +135,8 @@ class LineageRelationRegisterTaskVO extends Model
                 $model->inputEntities = [];
                 $n1 = 0;
                 foreach ($map['InputEntities'] as $item1) {
-                    $model->inputEntities[$n1++] = LineageEntityVO::fromMap($item1);
+                    $model->inputEntities[$n1] = LineageEntityVO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +150,8 @@ class LineageRelationRegisterTaskVO extends Model
                 $model->outputEntities = [];
                 $n1 = 0;
                 foreach ($map['OutputEntities'] as $item1) {
-                    $model->outputEntities[$n1++] = LineageEntityVO::fromMap($item1);
+                    $model->outputEntities[$n1] = LineageEntityVO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

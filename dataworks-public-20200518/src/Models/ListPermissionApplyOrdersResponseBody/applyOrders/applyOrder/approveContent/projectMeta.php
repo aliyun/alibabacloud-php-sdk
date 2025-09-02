@@ -39,7 +39,8 @@ class projectMeta extends Model
                 $res['ObjectMetaList'] = [];
                 $n1 = 0;
                 foreach ($this->objectMetaList as $item1) {
-                    $res['ObjectMetaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ObjectMetaList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class projectMeta extends Model
                 $model->objectMetaList = [];
                 $n1 = 0;
                 foreach ($map['ObjectMetaList'] as $item1) {
-                    $model->objectMetaList[$n1++] = objectMetaList::fromMap($item1);
+                    $model->objectMetaList[$n1] = objectMetaList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

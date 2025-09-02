@@ -75,7 +75,8 @@ class ListMeasureDataResponseBody extends Model
                 $res['MeasureDatas'] = [];
                 $n1 = 0;
                 foreach ($this->measureDatas as $item1) {
-                    $res['MeasureDatas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MeasureDatas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class ListMeasureDataResponseBody extends Model
                 $model->measureDatas = [];
                 $n1 = 0;
                 foreach ($map['MeasureDatas'] as $item1) {
-                    $model->measureDatas[$n1++] = measureDatas::fromMap($item1);
+                    $model->measureDatas[$n1] = measureDatas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

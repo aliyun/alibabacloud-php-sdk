@@ -38,7 +38,8 @@ class receivers extends Model
                 $res['AlertTargets'] = [];
                 $n1 = 0;
                 foreach ($this->alertTargets as $item1) {
-                    $res['AlertTargets'][$n1++] = $item1;
+                    $res['AlertTargets'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class receivers extends Model
                 $model->alertTargets = [];
                 $n1 = 0;
                 foreach ($map['AlertTargets'] as $item1) {
-                    $model->alertTargets[$n1++] = $item1;
+                    $model->alertTargets[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

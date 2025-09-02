@@ -67,7 +67,8 @@ class wizardDetails extends Model
                 $res['WizardRequestParameters'] = [];
                 $n1 = 0;
                 foreach ($this->wizardRequestParameters as $item1) {
-                    $res['WizardRequestParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WizardRequestParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class wizardDetails extends Model
                 $res['WizardResponseParameters'] = [];
                 $n1 = 0;
                 foreach ($this->wizardResponseParameters as $item1) {
-                    $res['WizardResponseParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WizardResponseParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +108,8 @@ class wizardDetails extends Model
                 $model->wizardRequestParameters = [];
                 $n1 = 0;
                 foreach ($map['WizardRequestParameters'] as $item1) {
-                    $model->wizardRequestParameters[$n1++] = wizardRequestParameters::fromMap($item1);
+                    $model->wizardRequestParameters[$n1] = wizardRequestParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +119,8 @@ class wizardDetails extends Model
                 $model->wizardResponseParameters = [];
                 $n1 = 0;
                 foreach ($map['WizardResponseParameters'] as $item1) {
-                    $model->wizardResponseParameters[$n1++] = wizardResponseParameters::fromMap($item1);
+                    $model->wizardResponseParameters[$n1] = wizardResponseParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

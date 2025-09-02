@@ -39,7 +39,8 @@ class ListProjectRolesResponseBody extends Model
                 $res['ProjectRoleList'] = [];
                 $n1 = 0;
                 foreach ($this->projectRoleList as $item1) {
-                    $res['ProjectRoleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProjectRoleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListProjectRolesResponseBody extends Model
                 $model->projectRoleList = [];
                 $n1 = 0;
                 foreach ($map['ProjectRoleList'] as $item1) {
-                    $model->projectRoleList[$n1++] = projectRoleList::fromMap($item1);
+                    $model->projectRoleList[$n1] = projectRoleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

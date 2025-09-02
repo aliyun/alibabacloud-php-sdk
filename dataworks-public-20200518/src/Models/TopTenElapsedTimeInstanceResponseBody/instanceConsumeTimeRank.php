@@ -39,7 +39,8 @@ class instanceConsumeTimeRank extends Model
                 $res['ConsumeTimeRank'] = [];
                 $n1 = 0;
                 foreach ($this->consumeTimeRank as $item1) {
-                    $res['ConsumeTimeRank'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConsumeTimeRank'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class instanceConsumeTimeRank extends Model
                 $model->consumeTimeRank = [];
                 $n1 = 0;
                 foreach ($map['ConsumeTimeRank'] as $item1) {
-                    $model->consumeTimeRank[$n1++] = consumeTimeRank::fromMap($item1);
+                    $model->consumeTimeRank[$n1] = consumeTimeRank::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -195,7 +195,8 @@ class data extends Model
                 $res['AlertMethods'] = [];
                 $n1 = 0;
                 foreach ($this->alertMethods as $item1) {
-                    $res['AlertMethods'][$n1++] = $item1;
+                    $res['AlertMethods'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +206,8 @@ class data extends Model
                 $res['AlertTargets'] = [];
                 $n1 = 0;
                 foreach ($this->alertTargets as $item1) {
-                    $res['AlertTargets'][$n1++] = $item1;
+                    $res['AlertTargets'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -219,7 +221,8 @@ class data extends Model
                 $res['AllowNodes'] = [];
                 $n1 = 0;
                 foreach ($this->allowNodes as $item1) {
-                    $res['AllowNodes'][$n1++] = $item1;
+                    $res['AllowNodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -229,7 +232,8 @@ class data extends Model
                 $res['Baselines'] = [];
                 $n1 = 0;
                 foreach ($this->baselines as $item1) {
-                    $res['Baselines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Baselines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -239,7 +243,8 @@ class data extends Model
                 $res['BizProcesses'] = [];
                 $n1 = 0;
                 foreach ($this->bizProcesses as $item1) {
-                    $res['BizProcesses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BizProcesses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -269,7 +274,8 @@ class data extends Model
                 $res['Nodes'] = [];
                 $n1 = 0;
                 foreach ($this->nodes as $item1) {
-                    $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Nodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -279,7 +285,8 @@ class data extends Model
                 $res['Projects'] = [];
                 $n1 = 0;
                 foreach ($this->projects as $item1) {
-                    $res['Projects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Projects'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -289,7 +296,8 @@ class data extends Model
                 $res['Receivers'] = [];
                 $n1 = 0;
                 foreach ($this->receivers as $item1) {
-                    $res['Receivers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Receivers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -315,7 +323,8 @@ class data extends Model
                 $res['Robots'] = [];
                 $n1 = 0;
                 foreach ($this->robots as $item1) {
-                    $res['Robots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Robots'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -329,7 +338,8 @@ class data extends Model
                 $res['Webhooks'] = [];
                 $n1 = 0;
                 foreach ($this->webhooks as $item1) {
-                    $res['Webhooks'][$n1++] = $item1;
+                    $res['Webhooks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -354,7 +364,8 @@ class data extends Model
                 $model->alertMethods = [];
                 $n1 = 0;
                 foreach ($map['AlertMethods'] as $item1) {
-                    $model->alertMethods[$n1++] = $item1;
+                    $model->alertMethods[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -364,7 +375,8 @@ class data extends Model
                 $model->alertTargets = [];
                 $n1 = 0;
                 foreach ($map['AlertTargets'] as $item1) {
-                    $model->alertTargets[$n1++] = $item1;
+                    $model->alertTargets[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -378,7 +390,8 @@ class data extends Model
                 $model->allowNodes = [];
                 $n1 = 0;
                 foreach ($map['AllowNodes'] as $item1) {
-                    $model->allowNodes[$n1++] = $item1;
+                    $model->allowNodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -388,7 +401,8 @@ class data extends Model
                 $model->baselines = [];
                 $n1 = 0;
                 foreach ($map['Baselines'] as $item1) {
-                    $model->baselines[$n1++] = baselines::fromMap($item1);
+                    $model->baselines[$n1] = baselines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -398,7 +412,8 @@ class data extends Model
                 $model->bizProcesses = [];
                 $n1 = 0;
                 foreach ($map['BizProcesses'] as $item1) {
-                    $model->bizProcesses[$n1++] = bizProcesses::fromMap($item1);
+                    $model->bizProcesses[$n1] = bizProcesses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -428,7 +443,8 @@ class data extends Model
                 $model->nodes = [];
                 $n1 = 0;
                 foreach ($map['Nodes'] as $item1) {
-                    $model->nodes[$n1++] = nodes::fromMap($item1);
+                    $model->nodes[$n1] = nodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -438,7 +454,8 @@ class data extends Model
                 $model->projects = [];
                 $n1 = 0;
                 foreach ($map['Projects'] as $item1) {
-                    $model->projects[$n1++] = projects::fromMap($item1);
+                    $model->projects[$n1] = projects::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -448,7 +465,8 @@ class data extends Model
                 $model->receivers = [];
                 $n1 = 0;
                 foreach ($map['Receivers'] as $item1) {
-                    $model->receivers[$n1++] = receivers::fromMap($item1);
+                    $model->receivers[$n1] = receivers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -474,7 +492,8 @@ class data extends Model
                 $model->robots = [];
                 $n1 = 0;
                 foreach ($map['Robots'] as $item1) {
-                    $model->robots[$n1++] = robots::fromMap($item1);
+                    $model->robots[$n1] = robots::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -488,7 +507,8 @@ class data extends Model
                 $model->webhooks = [];
                 $n1 = 0;
                 foreach ($map['Webhooks'] as $item1) {
-                    $model->webhooks[$n1++] = $item1;
+                    $model->webhooks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

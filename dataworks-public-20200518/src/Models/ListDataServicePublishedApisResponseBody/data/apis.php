@@ -208,7 +208,8 @@ class apis extends Model
                 $res['Protocols'] = [];
                 $n1 = 0;
                 foreach ($this->protocols as $item1) {
-                    $res['Protocols'][$n1++] = $item1;
+                    $res['Protocols'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -309,7 +310,8 @@ class apis extends Model
                 $model->protocols = [];
                 $n1 = 0;
                 foreach ($map['Protocols'] as $item1) {
-                    $model->protocols[$n1++] = $item1;
+                    $model->protocols[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

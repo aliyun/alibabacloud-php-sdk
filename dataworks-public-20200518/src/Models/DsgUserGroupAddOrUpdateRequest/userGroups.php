@@ -62,7 +62,8 @@ class userGroups extends Model
                 $res['Accounts'] = [];
                 $n1 = 0;
                 foreach ($this->accounts as $item1) {
-                    $res['Accounts'][$n1++] = $item1;
+                    $res['Accounts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class userGroups extends Model
                 $model->accounts = [];
                 $n1 = 0;
                 foreach ($map['Accounts'] as $item1) {
-                    $model->accounts[$n1++] = $item1;
+                    $model->accounts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

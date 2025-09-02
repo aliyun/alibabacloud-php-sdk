@@ -51,7 +51,8 @@ class data extends Model
                 $res['Migrations'] = [];
                 $n1 = 0;
                 foreach ($this->migrations as $item1) {
-                    $res['Migrations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Migrations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->migrations = [];
                 $n1 = 0;
                 foreach ($map['Migrations'] as $item1) {
-                    $model->migrations[$n1++] = migrations::fromMap($item1);
+                    $model->migrations[$n1] = migrations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

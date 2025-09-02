@@ -38,7 +38,8 @@ class ListProjectIdsResponseBody extends Model
                 $res['ProjectIds'] = [];
                 $n1 = 0;
                 foreach ($this->projectIds as $item1) {
-                    $res['ProjectIds'][$n1++] = $item1;
+                    $res['ProjectIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ListProjectIdsResponseBody extends Model
                 $model->projectIds = [];
                 $n1 = 0;
                 foreach ($map['ProjectIds'] as $item1) {
-                    $model->projectIds[$n1++] = $item1;
+                    $model->projectIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

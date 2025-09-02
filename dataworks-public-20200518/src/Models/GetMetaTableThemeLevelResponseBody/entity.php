@@ -43,7 +43,8 @@ class entity extends Model
                 $res['Level'] = [];
                 $n1 = 0;
                 foreach ($this->level as $item1) {
-                    $res['Level'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Level'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class entity extends Model
                 $res['Theme'] = [];
                 $n1 = 0;
                 foreach ($this->theme as $item1) {
-                    $res['Theme'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Theme'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +76,8 @@ class entity extends Model
                 $model->level = [];
                 $n1 = 0;
                 foreach ($map['Level'] as $item1) {
-                    $model->level[$n1++] = level::fromMap($item1);
+                    $model->level[$n1] = level::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +87,8 @@ class entity extends Model
                 $model->theme = [];
                 $n1 = 0;
                 foreach ($map['Theme'] as $item1) {
-                    $model->theme[$n1++] = theme::fromMap($item1);
+                    $model->theme[$n1] = theme::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

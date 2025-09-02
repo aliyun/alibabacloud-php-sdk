@@ -117,7 +117,8 @@ class UpdateBaselineRequest extends Model
                 $res['AlertSettings'] = [];
                 $n1 = 0;
                 foreach ($this->alertSettings as $item1) {
-                    $res['AlertSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AlertSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +148,8 @@ class UpdateBaselineRequest extends Model
                 $res['OvertimeSettings'] = [];
                 $n1 = 0;
                 foreach ($this->overtimeSettings as $item1) {
-                    $res['OvertimeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OvertimeSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +194,8 @@ class UpdateBaselineRequest extends Model
                 $model->alertSettings = [];
                 $n1 = 0;
                 foreach ($map['AlertSettings'] as $item1) {
-                    $model->alertSettings[$n1++] = alertSettings::fromMap($item1);
+                    $model->alertSettings[$n1] = alertSettings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -222,7 +225,8 @@ class UpdateBaselineRequest extends Model
                 $model->overtimeSettings = [];
                 $n1 = 0;
                 foreach ($map['OvertimeSettings'] as $item1) {
-                    $model->overtimeSettings[$n1++] = overtimeSettings::fromMap($item1);
+                    $model->overtimeSettings[$n1] = overtimeSettings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

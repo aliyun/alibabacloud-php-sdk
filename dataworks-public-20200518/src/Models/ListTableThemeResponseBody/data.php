@@ -39,7 +39,8 @@ class data extends Model
                 $res['ThemeList'] = [];
                 $n1 = 0;
                 foreach ($this->themeList as $item1) {
-                    $res['ThemeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ThemeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class data extends Model
                 $model->themeList = [];
                 $n1 = 0;
                 foreach ($map['ThemeList'] as $item1) {
-                    $model->themeList[$n1++] = themeList::fromMap($item1);
+                    $model->themeList[$n1] = themeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

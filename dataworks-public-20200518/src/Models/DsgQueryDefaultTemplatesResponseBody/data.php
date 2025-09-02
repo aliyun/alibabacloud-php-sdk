@@ -46,7 +46,8 @@ class data extends Model
                         $res['DesensPlanTemplate'][$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $res['DesensPlanTemplate'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['DesensPlanTemplate'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
                 }
@@ -76,7 +77,8 @@ class data extends Model
                         $model->desensPlanTemplate[$key1] = [];
                         $n2 = 0;
                         foreach ($value1 as $item2) {
-                            $model->desensPlanTemplate[$key1][$n2++] = DataDesensPlanTemplateValue::fromMap($item2);
+                            $model->desensPlanTemplate[$key1][$n2] = DataDesensPlanTemplateValue::fromMap($item2);
+                            ++$n2;
                         }
                     }
                 }

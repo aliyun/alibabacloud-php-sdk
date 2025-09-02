@@ -33,7 +33,8 @@ class DsgSceneAddOrUpdateSceneRequest extends Model
                 $res['scenes'] = [];
                 $n1 = 0;
                 foreach ($this->scenes as $item1) {
-                    $res['scenes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['scenes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class DsgSceneAddOrUpdateSceneRequest extends Model
                 $model->scenes = [];
                 $n1 = 0;
                 foreach ($map['scenes'] as $item1) {
-                    $model->scenes[$n1++] = scenes::fromMap($item1);
+                    $model->scenes[$n1] = scenes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -116,7 +116,8 @@ class alertSettings extends Model
                 $res['AlertMethods'] = [];
                 $n1 = 0;
                 foreach ($this->alertMethods as $item1) {
-                    $res['AlertMethods'][$n1++] = $item1;
+                    $res['AlertMethods'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +143,8 @@ class alertSettings extends Model
                 $res['DingRobots'] = [];
                 $n1 = 0;
                 foreach ($this->dingRobots as $item1) {
-                    $res['DingRobots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DingRobots'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +162,8 @@ class alertSettings extends Model
                 $res['TopicTypes'] = [];
                 $n1 = 0;
                 foreach ($this->topicTypes as $item1) {
-                    $res['TopicTypes'][$n1++] = $item1;
+                    $res['TopicTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +173,8 @@ class alertSettings extends Model
                 $res['Webhooks'] = [];
                 $n1 = 0;
                 foreach ($this->webhooks as $item1) {
-                    $res['Webhooks'][$n1++] = $item1;
+                    $res['Webhooks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -199,7 +203,8 @@ class alertSettings extends Model
                 $model->alertMethods = [];
                 $n1 = 0;
                 foreach ($map['AlertMethods'] as $item1) {
-                    $model->alertMethods[$n1++] = $item1;
+                    $model->alertMethods[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -225,7 +230,8 @@ class alertSettings extends Model
                 $model->dingRobots = [];
                 $n1 = 0;
                 foreach ($map['DingRobots'] as $item1) {
-                    $model->dingRobots[$n1++] = dingRobots::fromMap($item1);
+                    $model->dingRobots[$n1] = dingRobots::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -243,7 +249,8 @@ class alertSettings extends Model
                 $model->topicTypes = [];
                 $n1 = 0;
                 foreach ($map['TopicTypes'] as $item1) {
-                    $model->topicTypes[$n1++] = $item1;
+                    $model->topicTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -253,7 +260,8 @@ class alertSettings extends Model
                 $model->webhooks = [];
                 $n1 = 0;
                 foreach ($map['Webhooks'] as $item1) {
-                    $model->webhooks[$n1++] = $item1;
+                    $model->webhooks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

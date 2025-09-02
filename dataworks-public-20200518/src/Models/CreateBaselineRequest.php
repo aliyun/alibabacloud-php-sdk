@@ -91,7 +91,8 @@ class CreateBaselineRequest extends Model
                 $res['OvertimeSettings'] = [];
                 $n1 = 0;
                 foreach ($this->overtimeSettings as $item1) {
-                    $res['OvertimeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OvertimeSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +141,8 @@ class CreateBaselineRequest extends Model
                 $model->overtimeSettings = [];
                 $n1 = 0;
                 foreach ($map['OvertimeSettings'] as $item1) {
-                    $model->overtimeSettings[$n1++] = overtimeSettings::fromMap($item1);
+                    $model->overtimeSettings[$n1] = overtimeSettings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

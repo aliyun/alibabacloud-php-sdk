@@ -39,7 +39,8 @@ class tableLevelInfo extends Model
                 $res['LevelList'] = [];
                 $n1 = 0;
                 foreach ($this->levelList as $item1) {
-                    $res['LevelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LevelList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class tableLevelInfo extends Model
                 $model->levelList = [];
                 $n1 = 0;
                 foreach ($map['LevelList'] as $item1) {
-                    $model->levelList[$n1++] = levelList::fromMap($item1);
+                    $model->levelList[$n1] = levelList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -159,7 +159,8 @@ class UpdateTableRequest extends Model
                 $res['Columns'] = [];
                 $n1 = 0;
                 foreach ($this->columns as $item1) {
-                    $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Columns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -229,7 +230,8 @@ class UpdateTableRequest extends Model
                 $res['Themes'] = [];
                 $n1 = 0;
                 foreach ($this->themes as $item1) {
-                    $res['Themes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Themes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -262,7 +264,8 @@ class UpdateTableRequest extends Model
                 $model->columns = [];
                 $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
-                    $model->columns[$n1++] = columns::fromMap($item1);
+                    $model->columns[$n1] = columns::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -332,7 +335,8 @@ class UpdateTableRequest extends Model
                 $model->themes = [];
                 $n1 = 0;
                 foreach ($map['Themes'] as $item1) {
-                    $model->themes[$n1++] = themes::fromMap($item1);
+                    $model->themes[$n1] = themes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

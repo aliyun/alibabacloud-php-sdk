@@ -63,7 +63,8 @@ class extensions extends Model
                 $res['BindEventList'] = [];
                 $n1 = 0;
                 foreach ($this->bindEventList as $item1) {
-                    $res['BindEventList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BindEventList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class extensions extends Model
                 $model->bindEventList = [];
                 $n1 = 0;
                 foreach ($map['BindEventList'] as $item1) {
-                    $model->bindEventList[$n1++] = bindEventList::fromMap($item1);
+                    $model->bindEventList[$n1] = bindEventList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class ListEnabledExtensionsForProjectResponseBody extends Model
                 $res['Extensions'] = [];
                 $n1 = 0;
                 foreach ($this->extensions as $item1) {
-                    $res['Extensions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Extensions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListEnabledExtensionsForProjectResponseBody extends Model
                 $model->extensions = [];
                 $n1 = 0;
                 foreach ($map['Extensions'] as $item1) {
-                    $model->extensions[$n1++] = extensions::fromMap($item1);
+                    $model->extensions[$n1] = extensions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

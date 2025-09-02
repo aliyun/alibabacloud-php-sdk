@@ -53,7 +53,8 @@ class instanceStatusTrend extends Model
                 $res['AvgTrend'] = [];
                 $n1 = 0;
                 foreach ($this->avgTrend as $item1) {
-                    $res['AvgTrend'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AvgTrend'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class instanceStatusTrend extends Model
                 $res['TodayTrend'] = [];
                 $n1 = 0;
                 foreach ($this->todayTrend as $item1) {
-                    $res['TodayTrend'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TodayTrend'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class instanceStatusTrend extends Model
                 $res['YesterdayTrend'] = [];
                 $n1 = 0;
                 foreach ($this->yesterdayTrend as $item1) {
-                    $res['YesterdayTrend'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['YesterdayTrend'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +97,8 @@ class instanceStatusTrend extends Model
                 $model->avgTrend = [];
                 $n1 = 0;
                 foreach ($map['AvgTrend'] as $item1) {
-                    $model->avgTrend[$n1++] = avgTrend::fromMap($item1);
+                    $model->avgTrend[$n1] = avgTrend::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +108,8 @@ class instanceStatusTrend extends Model
                 $model->todayTrend = [];
                 $n1 = 0;
                 foreach ($map['TodayTrend'] as $item1) {
-                    $model->todayTrend[$n1++] = todayTrend::fromMap($item1);
+                    $model->todayTrend[$n1] = todayTrend::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +119,8 @@ class instanceStatusTrend extends Model
                 $model->yesterdayTrend = [];
                 $n1 = 0;
                 foreach ($map['YesterdayTrend'] as $item1) {
-                    $model->yesterdayTrend[$n1++] = yesterdayTrend::fromMap($item1);
+                    $model->yesterdayTrend[$n1] = yesterdayTrend::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -114,7 +114,8 @@ class data extends Model
                 $res['AlertSettings'] = [];
                 $n1 = 0;
                 foreach ($this->alertSettings as $item1) {
-                    $res['AlertSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AlertSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +141,8 @@ class data extends Model
                 $res['NodeIds'] = [];
                 $n1 = 0;
                 foreach ($this->nodeIds as $item1) {
-                    $res['NodeIds'][$n1++] = $item1;
+                    $res['NodeIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +152,8 @@ class data extends Model
                 $res['OverTimeSettings'] = [];
                 $n1 = 0;
                 foreach ($this->overTimeSettings as $item1) {
-                    $res['OverTimeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OverTimeSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,7 +194,8 @@ class data extends Model
                 $model->alertSettings = [];
                 $n1 = 0;
                 foreach ($map['AlertSettings'] as $item1) {
-                    $model->alertSettings[$n1++] = alertSettings::fromMap($item1);
+                    $model->alertSettings[$n1] = alertSettings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -217,7 +221,8 @@ class data extends Model
                 $model->nodeIds = [];
                 $n1 = 0;
                 foreach ($map['NodeIds'] as $item1) {
-                    $model->nodeIds[$n1++] = $item1;
+                    $model->nodeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -227,7 +232,8 @@ class data extends Model
                 $model->overTimeSettings = [];
                 $n1 = 0;
                 foreach ($map['OverTimeSettings'] as $item1) {
-                    $model->overTimeSettings[$n1++] = overTimeSettings::fromMap($item1);
+                    $model->overTimeSettings[$n1] = overTimeSettings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

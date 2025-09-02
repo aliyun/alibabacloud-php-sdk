@@ -141,7 +141,8 @@ class data extends Model
                 $res['Instances'] = [];
                 $n1 = 0;
                 foreach ($this->instances as $item1) {
-                    $res['Instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Instances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +152,8 @@ class data extends Model
                 $res['Nodes'] = [];
                 $n1 = 0;
                 foreach ($this->nodes as $item1) {
-                    $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Nodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -177,7 +179,8 @@ class data extends Model
                 $res['Topics'] = [];
                 $n1 = 0;
                 foreach ($this->topics as $item1) {
-                    $res['Topics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Topics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -222,7 +225,8 @@ class data extends Model
                 $model->instances = [];
                 $n1 = 0;
                 foreach ($map['Instances'] as $item1) {
-                    $model->instances[$n1++] = instances::fromMap($item1);
+                    $model->instances[$n1] = instances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -232,7 +236,8 @@ class data extends Model
                 $model->nodes = [];
                 $n1 = 0;
                 foreach ($map['Nodes'] as $item1) {
-                    $model->nodes[$n1++] = nodes::fromMap($item1);
+                    $model->nodes[$n1] = nodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -258,7 +263,8 @@ class data extends Model
                 $model->topics = [];
                 $n1 = 0;
                 foreach ($map['Topics'] as $item1) {
-                    $model->topics[$n1++] = topics::fromMap($item1);
+                    $model->topics[$n1] = topics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

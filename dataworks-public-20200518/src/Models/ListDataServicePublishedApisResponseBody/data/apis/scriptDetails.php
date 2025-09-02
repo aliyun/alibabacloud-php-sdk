@@ -103,7 +103,8 @@ class scriptDetails extends Model
                 $res['ScriptErrorCodes'] = [];
                 $n1 = 0;
                 foreach ($this->scriptErrorCodes as $item1) {
-                    $res['ScriptErrorCodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScriptErrorCodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +114,8 @@ class scriptDetails extends Model
                 $res['ScriptRequestParameters'] = [];
                 $n1 = 0;
                 foreach ($this->scriptRequestParameters as $item1) {
-                    $res['ScriptRequestParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScriptRequestParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +125,8 @@ class scriptDetails extends Model
                 $res['ScriptResponseParameters'] = [];
                 $n1 = 0;
                 foreach ($this->scriptResponseParameters as $item1) {
-                    $res['ScriptResponseParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScriptResponseParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +167,8 @@ class scriptDetails extends Model
                 $model->scriptErrorCodes = [];
                 $n1 = 0;
                 foreach ($map['ScriptErrorCodes'] as $item1) {
-                    $model->scriptErrorCodes[$n1++] = scriptErrorCodes::fromMap($item1);
+                    $model->scriptErrorCodes[$n1] = scriptErrorCodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +178,8 @@ class scriptDetails extends Model
                 $model->scriptRequestParameters = [];
                 $n1 = 0;
                 foreach ($map['ScriptRequestParameters'] as $item1) {
-                    $model->scriptRequestParameters[$n1++] = scriptRequestParameters::fromMap($item1);
+                    $model->scriptRequestParameters[$n1] = scriptRequestParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +189,8 @@ class scriptDetails extends Model
                 $model->scriptResponseParameters = [];
                 $n1 = 0;
                 foreach ($map['ScriptResponseParameters'] as $item1) {
-                    $model->scriptResponseParameters[$n1++] = scriptResponseParameters::fromMap($item1);
+                    $model->scriptResponseParameters[$n1] = scriptResponseParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -59,7 +59,8 @@ class data extends Model
                 $res['ProjectMemberList'] = [];
                 $n1 = 0;
                 foreach ($this->projectMemberList as $item1) {
-                    $res['ProjectMemberList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProjectMemberList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class data extends Model
                 $model->projectMemberList = [];
                 $n1 = 0;
                 foreach ($map['ProjectMemberList'] as $item1) {
-                    $model->projectMemberList[$n1++] = projectMemberList::fromMap($item1);
+                    $model->projectMemberList[$n1] = projectMemberList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

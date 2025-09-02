@@ -33,7 +33,8 @@ class data extends Model
                 $res['DISyncTasks'] = [];
                 $n1 = 0;
                 foreach ($this->DISyncTasks as $item1) {
-                    $res['DISyncTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DISyncTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->DISyncTasks = [];
                 $n1 = 0;
                 foreach ($map['DISyncTasks'] as $item1) {
-                    $model->DISyncTasks[$n1++] = DISyncTasks::fromMap($item1);
+                    $model->DISyncTasks[$n1] = DISyncTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

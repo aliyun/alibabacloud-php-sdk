@@ -4,7 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518;
 
+use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Models\FileField;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\Util\FormUtil;
+use AlibabaCloud\Dara\Util\StreamUtil;
+use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AbolishDataServiceApiRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AbolishDataServiceApiResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddMetaCollectionEntityRequest;
@@ -648,13 +654,7 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateUdfFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateUdfFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateWorkbenchEventResultRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateWorkbenchEventResultResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
-use AlibabaCloud\SDK\OSS\OSS;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
-use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -698,6 +698,51 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param string  $bucketName
+     * @param mixed[] $form
+     *
+     * @return mixed[]
+     */
+    public function _postOSSObject($bucketName, $form)
+    {
+        $_request = new Request();
+        $boundary = FormUtil::getBoundary();
+        $_request->protocol = 'HTTPS';
+        $_request->method = 'POST';
+        $_request->pathname = '/';
+        $_request->headers = [
+            'host' => '' . @$form['host'],
+            'date' => Utils::getDateUTCString(),
+            'user-agent' => Utils::getUserAgent(''),
+        ];
+        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+        $_request->body = FormUtil::toFileForm($form, $boundary);
+        $_response = Dara::send($_request);
+
+        $respMap = null;
+        $bodyStr = StreamUtil::readAsString($_response->body);
+        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+            $respMap = XML::parseXml($bodyStr, null);
+            $err = @$respMap['Error'];
+
+            throw new ClientException([
+                'code' => '' . @$err['Code'],
+                'message' => '' . @$err['Message'],
+                'data' => [
+                    'httpCode' => $_response->statusCode,
+                    'requestId' => '' . @$err['RequestId'],
+                    'hostId' => '' . @$err['HostId'],
+                ],
+            ]);
+        }
+
+        $respMap = XML::parseXml($bodyStr, null);
+
+        return Dara::merge([
+        ], $respMap);
+    }
+
+    /**
      * @param string   $productId
      * @param string   $regionId
      * @param string   $endpointRule
@@ -724,7 +769,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Unpublishes a DataService Studio API.
      *
-     * @param request - AbolishDataServiceApiRequest
+     * @param Request - AbolishDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns AbolishDataServiceApiResponse
@@ -771,7 +816,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Unpublishes a DataService Studio API.
      *
-     * @param request - AbolishDataServiceApiRequest
+     * @param Request - AbolishDataServiceApiRequest
      *
      * @returns AbolishDataServiceApiResponse
      *
@@ -789,7 +834,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds an entity to a collection.
      *
-     * @param request - AddMetaCollectionEntityRequest
+     * @param Request - AddMetaCollectionEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns AddMetaCollectionEntityResponse
@@ -836,7 +881,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds an entity to a collection.
      *
-     * @param request - AddMetaCollectionEntityRequest
+     * @param Request - AddMetaCollectionEntityRequest
      *
      * @returns AddMetaCollectionEntityResponse
      *
@@ -858,7 +903,7 @@ class Dataworkspublic extends OpenApiClient
      *   For information about how to add an account to a DataWorks workspace as a member, see [Add workspace members and assign roles to them](https://help.aliyun.com/document_detail/136941.html).
      * *   If you assign a built-in workspace-level role to a member of a DataWorks workspace, the member is automatically granted the permissions of the mapped role of the MaxCompute compute engine in the development environment. For more information, see [Appendix: Mappings between the built-in workspace-level roles of DataWorks and the roles of MaxCompute](https://help.aliyun.com/document_detail/449397.html).
      *
-     * @param request - AddProjectMemberToRoleRequest
+     * @param Request - AddProjectMemberToRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns AddProjectMemberToRoleResponse
@@ -913,7 +958,7 @@ class Dataworkspublic extends OpenApiClient
      *   For information about how to add an account to a DataWorks workspace as a member, see [Add workspace members and assign roles to them](https://help.aliyun.com/document_detail/136941.html).
      * *   If you assign a built-in workspace-level role to a member of a DataWorks workspace, the member is automatically granted the permissions of the mapped role of the MaxCompute compute engine in the development environment. For more information, see [Appendix: Mappings between the built-in workspace-level roles of DataWorks and the roles of MaxCompute](https://help.aliyun.com/document_detail/449397.html).
      *
-     * @param request - AddProjectMemberToRoleRequest
+     * @param Request - AddProjectMemberToRoleRequest
      *
      * @returns AddProjectMemberToRoleResponse
      *
@@ -931,7 +976,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds a sensitive field that is defined based on the category and sensitivity level of data in Data Security Guard.
      *
-     * @param request - AddRecognizeRuleRequest
+     * @param Request - AddRecognizeRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns AddRecognizeRuleResponse
@@ -1038,7 +1083,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds a sensitive field that is defined based on the category and sensitivity level of data in Data Security Guard.
      *
-     * @param request - AddRecognizeRuleRequest
+     * @param Request - AddRecognizeRuleRequest
      *
      * @returns AddRecognizeRuleResponse
      *
@@ -1056,7 +1101,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds a metatable to a specified category.
      *
-     * @param request - AddToMetaCategoryRequest
+     * @param Request - AddToMetaCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns AddToMetaCategoryResponse
@@ -1099,7 +1144,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds a metatable to a specified category.
      *
-     * @param request - AddToMetaCategoryRequest
+     * @param Request - AddToMetaCategoryRequest
      *
      * @returns AddToMetaCategoryResponse
      *
@@ -1117,7 +1162,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Processes a permission request order.
      *
-     * @param request - ApprovePermissionApplyOrderRequest
+     * @param Request - ApprovePermissionApplyOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ApprovePermissionApplyOrderResponse
@@ -1164,7 +1209,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Processes a permission request order.
      *
-     * @param request - ApprovePermissionApplyOrderRequest
+     * @param Request - ApprovePermissionApplyOrderRequest
      *
      * @returns ApprovePermissionApplyOrderResponse
      *
@@ -1182,7 +1227,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Sends the processing result of an extension point event by an extension to DataWorks.
      *
-     * @param request - CallbackExtensionRequest
+     * @param Request - CallbackExtensionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CallbackExtensionResponse
@@ -1233,7 +1278,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Sends the processing result of an extension point event by an extension to DataWorks.
      *
-     * @param request - CallbackExtensionRequest
+     * @param Request - CallbackExtensionRequest
      *
      * @returns CallbackExtensionResponse
      *
@@ -1251,7 +1296,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Changes the resource group to which a resource belongs.
      *
-     * @param request - ChangeResourceManagerResourceGroupRequest
+     * @param Request - ChangeResourceManagerResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ChangeResourceManagerResourceGroupResponse
@@ -1298,7 +1343,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Changes the resource group to which a resource belongs.
      *
-     * @param request - ChangeResourceManagerResourceGroupRequest
+     * @param Request - ChangeResourceManagerResourceGroupRequest
      *
      * @returns ChangeResourceManagerResourceGroupResponse
      *
@@ -1316,7 +1361,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Returns the check events of a file. After you commit your file that is created on the DataStudio page, the system checks the file and returns check events before the system deploys the file. You must determine whether the check can be continued based on the events. You can call this operation to return the check events for the file that you want to deploy to DataWorks.
      *
-     * @param request - CheckFileDeploymentRequest
+     * @param Request - CheckFileDeploymentRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckFileDeploymentResponse
@@ -1363,7 +1408,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Returns the check events of a file. After you commit your file that is created on the DataStudio page, the system checks the file and returns check events before the system deploys the file. You must determine whether the check can be continued based on the events. You can call this operation to return the check events for the file that you want to deploy to DataWorks.
      *
-     * @param request - CheckFileDeploymentRequest
+     * @param Request - CheckFileDeploymentRequest
      *
      * @returns CheckFileDeploymentResponse
      *
@@ -1381,7 +1426,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Checks whether a partition in a MaxCompute metatable exists.
      *
-     * @param request - CheckMetaPartitionRequest
+     * @param Request - CheckMetaPartitionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckMetaPartitionResponse
@@ -1440,7 +1485,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Checks whether a partition in a MaxCompute metatable exists.
      *
-     * @param request - CheckMetaPartitionRequest
+     * @param Request - CheckMetaPartitionRequest
      *
      * @returns CheckMetaPartitionResponse
      *
@@ -1458,7 +1503,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Checks whether a metatable exists.
      *
-     * @param request - CheckMetaTableRequest
+     * @param Request - CheckMetaTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckMetaTableResponse
@@ -1513,7 +1558,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Checks whether a metatable exists.
      *
-     * @param request - CheckMetaTableRequest
+     * @param Request - CheckMetaTableRequest
      *
      * @returns CheckMetaTableResponse
      *
@@ -1531,7 +1576,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a baseline.
      *
-     * @param request - CreateBaselineRequest
+     * @param Request - CreateBaselineRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateBaselineResponse
@@ -1598,7 +1643,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a baseline.
      *
-     * @param request - CreateBaselineRequest
+     * @param Request - CreateBaselineRequest
      *
      * @returns CreateBaselineResponse
      *
@@ -1616,7 +1661,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a workflow in DataStudio.
      *
-     * @param request - CreateBusinessRequest
+     * @param Request - CreateBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateBusinessResponse
@@ -1675,7 +1720,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a workflow in DataStudio.
      *
-     * @param request - CreateBusinessRequest
+     * @param Request - CreateBusinessRequest
      *
      * @returns CreateBusinessResponse
      *
@@ -1690,13 +1735,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->createBusinessWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Adds a data source.
      *
-     * @deprecated OpenAPI CreateConnection is deprecated
+     * @deprecated openAPI CreateConnection is deprecated, please use dataworks-public::2020-05-18::CreateDataSource instead
      *
-     * @param request - CreateConnectionRequest
+     * @param Request - CreateConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateConnectionResponse
@@ -1760,9 +1804,9 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds a data source.
      *
-     * @deprecated OpenAPI CreateConnection is deprecated
+     * @deprecated openAPI CreateConnection is deprecated, please use dataworks-public::2020-05-18::CreateDataSource instead
      *
-     * @param request - CreateConnectionRequest
+     * @param Request - CreateConnectionRequest
      *
      * @returns CreateConnectionResponse
      *
@@ -1855,7 +1899,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can configure alert rules only for tasks that can be used for real-time data synchronization.
      *
-     * @param request - CreateDIAlarmRuleRequest
+     * @param Request - CreateDIAlarmRuleRequest
      *
      * @returns CreateDIAlarmRuleResponse
      *
@@ -1988,7 +2032,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a new-version synchronization task. The following types of synchronization tasks are supported: real-time synchronization of all data in a MySQL database to Hologres and batch synchronization of all data in a MySQL database to Hive.
      *
-     * @param request - CreateDIJobRequest
+     * @param Request - CreateDIJobRequest
      *
      * @returns CreateDIJobResponse
      *
@@ -2009,7 +2053,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You cannot configure scheduling properties for a task by calling this operation. If you want to configure scheduling properties for a task, you can call the UpdateFile operation.[](~~2780137~~)
      *
-     * @param request - CreateDISyncTaskRequest
+     * @param Request - CreateDISyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDISyncTaskResponse
@@ -2073,7 +2117,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You cannot configure scheduling properties for a task by calling this operation. If you want to configure scheduling properties for a task, you can call the UpdateFile operation.[](~~2780137~~)
      *
-     * @param request - CreateDISyncTaskRequest
+     * @param Request - CreateDISyncTaskRequest
      *
      * @returns CreateDISyncTaskResponse
      *
@@ -2088,11 +2132,10 @@ class Dataworkspublic extends OpenApiClient
         return $this->createDISyncTaskWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * @deprecated OpenAPI CreateDagComplement is deprecated
      *
-     * @param request - CreateDagComplementRequest
+     * @param Request - CreateDagComplementRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDagComplementResponse
@@ -2172,7 +2215,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @deprecated OpenAPI CreateDagComplement is deprecated
      *
-     * @param request - CreateDagComplementRequest
+     * @param Request - CreateDagComplementRequest
      *
      * @returns CreateDagComplementResponse
      *
@@ -2187,11 +2230,10 @@ class Dataworkspublic extends OpenApiClient
         return $this->createDagComplementWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * @deprecated OpenAPI CreateDagTest is deprecated
      *
-     * @param request - CreateDagTestRequest
+     * @param Request - CreateDagTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDagTestResponse
@@ -2247,7 +2289,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @deprecated OpenAPI CreateDagTest is deprecated
      *
-     * @param request - CreateDagTestRequest
+     * @param Request - CreateDagTestRequest
      *
      * @returns CreateDagTestResponse
      *
@@ -2265,7 +2307,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates an API.
      *
-     * @param request - CreateDataServiceApiRequest
+     * @param Request - CreateDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDataServiceApiResponse
@@ -2376,7 +2418,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates an API.
      *
-     * @param request - CreateDataServiceApiRequest
+     * @param Request - CreateDataServiceApiRequest
      *
      * @returns CreateDataServiceApiResponse
      *
@@ -2394,7 +2436,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Grants the access permissions on an API in DataService Studio.
      *
-     * @param request - CreateDataServiceApiAuthorityRequest
+     * @param Request - CreateDataServiceApiAuthorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDataServiceApiAuthorityResponse
@@ -2449,7 +2491,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Grants the access permissions on an API in DataService Studio.
      *
-     * @param request - CreateDataServiceApiAuthorityRequest
+     * @param Request - CreateDataServiceApiAuthorityRequest
      *
      * @returns CreateDataServiceApiAuthorityResponse
      *
@@ -2467,7 +2509,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a folder in DataService Studio.
      *
-     * @param request - CreateDataServiceFolderRequest
+     * @param Request - CreateDataServiceFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDataServiceFolderResponse
@@ -2522,7 +2564,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a folder in DataService Studio.
      *
-     * @param request - CreateDataServiceFolderRequest
+     * @param Request - CreateDataServiceFolderRequest
      *
      * @returns CreateDataServiceFolderResponse
      *
@@ -2540,7 +2582,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a business process.
      *
-     * @param request - CreateDataServiceGroupRequest
+     * @param Request - CreateDataServiceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDataServiceGroupResponse
@@ -2595,7 +2637,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a business process.
      *
-     * @param request - CreateDataServiceGroupRequest
+     * @param Request - CreateDataServiceGroupRequest
      *
      * @returns CreateDataServiceGroupResponse
      *
@@ -2613,7 +2655,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds a data source to DataWorks.
      *
-     * @param request - CreateDataSourceRequest
+     * @param Request - CreateDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDataSourceResponse
@@ -2676,7 +2718,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds a data source to DataWorks.
      *
-     * @param request - CreateDataSourceRequest
+     * @param Request - CreateDataSourceRequest
      *
      * @returns CreateDataSourceResponse
      *
@@ -2694,7 +2736,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates an export task. You can use this operation to create an export task but cannot use this operation to start the created export task.
      *
-     * @param request - CreateExportMigrationRequest
+     * @param Request - CreateExportMigrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateExportMigrationResponse
@@ -2753,7 +2795,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates an export task. You can use this operation to create an export task but cannot use this operation to start the created export task.
      *
-     * @param request - CreateExportMigrationRequest
+     * @param Request - CreateExportMigrationRequest
      *
      * @returns CreateExportMigrationResponse
      *
@@ -2771,7 +2813,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a file in DataStudio. You cannot call this operation to create files for Data Integration nodes.
      *
-     * @param request - CreateFileRequest
+     * @param Request - CreateFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateFileResponse
@@ -2942,7 +2984,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a file in DataStudio. You cannot call this operation to create files for Data Integration nodes.
      *
-     * @param request - CreateFileRequest
+     * @param Request - CreateFileRequest
      *
      * @returns CreateFileResponse
      *
@@ -2960,7 +3002,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * The operation that you want to perform. Set the value to \\*\\*CreateFolder\\*\\*.
      *
-     * @param request - CreateFolderRequest
+     * @param Request - CreateFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateFolderResponse
@@ -3007,7 +3049,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * The operation that you want to perform. Set the value to \\*\\*CreateFolder\\*\\*.
      *
-     * @param request - CreateFolderRequest
+     * @param Request - CreateFolderRequest
      *
      * @returns CreateFolderResponse
      *
@@ -3043,7 +3085,7 @@ class Dataworkspublic extends OpenApiClient
      *         CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime);
      *         ...
      *
-     * @param request - CreateImportMigrationRequest
+     * @param Request - CreateImportMigrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateImportMigrationResponse
@@ -3132,7 +3174,7 @@ class Dataworkspublic extends OpenApiClient
      *         CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime);
      *         ...
      *
-     * @param request - CreateImportMigrationRequest
+     * @param Request - CreateImportMigrationRequest
      *
      * @returns CreateImportMigrationResponse
      *
@@ -3156,12 +3198,20 @@ class Dataworkspublic extends OpenApiClient
     public function createImportMigrationAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -3178,63 +3228,65 @@ class Dataworkspublic extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'dataworks-public',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'dataworks-public',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $createImportMigrationReq = new CreateImportMigrationRequest([]);
         Utils::convert($request, $createImportMigrationReq);
         if (null !== $request->packageFileObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->packageFileObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $createImportMigrationReq->packageFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $createImportMigrationReq->packageFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->createImportMigrationWithOptions($createImportMigrationReq, $runtime);
     }
 
-    // Deprecated
     /**
      * Triggers a manually triggered workflow to run. Before you call this operation, make sure that the manually triggered workflow is committed and deployed. You can find the manually triggered workflow on the Operation Center page only after the manually triggered workflow is committed and deployed.
      *
      * @deprecated OpenAPI CreateManualDag is deprecated
      *
-     * @param request - CreateManualDagRequest
+     * @param Request - CreateManualDagRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateManualDagResponse
@@ -3304,7 +3356,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI CreateManualDag is deprecated
      *
-     * @param request - CreateManualDagRequest
+     * @param Request - CreateManualDagRequest
      *
      * @returns CreateManualDagResponse
      *
@@ -3322,7 +3374,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a category.
      *
-     * @param request - CreateMetaCategoryRequest
+     * @param Request - CreateMetaCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateMetaCategoryResponse
@@ -3369,7 +3421,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a category.
      *
-     * @param request - CreateMetaCategoryRequest
+     * @param Request - CreateMetaCategoryRequest
      *
      * @returns CreateMetaCategoryResponse
      *
@@ -3390,7 +3442,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * Collections are classified into various types. The names of collections of the same type must be different.
      *
-     * @param request - CreateMetaCollectionRequest
+     * @param Request - CreateMetaCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateMetaCollectionResponse
@@ -3444,7 +3496,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * Collections are classified into various types. The names of collections of the same type must be different.
      *
-     * @param request - CreateMetaCollectionRequest
+     * @param Request - CreateMetaCollectionRequest
      *
      * @returns CreateMetaCollectionResponse
      *
@@ -3462,7 +3514,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a permission request order.
      *
-     * @param request - CreatePermissionApplyOrderRequest
+     * @param Request - CreatePermissionApplyOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreatePermissionApplyOrderResponse
@@ -3537,7 +3589,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a permission request order.
      *
-     * @param request - CreatePermissionApplyOrderRequest
+     * @param Request - CreatePermissionApplyOrderRequest
      *
      * @returns CreatePermissionApplyOrderResponse
      *
@@ -3632,7 +3684,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a DataWorks workspace.
      *
-     * @param request - CreateProjectRequest
+     * @param Request - CreateProjectRequest
      *
      * @returns CreateProjectResponse
      *
@@ -3650,7 +3702,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds a user to a DataWorks workspace.
      *
-     * @param request - CreateProjectMemberRequest
+     * @param Request - CreateProjectMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateProjectMemberResponse
@@ -3701,7 +3753,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds a user to a DataWorks workspace.
      *
-     * @param request - CreateProjectMemberRequest
+     * @param Request - CreateProjectMemberRequest
      *
      * @returns CreateProjectMemberResponse
      *
@@ -3719,7 +3771,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a partition filter expression.
      *
-     * @param request - CreateQualityEntityRequest
+     * @param Request - CreateQualityEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateQualityEntityResponse
@@ -3778,7 +3830,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a partition filter expression.
      *
-     * @param request - CreateQualityEntityRequest
+     * @param Request - CreateQualityEntityRequest
      *
      * @returns CreateQualityEntityResponse
      *
@@ -3796,7 +3848,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a subscriber for a partition filter expression.
      *
-     * @param request - CreateQualityFollowerRequest
+     * @param Request - CreateQualityFollowerRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateQualityFollowerResponse
@@ -3851,7 +3903,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a subscriber for a partition filter expression.
      *
-     * @param request - CreateQualityFollowerRequest
+     * @param Request - CreateQualityFollowerRequest
      *
      * @returns CreateQualityFollowerResponse
      *
@@ -3869,7 +3921,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Associates a node with a partition filter expression.
      *
-     * @param request - CreateQualityRelativeNodeRequest
+     * @param Request - CreateQualityRelativeNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateQualityRelativeNodeResponse
@@ -3936,7 +3988,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Associates a node with a partition filter expression.
      *
-     * @param request - CreateQualityRelativeNodeRequest
+     * @param Request - CreateQualityRelativeNodeRequest
      *
      * @returns CreateQualityRelativeNodeResponse
      *
@@ -3954,7 +4006,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a monitoring rule.
      *
-     * @param request - CreateQualityRuleRequest
+     * @param Request - CreateQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateQualityRuleResponse
@@ -4069,7 +4121,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a monitoring rule.
      *
-     * @param request - CreateQualityRuleRequest
+     * @param Request - CreateQualityRuleRequest
      *
      * @returns CreateQualityRuleResponse
      *
@@ -4087,7 +4139,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a custom alert rule.
      *
-     * @param request - CreateRemindRequest
+     * @param Request - CreateRemindRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateRemindResponse
@@ -4186,7 +4238,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a custom alert rule.
      *
-     * @param request - CreateRemindRequest
+     * @param Request - CreateRemindRequest
      *
      * @returns CreateRemindResponse
      *
@@ -4204,7 +4256,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates or uploads a resource file in DataStudio. The feature that is implemented by calling this operation is the same as the resource creation feature provided in the integrated development environment (IDE).
      *
-     * @param request - CreateResourceFileRequest
+     * @param Request - CreateResourceFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateResourceFileResponse
@@ -4287,7 +4339,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates or uploads a resource file in DataStudio. The feature that is implemented by calling this operation is the same as the resource creation feature provided in the integrated development environment (IDE).
      *
-     * @param request - CreateResourceFileRequest
+     * @param Request - CreateResourceFileRequest
      *
      * @returns CreateResourceFileResponse
      *
@@ -4311,12 +4363,20 @@ class Dataworkspublic extends OpenApiClient
     public function createResourceFileAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -4333,51 +4393,54 @@ class Dataworkspublic extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'dataworks-public',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'dataworks-public',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $createResourceFileReq = new CreateResourceFileRequest([]);
         Utils::convert($request, $createResourceFileReq);
         if (null !== $request->resourceFileObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->resourceFileObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $createResourceFileReq->resourceFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $createResourceFileReq->resourceFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->createResourceFileWithOptions($createResourceFileReq, $runtime);
@@ -4386,7 +4449,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a MaxCompute table or view.
      *
-     * @param request - CreateTableRequest
+     * @param Request - CreateTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateTableResponse
@@ -4503,7 +4566,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a MaxCompute table or view.
      *
-     * @param request - CreateTableRequest
+     * @param Request - CreateTableRequest
      *
      * @returns CreateTableResponse
      *
@@ -4521,7 +4584,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - CreateTableLevelRequest
+     * @param Request - CreateTableLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateTableLevelResponse
@@ -4572,7 +4635,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - CreateTableLevelRequest
+     * @param Request - CreateTableLevelRequest
      *
      * @returns CreateTableLevelResponse
      *
@@ -4590,7 +4653,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a table theme. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - CreateTableThemeRequest
+     * @param Request - CreateTableThemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateTableThemeResponse
@@ -4641,7 +4704,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a table theme. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - CreateTableThemeRequest
+     * @param Request - CreateTableThemeRequest
      *
      * @returns CreateTableThemeResponse
      *
@@ -4659,7 +4722,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a file for a function in DataStudio.
      *
-     * @param request - CreateUdfFileRequest
+     * @param Request - CreateUdfFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateUdfFileResponse
@@ -4746,7 +4809,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a file for a function in DataStudio.
      *
-     * @param request - CreateUdfFileRequest
+     * @param Request - CreateUdfFileRequest
      *
      * @returns CreateUdfFileResponse
      *
@@ -4764,7 +4827,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a baseline based on its ID. You can delete a baseline only if the nodes in the baseline does not have ancestor nodes. You can call the UpdateBaseline operation to delete the relationships between the nodes and their ancestor nodes.
      *
-     * @param request - DeleteBaselineRequest
+     * @param Request - DeleteBaselineRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteBaselineResponse
@@ -4807,7 +4870,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a baseline based on its ID. You can delete a baseline only if the nodes in the baseline does not have ancestor nodes. You can call the UpdateBaseline operation to delete the relationships between the nodes and their ancestor nodes.
      *
-     * @param request - DeleteBaselineRequest
+     * @param Request - DeleteBaselineRequest
      *
      * @returns DeleteBaselineResponse
      *
@@ -4823,7 +4886,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteBusinessRequest
+     * @param Request - DeleteBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteBusinessResponse
@@ -4868,7 +4931,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteBusinessRequest
+     * @param Request - DeleteBusinessRequest
      *
      * @returns DeleteBusinessResponse
      *
@@ -4883,13 +4946,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->deleteBusinessWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Removes a data source.
      *
      * @deprecated OpenAPI DeleteConnection is deprecated
      *
-     * @param request - DeleteConnectionRequest
+     * @param Request - DeleteConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteConnectionResponse
@@ -4931,7 +4993,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI DeleteConnection is deprecated
      *
-     * @param request - DeleteConnectionRequest
+     * @param Request - DeleteConnectionRequest
      *
      * @returns DeleteConnectionResponse
      *
@@ -4952,7 +5014,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can configure alert rules only for tasks whose MigrationType is set to RealtimeIncremental.
      *
-     * @param request - DeleteDIAlarmRuleRequest
+     * @param Request - DeleteDIAlarmRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDIAlarmRuleResponse
@@ -4994,7 +5056,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can configure alert rules only for tasks whose MigrationType is set to RealtimeIncremental.
      *
-     * @param request - DeleteDIAlarmRuleRequest
+     * @param Request - DeleteDIAlarmRuleRequest
      *
      * @returns DeleteDIAlarmRuleResponse
      *
@@ -5012,7 +5074,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a Data Integration task of a new version. Only the following type of task is supported: real-time data synchronization from a MySQL database to Hologres.
      *
-     * @param request - DeleteDIJobRequest
+     * @param Request - DeleteDIJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDIJobResponse
@@ -5051,7 +5113,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a Data Integration task of a new version. Only the following type of task is supported: real-time data synchronization from a MySQL database to Hologres.
      *
-     * @param request - DeleteDIJobRequest
+     * @param Request - DeleteDIJobRequest
      *
      * @returns DeleteDIJobResponse
      *
@@ -5072,7 +5134,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * If you want to delete a batch synchronization task, call the DeleteFile operation. For more information, see [Delete a synchronization task](https://help.aliyun.com/document_detail/321443.html).
      *
-     * @param request - DeleteDISyncTaskRequest
+     * @param Request - DeleteDISyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDISyncTaskResponse
@@ -5122,7 +5184,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * If you want to delete a batch synchronization task, call the DeleteFile operation. For more information, see [Delete a synchronization task](https://help.aliyun.com/document_detail/321443.html).
      *
-     * @param request - DeleteDISyncTaskRequest
+     * @param Request - DeleteDISyncTaskRequest
      *
      * @returns DeleteDISyncTaskResponse
      *
@@ -5140,7 +5202,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes an API in DataService Studio.
      *
-     * @param request - DeleteDataServiceApiRequest
+     * @param Request - DeleteDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDataServiceApiResponse
@@ -5187,7 +5249,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes an API in DataService Studio.
      *
-     * @param request - DeleteDataServiceApiRequest
+     * @param Request - DeleteDataServiceApiRequest
      *
      * @returns DeleteDataServiceApiResponse
      *
@@ -5205,7 +5267,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Revokes the access permissions on an API.
      *
-     * @param request - DeleteDataServiceApiAuthorityRequest
+     * @param Request - DeleteDataServiceApiAuthorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDataServiceApiAuthorityResponse
@@ -5256,7 +5318,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Revokes the access permissions on an API.
      *
-     * @param request - DeleteDataServiceApiAuthorityRequest
+     * @param Request - DeleteDataServiceApiAuthorityRequest
      *
      * @returns DeleteDataServiceApiAuthorityResponse
      *
@@ -5274,7 +5336,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Removes a data source.
      *
-     * @param request - DeleteDataSourceRequest
+     * @param Request - DeleteDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDataSourceResponse
@@ -5313,7 +5375,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Removes a data source.
      *
-     * @param request - DeleteDataSourceRequest
+     * @param Request - DeleteDataSourceRequest
      *
      * @returns DeleteDataSourceResponse
      *
@@ -5331,7 +5393,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
      *
-     * @param request - DeleteFileRequest
+     * @param Request - DeleteFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteFileResponse
@@ -5378,7 +5440,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
      *
-     * @param request - DeleteFileRequest
+     * @param Request - DeleteFileRequest
      *
      * @returns DeleteFileResponse
      *
@@ -5394,7 +5456,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteFolderRequest
+     * @param Request - DeleteFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteFolderResponse
@@ -5439,7 +5501,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteFolderRequest
+     * @param Request - DeleteFolderRequest
      *
      * @returns DeleteFolderResponse
      *
@@ -5457,7 +5519,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Removes a table from a specified category.
      *
-     * @param request - DeleteFromMetaCategoryRequest
+     * @param Request - DeleteFromMetaCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteFromMetaCategoryResponse
@@ -5500,7 +5562,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Removes a table from a specified category.
      *
-     * @param request - DeleteFromMetaCategoryRequest
+     * @param Request - DeleteFromMetaCategoryRequest
      *
      * @returns DeleteFromMetaCategoryResponse
      *
@@ -5521,7 +5583,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * This API is currently in the trial phase. Users who wish to experience it can apply, and after the administrator adds them to the trial list, they can call this API.
      *
-     * @param request - DeleteLineageRelationRequest
+     * @param Request - DeleteLineageRelationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteLineageRelationResponse
@@ -5575,7 +5637,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * This API is currently in the trial phase. Users who wish to experience it can apply, and after the administrator adds them to the trial list, they can call this API.
      *
-     * @param request - DeleteLineageRelationRequest
+     * @param Request - DeleteLineageRelationRequest
      *
      * @returns DeleteLineageRelationResponse
      *
@@ -5593,7 +5655,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a category.
      *
-     * @param request - DeleteMetaCategoryRequest
+     * @param Request - DeleteMetaCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteMetaCategoryResponse
@@ -5628,7 +5690,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a category.
      *
-     * @param request - DeleteMetaCategoryRequest
+     * @param Request - DeleteMetaCategoryRequest
      *
      * @returns DeleteMetaCategoryResponse
      *
@@ -5646,7 +5708,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a collection.
      *
-     * @param request - DeleteMetaCollectionRequest
+     * @param Request - DeleteMetaCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteMetaCollectionResponse
@@ -5685,7 +5747,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a collection.
      *
-     * @param request - DeleteMetaCollectionRequest
+     * @param Request - DeleteMetaCollectionRequest
      *
      * @returns DeleteMetaCollectionResponse
      *
@@ -5703,7 +5765,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes an entity from a collection.
      *
-     * @param request - DeleteMetaCollectionEntityRequest
+     * @param Request - DeleteMetaCollectionEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteMetaCollectionEntityResponse
@@ -5746,7 +5808,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes an entity from a collection.
      *
-     * @param request - DeleteMetaCollectionEntityRequest
+     * @param Request - DeleteMetaCollectionEntityRequest
      *
      * @returns DeleteMetaCollectionEntityResponse
      *
@@ -5764,7 +5826,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Removes a user from a DataWorks workspace.
      *
-     * @param request - DeleteProjectMemberRequest
+     * @param Request - DeleteProjectMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteProjectMemberResponse
@@ -5807,7 +5869,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Removes a user from a DataWorks workspace.
      *
-     * @param request - DeleteProjectMemberRequest
+     * @param Request - DeleteProjectMemberRequest
      *
      * @returns DeleteProjectMemberResponse
      *
@@ -5825,7 +5887,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a partition filter expression.
      *
-     * @param request - DeleteQualityEntityRequest
+     * @param Request - DeleteQualityEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteQualityEntityResponse
@@ -5876,7 +5938,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a partition filter expression.
      *
-     * @param request - DeleteQualityEntityRequest
+     * @param Request - DeleteQualityEntityRequest
      *
      * @returns DeleteQualityEntityResponse
      *
@@ -5897,7 +5959,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transform, and load (ETL). This way, you can prevent tasks from producing unexpected dirty data that affects the smooth running of tasks and business decision-making. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule that is created based on the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors at the earliest opportunity. For more information, see [Configure monitoring rules](https://help.aliyun.com/document_detail/73690.html).
      *
-     * @param request - DeleteQualityFollowerRequest
+     * @param Request - DeleteQualityFollowerRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteQualityFollowerResponse
@@ -5947,7 +6009,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transform, and load (ETL). This way, you can prevent tasks from producing unexpected dirty data that affects the smooth running of tasks and business decision-making. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule that is created based on the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors at the earliest opportunity. For more information, see [Configure monitoring rules](https://help.aliyun.com/document_detail/73690.html).
      *
-     * @param request - DeleteQualityFollowerRequest
+     * @param Request - DeleteQualityFollowerRequest
      *
      * @returns DeleteQualityFollowerResponse
      *
@@ -5963,7 +6025,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteQualityRelativeNodeRequest
+     * @param Request - DeleteQualityRelativeNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteQualityRelativeNodeResponse
@@ -6028,7 +6090,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteQualityRelativeNodeRequest
+     * @param Request - DeleteQualityRelativeNodeRequest
      *
      * @returns DeleteQualityRelativeNodeResponse
      *
@@ -6046,7 +6108,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a monitoring rule.
      *
-     * @param request - DeleteQualityRuleRequest
+     * @param Request - DeleteQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteQualityRuleResponse
@@ -6093,7 +6155,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a monitoring rule.
      *
-     * @param request - DeleteQualityRuleRequest
+     * @param Request - DeleteQualityRuleRequest
      *
      * @returns DeleteQualityRuleResponse
      *
@@ -6111,7 +6173,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes sensitive field types.
      *
-     * @param request - DeleteRecognizeRuleRequest
+     * @param Request - DeleteRecognizeRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRecognizeRuleResponse
@@ -6154,7 +6216,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes sensitive field types.
      *
-     * @param request - DeleteRecognizeRuleRequest
+     * @param Request - DeleteRecognizeRuleRequest
      *
      * @returns DeleteRecognizeRuleResponse
      *
@@ -6172,7 +6234,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a custom alert rule.
      *
-     * @param request - DeleteRemindRequest
+     * @param Request - DeleteRemindRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRemindResponse
@@ -6211,7 +6273,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a custom alert rule.
      *
-     * @param request - DeleteRemindRequest
+     * @param Request - DeleteRemindRequest
      *
      * @returns DeleteRemindResponse
      *
@@ -6227,7 +6289,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteTableRequest
+     * @param Request - DeleteTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteTableResponse
@@ -6280,7 +6342,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteTableRequest
+     * @param Request - DeleteTableRequest
      *
      * @returns DeleteTableResponse
      *
@@ -6298,7 +6360,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a table level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - DeleteTableLevelRequest
+     * @param Request - DeleteTableLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteTableLevelResponse
@@ -6341,7 +6403,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a table level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - DeleteTableLevelRequest
+     * @param Request - DeleteTableLevelRequest
      *
      * @returns DeleteTableLevelResponse
      *
@@ -6359,7 +6421,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a table theme. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - DeleteTableThemeRequest
+     * @param Request - DeleteTableThemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteTableThemeResponse
@@ -6402,7 +6464,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a table theme. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - DeleteTableThemeRequest
+     * @param Request - DeleteTableThemeRequest
      *
      * @returns DeleteTableThemeResponse
      *
@@ -6420,7 +6482,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deploys a real-time synchronization task.
      *
-     * @param request - DeployDISyncTaskRequest
+     * @param Request - DeployDISyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeployDISyncTaskResponse
@@ -6467,7 +6529,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deploys a real-time synchronization task.
      *
-     * @param request - DeployDISyncTaskRequest
+     * @param Request - DeployDISyncTaskRequest
      *
      * @returns DeployDISyncTaskResponse
      *
@@ -6485,7 +6547,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deploys a file to the production environment.
      *
-     * @param request - DeployFileRequest
+     * @param Request - DeployFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeployFileResponse
@@ -6540,7 +6602,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deploys a file to the production environment.
      *
-     * @param request - DeployFileRequest
+     * @param Request - DeployFileRequest
      *
      * @returns DeployFileResponse
      *
@@ -6558,7 +6620,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Masks data.
      *
-     * @param request - DesensitizeDataRequest
+     * @param Request - DesensitizeDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DesensitizeDataResponse
@@ -6593,7 +6655,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Masks data.
      *
-     * @param request - DesensitizeDataRequest
+     * @param Request - DesensitizeDataRequest
      *
      * @returns DesensitizeDataResponse
      *
@@ -6656,7 +6718,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds or modifies a data masking rule.
      *
-     * @param request - DsgDesensPlanAddOrUpdateRequest
+     * @param Request - DsgDesensPlanAddOrUpdateRequest
      *
      * @returns DsgDesensPlanAddOrUpdateResponse
      *
@@ -6723,7 +6785,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a data masking rule created in Data Security Guard.
      *
-     * @param request - DsgDesensPlanDeleteRequest
+     * @param Request - DsgDesensPlanDeleteRequest
      *
      * @returns DsgDesensPlanDeleteResponse
      *
@@ -6741,7 +6803,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of data masking rules.
      *
-     * @param request - DsgDesensPlanQueryListRequest
+     * @param Request - DsgDesensPlanQueryListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DsgDesensPlanQueryListResponse
@@ -6776,7 +6838,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of data masking rules.
      *
-     * @param request - DsgDesensPlanQueryListRequest
+     * @param Request - DsgDesensPlanQueryListRequest
      *
      * @returns DsgDesensPlanQueryListResponse
      *
@@ -6847,7 +6909,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Modifies the status of a data masking rule.
      *
-     * @param request - DsgDesensPlanUpdateStatusRequest
+     * @param Request - DsgDesensPlanUpdateStatusRequest
      *
      * @returns DsgDesensPlanUpdateStatusResponse
      *
@@ -6865,7 +6927,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of compute engines of different types in the current tenant.
      *
-     * @param request - DsgPlatformQueryProjectsAndSchemaFromMetaRequest
+     * @param Request - DsgPlatformQueryProjectsAndSchemaFromMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DsgPlatformQueryProjectsAndSchemaFromMetaResponse
@@ -6900,7 +6962,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of compute engines of different types in the current tenant.
      *
-     * @param request - DsgPlatformQueryProjectsAndSchemaFromMetaRequest
+     * @param Request - DsgPlatformQueryProjectsAndSchemaFromMetaRequest
      *
      * @returns DsgPlatformQueryProjectsAndSchemaFromMetaResponse
      *
@@ -6918,7 +6980,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of available sensitive field type templates and the data masking rules supported by the templates. You can refer to the response parameters of this operation to configure a data masking rule.
      *
-     * @param request - DsgQueryDefaultTemplatesRequest
+     * @param Request - DsgQueryDefaultTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DsgQueryDefaultTemplatesResponse
@@ -6953,7 +7015,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of available sensitive field type templates and the data masking rules supported by the templates. You can refer to the response parameters of this operation to configure a data masking rule.
      *
-     * @param request - DsgQueryDefaultTemplatesRequest
+     * @param Request - DsgQueryDefaultTemplatesRequest
      *
      * @returns DsgQueryDefaultTemplatesResponse
      *
@@ -6977,7 +7039,7 @@ class Dataworkspublic extends OpenApiClient
      * *   You can sort the identification results of sensitive data of a tenant based on the values of a field in ascending or descending order.
      * *   This operation supports paged query.
      *
-     * @param request - DsgQuerySensResultRequest
+     * @param Request - DsgQuerySensResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DsgQuerySensResultResponse
@@ -7078,7 +7140,7 @@ class Dataworkspublic extends OpenApiClient
      * *   You can sort the identification results of sensitive data of a tenant based on the values of a field in ascending or descending order.
      * *   This operation supports paged query.
      *
-     * @param request - DsgQuerySensResultRequest
+     * @param Request - DsgQuerySensResultRequest
      *
      * @returns DsgQuerySensResultResponse
      *
@@ -7145,7 +7207,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Starts a sensitive data identification task in Data Security Guard.
      *
-     * @param request - DsgRunSensIdentifyRequest
+     * @param Request - DsgRunSensIdentifyRequest
      *
      * @returns DsgRunSensIdentifyResponse
      *
@@ -7208,7 +7270,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds or modifies a level-2 data masking scenario.
      *
-     * @param request - DsgSceneAddOrUpdateSceneRequest
+     * @param Request - DsgSceneAddOrUpdateSceneRequest
      *
      * @returns DsgSceneAddOrUpdateSceneResponse
      *
@@ -7226,7 +7288,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of data masking scenarios.
      *
-     * @param request - DsgSceneQuerySceneListByNameRequest
+     * @param Request - DsgSceneQuerySceneListByNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DsgSceneQuerySceneListByNameResponse
@@ -7261,7 +7323,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of data masking scenarios.
      *
-     * @param request - DsgSceneQuerySceneListByNameRequest
+     * @param Request - DsgSceneQuerySceneListByNameRequest
      *
      * @returns DsgSceneQuerySceneListByNameResponse
      *
@@ -7324,7 +7386,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a level-2 data masking scenario created in Data Security Guard.
      *
-     * @param request - DsgScenedDeleteSceneRequest
+     * @param Request - DsgScenedDeleteSceneRequest
      *
      * @returns DsgScenedDeleteSceneResponse
      *
@@ -7342,7 +7404,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Stops a sensitive data identification task.
      *
-     * @param request - DsgStopSensIdentifyRequest
+     * @param Request - DsgStopSensIdentifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DsgStopSensIdentifyResponse
@@ -7385,7 +7447,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Stops a sensitive data identification task.
      *
-     * @param request - DsgStopSensIdentifyRequest
+     * @param Request - DsgStopSensIdentifyRequest
      *
      * @returns DsgStopSensIdentifyResponse
      *
@@ -7448,7 +7510,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds or modifies a user group.
      *
-     * @param request - DsgUserGroupAddOrUpdateRequest
+     * @param Request - DsgUserGroupAddOrUpdateRequest
      *
      * @returns DsgUserGroupAddOrUpdateResponse
      *
@@ -7511,7 +7573,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a user group configured in Data Security Guard.
      *
-     * @param request - DsgUserGroupDeleteRequest
+     * @param Request - DsgUserGroupDeleteRequest
      *
      * @returns DsgUserGroupDeleteResponse
      *
@@ -7529,7 +7591,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of MaxCompute roles that can be selected by the members of a user group when the user group is created or modified by the tenant in Data Security Guard.
      *
-     * @param request - DsgUserGroupGetOdpsRoleGroupsRequest
+     * @param Request - DsgUserGroupGetOdpsRoleGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DsgUserGroupGetOdpsRoleGroupsResponse
@@ -7564,7 +7626,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of MaxCompute roles that can be selected by the members of a user group when the user group is created or modified by the tenant in Data Security Guard.
      *
-     * @param request - DsgUserGroupGetOdpsRoleGroupsRequest
+     * @param Request - DsgUserGroupGetOdpsRoleGroupsRequest
      *
      * @returns DsgUserGroupGetOdpsRoleGroupsResponse
      *
@@ -7582,7 +7644,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of user groups in Data Security Guard.
      *
-     * @param request - DsgUserGroupQueryListRequest
+     * @param Request - DsgUserGroupQueryListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DsgUserGroupQueryListResponse
@@ -7617,7 +7679,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of user groups in Data Security Guard.
      *
-     * @param request - DsgUserGroupQueryListRequest
+     * @param Request - DsgUserGroupQueryListRequest
      *
      * @returns DsgUserGroupQueryListResponse
      *
@@ -7635,7 +7697,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of users or roles of the current tenant.
      *
-     * @param request - DsgUserGroupQueryUserListRequest
+     * @param Request - DsgUserGroupQueryUserListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DsgUserGroupQueryUserListResponse
@@ -7724,7 +7786,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Adds or modifies a data masking whitelist.
      *
-     * @param request - DsgWhiteListAddOrUpdateRequest
+     * @param Request - DsgWhiteListAddOrUpdateRequest
      *
      * @returns DsgWhiteListAddOrUpdateResponse
      *
@@ -7787,7 +7849,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a data masking whitelist configured in Data Security Guard.
      *
-     * @param request - DsgWhiteListDeleteListRequest
+     * @param Request - DsgWhiteListDeleteListRequest
      *
      * @returns DsgWhiteListDeleteListResponse
      *
@@ -7805,7 +7867,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a data masking whitelist.
      *
-     * @param request - DsgWhiteListQueryListRequest
+     * @param Request - DsgWhiteListQueryListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DsgWhiteListQueryListResponse
@@ -7840,7 +7902,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a data masking whitelist.
      *
-     * @param request - DsgWhiteListQueryListRequest
+     * @param Request - DsgWhiteListQueryListRequest
      *
      * @returns DsgWhiteListQueryListResponse
      *
@@ -7858,7 +7920,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Edits a sensitive field that is defined based on the category and sensitivity level of data in Data Security Guard.
      *
-     * @param request - EditRecognizeRuleRequest
+     * @param Request - EditRecognizeRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns EditRecognizeRuleResponse
@@ -7969,7 +8031,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Edits a sensitive field that is defined based on the category and sensitivity level of data in Data Security Guard.
      *
-     * @param request - EditRecognizeRuleRequest
+     * @param Request - EditRecognizeRuleRequest
      *
      * @returns EditRecognizeRuleResponse
      *
@@ -7985,7 +8047,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param request - EstablishRelationTableToBusinessRequest
+     * @param Request - EstablishRelationTableToBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns EstablishRelationTableToBusinessResponse
@@ -8038,7 +8100,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param request - EstablishRelationTableToBusinessRequest
+     * @param Request - EstablishRelationTableToBusinessRequest
      *
      * @returns EstablishRelationTableToBusinessResponse
      *
@@ -8056,7 +8118,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Exports a list of data sources.
      *
-     * @param request - ExportDataSourcesRequest
+     * @param Request - ExportDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ExportDataSourcesResponse
@@ -8091,7 +8153,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Exports a list of data sources.
      *
-     * @param request - ExportDataSourcesRequest
+     * @param Request - ExportDataSourcesRequest
      *
      * @returns ExportDataSourcesResponse
      *
@@ -8112,7 +8174,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * DataWorks allows you to use the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to directly create a batch synchronization task in Data Integration. To create a real-time synchronization task or another type of synchronization task, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can use the parameters as request parameters of [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) and call the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to create a real-time synchronization task or another type of synchronization task. DataWorks allows you to create real-time synchronization tasks and other types of synchronization tasks in Data Integration only in asynchronous mode.
      *
-     * @param request - GenerateDISyncTaskConfigForCreatingRequest
+     * @param Request - GenerateDISyncTaskConfigForCreatingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GenerateDISyncTaskConfigForCreatingResponse
@@ -8166,7 +8228,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * DataWorks allows you to use the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to directly create a batch synchronization task in Data Integration. To create a real-time synchronization task or another type of synchronization task, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can use the parameters as request parameters of [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) and call the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to create a real-time synchronization task or another type of synchronization task. DataWorks allows you to create real-time synchronization tasks and other types of synchronization tasks in Data Integration only in asynchronous mode.
      *
-     * @param request - GenerateDISyncTaskConfigForCreatingRequest
+     * @param Request - GenerateDISyncTaskConfigForCreatingRequest
      *
      * @returns GenerateDISyncTaskConfigForCreatingResponse
      *
@@ -8187,7 +8249,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * DataWorks allows you to use only the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update a batch synchronization task in Data Integration. To update a real-time synchronization task, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization task in Data Integration. DataWorks allows you to create or update real-time synchronization tasks in Data Integration only in asynchronous mode.
      *
-     * @param request - GenerateDISyncTaskConfigForUpdatingRequest
+     * @param Request - GenerateDISyncTaskConfigForUpdatingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GenerateDISyncTaskConfigForUpdatingResponse
@@ -8245,7 +8307,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * DataWorks allows you to use only the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update a batch synchronization task in Data Integration. To update a real-time synchronization task, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization task in Data Integration. DataWorks allows you to create or update real-time synchronization tasks in Data Integration only in asynchronous mode.
      *
-     * @param request - GenerateDISyncTaskConfigForUpdatingRequest
+     * @param Request - GenerateDISyncTaskConfigForUpdatingRequest
      *
      * @returns GenerateDISyncTaskConfigForUpdatingResponse
      *
@@ -8263,7 +8325,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries alert information based on the alert ID that is specified by the AlertId parameter.
      *
-     * @param request - GetAlertMessageRequest
+     * @param Request - GetAlertMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAlertMessageResponse
@@ -8302,7 +8364,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries alert information based on the alert ID that is specified by the AlertId parameter.
      *
-     * @param request - GetAlertMessageRequest
+     * @param Request - GetAlertMessageRequest
      *
      * @returns GetAlertMessageResponse
      *
@@ -8320,7 +8382,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a baseline based on its ID.
      *
-     * @param request - GetBaselineRequest
+     * @param Request - GetBaselineRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetBaselineResponse
@@ -8363,7 +8425,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a baseline based on its ID.
      *
-     * @param request - GetBaselineRequest
+     * @param Request - GetBaselineRequest
      *
      * @returns GetBaselineResponse
      *
@@ -8381,7 +8443,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the configurations of a baseline.
      *
-     * @param request - GetBaselineConfigRequest
+     * @param Request - GetBaselineConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetBaselineConfigResponse
@@ -8420,7 +8482,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the configurations of a baseline.
      *
-     * @param request - GetBaselineConfigRequest
+     * @param Request - GetBaselineConfigRequest
      *
      * @returns GetBaselineConfigResponse
      *
@@ -8438,7 +8500,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * The information about the events that are associated with the instance.
      *
-     * @param request - GetBaselineKeyPathRequest
+     * @param Request - GetBaselineKeyPathRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetBaselineKeyPathResponse
@@ -8485,7 +8547,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * The information about the events that are associated with the instance.
      *
-     * @param request - GetBaselineKeyPathRequest
+     * @param Request - GetBaselineKeyPathRequest
      *
      * @returns GetBaselineKeyPathResponse
      *
@@ -8503,7 +8565,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of a baseline instance.
      *
-     * @param request - GetBaselineStatusRequest
+     * @param Request - GetBaselineStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetBaselineStatusResponse
@@ -8550,7 +8612,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of a baseline instance.
      *
-     * @param request - GetBaselineStatusRequest
+     * @param Request - GetBaselineStatusRequest
      *
      * @returns GetBaselineStatusResponse
      *
@@ -8568,7 +8630,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a workflow.
      *
-     * @param request - GetBusinessRequest
+     * @param Request - GetBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetBusinessResponse
@@ -8615,7 +8677,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a workflow.
      *
-     * @param request - GetBusinessRequest
+     * @param Request - GetBusinessRequest
      *
      * @returns GetBusinessResponse
      *
@@ -8633,7 +8695,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the status of a table creation, update, or deletion task.
      *
-     * @param request - GetDDLJobStatusRequest
+     * @param Request - GetDDLJobStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDDLJobStatusResponse
@@ -8668,7 +8730,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the status of a table creation, update, or deletion task.
      *
-     * @param request - GetDDLJobStatusRequest
+     * @param Request - GetDDLJobStatusRequest
      *
      * @returns GetDDLJobStatusResponse
      *
@@ -8689,7 +8751,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can configure alert rules only for tasks that can be used for real-time data synchronization.
      *
-     * @param request - GetDIAlarmRuleRequest
+     * @param Request - GetDIAlarmRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDIAlarmRuleResponse
@@ -8731,7 +8793,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can configure alert rules only for tasks that can be used for real-time data synchronization.
      *
-     * @param request - GetDIAlarmRuleRequest
+     * @param Request - GetDIAlarmRuleRequest
      *
      * @returns GetDIAlarmRuleResponse
      *
@@ -8749,7 +8811,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a new-version synchronization task created in Data Integration. The following types of synchronization tasks are supported: real-time synchronization of all data in a MySQL database to Hologres.
      *
-     * @param request - GetDIJobRequest
+     * @param Request - GetDIJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDIJobResponse
@@ -8792,7 +8854,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a new-version synchronization task created in Data Integration. The following types of synchronization tasks are supported: real-time synchronization of all data in a MySQL database to Hologres.
      *
-     * @param request - GetDIJobRequest
+     * @param Request - GetDIJobRequest
      *
      * @returns GetDIJobResponse
      *
@@ -8810,7 +8872,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the status of a real-time synchronization task or a data synchronization solution.
      *
-     * @param request - GetDISyncInstanceInfoRequest
+     * @param Request - GetDISyncInstanceInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDISyncInstanceInfoResponse
@@ -8857,7 +8919,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the status of a real-time synchronization task or a data synchronization solution.
      *
-     * @param request - GetDISyncInstanceInfoRequest
+     * @param Request - GetDISyncInstanceInfoRequest
      *
      * @returns GetDISyncInstanceInfoResponse
      *
@@ -8875,7 +8937,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of a real-time synchronization task or a data synchronization solution.
      *
-     * @param request - GetDISyncTaskRequest
+     * @param Request - GetDISyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDISyncTaskResponse
@@ -8922,7 +8984,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of a real-time synchronization task or a data synchronization solution.
      *
-     * @param request - GetDISyncTaskRequest
+     * @param Request - GetDISyncTaskRequest
      *
      * @returns GetDISyncTaskResponse
      *
@@ -8952,7 +9014,7 @@ class Dataworkspublic extends OpenApiClient
      * *   FAILURE
      * *   SUCCESS
      *
-     * @param request - GetDagRequest
+     * @param Request - GetDagRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDagResponse
@@ -9007,7 +9069,7 @@ class Dataworkspublic extends OpenApiClient
      * *   FAILURE
      * *   SUCCESS
      *
-     * @param request - GetDagRequest
+     * @param Request - GetDagRequest
      *
      * @returns GetDagResponse
      *
@@ -9025,7 +9087,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of a DataService Studio API in the development state.
      *
-     * @param request - GetDataServiceApiRequest
+     * @param Request - GetDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDataServiceApiResponse
@@ -9072,7 +9134,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of a DataService Studio API in the development state.
      *
-     * @param request - GetDataServiceApiRequest
+     * @param Request - GetDataServiceApiRequest
      *
      * @returns GetDataServiceApiResponse
      *
@@ -9090,7 +9152,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the test results of an API in DataService Studio.
      *
-     * @param request - GetDataServiceApiTestRequest
+     * @param Request - GetDataServiceApiTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDataServiceApiTestResponse
@@ -9125,7 +9187,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the test results of an API in DataService Studio.
      *
-     * @param request - GetDataServiceApiTestRequest
+     * @param Request - GetDataServiceApiTestRequest
      *
      * @returns GetDataServiceApiTestResponse
      *
@@ -9143,7 +9205,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of an application.
      *
-     * @param request - GetDataServiceApplicationRequest
+     * @param Request - GetDataServiceApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDataServiceApplicationResponse
@@ -9190,7 +9252,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of an application.
      *
-     * @param request - GetDataServiceApplicationRequest
+     * @param Request - GetDataServiceApplicationRequest
      *
      * @returns GetDataServiceApplicationResponse
      *
@@ -9208,7 +9270,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a folder.
      *
-     * @param request - GetDataServiceFolderRequest
+     * @param Request - GetDataServiceFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDataServiceFolderResponse
@@ -9255,7 +9317,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a folder.
      *
-     * @param request - GetDataServiceFolderRequest
+     * @param Request - GetDataServiceFolderRequest
      *
      * @returns GetDataServiceFolderResponse
      *
@@ -9273,7 +9335,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a business process.
      *
-     * @param request - GetDataServiceGroupRequest
+     * @param Request - GetDataServiceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDataServiceGroupResponse
@@ -9320,7 +9382,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a business process.
      *
-     * @param request - GetDataServiceGroupRequest
+     * @param Request - GetDataServiceGroupRequest
      *
      * @returns GetDataServiceGroupResponse
      *
@@ -9338,7 +9400,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a DataService Studio API in the published state.
      *
-     * @param request - GetDataServicePublishedApiRequest
+     * @param Request - GetDataServicePublishedApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDataServicePublishedApiResponse
@@ -9385,7 +9447,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a DataService Studio API in the published state.
      *
-     * @param request - GetDataServicePublishedApiRequest
+     * @param Request - GetDataServicePublishedApiRequest
      *
      * @returns GetDataServicePublishedApiResponse
      *
@@ -9403,7 +9465,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the metadata of a specified data source.
      *
-     * @param request - GetDataSourceMetaRequest
+     * @param Request - GetDataSourceMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDataSourceMetaResponse
@@ -9458,7 +9520,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the metadata of a specified data source.
      *
-     * @param request - GetDataSourceMetaRequest
+     * @param Request - GetDataSourceMetaRequest
      *
      * @returns GetDataSourceMetaResponse
      *
@@ -9476,7 +9538,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a deployment package.
      *
-     * @param request - GetDeploymentRequest
+     * @param Request - GetDeploymentRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDeploymentResponse
@@ -9523,7 +9585,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a deployment package.
      *
-     * @param request - GetDeploymentRequest
+     * @param Request - GetDeploymentRequest
      *
      * @returns GetDeploymentResponse
      *
@@ -9541,7 +9603,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of an extension.
      *
-     * @param request - GetExtensionRequest
+     * @param Request - GetExtensionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetExtensionResponse
@@ -9580,7 +9642,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of an extension.
      *
-     * @param request - GetExtensionRequest
+     * @param Request - GetExtensionRequest
      *
      * @returns GetExtensionResponse
      *
@@ -9598,7 +9660,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a file.
      *
-     * @param request - GetFileRequest
+     * @param Request - GetFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetFileResponse
@@ -9649,7 +9711,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a file.
      *
-     * @param request - GetFileRequest
+     * @param Request - GetFileRequest
      *
      * @returns GetFileResponse
      *
@@ -9667,7 +9729,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the distribution of node types.
      *
-     * @param request - GetFileTypeStatisticRequest
+     * @param Request - GetFileTypeStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetFileTypeStatisticResponse
@@ -9710,7 +9772,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the distribution of node types.
      *
-     * @param request - GetFileTypeStatisticRequest
+     * @param Request - GetFileTypeStatisticRequest
      *
      * @returns GetFileTypeStatisticResponse
      *
@@ -9728,7 +9790,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a file version.
      *
-     * @param request - GetFileVersionRequest
+     * @param Request - GetFileVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetFileVersionResponse
@@ -9779,7 +9841,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a file version.
      *
-     * @param request - GetFileVersionRequest
+     * @param Request - GetFileVersionRequest
      *
      * @returns GetFileVersionResponse
      *
@@ -9797,7 +9859,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a folder.
      *
-     * @param request - GetFolderRequest
+     * @param Request - GetFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetFolderResponse
@@ -9848,7 +9910,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a folder.
      *
-     * @param request - GetFolderRequest
+     * @param Request - GetFolderRequest
      *
      * @returns GetFolderResponse
      *
@@ -9866,7 +9928,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the data snapshot of an extension point based on the ID of a message in DataWorks OpenEvent when the related extension point event is triggered.
      *
-     * @param request - GetIDEEventDetailRequest
+     * @param Request - GetIDEEventDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetIDEEventDetailResponse
@@ -9909,7 +9971,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the data snapshot of an extension point based on the ID of a message in DataWorks OpenEvent when the related extension point event is triggered.
      *
-     * @param request - GetIDEEventDetailRequest
+     * @param Request - GetIDEEventDetailRequest
      *
      * @returns GetIDEEventDetailResponse
      *
@@ -9927,7 +9989,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about an instance.
      *
-     * @param request - GetInstanceRequest
+     * @param Request - GetInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetInstanceResponse
@@ -9970,7 +10032,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about an instance.
      *
-     * @param request - GetInstanceRequest
+     * @param Request - GetInstanceRequest
      *
      * @returns GetInstanceResponse
      *
@@ -9985,13 +10047,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->getInstanceWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the ranking of the running durations of instances.
      *
      * @deprecated OpenAPI GetInstanceConsumeTimeRank is deprecated
      *
-     * @param request - GetInstanceConsumeTimeRankRequest
+     * @param Request - GetInstanceConsumeTimeRankRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetInstanceConsumeTimeRankResponse
@@ -10037,7 +10098,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI GetInstanceConsumeTimeRank is deprecated
      *
-     * @param request - GetInstanceConsumeTimeRankRequest
+     * @param Request - GetInstanceConsumeTimeRankRequest
      *
      * @returns GetInstanceConsumeTimeRankResponse
      *
@@ -10052,13 +10113,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->getInstanceConsumeTimeRankWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the quantity trend of auto triggered instances.
      *
      * @deprecated OpenAPI GetInstanceCountTrend is deprecated
      *
-     * @param request - GetInstanceCountTrendRequest
+     * @param Request - GetInstanceCountTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetInstanceCountTrendResponse
@@ -10108,7 +10168,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI GetInstanceCountTrend is deprecated
      *
-     * @param request - GetInstanceCountTrendRequest
+     * @param Request - GetInstanceCountTrendRequest
      *
      * @returns GetInstanceCountTrendResponse
      *
@@ -10123,13 +10183,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->getInstanceCountTrendWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the ranking of nodes on which errors occur within the last month.
      *
      * @deprecated OpenAPI GetInstanceErrorRank is deprecated
      *
-     * @param request - GetInstanceErrorRankRequest
+     * @param Request - GetInstanceErrorRankRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetInstanceErrorRankResponse
@@ -10171,7 +10230,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI GetInstanceErrorRank is deprecated
      *
-     * @param request - GetInstanceErrorRankRequest
+     * @param Request - GetInstanceErrorRankRequest
      *
      * @returns GetInstanceErrorRankResponse
      *
@@ -10192,7 +10251,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You may not obtain the instance logs that were generated more than seven days ago.
      *
-     * @param request - GetInstanceLogRequest
+     * @param Request - GetInstanceLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetInstanceLogResponse
@@ -10242,7 +10301,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You may not obtain the instance logs that were generated more than seven days ago.
      *
-     * @param request - GetInstanceLogRequest
+     * @param Request - GetInstanceLogRequest
      *
      * @returns GetInstanceLogResponse
      *
@@ -10257,13 +10316,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->getInstanceLogWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the statistics of instances in different states.
      *
      * @deprecated OpenAPI GetInstanceStatusCount is deprecated
      *
-     * @param request - GetInstanceStatusCountRequest
+     * @param Request - GetInstanceStatusCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetInstanceStatusCountResponse
@@ -10313,7 +10371,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI GetInstanceStatusCount is deprecated
      *
-     * @param request - GetInstanceStatusCountRequest
+     * @param Request - GetInstanceStatusCountRequest
      *
      * @returns GetInstanceStatusCountResponse
      *
@@ -10331,7 +10389,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the number of instances that are in each state.
      *
-     * @param request - GetInstanceStatusStatisticRequest
+     * @param Request - GetInstanceStatusStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetInstanceStatusStatisticResponse
@@ -10390,7 +10448,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the number of instances that are in each state.
      *
-     * @param request - GetInstanceStatusStatisticRequest
+     * @param Request - GetInstanceStatusStatisticRequest
      *
      * @returns GetInstanceStatusStatisticResponse
      *
@@ -10405,13 +10463,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->getInstanceStatusStatisticWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the information about instances in a manually triggered workflow.
      *
      * @deprecated OpenAPI GetManualDagInstances is deprecated
      *
-     * @param request - GetManualDagInstancesRequest
+     * @param Request - GetManualDagInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetManualDagInstancesResponse
@@ -10461,7 +10518,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI GetManualDagInstances is deprecated
      *
-     * @param request - GetManualDagInstancesRequest
+     * @param Request - GetManualDagInstancesRequest
      *
      * @returns GetManualDagInstancesResponse
      *
@@ -10479,7 +10536,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a category tree.
      *
-     * @param request - GetMetaCategoryRequest
+     * @param Request - GetMetaCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaCategoryResponse
@@ -10526,7 +10583,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a category tree.
      *
-     * @param request - GetMetaCategoryRequest
+     * @param Request - GetMetaCategoryRequest
      *
      * @returns GetMetaCategoryResponse
      *
@@ -10544,7 +10601,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a collection.
      *
-     * @param request - GetMetaCollectionDetailRequest
+     * @param Request - GetMetaCollectionDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaCollectionDetailResponse
@@ -10583,7 +10640,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a collection.
      *
-     * @param request - GetMetaCollectionDetailRequest
+     * @param Request - GetMetaCollectionDetailRequest
      *
      * @returns GetMetaCollectionDetailResponse
      *
@@ -10601,7 +10658,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the lineage of a field in a metatable.
      *
-     * @param request - GetMetaColumnLineageRequest
+     * @param Request - GetMetaColumnLineageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaColumnLineageResponse
@@ -10672,7 +10729,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the lineage of a field in a metatable.
      *
-     * @param request - GetMetaColumnLineageRequest
+     * @param Request - GetMetaColumnLineageRequest
      *
      * @returns GetMetaColumnLineageResponse
      *
@@ -10694,7 +10751,7 @@ class Dataworkspublic extends OpenApiClient
      * The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
      * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
      *
-     * @param request - GetMetaDBInfoRequest
+     * @param Request - GetMetaDBInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaDBInfoResponse
@@ -10733,7 +10790,7 @@ class Dataworkspublic extends OpenApiClient
      * The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
      * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
      *
-     * @param request - GetMetaDBInfoRequest
+     * @param Request - GetMetaDBInfoRequest
      *
      * @returns GetMetaDBInfoResponse
      *
@@ -10751,7 +10808,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries metatables in a compute engine instance.
      *
-     * @param request - GetMetaDBTableListRequest
+     * @param Request - GetMetaDBTableListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaDBTableListResponse
@@ -10810,7 +10867,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries metatables in a compute engine instance.
      *
-     * @param request - GetMetaDBTableListRequest
+     * @param Request - GetMetaDBTableListRequest
      *
      * @returns GetMetaDBTableListResponse
      *
@@ -10828,7 +10885,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the basic information about a metatable.
      *
-     * @param request - GetMetaTableBasicInfoRequest
+     * @param Request - GetMetaTableBasicInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaTableBasicInfoResponse
@@ -10863,7 +10920,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the basic information about a metatable.
      *
-     * @param request - GetMetaTableBasicInfoRequest
+     * @param Request - GetMetaTableBasicInfoRequest
      *
      * @returns GetMetaTableBasicInfoResponse
      *
@@ -10884,7 +10941,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * > This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - GetMetaTableChangeLogRequest
+     * @param Request - GetMetaTableChangeLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaTableChangeLogResponse
@@ -10950,7 +11007,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * > This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - GetMetaTableChangeLogRequest
+     * @param Request - GetMetaTableChangeLogRequest
      *
      * @returns GetMetaTableChangeLogResponse
      *
@@ -10968,7 +11025,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the field information of a metatable.
      *
-     * @param request - GetMetaTableColumnRequest
+     * @param Request - GetMetaTableColumnRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaTableColumnResponse
@@ -11003,7 +11060,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the field information of a metatable.
      *
-     * @param request - GetMetaTableColumnRequest
+     * @param Request - GetMetaTableColumnRequest
      *
      * @returns GetMetaTableColumnResponse
      *
@@ -11024,7 +11081,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
      *
-     * @param request - GetMetaTableFullInfoRequest
+     * @param Request - GetMetaTableFullInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaTableFullInfoResponse
@@ -11062,7 +11119,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
      *
-     * @param request - GetMetaTableFullInfoRequest
+     * @param Request - GetMetaTableFullInfoRequest
      *
      * @returns GetMetaTableFullInfoResponse
      *
@@ -11080,7 +11137,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the instructions on how to use a table.
      *
-     * @param request - GetMetaTableIntroWikiRequest
+     * @param Request - GetMetaTableIntroWikiRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaTableIntroWikiResponse
@@ -11123,7 +11180,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the instructions on how to use a table.
      *
-     * @param request - GetMetaTableIntroWikiRequest
+     * @param Request - GetMetaTableIntroWikiRequest
      *
      * @returns GetMetaTableIntroWikiResponse
      *
@@ -11141,7 +11198,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the lineage of a metatable.
      *
-     * @param request - GetMetaTableLineageRequest
+     * @param Request - GetMetaTableLineageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaTableLineageResponse
@@ -11208,7 +11265,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the lineage of a metatable.
      *
-     * @param request - GetMetaTableLineageRequest
+     * @param Request - GetMetaTableLineageRequest
      *
      * @returns GetMetaTableLineageResponse
      *
@@ -11226,7 +11283,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries metatables in a specified category.
      *
-     * @param request - GetMetaTableListByCategoryRequest
+     * @param Request - GetMetaTableListByCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaTableListByCategoryResponse
@@ -11261,7 +11318,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries metatables in a specified category.
      *
-     * @param request - GetMetaTableListByCategoryRequest
+     * @param Request - GetMetaTableListByCategoryRequest
      *
      * @returns GetMetaTableListByCategoryResponse
      *
@@ -11279,7 +11336,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the output information of a metatable.
      *
-     * @param request - GetMetaTableOutputRequest
+     * @param Request - GetMetaTableOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaTableOutputResponse
@@ -11338,7 +11395,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the output information of a metatable.
      *
-     * @param request - GetMetaTableOutputRequest
+     * @param Request - GetMetaTableOutputRequest
      *
      * @returns GetMetaTableOutputResponse
      *
@@ -11435,7 +11492,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can call this operation to query only the partitions of a metatable in a MaxCompute or E-MapReduce (EMR) compute engine. If you query partitions of a metatable in an EMR compute engine, only DataLake clusters that use Data Lake Formation (DLF) to manage metadata and Hadoop clusters whose cluster version is earlier than 3.41.0 or 5.7.0 are supported.
      *
-     * @param request - GetMetaTablePartitionRequest
+     * @param Request - GetMetaTablePartitionRequest
      *
      * @returns GetMetaTablePartitionResponse
      *
@@ -11453,7 +11510,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the output tasks of a metatable.
      *
-     * @param request - GetMetaTableProducingTasksRequest
+     * @param Request - GetMetaTableProducingTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaTableProducingTasksResponse
@@ -11512,7 +11569,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the output tasks of a metatable.
      *
-     * @param request - GetMetaTableProducingTasksRequest
+     * @param Request - GetMetaTableProducingTasksRequest
      *
      * @returns GetMetaTableProducingTasksResponse
      *
@@ -11530,7 +11587,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about the themes and levels of a metatable.
      *
-     * @param request - GetMetaTableThemeLevelRequest
+     * @param Request - GetMetaTableThemeLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMetaTableThemeLevelResponse
@@ -11565,7 +11622,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about the themes and levels of a metatable.
      *
-     * @param request - GetMetaTableThemeLevelRequest
+     * @param Request - GetMetaTableThemeLevelRequest
      *
      * @returns GetMetaTableThemeLevelResponse
      *
@@ -11583,7 +11640,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the progress of a migration task.
      *
-     * @param request - GetMigrationProcessRequest
+     * @param Request - GetMigrationProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMigrationProcessResponse
@@ -11626,7 +11683,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the progress of a migration task.
      *
-     * @param request - GetMigrationProcessRequest
+     * @param Request - GetMigrationProcessRequest
      *
      * @returns GetMigrationProcessResponse
      *
@@ -11644,7 +11701,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a migration task.
      *
-     * @param request - GetMigrationSummaryRequest
+     * @param Request - GetMigrationSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMigrationSummaryResponse
@@ -11687,7 +11744,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a migration task.
      *
-     * @param request - GetMigrationSummaryRequest
+     * @param Request - GetMigrationSummaryRequest
      *
      * @returns GetMigrationSummaryResponse
      *
@@ -11705,7 +11762,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Indicates whether the request is successful.
      *
-     * @param request - GetNodeRequest
+     * @param Request - GetNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetNodeResponse
@@ -11748,7 +11805,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Indicates whether the request is successful.
      *
-     * @param request - GetNodeRequest
+     * @param Request - GetNodeRequest
      *
      * @returns GetNodeResponse
      *
@@ -11766,7 +11823,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of instances.
      *
-     * @param request - GetNodeChildrenRequest
+     * @param Request - GetNodeChildrenRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetNodeChildrenResponse
@@ -11809,7 +11866,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of instances.
      *
-     * @param request - GetNodeChildrenRequest
+     * @param Request - GetNodeChildrenRequest
      *
      * @returns GetNodeChildrenResponse
      *
@@ -11827,7 +11884,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the code of a node.
      *
-     * @param request - GetNodeCodeRequest
+     * @param Request - GetNodeCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetNodeCodeResponse
@@ -11870,7 +11927,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the code of a node.
      *
-     * @param request - GetNodeCodeRequest
+     * @param Request - GetNodeCodeRequest
      *
      * @returns GetNodeCodeResponse
      *
@@ -11885,13 +11942,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->getNodeCodeWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the nodes associated with a baseline.
      *
      * @deprecated OpenAPI GetNodeOnBaseline is deprecated
      *
-     * @param request - GetNodeOnBaselineRequest
+     * @param Request - GetNodeOnBaselineRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetNodeOnBaselineResponse
@@ -11933,7 +11989,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI GetNodeOnBaseline is deprecated
      *
-     * @param request - GetNodeOnBaselineRequest
+     * @param Request - GetNodeOnBaselineRequest
      *
      * @returns GetNodeOnBaselineResponse
      *
@@ -11951,7 +12007,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of ancestor nodes of a node.
      *
-     * @param request - GetNodeParentsRequest
+     * @param Request - GetNodeParentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetNodeParentsResponse
@@ -11994,7 +12050,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of ancestor nodes of a node.
      *
-     * @param request - GetNodeParentsRequest
+     * @param Request - GetNodeParentsRequest
      *
      * @returns GetNodeParentsResponse
      *
@@ -12009,13 +12065,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->getNodeParentsWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the information about node types, including the code and name of a node type.
      *
      * @deprecated OpenAPI GetNodeTypeListInfo is deprecated
      *
-     * @param request - GetNodeTypeListInfoRequest
+     * @param Request - GetNodeTypeListInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetNodeTypeListInfoResponse
@@ -12077,7 +12132,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI GetNodeTypeListInfo is deprecated
      *
-     * @param request - GetNodeTypeListInfoRequest
+     * @param Request - GetNodeTypeListInfoRequest
      *
      * @returns GetNodeTypeListInfoResponse
      *
@@ -12095,7 +12150,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the records that are generated on a specified date for access to the high-risk sensitive data in all the DataWorks workspaces of a tenant.
      *
-     * @param request - GetOpRiskDataRequest
+     * @param Request - GetOpRiskDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetOpRiskDataResponse
@@ -12130,7 +12185,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the records that are generated on a specified date for access to the high-risk sensitive data in all the DataWorks workspaces of a tenant.
      *
-     * @param request - GetOpRiskDataRequest
+     * @param Request - GetOpRiskDataRequest
      *
      * @returns GetOpRiskDataResponse
      *
@@ -12148,7 +12203,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the records that are generated on a specified date for access to sensitive data in all the DataWorks workspaces of a tenant.
      *
-     * @param request - GetOpSensitiveDataRequest
+     * @param Request - GetOpSensitiveDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetOpSensitiveDataResponse
@@ -12183,7 +12238,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the records that are generated on a specified date for access to sensitive data in all the DataWorks workspaces of a tenant.
      *
-     * @param request - GetOpSensitiveDataRequest
+     * @param Request - GetOpSensitiveDataRequest
      *
      * @returns GetOpSensitiveDataResponse
      *
@@ -12201,7 +12256,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the option settings of an extension in a workspace.
      *
-     * @param request - GetOptionValueForProjectRequest
+     * @param Request - GetOptionValueForProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetOptionValueForProjectResponse
@@ -12244,7 +12299,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the option settings of an extension in a workspace.
      *
-     * @param request - GetOptionValueForProjectRequest
+     * @param Request - GetOptionValueForProjectRequest
      *
      * @returns GetOptionValueForProjectResponse
      *
@@ -12262,7 +12317,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of a permission request order.
      *
-     * @param request - GetPermissionApplyOrderDetailRequest
+     * @param Request - GetPermissionApplyOrderDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetPermissionApplyOrderDetailResponse
@@ -12301,7 +12356,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of a permission request order.
      *
-     * @param request - GetPermissionApplyOrderDetailRequest
+     * @param Request - GetPermissionApplyOrderDetailRequest
      *
      * @returns GetPermissionApplyOrderDetailResponse
      *
@@ -12319,7 +12374,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a DataWorks workspace.
      *
-     * @param request - GetProjectRequest
+     * @param Request - GetProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetProjectResponse
@@ -12362,7 +12417,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a DataWorks workspace.
      *
-     * @param request - GetProjectRequest
+     * @param Request - GetProjectRequest
      *
      * @returns GetProjectResponse
      *
@@ -12377,13 +12432,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->getProjectWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the information about a DataWorks workspace.
      *
      * @deprecated OpenAPI GetProjectDetail is deprecated
      *
-     * @param request - GetProjectDetailRequest
+     * @param Request - GetProjectDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetProjectDetailResponse
@@ -12425,7 +12479,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI GetProjectDetail is deprecated
      *
-     * @param request - GetProjectDetailRequest
+     * @param Request - GetProjectDetailRequest
      *
      * @returns GetProjectDetailResponse
      *
@@ -12441,7 +12495,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param request - GetQualityEntityRequest
+     * @param Request - GetQualityEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetQualityEntityResponse
@@ -12494,7 +12548,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param request - GetQualityEntityRequest
+     * @param Request - GetQualityEntityRequest
      *
      * @returns GetQualityEntityResponse
      *
@@ -12512,7 +12566,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the subscribers of a partition filter expression.
      *
-     * @param request - GetQualityFollowerRequest
+     * @param Request - GetQualityFollowerRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetQualityFollowerResponse
@@ -12559,7 +12613,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the subscribers of a partition filter expression.
      *
-     * @param request - GetQualityFollowerRequest
+     * @param Request - GetQualityFollowerRequest
      *
      * @returns GetQualityFollowerResponse
      *
@@ -12577,7 +12631,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a monitoring rule.
      *
-     * @param request - GetQualityRuleRequest
+     * @param Request - GetQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetQualityRuleResponse
@@ -12624,7 +12678,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about a monitoring rule.
      *
-     * @param request - GetQualityRuleRequest
+     * @param Request - GetQualityRuleRequest
      *
      * @returns GetQualityRuleResponse
      *
@@ -12646,7 +12700,7 @@ class Dataworkspublic extends OpenApiClient
      * ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetRemind\\&type=RPC\\&version=2020-05-18)
      *
-     * @param request - GetRemindRequest
+     * @param Request - GetRemindRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRemindResponse
@@ -12689,7 +12743,7 @@ class Dataworkspublic extends OpenApiClient
      * ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetRemind\\&type=RPC\\&version=2020-05-18)
      *
-     * @param request - GetRemindRequest
+     * @param Request - GetRemindRequest
      *
      * @returns GetRemindResponse
      *
@@ -12707,7 +12761,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the latest sensitive data in all the DataWorks workspaces of a tenant.
      *
-     * @param request - GetSensitiveDataRequest
+     * @param Request - GetSensitiveDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSensitiveDataResponse
@@ -12742,7 +12796,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the latest sensitive data in all the DataWorks workspaces of a tenant.
      *
-     * @param request - GetSensitiveDataRequest
+     * @param Request - GetSensitiveDataRequest
      *
      * @returns GetSensitiveDataResponse
      *
@@ -12757,13 +12811,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->getSensitiveDataWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the statistics of instances in different periods of a day.
      *
      * @deprecated OpenAPI GetSuccessInstanceTrend is deprecated
      *
-     * @param request - GetSuccessInstanceTrendRequest
+     * @param Request - GetSuccessInstanceTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSuccessInstanceTrendResponse
@@ -12805,7 +12858,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI GetSuccessInstanceTrend is deprecated
      *
-     * @param request - GetSuccessInstanceTrendRequest
+     * @param Request - GetSuccessInstanceTrendRequest
      *
      * @returns GetSuccessInstanceTrendResponse
      *
@@ -12825,7 +12878,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @remarks
      *
-     * @param request - GetTopicRequest
+     * @param Request - GetTopicRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetTopicResponse
@@ -12866,7 +12919,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @remarks
      *
-     * @param request - GetTopicRequest
+     * @param Request - GetTopicRequest
      *
      * @returns GetTopicResponse
      *
@@ -12888,7 +12941,7 @@ class Dataworkspublic extends OpenApiClient
      * ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetTopicInfluence\\&type=RPC\\&version=2020-05-18)
      *
-     * @param request - GetTopicInfluenceRequest
+     * @param Request - GetTopicInfluenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetTopicInfluenceResponse
@@ -12931,7 +12984,7 @@ class Dataworkspublic extends OpenApiClient
      * ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetTopicInfluence\\&type=RPC\\&version=2020-05-18)
      *
-     * @param request - GetTopicInfluenceRequest
+     * @param Request - GetTopicInfluenceRequest
      *
      * @returns GetTopicInfluenceResponse
      *
@@ -12954,7 +13007,7 @@ class Dataworkspublic extends OpenApiClient
      * *   To import a self-managed data source to a DataWorks workspace, the data source type must be supported by DataWorks. For more information about the types of data sources supported by DataWorks, see [Supported data stores](https://help.aliyun.com/document_detail/181656.html).
      * *   For more information about how to export data sources from DataWorks workspaces to your on-premises machine, see [ExportDataSources](https://help.aliyun.com/document_detail/279570.html).
      *
-     * @param request - ImportDataSourcesRequest
+     * @param Request - ImportDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ImportDataSourcesResponse
@@ -13002,7 +13055,7 @@ class Dataworkspublic extends OpenApiClient
      * *   To import a self-managed data source to a DataWorks workspace, the data source type must be supported by DataWorks. For more information about the types of data sources supported by DataWorks, see [Supported data stores](https://help.aliyun.com/document_detail/181656.html).
      * *   For more information about how to export data sources from DataWorks workspaces to your on-premises machine, see [ExportDataSources](https://help.aliyun.com/document_detail/279570.html).
      *
-     * @param request - ImportDataSourcesRequest
+     * @param Request - ImportDataSourcesRequest
      *
      * @returns ImportDataSourcesResponse
      *
@@ -13020,7 +13073,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of alerts.
      *
-     * @param request - ListAlertMessagesRequest
+     * @param Request - ListAlertMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListAlertMessagesResponse
@@ -13091,7 +13144,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of alerts.
      *
-     * @param request - ListAlertMessagesRequest
+     * @param Request - ListAlertMessagesRequest
      *
      * @returns ListAlertMessagesResponse
      *
@@ -13109,7 +13162,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of baselines.
      *
-     * @param request - ListBaselineConfigsRequest
+     * @param Request - ListBaselineConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListBaselineConfigsResponse
@@ -13176,7 +13229,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of baselines.
      *
-     * @param request - ListBaselineConfigsRequest
+     * @param Request - ListBaselineConfigsRequest
      *
      * @returns ListBaselineConfigsResponse
      *
@@ -13194,7 +13247,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of baseline instances.
      *
-     * @param request - ListBaselineStatusesRequest
+     * @param Request - ListBaselineStatusesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListBaselineStatusesResponse
@@ -13269,7 +13322,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of baseline instances.
      *
-     * @param request - ListBaselineStatusesRequest
+     * @param Request - ListBaselineStatusesRequest
      *
      * @returns ListBaselineStatusesResponse
      *
@@ -13287,7 +13340,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Obtains a list of baselines.
      *
-     * @param request - ListBaselinesRequest
+     * @param Request - ListBaselinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListBaselinesResponse
@@ -13354,7 +13407,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Obtains a list of baselines.
      *
-     * @param request - ListBaselinesRequest
+     * @param Request - ListBaselinesRequest
      *
      * @returns ListBaselinesResponse
      *
@@ -13372,7 +13425,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of workflows.
      *
-     * @param request - ListBusinessRequest
+     * @param Request - ListBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListBusinessResponse
@@ -13427,7 +13480,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of workflows.
      *
-     * @param request - ListBusinessRequest
+     * @param Request - ListBusinessRequest
      *
      * @returns ListBusinessResponse
      *
@@ -13445,7 +13498,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of compute engines that are associated with a DataWorks workspace.
      *
-     * @param request - ListCalcEnginesRequest
+     * @param Request - ListCalcEnginesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListCalcEnginesResponse
@@ -13504,7 +13557,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of compute engines that are associated with a DataWorks workspace.
      *
-     * @param request - ListCalcEnginesRequest
+     * @param Request - ListCalcEnginesRequest
      *
      * @returns ListCalcEnginesResponse
      *
@@ -13522,7 +13575,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the check results of extension point events.
      *
-     * @param request - ListCheckProcessesRequest
+     * @param Request - ListCheckProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListCheckProcessesResponse
@@ -13585,7 +13638,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the check results of extension point events.
      *
-     * @param request - ListCheckProcessesRequest
+     * @param Request - ListCheckProcessesRequest
      *
      * @returns ListCheckProcessesResponse
      *
@@ -13603,7 +13656,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the configurations of submodules in a workspace. You can query information about SPARK parameters.
      *
-     * @param request - ListClusterConfigsRequest
+     * @param Request - ListClusterConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListClusterConfigsResponse
@@ -13638,7 +13691,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the configurations of submodules in a workspace. You can query information about SPARK parameters.
      *
-     * @param request - ListClusterConfigsRequest
+     * @param Request - ListClusterConfigsRequest
      *
      * @returns ListClusterConfigsResponse
      *
@@ -13656,7 +13709,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries clusters that are registered in DataWorks. E-MapReduce (EMR) clusters and Cloudera\\"s Distribution Including Apache Hadoop (CDH) clusters are supported.
      *
-     * @param request - ListClustersRequest
+     * @param Request - ListClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListClustersResponse
@@ -13691,7 +13744,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries clusters that are registered in DataWorks. E-MapReduce (EMR) clusters and Cloudera\\"s Distribution Including Apache Hadoop (CDH) clusters are supported.
      *
-     * @param request - ListClustersRequest
+     * @param Request - ListClustersRequest
      *
      * @returns ListClustersResponse
      *
@@ -13706,13 +13759,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->listClustersWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries a list of data sources.
      *
      * @deprecated OpenAPI ListConnections is deprecated
      *
-     * @param request - ListConnectionsRequest
+     * @param Request - ListConnectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListConnectionsResponse
@@ -13750,7 +13802,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI ListConnections is deprecated
      *
-     * @param request - ListConnectionsRequest
+     * @param Request - ListConnectionsRequest
      *
      * @returns ListConnectionsResponse
      *
@@ -13771,7 +13823,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can configure alert rules only for tasks that can be used for real-time data synchronization.
      *
-     * @param request - ListDIAlarmRulesRequest
+     * @param Request - ListDIAlarmRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDIAlarmRulesResponse
@@ -13821,7 +13873,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can configure alert rules only for tasks that can be used for real-time data synchronization.
      *
-     * @param request - ListDIAlarmRulesRequest
+     * @param Request - ListDIAlarmRulesRequest
      *
      * @returns ListDIAlarmRulesResponse
      *
@@ -13842,7 +13894,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can call this operation to obtain only the basic information about the tasks. If you want to obtain the details of a task, call the GetDIJob operation.
      *
-     * @param request - ListDIJobsRequest
+     * @param Request - ListDIJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDIJobsResponse
@@ -13904,7 +13956,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can call this operation to obtain only the basic information about the tasks. If you want to obtain the details of a task, call the GetDIJob operation.
      *
-     * @param request - ListDIJobsRequest
+     * @param Request - ListDIJobsRequest
      *
      * @returns ListDIJobsResponse
      *
@@ -13925,7 +13977,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization tasks in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](https://help.aliyun.com/document_detail/199008.html).
      *
-     * @param request - ListDIProjectConfigRequest
+     * @param Request - ListDIProjectConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDIProjectConfigResponse
@@ -13975,7 +14027,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization tasks in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](https://help.aliyun.com/document_detail/199008.html).
      *
-     * @param request - ListDIProjectConfigRequest
+     * @param Request - ListDIProjectConfigRequest
      *
      * @returns ListDIProjectConfigResponse
      *
@@ -14005,7 +14057,7 @@ class Dataworkspublic extends OpenApiClient
      * *   FAILURE: The DAG fails to run.
      * *   SUCCESS: The DAG is successfully run.
      *
-     * @param request - ListDagsRequest
+     * @param Request - ListDagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDagsResponse
@@ -14060,7 +14112,7 @@ class Dataworkspublic extends OpenApiClient
      * *   FAILURE: The DAG fails to run.
      * *   SUCCESS: The DAG is successfully run.
      *
-     * @param request - ListDagsRequest
+     * @param Request - ListDagsRequest
      *
      * @returns ListDagsResponse
      *
@@ -14078,7 +14130,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the APIs on which other users are granted the access permissions.
      *
-     * @param request - ListDataServiceApiAuthoritiesRequest
+     * @param Request - ListDataServiceApiAuthoritiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDataServiceApiAuthoritiesResponse
@@ -14135,7 +14187,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the APIs on which other users are granted the access permissions.
      *
-     * @param request - ListDataServiceApiAuthoritiesRequest
+     * @param Request - ListDataServiceApiAuthoritiesRequest
      *
      * @returns ListDataServiceApiAuthoritiesResponse
      *
@@ -14153,7 +14205,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the test records of a DataService Studio API. This API operation allows you to query only the test records that are generated within the previous month.
      *
-     * @param request - ListDataServiceApiTestRequest
+     * @param Request - ListDataServiceApiTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDataServiceApiTestResponse
@@ -14188,7 +14240,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the test records of a DataService Studio API. This API operation allows you to query only the test records that are generated within the previous month.
      *
-     * @param request - ListDataServiceApiTestRequest
+     * @param Request - ListDataServiceApiTestRequest
      *
      * @returns ListDataServiceApiTestResponse
      *
@@ -14206,7 +14258,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of APIs in the development state.
      *
-     * @param request - ListDataServiceApisRequest
+     * @param Request - ListDataServiceApisRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDataServiceApisResponse
@@ -14269,7 +14321,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of APIs in the development state.
      *
-     * @param request - ListDataServiceApisRequest
+     * @param Request - ListDataServiceApisRequest
      *
      * @returns ListDataServiceApisResponse
      *
@@ -14287,7 +14339,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the basic information of applications.
      *
-     * @param request - ListDataServiceApplicationsRequest
+     * @param Request - ListDataServiceApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDataServiceApplicationsResponse
@@ -14338,7 +14390,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the basic information of applications.
      *
-     * @param request - ListDataServiceApplicationsRequest
+     * @param Request - ListDataServiceApplicationsRequest
      *
      * @returns ListDataServiceApplicationsResponse
      *
@@ -14356,7 +14408,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the APIs that you are authorized to access.
      *
-     * @param request - ListDataServiceAuthorizedApisRequest
+     * @param Request - ListDataServiceAuthorizedApisRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDataServiceAuthorizedApisResponse
@@ -14413,7 +14465,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the APIs that you are authorized to access.
      *
-     * @param request - ListDataServiceAuthorizedApisRequest
+     * @param Request - ListDataServiceAuthorizedApisRequest
      *
      * @returns ListDataServiceAuthorizedApisResponse
      *
@@ -14431,7 +14483,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries folders.
      *
-     * @param request - ListDataServiceFoldersRequest
+     * @param Request - ListDataServiceFoldersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDataServiceFoldersResponse
@@ -14490,7 +14542,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries folders.
      *
-     * @param request - ListDataServiceFoldersRequest
+     * @param Request - ListDataServiceFoldersRequest
      *
      * @returns ListDataServiceFoldersResponse
      *
@@ -14508,7 +14560,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries business processes.
      *
-     * @param request - ListDataServiceGroupsRequest
+     * @param Request - ListDataServiceGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDataServiceGroupsResponse
@@ -14563,7 +14615,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries business processes.
      *
-     * @param request - ListDataServiceGroupsRequest
+     * @param Request - ListDataServiceGroupsRequest
      *
      * @returns ListDataServiceGroupsResponse
      *
@@ -14581,7 +14633,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of APIs in the published state.
      *
-     * @param request - ListDataServicePublishedApisRequest
+     * @param Request - ListDataServicePublishedApisRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDataServicePublishedApisResponse
@@ -14644,7 +14696,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of APIs in the published state.
      *
-     * @param request - ListDataServicePublishedApisRequest
+     * @param Request - ListDataServicePublishedApisRequest
      *
      * @returns ListDataServicePublishedApisResponse
      *
@@ -14662,7 +14714,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the data sources added to a DataWorks workspace.
      *
-     * @param request - ListDataSourcesRequest
+     * @param Request - ListDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDataSourcesResponse
@@ -14697,7 +14749,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the data sources added to a DataWorks workspace.
      *
-     * @param request - ListDataSourcesRequest
+     * @param Request - ListDataSourcesRequest
      *
      * @returns ListDataSourcesResponse
      *
@@ -14715,7 +14767,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of deployment packages. This operation is equivalent to viewing a list of deployment packages on the Deployment Packages page of the DataWorks console.
      *
-     * @param request - ListDeploymentsRequest
+     * @param Request - ListDeploymentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDeploymentsResponse
@@ -14790,7 +14842,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of deployment packages. This operation is equivalent to viewing a list of deployment packages on the Deployment Packages page of the DataWorks console.
      *
-     * @param request - ListDeploymentsRequest
+     * @param Request - ListDeploymentsRequest
      *
      * @returns ListDeploymentsResponse
      *
@@ -14811,7 +14863,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * For information about codes of extension point events, see [Development references: Extension point event codes](https://help.aliyun.com/document_detail/463357.html).
      *
-     * @param request - ListEnabledExtensionsForProjectRequest
+     * @param Request - ListEnabledExtensionsForProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListEnabledExtensionsForProjectResponse
@@ -14861,7 +14913,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * For information about codes of extension point events, see [Development references: Extension point event codes](https://help.aliyun.com/document_detail/463357.html).
      *
-     * @param request - ListEnabledExtensionsForProjectRequest
+     * @param Request - ListEnabledExtensionsForProjectRequest
      *
      * @returns ListEnabledExtensionsForProjectResponse
      *
@@ -14920,7 +14972,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of entities by tag. Only entities of the maxcompute-table type are supported.
      *
-     * @param request - ListEntitiesByTagsRequest
+     * @param Request - ListEntitiesByTagsRequest
      *
      * @returns ListEntitiesByTagsResponse
      *
@@ -14938,7 +14990,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of tags of an entity. Only entities of the maxcompute-table type are supported.
      *
-     * @param request - ListEntityTagsRequest
+     * @param Request - ListEntityTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListEntityTagsResponse
@@ -14973,7 +15025,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of tags of an entity. Only entities of the maxcompute-table type are supported.
      *
-     * @param request - ListEntityTagsRequest
+     * @param Request - ListEntityTagsRequest
      *
      * @returns ListEntityTagsResponse
      *
@@ -14991,7 +15043,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of extensions.
      *
-     * @param request - ListExtensionsRequest
+     * @param Request - ListExtensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListExtensionsResponse
@@ -15034,7 +15086,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of extensions.
      *
-     * @param request - ListExtensionsRequest
+     * @param Request - ListExtensionsRequest
      *
      * @returns ListExtensionsResponse
      *
@@ -15052,7 +15104,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about node types, such as the code and name.
      *
-     * @param request - ListFileTypeRequest
+     * @param Request - ListFileTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListFileTypeResponse
@@ -15111,7 +15163,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about node types, such as the code and name.
      *
-     * @param request - ListFileTypeRequest
+     * @param Request - ListFileTypeRequest
      *
      * @returns ListFileTypeResponse
      *
@@ -15129,7 +15181,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of file versions.
      *
-     * @param request - ListFileVersionsRequest
+     * @param Request - ListFileVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListFileVersionsResponse
@@ -15184,7 +15236,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of file versions.
      *
-     * @param request - ListFileVersionsRequest
+     * @param Request - ListFileVersionsRequest
      *
      * @returns ListFileVersionsResponse
      *
@@ -15202,7 +15254,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of files.
      *
-     * @param request - ListFilesRequest
+     * @param Request - ListFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListFilesResponse
@@ -15297,7 +15349,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of files.
      *
-     * @param request - ListFilesRequest
+     * @param Request - ListFilesRequest
      *
      * @returns ListFilesResponse
      *
@@ -15315,7 +15367,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of folders.
      *
-     * @param request - ListFoldersRequest
+     * @param Request - ListFoldersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListFoldersResponse
@@ -15370,7 +15422,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of folders.
      *
-     * @param request - ListFoldersRequest
+     * @param Request - ListFoldersRequest
      *
      * @returns ListFoldersResponse
      *
@@ -15388,7 +15440,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries information about inner nodes. For example, you can call this operation to query the inner nodes of a node group or a do-while node. You cannot call this operation to query the inner nodes of a PAI node.
      *
-     * @param request - ListInnerNodesRequest
+     * @param Request - ListInnerNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListInnerNodesResponse
@@ -15451,7 +15503,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries information about inner nodes. For example, you can call this operation to query the inner nodes of a node group or a do-while node. You cannot call this operation to query the inner nodes of a PAI node.
      *
-     * @param request - ListInnerNodesRequest
+     * @param Request - ListInnerNodesRequest
      *
      * @returns ListInnerNodesResponse
      *
@@ -15469,7 +15521,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the trend of the number of auto triggered node instances within a specified period of time.
      *
-     * @param request - ListInstanceAmountRequest
+     * @param Request - ListInstanceAmountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListInstanceAmountResponse
@@ -15516,7 +15568,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the trend of the number of auto triggered node instances within a specified period of time.
      *
-     * @param request - ListInstanceAmountRequest
+     * @param Request - ListInstanceAmountRequest
      *
      * @returns ListInstanceAmountResponse
      *
@@ -15534,7 +15586,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries information about the historical records of all instances. One historical record is generated if an instance is rerun once.
      *
-     * @param request - ListInstanceHistoryRequest
+     * @param Request - ListInstanceHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListInstanceHistoryResponse
@@ -15577,7 +15629,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries information about the historical records of all instances. One historical record is generated if an instance is rerun once.
      *
-     * @param request - ListInstanceHistoryRequest
+     * @param Request - ListInstanceHistoryRequest
      *
      * @returns ListInstanceHistoryResponse
      *
@@ -15595,7 +15647,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of instances.
      *
-     * @param request - ListInstancesRequest
+     * @param Request - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListInstancesResponse
@@ -15690,7 +15742,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of instances.
      *
-     * @param request - ListInstancesRequest
+     * @param Request - ListInstancesRequest
      *
      * @returns ListInstancesResponse
      *
@@ -15708,7 +15760,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the ancestor or descendant lineage of an entity.
      *
-     * @param request - ListLineageRequest
+     * @param Request - ListLineageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListLineageResponse
@@ -15763,7 +15815,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the ancestor or descendant lineage of an entity.
      *
-     * @param request - ListLineageRequest
+     * @param Request - ListLineageRequest
      *
      * @returns ListLineageResponse
      *
@@ -15781,7 +15833,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about instances in a manually triggered workflow.
      *
-     * @param request - ListManualDagInstancesRequest
+     * @param Request - ListManualDagInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListManualDagInstancesResponse
@@ -15828,7 +15880,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the information about instances in a manually triggered workflow.
      *
-     * @param request - ListManualDagInstancesRequest
+     * @param Request - ListManualDagInstancesRequest
      *
      * @returns ListManualDagInstancesResponse
      *
@@ -15846,7 +15898,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the statistics on the number of phone call-based alerts or text message-based alerts reported within the tenant to which your account belongs during the previous 30 days.
      *
-     * @param request - ListMeasureDataRequest
+     * @param Request - ListMeasureDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListMeasureDataResponse
@@ -15897,7 +15949,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the statistics on the number of phone call-based alerts or text message-based alerts reported within the tenant to which your account belongs during the previous 30 days.
      *
-     * @param request - ListMeasureDataRequest
+     * @param Request - ListMeasureDataRequest
      *
      * @returns ListMeasureDataResponse
      *
@@ -15915,7 +15967,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the entities in a collection.
      *
-     * @param request - ListMetaCollectionEntitiesRequest
+     * @param Request - ListMetaCollectionEntitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListMetaCollectionEntitiesResponse
@@ -15970,7 +16022,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the entities in a collection.
      *
-     * @param request - ListMetaCollectionEntitiesRequest
+     * @param Request - ListMetaCollectionEntitiesRequest
      *
      * @returns ListMetaCollectionEntitiesResponse
      *
@@ -15991,7 +16043,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
      *
-     * @param request - ListMetaCollectionsRequest
+     * @param Request - ListMetaCollectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListMetaCollectionsResponse
@@ -16065,7 +16117,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
      *
-     * @param request - ListMetaCollectionsRequest
+     * @param Request - ListMetaCollectionsRequest
      *
      * @returns ListMetaCollectionsResponse
      *
@@ -16083,7 +16135,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of metadatabases.
      *
-     * @param request - ListMetaDBRequest
+     * @param Request - ListMetaDBRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListMetaDBResponse
@@ -16118,7 +16170,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of metadatabases.
      *
-     * @param request - ListMetaDBRequest
+     * @param Request - ListMetaDBRequest
      *
      * @returns ListMetaDBResponse
      *
@@ -16136,7 +16188,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of migration tasks.
      *
-     * @param request - ListMigrationsRequest
+     * @param Request - ListMigrationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListMigrationsResponse
@@ -16191,7 +16243,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of migration tasks.
      *
-     * @param request - ListMigrationsRequest
+     * @param Request - ListMigrationsRequest
      *
      * @returns ListMigrationsResponse
      *
@@ -16206,13 +16258,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->listMigrationsWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the information about one level of ancestor or descendant nodes of a node.
      *
      * @deprecated OpenAPI ListNodeIO is deprecated
      *
-     * @param request - ListNodeIORequest
+     * @param Request - ListNodeIORequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListNodeIOResponse
@@ -16262,7 +16313,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI ListNodeIO is deprecated
      *
-     * @param request - ListNodeIORequest
+     * @param Request - ListNodeIORequest
      *
      * @returns ListNodeIOResponse
      *
@@ -16280,7 +16331,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the input and output information about a node. Only the ancestor or descendant nodes at the nearest level can be queried each time.
      *
-     * @param request - ListNodeInputOrOutputRequest
+     * @param Request - ListNodeInputOrOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListNodeInputOrOutputResponse
@@ -16327,7 +16378,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the input and output information about a node. Only the ancestor or descendant nodes at the nearest level can be queried each time.
      *
-     * @param request - ListNodeInputOrOutputRequest
+     * @param Request - ListNodeInputOrOutputRequest
      *
      * @returns ListNodeInputOrOutputResponse
      *
@@ -16345,7 +16396,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * The ID of the workspace.
      *
-     * @param request - ListNodesRequest
+     * @param Request - ListNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListNodesResponse
@@ -16416,7 +16467,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * The ID of the workspace.
      *
-     * @param request - ListNodesRequest
+     * @param Request - ListNodesRequest
      *
      * @returns ListNodesResponse
      *
@@ -16434,7 +16485,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries nodes in a baseline.
      *
-     * @param request - ListNodesByBaselineRequest
+     * @param Request - ListNodesByBaselineRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListNodesByBaselineResponse
@@ -16473,7 +16524,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries nodes in a baseline.
      *
-     * @param request - ListNodesByBaselineRequest
+     * @param Request - ListNodesByBaselineRequest
      *
      * @returns ListNodesByBaselineResponse
      *
@@ -16491,7 +16542,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries nodes based on the output of the nodes.
      *
-     * @param request - ListNodesByOutputRequest
+     * @param Request - ListNodesByOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListNodesByOutputResponse
@@ -16534,7 +16585,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries nodes based on the output of the nodes.
      *
-     * @param request - ListNodesByOutputRequest
+     * @param Request - ListNodesByOutputRequest
      *
      * @returns ListNodesByOutputResponse
      *
@@ -16552,7 +16603,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of permission request orders.
      *
-     * @param request - ListPermissionApplyOrdersRequest
+     * @param Request - ListPermissionApplyOrdersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListPermissionApplyOrdersResponse
@@ -16639,7 +16690,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of permission request orders.
      *
-     * @param request - ListPermissionApplyOrdersRequest
+     * @param Request - ListPermissionApplyOrdersRequest
      *
      * @returns ListPermissionApplyOrdersResponse
      *
@@ -16654,13 +16705,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->listPermissionApplyOrdersWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the distribution of different types of nodes.
      *
      * @deprecated OpenAPI ListProgramTypeCount is deprecated
      *
-     * @param request - ListProgramTypeCountRequest
+     * @param Request - ListProgramTypeCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListProgramTypeCountResponse
@@ -16706,7 +16756,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI ListProgramTypeCount is deprecated
      *
-     * @param request - ListProgramTypeCountRequest
+     * @param Request - ListProgramTypeCountRequest
      *
      * @returns ListProgramTypeCountResponse
      *
@@ -16727,7 +16777,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * An Alibaba Cloud account can assume a role such as the developer, O\\&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](https://help.aliyun.com/document_detail/136941.html).
      *
-     * @param request - ListProjectIdsRequest
+     * @param Request - ListProjectIdsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListProjectIdsResponse
@@ -16769,7 +16819,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * An Alibaba Cloud account can assume a role such as the developer, O\\&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](https://help.aliyun.com/document_detail/136941.html).
      *
-     * @param request - ListProjectIdsRequest
+     * @param Request - ListProjectIdsRequest
      *
      * @returns ListProjectIdsResponse
      *
@@ -16787,7 +16837,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of existing members in a DataWorks workspace.
      *
-     * @param request - ListProjectMembersRequest
+     * @param Request - ListProjectMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListProjectMembersResponse
@@ -16834,7 +16884,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of existing members in a DataWorks workspace.
      *
-     * @param request - ListProjectMembersRequest
+     * @param Request - ListProjectMembersRequest
      *
      * @returns ListProjectMembersResponse
      *
@@ -16856,7 +16906,7 @@ class Dataworkspublic extends OpenApiClient
      * ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=ListProjectRoles\\&type=RPC\\&version=2020-05-18)
      *
-     * @param request - ListProjectRolesRequest
+     * @param Request - ListProjectRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListProjectRolesResponse
@@ -16899,7 +16949,7 @@ class Dataworkspublic extends OpenApiClient
      * ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=ListProjectRoles\\&type=RPC\\&version=2020-05-18)
      *
-     * @param request - ListProjectRolesRequest
+     * @param Request - ListProjectRolesRequest
      *
      * @returns ListProjectRolesResponse
      *
@@ -16974,7 +17024,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of DataWorks workspaces of the tenant to which a user belongs.
      *
-     * @param request - ListProjectsRequest
+     * @param Request - ListProjectsRequest
      *
      * @returns ListProjectsResponse
      *
@@ -16994,7 +17044,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @remarks
      *
-     * @param request - ListQualityResultsByEntityRequest
+     * @param Request - ListQualityResultsByEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListQualityResultsByEntityResponse
@@ -17059,7 +17109,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @remarks
      *
-     * @param request - ListQualityResultsByEntityRequest
+     * @param Request - ListQualityResultsByEntityRequest
      *
      * @returns ListQualityResultsByEntityResponse
      *
@@ -17077,7 +17127,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries monitoring results after the data quality of a data source or a compute engine is monitored based on monitoring rules.
      *
-     * @param request - ListQualityResultsByRuleRequest
+     * @param Request - ListQualityResultsByRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListQualityResultsByRuleResponse
@@ -17140,7 +17190,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries monitoring results after the data quality of a data source or a compute engine is monitored based on monitoring rules.
      *
-     * @param request - ListQualityResultsByRuleRequest
+     * @param Request - ListQualityResultsByRuleRequest
      *
      * @returns ListQualityResultsByRuleResponse
      *
@@ -17158,7 +17208,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries monitoring rules based on a partition filter expression.
      *
-     * @param request - ListQualityRulesRequest
+     * @param Request - ListQualityRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListQualityRulesResponse
@@ -17213,7 +17263,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries monitoring rules based on a partition filter expression.
      *
-     * @param request - ListQualityRulesRequest
+     * @param Request - ListQualityRulesRequest
      *
      * @returns ListQualityRulesResponse
      *
@@ -17231,7 +17281,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries synchronization tasks in Data Integration that use a specific data source.
      *
-     * @param request - ListRefDISyncTasksRequest
+     * @param Request - ListRefDISyncTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRefDISyncTasksResponse
@@ -17290,7 +17340,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries synchronization tasks in Data Integration that use a specific data source.
      *
-     * @param request - ListRefDISyncTasksRequest
+     * @param Request - ListRefDISyncTasksRequest
      *
      * @returns ListRefDISyncTasksResponse
      *
@@ -17308,7 +17358,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of custom alert rules.
      *
-     * @param request - ListRemindsRequest
+     * @param Request - ListRemindsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRemindsResponse
@@ -17371,7 +17421,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of custom alert rules.
      *
-     * @param request - ListRemindsRequest
+     * @param Request - ListRemindsRequest
      *
      * @returns ListRemindsResponse
      *
@@ -17450,7 +17500,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of resource groups of a specific type.
      *
-     * @param request - ListResourceGroupsRequest
+     * @param Request - ListResourceGroupsRequest
      *
      * @returns ListResourceGroupsResponse
      *
@@ -17468,7 +17518,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of on-duty engineers in a shift schedule.
      *
-     * @param request - ListShiftPersonnelsRequest
+     * @param Request - ListShiftPersonnelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListShiftPersonnelsResponse
@@ -17523,7 +17573,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of on-duty engineers in a shift schedule.
      *
-     * @param request - ListShiftPersonnelsRequest
+     * @param Request - ListShiftPersonnelsRequest
      *
      * @returns ListShiftPersonnelsResponse
      *
@@ -17541,7 +17591,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of shift schedules in Operation Center.
      *
-     * @param request - ListShiftSchedulesRequest
+     * @param Request - ListShiftSchedulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListShiftSchedulesResponse
@@ -17592,7 +17642,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of shift schedules in Operation Center.
      *
-     * @param request - ListShiftSchedulesRequest
+     * @param Request - ListShiftSchedulesRequest
      *
      * @returns ListShiftSchedulesResponse
      *
@@ -17610,7 +17660,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
      *
-     * @param request - ListSuccessInstanceAmountRequest
+     * @param Request - ListSuccessInstanceAmountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListSuccessInstanceAmountResponse
@@ -17649,7 +17699,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
      *
-     * @param request - ListSuccessInstanceAmountRequest
+     * @param Request - ListSuccessInstanceAmountRequest
      *
      * @returns ListSuccessInstanceAmountResponse
      *
@@ -17667,7 +17717,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of table levels. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - ListTableLevelRequest
+     * @param Request - ListTableLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListTableLevelResponse
@@ -17702,7 +17752,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of table levels. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - ListTableLevelRequest
+     * @param Request - ListTableLevelRequest
      *
      * @returns ListTableLevelResponse
      *
@@ -17720,7 +17770,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of table themes. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - ListTableThemeRequest
+     * @param Request - ListTableThemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListTableThemeResponse
@@ -17755,7 +17805,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of table themes. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - ListTableThemeRequest
+     * @param Request - ListTableThemeRequest
      *
      * @returns ListTableThemeResponse
      *
@@ -17773,7 +17823,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Obtains tables of different data source types within a tenant by page.
      *
-     * @param request - ListTablesRequest
+     * @param Request - ListTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListTablesResponse
@@ -17820,7 +17870,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Obtains tables of different data source types within a tenant by page.
      *
-     * @param request - ListTablesRequest
+     * @param Request - ListTablesRequest
      *
      * @returns ListTablesResponse
      *
@@ -17838,7 +17888,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries events.
      *
-     * @param request - ListTopicsRequest
+     * @param Request - ListTopicsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListTopicsResponse
@@ -17909,7 +17959,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries events.
      *
-     * @param request - ListTopicsRequest
+     * @param Request - ListTopicsRequest
      *
      * @returns ListTopicsResponse
      *
@@ -17927,7 +17977,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Undeploys a node.
      *
-     * @param request - OfflineNodeRequest
+     * @param Request - OfflineNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns OfflineNodeResponse
@@ -17970,7 +18020,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Undeploys a node.
      *
-     * @param request - OfflineNodeRequest
+     * @param Request - OfflineNodeRequest
      *
      * @returns OfflineNodeResponse
      *
@@ -17988,7 +18038,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Publishes an API.
      *
-     * @param request - PublishDataServiceApiRequest
+     * @param Request - PublishDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PublishDataServiceApiResponse
@@ -18035,7 +18085,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Publishes an API.
      *
-     * @param request - PublishDataServiceApiRequest
+     * @param Request - PublishDataServiceApiRequest
      *
      * @returns PublishDataServiceApiResponse
      *
@@ -18056,7 +18106,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * DataWorks allows you to call only the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to create a batch synchronization task or the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update a batch synchronization task in Data Integration. To create or update a real-time synchronization task, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) or [GenerateDISyncTaskConfigForUpdating](https://help.aliyun.com/document_detail/383464.html) operation to obtain the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization task. DataWorks allows you to create or update real-time synchronization tasks in Data Integration only in asynchronous mode.
      *
-     * @param request - QueryDISyncTaskConfigProcessResultRequest
+     * @param Request - QueryDISyncTaskConfigProcessResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QueryDISyncTaskConfigProcessResultResponse
@@ -18106,7 +18156,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * DataWorks allows you to call only the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to create a batch synchronization task or the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update a batch synchronization task in Data Integration. To create or update a real-time synchronization task, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) or [GenerateDISyncTaskConfigForUpdating](https://help.aliyun.com/document_detail/383464.html) operation to obtain the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization task. DataWorks allows you to create or update real-time synchronization tasks in Data Integration only in asynchronous mode.
      *
-     * @param request - QueryDISyncTaskConfigProcessResultRequest
+     * @param Request - QueryDISyncTaskConfigProcessResultRequest
      *
      * @returns QueryDISyncTaskConfigProcessResultResponse
      *
@@ -18124,7 +18174,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the default data category and data sensitivity level template defined by Data Security Guard.
      *
-     * @param request - QueryDefaultTemplateRequest
+     * @param Request - QueryDefaultTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QueryDefaultTemplateResponse
@@ -18163,7 +18213,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the default data category and data sensitivity level template defined by Data Security Guard.
      *
-     * @param request - QueryDefaultTemplateRequest
+     * @param Request - QueryDefaultTemplateRequest
      *
      * @returns QueryDefaultTemplateResponse
      *
@@ -18186,7 +18236,7 @@ class Dataworkspublic extends OpenApiClient
      * *   The information about the objects can be queried by page, except for data layers, business processes, and data domains. You can add an offset to the end of an FML statement. The num LIMIT num statement specifies the offset when the information about the objects is queried, and the number of pages to return each time. The offset value must be a multiple of the number of pages.
      * *   A maximum of 1,000 entries can be returned each time you call this API operation.
      *
-     * @param request - QueryPublicModelEngineRequest
+     * @param Request - QueryPublicModelEngineRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QueryPublicModelEngineResponse
@@ -18234,7 +18284,7 @@ class Dataworkspublic extends OpenApiClient
      * *   The information about the objects can be queried by page, except for data layers, business processes, and data domains. You can add an offset to the end of an FML statement. The num LIMIT num statement specifies the offset when the information about the objects is queried, and the number of pages to return each time. The offset value must be a multiple of the number of pages.
      * *   A maximum of 1,000 entries can be returned each time you call this API operation.
      *
-     * @param request - QueryPublicModelEngineRequest
+     * @param Request - QueryPublicModelEngineRequest
      *
      * @returns QueryPublicModelEngineResponse
      *
@@ -18252,7 +18302,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the type of a sensitive data identification rule.
      *
-     * @param request - QueryRecognizeDataByRuleTypeRequest
+     * @param Request - QueryRecognizeDataByRuleTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QueryRecognizeDataByRuleTypeResponse
@@ -18295,7 +18345,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the type of a sensitive data identification rule.
      *
-     * @param request - QueryRecognizeDataByRuleTypeRequest
+     * @param Request - QueryRecognizeDataByRuleTypeRequest
      *
      * @returns QueryRecognizeDataByRuleTypeResponse
      *
@@ -18313,7 +18363,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of a specified sensitive field in Data Security Guard.
      *
-     * @param request - QueryRecognizeRuleDetailRequest
+     * @param Request - QueryRecognizeRuleDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QueryRecognizeRuleDetailResponse
@@ -18356,7 +18406,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of a specified sensitive field in Data Security Guard.
      *
-     * @param request - QueryRecognizeRuleDetailRequest
+     * @param Request - QueryRecognizeRuleDetailRequest
      *
      * @returns QueryRecognizeRuleDetailResponse
      *
@@ -18374,7 +18424,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the built-in sensitive data identification rule that is used to configure a sensitive field.
      *
-     * @param request - QueryRecognizeRulesTypeRequest
+     * @param Request - QueryRecognizeRulesTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QueryRecognizeRulesTypeResponse
@@ -18418,7 +18468,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries data categories.
      *
-     * @param request - QuerySensClassificationRequest
+     * @param Request - QuerySensClassificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QuerySensClassificationResponse
@@ -18461,7 +18511,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries data categories.
      *
-     * @param request - QuerySensClassificationRequest
+     * @param Request - QuerySensClassificationRequest
      *
      * @returns QuerySensClassificationResponse
      *
@@ -18479,7 +18529,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries data sensitivity levels in Data Security Guard.
      *
-     * @param request - QuerySensLevelRequest
+     * @param Request - QuerySensLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QuerySensLevelResponse
@@ -18522,7 +18572,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries data sensitivity levels in Data Security Guard.
      *
-     * @param request - QuerySensLevelRequest
+     * @param Request - QuerySensLevelRequest
      *
      * @returns QuerySensLevelResponse
      *
@@ -18540,7 +18590,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries sensitive data identification rules.
      *
-     * @param request - QuerySensNodeInfoRequest
+     * @param Request - QuerySensNodeInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QuerySensNodeInfoResponse
@@ -18603,7 +18653,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries sensitive data identification rules.
      *
-     * @param request - QuerySensNodeInfoRequest
+     * @param Request - QuerySensNodeInfoRequest
      *
      * @returns QuerySensNodeInfoResponse
      *
@@ -18672,7 +18722,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * This operation is in the trial phase. Users who need to call this operation can apply for it. The users can call this operation after the administrator adds the users to the trial list.
      *
-     * @param request - RegisterLineageRelationRequest
+     * @param Request - RegisterLineageRelationRequest
      *
      * @returns RegisterLineageRelationResponse
      *
@@ -18741,7 +18791,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Removes tags from an entity. Only entities of the maxcompute-table type are supported.
      *
-     * @param request - RemoveEntityTagsRequest
+     * @param Request - RemoveEntityTagsRequest
      *
      * @returns RemoveEntityTagsResponse
      *
@@ -18759,7 +18809,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Removes a role from a user in a DataWorks workspace.
      *
-     * @param request - RemoveProjectMemberFromRoleRequest
+     * @param Request - RemoveProjectMemberFromRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RemoveProjectMemberFromRoleResponse
@@ -18806,7 +18856,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Removes a role from a user in a DataWorks workspace.
      *
-     * @param request - RemoveProjectMemberFromRoleRequest
+     * @param Request - RemoveProjectMemberFromRoleRequest
      *
      * @returns RemoveProjectMemberFromRoleResponse
      *
@@ -18824,7 +18874,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Restarts an instance.
      *
-     * @param request - RestartInstanceRequest
+     * @param Request - RestartInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RestartInstanceResponse
@@ -18867,7 +18917,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Restarts an instance.
      *
-     * @param request - RestartInstanceRequest
+     * @param Request - RestartInstanceRequest
      *
      * @returns RestartInstanceResponse
      *
@@ -18885,7 +18935,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Resumes a suspended instance.
      *
-     * @param request - ResumeInstanceRequest
+     * @param Request - ResumeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ResumeInstanceResponse
@@ -18928,7 +18978,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Resumes a suspended instance.
      *
-     * @param request - ResumeInstanceRequest
+     * @param Request - ResumeInstanceRequest
      *
      * @returns ResumeInstanceResponse
      *
@@ -18946,7 +18996,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Revokes permissions on a table from a user.
      *
-     * @param request - RevokeTablePermissionRequest
+     * @param Request - RevokeTablePermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RevokeTablePermissionResponse
@@ -19005,7 +19055,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Revokes permissions on a table from a user.
      *
-     * @param request - RevokeTablePermissionRequest
+     * @param Request - RevokeTablePermissionRequest
      *
      * @returns RevokeTablePermissionResponse
      *
@@ -19026,7 +19076,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * For more information about data backfill, see [Backfill data](https://help.aliyun.com/document_detail/137937.html).
      *
-     * @param request - RunCycleDagNodesRequest
+     * @param Request - RunCycleDagNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RunCycleDagNodesResponse
@@ -19124,7 +19174,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * For more information about data backfill, see [Backfill data](https://help.aliyun.com/document_detail/137937.html).
      *
-     * @param request - RunCycleDagNodesRequest
+     * @param Request - RunCycleDagNodesRequest
      *
      * @returns RunCycleDagNodesResponse
      *
@@ -19142,7 +19192,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Runs nodes in a manually triggered workflow. Before you call this operation, make sure that the manually triggered workflow is committed and deployed. You can find a manually triggered workflow in Operation Center only after the manually triggered workflow is committed and deployed.
      *
-     * @param request - RunManualDagNodesRequest
+     * @param Request - RunManualDagNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RunManualDagNodesResponse
@@ -19221,7 +19271,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Runs nodes in a manually triggered workflow. Before you call this operation, make sure that the manually triggered workflow is committed and deployed. You can find a manually triggered workflow in Operation Center only after the manually triggered workflow is committed and deployed.
      *
-     * @param request - RunManualDagNodesRequest
+     * @param Request - RunManualDagNodesRequest
      *
      * @returns RunManualDagNodesResponse
      *
@@ -19239,7 +19289,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a workflow to perform smoke testing.
      *
-     * @param request - RunSmokeTestRequest
+     * @param Request - RunSmokeTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RunSmokeTestResponse
@@ -19294,7 +19344,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a workflow to perform smoke testing.
      *
-     * @param request - RunSmokeTestRequest
+     * @param Request - RunSmokeTestRequest
      *
      * @returns RunSmokeTestResponse
      *
@@ -19312,7 +19362,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Runs a manually triggered node.
      *
-     * @param request - RunTriggerNodeRequest
+     * @param Request - RunTriggerNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RunTriggerNodeResponse
@@ -19363,7 +19413,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Runs a manually triggered node.
      *
-     * @param request - RunTriggerNodeRequest
+     * @param Request - RunTriggerNodeRequest
      *
      * @returns RunTriggerNodeResponse
      *
@@ -19381,7 +19431,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Saves the test results of an API.
      *
-     * @param request - SaveDataServiceApiTestResultRequest
+     * @param Request - SaveDataServiceApiTestResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SaveDataServiceApiTestResultResponse
@@ -19436,7 +19486,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Saves the test results of an API.
      *
-     * @param request - SaveDataServiceApiTestResultRequest
+     * @param Request - SaveDataServiceApiTestResultRequest
      *
      * @returns SaveDataServiceApiTestResultResponse
      *
@@ -19454,7 +19504,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Checks whether input data contains sensitive data.
      *
-     * @param request - ScanSensitiveDataRequest
+     * @param Request - ScanSensitiveDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ScanSensitiveDataResponse
@@ -19489,7 +19539,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Checks whether input data contains sensitive data.
      *
-     * @param request - ScanSensitiveDataRequest
+     * @param Request - ScanSensitiveDataRequest
      *
      * @returns ScanSensitiveDataResponse
      *
@@ -19510,7 +19560,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can call this operation to query only metatables in a MaxCompute or E-MapReduce (EMR) compute engine.
      *
-     * @param request - SearchMetaTablesRequest
+     * @param Request - SearchMetaTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SearchMetaTablesResponse
@@ -19580,7 +19630,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can call this operation to query only metatables in a MaxCompute or E-MapReduce (EMR) compute engine.
      *
-     * @param request - SearchMetaTablesRequest
+     * @param Request - SearchMetaTablesRequest
      *
      * @returns SearchMetaTablesResponse
      *
@@ -19595,13 +19645,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->searchMetaTablesWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries a node based on the output.
      *
      * @deprecated OpenAPI SearchNodesByOutput is deprecated
      *
-     * @param request - SearchNodesByOutputRequest
+     * @param Request - SearchNodesByOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SearchNodesByOutputResponse
@@ -19647,7 +19696,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI SearchNodesByOutput is deprecated
      *
-     * @param request - SearchNodesByOutputRequest
+     * @param Request - SearchNodesByOutputRequest
      *
      * @returns SearchNodesByOutputResponse
      *
@@ -19662,13 +19711,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->searchNodesByOutputWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Shares a data source to a specific DataWorks workspace or a specific user.
      *
      * @deprecated OpenAPI SetDataSourceShare is deprecated
      *
-     * @param request - SetDataSourceShareRequest
+     * @param Request - SetDataSourceShareRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SetDataSourceShareResponse
@@ -19726,7 +19774,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @deprecated OpenAPI SetDataSourceShare is deprecated
      *
-     * @param request - SetDataSourceShareRequest
+     * @param Request - SetDataSourceShareRequest
      *
      * @returns SetDataSourceShareResponse
      *
@@ -19795,7 +19843,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Configures tags for an entity. Only entities of the maxcompute-table type are supported.
      *
-     * @param request - SetEntityTagsRequest
+     * @param Request - SetEntityTagsRequest
      *
      * @returns SetEntityTagsResponse
      *
@@ -19813,7 +19861,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Sets the state of a failed instance to successful.
      *
-     * @param request - SetSuccessInstanceRequest
+     * @param Request - SetSuccessInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SetSuccessInstanceResponse
@@ -19856,7 +19904,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Sets the state of a failed instance to successful.
      *
-     * @param request - SetSuccessInstanceRequest
+     * @param Request - SetSuccessInstanceRequest
      *
      * @returns SetSuccessInstanceResponse
      *
@@ -19927,7 +19975,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Starts a synchronization task of a new version. Only the following type of task is supported: real-time data synchronization from a MySQL database to Hologres.
      *
-     * @param request - StartDIJobRequest
+     * @param Request - StartDIJobRequest
      *
      * @returns StartDIJobResponse
      *
@@ -19945,7 +19993,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Starts a real-time synchronization task or a synchronization solution.
      *
-     * @param request - StartDISyncInstanceRequest
+     * @param Request - StartDISyncInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns StartDISyncInstanceResponse
@@ -19996,7 +20044,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Starts a real-time synchronization task or a synchronization solution.
      *
-     * @param request - StartDISyncInstanceRequest
+     * @param Request - StartDISyncInstanceRequest
      *
      * @returns StartDISyncInstanceResponse
      *
@@ -20014,7 +20062,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Starts a migration task.
      *
-     * @param request - StartMigrationRequest
+     * @param Request - StartMigrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns StartMigrationResponse
@@ -20057,7 +20105,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Starts a migration task.
      *
-     * @param request - StartMigrationRequest
+     * @param Request - StartMigrationRequest
      *
      * @returns StartMigrationResponse
      *
@@ -20075,7 +20123,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Stops a new-version synchronization task. The following type of synchronization task is supported: real-time synchronization of all data in a MySQL database to Hologres.
      *
-     * @param request - StopDIJobRequest
+     * @param Request - StopDIJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns StopDIJobResponse
@@ -20114,7 +20162,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Stops a new-version synchronization task. The following type of synchronization task is supported: real-time synchronization of all data in a MySQL database to Hologres.
      *
-     * @param request - StopDIJobRequest
+     * @param Request - StopDIJobRequest
      *
      * @returns StopDIJobResponse
      *
@@ -20132,7 +20180,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Stops a real-time synchronization task.
      *
-     * @param request - StopDISyncInstanceRequest
+     * @param Request - StopDISyncInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns StopDISyncInstanceResponse
@@ -20179,7 +20227,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Stops a real-time synchronization task.
      *
-     * @param request - StopDISyncInstanceRequest
+     * @param Request - StopDISyncInstanceRequest
      *
      * @returns StopDISyncInstanceResponse
      *
@@ -20197,7 +20245,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Terminates an instance.
      *
-     * @param request - StopInstanceRequest
+     * @param Request - StopInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns StopInstanceResponse
@@ -20240,7 +20288,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Terminates an instance.
      *
-     * @param request - StopInstanceRequest
+     * @param Request - StopInstanceRequest
      *
      * @returns StopInstanceResponse
      *
@@ -20258,7 +20306,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Submits an API in DataService Studio.
      *
-     * @param request - SubmitDataServiceApiRequest
+     * @param Request - SubmitDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SubmitDataServiceApiResponse
@@ -20305,7 +20353,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Submits an API in DataService Studio.
      *
-     * @param request - SubmitDataServiceApiRequest
+     * @param Request - SubmitDataServiceApiRequest
      *
      * @returns SubmitDataServiceApiResponse
      *
@@ -20323,7 +20371,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Commits a file to the development environment of the scheduling system to generate a task.
      *
-     * @param request - SubmitFileRequest
+     * @param Request - SubmitFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SubmitFileResponse
@@ -20378,7 +20426,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Commits a file to the development environment of the scheduling system to generate a task.
      *
-     * @param request - SubmitFileRequest
+     * @param Request - SubmitFileRequest
      *
      * @returns SubmitFileResponse
      *
@@ -20396,7 +20444,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Suspends an instance.
      *
-     * @param request - SuspendInstanceRequest
+     * @param Request - SuspendInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SuspendInstanceResponse
@@ -20439,7 +20487,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Suspends an instance.
      *
-     * @param request - SuspendInstanceRequest
+     * @param Request - SuspendInstanceRequest
      *
      * @returns SuspendInstanceResponse
      *
@@ -20457,7 +20505,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Undeploys a real-time synchronization task.
      *
-     * @param request - TerminateDISyncInstanceRequest
+     * @param Request - TerminateDISyncInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns TerminateDISyncInstanceResponse
@@ -20504,7 +20552,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Undeploys a real-time synchronization task.
      *
-     * @param request - TerminateDISyncInstanceRequest
+     * @param Request - TerminateDISyncInstanceRequest
      *
      * @returns TerminateDISyncInstanceResponse
      *
@@ -20522,7 +20570,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Tests a DataService Studio API in asynchronous mode. You can call the GetDataServiceApiTest operation to query the test result.
      *
-     * @param request - TestDataServiceApiRequest
+     * @param Request - TestDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns TestDataServiceApiResponse
@@ -20583,7 +20631,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Tests a DataService Studio API in asynchronous mode. You can call the GetDataServiceApiTest operation to query the test result.
      *
-     * @param request - TestDataServiceApiRequest
+     * @param Request - TestDataServiceApiRequest
      *
      * @returns TestDataServiceApiResponse
      *
@@ -20601,7 +20649,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Tests the network connectivity between a data source and a resource group.
      *
-     * @param request - TestNetworkConnectionRequest
+     * @param Request - TestNetworkConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns TestNetworkConnectionResponse
@@ -20652,7 +20700,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Tests the network connectivity between a data source and a resource group.
      *
-     * @param request - TestNetworkConnectionRequest
+     * @param Request - TestNetworkConnectionRequest
      *
      * @returns TestNetworkConnectionResponse
      *
@@ -20670,7 +20718,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the ranking of the running durations of instances.
      *
-     * @param request - TopTenElapsedTimeInstanceRequest
+     * @param Request - TopTenElapsedTimeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns TopTenElapsedTimeInstanceResponse
@@ -20709,7 +20757,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the ranking of the running durations of instances.
      *
-     * @param request - TopTenElapsedTimeInstanceRequest
+     * @param Request - TopTenElapsedTimeInstanceRequest
      *
      * @returns TopTenElapsedTimeInstanceResponse
      *
@@ -20727,7 +20775,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the ranking of nodes on which errors occur within the previous month.
      *
-     * @param request - TopTenErrorTimesInstanceRequest
+     * @param Request - TopTenErrorTimesInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns TopTenErrorTimesInstanceResponse
@@ -20766,7 +20814,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the ranking of nodes on which errors occur within the previous month.
      *
-     * @param request - TopTenErrorTimesInstanceRequest
+     * @param Request - TopTenErrorTimesInstanceRequest
      *
      * @returns TopTenErrorTimesInstanceResponse
      *
@@ -20881,7 +20929,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a baseline.
      *
-     * @param request - UpdateBaselineRequest
+     * @param Request - UpdateBaselineRequest
      *
      * @returns UpdateBaselineResponse
      *
@@ -20899,7 +20947,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a workflow.
      *
-     * @param request - UpdateBusinessRequest
+     * @param Request - UpdateBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateBusinessResponse
@@ -20958,7 +21006,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a workflow.
      *
-     * @param request - UpdateBusinessRequest
+     * @param Request - UpdateBusinessRequest
      *
      * @returns UpdateBusinessResponse
      *
@@ -21035,7 +21083,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates the configurations of submodules in a workspace. You can configure SPARK parameters.
      *
-     * @param request - UpdateClusterConfigsRequest
+     * @param Request - UpdateClusterConfigsRequest
      *
      * @returns UpdateClusterConfigsResponse
      *
@@ -21050,13 +21098,12 @@ class Dataworkspublic extends OpenApiClient
         return $this->updateClusterConfigsWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Updates a data source.
      *
-     * @deprecated OpenAPI UpdateConnection is deprecated
+     * @deprecated openAPI UpdateConnection is deprecated, please use dataworks-public::2020-05-18::UpdateDataSource instead
      *
-     * @param request - UpdateConnectionRequest
+     * @param Request - UpdateConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateConnectionResponse
@@ -21112,9 +21159,9 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a data source.
      *
-     * @deprecated OpenAPI UpdateConnection is deprecated
+     * @deprecated openAPI UpdateConnection is deprecated, please use dataworks-public::2020-05-18::UpdateDataSource instead
      *
-     * @param request - UpdateConnectionRequest
+     * @param Request - UpdateConnectionRequest
      *
      * @returns UpdateConnectionResponse
      *
@@ -21207,7 +21254,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can configure alert rules only for tasks that can be used for real-time data synchronization. You must update all fields in the alert rule.
      *
-     * @param request - UpdateDIAlarmRuleRequest
+     * @param Request - UpdateDIAlarmRuleRequest
      *
      * @returns UpdateDIAlarmRuleResponse
      *
@@ -21302,7 +21349,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a new-version synchronization task. The following type of task is supported: real-time synchronization of all data in a MySQL database to Hologres.
      *
-     * @param request - UpdateDIJobRequest
+     * @param Request - UpdateDIJobRequest
      *
      * @returns UpdateDIJobResponse
      *
@@ -21323,7 +21370,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization tasks in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](https://help.aliyun.com/document_detail/199008.html).
      *
-     * @param request - UpdateDIProjectConfigRequest
+     * @param Request - UpdateDIProjectConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateDIProjectConfigResponse
@@ -21377,7 +21424,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization tasks in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](https://help.aliyun.com/document_detail/199008.html).
      *
-     * @param request - UpdateDIProjectConfigRequest
+     * @param Request - UpdateDIProjectConfigRequest
      *
      * @returns UpdateDIProjectConfigResponse
      *
@@ -21395,7 +21442,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a data synchronization task.
      *
-     * @param request - UpdateDISyncTaskRequest
+     * @param Request - UpdateDISyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateDISyncTaskResponse
@@ -21450,7 +21497,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a data synchronization task.
      *
-     * @param request - UpdateDISyncTaskRequest
+     * @param Request - UpdateDISyncTaskRequest
      *
      * @returns UpdateDISyncTaskResponse
      *
@@ -21468,7 +21515,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates the information about an API in the development state in DataService Studio.
      *
-     * @param request - UpdateDataServiceApiRequest
+     * @param Request - UpdateDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateDataServiceApiResponse
@@ -21559,7 +21606,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates the information about an API in the development state in DataService Studio.
      *
-     * @param request - UpdateDataServiceApiRequest
+     * @param Request - UpdateDataServiceApiRequest
      *
      * @returns UpdateDataServiceApiResponse
      *
@@ -21577,7 +21624,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a data source.
      *
-     * @param request - UpdateDataSourceRequest
+     * @param Request - UpdateDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateDataSourceResponse
@@ -21632,7 +21679,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a data source.
      *
-     * @param request - UpdateDataSourceRequest
+     * @param Request - UpdateDataSourceRequest
      *
      * @returns UpdateDataSourceResponse
      *
@@ -21653,7 +21700,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
      *
-     * @param request - UpdateFileRequest
+     * @param Request - UpdateFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateFileResponse
@@ -21823,7 +21870,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
      *
-     * @param request - UpdateFileRequest
+     * @param Request - UpdateFileRequest
      *
      * @returns UpdateFileResponse
      *
@@ -21841,7 +21888,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a folder.
      *
-     * @param request - UpdateFolderRequest
+     * @param Request - UpdateFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateFolderResponse
@@ -21892,7 +21939,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a folder.
      *
-     * @param request - UpdateFolderRequest
+     * @param Request - UpdateFolderRequest
      *
      * @returns UpdateFolderResponse
      *
@@ -21910,7 +21957,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Returns the check result of an extension point event to DataStudio after the extension point event is triggered during data development and checked by an extension.
      *
-     * @param request - UpdateIDEEventResultRequest
+     * @param Request - UpdateIDEEventResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateIDEEventResultResponse
@@ -21961,7 +22008,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Returns the check result of an extension point event to DataStudio after the extension point event is triggered during data development and checked by an extension.
      *
-     * @param request - UpdateIDEEventResultRequest
+     * @param Request - UpdateIDEEventResultRequest
      *
      * @returns UpdateIDEEventResultResponse
      *
@@ -21979,7 +22026,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a category.
      *
-     * @param request - UpdateMetaCategoryRequest
+     * @param Request - UpdateMetaCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateMetaCategoryResponse
@@ -22026,7 +22073,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a category.
      *
-     * @param request - UpdateMetaCategoryRequest
+     * @param Request - UpdateMetaCategoryRequest
      *
      * @returns UpdateMetaCategoryResponse
      *
@@ -22047,7 +22094,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * Only the name and comment of a collection can be updated.
      *
-     * @param request - UpdateMetaCollectionRequest
+     * @param Request - UpdateMetaCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateMetaCollectionResponse
@@ -22097,7 +22144,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * Only the name and comment of a collection can be updated.
      *
-     * @param request - UpdateMetaCollectionRequest
+     * @param Request - UpdateMetaCollectionRequest
      *
      * @returns UpdateMetaCollectionResponse
      *
@@ -22115,7 +22162,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates the metadata information about a table. Only MaxCompute tables are supported.
      *
-     * @param request - UpdateMetaTableRequest
+     * @param Request - UpdateMetaTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateMetaTableResponse
@@ -22196,7 +22243,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates the metadata information about a table. Only MaxCompute tables are supported.
      *
-     * @param request - UpdateMetaTableRequest
+     * @param Request - UpdateMetaTableRequest
      *
      * @returns UpdateMetaTableResponse
      *
@@ -22214,7 +22261,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates the instructions on how to use a table. If no instruction on how to use the table is available, the instructions that are configured by calling this operation are added.
      *
-     * @param request - UpdateMetaTableIntroWikiRequest
+     * @param Request - UpdateMetaTableIntroWikiRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateMetaTableIntroWikiResponse
@@ -22259,7 +22306,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates the instructions on how to use a table. If no instruction on how to use the table is available, the instructions that are configured by calling this operation are added.
      *
-     * @param request - UpdateMetaTableIntroWikiRequest
+     * @param Request - UpdateMetaTableIntroWikiRequest
      *
      * @returns UpdateMetaTableIntroWikiResponse
      *
@@ -22277,7 +22324,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Changes the owner of a node.
      *
-     * @param request - UpdateNodeOwnerRequest
+     * @param Request - UpdateNodeOwnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateNodeOwnerResponse
@@ -22324,7 +22371,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Changes the owner of a node.
      *
-     * @param request - UpdateNodeOwnerRequest
+     * @param Request - UpdateNodeOwnerRequest
      *
      * @returns UpdateNodeOwnerResponse
      *
@@ -22342,7 +22389,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Freezes or unfreezes a node.
      *
-     * @param request - UpdateNodeRunModeRequest
+     * @param Request - UpdateNodeRunModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateNodeRunModeResponse
@@ -22389,7 +22436,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Freezes or unfreezes a node.
      *
-     * @param request - UpdateNodeRunModeRequest
+     * @param Request - UpdateNodeRunModeRequest
      *
      * @returns UpdateNodeRunModeResponse
      *
@@ -22407,7 +22454,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a subscription relationship.
      *
-     * @param request - UpdateQualityFollowerRequest
+     * @param Request - UpdateQualityFollowerRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateQualityFollowerResponse
@@ -22462,7 +22509,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a subscription relationship.
      *
-     * @param request - UpdateQualityFollowerRequest
+     * @param Request - UpdateQualityFollowerRequest
      *
      * @returns UpdateQualityFollowerResponse
      *
@@ -22480,7 +22527,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a monitoring rule.
      *
-     * @param request - UpdateQualityRuleRequest
+     * @param Request - UpdateQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateQualityRuleResponse
@@ -22603,7 +22650,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a monitoring rule.
      *
-     * @param request - UpdateQualityRuleRequest
+     * @param Request - UpdateQualityRuleRequest
      *
      * @returns UpdateQualityRuleResponse
      *
@@ -22621,7 +22668,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Modifies a custom alert rule.
      *
-     * @param request - UpdateRemindRequest
+     * @param Request - UpdateRemindRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateRemindResponse
@@ -22728,7 +22775,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Modifies a custom alert rule.
      *
-     * @param request - UpdateRemindRequest
+     * @param Request - UpdateRemindRequest
      *
      * @returns UpdateRemindResponse
      *
@@ -22746,7 +22793,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a MaxCompute table.
      *
-     * @param request - UpdateTableRequest
+     * @param Request - UpdateTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateTableResponse
@@ -22863,7 +22910,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a MaxCompute table.
      *
-     * @param request - UpdateTableRequest
+     * @param Request - UpdateTableRequest
      *
      * @returns UpdateTableResponse
      *
@@ -22881,7 +22928,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates the fields in a MaxCompute table.
      *
-     * @param request - UpdateTableAddColumnRequest
+     * @param Request - UpdateTableAddColumnRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateTableAddColumnResponse
@@ -22926,7 +22973,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates the fields in a MaxCompute table.
      *
-     * @param request - UpdateTableAddColumnRequest
+     * @param Request - UpdateTableAddColumnRequest
      *
      * @returns UpdateTableAddColumnResponse
      *
@@ -22944,7 +22991,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - UpdateTableLevelRequest
+     * @param Request - UpdateTableLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateTableLevelResponse
@@ -22999,7 +23046,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - UpdateTableLevelRequest
+     * @param Request - UpdateTableLevelRequest
      *
      * @returns UpdateTableLevelResponse
      *
@@ -23017,7 +23064,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Modifies the information about a table, such as the table folder, level, and category.
      *
-     * @param request - UpdateTableModelInfoRequest
+     * @param Request - UpdateTableModelInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateTableModelInfoResponse
@@ -23072,7 +23119,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Modifies the information about a table, such as the table folder, level, and category.
      *
-     * @param request - UpdateTableModelInfoRequest
+     * @param Request - UpdateTableModelInfoRequest
      *
      * @returns UpdateTableModelInfoResponse
      *
@@ -23090,7 +23137,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a table theme. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - UpdateTableThemeRequest
+     * @param Request - UpdateTableThemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateTableThemeResponse
@@ -23137,7 +23184,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a table theme. This operation will be replaced soon. We recommend that you do not call this operation.
      *
-     * @param request - UpdateTableThemeRequest
+     * @param Request - UpdateTableThemeRequest
      *
      * @returns UpdateTableThemeResponse
      *
@@ -23155,7 +23202,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates the file information about a function.
      *
-     * @param request - UpdateUdfFileRequest
+     * @param Request - UpdateUdfFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateUdfFileResponse
@@ -23238,7 +23285,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates the file information about a function.
      *
-     * @param request - UpdateUdfFileRequest
+     * @param Request - UpdateUdfFileRequest
      *
      * @returns UpdateUdfFileResponse
      *
@@ -23256,7 +23303,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Returns the processing result sent by an extension after a process in Operation Center is blocked by the extension.
      *
-     * @param request - UpdateWorkbenchEventResultRequest
+     * @param Request - UpdateWorkbenchEventResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateWorkbenchEventResultResponse
@@ -23307,7 +23354,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Returns the processing result sent by an extension after a process in Operation Center is blocked by the extension.
      *
-     * @param request - UpdateWorkbenchEventResultRequest
+     * @param Request - UpdateWorkbenchEventResultRequest
      *
      * @returns UpdateWorkbenchEventResultResponse
      *

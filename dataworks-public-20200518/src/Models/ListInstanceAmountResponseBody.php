@@ -39,7 +39,8 @@ class ListInstanceAmountResponseBody extends Model
                 $res['InstanceCounts'] = [];
                 $n1 = 0;
                 foreach ($this->instanceCounts as $item1) {
-                    $res['InstanceCounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceCounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListInstanceAmountResponseBody extends Model
                 $model->instanceCounts = [];
                 $n1 = 0;
                 foreach ($map['InstanceCounts'] as $item1) {
-                    $model->instanceCounts[$n1++] = instanceCounts::fromMap($item1);
+                    $model->instanceCounts[$n1] = instanceCounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

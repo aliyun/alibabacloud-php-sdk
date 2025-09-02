@@ -385,7 +385,8 @@ class ruleChecks extends Model
                 $res['ReferenceValue'] = [];
                 $n1 = 0;
                 foreach ($this->referenceValue as $item1) {
-                    $res['ReferenceValue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReferenceValue'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -407,7 +408,8 @@ class ruleChecks extends Model
                 $res['SampleValue'] = [];
                 $n1 = 0;
                 foreach ($this->sampleValue as $item1) {
-                    $res['SampleValue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SampleValue'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -572,7 +574,8 @@ class ruleChecks extends Model
                 $model->referenceValue = [];
                 $n1 = 0;
                 foreach ($map['ReferenceValue'] as $item1) {
-                    $model->referenceValue[$n1++] = referenceValue::fromMap($item1);
+                    $model->referenceValue[$n1] = referenceValue::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -594,7 +597,8 @@ class ruleChecks extends Model
                 $model->sampleValue = [];
                 $n1 = 0;
                 foreach ($map['SampleValue'] as $item1) {
-                    $model->sampleValue[$n1++] = sampleValue::fromMap($item1);
+                    $model->sampleValue[$n1] = sampleValue::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

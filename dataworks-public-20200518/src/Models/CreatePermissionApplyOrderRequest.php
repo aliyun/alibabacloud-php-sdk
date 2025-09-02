@@ -87,7 +87,8 @@ class CreatePermissionApplyOrderRequest extends Model
                 $res['ApplyObject'] = [];
                 $n1 = 0;
                 foreach ($this->applyObject as $item1) {
-                    $res['ApplyObject'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApplyObject'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +145,8 @@ class CreatePermissionApplyOrderRequest extends Model
                 $model->applyObject = [];
                 $n1 = 0;
                 foreach ($map['ApplyObject'] as $item1) {
-                    $model->applyObject[$n1++] = applyObject::fromMap($item1);
+                    $model->applyObject[$n1] = applyObject::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

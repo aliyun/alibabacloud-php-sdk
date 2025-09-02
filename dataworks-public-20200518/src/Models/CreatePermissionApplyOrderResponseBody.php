@@ -38,7 +38,8 @@ class CreatePermissionApplyOrderResponseBody extends Model
                 $res['FlowId'] = [];
                 $n1 = 0;
                 foreach ($this->flowId as $item1) {
-                    $res['FlowId'][$n1++] = $item1;
+                    $res['FlowId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class CreatePermissionApplyOrderResponseBody extends Model
                 $model->flowId = [];
                 $n1 = 0;
                 foreach ($map['FlowId'] as $item1) {
-                    $model->flowId[$n1++] = $item1;
+                    $model->flowId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

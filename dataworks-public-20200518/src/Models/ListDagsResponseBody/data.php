@@ -33,7 +33,8 @@ class data extends Model
                 $res['Dags'] = [];
                 $n1 = 0;
                 foreach ($this->dags as $item1) {
-                    $res['Dags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Dags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->dags = [];
                 $n1 = 0;
                 foreach ($map['Dags'] as $item1) {
-                    $model->dags[$n1++] = dags::fromMap($item1);
+                    $model->dags[$n1] = dags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -51,7 +51,8 @@ class nodeTypeInfoList extends Model
                 $res['NodeTypeInfo'] = [];
                 $n1 = 0;
                 foreach ($this->nodeTypeInfo as $item1) {
-                    $res['NodeTypeInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeTypeInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class nodeTypeInfoList extends Model
                 $model->nodeTypeInfo = [];
                 $n1 = 0;
                 foreach ($map['NodeTypeInfo'] as $item1) {
-                    $model->nodeTypeInfo[$n1++] = nodeTypeInfo::fromMap($item1);
+                    $model->nodeTypeInfo[$n1] = nodeTypeInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

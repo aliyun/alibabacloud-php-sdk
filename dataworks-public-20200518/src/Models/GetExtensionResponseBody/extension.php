@@ -97,7 +97,8 @@ class extension extends Model
                 $res['BindEventList'] = [];
                 $n1 = 0;
                 foreach ($this->bindEventList as $item1) {
-                    $res['BindEventList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BindEventList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class extension extends Model
                 $res['EventCategoryList'] = [];
                 $n1 = 0;
                 foreach ($this->eventCategoryList as $item1) {
-                    $res['EventCategoryList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EventCategoryList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +166,8 @@ class extension extends Model
                 $model->bindEventList = [];
                 $n1 = 0;
                 foreach ($map['BindEventList'] as $item1) {
-                    $model->bindEventList[$n1++] = bindEventList::fromMap($item1);
+                    $model->bindEventList[$n1] = bindEventList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +181,8 @@ class extension extends Model
                 $model->eventCategoryList = [];
                 $n1 = 0;
                 foreach ($map['EventCategoryList'] as $item1) {
-                    $model->eventCategoryList[$n1++] = eventCategoryList::fromMap($item1);
+                    $model->eventCategoryList[$n1] = eventCategoryList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

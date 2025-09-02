@@ -73,7 +73,8 @@ class alarmList extends Model
                 $res['AlarmRuleList'] = [];
                 $n1 = 0;
                 foreach ($this->alarmRuleList as $item1) {
-                    $res['AlarmRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AlarmRuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +119,8 @@ class alarmList extends Model
                 $model->alarmRuleList = [];
                 $n1 = 0;
                 foreach ($map['AlarmRuleList'] as $item1) {
-                    $model->alarmRuleList[$n1++] = alarmRuleList::fromMap($item1);
+                    $model->alarmRuleList[$n1] = alarmRuleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

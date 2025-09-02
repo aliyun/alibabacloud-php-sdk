@@ -39,7 +39,8 @@ class UpdateTableAddColumnRequest extends Model
                 $res['Column'] = [];
                 $n1 = 0;
                 foreach ($this->column as $item1) {
-                    $res['Column'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Column'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class UpdateTableAddColumnRequest extends Model
                 $model->column = [];
                 $n1 = 0;
                 foreach ($map['Column'] as $item1) {
-                    $model->column[$n1++] = column::fromMap($item1);
+                    $model->column[$n1] = column::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

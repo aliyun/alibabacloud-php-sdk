@@ -85,7 +85,8 @@ class applyOrderDetail extends Model
                 $res['ApproveAccountList'] = [];
                 $n1 = 0;
                 foreach ($this->approveAccountList as $item1) {
-                    $res['ApproveAccountList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApproveAccountList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class applyOrderDetail extends Model
                 $res['GranteeObjectList'] = [];
                 $n1 = 0;
                 foreach ($this->granteeObjectList as $item1) {
-                    $res['GranteeObjectList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GranteeObjectList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +138,8 @@ class applyOrderDetail extends Model
                 $model->approveAccountList = [];
                 $n1 = 0;
                 foreach ($map['ApproveAccountList'] as $item1) {
-                    $model->approveAccountList[$n1++] = approveAccountList::fromMap($item1);
+                    $model->approveAccountList[$n1] = approveAccountList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +161,8 @@ class applyOrderDetail extends Model
                 $model->granteeObjectList = [];
                 $n1 = 0;
                 foreach ($map['GranteeObjectList'] as $item1) {
-                    $model->granteeObjectList[$n1++] = granteeObjectList::fromMap($item1);
+                    $model->granteeObjectList[$n1] = granteeObjectList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

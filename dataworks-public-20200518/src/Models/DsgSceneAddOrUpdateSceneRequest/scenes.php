@@ -74,7 +74,8 @@ class scenes extends Model
                 $res['projects'] = [];
                 $n1 = 0;
                 foreach ($this->projects as $item1) {
-                    $res['projects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['projects'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class scenes extends Model
                 $res['userGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->userGroupIds as $item1) {
-                    $res['userGroupIds'][$n1++] = $item1;
+                    $res['userGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +123,8 @@ class scenes extends Model
                 $model->projects = [];
                 $n1 = 0;
                 foreach ($map['projects'] as $item1) {
-                    $model->projects[$n1++] = projects::fromMap($item1);
+                    $model->projects[$n1] = projects::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -139,7 +142,8 @@ class scenes extends Model
                 $model->userGroupIds = [];
                 $n1 = 0;
                 foreach ($map['userGroupIds'] as $item1) {
-                    $model->userGroupIds[$n1++] = $item1;
+                    $model->userGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

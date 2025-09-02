@@ -73,7 +73,8 @@ class jobSettings extends Model
                 $res['ColumnDataTypeSettings'] = [];
                 $n1 = 0;
                 foreach ($this->columnDataTypeSettings as $item1) {
-                    $res['ColumnDataTypeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ColumnDataTypeSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class jobSettings extends Model
                 $res['DdlHandlingSettings'] = [];
                 $n1 = 0;
                 foreach ($this->ddlHandlingSettings as $item1) {
-                    $res['DdlHandlingSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DdlHandlingSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +99,8 @@ class jobSettings extends Model
                 $res['RuntimeSettings'] = [];
                 $n1 = 0;
                 foreach ($this->runtimeSettings as $item1) {
-                    $res['RuntimeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuntimeSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +125,8 @@ class jobSettings extends Model
                 $model->columnDataTypeSettings = [];
                 $n1 = 0;
                 foreach ($map['ColumnDataTypeSettings'] as $item1) {
-                    $model->columnDataTypeSettings[$n1++] = columnDataTypeSettings::fromMap($item1);
+                    $model->columnDataTypeSettings[$n1] = columnDataTypeSettings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +140,8 @@ class jobSettings extends Model
                 $model->ddlHandlingSettings = [];
                 $n1 = 0;
                 foreach ($map['DdlHandlingSettings'] as $item1) {
-                    $model->ddlHandlingSettings[$n1++] = ddlHandlingSettings::fromMap($item1);
+                    $model->ddlHandlingSettings[$n1] = ddlHandlingSettings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +151,8 @@ class jobSettings extends Model
                 $model->runtimeSettings = [];
                 $n1 = 0;
                 foreach ($map['RuntimeSettings'] as $item1) {
-                    $model->runtimeSettings[$n1++] = runtimeSettings::fromMap($item1);
+                    $model->runtimeSettings[$n1] = runtimeSettings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

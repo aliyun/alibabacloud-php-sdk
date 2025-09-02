@@ -43,11 +43,12 @@ class QueryPublicModelEngineResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->returnValue as $item1) {
                     if (\is_array($item1)) {
-                        $res['ReturnValue'][$n1++] = [];
+                        $res['ReturnValue'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['ReturnValue'][$n1++][$key2] = $value2;
+                            $res['ReturnValue'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -73,11 +74,12 @@ class QueryPublicModelEngineResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['ReturnValue'] as $item1) {
                     if (!empty($item1)) {
-                        $model->returnValue[$n1++] = [];
+                        $model->returnValue[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->returnValue[$n1++][$key2] = $value2;
+                            $model->returnValue[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

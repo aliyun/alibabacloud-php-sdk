@@ -131,7 +131,8 @@ class reminds extends Model
                 $res['AlertMethods'] = [];
                 $n1 = 0;
                 foreach ($this->alertMethods as $item1) {
-                    $res['AlertMethods'][$n1++] = $item1;
+                    $res['AlertMethods'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +142,8 @@ class reminds extends Model
                 $res['AlertTargets'] = [];
                 $n1 = 0;
                 foreach ($this->alertTargets as $item1) {
-                    $res['AlertTargets'][$n1++] = $item1;
+                    $res['AlertTargets'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +157,8 @@ class reminds extends Model
                 $res['BaselineIds'] = [];
                 $n1 = 0;
                 foreach ($this->baselineIds as $item1) {
-                    $res['BaselineIds'][$n1++] = $item1;
+                    $res['BaselineIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +168,8 @@ class reminds extends Model
                 $res['BizProcessIds'] = [];
                 $n1 = 0;
                 foreach ($this->bizProcessIds as $item1) {
-                    $res['BizProcessIds'][$n1++] = $item1;
+                    $res['BizProcessIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +191,8 @@ class reminds extends Model
                 $res['NodeIds'] = [];
                 $n1 = 0;
                 foreach ($this->nodeIds as $item1) {
-                    $res['NodeIds'][$n1++] = $item1;
+                    $res['NodeIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -197,7 +202,8 @@ class reminds extends Model
                 $res['ProjectIds'] = [];
                 $n1 = 0;
                 foreach ($this->projectIds as $item1) {
-                    $res['ProjectIds'][$n1++] = $item1;
+                    $res['ProjectIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -238,7 +244,8 @@ class reminds extends Model
                 $model->alertMethods = [];
                 $n1 = 0;
                 foreach ($map['AlertMethods'] as $item1) {
-                    $model->alertMethods[$n1++] = $item1;
+                    $model->alertMethods[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -248,7 +255,8 @@ class reminds extends Model
                 $model->alertTargets = [];
                 $n1 = 0;
                 foreach ($map['AlertTargets'] as $item1) {
-                    $model->alertTargets[$n1++] = $item1;
+                    $model->alertTargets[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -262,7 +270,8 @@ class reminds extends Model
                 $model->baselineIds = [];
                 $n1 = 0;
                 foreach ($map['BaselineIds'] as $item1) {
-                    $model->baselineIds[$n1++] = $item1;
+                    $model->baselineIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -272,7 +281,8 @@ class reminds extends Model
                 $model->bizProcessIds = [];
                 $n1 = 0;
                 foreach ($map['BizProcessIds'] as $item1) {
-                    $model->bizProcessIds[$n1++] = $item1;
+                    $model->bizProcessIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -294,7 +304,8 @@ class reminds extends Model
                 $model->nodeIds = [];
                 $n1 = 0;
                 foreach ($map['NodeIds'] as $item1) {
-                    $model->nodeIds[$n1++] = $item1;
+                    $model->nodeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -304,7 +315,8 @@ class reminds extends Model
                 $model->projectIds = [];
                 $n1 = 0;
                 foreach ($map['ProjectIds'] as $item1) {
-                    $model->projectIds[$n1++] = $item1;
+                    $model->projectIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

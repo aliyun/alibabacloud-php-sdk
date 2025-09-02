@@ -51,7 +51,8 @@ class data extends Model
                 $res['AlertMessages'] = [];
                 $n1 = 0;
                 foreach ($this->alertMessages as $item1) {
-                    $res['AlertMessages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AlertMessages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->alertMessages = [];
                 $n1 = 0;
                 foreach ($map['AlertMessages'] as $item1) {
-                    $model->alertMessages[$n1++] = alertMessages::fromMap($item1);
+                    $model->alertMessages[$n1] = alertMessages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -51,7 +51,8 @@ class data extends Model
                 $res['Business'] = [];
                 $n1 = 0;
                 foreach ($this->business as $item1) {
-                    $res['Business'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Business'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->business = [];
                 $n1 = 0;
                 foreach ($map['Business'] as $item1) {
-                    $model->business[$n1++] = business::fromMap($item1);
+                    $model->business[$n1] = business::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

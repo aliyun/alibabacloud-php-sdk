@@ -39,7 +39,8 @@ class DsgRunSensIdentifyRequest extends Model
                 $res['EsMetaParams'] = [];
                 $n1 = 0;
                 foreach ($this->esMetaParams as $item1) {
-                    $res['EsMetaParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EsMetaParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DsgRunSensIdentifyRequest extends Model
                 $model->esMetaParams = [];
                 $n1 = 0;
                 foreach ($map['EsMetaParams'] as $item1) {
-                    $model->esMetaParams[$n1++] = esMetaParams::fromMap($item1);
+                    $model->esMetaParams[$n1] = esMetaParams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

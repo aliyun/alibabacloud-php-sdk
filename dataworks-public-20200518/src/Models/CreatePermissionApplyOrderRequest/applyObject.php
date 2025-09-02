@@ -49,7 +49,8 @@ class applyObject extends Model
                 $res['ColumnMetaList'] = [];
                 $n1 = 0;
                 foreach ($this->columnMetaList as $item1) {
-                    $res['ColumnMetaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ColumnMetaList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class applyObject extends Model
                 $model->columnMetaList = [];
                 $n1 = 0;
                 foreach ($map['ColumnMetaList'] as $item1) {
-                    $model->columnMetaList[$n1++] = columnMetaList::fromMap($item1);
+                    $model->columnMetaList[$n1] = columnMetaList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -51,7 +51,8 @@ class data extends Model
                 $res['ApiAuthorizedList'] = [];
                 $n1 = 0;
                 foreach ($this->apiAuthorizedList as $item1) {
-                    $res['ApiAuthorizedList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApiAuthorizedList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->apiAuthorizedList = [];
                 $n1 = 0;
                 foreach ($map['ApiAuthorizedList'] as $item1) {
-                    $model->apiAuthorizedList[$n1++] = apiAuthorizedList::fromMap($item1);
+                    $model->apiAuthorizedList[$n1] = apiAuthorizedList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class ListProgramTypeCountResponseBody extends Model
                 $res['ProgramTypeAndCounts'] = [];
                 $n1 = 0;
                 foreach ($this->programTypeAndCounts as $item1) {
-                    $res['ProgramTypeAndCounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProgramTypeAndCounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListProgramTypeCountResponseBody extends Model
                 $model->programTypeAndCounts = [];
                 $n1 = 0;
                 foreach ($map['ProgramTypeAndCounts'] as $item1) {
-                    $model->programTypeAndCounts[$n1++] = programTypeAndCounts::fromMap($item1);
+                    $model->programTypeAndCounts[$n1] = programTypeAndCounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

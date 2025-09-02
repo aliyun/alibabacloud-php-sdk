@@ -58,7 +58,8 @@ class data extends Model
                 $res['TableGuidList'] = [];
                 $n1 = 0;
                 foreach ($this->tableGuidList as $item1) {
-                    $res['TableGuidList'][$n1++] = $item1;
+                    $res['TableGuidList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class data extends Model
                 $model->tableGuidList = [];
                 $n1 = 0;
                 foreach ($map['TableGuidList'] as $item1) {
-                    $model->tableGuidList[$n1++] = $item1;
+                    $model->tableGuidList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

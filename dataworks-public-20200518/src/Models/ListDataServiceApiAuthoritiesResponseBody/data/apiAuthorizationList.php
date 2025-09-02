@@ -109,7 +109,8 @@ class apiAuthorizationList extends Model
                 $res['AuthorizationRecords'] = [];
                 $n1 = 0;
                 foreach ($this->authorizationRecords as $item1) {
-                    $res['AuthorizationRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthorizationRecords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +171,8 @@ class apiAuthorizationList extends Model
                 $model->authorizationRecords = [];
                 $n1 = 0;
                 foreach ($map['AuthorizationRecords'] as $item1) {
-                    $model->authorizationRecords[$n1++] = authorizationRecords::fromMap($item1);
+                    $model->authorizationRecords[$n1] = authorizationRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

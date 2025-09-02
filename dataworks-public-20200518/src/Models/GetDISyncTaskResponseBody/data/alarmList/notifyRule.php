@@ -47,7 +47,8 @@ class notifyRule extends Model
                 $res['Critical'] = [];
                 $n1 = 0;
                 foreach ($this->critical as $item1) {
-                    $res['Critical'][$n1++] = $item1;
+                    $res['Critical'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,7 +62,8 @@ class notifyRule extends Model
                 $res['Warning'] = [];
                 $n1 = 0;
                 foreach ($this->warning as $item1) {
-                    $res['Warning'][$n1++] = $item1;
+                    $res['Warning'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class notifyRule extends Model
                 $model->critical = [];
                 $n1 = 0;
                 foreach ($map['Critical'] as $item1) {
-                    $model->critical[$n1++] = $item1;
+                    $model->critical[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +99,8 @@ class notifyRule extends Model
                 $model->warning = [];
                 $n1 = 0;
                 foreach ($map['Warning'] as $item1) {
-                    $model->warning[$n1++] = $item1;
+                    $model->warning[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

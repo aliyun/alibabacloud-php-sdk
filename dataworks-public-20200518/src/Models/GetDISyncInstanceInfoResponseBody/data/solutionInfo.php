@@ -63,7 +63,8 @@ class solutionInfo extends Model
                 $res['StepDetail'] = [];
                 $n1 = 0;
                 foreach ($this->stepDetail as $item1) {
-                    $res['StepDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StepDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class solutionInfo extends Model
                 $model->stepDetail = [];
                 $n1 = 0;
                 foreach ($map['StepDetail'] as $item1) {
-                    $model->stepDetail[$n1++] = stepDetail::fromMap($item1);
+                    $model->stepDetail[$n1] = stepDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

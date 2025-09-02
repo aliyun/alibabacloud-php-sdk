@@ -57,7 +57,8 @@ class dataEntityList extends Model
                 $res['RelationList'] = [];
                 $n1 = 0;
                 foreach ($this->relationList as $item1) {
-                    $res['RelationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RelationList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,7 +87,8 @@ class dataEntityList extends Model
                 $model->relationList = [];
                 $n1 = 0;
                 foreach ($map['RelationList'] as $item1) {
-                    $model->relationList[$n1++] = relationList::fromMap($item1);
+                    $model->relationList[$n1] = relationList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class databaseInfo extends Model
                 $res['DbList'] = [];
                 $n1 = 0;
                 foreach ($this->dbList as $item1) {
-                    $res['DbList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DbList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class databaseInfo extends Model
                 $model->dbList = [];
                 $n1 = 0;
                 foreach ($map['DbList'] as $item1) {
-                    $model->dbList[$n1++] = dbList::fromMap($item1);
+                    $model->dbList[$n1] = dbList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

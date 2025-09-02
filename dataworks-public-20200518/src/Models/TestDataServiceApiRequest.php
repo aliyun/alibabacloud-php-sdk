@@ -83,7 +83,8 @@ class TestDataServiceApiRequest extends Model
                 $res['BodyParams'] = [];
                 $n1 = 0;
                 foreach ($this->bodyParams as $item1) {
-                    $res['BodyParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BodyParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class TestDataServiceApiRequest extends Model
                 $res['HeadParams'] = [];
                 $n1 = 0;
                 foreach ($this->headParams as $item1) {
-                    $res['HeadParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HeadParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +105,8 @@ class TestDataServiceApiRequest extends Model
                 $res['PathParams'] = [];
                 $n1 = 0;
                 foreach ($this->pathParams as $item1) {
-                    $res['PathParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PathParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +116,8 @@ class TestDataServiceApiRequest extends Model
                 $res['QueryParam'] = [];
                 $n1 = 0;
                 foreach ($this->queryParam as $item1) {
-                    $res['QueryParam'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QueryParam'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +146,8 @@ class TestDataServiceApiRequest extends Model
                 $model->bodyParams = [];
                 $n1 = 0;
                 foreach ($map['BodyParams'] as $item1) {
-                    $model->bodyParams[$n1++] = bodyParams::fromMap($item1);
+                    $model->bodyParams[$n1] = bodyParams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +157,8 @@ class TestDataServiceApiRequest extends Model
                 $model->headParams = [];
                 $n1 = 0;
                 foreach ($map['HeadParams'] as $item1) {
-                    $model->headParams[$n1++] = headParams::fromMap($item1);
+                    $model->headParams[$n1] = headParams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +168,8 @@ class TestDataServiceApiRequest extends Model
                 $model->pathParams = [];
                 $n1 = 0;
                 foreach ($map['PathParams'] as $item1) {
-                    $model->pathParams[$n1++] = pathParams::fromMap($item1);
+                    $model->pathParams[$n1] = pathParams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +179,8 @@ class TestDataServiceApiRequest extends Model
                 $model->queryParam = [];
                 $n1 = 0;
                 foreach ($map['QueryParam'] as $item1) {
-                    $model->queryParam[$n1++] = queryParam::fromMap($item1);
+                    $model->queryParam[$n1] = queryParam::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

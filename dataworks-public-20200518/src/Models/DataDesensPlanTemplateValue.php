@@ -52,7 +52,8 @@ class DataDesensPlanTemplateValue extends Model
                 $res['ExtParamTemplate'] = [];
                 $n1 = 0;
                 foreach ($this->extParamTemplate as $item1) {
-                    $res['ExtParamTemplate'][$n1++] = $item1;
+                    $res['ExtParamTemplate'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class DataDesensPlanTemplateValue extends Model
                 $model->extParamTemplate = [];
                 $n1 = 0;
                 foreach ($map['ExtParamTemplate'] as $item1) {
-                    $model->extParamTemplate[$n1++] = $item1;
+                    $model->extParamTemplate[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

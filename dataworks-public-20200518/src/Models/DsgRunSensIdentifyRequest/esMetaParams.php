@@ -98,7 +98,8 @@ class esMetaParams extends Model
                 $res['TableNameList'] = [];
                 $n1 = 0;
                 foreach ($this->tableNameList as $item1) {
-                    $res['TableNameList'][$n1++] = $item1;
+                    $res['TableNameList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +148,8 @@ class esMetaParams extends Model
                 $model->tableNameList = [];
                 $n1 = 0;
                 foreach ($map['TableNameList'] as $item1) {
-                    $model->tableNameList[$n1++] = $item1;
+                    $model->tableNameList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -51,7 +51,8 @@ class data extends Model
                 $res['FileVersions'] = [];
                 $n1 = 0;
                 foreach ($this->fileVersions as $item1) {
-                    $res['FileVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FileVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->fileVersions = [];
                 $n1 = 0;
                 foreach ($map['FileVersions'] as $item1) {
-                    $model->fileVersions[$n1++] = fileVersions::fromMap($item1);
+                    $model->fileVersions[$n1] = fileVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

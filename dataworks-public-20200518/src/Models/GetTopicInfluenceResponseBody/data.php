@@ -39,7 +39,8 @@ class data extends Model
                 $res['Influences'] = [];
                 $n1 = 0;
                 foreach ($this->influences as $item1) {
-                    $res['Influences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Influences'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class data extends Model
                 $model->influences = [];
                 $n1 = 0;
                 foreach ($map['Influences'] as $item1) {
-                    $model->influences[$n1++] = influences::fromMap($item1);
+                    $model->influences[$n1] = influences::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

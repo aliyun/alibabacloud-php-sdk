@@ -83,7 +83,8 @@ class registrationDetails extends Model
                 $res['RegistrationErrorCodes'] = [];
                 $n1 = 0;
                 foreach ($this->registrationErrorCodes as $item1) {
-                    $res['RegistrationErrorCodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RegistrationErrorCodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class registrationDetails extends Model
                 $res['RegistrationRequestParameters'] = [];
                 $n1 = 0;
                 foreach ($this->registrationRequestParameters as $item1) {
-                    $res['RegistrationRequestParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RegistrationRequestParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +140,8 @@ class registrationDetails extends Model
                 $model->registrationErrorCodes = [];
                 $n1 = 0;
                 foreach ($map['RegistrationErrorCodes'] as $item1) {
-                    $model->registrationErrorCodes[$n1++] = registrationErrorCodes::fromMap($item1);
+                    $model->registrationErrorCodes[$n1] = registrationErrorCodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +151,8 @@ class registrationDetails extends Model
                 $model->registrationRequestParameters = [];
                 $n1 = 0;
                 foreach ($map['RegistrationRequestParameters'] as $item1) {
-                    $model->registrationRequestParameters[$n1++] = registrationRequestParameters::fromMap($item1);
+                    $model->registrationRequestParameters[$n1] = registrationRequestParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

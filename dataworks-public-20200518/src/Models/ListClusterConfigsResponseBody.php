@@ -62,7 +62,8 @@ class ListClusterConfigsResponseBody extends Model
                 $res['ClusterConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->clusterConfigs as $item1) {
-                    $res['ClusterConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClusterConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class ListClusterConfigsResponseBody extends Model
                 $model->clusterConfigs = [];
                 $n1 = 0;
                 foreach ($map['ClusterConfigs'] as $item1) {
-                    $model->clusterConfigs[$n1++] = ClusterConfig::fromMap($item1);
+                    $model->clusterConfigs[$n1] = ClusterConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

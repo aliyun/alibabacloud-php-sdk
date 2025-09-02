@@ -59,7 +59,8 @@ class data extends Model
                 $res['TableEntityList'] = [];
                 $n1 = 0;
                 foreach ($this->tableEntityList as $item1) {
-                    $res['TableEntityList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TableEntityList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class data extends Model
                 $model->tableEntityList = [];
                 $n1 = 0;
                 foreach ($map['TableEntityList'] as $item1) {
-                    $model->tableEntityList[$n1++] = tableEntityList::fromMap($item1);
+                    $model->tableEntityList[$n1] = tableEntityList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

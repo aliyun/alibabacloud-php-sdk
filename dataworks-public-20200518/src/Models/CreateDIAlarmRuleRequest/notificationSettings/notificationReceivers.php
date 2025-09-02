@@ -42,7 +42,8 @@ class notificationReceivers extends Model
                 $res['ReceiverValues'] = [];
                 $n1 = 0;
                 foreach ($this->receiverValues as $item1) {
-                    $res['ReceiverValues'][$n1++] = $item1;
+                    $res['ReceiverValues'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class notificationReceivers extends Model
                 $model->receiverValues = [];
                 $n1 = 0;
                 foreach ($map['ReceiverValues'] as $item1) {
-                    $model->receiverValues[$n1++] = $item1;
+                    $model->receiverValues[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -102,7 +102,8 @@ class desensRules extends Model
                 $res['SceneIds'] = [];
                 $n1 = 0;
                 foreach ($this->sceneIds as $item1) {
-                    $res['SceneIds'][$n1++] = $item1;
+                    $res['SceneIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +152,8 @@ class desensRules extends Model
                 $model->sceneIds = [];
                 $n1 = 0;
                 foreach ($map['SceneIds'] as $item1) {
-                    $model->sceneIds[$n1++] = $item1;
+                    $model->sceneIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

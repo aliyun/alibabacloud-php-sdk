@@ -51,7 +51,8 @@ class data extends Model
                 $res['Apis'] = [];
                 $n1 = 0;
                 foreach ($this->apis as $item1) {
-                    $res['Apis'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Apis'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->apis = [];
                 $n1 = 0;
                 foreach ($map['Apis'] as $item1) {
-                    $model->apis[$n1++] = apis::fromMap($item1);
+                    $model->apis[$n1] = apis::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
