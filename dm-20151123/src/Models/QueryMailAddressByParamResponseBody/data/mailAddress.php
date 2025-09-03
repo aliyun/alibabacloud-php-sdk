@@ -21,6 +21,16 @@ class mailAddress extends Model
     /**
      * @var string
      */
+    public $configSetId;
+
+    /**
+     * @var string
+     */
+    public $configSetName;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -70,6 +80,8 @@ class mailAddress extends Model
     protected $_name = [
         'accountName' => 'AccountName',
         'accountStatus' => 'AccountStatus',
+        'configSetId' => 'ConfigSetId',
+        'configSetName' => 'ConfigSetName',
         'createTime' => 'CreateTime',
         'dailyCount' => 'DailyCount',
         'dailyReqCount' => 'DailyReqCount',
@@ -96,6 +108,14 @@ class mailAddress extends Model
 
         if (null !== $this->accountStatus) {
             $res['AccountStatus'] = $this->accountStatus;
+        }
+
+        if (null !== $this->configSetId) {
+            $res['ConfigSetId'] = $this->configSetId;
+        }
+
+        if (null !== $this->configSetName) {
+            $res['ConfigSetName'] = $this->configSetName;
         }
 
         if (null !== $this->createTime) {
@@ -155,6 +175,14 @@ class mailAddress extends Model
 
         if (isset($map['AccountStatus'])) {
             $model->accountStatus = $map['AccountStatus'];
+        }
+
+        if (isset($map['ConfigSetId'])) {
+            $model->configSetId = $map['ConfigSetId'];
+        }
+
+        if (isset($map['ConfigSetName'])) {
+            $model->configSetName = $map['ConfigSetName'];
         }
 
         if (isset($map['CreateTime'])) {

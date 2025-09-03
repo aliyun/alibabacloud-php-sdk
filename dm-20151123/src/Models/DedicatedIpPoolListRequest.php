@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DedicatedIpPoolListRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $all;
+
+    /**
      * @var string
      */
     public $keyword;
@@ -23,6 +28,7 @@ class DedicatedIpPoolListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'all' => 'All',
         'keyword' => 'Keyword',
         'pageIndex' => 'PageIndex',
         'pageSize' => 'PageSize',
@@ -36,6 +42,10 @@ class DedicatedIpPoolListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->all) {
+            $res['All'] = $this->all;
+        }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
@@ -59,6 +69,10 @@ class DedicatedIpPoolListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['All'])) {
+            $model->all = $map['All'];
+        }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }

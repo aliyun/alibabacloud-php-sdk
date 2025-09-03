@@ -1418,6 +1418,10 @@ class Dm extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
+        }
+
         if (null !== $request->keyword) {
             @$query['Keyword'] = $request->keyword;
         }
@@ -2502,6 +2506,10 @@ class Dm extends OpenApiClient
             @$query['AccountName'] = $request->accountName;
         }
 
+        if (null !== $request->configSetId) {
+            @$query['ConfigSetId'] = $request->configSetId;
+        }
+
         if (null !== $request->dedicatedIp) {
             @$query['DedicatedIp'] = $request->dedicatedIp;
         }
@@ -2617,6 +2625,10 @@ class Dm extends OpenApiClient
         $query = [];
         if (null !== $request->accountName) {
             @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->configSetId) {
+            @$query['ConfigSetId'] = $request->configSetId;
         }
 
         if (null !== $request->dedicatedIp) {
@@ -4086,8 +4098,16 @@ class Dm extends OpenApiClient
             @$query['AccountName'] = $request->accountName;
         }
 
+        if (null !== $request->configSetId) {
+            @$query['ConfigSetId'] = $request->configSetId;
+        }
+
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->ipPoolId) {
+            @$query['IpPoolId'] = $request->ipPoolId;
         }
 
         if (null !== $request->length) {

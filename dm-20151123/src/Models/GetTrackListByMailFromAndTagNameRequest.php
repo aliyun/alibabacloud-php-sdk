@@ -16,6 +16,11 @@ class GetTrackListByMailFromAndTagNameRequest extends Model
     /**
      * @var string
      */
+    public $configSetId;
+
+    /**
+     * @var string
+     */
     public $dedicatedIp;
 
     /**
@@ -89,6 +94,7 @@ class GetTrackListByMailFromAndTagNameRequest extends Model
     public $total;
     protected $_name = [
         'accountName' => 'AccountName',
+        'configSetId' => 'ConfigSetId',
         'dedicatedIp' => 'DedicatedIp',
         'dedicatedIpPoolId' => 'DedicatedIpPoolId',
         'endTime' => 'EndTime',
@@ -116,6 +122,10 @@ class GetTrackListByMailFromAndTagNameRequest extends Model
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+
+        if (null !== $this->configSetId) {
+            $res['ConfigSetId'] = $this->configSetId;
         }
 
         if (null !== $this->dedicatedIp) {
@@ -191,6 +201,10 @@ class GetTrackListByMailFromAndTagNameRequest extends Model
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+
+        if (isset($map['ConfigSetId'])) {
+            $model->configSetId = $map['ConfigSetId'];
         }
 
         if (isset($map['DedicatedIp'])) {

@@ -16,7 +16,17 @@ class SenderStatisticsDetailByParamRequest extends Model
     /**
      * @var string
      */
+    public $configSetId;
+
+    /**
+     * @var string
+     */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $ipPoolId;
 
     /**
      * @var int
@@ -64,7 +74,9 @@ class SenderStatisticsDetailByParamRequest extends Model
     public $toAddress;
     protected $_name = [
         'accountName' => 'AccountName',
+        'configSetId' => 'ConfigSetId',
         'endTime' => 'EndTime',
+        'ipPoolId' => 'IpPoolId',
         'length' => 'Length',
         'nextStart' => 'NextStart',
         'ownerId' => 'OwnerId',
@@ -88,8 +100,16 @@ class SenderStatisticsDetailByParamRequest extends Model
             $res['AccountName'] = $this->accountName;
         }
 
+        if (null !== $this->configSetId) {
+            $res['ConfigSetId'] = $this->configSetId;
+        }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->ipPoolId) {
+            $res['IpPoolId'] = $this->ipPoolId;
         }
 
         if (null !== $this->length) {
@@ -143,8 +163,16 @@ class SenderStatisticsDetailByParamRequest extends Model
             $model->accountName = $map['AccountName'];
         }
 
+        if (isset($map['ConfigSetId'])) {
+            $model->configSetId = $map['ConfigSetId'];
+        }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['IpPoolId'])) {
+            $model->ipPoolId = $map['IpPoolId'];
         }
 
         if (isset($map['Length'])) {

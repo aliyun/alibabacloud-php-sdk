@@ -16,7 +16,27 @@ class mailDetail extends Model
     /**
      * @var string
      */
+    public $configSetId;
+
+    /**
+     * @var string
+     */
+    public $configSetName;
+
+    /**
+     * @var string
+     */
     public $errorClassification;
+
+    /**
+     * @var string
+     */
+    public $ipPoolId;
+
+    /**
+     * @var string
+     */
+    public $ipPoolName;
 
     /**
      * @var string
@@ -49,7 +69,11 @@ class mailDetail extends Model
     public $utcLastUpdateTime;
     protected $_name = [
         'accountName' => 'AccountName',
+        'configSetId' => 'ConfigSetId',
+        'configSetName' => 'ConfigSetName',
         'errorClassification' => 'ErrorClassification',
+        'ipPoolId' => 'IpPoolId',
+        'ipPoolName' => 'IpPoolName',
         'lastUpdateTime' => 'LastUpdateTime',
         'message' => 'Message',
         'status' => 'Status',
@@ -70,8 +94,24 @@ class mailDetail extends Model
             $res['AccountName'] = $this->accountName;
         }
 
+        if (null !== $this->configSetId) {
+            $res['ConfigSetId'] = $this->configSetId;
+        }
+
+        if (null !== $this->configSetName) {
+            $res['ConfigSetName'] = $this->configSetName;
+        }
+
         if (null !== $this->errorClassification) {
             $res['ErrorClassification'] = $this->errorClassification;
+        }
+
+        if (null !== $this->ipPoolId) {
+            $res['IpPoolId'] = $this->ipPoolId;
+        }
+
+        if (null !== $this->ipPoolName) {
+            $res['IpPoolName'] = $this->ipPoolName;
         }
 
         if (null !== $this->lastUpdateTime) {
@@ -113,8 +153,24 @@ class mailDetail extends Model
             $model->accountName = $map['AccountName'];
         }
 
+        if (isset($map['ConfigSetId'])) {
+            $model->configSetId = $map['ConfigSetId'];
+        }
+
+        if (isset($map['ConfigSetName'])) {
+            $model->configSetName = $map['ConfigSetName'];
+        }
+
         if (isset($map['ErrorClassification'])) {
             $model->errorClassification = $map['ErrorClassification'];
+        }
+
+        if (isset($map['IpPoolId'])) {
+            $model->ipPoolId = $map['IpPoolId'];
+        }
+
+        if (isset($map['IpPoolName'])) {
+            $model->ipPoolName = $map['IpPoolName'];
         }
 
         if (isset($map['LastUpdateTime'])) {

@@ -16,6 +16,16 @@ class task extends Model
     /**
      * @var string
      */
+    public $configSetId;
+
+    /**
+     * @var string
+     */
+    public $configSetName;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -64,6 +74,8 @@ class task extends Model
     public $utcCreateTime;
     protected $_name = [
         'addressType' => 'AddressType',
+        'configSetId' => 'ConfigSetId',
+        'configSetName' => 'ConfigSetName',
         'createTime' => 'CreateTime',
         'ipPoolId' => 'IpPoolId',
         'ipPoolName' => 'IpPoolName',
@@ -86,6 +98,14 @@ class task extends Model
         $res = [];
         if (null !== $this->addressType) {
             $res['AddressType'] = $this->addressType;
+        }
+
+        if (null !== $this->configSetId) {
+            $res['ConfigSetId'] = $this->configSetId;
+        }
+
+        if (null !== $this->configSetName) {
+            $res['ConfigSetName'] = $this->configSetName;
         }
 
         if (null !== $this->createTime) {
@@ -141,6 +161,14 @@ class task extends Model
         $model = new self();
         if (isset($map['AddressType'])) {
             $model->addressType = $map['AddressType'];
+        }
+
+        if (isset($map['ConfigSetId'])) {
+            $model->configSetId = $map['ConfigSetId'];
+        }
+
+        if (isset($map['ConfigSetName'])) {
+            $model->configSetName = $map['ConfigSetName'];
         }
 
         if (isset($map['CreateTime'])) {
