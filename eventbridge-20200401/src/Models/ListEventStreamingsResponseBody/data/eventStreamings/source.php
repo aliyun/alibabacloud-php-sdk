@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\source\sourceApacheKafkaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\source\sourceApacheRocketMQCheckpointParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\source\sourceCustomizedKafkaConnectorParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\source\sourceCustomizedKafkaParameters;
@@ -24,6 +25,11 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SourceMySQLParameters;
 
 class source extends Model
 {
+    /**
+     * @var sourceApacheKafkaParameters
+     */
+    public $sourceApacheKafkaParameters;
+
     /**
      * @var sourceApacheRocketMQCheckpointParameters
      */
@@ -104,6 +110,7 @@ class source extends Model
      */
     public $sourceSLSParameters;
     protected $_name = [
+        'sourceApacheKafkaParameters' => 'SourceApacheKafkaParameters',
         'sourceApacheRocketMQCheckpointParameters' => 'SourceApacheRocketMQCheckpointParameters',
         'sourceCustomizedKafkaConnectorParameters' => 'SourceCustomizedKafkaConnectorParameters',
         'sourceCustomizedKafkaParameters' => 'SourceCustomizedKafkaParameters',
@@ -124,6 +131,9 @@ class source extends Model
 
     public function validate()
     {
+        if (null !== $this->sourceApacheKafkaParameters) {
+            $this->sourceApacheKafkaParameters->validate();
+        }
         if (null !== $this->sourceApacheRocketMQCheckpointParameters) {
             $this->sourceApacheRocketMQCheckpointParameters->validate();
         }
@@ -178,6 +188,10 @@ class source extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->sourceApacheKafkaParameters) {
+            $res['SourceApacheKafkaParameters'] = null !== $this->sourceApacheKafkaParameters ? $this->sourceApacheKafkaParameters->toArray($noStream) : $this->sourceApacheKafkaParameters;
+        }
+
         if (null !== $this->sourceApacheRocketMQCheckpointParameters) {
             $res['SourceApacheRocketMQCheckpointParameters'] = null !== $this->sourceApacheRocketMQCheckpointParameters ? $this->sourceApacheRocketMQCheckpointParameters->toArray($noStream) : $this->sourceApacheRocketMQCheckpointParameters;
         }
@@ -253,6 +267,10 @@ class source extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceApacheKafkaParameters'])) {
+            $model->sourceApacheKafkaParameters = sourceApacheKafkaParameters::fromMap($map['SourceApacheKafkaParameters']);
+        }
+
         if (isset($map['SourceApacheRocketMQCheckpointParameters'])) {
             $model->sourceApacheRocketMQCheckpointParameters = sourceApacheRocketMQCheckpointParameters::fromMap($map['SourceApacheRocketMQCheckpointParameters']);
         }

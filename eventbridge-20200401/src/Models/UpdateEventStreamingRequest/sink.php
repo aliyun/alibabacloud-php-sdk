@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequ
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkBaiLianParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkApacheKafkaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkApacheRocketMQCheckpointParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkCustomizedKafkaConnectorParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkCustomizedKafkaParameters;
@@ -25,6 +26,11 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\si
 
 class sink extends Model
 {
+    /**
+     * @var sinkApacheKafkaParameters
+     */
+    public $sinkApacheKafkaParameters;
+
     /**
      * @var sinkApacheRocketMQCheckpointParameters
      */
@@ -110,6 +116,7 @@ class sink extends Model
      */
     public $sinkSLSParameters;
     protected $_name = [
+        'sinkApacheKafkaParameters' => 'SinkApacheKafkaParameters',
         'sinkApacheRocketMQCheckpointParameters' => 'SinkApacheRocketMQCheckpointParameters',
         'sinkBaiLianParameters' => 'SinkBaiLianParameters',
         'sinkCustomizedKafkaConnectorParameters' => 'SinkCustomizedKafkaConnectorParameters',
@@ -131,6 +138,9 @@ class sink extends Model
 
     public function validate()
     {
+        if (null !== $this->sinkApacheKafkaParameters) {
+            $this->sinkApacheKafkaParameters->validate();
+        }
         if (null !== $this->sinkApacheRocketMQCheckpointParameters) {
             $this->sinkApacheRocketMQCheckpointParameters->validate();
         }
@@ -188,6 +198,10 @@ class sink extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->sinkApacheKafkaParameters) {
+            $res['SinkApacheKafkaParameters'] = null !== $this->sinkApacheKafkaParameters ? $this->sinkApacheKafkaParameters->toArray($noStream) : $this->sinkApacheKafkaParameters;
+        }
+
         if (null !== $this->sinkApacheRocketMQCheckpointParameters) {
             $res['SinkApacheRocketMQCheckpointParameters'] = null !== $this->sinkApacheRocketMQCheckpointParameters ? $this->sinkApacheRocketMQCheckpointParameters->toArray($noStream) : $this->sinkApacheRocketMQCheckpointParameters;
         }
@@ -267,6 +281,10 @@ class sink extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SinkApacheKafkaParameters'])) {
+            $model->sinkApacheKafkaParameters = sinkApacheKafkaParameters::fromMap($map['SinkApacheKafkaParameters']);
+        }
+
         if (isset($map['SinkApacheRocketMQCheckpointParameters'])) {
             $model->sinkApacheRocketMQCheckpointParameters = sinkApacheRocketMQCheckpointParameters::fromMap($map['SinkApacheRocketMQCheckpointParameters']);
         }
