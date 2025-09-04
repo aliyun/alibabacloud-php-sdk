@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListQueueConsumersResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class consumers extends Model
 {
     /**
-     * @description The consumer tag.
-     *
-     * @example sgen-1
-     *
      * @var string
      */
     public $consumerTag;
@@ -20,9 +16,12 @@ class consumers extends Model
         'consumerTag' => 'ConsumerTag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->consumerTag) {
@@ -32,11 +31,11 @@ class consumers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return consumers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

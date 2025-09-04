@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListVirtualHostsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListVirtualHostsResponseBody\data\virtualHosts;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The maximum number of entries returned.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that marks the end of the current returned page. If this parameter is empty, all data is retrieved.
-     *
-     * @example caebacccb2be03f84eb48b699f0a****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The vhosts.
-     *
      * @var virtualHosts[]
      */
     public $virtualHosts;
@@ -39,23 +29,32 @@ class data extends Model
         'virtualHosts' => 'VirtualHosts',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->virtualHosts)) {
+            Model::validateArray($this->virtualHosts);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->virtualHosts) {
-            $res['VirtualHosts'] = [];
-            if (null !== $this->virtualHosts && \is_array($this->virtualHosts)) {
-                $n = 0;
-                foreach ($this->virtualHosts as $item) {
-                    $res['VirtualHosts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->virtualHosts)) {
+                $res['VirtualHosts'] = [];
+                $n1 = 0;
+                foreach ($this->virtualHosts as $item1) {
+                    $res['VirtualHosts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,26 +62,29 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['VirtualHosts'])) {
             if (!empty($map['VirtualHosts'])) {
                 $model->virtualHosts = [];
-                $n = 0;
-                foreach ($map['VirtualHosts'] as $item) {
-                    $model->virtualHosts[$n++] = null !== $item ? virtualHosts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VirtualHosts'] as $item1) {
+                    $model->virtualHosts[$n1] = virtualHosts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

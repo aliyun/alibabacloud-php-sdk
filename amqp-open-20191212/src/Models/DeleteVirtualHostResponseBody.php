@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteVirtualHostResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 4311050D-BD63-48F9-822B-947A75A1***
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class DeleteVirtualHostResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DeleteVirtualHostResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteVirtualHostResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

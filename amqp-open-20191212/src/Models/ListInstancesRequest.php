@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstancesRequest extends Model
 {
     /**
-     * @description The maximum number of entries to return. Valid values: 1 to 100.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that marks the end position of the previous returned page. To obtain the next batch of data, call the operation again by using the value of NextToken returned by the previous request. If you call this operation for the first time or want to query all results, set NextToken to an empty string.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The ID of the resource group to which the instances belong.
-     *
-     * @example rg-aekzu74zjgdu4mq
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -42,17 +28,22 @@ class ListInstancesRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -60,20 +51,22 @@ class ListInstancesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

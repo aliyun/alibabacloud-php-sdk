@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListExchangeUpStreamBindingsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListExchangeUpStreamBindingsResponseBody\data\bindings;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The bindings.
-     *
      * @var bindings[]
      */
     public $bindings;
 
     /**
-     * @description The maximum number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that marks the end of the current returned page. If this parameter is empty, all data is retrieved.
-     *
-     * @example caebacccb2be03f84eb48b699f0a****
-     *
      * @var string
      */
     public $nextToken;
@@ -39,23 +29,32 @@ class data extends Model
         'nextToken' => 'NextToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bindings)) {
+            Model::validateArray($this->bindings);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindings) {
-            $res['Bindings'] = [];
-            if (null !== $this->bindings && \is_array($this->bindings)) {
-                $n = 0;
-                foreach ($this->bindings as $item) {
-                    $res['Bindings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bindings)) {
+                $res['Bindings'] = [];
+                $n1 = 0;
+                foreach ($this->bindings as $item1) {
+                    $res['Bindings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -63,26 +62,29 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bindings'])) {
             if (!empty($map['Bindings'])) {
                 $model->bindings = [];
-                $n = 0;
-                foreach ($map['Bindings'] as $item) {
-                    $model->bindings[$n++] = null !== $item ? bindings::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Bindings'] as $item1) {
+                    $model->bindings[$n1] = bindings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

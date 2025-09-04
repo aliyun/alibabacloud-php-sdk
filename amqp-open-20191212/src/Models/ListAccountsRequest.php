@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAccountsRequest extends Model
 {
     /**
-     * @description The ID of the ApsaraMQ for RabbitMQ instance for which you want to query the static username and password.
-     *
-     * @example amqp-cn-20p****04
-     *
      * @var string
      */
     public $instanceId;
@@ -20,9 +16,12 @@ class ListAccountsRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -32,11 +31,11 @@ class ListAccountsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAccountsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

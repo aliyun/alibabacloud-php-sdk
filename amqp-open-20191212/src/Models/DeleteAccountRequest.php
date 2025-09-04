@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAccountRequest extends Model
 {
     /**
-     * @description The timestamp that indicates when the pair of static username and password that you want to delete was created. Unit: milliseconds.
-     *
-     * You can call the [ListAccounts](https://help.aliyun.com/document_detail/472730.html) operation to view the timestamp.
-     *
-     * @example 1671175303522
-     *
      * @var int
      */
     public $createTimestamp;
 
     /**
-     * @description The pair of username and password that you want to delete.
-     *
-     * This parameter is required.
-     *
-     * @example MjphbXFwLWNuLXVxbTJ5cjc3djAwMzpMVEFJNXQ4YmVNbVZNMWVSWnRFSjZ2Zm1=
-     *
      * @var string
      */
     public $userName;
@@ -34,14 +22,18 @@ class DeleteAccountRequest extends Model
         'userName' => 'UserName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -49,17 +41,18 @@ class DeleteAccountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAccountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
