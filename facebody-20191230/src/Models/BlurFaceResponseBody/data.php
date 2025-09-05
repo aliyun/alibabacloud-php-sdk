@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\BlurFaceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example http://viapi-cn-shanghai-dha-segmenter.oss-cn-shanghai.aliyuncs.com/upload/result_FaceBlur/2020-8-5/invi_FaceBlur_015966077063461060948_IBdDsq.jpg?Expires=1596609506&OSSAccessKeyId=LTAI4FoLmvQ9urWXgSRp****&Signature=x8n3jq1X91Sq7BKWE4vRHSu6g9****
-     *
      * @var string
      */
     public $imageURL;
@@ -21,19 +19,21 @@ class data extends Model
     public $maskURL;
     protected $_name = [
         'imageURL' => 'ImageURL',
-        'maskURL'  => 'MaskURL',
+        'maskURL' => 'MaskURL',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
+
         if (null !== $this->maskURL) {
             $res['MaskURL'] = $this->maskURL;
         }
@@ -41,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
+
         if (isset($map['MaskURL'])) {
             $model->maskURL = $map['MaskURL'];
         }

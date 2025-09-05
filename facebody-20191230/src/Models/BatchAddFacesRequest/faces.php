@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\BatchAddFacesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class faces extends Model
 {
@@ -14,26 +14,26 @@ class faces extends Model
     public $extraData;
 
     /**
-     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test/imgsearch/demo/1.png
-     *
      * @var string
      */
     public $imageURL;
     protected $_name = [
         'extraData' => 'ExtraData',
-        'imageURL'  => 'ImageURL',
+        'imageURL' => 'ImageURL',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extraData) {
             $res['ExtraData'] = $this->extraData;
         }
+
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
@@ -41,17 +41,18 @@ class faces extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return faces
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExtraData'])) {
             $model->extraData = $map['ExtraData'];
         }
+
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }

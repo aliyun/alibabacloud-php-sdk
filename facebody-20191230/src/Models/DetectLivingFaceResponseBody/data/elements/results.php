@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\DetectLivingFaceResponseBody\data\elements;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectLivingFaceResponseBody\data\elements\results\frames;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectLivingFaceResponseBody\data\elements\results\rect;
-use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
@@ -16,22 +16,16 @@ class results extends Model
     public $frames;
 
     /**
-     * @example liveness
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @example blurred, occluded or large angle face, please check.
-     *
      * @var string
      */
     public $messageTips;
 
     /**
-     * @example 76.22
-     *
      * @var float
      */
     public $rate;
@@ -42,48 +36,59 @@ class results extends Model
     public $rect;
 
     /**
-     * @example review
-     *
      * @var string
      */
     public $suggestion;
     protected $_name = [
-        'frames'      => 'Frames',
-        'label'       => 'Label',
+        'frames' => 'Frames',
+        'label' => 'Label',
         'messageTips' => 'MessageTips',
-        'rate'        => 'Rate',
-        'rect'        => 'Rect',
-        'suggestion'  => 'Suggestion',
+        'rate' => 'Rate',
+        'rect' => 'Rect',
+        'suggestion' => 'Suggestion',
     ];
 
     public function validate()
     {
+        if (\is_array($this->frames)) {
+            Model::validateArray($this->frames);
+        }
+        if (null !== $this->rect) {
+            $this->rect->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->frames) {
-            $res['Frames'] = [];
-            if (null !== $this->frames && \is_array($this->frames)) {
-                $n = 0;
-                foreach ($this->frames as $item) {
-                    $res['Frames'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->frames)) {
+                $res['Frames'] = [];
+                $n1 = 0;
+                foreach ($this->frames as $item1) {
+                    $res['Frames'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->messageTips) {
             $res['MessageTips'] = $this->messageTips;
         }
+
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
         }
+
         if (null !== $this->rect) {
-            $res['Rect'] = null !== $this->rect ? $this->rect->toMap() : null;
+            $res['Rect'] = null !== $this->rect ? $this->rect->toArray($noStream) : $this->rect;
         }
+
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
         }
@@ -91,35 +96,41 @@ class results extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Frames'])) {
             if (!empty($map['Frames'])) {
                 $model->frames = [];
-                $n             = 0;
-                foreach ($map['Frames'] as $item) {
-                    $model->frames[$n++] = null !== $item ? frames::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Frames'] as $item1) {
+                    $model->frames[$n1] = frames::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['MessageTips'])) {
             $model->messageTips = $map['MessageTips'];
         }
+
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];
         }
+
         if (isset($map['Rect'])) {
             $model->rect = rect::fromMap($map['Rect']);
         }
+
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
         }

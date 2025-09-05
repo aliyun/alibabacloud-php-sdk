@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteFaceResponseBody extends Model
 {
     /**
-     * @example FAC90D32-2F04-5AD4-B94B-BAA163AB3724
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class DeleteFaceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DeleteFaceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteFaceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

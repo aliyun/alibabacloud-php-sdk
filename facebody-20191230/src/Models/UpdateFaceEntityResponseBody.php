@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateFaceEntityResponseBody extends Model
 {
     /**
-     * @example DA7CAFEB-0A37-4496-9CDF-E3DBB6309CB2
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class UpdateFaceEntityResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class UpdateFaceEntityResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateFaceEntityResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

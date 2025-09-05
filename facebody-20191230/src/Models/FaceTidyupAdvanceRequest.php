@@ -4,50 +4,47 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class FaceTidyupAdvanceRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/FaceTidyup/FaceTidyup5.png
-     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $shapeType;
 
     /**
-     * @example 1
-     *
      * @var float
      */
     public $strength;
     protected $_name = [
         'imageURLObject' => 'ImageURL',
-        'shapeType'      => 'ShapeType',
-        'strength'       => 'Strength',
+        'shapeType' => 'ShapeType',
+        'strength' => 'Strength',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURLObject) {
             $res['ImageURL'] = $this->imageURLObject;
         }
+
         if (null !== $this->shapeType) {
             $res['ShapeType'] = $this->shapeType;
         }
+
         if (null !== $this->strength) {
             $res['Strength'] = $this->strength;
         }
@@ -55,20 +52,22 @@ class FaceTidyupAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FaceTidyupAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURLObject = $map['ImageURL'];
         }
+
         if (isset($map['ShapeType'])) {
             $model->shapeType = $map['ShapeType'];
         }
+
         if (isset($map['Strength'])) {
             $model->strength = $map['Strength'];
         }

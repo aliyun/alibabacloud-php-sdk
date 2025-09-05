@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenRealPersonVerificationTokenRequest extends Model
 {
@@ -14,37 +14,36 @@ class GenRealPersonVerificationTokenRequest extends Model
     public $certificateName;
 
     /**
-     * @example 33010219001123123X
-     *
      * @var string
      */
     public $certificateNumber;
 
     /**
-     * @example {"dwe":"ew4e"...}
-     *
      * @var string
      */
     public $metaInfo;
     protected $_name = [
-        'certificateName'   => 'CertificateName',
+        'certificateName' => 'CertificateName',
         'certificateNumber' => 'CertificateNumber',
-        'metaInfo'          => 'MetaInfo',
+        'metaInfo' => 'MetaInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificateName) {
             $res['CertificateName'] = $this->certificateName;
         }
+
         if (null !== $this->certificateNumber) {
             $res['CertificateNumber'] = $this->certificateNumber;
         }
+
         if (null !== $this->metaInfo) {
             $res['MetaInfo'] = $this->metaInfo;
         }
@@ -52,20 +51,22 @@ class GenRealPersonVerificationTokenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenRealPersonVerificationTokenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertificateName'])) {
             $model->certificateName = $map['CertificateName'];
         }
+
         if (isset($map['CertificateNumber'])) {
             $model->certificateNumber = $map['CertificateNumber'];
         }
+
         if (isset($map['MetaInfo'])) {
             $model->metaInfo = $map['MetaInfo'];
         }

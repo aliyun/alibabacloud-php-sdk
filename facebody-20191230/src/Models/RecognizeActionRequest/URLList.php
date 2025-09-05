@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizeActionRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class URLList extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/RecognizeAction/1RecognizeAction1.png
-     *
      * @var string
      */
     public $URL;
 
     /**
-     * @example /9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgQ****
-     *
      * @var string
      */
     public $imageData;
     protected $_name = [
-        'URL'       => 'URL',
+        'URL' => 'URL',
         'imageData' => 'imageData',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->URL) {
             $res['URL'] = $this->URL;
         }
+
         if (null !== $this->imageData) {
             $res['imageData'] = $this->imageData;
         }
@@ -43,17 +41,18 @@ class URLList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return URLList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['URL'])) {
             $model->URL = $map['URL'];
         }
+
         if (isset($map['imageData'])) {
             $model->imageData = $map['imageData'];
         }

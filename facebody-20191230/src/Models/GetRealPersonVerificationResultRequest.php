@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRealPersonVerificationResultRequest extends Model
 {
     /**
-     * @example cwek23dw24geor89230hf2rw
-     *
      * @var string
      */
     public $verificationToken;
@@ -20,9 +18,10 @@ class GetRealPersonVerificationResultRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->verificationToken) {
@@ -32,11 +31,11 @@ class GetRealPersonVerificationResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRealPersonVerificationResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

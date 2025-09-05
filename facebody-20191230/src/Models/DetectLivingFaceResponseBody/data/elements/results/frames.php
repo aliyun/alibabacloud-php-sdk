@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\DetectLivingFaceResponseBody\data\elements\results;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class frames extends Model
 {
     /**
-     * @example 84.83
-     *
      * @var float
      */
     public $rate;
 
     /**
-     * @example http://aligreen-shanghai.oss-cn-shanghai.aliyuncs.com/prod/hammal/26210da42/28118541_TB1urBOQFXXXXbMXFXXXXXXXXXX-1442-257.png?Expires=1582703593&OSSAccessKeyId=H4sp5QfNbuDg****&Signature=%2B8iUkb5YjomYR8ujV2c8wMAavs****&x-oss-process=image%2Fcrop%2Cx_0%2Cw_288%2Fauto-orient%2C0
-     *
      * @var string
      */
     public $url;
     protected $_name = [
         'rate' => 'Rate',
-        'url'  => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -43,17 +41,18 @@ class frames extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return frames
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

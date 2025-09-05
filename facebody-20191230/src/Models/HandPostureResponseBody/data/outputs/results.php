@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureResponseBody\data\outputs;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureResponseBody\data\outputs\results\box;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureResponseBody\data\outputs\results\hands;
-use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
@@ -20,38 +20,47 @@ class results extends Model
      */
     public $hands;
     protected $_name = [
-        'box'   => 'Box',
+        'box' => 'Box',
         'hands' => 'Hands',
     ];
 
     public function validate()
     {
+        if (null !== $this->box) {
+            $this->box->validate();
+        }
+        if (null !== $this->hands) {
+            $this->hands->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->box) {
-            $res['Box'] = null !== $this->box ? $this->box->toMap() : null;
+            $res['Box'] = null !== $this->box ? $this->box->toArray($noStream) : $this->box;
         }
+
         if (null !== $this->hands) {
-            $res['Hands'] = null !== $this->hands ? $this->hands->toMap() : null;
+            $res['Hands'] = null !== $this->hands ? $this->hands->toArray($noStream) : $this->hands;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Box'])) {
             $model->box = box::fromMap($map['Box']);
         }
+
         if (isset($map['Hands'])) {
             $model->hands = hands::fromMap($map['Hands']);
         }

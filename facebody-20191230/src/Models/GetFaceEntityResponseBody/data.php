@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\GetFaceEntityResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GetFaceEntityResponseBody\data\faces;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example default
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @example 66
-     *
      * @var string
      */
     public $entityId;
@@ -33,34 +29,42 @@ class data extends Model
      */
     public $labels;
     protected $_name = [
-        'dbName'   => 'DbName',
+        'dbName' => 'DbName',
         'entityId' => 'EntityId',
-        'faces'    => 'Faces',
-        'labels'   => 'Labels',
+        'faces' => 'Faces',
+        'labels' => 'Labels',
     ];
 
     public function validate()
     {
+        if (\is_array($this->faces)) {
+            Model::validateArray($this->faces);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
+
         if (null !== $this->faces) {
-            $res['Faces'] = [];
-            if (null !== $this->faces && \is_array($this->faces)) {
-                $n = 0;
-                foreach ($this->faces as $item) {
-                    $res['Faces'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->faces)) {
+                $res['Faces'] = [];
+                $n1 = 0;
+                foreach ($this->faces as $item1) {
+                    $res['Faces'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
         }
@@ -68,29 +72,33 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
+
         if (isset($map['Faces'])) {
             if (!empty($map['Faces'])) {
                 $model->faces = [];
-                $n            = 0;
-                foreach ($map['Faces'] as $item) {
-                    $model->faces[$n++] = null !== $item ? faces::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Faces'] as $item1) {
+                    $model->faces[$n1] = faces::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
         }

@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizeActionAdvanceRequest\URLList;
-use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class RecognizeActionAdvanceRequest extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $type;
@@ -23,47 +21,51 @@ class RecognizeActionAdvanceRequest extends Model
     public $URLList;
 
     /**
-     * @example iVBORw0KGgoAAAANSUhEUgAAAoAAAAHJCAIAAACaEB9NAAEAAElEQVR4nNT9Wb****
-     *
      * @var string
      */
     public $videoData;
 
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/RecognizeAction/RecognizeAction-video1.mp4
-     *
      * @var Stream
      */
     public $videoUrlObject;
     protected $_name = [
-        'type'           => 'Type',
-        'URLList'        => 'URLList',
-        'videoData'      => 'VideoData',
+        'type' => 'Type',
+        'URLList' => 'URLList',
+        'videoData' => 'VideoData',
         'videoUrlObject' => 'VideoUrl',
     ];
 
     public function validate()
     {
+        if (\is_array($this->URLList)) {
+            Model::validateArray($this->URLList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->URLList) {
-            $res['URLList'] = [];
-            if (null !== $this->URLList && \is_array($this->URLList)) {
-                $n = 0;
-                foreach ($this->URLList as $item) {
-                    $res['URLList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->URLList)) {
+                $res['URLList'] = [];
+                $n1 = 0;
+                foreach ($this->URLList as $item1) {
+                    $res['URLList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->videoData) {
             $res['VideoData'] = $this->videoData;
         }
+
         if (null !== $this->videoUrlObject) {
             $res['VideoUrl'] = $this->videoUrlObject;
         }
@@ -71,29 +73,33 @@ class RecognizeActionAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecognizeActionAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['URLList'])) {
             if (!empty($map['URLList'])) {
                 $model->URLList = [];
-                $n              = 0;
-                foreach ($map['URLList'] as $item) {
-                    $model->URLList[$n++] = null !== $item ? URLList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['URLList'] as $item1) {
+                    $model->URLList[$n1] = URLList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['VideoData'])) {
             $model->videoData = $map['VideoData'];
         }
+
         if (isset($map['VideoUrl'])) {
             $model->videoUrlObject = $map['VideoUrl'];
         }

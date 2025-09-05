@@ -1,3 +1,6 @@
+2025-09-05 Version: 4.1.3
+- Generated php 2019-12-30 for facebody.
+
 2024-04-22 Version: 4.1.2
 - Update API DetectFace: update response param.
 

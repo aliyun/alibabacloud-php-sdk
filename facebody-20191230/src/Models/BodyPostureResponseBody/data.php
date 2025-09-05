@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\BodyPostureResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\BodyPostureResponseBody\data\metaObject;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\BodyPostureResponseBody\data\outputs;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -21,25 +21,34 @@ class data extends Model
     public $outputs;
     protected $_name = [
         'metaObject' => 'MetaObject',
-        'outputs'    => 'Outputs',
+        'outputs' => 'Outputs',
     ];
 
     public function validate()
     {
+        if (null !== $this->metaObject) {
+            $this->metaObject->validate();
+        }
+        if (\is_array($this->outputs)) {
+            Model::validateArray($this->outputs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metaObject) {
-            $res['MetaObject'] = null !== $this->metaObject ? $this->metaObject->toMap() : null;
+            $res['MetaObject'] = null !== $this->metaObject ? $this->metaObject->toArray($noStream) : $this->metaObject;
         }
+
         if (null !== $this->outputs) {
-            $res['Outputs'] = [];
-            if (null !== $this->outputs && \is_array($this->outputs)) {
-                $n = 0;
-                foreach ($this->outputs as $item) {
-                    $res['Outputs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->outputs)) {
+                $res['Outputs'] = [];
+                $n1 = 0;
+                foreach ($this->outputs as $item1) {
+                    $res['Outputs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -47,23 +56,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetaObject'])) {
             $model->metaObject = metaObject::fromMap($map['MetaObject']);
         }
+
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {
                 $model->outputs = [];
-                $n              = 0;
-                foreach ($map['Outputs'] as $item) {
-                    $model->outputs[$n++] = null !== $item ? outputs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Outputs'] as $item1) {
+                    $model->outputs[$n1] = outputs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

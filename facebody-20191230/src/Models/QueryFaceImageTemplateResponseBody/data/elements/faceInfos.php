@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\QueryFaceImageTemplateResponseBody\data\elements;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\QueryFaceImageTemplateResponseBody\data\elements\faceInfos\faceRect;
-use AlibabaCloud\Tea\Model;
 
 class faceInfos extends Model
 {
@@ -15,26 +15,29 @@ class faceInfos extends Model
     public $faceRect;
 
     /**
-     * @example 6cd509ea-54fa-4730-8e9d-c94cadcda048
-     *
      * @var string
      */
     public $templateFaceID;
     protected $_name = [
-        'faceRect'       => 'FaceRect',
+        'faceRect' => 'FaceRect',
         'templateFaceID' => 'TemplateFaceID',
     ];
 
     public function validate()
     {
+        if (null !== $this->faceRect) {
+            $this->faceRect->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->faceRect) {
-            $res['FaceRect'] = null !== $this->faceRect ? $this->faceRect->toMap() : null;
+            $res['FaceRect'] = null !== $this->faceRect ? $this->faceRect->toArray($noStream) : $this->faceRect;
         }
+
         if (null !== $this->templateFaceID) {
             $res['TemplateFaceID'] = $this->templateFaceID;
         }
@@ -42,17 +45,18 @@ class faceInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return faceInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FaceRect'])) {
             $model->faceRect = faceRect::fromMap($map['FaceRect']);
         }
+
         if (isset($map['TemplateFaceID'])) {
             $model->templateFaceID = $map['TemplateFaceID'];
         }

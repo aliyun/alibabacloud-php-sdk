@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionRequest\detectRegion\line;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionRequest\detectRegion\rect;
-use AlibabaCloud\Tea\Model;
 
 class detectRegion extends Model
 {
@@ -26,32 +26,41 @@ class detectRegion extends Model
 
     public function validate()
     {
+        if (null !== $this->line) {
+            $this->line->validate();
+        }
+        if (null !== $this->rect) {
+            $this->rect->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->line) {
-            $res['Line'] = null !== $this->line ? $this->line->toMap() : null;
+            $res['Line'] = null !== $this->line ? $this->line->toArray($noStream) : $this->line;
         }
+
         if (null !== $this->rect) {
-            $res['Rect'] = null !== $this->rect ? $this->rect->toMap() : null;
+            $res['Rect'] = null !== $this->rect ? $this->rect->toArray($noStream) : $this->rect;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detectRegion
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Line'])) {
             $model->line = line::fromMap($map['Line']);
         }
+
         if (isset($map['Rect'])) {
             $model->rect = rect::fromMap($map['Rect']);
         }

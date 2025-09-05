@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateFaceEntityRequest extends Model
 {
     /**
-     * @example default
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @example mm2
-     *
      * @var string
      */
     public $entityId;
@@ -27,24 +23,27 @@ class UpdateFaceEntityRequest extends Model
      */
     public $labels;
     protected $_name = [
-        'dbName'   => 'DbName',
+        'dbName' => 'DbName',
         'entityId' => 'EntityId',
-        'labels'   => 'Labels',
+        'labels' => 'Labels',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
+
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
         }
@@ -52,20 +51,22 @@ class UpdateFaceEntityRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateFaceEntityRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
+
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
         }

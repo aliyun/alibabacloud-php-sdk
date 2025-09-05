@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\AddFaceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 5
-     *
      * @var string
      */
     public $faceId;
 
     /**
-     * @example 99.79581
-     *
      * @var float
      */
     public $qualitieScore;
     protected $_name = [
-        'faceId'        => 'FaceId',
+        'faceId' => 'FaceId',
         'qualitieScore' => 'QualitieScore',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->faceId) {
             $res['FaceId'] = $this->faceId;
         }
+
         if (null !== $this->qualitieScore) {
             $res['QualitieScore'] = $this->qualitieScore;
         }
@@ -43,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FaceId'])) {
             $model->faceId = $map['FaceId'];
         }
+
         if (isset($map['QualitieScore'])) {
             $model->qualitieScore = $map['QualitieScore'];
         }

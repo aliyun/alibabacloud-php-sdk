@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\BatchAddFacesResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class failedFaces extends Model
 {
     /**
-     * @example ClientError.IllegalArgument
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test/imgsearch/demo/xxxx.png
-     *
      * @var string
      */
     public $imageURL;
 
     /**
-     * @example not found the db=test
-     *
      * @var string
      */
     public $message;
     protected $_name = [
-        'code'     => 'Code',
+        'code' => 'Code',
         'imageURL' => 'ImageURL',
-        'message'  => 'Message',
+        'message' => 'Message',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -54,20 +51,22 @@ class failedFaces extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failedFaces
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

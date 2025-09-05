@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\MergeImageFaceAdvanceRequest\mergeInfos;
-use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class MergeImageFaceAdvanceRequest extends Model
 {
     /**
-     * @example False
-     *
      * @var bool
      */
     public $addWatermark;
 
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/MergeImageFace/MergeImageFace-1.png
-     *
      * @var Stream
      */
     public $imageURLObject;
@@ -30,15 +26,11 @@ class MergeImageFaceAdvanceRequest extends Model
     public $mergeInfos;
 
     /**
-     * @example v1
-     *
      * @var string
      */
     public $modelVersion;
 
     /**
-     * @example 6cd509ea-54fa-4730-8e9d-c94cadcda048
-     *
      * @var string
      */
     public $templateId;
@@ -48,42 +40,52 @@ class MergeImageFaceAdvanceRequest extends Model
      */
     public $watermarkType;
     protected $_name = [
-        'addWatermark'   => 'AddWatermark',
+        'addWatermark' => 'AddWatermark',
         'imageURLObject' => 'ImageURL',
-        'mergeInfos'     => 'MergeInfos',
-        'modelVersion'   => 'ModelVersion',
-        'templateId'     => 'TemplateId',
-        'watermarkType'  => 'WatermarkType',
+        'mergeInfos' => 'MergeInfos',
+        'modelVersion' => 'ModelVersion',
+        'templateId' => 'TemplateId',
+        'watermarkType' => 'WatermarkType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->mergeInfos)) {
+            Model::validateArray($this->mergeInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addWatermark) {
             $res['AddWatermark'] = $this->addWatermark;
         }
+
         if (null !== $this->imageURLObject) {
             $res['ImageURL'] = $this->imageURLObject;
         }
+
         if (null !== $this->mergeInfos) {
-            $res['MergeInfos'] = [];
-            if (null !== $this->mergeInfos && \is_array($this->mergeInfos)) {
-                $n = 0;
-                foreach ($this->mergeInfos as $item) {
-                    $res['MergeInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mergeInfos)) {
+                $res['MergeInfos'] = [];
+                $n1 = 0;
+                foreach ($this->mergeInfos as $item1) {
+                    $res['MergeInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->modelVersion) {
             $res['ModelVersion'] = $this->modelVersion;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->watermarkType) {
             $res['WatermarkType'] = $this->watermarkType;
         }
@@ -91,35 +93,41 @@ class MergeImageFaceAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MergeImageFaceAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddWatermark'])) {
             $model->addWatermark = $map['AddWatermark'];
         }
+
         if (isset($map['ImageURL'])) {
             $model->imageURLObject = $map['ImageURL'];
         }
+
         if (isset($map['MergeInfos'])) {
             if (!empty($map['MergeInfos'])) {
                 $model->mergeInfos = [];
-                $n                 = 0;
-                foreach ($map['MergeInfos'] as $item) {
-                    $model->mergeInfos[$n++] = null !== $item ? mergeInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MergeInfos'] as $item1) {
+                    $model->mergeInfos[$n1] = mergeInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ModelVersion'])) {
             $model->modelVersion = $map['ModelVersion'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['WatermarkType'])) {
             $model->watermarkType = $map['WatermarkType'];
         }

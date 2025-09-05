@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\AddFaceImageTemplateResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\AddFaceImageTemplateResponseBody\data\faceInfos;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -15,32 +15,36 @@ class data extends Model
     public $faceInfos;
 
     /**
-     * @example 6cd509ea-54fa-4730-8e9d-c94cadcda048
-     *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'faceInfos'  => 'FaceInfos',
+        'faceInfos' => 'FaceInfos',
         'templateId' => 'TemplateId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->faceInfos)) {
+            Model::validateArray($this->faceInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->faceInfos) {
-            $res['FaceInfos'] = [];
-            if (null !== $this->faceInfos && \is_array($this->faceInfos)) {
-                $n = 0;
-                foreach ($this->faceInfos as $item) {
-                    $res['FaceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->faceInfos)) {
+                $res['FaceInfos'] = [];
+                $n1 = 0;
+                foreach ($this->faceInfos as $item1) {
+                    $res['FaceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -48,23 +52,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FaceInfos'])) {
             if (!empty($map['FaceInfos'])) {
                 $model->faceInfos = [];
-                $n                = 0;
-                foreach ($map['FaceInfos'] as $item) {
-                    $model->faceInfos[$n++] = null !== $item ? faceInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FaceInfos'] as $item1) {
+                    $model->faceInfos[$n1] = faceInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

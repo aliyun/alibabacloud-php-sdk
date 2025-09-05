@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\ListFaceDbsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dbList extends Model
 {
     /**
-     * @example default
-     *
      * @var string
      */
     public $name;
@@ -20,9 +18,10 @@ class dbList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -32,11 +31,11 @@ class dbList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dbList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

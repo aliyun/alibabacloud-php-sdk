@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class metaObject extends Model
 {
     /**
-     * @example 600
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @example 500
-     *
      * @var int
      */
     public $width;
     protected $_name = [
         'height' => 'Height',
-        'width'  => 'Width',
+        'width' => 'Width',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
@@ -43,17 +41,18 @@ class metaObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metaObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }

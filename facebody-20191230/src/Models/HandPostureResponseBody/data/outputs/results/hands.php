@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureResponseBody\data\outputs\results;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureResponseBody\data\outputs\results\hands\keyPoints;
-use AlibabaCloud\Tea\Model;
 
 class hands extends Model
 {
     /**
-     * @example 0.555
-     *
      * @var float
      */
     public $confident;
@@ -27,20 +25,26 @@ class hands extends Model
 
     public function validate()
     {
+        if (\is_array($this->keyPoints)) {
+            Model::validateArray($this->keyPoints);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->confident) {
             $res['Confident'] = $this->confident;
         }
+
         if (null !== $this->keyPoints) {
-            $res['KeyPoints'] = [];
-            if (null !== $this->keyPoints && \is_array($this->keyPoints)) {
-                $n = 0;
-                foreach ($this->keyPoints as $item) {
-                    $res['KeyPoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->keyPoints)) {
+                $res['KeyPoints'] = [];
+                $n1 = 0;
+                foreach ($this->keyPoints as $item1) {
+                    $res['KeyPoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,23 +52,25 @@ class hands extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hands
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Confident'])) {
             $model->confident = $map['Confident'];
         }
+
         if (isset($map['KeyPoints'])) {
             if (!empty($map['KeyPoints'])) {
                 $model->keyPoints = [];
-                $n                = 0;
-                foreach ($map['KeyPoints'] as $item) {
-                    $model->keyPoints[$n++] = null !== $item ? keyPoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['KeyPoints'] as $item1) {
+                    $model->keyPoints[$n1] = keyPoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

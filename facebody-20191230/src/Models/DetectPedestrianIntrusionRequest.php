@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionRequest\detectRegion;
-use AlibabaCloud\Tea\Model;
 
 class DetectPedestrianIntrusionRequest extends Model
 {
@@ -15,43 +15,46 @@ class DetectPedestrianIntrusionRequest extends Model
     public $detectRegion;
 
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/DetectPedestrianIntrusion/DetectPedestrianIntrusion2.jpg
-     *
      * @var string
      */
     public $imageURL;
 
     /**
-     * @example rectangle
-     *
      * @var string
      */
     public $regionType;
     protected $_name = [
         'detectRegion' => 'DetectRegion',
-        'imageURL'     => 'ImageURL',
-        'regionType'   => 'RegionType',
+        'imageURL' => 'ImageURL',
+        'regionType' => 'RegionType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->detectRegion)) {
+            Model::validateArray($this->detectRegion);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->detectRegion) {
-            $res['DetectRegion'] = [];
-            if (null !== $this->detectRegion && \is_array($this->detectRegion)) {
-                $n = 0;
-                foreach ($this->detectRegion as $item) {
-                    $res['DetectRegion'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->detectRegion)) {
+                $res['DetectRegion'] = [];
+                $n1 = 0;
+                foreach ($this->detectRegion as $item1) {
+                    $res['DetectRegion'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
+
         if (null !== $this->regionType) {
             $res['RegionType'] = $this->regionType;
         }
@@ -59,26 +62,29 @@ class DetectPedestrianIntrusionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectPedestrianIntrusionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DetectRegion'])) {
             if (!empty($map['DetectRegion'])) {
                 $model->detectRegion = [];
-                $n                   = 0;
-                foreach ($map['DetectRegion'] as $item) {
-                    $model->detectRegion[$n++] = null !== $item ? detectRegion::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DetectRegion'] as $item1) {
+                    $model->detectRegion[$n1] = detectRegion::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
+
         if (isset($map['RegionType'])) {
             $model->regionType = $map['RegionType'];
         }

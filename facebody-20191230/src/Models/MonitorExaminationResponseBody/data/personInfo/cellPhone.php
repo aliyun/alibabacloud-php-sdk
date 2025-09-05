@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\MonitorExaminationResponseBody\data\personInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cellPhone extends Model
 {
     /**
-     * @example 0.39076218008995056
-     *
      * @var float
      */
     public $score;
 
     /**
-     * @example 0.6
-     *
      * @var float
      */
     public $threshold;
     protected $_name = [
-        'score'     => 'Score',
+        'score' => 'Score',
         'threshold' => 'Threshold',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
@@ -43,17 +41,18 @@ class cellPhone extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cellPhone
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }

@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\BatchAddFacesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\BatchAddFacesResponseBody\data\failedFaces;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\BatchAddFacesResponseBody\data\insertedFaces;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -20,32 +20,42 @@ class data extends Model
      */
     public $insertedFaces;
     protected $_name = [
-        'failedFaces'   => 'FailedFaces',
+        'failedFaces' => 'FailedFaces',
         'insertedFaces' => 'InsertedFaces',
     ];
 
     public function validate()
     {
+        if (\is_array($this->failedFaces)) {
+            Model::validateArray($this->failedFaces);
+        }
+        if (\is_array($this->insertedFaces)) {
+            Model::validateArray($this->insertedFaces);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedFaces) {
-            $res['FailedFaces'] = [];
-            if (null !== $this->failedFaces && \is_array($this->failedFaces)) {
-                $n = 0;
-                foreach ($this->failedFaces as $item) {
-                    $res['FailedFaces'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failedFaces)) {
+                $res['FailedFaces'] = [];
+                $n1 = 0;
+                foreach ($this->failedFaces as $item1) {
+                    $res['FailedFaces'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->insertedFaces) {
-            $res['InsertedFaces'] = [];
-            if (null !== $this->insertedFaces && \is_array($this->insertedFaces)) {
-                $n = 0;
-                foreach ($this->insertedFaces as $item) {
-                    $res['InsertedFaces'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->insertedFaces)) {
+                $res['InsertedFaces'] = [];
+                $n1 = 0;
+                foreach ($this->insertedFaces as $item1) {
+                    $res['InsertedFaces'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,29 +63,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedFaces'])) {
             if (!empty($map['FailedFaces'])) {
                 $model->failedFaces = [];
-                $n                  = 0;
-                foreach ($map['FailedFaces'] as $item) {
-                    $model->failedFaces[$n++] = null !== $item ? failedFaces::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FailedFaces'] as $item1) {
+                    $model->failedFaces[$n1] = failedFaces::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['InsertedFaces'])) {
             if (!empty($map['InsertedFaces'])) {
                 $model->insertedFaces = [];
-                $n                    = 0;
-                foreach ($map['InsertedFaces'] as $item) {
-                    $model->insertedFaces[$n++] = null !== $item ? insertedFaces::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InsertedFaces'] as $item1) {
+                    $model->insertedFaces[$n1] = insertedFaces::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

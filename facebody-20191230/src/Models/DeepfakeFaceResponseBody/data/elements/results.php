@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\DeepfakeFaceResponseBody\data\elements;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DeepfakeFaceResponseBody\data\elements\results\rect;
-use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
     /**
-     * @example 36.6455
-     *
      * @var float
      */
     public $confidence;
 
     /**
-     * @example normalface
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @example blurred, occluded or large angle face, please check.
-     *
      * @var string
      */
     public $messageTips;
@@ -35,52 +29,62 @@ class results extends Model
      */
     public $rect;
     protected $_name = [
-        'confidence'  => 'Confidence',
-        'label'       => 'Label',
+        'confidence' => 'Confidence',
+        'label' => 'Label',
         'messageTips' => 'MessageTips',
-        'rect'        => 'Rect',
+        'rect' => 'Rect',
     ];
 
     public function validate()
     {
+        if (null !== $this->rect) {
+            $this->rect->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->messageTips) {
             $res['MessageTips'] = $this->messageTips;
         }
+
         if (null !== $this->rect) {
-            $res['Rect'] = null !== $this->rect ? $this->rect->toMap() : null;
+            $res['Rect'] = null !== $this->rect ? $this->rect->toArray($noStream) : $this->rect;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['MessageTips'])) {
             $model->messageTips = $map['MessageTips'];
         }
+
         if (isset($map['Rect'])) {
             $model->rect = rect::fromMap($map['Rect']);
         }

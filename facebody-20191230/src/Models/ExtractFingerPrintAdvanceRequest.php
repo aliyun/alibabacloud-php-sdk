@@ -4,39 +4,37 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class ExtractFingerPrintAdvanceRequest extends Model
 {
     /**
-     * @example iVBORw0KGgoAAAANSUhEUgAAASUAA****
-     *
      * @var string
      */
     public $imageData;
 
     /**
-     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xuhan/ExtractFingerPrint.png
-     *
      * @var Stream
      */
     public $imageURLObject;
     protected $_name = [
-        'imageData'      => 'ImageData',
+        'imageData' => 'ImageData',
         'imageURLObject' => 'ImageURL',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageData) {
             $res['ImageData'] = $this->imageData;
         }
+
         if (null !== $this->imageURLObject) {
             $res['ImageURL'] = $this->imageURLObject;
         }
@@ -44,17 +42,18 @@ class ExtractFingerPrintAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExtractFingerPrintAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageData'])) {
             $model->imageData = $map['ImageData'];
         }
+
         if (isset($map['ImageURL'])) {
             $model->imageURLObject = $map['ImageURL'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\DetectLivingFaceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tasks extends Model
 {
@@ -14,26 +14,26 @@ class tasks extends Model
     public $imageData;
 
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/DetectLivingFace/DetectLivingFace4.jpg
-     *
      * @var string
      */
     public $imageURL;
     protected $_name = [
         'imageData' => 'ImageData',
-        'imageURL'  => 'ImageURL',
+        'imageURL' => 'ImageURL',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageData) {
             $res['ImageData'] = $this->imageData;
         }
+
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
@@ -41,17 +41,18 @@ class tasks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageData'])) {
             $model->imageData = $map['ImageData'];
         }
+
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }

@@ -4,157 +4,276 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizeFaceResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class qualities extends Model
 {
     /**
-     * @description 1
-     *
      * @var float[]
      */
     public $blurList;
 
     /**
-     * @description 1
-     *
      * @var float[]
      */
     public $fnfList;
 
     /**
-     * @description 1
-     *
      * @var float[]
      */
     public $glassList;
 
     /**
-     * @description 1
-     *
      * @var float[]
      */
     public $illuList;
 
     /**
-     * @description 1
-     *
      * @var float[]
      */
     public $maskList;
 
     /**
-     * @description 1
-     *
      * @var float[]
      */
     public $noiseList;
 
     /**
-     * @description 1
-     *
      * @var float[]
      */
     public $poseList;
 
     /**
-     * @description 1
-     *
      * @var float[]
      */
     public $scoreList;
     protected $_name = [
-        'blurList'  => 'BlurList',
-        'fnfList'   => 'FnfList',
+        'blurList' => 'BlurList',
+        'fnfList' => 'FnfList',
         'glassList' => 'GlassList',
-        'illuList'  => 'IlluList',
-        'maskList'  => 'MaskList',
+        'illuList' => 'IlluList',
+        'maskList' => 'MaskList',
         'noiseList' => 'NoiseList',
-        'poseList'  => 'PoseList',
+        'poseList' => 'PoseList',
         'scoreList' => 'ScoreList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->blurList)) {
+            Model::validateArray($this->blurList);
+        }
+        if (\is_array($this->fnfList)) {
+            Model::validateArray($this->fnfList);
+        }
+        if (\is_array($this->glassList)) {
+            Model::validateArray($this->glassList);
+        }
+        if (\is_array($this->illuList)) {
+            Model::validateArray($this->illuList);
+        }
+        if (\is_array($this->maskList)) {
+            Model::validateArray($this->maskList);
+        }
+        if (\is_array($this->noiseList)) {
+            Model::validateArray($this->noiseList);
+        }
+        if (\is_array($this->poseList)) {
+            Model::validateArray($this->poseList);
+        }
+        if (\is_array($this->scoreList)) {
+            Model::validateArray($this->scoreList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blurList) {
-            $res['BlurList'] = $this->blurList;
+            if (\is_array($this->blurList)) {
+                $res['BlurList'] = [];
+                $n1 = 0;
+                foreach ($this->blurList as $item1) {
+                    $res['BlurList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->fnfList) {
-            $res['FnfList'] = $this->fnfList;
+            if (\is_array($this->fnfList)) {
+                $res['FnfList'] = [];
+                $n1 = 0;
+                foreach ($this->fnfList as $item1) {
+                    $res['FnfList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->glassList) {
-            $res['GlassList'] = $this->glassList;
+            if (\is_array($this->glassList)) {
+                $res['GlassList'] = [];
+                $n1 = 0;
+                foreach ($this->glassList as $item1) {
+                    $res['GlassList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->illuList) {
-            $res['IlluList'] = $this->illuList;
+            if (\is_array($this->illuList)) {
+                $res['IlluList'] = [];
+                $n1 = 0;
+                foreach ($this->illuList as $item1) {
+                    $res['IlluList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->maskList) {
-            $res['MaskList'] = $this->maskList;
+            if (\is_array($this->maskList)) {
+                $res['MaskList'] = [];
+                $n1 = 0;
+                foreach ($this->maskList as $item1) {
+                    $res['MaskList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->noiseList) {
-            $res['NoiseList'] = $this->noiseList;
+            if (\is_array($this->noiseList)) {
+                $res['NoiseList'] = [];
+                $n1 = 0;
+                foreach ($this->noiseList as $item1) {
+                    $res['NoiseList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->poseList) {
-            $res['PoseList'] = $this->poseList;
+            if (\is_array($this->poseList)) {
+                $res['PoseList'] = [];
+                $n1 = 0;
+                foreach ($this->poseList as $item1) {
+                    $res['PoseList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->scoreList) {
-            $res['ScoreList'] = $this->scoreList;
+            if (\is_array($this->scoreList)) {
+                $res['ScoreList'] = [];
+                $n1 = 0;
+                foreach ($this->scoreList as $item1) {
+                    $res['ScoreList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return qualities
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BlurList'])) {
             if (!empty($map['BlurList'])) {
-                $model->blurList = $map['BlurList'];
+                $model->blurList = [];
+                $n1 = 0;
+                foreach ($map['BlurList'] as $item1) {
+                    $model->blurList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['FnfList'])) {
             if (!empty($map['FnfList'])) {
-                $model->fnfList = $map['FnfList'];
+                $model->fnfList = [];
+                $n1 = 0;
+                foreach ($map['FnfList'] as $item1) {
+                    $model->fnfList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['GlassList'])) {
             if (!empty($map['GlassList'])) {
-                $model->glassList = $map['GlassList'];
+                $model->glassList = [];
+                $n1 = 0;
+                foreach ($map['GlassList'] as $item1) {
+                    $model->glassList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['IlluList'])) {
             if (!empty($map['IlluList'])) {
-                $model->illuList = $map['IlluList'];
+                $model->illuList = [];
+                $n1 = 0;
+                foreach ($map['IlluList'] as $item1) {
+                    $model->illuList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['MaskList'])) {
             if (!empty($map['MaskList'])) {
-                $model->maskList = $map['MaskList'];
+                $model->maskList = [];
+                $n1 = 0;
+                foreach ($map['MaskList'] as $item1) {
+                    $model->maskList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NoiseList'])) {
             if (!empty($map['NoiseList'])) {
-                $model->noiseList = $map['NoiseList'];
+                $model->noiseList = [];
+                $n1 = 0;
+                foreach ($map['NoiseList'] as $item1) {
+                    $model->noiseList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PoseList'])) {
             if (!empty($map['PoseList'])) {
-                $model->poseList = $map['PoseList'];
+                $model->poseList = [];
+                $n1 = 0;
+                foreach ($map['PoseList'] as $item1) {
+                    $model->poseList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ScoreList'])) {
             if (!empty($map['ScoreList'])) {
-                $model->scoreList = $map['ScoreList'];
+                $model->scoreList = [];
+                $n1 = 0;
+                foreach ($map['ScoreList'] as $item1) {
+                    $model->scoreList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

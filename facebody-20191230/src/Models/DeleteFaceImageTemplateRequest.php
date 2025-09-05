@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteFaceImageTemplateRequest extends Model
 {
     /**
-     * @example 6cd509ea-54fa-4730-8e9d-c94cadcda048
-     *
      * @var string
      */
     public $templateId;
@@ -20,9 +18,10 @@ class DeleteFaceImageTemplateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->templateId) {
@@ -32,11 +31,11 @@ class DeleteFaceImageTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteFaceImageTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

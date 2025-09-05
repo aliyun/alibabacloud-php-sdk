@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RetouchSkinRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/RetouchSkin/RetouchSkin3.png
-     *
      * @var string
      */
     public $imageURL;
 
     /**
-     * @example 1.0
-     *
      * @var float
      */
     public $retouchDegree;
 
     /**
-     * @example 1.0
-     *
      * @var float
      */
     public $whiteningDegree;
     protected $_name = [
-        'imageURL'        => 'ImageURL',
-        'retouchDegree'   => 'RetouchDegree',
+        'imageURL' => 'ImageURL',
+        'retouchDegree' => 'RetouchDegree',
         'whiteningDegree' => 'WhiteningDegree',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
+
         if (null !== $this->retouchDegree) {
             $res['RetouchDegree'] = $this->retouchDegree;
         }
+
         if (null !== $this->whiteningDegree) {
             $res['WhiteningDegree'] = $this->whiteningDegree;
         }
@@ -54,20 +51,22 @@ class RetouchSkinRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RetouchSkinRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
+
         if (isset($map['RetouchDegree'])) {
             $model->retouchDegree = $map['RetouchDegree'];
         }
+
         if (isset($map['WhiteningDegree'])) {
             $model->whiteningDegree = $map['WhiteningDegree'];
         }

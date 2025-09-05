@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureResponseBody\data\outputs\results;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureResponseBody\data\outputs\results\box\positions;
-use AlibabaCloud\Tea\Model;
 
 class box extends Model
 {
     /**
-     * @example 0.555
-     *
      * @var float
      */
     public $confident;
@@ -27,20 +25,26 @@ class box extends Model
 
     public function validate()
     {
+        if (\is_array($this->positions)) {
+            Model::validateArray($this->positions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->confident) {
             $res['Confident'] = $this->confident;
         }
+
         if (null !== $this->positions) {
-            $res['Positions'] = [];
-            if (null !== $this->positions && \is_array($this->positions)) {
-                $n = 0;
-                foreach ($this->positions as $item) {
-                    $res['Positions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->positions)) {
+                $res['Positions'] = [];
+                $n1 = 0;
+                foreach ($this->positions as $item1) {
+                    $res['Positions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,23 +52,25 @@ class box extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return box
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Confident'])) {
             $model->confident = $map['Confident'];
         }
+
         if (isset($map['Positions'])) {
             if (!empty($map['Positions'])) {
                 $model->positions = [];
-                $n                = 0;
-                foreach ($map['Positions'] as $item) {
-                    $model->positions[$n++] = null !== $item ? positions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Positions'] as $item1) {
+                    $model->positions[$n1] = positions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
