@@ -37,6 +37,11 @@ class ModifyInstanceChargeTypeRequest extends Model
      * @var string
      */
     public $periodUnit;
+
+    /**
+     * @var string
+     */
+    public $promotionId;
     protected $_name = [
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
@@ -44,6 +49,7 @@ class ModifyInstanceChargeTypeRequest extends Model
         'instanceGroupIds' => 'InstanceGroupIds',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
+        'promotionId' => 'PromotionId',
     ];
 
     public function validate()
@@ -88,6 +94,10 @@ class ModifyInstanceChargeTypeRequest extends Model
             $res['PeriodUnit'] = $this->periodUnit;
         }
 
+        if (null !== $this->promotionId) {
+            $res['PromotionId'] = $this->promotionId;
+        }
+
         return $res;
     }
 
@@ -128,6 +138,10 @@ class ModifyInstanceChargeTypeRequest extends Model
 
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
+        }
+
+        if (isset($map['PromotionId'])) {
+            $model->promotionId = $map['PromotionId'];
         }
 
         return $model;

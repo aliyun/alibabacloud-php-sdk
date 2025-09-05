@@ -121,6 +121,11 @@ class CreateAndroidInstanceGroupRequest extends Model
     public $policyGroupId;
 
     /**
+     * @var string
+     */
+    public $promotionId;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -152,6 +157,7 @@ class CreateAndroidInstanceGroupRequest extends Model
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'policyGroupId' => 'PolicyGroupId',
+        'promotionId' => 'PromotionId',
         'tag' => 'Tag',
         'vSwitchId' => 'VSwitchId',
     ];
@@ -256,6 +262,10 @@ class CreateAndroidInstanceGroupRequest extends Model
 
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
+        }
+
+        if (null !== $this->promotionId) {
+            $res['PromotionId'] = $this->promotionId;
         }
 
         if (null !== $this->tag) {
@@ -370,6 +380,10 @@ class CreateAndroidInstanceGroupRequest extends Model
 
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
+        }
+
+        if (isset($map['PromotionId'])) {
+            $model->promotionId = $map['PromotionId'];
         }
 
         if (isset($map['Tag'])) {

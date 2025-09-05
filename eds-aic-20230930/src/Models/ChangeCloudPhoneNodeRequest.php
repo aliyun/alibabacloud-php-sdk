@@ -39,6 +39,11 @@ class ChangeCloudPhoneNodeRequest extends Model
     public $phoneDataVolume;
 
     /**
+     * @var string
+     */
+    public $promotionId;
+
+    /**
      * @var int
      */
     public $upBandwidthLimit;
@@ -49,6 +54,7 @@ class ChangeCloudPhoneNodeRequest extends Model
         'nodeId' => 'NodeId',
         'phoneCount' => 'PhoneCount',
         'phoneDataVolume' => 'PhoneDataVolume',
+        'promotionId' => 'PromotionId',
         'upBandwidthLimit' => 'UpBandwidthLimit',
     ];
 
@@ -82,6 +88,10 @@ class ChangeCloudPhoneNodeRequest extends Model
 
         if (null !== $this->phoneDataVolume) {
             $res['PhoneDataVolume'] = $this->phoneDataVolume;
+        }
+
+        if (null !== $this->promotionId) {
+            $res['PromotionId'] = $this->promotionId;
         }
 
         if (null !== $this->upBandwidthLimit) {
@@ -121,6 +131,10 @@ class ChangeCloudPhoneNodeRequest extends Model
 
         if (isset($map['PhoneDataVolume'])) {
             $model->phoneDataVolume = $map['PhoneDataVolume'];
+        }
+
+        if (isset($map['PromotionId'])) {
+            $model->promotionId = $map['PromotionId'];
         }
 
         if (isset($map['UpBandwidthLimit'])) {

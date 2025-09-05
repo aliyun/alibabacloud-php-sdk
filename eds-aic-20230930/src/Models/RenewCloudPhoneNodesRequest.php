@@ -32,12 +32,18 @@ class RenewCloudPhoneNodesRequest extends Model
      * @var string
      */
     public $periodUnit;
+
+    /**
+     * @var string
+     */
+    public $promotionId;
     protected $_name = [
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
         'nodeIds' => 'NodeIds',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
+        'promotionId' => 'PromotionId',
     ];
 
     public function validate()
@@ -78,6 +84,10 @@ class RenewCloudPhoneNodesRequest extends Model
             $res['PeriodUnit'] = $this->periodUnit;
         }
 
+        if (null !== $this->promotionId) {
+            $res['PromotionId'] = $this->promotionId;
+        }
+
         return $res;
     }
 
@@ -114,6 +124,10 @@ class RenewCloudPhoneNodesRequest extends Model
 
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
+        }
+
+        if (isset($map['PromotionId'])) {
+            $model->promotionId = $map['PromotionId'];
         }
 
         return $model;

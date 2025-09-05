@@ -558,6 +558,10 @@ class Edsaic extends OpenApiClient
             @$query['PhoneDataVolume'] = $request->phoneDataVolume;
         }
 
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
         if (null !== $request->upBandwidthLimit) {
             @$query['UpBandwidthLimit'] = $request->upBandwidthLimit;
         }
@@ -785,6 +789,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->policyGroupId) {
             @$query['PolicyGroupId'] = $request->policyGroupId;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
         }
 
         if (null !== $request->tag) {
@@ -1058,6 +1066,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->phoneDataVolume) {
             @$query['PhoneDataVolume'] = $request->phoneDataVolume;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
         }
 
         if (null !== $request->resolutionHeight) {
@@ -3595,6 +3607,10 @@ class Edsaic extends OpenApiClient
             @$query['PhoneDataVolume'] = $request->phoneDataVolume;
         }
 
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
         if (null !== $request->shareDataVolume) {
             @$query['ShareDataVolume'] = $request->shareDataVolume;
         }
@@ -4567,6 +4583,10 @@ class Edsaic extends OpenApiClient
             @$query['PeriodUnit'] = $request->periodUnit;
         }
 
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5108,6 +5128,10 @@ class Edsaic extends OpenApiClient
             @$query['PeriodUnit'] = $request->periodUnit;
         }
 
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5163,6 +5187,10 @@ class Edsaic extends OpenApiClient
         $query = [];
         if (null !== $request->autoPay) {
             @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
         }
 
         $body = [];
@@ -6211,6 +6239,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->instanceGroupId) {
             @$query['InstanceGroupId'] = $request->instanceGroupId;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
         }
 
         $req = new OpenApiRequest([
