@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody\data\results\ext\logoData;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class logo extends Model
 {
     /**
-     * @description Confidence score, from 0 to 100, rounded to two decimal places.
-     *
-     * @example 99.1
-     *
      * @var float
      */
     public $confidence;
 
     /**
-     * @description Identify the category.
-     *
-     * @example logo_sns
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @description identifier  name.
-     *
-     * @example Alibaba Cloud
-     *
      * @var string
      */
     public $name;
@@ -40,17 +28,22 @@ class logo extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -58,20 +51,22 @@ class logo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

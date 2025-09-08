@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MultiModalGuardRequest extends Model
 {
     /**
-     * @example query_security_check
-     *
      * @var string
      */
     public $service;
@@ -24,14 +22,18 @@ class MultiModalGuardRequest extends Model
         'serviceParameters' => 'ServiceParameters',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->service) {
             $res['Service'] = $this->service;
         }
+
         if (null !== $this->serviceParameters) {
             $res['ServiceParameters'] = $this->serviceParameters;
         }
@@ -39,17 +41,18 @@ class MultiModalGuardRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MultiModalGuardRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Service'])) {
             $model->service = $map['Service'];
         }
+
         if (isset($map['ServiceParameters'])) {
             $model->serviceParameters = $map['ServiceParameters'];
         }

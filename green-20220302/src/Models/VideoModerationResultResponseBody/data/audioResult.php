@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\audioResult\audioSummarys;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\audioResult\sliceDetails;
-use AlibabaCloud\Tea\Model;
 
 class audioResult extends Model
 {
     /**
-     * @description Summary of voice labels.
-     *
      * @var audioSummarys[]
      */
     public $audioSummarys;
 
     /**
-     * @description Risk Level.
-     *
-     * @example high
-     *
      * @var string
      */
     public $riskLevel;
 
     /**
-     * @description The details about the text in the moderated voice. The value is a JSON array that contains one or more elements. Each element corresponds to a text entry.
-     *
      * @var sliceDetails[]
      */
     public $sliceDetails;
@@ -38,29 +30,42 @@ class audioResult extends Model
         'sliceDetails' => 'SliceDetails',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->audioSummarys)) {
+            Model::validateArray($this->audioSummarys);
+        }
+        if (\is_array($this->sliceDetails)) {
+            Model::validateArray($this->sliceDetails);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioSummarys) {
-            $res['AudioSummarys'] = [];
-            if (null !== $this->audioSummarys && \is_array($this->audioSummarys)) {
-                $n = 0;
-                foreach ($this->audioSummarys as $item) {
-                    $res['AudioSummarys'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->audioSummarys)) {
+                $res['AudioSummarys'] = [];
+                $n1 = 0;
+                foreach ($this->audioSummarys as $item1) {
+                    $res['AudioSummarys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
+
         if (null !== $this->sliceDetails) {
-            $res['SliceDetails'] = [];
-            if (null !== $this->sliceDetails && \is_array($this->sliceDetails)) {
-                $n = 0;
-                foreach ($this->sliceDetails as $item) {
-                    $res['SliceDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sliceDetails)) {
+                $res['SliceDetails'] = [];
+                $n1 = 0;
+                foreach ($this->sliceDetails as $item1) {
+                    $res['SliceDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,32 +73,36 @@ class audioResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioSummarys'])) {
             if (!empty($map['AudioSummarys'])) {
                 $model->audioSummarys = [];
-                $n = 0;
-                foreach ($map['AudioSummarys'] as $item) {
-                    $model->audioSummarys[$n++] = null !== $item ? audioSummarys::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AudioSummarys'] as $item1) {
+                    $model->audioSummarys[$n1] = audioSummarys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
+
         if (isset($map['SliceDetails'])) {
             if (!empty($map['SliceDetails'])) {
                 $model->sliceDetails = [];
-                $n = 0;
-                foreach ($map['SliceDetails'] as $item) {
-                    $model->sliceDetails[$n++] = null !== $item ? sliceDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SliceDetails'] as $item1) {
+                    $model->sliceDetails[$n1] = sliceDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageModerationResultRequest;
@@ -53,11 +52,10 @@ use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResultRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResultResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Green extends OpenApiClient
 {
@@ -102,36 +100,44 @@ class Green extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 文档审核结果
-     *  *
-     * @param DescribeFileModerationResultRequest $request DescribeFileModerationResultRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 文档审核结果.
      *
-     * @return DescribeFileModerationResultResponse DescribeFileModerationResultResponse
+     * @param request - DescribeFileModerationResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFileModerationResultResponse
+     *
+     * @param DescribeFileModerationResultRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeFileModerationResultResponse
      */
     public function describeFileModerationResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->service)) {
-            $body['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $body['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeFileModerationResult',
@@ -149,11 +155,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 文档审核结果
-     *  *
-     * @param DescribeFileModerationResultRequest $request DescribeFileModerationResultRequest
+     * 文档审核结果.
      *
-     * @return DescribeFileModerationResultResponse DescribeFileModerationResultResponse
+     * @param request - DescribeFileModerationResultRequest
+     *
+     * @returns DescribeFileModerationResultResponse
+     *
+     * @param DescribeFileModerationResultRequest $request
+     *
+     * @return DescribeFileModerationResultResponse
      */
     public function describeFileModerationResult($request)
     {
@@ -163,25 +173,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the moderation results of an Image Moderation 2.0 task.
-     *  *
-     * @description *   Billing: This operation is free of charge.
-     * *   QPS limit: You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeImageModerationResultRequest $request DescribeImageModerationResultRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Obtains the moderation results of an Image Moderation 2.0 task.
      *
-     * @return DescribeImageModerationResultResponse DescribeImageModerationResultResponse
+     * @remarks
+     *   Billing: This operation is free of charge.
+     * *   QPS limit: You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - DescribeImageModerationResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeImageModerationResultResponse
+     *
+     * @param DescribeImageModerationResultRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeImageModerationResultResponse
      */
     public function describeImageModerationResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->reqId)) {
-            $query['ReqId'] = $request->reqId;
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeImageModerationResult',
@@ -199,14 +216,19 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the moderation results of an Image Moderation 2.0 task.
-     *  *
-     * @description *   Billing: This operation is free of charge.
-     * *   QPS limit: You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeImageModerationResultRequest $request DescribeImageModerationResultRequest
+     * Obtains the moderation results of an Image Moderation 2.0 task.
      *
-     * @return DescribeImageModerationResultResponse DescribeImageModerationResultResponse
+     * @remarks
+     *   Billing: This operation is free of charge.
+     * *   QPS limit: You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - DescribeImageModerationResultRequest
+     *
+     * @returns DescribeImageModerationResultResponse
+     *
+     * @param DescribeImageModerationResultRequest $request
+     *
+     * @return DescribeImageModerationResultResponse
      */
     public function describeImageModerationResult($request)
     {
@@ -216,25 +238,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 查询检测结果辅助信息
-     *  *
-     * @param DescribeImageResultExtRequest $request DescribeImageResultExtRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询检测结果辅助信息.
      *
-     * @return DescribeImageResultExtResponse DescribeImageResultExtResponse
+     * @param request - DescribeImageResultExtRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeImageResultExtResponse
+     *
+     * @param DescribeImageResultExtRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeImageResultExtResponse
      */
     public function describeImageResultExtWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->infoType)) {
-            $body['InfoType'] = $request->infoType;
+        if (null !== $request->infoType) {
+            @$body['InfoType'] = $request->infoType;
         }
-        if (!Utils::isUnset($request->reqId)) {
-            $body['ReqId'] = $request->reqId;
+
+        if (null !== $request->reqId) {
+            @$body['ReqId'] = $request->reqId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeImageResultExt',
@@ -252,11 +281,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 查询检测结果辅助信息
-     *  *
-     * @param DescribeImageResultExtRequest $request DescribeImageResultExtRequest
+     * 查询检测结果辅助信息.
      *
-     * @return DescribeImageResultExtResponse DescribeImageResultExtResponse
+     * @param request - DescribeImageResultExtRequest
+     *
+     * @returns DescribeImageResultExtResponse
+     *
+     * @param DescribeImageResultExtRequest $request
+     *
+     * @return DescribeImageResultExtResponse
      */
     public function describeImageResultExt($request)
     {
@@ -266,22 +299,28 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 查询异步多模态检测结果
-     *  *
-     * @param DescribeMultimodalModerationResultRequest $request DescribeMultimodalModerationResultRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * 查询异步多模态检测结果.
      *
-     * @return DescribeMultimodalModerationResultResponse DescribeMultimodalModerationResultResponse
+     * @param request - DescribeMultimodalModerationResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMultimodalModerationResultResponse
+     *
+     * @param DescribeMultimodalModerationResultRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeMultimodalModerationResultResponse
      */
     public function describeMultimodalModerationResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->reqId)) {
-            $query['ReqId'] = $request->reqId;
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeMultimodalModerationResult',
@@ -299,11 +338,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 查询异步多模态检测结果
-     *  *
-     * @param DescribeMultimodalModerationResultRequest $request DescribeMultimodalModerationResultRequest
+     * 查询异步多模态检测结果.
      *
-     * @return DescribeMultimodalModerationResultResponse DescribeMultimodalModerationResultResponse
+     * @param request - DescribeMultimodalModerationResultRequest
+     *
+     * @returns DescribeMultimodalModerationResultResponse
+     *
+     * @param DescribeMultimodalModerationResultRequest $request
+     *
+     * @return DescribeMultimodalModerationResultResponse
      */
     public function describeMultimodalModerationResult($request)
     {
@@ -313,11 +356,16 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 查询上传token
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询上传token.
      *
-     * @return DescribeUploadTokenResponse DescribeUploadTokenResponse
+     * @param request - DescribeUploadTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUploadTokenResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeUploadTokenResponse
      */
     public function describeUploadTokenWithOptions($runtime)
     {
@@ -338,9 +386,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 查询上传token
-     *  *
-     * @return DescribeUploadTokenResponse DescribeUploadTokenResponse
+     * 查询上传token.
+     *
+     * @returns DescribeUploadTokenResponse
+     *
+     * @return DescribeUploadTokenResponse
      */
     public function describeUploadToken()
     {
@@ -350,26 +400,33 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Queries the moderation results based on the ReqId returned by asynchronous URL moderation.
-     *  *
-     * @description *   Billing: This operation is free of charge.
+     * Queries the moderation results based on the ReqId returned by asynchronous URL moderation.
+     *
+     * @remarks
+     *   Billing: This operation is free of charge.
      * *   Query timeout: We recommend that you query moderation results at least 480 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for up to 3 days. After 3 days, the results are deleted.
      * *   You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeUrlModerationResultRequest $request DescribeUrlModerationResultRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUrlModerationResultResponse DescribeUrlModerationResultResponse
+     * @param request - DescribeUrlModerationResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUrlModerationResultResponse
+     *
+     * @param DescribeUrlModerationResultRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeUrlModerationResultResponse
      */
     public function describeUrlModerationResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->reqId)) {
-            $body['ReqId'] = $request->reqId;
+        if (null !== $request->reqId) {
+            @$body['ReqId'] = $request->reqId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeUrlModerationResult',
@@ -387,15 +444,20 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Queries the moderation results based on the ReqId returned by asynchronous URL moderation.
-     *  *
-     * @description *   Billing: This operation is free of charge.
+     * Queries the moderation results based on the ReqId returned by asynchronous URL moderation.
+     *
+     * @remarks
+     *   Billing: This operation is free of charge.
      * *   Query timeout: We recommend that you query moderation results at least 480 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for up to 3 days. After 3 days, the results are deleted.
      * *   You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeUrlModerationResultRequest $request DescribeUrlModerationResultRequest
      *
-     * @return DescribeUrlModerationResultResponse DescribeUrlModerationResultResponse
+     * @param request - DescribeUrlModerationResultRequest
+     *
+     * @returns DescribeUrlModerationResultResponse
+     *
+     * @param DescribeUrlModerationResultRequest $request
+     *
+     * @return DescribeUrlModerationResultResponse
      */
     public function describeUrlModerationResult($request)
     {
@@ -405,25 +467,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 文档审核
-     *  *
-     * @param FileModerationRequest $request FileModerationRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 文档审核.
      *
-     * @return FileModerationResponse FileModerationResponse
+     * @param request - FileModerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FileModerationResponse
+     *
+     * @param FileModerationRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return FileModerationResponse
      */
     public function fileModerationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->service)) {
-            $body['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $body['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'FileModeration',
@@ -441,11 +510,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 文档审核
-     *  *
-     * @param FileModerationRequest $request FileModerationRequest
+     * 文档审核.
      *
-     * @return FileModerationResponse FileModerationResponse
+     * @param request - FileModerationRequest
+     *
+     * @returns FileModerationResponse
+     *
+     * @param FileModerationRequest $request
+     *
+     * @return FileModerationResponse
      */
     public function fileModeration($request)
     {
@@ -455,25 +528,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 图片异步检测
-     *  *
-     * @param ImageAsyncModerationRequest $request ImageAsyncModerationRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 图片异步检测.
      *
-     * @return ImageAsyncModerationResponse ImageAsyncModerationResponse
+     * @param request - ImageAsyncModerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImageAsyncModerationResponse
+     *
+     * @param ImageAsyncModerationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ImageAsyncModerationResponse
      */
     public function imageAsyncModerationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->service)) {
-            $query['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$query['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $query['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$query['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ImageAsyncModeration',
@@ -491,11 +571,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 图片异步检测
-     *  *
-     * @param ImageAsyncModerationRequest $request ImageAsyncModerationRequest
+     * 图片异步检测.
      *
-     * @return ImageAsyncModerationResponse ImageAsyncModerationResponse
+     * @param request - ImageAsyncModerationRequest
+     *
+     * @returns ImageAsyncModerationResponse
+     *
+     * @param ImageAsyncModerationRequest $request
+     *
+     * @return ImageAsyncModerationResponse
      */
     public function imageAsyncModeration($request)
     {
@@ -505,25 +589,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 图片批量调用
-     *  *
-     * @param ImageBatchModerationRequest $request ImageBatchModerationRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 图片批量调用.
      *
-     * @return ImageBatchModerationResponse ImageBatchModerationResponse
+     * @param request - ImageBatchModerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImageBatchModerationResponse
+     *
+     * @param ImageBatchModerationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ImageBatchModerationResponse
      */
     public function imageBatchModerationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->service)) {
-            $query['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$query['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $query['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$query['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ImageBatchModeration',
@@ -541,11 +632,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 图片批量调用
-     *  *
-     * @param ImageBatchModerationRequest $request ImageBatchModerationRequest
+     * 图片批量调用.
      *
-     * @return ImageBatchModerationResponse ImageBatchModerationResponse
+     * @param request - ImageBatchModerationRequest
+     *
+     * @returns ImageBatchModerationResponse
+     *
+     * @param ImageBatchModerationRequest $request
+     *
+     * @return ImageBatchModerationResponse
      */
     public function imageBatchModeration($request)
     {
@@ -555,27 +650,35 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Identifies whether an image contains content or elements that violate relevant regulations on network content dissemination, affect the content order of a specific platform, or affect user experience. Image Moderation 2.0 supports over 90 content risk labels and over 100 risk control items. Image Moderation 2.0 of Content Moderation allows you to develop further moderation or governance measures for specific image content based on business scenarios, platform-specific content governance rules, or rich risk labels and scores of confidence levels returned by API calls.
-     *  *
-     * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/467826.html)[](https://www.aliyun.com/price/product?#/lvwang/detail/cdibag) of Image Moderation 2.0.
-     *  *
-     * @param ImageModerationRequest $request ImageModerationRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Identifies whether an image contains content or elements that violate relevant regulations on network content dissemination, affect the content order of a specific platform, or affect user experience. Image Moderation 2.0 supports over 90 content risk labels and over 100 risk control items. Image Moderation 2.0 of Content Moderation allows you to develop further moderation or governance measures for specific image content based on business scenarios, platform-specific content governance rules, or rich risk labels and scores of confidence levels returned by API calls.
      *
-     * @return ImageModerationResponse ImageModerationResponse
+     * @remarks
+     * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/467826.html)[](https://www.aliyun.com/price/product?#/lvwang/detail/cdibag) of Image Moderation 2.0.
+     *
+     * @param request - ImageModerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImageModerationResponse
+     *
+     * @param ImageModerationRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ImageModerationResponse
      */
     public function imageModerationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->service)) {
-            $body['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $body['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ImageModeration',
@@ -593,13 +696,18 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Identifies whether an image contains content or elements that violate relevant regulations on network content dissemination, affect the content order of a specific platform, or affect user experience. Image Moderation 2.0 supports over 90 content risk labels and over 100 risk control items. Image Moderation 2.0 of Content Moderation allows you to develop further moderation or governance measures for specific image content based on business scenarios, platform-specific content governance rules, or rich risk labels and scores of confidence levels returned by API calls.
-     *  *
-     * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/467826.html)[](https://www.aliyun.com/price/product?#/lvwang/detail/cdibag) of Image Moderation 2.0.
-     *  *
-     * @param ImageModerationRequest $request ImageModerationRequest
+     * Identifies whether an image contains content or elements that violate relevant regulations on network content dissemination, affect the content order of a specific platform, or affect user experience. Image Moderation 2.0 supports over 90 content risk labels and over 100 risk control items. Image Moderation 2.0 of Content Moderation allows you to develop further moderation or governance measures for specific image content based on business scenarios, platform-specific content governance rules, or rich risk labels and scores of confidence levels returned by API calls.
      *
-     * @return ImageModerationResponse ImageModerationResponse
+     * @remarks
+     * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/467826.html)[](https://www.aliyun.com/price/product?#/lvwang/detail/cdibag) of Image Moderation 2.0.
+     *
+     * @param request - ImageModerationRequest
+     *
+     * @returns ImageModerationResponse
+     *
+     * @param ImageModerationRequest $request
+     *
+     * @return ImageModerationResponse
      */
     public function imageModeration($request)
     {
@@ -609,37 +717,48 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Content Security Manual Review Result Callback Interface
-     *  *
-     * @param ManualCallbackRequest $request ManualCallbackRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Content Security Manual Review Result Callback Interface.
      *
-     * @return ManualCallbackResponse ManualCallbackResponse
+     * @param request - ManualCallbackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ManualCallbackResponse
+     *
+     * @param ManualCallbackRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ManualCallbackResponse
      */
     public function manualCallbackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->channel)) {
-            $body['Channel'] = $request->channel;
+        if (null !== $request->channel) {
+            @$body['Channel'] = $request->channel;
         }
-        if (!Utils::isUnset($request->checksum)) {
-            $body['Checksum'] = $request->checksum;
+
+        if (null !== $request->checksum) {
+            @$body['Checksum'] = $request->checksum;
         }
-        if (!Utils::isUnset($request->code)) {
-            $body['Code'] = $request->code;
+
+        if (null !== $request->code) {
+            @$body['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->data)) {
-            $body['Data'] = $request->data;
+
+        if (null !== $request->data) {
+            @$body['Data'] = $request->data;
         }
-        if (!Utils::isUnset($request->msg)) {
-            $body['Msg'] = $request->msg;
+
+        if (null !== $request->msg) {
+            @$body['Msg'] = $request->msg;
         }
-        if (!Utils::isUnset($request->reqId)) {
-            $body['ReqId'] = $request->reqId;
+
+        if (null !== $request->reqId) {
+            @$body['ReqId'] = $request->reqId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ManualCallback',
@@ -657,11 +776,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Content Security Manual Review Result Callback Interface
-     *  *
-     * @param ManualCallbackRequest $request ManualCallbackRequest
+     * Content Security Manual Review Result Callback Interface.
      *
-     * @return ManualCallbackResponse ManualCallbackResponse
+     * @param request - ManualCallbackRequest
+     *
+     * @returns ManualCallbackResponse
+     *
+     * @param ManualCallbackRequest $request
+     *
+     * @return ManualCallbackResponse
      */
     public function manualCallback($request)
     {
@@ -671,25 +794,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Content Security Manual Review Request Interface
-     *  *
-     * @param ManualModerationRequest $request ManualModerationRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Content Security Manual Review Request Interface.
      *
-     * @return ManualModerationResponse ManualModerationResponse
+     * @param request - ManualModerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ManualModerationResponse
+     *
+     * @param ManualModerationRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ManualModerationResponse
      */
     public function manualModerationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->service)) {
-            $body['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $body['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ManualModeration',
@@ -707,11 +837,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Content Security Manual Review Request Interface
-     *  *
-     * @param ManualModerationRequest $request ManualModerationRequest
+     * Content Security Manual Review Request Interface.
      *
-     * @return ManualModerationResponse ManualModerationResponse
+     * @param request - ManualModerationRequest
+     *
+     * @returns ManualModerationResponse
+     *
+     * @param ManualModerationRequest $request
+     *
+     * @return ManualModerationResponse
      */
     public function manualModeration($request)
     {
@@ -721,22 +855,28 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve manual review results
-     *  *
-     * @param ManualModerationResultRequest $request ManualModerationResultRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Retrieve manual review results.
      *
-     * @return ManualModerationResultResponse ManualModerationResultResponse
+     * @param request - ManualModerationResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ManualModerationResultResponse
+     *
+     * @param ManualModerationResultRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ManualModerationResultResponse
      */
     public function manualModerationResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $body['ServiceParameters'] = $request->serviceParameters;
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ManualModerationResult',
@@ -754,11 +894,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve manual review results
-     *  *
-     * @param ManualModerationResultRequest $request ManualModerationResultRequest
+     * Retrieve manual review results.
      *
-     * @return ManualModerationResultResponse ManualModerationResultResponse
+     * @param request - ManualModerationResultRequest
+     *
+     * @returns ManualModerationResultResponse
+     *
+     * @param ManualModerationResultRequest $request
+     *
+     * @return ManualModerationResultResponse
      */
     public function manualModerationResult($request)
     {
@@ -768,25 +912,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 同步检测接口
-     *  *
-     * @param MultiModalGuardRequest $request MultiModalGuardRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 同步检测接口.
      *
-     * @return MultiModalGuardResponse MultiModalGuardResponse
+     * @param request - MultiModalGuardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MultiModalGuardResponse
+     *
+     * @param MultiModalGuardRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return MultiModalGuardResponse
      */
     public function multiModalGuardWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->service)) {
-            $body['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $body['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'MultiModalGuard',
@@ -804,11 +955,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 同步检测接口
-     *  *
-     * @param MultiModalGuardRequest $request MultiModalGuardRequest
+     * 同步检测接口.
      *
-     * @return MultiModalGuardResponse MultiModalGuardResponse
+     * @param request - MultiModalGuardRequest
+     *
+     * @returns MultiModalGuardResponse
+     *
+     * @param MultiModalGuardRequest $request
+     *
+     * @return MultiModalGuardResponse
      */
     public function multiModalGuard($request)
     {
@@ -818,25 +973,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 多模态-异步检测
-     *  *
-     * @param MultimodalAsyncModerationRequest $request MultimodalAsyncModerationRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 多模态-异步检测.
      *
-     * @return MultimodalAsyncModerationResponse MultimodalAsyncModerationResponse
+     * @param request - MultimodalAsyncModerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MultimodalAsyncModerationResponse
+     *
+     * @param MultimodalAsyncModerationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return MultimodalAsyncModerationResponse
      */
     public function multimodalAsyncModerationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->service)) {
-            $query['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$query['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $query['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$query['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'MultimodalAsyncModeration',
@@ -854,11 +1016,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 多模态-异步检测
-     *  *
-     * @param MultimodalAsyncModerationRequest $request MultimodalAsyncModerationRequest
+     * 多模态-异步检测.
      *
-     * @return MultimodalAsyncModerationResponse MultimodalAsyncModerationResponse
+     * @param request - MultimodalAsyncModerationRequest
+     *
+     * @returns MultimodalAsyncModerationResponse
+     *
+     * @param MultimodalAsyncModerationRequest $request
+     *
+     * @return MultimodalAsyncModerationResponse
      */
     public function multimodalAsyncModeration($request)
     {
@@ -868,27 +1034,35 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Provides moderation services for multiple business scenarios and identifies various violation risks.
-     *  *
-     * @description Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/464388.html?#section-itm-m2s-ugq) of Text Moderation 2.0.
-     *  *
-     * @param TextModerationRequest $request TextModerationRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Provides moderation services for multiple business scenarios and identifies various violation risks.
      *
-     * @return TextModerationResponse TextModerationResponse
+     * @remarks
+     * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/464388.html?#section-itm-m2s-ugq) of Text Moderation 2.0.
+     *
+     * @param request - TextModerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TextModerationResponse
+     *
+     * @param TextModerationRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return TextModerationResponse
      */
     public function textModerationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->service)) {
-            $body['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $body['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'TextModeration',
@@ -906,13 +1080,18 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Provides moderation services for multiple business scenarios and identifies various violation risks.
-     *  *
-     * @description Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/464388.html?#section-itm-m2s-ugq) of Text Moderation 2.0.
-     *  *
-     * @param TextModerationRequest $request TextModerationRequest
+     * Provides moderation services for multiple business scenarios and identifies various violation risks.
      *
-     * @return TextModerationResponse TextModerationResponse
+     * @remarks
+     * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/464388.html?#section-itm-m2s-ugq) of Text Moderation 2.0.
+     *
+     * @param request - TextModerationRequest
+     *
+     * @returns TextModerationResponse
+     *
+     * @param TextModerationRequest $request
+     *
+     * @return TextModerationResponse
      */
     public function textModeration($request)
     {
@@ -922,27 +1101,35 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Moderates the input command and generated text of large language models (LLMs). Specific model input commands can be used to retrieve standard answers. The feature of enabling and disabling the moderation labels is also available.
-     *  *
-     * @description Before you call this operation, make sure that you have [activated the Content Moderation 2.0 service](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) and are familiar with the [billing](https://help.aliyun.com/document_detail/2671445.html?#section-6od-32j-99n) of the Text Moderation 2.0 Plus service.
-     *  *
-     * @param TextModerationPlusRequest $request TextModerationPlusRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Moderates the input command and generated text of large language models (LLMs). Specific model input commands can be used to retrieve standard answers. The feature of enabling and disabling the moderation labels is also available.
      *
-     * @return TextModerationPlusResponse TextModerationPlusResponse
+     * @remarks
+     * Before you call this operation, make sure that you have [activated the Content Moderation 2.0 service](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) and are familiar with the [billing](https://help.aliyun.com/document_detail/2671445.html?#section-6od-32j-99n) of the Text Moderation 2.0 Plus service.
+     *
+     * @param request - TextModerationPlusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TextModerationPlusResponse
+     *
+     * @param TextModerationPlusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return TextModerationPlusResponse
      */
     public function textModerationPlusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->service)) {
-            $body['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $body['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'TextModerationPlus',
@@ -960,13 +1147,18 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Moderates the input command and generated text of large language models (LLMs). Specific model input commands can be used to retrieve standard answers. The feature of enabling and disabling the moderation labels is also available.
-     *  *
-     * @description Before you call this operation, make sure that you have [activated the Content Moderation 2.0 service](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) and are familiar with the [billing](https://help.aliyun.com/document_detail/2671445.html?#section-6od-32j-99n) of the Text Moderation 2.0 Plus service.
-     *  *
-     * @param TextModerationPlusRequest $request TextModerationPlusRequest
+     * Moderates the input command and generated text of large language models (LLMs). Specific model input commands can be used to retrieve standard answers. The feature of enabling and disabling the moderation labels is also available.
      *
-     * @return TextModerationPlusResponse TextModerationPlusResponse
+     * @remarks
+     * Before you call this operation, make sure that you have [activated the Content Moderation 2.0 service](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) and are familiar with the [billing](https://help.aliyun.com/document_detail/2671445.html?#section-6od-32j-99n) of the Text Moderation 2.0 Plus service.
+     *
+     * @param request - TextModerationPlusRequest
+     *
+     * @returns TextModerationPlusResponse
+     *
+     * @param TextModerationPlusRequest $request
+     *
+     * @return TextModerationPlusResponse
      */
     public function textModerationPlus($request)
     {
@@ -976,25 +1168,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary url异步检测
-     *  *
-     * @param UrlAsyncModerationRequest $request UrlAsyncModerationRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * url异步检测.
      *
-     * @return UrlAsyncModerationResponse UrlAsyncModerationResponse
+     * @param request - UrlAsyncModerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UrlAsyncModerationResponse
+     *
+     * @param UrlAsyncModerationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UrlAsyncModerationResponse
      */
     public function urlAsyncModerationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->service)) {
-            $query['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$query['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $query['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$query['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UrlAsyncModeration',
@@ -1012,11 +1211,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary url异步检测
-     *  *
-     * @param UrlAsyncModerationRequest $request UrlAsyncModerationRequest
+     * url异步检测.
      *
-     * @return UrlAsyncModerationResponse UrlAsyncModerationResponse
+     * @param request - UrlAsyncModerationRequest
+     *
+     * @returns UrlAsyncModerationResponse
+     *
+     * @param UrlAsyncModerationRequest $request
+     *
+     * @return UrlAsyncModerationResponse
      */
     public function urlAsyncModeration($request)
     {
@@ -1026,25 +1229,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 视频检测任务提交
-     *  *
-     * @param VideoModerationRequest $request VideoModerationRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 视频检测任务提交.
      *
-     * @return VideoModerationResponse VideoModerationResponse
+     * @param request - VideoModerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VideoModerationResponse
+     *
+     * @param VideoModerationRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return VideoModerationResponse
      */
     public function videoModerationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->service)) {
-            $body['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $body['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'VideoModeration',
@@ -1062,11 +1272,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 视频检测任务提交
-     *  *
-     * @param VideoModerationRequest $request VideoModerationRequest
+     * 视频检测任务提交.
      *
-     * @return VideoModerationResponse VideoModerationResponse
+     * @param request - VideoModerationRequest
+     *
+     * @returns VideoModerationResponse
+     *
+     * @param VideoModerationRequest $request
+     *
+     * @return VideoModerationResponse
      */
     public function videoModeration($request)
     {
@@ -1076,25 +1290,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 取消视频直播流检测
-     *  *
-     * @param VideoModerationCancelRequest $request VideoModerationCancelRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 取消视频直播流检测.
      *
-     * @return VideoModerationCancelResponse VideoModerationCancelResponse
+     * @param request - VideoModerationCancelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VideoModerationCancelResponse
+     *
+     * @param VideoModerationCancelRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return VideoModerationCancelResponse
      */
     public function videoModerationCancelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->service)) {
-            $body['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $body['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'VideoModerationCancel',
@@ -1112,11 +1333,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 取消视频直播流检测
-     *  *
-     * @param VideoModerationCancelRequest $request VideoModerationCancelRequest
+     * 取消视频直播流检测.
      *
-     * @return VideoModerationCancelResponse VideoModerationCancelResponse
+     * @param request - VideoModerationCancelRequest
+     *
+     * @returns VideoModerationCancelResponse
+     *
+     * @param VideoModerationCancelRequest $request
+     *
+     * @return VideoModerationCancelResponse
      */
     public function videoModerationCancel($request)
     {
@@ -1126,27 +1351,35 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Get Video Detection Results
-     *  *
-     * @description This operation is free of charge. We recommend that you query moderation results at least 30 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for at most 24 hours. After 24 hours, the results are deleted.
-     *  *
-     * @param VideoModerationResultRequest $request VideoModerationResultRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Get Video Detection Results.
      *
-     * @return VideoModerationResultResponse VideoModerationResultResponse
+     * @remarks
+     * This operation is free of charge. We recommend that you query moderation results at least 30 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for at most 24 hours. After 24 hours, the results are deleted.
+     *
+     * @param request - VideoModerationResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VideoModerationResultResponse
+     *
+     * @param VideoModerationResultRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return VideoModerationResultResponse
      */
     public function videoModerationResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->service)) {
-            $body['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $body['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'VideoModerationResult',
@@ -1164,13 +1397,18 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Get Video Detection Results
-     *  *
-     * @description This operation is free of charge. We recommend that you query moderation results at least 30 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for at most 24 hours. After 24 hours, the results are deleted.
-     *  *
-     * @param VideoModerationResultRequest $request VideoModerationResultRequest
+     * Get Video Detection Results.
      *
-     * @return VideoModerationResultResponse VideoModerationResultResponse
+     * @remarks
+     * This operation is free of charge. We recommend that you query moderation results at least 30 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for at most 24 hours. After 24 hours, the results are deleted.
+     *
+     * @param request - VideoModerationResultRequest
+     *
+     * @returns VideoModerationResultResponse
+     *
+     * @param VideoModerationResultRequest $request
+     *
+     * @return VideoModerationResultResponse
      */
     public function videoModerationResult($request)
     {
@@ -1180,25 +1418,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 语音审核
-     *  *
-     * @param VoiceModerationRequest $request VoiceModerationRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 语音审核.
      *
-     * @return VoiceModerationResponse VoiceModerationResponse
+     * @param request - VoiceModerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VoiceModerationResponse
+     *
+     * @param VoiceModerationRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return VoiceModerationResponse
      */
     public function voiceModerationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->service)) {
-            $body['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $body['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'VoiceModeration',
@@ -1216,11 +1461,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 语音审核
-     *  *
-     * @param VoiceModerationRequest $request VoiceModerationRequest
+     * 语音审核.
      *
-     * @return VoiceModerationResponse VoiceModerationResponse
+     * @param request - VoiceModerationRequest
+     *
+     * @returns VoiceModerationResponse
+     *
+     * @param VoiceModerationRequest $request
+     *
+     * @return VoiceModerationResponse
      */
     public function voiceModeration($request)
     {
@@ -1230,25 +1479,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 取消检测
-     *  *
-     * @param VoiceModerationCancelRequest $request VoiceModerationCancelRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 取消检测.
      *
-     * @return VoiceModerationCancelResponse VoiceModerationCancelResponse
+     * @param request - VoiceModerationCancelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VoiceModerationCancelResponse
+     *
+     * @param VoiceModerationCancelRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return VoiceModerationCancelResponse
      */
     public function voiceModerationCancelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->service)) {
-            $body['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $body['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'VoiceModerationCancel',
@@ -1266,11 +1522,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 取消检测
-     *  *
-     * @param VoiceModerationCancelRequest $request VoiceModerationCancelRequest
+     * 取消检测.
      *
-     * @return VoiceModerationCancelResponse VoiceModerationCancelResponse
+     * @param request - VoiceModerationCancelRequest
+     *
+     * @returns VoiceModerationCancelResponse
+     *
+     * @param VoiceModerationCancelRequest $request
+     *
+     * @return VoiceModerationCancelResponse
      */
     public function voiceModerationCancel($request)
     {
@@ -1280,25 +1540,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the moderation results of a Voice Moderation 2.0 task.
-     *  *
-     * @param VoiceModerationResultRequest $request VoiceModerationResultRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Obtains the moderation results of a Voice Moderation 2.0 task.
      *
-     * @return VoiceModerationResultResponse VoiceModerationResultResponse
+     * @param request - VoiceModerationResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VoiceModerationResultResponse
+     *
+     * @param VoiceModerationResultRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return VoiceModerationResultResponse
      */
     public function voiceModerationResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->service)) {
-            $body['Service'] = $request->service;
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $body['ServiceParameters'] = $request->serviceParameters;
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'VoiceModerationResult',
@@ -1316,11 +1583,15 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the moderation results of a Voice Moderation 2.0 task.
-     *  *
-     * @param VoiceModerationResultRequest $request VoiceModerationResultRequest
+     * Obtains the moderation results of a Voice Moderation 2.0 task.
      *
-     * @return VoiceModerationResultResponse VoiceModerationResultResponse
+     * @param request - VoiceModerationResultRequest
+     *
+     * @returns VoiceModerationResultResponse
+     *
+     * @param VoiceModerationResultRequest $request
+     *
+     * @return VoiceModerationResultResponse
      */
     public function voiceModerationResult($request)
     {

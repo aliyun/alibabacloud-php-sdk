@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ManualModerationResultRequest extends Model
 {
     /**
-     * @description Set of parameters required by the service, in JSON string format.
-     * - TaskId: The task ID returned when the task was submitted.
-     *
-     * @example {\\"TaskId\\":\\"e5f2d886-4c23-440d-999c-bd98acde11b6\\"}
-     *
      * @var string
      */
     public $serviceParameters;
@@ -21,9 +16,12 @@ class ManualModerationResultRequest extends Model
         'serviceParameters' => 'ServiceParameters',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceParameters) {
@@ -33,11 +31,11 @@ class ManualModerationResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ManualModerationResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeMultimodalModerationResultResponseBody\data\commentDatas;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeMultimodalModerationResultResponseBody\data\commentDatas\commentDatas\results;
-use AlibabaCloud\Tea\Model;
 
 class commentDatas extends Model
 {
@@ -17,17 +17,24 @@ class commentDatas extends Model
         'results' => 'Results',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->results)) {
+            Model::validateArray($this->results);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->results) {
-            $res['Results'] = [];
-            if (null !== $this->results && \is_array($this->results)) {
-                $n = 0;
-                foreach ($this->results as $item) {
-                    $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->results)) {
+                $res['Results'] = [];
+                $n1 = 0;
+                foreach ($this->results as $item1) {
+                    $res['Results'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class commentDatas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return commentDatas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n = 0;
-                foreach ($map['Results'] as $item) {
-                    $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Results'] as $item1) {
+                    $model->results[$n1] = results::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

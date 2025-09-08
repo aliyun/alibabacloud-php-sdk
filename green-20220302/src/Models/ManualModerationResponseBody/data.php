@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The value of dataId passed during the API request. This field will not be present if it was not provided during the request.
-     *
-     * @example 2a5389eb-4ff8-4584-ac99-644e2a539aa1
-     *
      * @var string
      */
     public $dataId;
 
     /**
-     * @description Task ID
-     *
-     * @example xxxxx-xxxxx
-     *
      * @var string
      */
     public $taskId;
@@ -30,14 +22,18 @@ class data extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -45,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

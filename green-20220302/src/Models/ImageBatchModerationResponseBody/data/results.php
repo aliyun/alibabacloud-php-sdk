@@ -4,40 +4,28 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody\data\results\ext;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody\data\results\result;
-use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
     /**
-     * @description Image supplementary reference information.
-     *
      * @var ext
      */
     public $ext;
 
     /**
-     * @description The risk labels, confidence scores, and other parameters of image detection results, in an array structure.
-     *
      * @var result[]
      */
     public $result;
 
     /**
-     * @description Risk level.
-     *
-     * @example high
-     *
      * @var string
      */
     public $riskLevel;
 
     /**
-     * @description The enhanced image detection service supports various detection services.
-     *
-     * @example baselineCheck
-     *
      * @var string
      */
     public $service;
@@ -48,26 +36,39 @@ class results extends Model
         'service' => 'Service',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->ext) {
+            $this->ext->validate();
+        }
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ext) {
-            $res['Ext'] = null !== $this->ext ? $this->ext->toMap() : null;
+            $res['Ext'] = null !== $this->ext ? $this->ext->toArray($noStream) : $this->ext;
         }
+
         if (null !== $this->result) {
-            $res['Result'] = [];
-            if (null !== $this->result && \is_array($this->result)) {
-                $n = 0;
-                foreach ($this->result as $item) {
-                    $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->result)) {
+                $res['Result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['Result'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
+
         if (null !== $this->service) {
             $res['Service'] = $this->service;
         }
@@ -75,29 +76,33 @@ class results extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ext'])) {
             $model->ext = ext::fromMap($map['Ext']);
         }
+
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n = 0;
-                foreach ($map['Result'] as $item) {
-                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Result'] as $item1) {
+                    $model->result[$n1] = result::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
+
         if (isset($map['Service'])) {
             $model->service = $map['Service'];
         }

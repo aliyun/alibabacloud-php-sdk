@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FileModerationRequest extends Model
 {
     /**
-     * @description The type of the moderation service.
-     *
-     * @example document_detection
-     *
      * @var string
      */
     public $service;
 
     /**
-     * @description The parameters required by the moderation service. The value is a JSON string.
-     *
-     * @example {"url":"https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.pdf"}
-     *
      * @var string
      */
     public $serviceParameters;
@@ -30,14 +22,18 @@ class FileModerationRequest extends Model
         'serviceParameters' => 'ServiceParameters',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->service) {
             $res['Service'] = $this->service;
         }
+
         if (null !== $this->serviceParameters) {
             $res['ServiceParameters'] = $this->serviceParameters;
         }
@@ -45,17 +41,18 @@ class FileModerationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FileModerationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Service'])) {
             $model->service = $map['Service'];
         }
+
         if (isset($map['ServiceParameters'])) {
             $model->serviceParameters = $map['ServiceParameters'];
         }

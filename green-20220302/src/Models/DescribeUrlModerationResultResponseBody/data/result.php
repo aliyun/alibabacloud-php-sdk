@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeUrlModerationResultResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
-     *
-     * @example 81.22
-     *
      * @var float
      */
     public $confidence;
 
     /**
-     * @description The labels returned after the asynchronous URL moderation.
-     *
-     * @example sexual_url
-     *
      * @var string
      */
     public $label;
@@ -30,14 +22,18 @@ class result extends Model
         'label' => 'Label',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
@@ -45,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }

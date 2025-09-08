@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames\results;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customImage extends Model
 {
     /**
-     * @description The ID of the custom image that is hit.
-     *
-     * @example 1234
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The ID of the custom image library that is hit.
-     *
-     * @example 12345678
-     *
      * @var string
      */
     public $libId;
@@ -30,14 +22,18 @@ class customImage extends Model
         'libId' => 'LibId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->libId) {
             $res['LibId'] = $this->libId;
         }
@@ -45,17 +41,18 @@ class customImage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customImage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['LibId'])) {
             $model->libId = $map['LibId'];
         }
