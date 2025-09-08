@@ -21,6 +21,11 @@ class GenerateUserSessionTokenRequest extends Model
     /**
      * @var string
      */
+    public $extraInfo;
+
+    /**
+     * @var string
+     */
     public $integrateId;
 
     /**
@@ -40,6 +45,7 @@ class GenerateUserSessionTokenRequest extends Model
     protected $_name = [
         'chatbotId' => 'ChatbotId',
         'expireSecond' => 'ExpireSecond',
+        'extraInfo' => 'ExtraInfo',
         'integrateId' => 'IntegrateId',
         'userAvatar' => 'UserAvatar',
         'userId' => 'UserId',
@@ -60,6 +66,10 @@ class GenerateUserSessionTokenRequest extends Model
 
         if (null !== $this->expireSecond) {
             $res['ExpireSecond'] = $this->expireSecond;
+        }
+
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
         }
 
         if (null !== $this->integrateId) {
@@ -95,6 +105,10 @@ class GenerateUserSessionTokenRequest extends Model
 
         if (isset($map['ExpireSecond'])) {
             $model->expireSecond = $map['ExpireSecond'];
+        }
+
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
         }
 
         if (isset($map['IntegrateId'])) {

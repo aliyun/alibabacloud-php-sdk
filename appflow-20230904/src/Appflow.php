@@ -71,6 +71,10 @@ class Appflow extends OpenApiClient
             @$query['ExpireSecond'] = $request->expireSecond;
         }
 
+        if (null !== $request->extraInfo) {
+            @$query['ExtraInfo'] = $request->extraInfo;
+        }
+
         if (null !== $request->integrateId) {
             @$query['IntegrateId'] = $request->integrateId;
         }
