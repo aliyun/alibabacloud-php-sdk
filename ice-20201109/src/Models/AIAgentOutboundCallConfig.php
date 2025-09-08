@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\ambientSoundConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\asrConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\interruptConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\llmConfig;
@@ -13,6 +14,11 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\turnDetectio
 
 class AIAgentOutboundCallConfig extends Model
 {
+    /**
+     * @var ambientSoundConfig
+     */
+    public $ambientSoundConfig;
+
     /**
      * @var asrConfig
      */
@@ -53,6 +59,7 @@ class AIAgentOutboundCallConfig extends Model
      */
     public $turnDetectionConfig;
     protected $_name = [
+        'ambientSoundConfig' => 'AmbientSoundConfig',
         'asrConfig' => 'AsrConfig',
         'enableIntelligentSegment' => 'EnableIntelligentSegment',
         'greeting' => 'Greeting',
@@ -65,6 +72,9 @@ class AIAgentOutboundCallConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->ambientSoundConfig) {
+            $this->ambientSoundConfig->validate();
+        }
         if (null !== $this->asrConfig) {
             $this->asrConfig->validate();
         }
@@ -86,6 +96,10 @@ class AIAgentOutboundCallConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ambientSoundConfig) {
+            $res['AmbientSoundConfig'] = null !== $this->ambientSoundConfig ? $this->ambientSoundConfig->toArray($noStream) : $this->ambientSoundConfig;
+        }
+
         if (null !== $this->asrConfig) {
             $res['AsrConfig'] = null !== $this->asrConfig ? $this->asrConfig->toArray($noStream) : $this->asrConfig;
         }
@@ -129,6 +143,10 @@ class AIAgentOutboundCallConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AmbientSoundConfig'])) {
+            $model->ambientSoundConfig = ambientSoundConfig::fromMap($map['AmbientSoundConfig']);
+        }
+
         if (isset($map['AsrConfig'])) {
             $model->asrConfig = asrConfig::fromMap($map['AsrConfig']);
         }

@@ -4888,7 +4888,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Deletes a channel in MediaWeaver.
+     * Deletes a channel.
      *
      * @param request - DeleteChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4927,7 +4927,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Deletes a channel in MediaWeaver.
+     * Deletes a channel.
      *
      * @param request - DeleteChannelRequest
      *
@@ -11577,7 +11577,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Queries a source in MediaWeaver.
+     * Queries a source.
      *
      * @param request - GetSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11624,7 +11624,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Queries a source in MediaWeaver.
+     * Queries a source.
      *
      * @param request - GetSourceRequest
      *
@@ -19385,6 +19385,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->text) {
             @$query['Text'] = $request->text;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
 
         $req = new OpenApiRequest([

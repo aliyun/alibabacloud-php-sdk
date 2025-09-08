@@ -22,10 +22,16 @@ class SendAIAgentSpeechRequest extends Model
      * @var string
      */
     public $text;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'enableInterrupt' => 'EnableInterrupt',
         'instanceId' => 'InstanceId',
         'text' => 'Text',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class SendAIAgentSpeechRequest extends Model
 
         if (null !== $this->text) {
             $res['Text'] = $this->text;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class SendAIAgentSpeechRequest extends Model
 
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

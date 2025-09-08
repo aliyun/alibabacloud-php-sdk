@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\vcrConfig\equipment;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\vcrConfig\headMotion;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\vcrConfig\invalidFrameMotion;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\vcrConfig\lookAway;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\vcrConfig\peopleCount;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\vcrConfig\stillFrameMotion;
 
@@ -29,6 +30,11 @@ class vcrConfig extends Model
     public $invalidFrameMotion;
 
     /**
+     * @var lookAway
+     */
+    public $lookAway;
+
+    /**
      * @var peopleCount
      */
     public $peopleCount;
@@ -41,6 +47,7 @@ class vcrConfig extends Model
         'equipment' => 'Equipment',
         'headMotion' => 'HeadMotion',
         'invalidFrameMotion' => 'InvalidFrameMotion',
+        'lookAway' => 'LookAway',
         'peopleCount' => 'PeopleCount',
         'stillFrameMotion' => 'StillFrameMotion',
     ];
@@ -55,6 +62,9 @@ class vcrConfig extends Model
         }
         if (null !== $this->invalidFrameMotion) {
             $this->invalidFrameMotion->validate();
+        }
+        if (null !== $this->lookAway) {
+            $this->lookAway->validate();
         }
         if (null !== $this->peopleCount) {
             $this->peopleCount->validate();
@@ -78,6 +88,10 @@ class vcrConfig extends Model
 
         if (null !== $this->invalidFrameMotion) {
             $res['InvalidFrameMotion'] = null !== $this->invalidFrameMotion ? $this->invalidFrameMotion->toArray($noStream) : $this->invalidFrameMotion;
+        }
+
+        if (null !== $this->lookAway) {
+            $res['LookAway'] = null !== $this->lookAway ? $this->lookAway->toArray($noStream) : $this->lookAway;
         }
 
         if (null !== $this->peopleCount) {
@@ -109,6 +123,10 @@ class vcrConfig extends Model
 
         if (isset($map['InvalidFrameMotion'])) {
             $model->invalidFrameMotion = invalidFrameMotion::fromMap($map['InvalidFrameMotion']);
+        }
+
+        if (isset($map['LookAway'])) {
+            $model->lookAway = lookAway::fromMap($map['LookAway']);
         }
 
         if (isset($map['PeopleCount'])) {

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\ambientSoundConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\asrConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\avatarConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\interruptConfig;
@@ -16,6 +17,11 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\voiceprintConfig;
 
 class AIAgentConfig extends Model
 {
+    /**
+     * @var ambientSoundConfig
+     */
+    public $ambientSoundConfig;
+
     /**
      * @var asrConfig
      */
@@ -121,6 +127,7 @@ class AIAgentConfig extends Model
      */
     public $workflowOverrideParams;
     protected $_name = [
+        'ambientSoundConfig' => 'AmbientSoundConfig',
         'asrConfig' => 'AsrConfig',
         'avatarConfig' => 'AvatarConfig',
         'avatarUrl' => 'AvatarUrl',
@@ -146,6 +153,9 @@ class AIAgentConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->ambientSoundConfig) {
+            $this->ambientSoundConfig->validate();
+        }
         if (null !== $this->asrConfig) {
             $this->asrConfig->validate();
         }
@@ -176,6 +186,10 @@ class AIAgentConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ambientSoundConfig) {
+            $res['AmbientSoundConfig'] = null !== $this->ambientSoundConfig ? $this->ambientSoundConfig->toArray($noStream) : $this->ambientSoundConfig;
+        }
+
         if (null !== $this->asrConfig) {
             $res['AsrConfig'] = null !== $this->asrConfig ? $this->asrConfig->toArray($noStream) : $this->asrConfig;
         }
@@ -271,6 +285,10 @@ class AIAgentConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AmbientSoundConfig'])) {
+            $model->ambientSoundConfig = ambientSoundConfig::fromMap($map['AmbientSoundConfig']);
+        }
+
         if (isset($map['AsrConfig'])) {
             $model->asrConfig = asrConfig::fromMap($map['AsrConfig']);
         }
