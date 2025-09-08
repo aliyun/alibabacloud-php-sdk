@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckVerifyLogRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckVerifyLogResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialRecognitionIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialRecognitionIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlAdvanceRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlResponse;
@@ -716,6 +718,85 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkVerifyLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * 凭证识别.
+     *
+     * @param Request - CredentialRecognitionIntlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CredentialRecognitionIntlResponse
+     *
+     * @param CredentialRecognitionIntlRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CredentialRecognitionIntlResponse
+     */
+    public function credentialRecognitionIntlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->docType) {
+            @$query['DocType'] = $request->docType;
+        }
+
+        if (null !== $request->fraudCheck) {
+            @$query['FraudCheck'] = $request->fraudCheck;
+        }
+
+        if (null !== $request->ocrArea) {
+            @$query['OcrArea'] = $request->ocrArea;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        $body = [];
+        if (null !== $request->credentialOcrPictureBase64) {
+            @$body['CredentialOcrPictureBase64'] = $request->credentialOcrPictureBase64;
+        }
+
+        if (null !== $request->credentialOcrPictureUrl) {
+            @$body['CredentialOcrPictureUrl'] = $request->credentialOcrPictureUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CredentialRecognitionIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CredentialRecognitionIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 凭证识别.
+     *
+     * @param Request - CredentialRecognitionIntlRequest
+     *
+     * @returns CredentialRecognitionIntlResponse
+     *
+     * @param CredentialRecognitionIntlRequest $request
+     *
+     * @return CredentialRecognitionIntlResponse
+     */
+    public function credentialRecognitionIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->credentialRecognitionIntlWithOptions($request, $runtime);
     }
 
     /**
