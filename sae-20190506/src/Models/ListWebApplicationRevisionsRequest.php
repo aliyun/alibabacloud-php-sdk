@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListWebApplicationRevisionsRequest extends Model
 {
     /**
-     * @description The number of applications returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @description The namespace ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $namespaceId;
 
     /**
-     * @description The pagination token.
-     *
-     * @example A2RN
-     *
      * @var string
      */
     public $nextToken;
@@ -42,17 +28,22 @@ class ListWebApplicationRevisionsRequest extends Model
         'nextToken' => 'NextToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
+
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -60,20 +51,22 @@ class ListWebApplicationRevisionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWebApplicationRevisionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
+
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

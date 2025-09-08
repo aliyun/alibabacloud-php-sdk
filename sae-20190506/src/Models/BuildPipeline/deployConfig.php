@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipeline;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deployConfig extends Model
 {
@@ -40,23 +40,30 @@ class deployConfig extends Model
         'updateTraffic' => 'UpdateTraffic',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alwaysAllocateCPU) {
             $res['AlwaysAllocateCPU'] = $this->alwaysAllocateCPU;
         }
+
         if (null !== $this->maximumInstanceCount) {
             $res['MaximumInstanceCount'] = $this->maximumInstanceCount;
         }
+
         if (null !== $this->minimumInstanceCount) {
             $res['MinimumInstanceCount'] = $this->minimumInstanceCount;
         }
+
         if (null !== $this->updateApplicationInput) {
             $res['UpdateApplicationInput'] = $this->updateApplicationInput;
         }
+
         if (null !== $this->updateTraffic) {
             $res['UpdateTraffic'] = $this->updateTraffic;
         }
@@ -64,26 +71,30 @@ class deployConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deployConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlwaysAllocateCPU'])) {
             $model->alwaysAllocateCPU = $map['AlwaysAllocateCPU'];
         }
+
         if (isset($map['MaximumInstanceCount'])) {
             $model->maximumInstanceCount = $map['MaximumInstanceCount'];
         }
+
         if (isset($map['MinimumInstanceCount'])) {
             $model->minimumInstanceCount = $map['MinimumInstanceCount'];
         }
+
         if (isset($map['UpdateApplicationInput'])) {
             $model->updateApplicationInput = $map['UpdateApplicationInput'];
         }
+
         if (isset($map['UpdateTraffic'])) {
             $model->updateTraffic = $map['UpdateTraffic'];
         }

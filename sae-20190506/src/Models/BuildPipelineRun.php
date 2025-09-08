@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipelineRun\buildConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipelineRun\codeConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipelineRun\deployConfig;
@@ -11,7 +12,6 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipelineRun\imageConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipelineRun\packageConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipelineRun\steps;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipelineRun\triggerConfig;
-use AlibabaCloud\Tea\Model;
 
 class BuildPipelineRun extends Model
 {
@@ -119,65 +119,106 @@ class BuildPipelineRun extends Model
         'waitDuration' => 'WaitDuration',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->buildConfig) {
+            $this->buildConfig->validate();
+        }
+        if (null !== $this->codeConfig) {
+            $this->codeConfig->validate();
+        }
+        if (null !== $this->deployConfig) {
+            $this->deployConfig->validate();
+        }
+        if (null !== $this->imageConfig) {
+            $this->imageConfig->validate();
+        }
+        if (null !== $this->packageConfig) {
+            $this->packageConfig->validate();
+        }
+        if (\is_array($this->steps)) {
+            Model::validateArray($this->steps);
+        }
+        if (null !== $this->triggerConfig) {
+            $this->triggerConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildConfig) {
-            $res['BuildConfig'] = null !== $this->buildConfig ? $this->buildConfig->toMap() : null;
+            $res['BuildConfig'] = null !== $this->buildConfig ? $this->buildConfig->toArray($noStream) : $this->buildConfig;
         }
+
         if (null !== $this->buildDuration) {
             $res['BuildDuration'] = $this->buildDuration;
         }
+
         if (null !== $this->codeConfig) {
-            $res['CodeConfig'] = null !== $this->codeConfig ? $this->codeConfig->toMap() : null;
+            $res['CodeConfig'] = null !== $this->codeConfig ? $this->codeConfig->toArray($noStream) : $this->codeConfig;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->deployConfig) {
-            $res['DeployConfig'] = null !== $this->deployConfig ? $this->deployConfig->toMap() : null;
+            $res['DeployConfig'] = null !== $this->deployConfig ? $this->deployConfig->toArray($noStream) : $this->deployConfig;
         }
+
         if (null !== $this->deployDuration) {
             $res['DeployDuration'] = $this->deployDuration;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->imageConfig) {
-            $res['ImageConfig'] = null !== $this->imageConfig ? $this->imageConfig->toMap() : null;
+            $res['ImageConfig'] = null !== $this->imageConfig ? $this->imageConfig->toArray($noStream) : $this->imageConfig;
         }
+
         if (null !== $this->packageConfig) {
-            $res['PackageConfig'] = null !== $this->packageConfig ? $this->packageConfig->toMap() : null;
+            $res['PackageConfig'] = null !== $this->packageConfig ? $this->packageConfig->toArray($noStream) : $this->packageConfig;
         }
+
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
+
         if (null !== $this->pipelineRunId) {
             $res['PipelineRunId'] = $this->pipelineRunId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->steps) {
-            $res['Steps'] = [];
-            if (null !== $this->steps && \is_array($this->steps)) {
-                $n = 0;
-                foreach ($this->steps as $item) {
-                    $res['Steps'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->steps)) {
+                $res['Steps'] = [];
+                $n1 = 0;
+                foreach ($this->steps as $item1) {
+                    $res['Steps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->triggerConfig) {
-            $res['TriggerConfig'] = null !== $this->triggerConfig ? $this->triggerConfig->toMap() : null;
+            $res['TriggerConfig'] = null !== $this->triggerConfig ? $this->triggerConfig->toArray($noStream) : $this->triggerConfig;
         }
+
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
         }
+
         if (null !== $this->waitDuration) {
             $res['WaitDuration'] = $this->waitDuration;
         }
@@ -185,68 +226,85 @@ class BuildPipelineRun extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BuildPipelineRun
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BuildConfig'])) {
             $model->buildConfig = buildConfig::fromMap($map['BuildConfig']);
         }
+
         if (isset($map['BuildDuration'])) {
             $model->buildDuration = $map['BuildDuration'];
         }
+
         if (isset($map['CodeConfig'])) {
             $model->codeConfig = codeConfig::fromMap($map['CodeConfig']);
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['DeployConfig'])) {
             $model->deployConfig = deployConfig::fromMap($map['DeployConfig']);
         }
+
         if (isset($map['DeployDuration'])) {
             $model->deployDuration = $map['DeployDuration'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['ImageConfig'])) {
             $model->imageConfig = imageConfig::fromMap($map['ImageConfig']);
         }
+
         if (isset($map['PackageConfig'])) {
             $model->packageConfig = packageConfig::fromMap($map['PackageConfig']);
         }
+
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
         }
+
         if (isset($map['PipelineRunId'])) {
             $model->pipelineRunId = $map['PipelineRunId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Steps'])) {
             if (!empty($map['Steps'])) {
                 $model->steps = [];
-                $n = 0;
-                foreach ($map['Steps'] as $item) {
-                    $model->steps[$n++] = null !== $item ? steps::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Steps'] as $item1) {
+                    $model->steps[$n1] = steps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TriggerConfig'])) {
             $model->triggerConfig = triggerConfig::fromMap($map['TriggerConfig']);
         }
+
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
         }
+
         if (isset($map['WaitDuration'])) {
             $model->waitDuration = $map['WaitDuration'];
         }

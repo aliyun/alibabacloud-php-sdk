@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class WebApplication extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $applicationId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $applicationName;
@@ -86,92 +82,126 @@ class WebApplication extends Model
         'webTrafficConfig' => 'WebTrafficConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->revisionConfig) {
+            $this->revisionConfig->validate();
+        }
+        if (null !== $this->webScalingConfig) {
+            $this->webScalingConfig->validate();
+        }
+        if (null !== $this->webTrafficConfig) {
+            $this->webTrafficConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
+
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
         }
+
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->internetURL) {
             $res['InternetURL'] = $this->internetURL;
         }
+
         if (null !== $this->intranetURL) {
             $res['IntranetURL'] = $this->intranetURL;
         }
+
         if (null !== $this->lastModifiedTime) {
             $res['LastModifiedTime'] = $this->lastModifiedTime;
         }
+
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+
         if (null !== $this->revisionConfig) {
-            $res['RevisionConfig'] = null !== $this->revisionConfig ? $this->revisionConfig->toMap() : null;
+            $res['RevisionConfig'] = null !== $this->revisionConfig ? $this->revisionConfig->toArray($noStream) : $this->revisionConfig;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->webScalingConfig) {
-            $res['WebScalingConfig'] = null !== $this->webScalingConfig ? $this->webScalingConfig->toMap() : null;
+            $res['WebScalingConfig'] = null !== $this->webScalingConfig ? $this->webScalingConfig->toArray($noStream) : $this->webScalingConfig;
         }
+
         if (null !== $this->webTrafficConfig) {
-            $res['WebTrafficConfig'] = null !== $this->webTrafficConfig ? $this->webTrafficConfig->toMap() : null;
+            $res['WebTrafficConfig'] = null !== $this->webTrafficConfig ? $this->webTrafficConfig->toArray($noStream) : $this->webTrafficConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return WebApplication
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
+
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
         }
+
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['InternetURL'])) {
             $model->internetURL = $map['InternetURL'];
         }
+
         if (isset($map['IntranetURL'])) {
             $model->intranetURL = $map['IntranetURL'];
         }
+
         if (isset($map['LastModifiedTime'])) {
             $model->lastModifiedTime = $map['LastModifiedTime'];
         }
+
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
+
         if (isset($map['RevisionConfig'])) {
             $model->revisionConfig = RevisionConfig::fromMap($map['RevisionConfig']);
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['WebScalingConfig'])) {
             $model->webScalingConfig = WebScalingConfig::fromMap($map['WebScalingConfig']);
         }
+
         if (isset($map['WebTrafficConfig'])) {
             $model->webTrafficConfig = WebTrafficConfig::fromMap($map['WebTrafficConfig']);
         }

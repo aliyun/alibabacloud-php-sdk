@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class secretMountDesc extends Model
 {
     /**
-     * @description The key to Base64 encode values.
-     *
-     * @example task-center
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The mount path.
-     *
-     * @example /opt/www/runtime/logs
-     *
      * @var string
      */
     public $mountPath;
 
     /**
-     * @description The secret ID of the instance.
-     *
-     * @example 520
-     *
      * @var int
      */
     public $secretId;
 
     /**
-     * @description The name of the secret.
-     *
-     * @example dummy-name-opaque-894
-     *
      * @var string
      */
     public $secretName;
@@ -50,20 +34,26 @@ class secretMountDesc extends Model
         'secretName' => 'SecretName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
         }
+
         if (null !== $this->secretId) {
             $res['SecretId'] = $this->secretId;
         }
+
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
@@ -71,23 +61,26 @@ class secretMountDesc extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return secretMountDesc
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
         }
+
         if (isset($map['SecretId'])) {
             $model->secretId = $map['SecretId'];
         }
+
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }

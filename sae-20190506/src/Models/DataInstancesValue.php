@@ -4,34 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DataInstancesValue extends Model
 {
     /**
-     * @description The domain name.
-     *
-     * @example nlb-wb7r6dlwetvt5j****.cn-hangzhou.nlb.aliyuncs.com
-     *
      * @var string
      */
     public $dnsName;
 
     /**
-     * @description The listeners.
-     *
      * @var DataInstancesValueListenersValue[]
      */
     public $listeners;
 
     /**
-     * @description Indicates whether the instance is created by SAE.
-     *
-     *   **true**: The instance is created by SAE.
-     *   **false**: The existing instance is reused.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $createdBySae;
@@ -41,22 +28,30 @@ class DataInstancesValue extends Model
         'createdBySae' => 'CreatedBySae',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->listeners)) {
+            Model::validateArray($this->listeners);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dnsName) {
             $res['DnsName'] = $this->dnsName;
         }
+
         if (null !== $this->listeners) {
-            $res['Listeners'] = [];
-            if (null !== $this->listeners && \is_array($this->listeners)) {
-                foreach ($this->listeners as $key => $val) {
-                    $res['Listeners'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->listeners)) {
+                $res['Listeners'] = [];
+                foreach ($this->listeners as $key1 => $value1) {
+                    $res['Listeners'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
+
         if (null !== $this->createdBySae) {
             $res['CreatedBySae'] = $this->createdBySae;
         }
@@ -64,20 +59,27 @@ class DataInstancesValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DataInstancesValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DnsName'])) {
             $model->dnsName = $map['DnsName'];
         }
+
         if (isset($map['Listeners'])) {
-            $model->listeners = $map['Listeners'];
+            if (!empty($map['Listeners'])) {
+                $model->listeners = [];
+                foreach ($map['Listeners'] as $key1 => $value1) {
+                    $model->listeners[$key1] = DataInstancesValueListenersValue::fromMap($value1);
+                }
+            }
         }
+
         if (isset($map['CreatedBySae'])) {
             $model->createdBySae = $map['CreatedBySae'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InstanceExecAuthorizationInput extends Model
 {
@@ -16,23 +16,29 @@ class InstanceExecAuthorizationInput extends Model
         'options' => 'options',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->options) {
+            $this->options->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->options) {
-            $res['options'] = null !== $this->options ? $this->options->toMap() : null;
+            $res['options'] = null !== $this->options ? $this->options->toArray($noStream) : $this->options;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InstanceExecAuthorizationInput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReduceApplicationCapacityByInstanceIdsRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * This parameter is required.
-     *
-     * @example 0099b7be-5f5b-4512-a7fc-56049ef1****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The ID of the instance. Separate multiple instances with commas (,).
-     *
-     * This parameter is required.
-     *
-     * @example b2a8a925-477a-4ed7-b825-d5e22500****
-     *
      * @var string
      */
     public $instanceIds;
@@ -34,14 +22,18 @@ class ReduceApplicationCapacityByInstanceIdsRequest extends Model
         'instanceIds' => 'InstanceIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
@@ -49,17 +41,18 @@ class ReduceApplicationCapacityByInstanceIdsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReduceApplicationCapacityByInstanceIdsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }

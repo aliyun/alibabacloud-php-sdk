@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSlsIndexResponse extends Model
 {
@@ -28,17 +28,22 @@ class CreateSlsIndexResponse extends Model
         'project' => 'project',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->logStore) {
             $res['logStore'] = $this->logStore;
         }
+
         if (null !== $this->project) {
             $res['project'] = $this->project;
         }
@@ -46,20 +51,22 @@ class CreateSlsIndexResponse extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSlsIndexResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['logStore'])) {
             $model->logStore = $map['logStore'];
         }
+
         if (isset($map['project'])) {
             $model->project = $map['project'];
         }

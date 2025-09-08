@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\ListIngressesResponseBody\data\ingressList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class corsConfig extends Model
 {
@@ -52,29 +52,38 @@ class corsConfig extends Model
         'maxAge' => 'MaxAge',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowCredentials) {
             $res['AllowCredentials'] = $this->allowCredentials;
         }
+
         if (null !== $this->allowHeaders) {
             $res['AllowHeaders'] = $this->allowHeaders;
         }
+
         if (null !== $this->allowMethods) {
             $res['AllowMethods'] = $this->allowMethods;
         }
+
         if (null !== $this->allowOrigin) {
             $res['AllowOrigin'] = $this->allowOrigin;
         }
+
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+
         if (null !== $this->exposeHeaders) {
             $res['ExposeHeaders'] = $this->exposeHeaders;
         }
+
         if (null !== $this->maxAge) {
             $res['MaxAge'] = $this->maxAge;
         }
@@ -82,32 +91,38 @@ class corsConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return corsConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowCredentials'])) {
             $model->allowCredentials = $map['AllowCredentials'];
         }
+
         if (isset($map['AllowHeaders'])) {
             $model->allowHeaders = $map['AllowHeaders'];
         }
+
         if (isset($map['AllowMethods'])) {
             $model->allowMethods = $map['AllowMethods'];
         }
+
         if (isset($map['AllowOrigin'])) {
             $model->allowOrigin = $map['AllowOrigin'];
         }
+
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+
         if (isset($map['ExposeHeaders'])) {
             $model->exposeHeaders = $map['ExposeHeaders'];
         }
+
         if (isset($map['MaxAge'])) {
             $model->maxAge = $map['MaxAge'];
         }

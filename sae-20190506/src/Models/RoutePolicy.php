@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RoutePolicy extends Model
 {
@@ -22,20 +22,28 @@ class RoutePolicy extends Model
         'policyItems' => 'policyItems',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->policyItems)) {
+            Model::validateArray($this->policyItems);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->condition) {
             $res['condition'] = $this->condition;
         }
+
         if (null !== $this->policyItems) {
-            $res['policyItems'] = [];
-            if (null !== $this->policyItems && \is_array($this->policyItems)) {
-                $n = 0;
-                foreach ($this->policyItems as $item) {
-                    $res['policyItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->policyItems)) {
+                $res['policyItems'] = [];
+                $n1 = 0;
+                foreach ($this->policyItems as $item1) {
+                    $res['policyItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -43,23 +51,25 @@ class RoutePolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RoutePolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['condition'])) {
             $model->condition = $map['condition'];
         }
+
         if (isset($map['policyItems'])) {
             if (!empty($map['policyItems'])) {
                 $model->policyItems = [];
-                $n = 0;
-                foreach ($map['policyItems'] as $item) {
-                    $model->policyItems[$n++] = null !== $item ? PolicyItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['policyItems'] as $item1) {
+                    $model->policyItems[$n1] = PolicyItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

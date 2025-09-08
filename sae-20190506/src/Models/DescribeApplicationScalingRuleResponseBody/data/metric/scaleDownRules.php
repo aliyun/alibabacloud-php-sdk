@@ -4,38 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRuleResponseBody\data\metric;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class scaleDownRules extends Model
 {
     /**
-     * @description Indicates whether the application scale-in is disabled. Valid values:
-     *
-     *   **true**: disabled.
-     *   **false**: enabled.
-     *
-     * >  When this parameter is set to true, the application instances are never reduced. This prevents risks to your business in peak hours. By default, this parameter is set to false.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $disabled;
 
     /**
-     * @description The cooldown time of the scale-in. Valid values: 0 to 3600. Unit: seconds. Default value: 0.
-     *
-     * @example 300
-     *
      * @var int
      */
     public $stabilizationWindowSeconds;
 
     /**
-     * @description The step size for the scale-in. The maximum number of instances that can be reduced within a specific period of time.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $step;
@@ -45,17 +28,22 @@ class scaleDownRules extends Model
         'step' => 'Step',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->disabled) {
             $res['Disabled'] = $this->disabled;
         }
+
         if (null !== $this->stabilizationWindowSeconds) {
             $res['StabilizationWindowSeconds'] = $this->stabilizationWindowSeconds;
         }
+
         if (null !== $this->step) {
             $res['Step'] = $this->step;
         }
@@ -63,20 +51,22 @@ class scaleDownRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scaleDownRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Disabled'])) {
             $model->disabled = $map['Disabled'];
         }
+
         if (isset($map['StabilizationWindowSeconds'])) {
             $model->stabilizationWindowSeconds = $map['StabilizationWindowSeconds'];
         }
+
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
         }

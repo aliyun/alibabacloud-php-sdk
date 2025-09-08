@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateWebApplicationScalingConfigRequest extends Model
 {
     /**
-     * @description The namespace ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-beijing:test
-     *
      * @var string
      */
     public $namespaceId;
 
     /**
-     * @description The information about scaling configurations.
-     *
-     * This parameter is required.
-     *
      * @var UpdateWebApplicationScalingConfigInput
      */
     public $body;
@@ -32,32 +22,40 @@ class UpdateWebApplicationScalingConfigRequest extends Model
         'body' => 'body',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateWebApplicationScalingConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
+
         if (isset($map['body'])) {
             $model->body = UpdateWebApplicationScalingConfigInput::fromMap($map['body']);
         }

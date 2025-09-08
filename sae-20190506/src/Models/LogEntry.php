@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LogEntry extends Model
 {
@@ -58,32 +58,42 @@ class LogEntry extends Model
         'versionID' => 'versionID',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceID) {
             $res['instanceID'] = $this->instanceID;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->offset) {
             $res['offset'] = $this->offset;
         }
+
         if (null !== $this->packID) {
             $res['packID'] = $this->packID;
         }
+
         if (null !== $this->packMeta) {
             $res['packMeta'] = $this->packMeta;
         }
+
         if (null !== $this->qualifier) {
             $res['qualifier'] = $this->qualifier;
         }
+
         if (null !== $this->timestamp) {
             $res['timestamp'] = $this->timestamp;
         }
+
         if (null !== $this->versionID) {
             $res['versionID'] = $this->versionID;
         }
@@ -91,35 +101,42 @@ class LogEntry extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LogEntry
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instanceID'])) {
             $model->instanceID = $map['instanceID'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['offset'])) {
             $model->offset = $map['offset'];
         }
+
         if (isset($map['packID'])) {
             $model->packID = $map['packID'];
         }
+
         if (isset($map['packMeta'])) {
             $model->packMeta = $map['packMeta'];
         }
+
         if (isset($map['qualifier'])) {
             $model->qualifier = $map['qualifier'];
         }
+
         if (isset($map['timestamp'])) {
             $model->timestamp = $map['timestamp'];
         }
+
         if (isset($map['versionID'])) {
             $model->versionID = $map['versionID'];
         }

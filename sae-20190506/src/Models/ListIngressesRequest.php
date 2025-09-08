@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListIngressesRequest extends Model
 {
     /**
-     * @description The ID of an application.
-     *
-     * @example bbf3a590-6d13-46fe-8ca9-c947a20b****
-     *
      * @var string
      */
     public $appId;
@@ -23,12 +19,6 @@ class ListIngressesRequest extends Model
     public $currentPage;
 
     /**
-     * @description The ID of a namespace.
-     *
-     * This parameter is required.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $namespaceId;
@@ -44,20 +34,26 @@ class ListIngressesRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -65,23 +61,26 @@ class ListIngressesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIngressesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Container extends Model
 {
     /**
-     * @example ["abc", ">", "file0"]
-     *
      * @var string
      */
     public $args;
 
     /**
-     * @example ["/bin/sh"]
-     *
      * @var string
      */
     public $command;
@@ -28,10 +24,6 @@ class Container extends Model
     public $environmentVariables;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example registry.cn-shanghai.aliyuncs.com/serverless_devsxxxxx
-     *
      * @var string
      */
     public $image;
@@ -47,29 +39,21 @@ class Container extends Model
     public $metricsCollectConfig;
 
     /**
-     * @example 8080
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $requestConcurrency;
 
     /**
-     * @example 60
-     *
      * @var int
      */
     public $requestTimeout;
 
     /**
-     * @description This parameter is required.
-     *
      * @var ContainerResources
      */
     public $resources;
@@ -110,104 +94,167 @@ class Container extends Model
         'webOSSConfig' => 'WebOSSConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->environmentVariables)) {
+            Model::validateArray($this->environmentVariables);
+        }
+        if (null !== $this->imageRegistryConfig) {
+            $this->imageRegistryConfig->validate();
+        }
+        if (null !== $this->metricsCollectConfig) {
+            $this->metricsCollectConfig->validate();
+        }
+        if (null !== $this->resources) {
+            $this->resources->validate();
+        }
+        if (null !== $this->SLSCollectConfigs) {
+            $this->SLSCollectConfigs->validate();
+        }
+        if (null !== $this->startupProbe) {
+            $this->startupProbe->validate();
+        }
+        if (null !== $this->webNASConfig) {
+            $this->webNASConfig->validate();
+        }
+        if (null !== $this->webOSSConfig) {
+            $this->webOSSConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->args) {
             $res['Args'] = $this->args;
         }
+
         if (null !== $this->command) {
             $res['Command'] = $this->command;
         }
+
         if (null !== $this->environmentVariables) {
-            $res['EnvironmentVariables'] = $this->environmentVariables;
+            if (\is_array($this->environmentVariables)) {
+                $res['EnvironmentVariables'] = [];
+                foreach ($this->environmentVariables as $key1 => $value1) {
+                    $res['EnvironmentVariables'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
+
         if (null !== $this->imageRegistryConfig) {
-            $res['ImageRegistryConfig'] = null !== $this->imageRegistryConfig ? $this->imageRegistryConfig->toMap() : null;
+            $res['ImageRegistryConfig'] = null !== $this->imageRegistryConfig ? $this->imageRegistryConfig->toArray($noStream) : $this->imageRegistryConfig;
         }
+
         if (null !== $this->metricsCollectConfig) {
-            $res['MetricsCollectConfig'] = null !== $this->metricsCollectConfig ? $this->metricsCollectConfig->toMap() : null;
+            $res['MetricsCollectConfig'] = null !== $this->metricsCollectConfig ? $this->metricsCollectConfig->toArray($noStream) : $this->metricsCollectConfig;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->requestConcurrency) {
             $res['RequestConcurrency'] = $this->requestConcurrency;
         }
+
         if (null !== $this->requestTimeout) {
             $res['RequestTimeout'] = $this->requestTimeout;
         }
+
         if (null !== $this->resources) {
-            $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
+            $res['Resources'] = null !== $this->resources ? $this->resources->toArray($noStream) : $this->resources;
         }
+
         if (null !== $this->SLSCollectConfigs) {
-            $res['SLSCollectConfigs'] = null !== $this->SLSCollectConfigs ? $this->SLSCollectConfigs->toMap() : null;
+            $res['SLSCollectConfigs'] = null !== $this->SLSCollectConfigs ? $this->SLSCollectConfigs->toArray($noStream) : $this->SLSCollectConfigs;
         }
+
         if (null !== $this->startupProbe) {
-            $res['StartupProbe'] = null !== $this->startupProbe ? $this->startupProbe->toMap() : null;
+            $res['StartupProbe'] = null !== $this->startupProbe ? $this->startupProbe->toArray($noStream) : $this->startupProbe;
         }
+
         if (null !== $this->webNASConfig) {
-            $res['WebNASConfig'] = null !== $this->webNASConfig ? $this->webNASConfig->toMap() : null;
+            $res['WebNASConfig'] = null !== $this->webNASConfig ? $this->webNASConfig->toArray($noStream) : $this->webNASConfig;
         }
+
         if (null !== $this->webOSSConfig) {
-            $res['WebOSSConfig'] = null !== $this->webOSSConfig ? $this->webOSSConfig->toMap() : null;
+            $res['WebOSSConfig'] = null !== $this->webOSSConfig ? $this->webOSSConfig->toArray($noStream) : $this->webOSSConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Container
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Args'])) {
             $model->args = $map['Args'];
         }
+
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
         }
+
         if (isset($map['EnvironmentVariables'])) {
-            $model->environmentVariables = $map['EnvironmentVariables'];
+            if (!empty($map['EnvironmentVariables'])) {
+                $model->environmentVariables = [];
+                foreach ($map['EnvironmentVariables'] as $key1 => $value1) {
+                    $model->environmentVariables[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
+
         if (isset($map['ImageRegistryConfig'])) {
             $model->imageRegistryConfig = ImageRegistryConfig::fromMap($map['ImageRegistryConfig']);
         }
+
         if (isset($map['MetricsCollectConfig'])) {
             $model->metricsCollectConfig = MetricsCollectConfig::fromMap($map['MetricsCollectConfig']);
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['RequestConcurrency'])) {
             $model->requestConcurrency = $map['RequestConcurrency'];
         }
+
         if (isset($map['RequestTimeout'])) {
             $model->requestTimeout = $map['RequestTimeout'];
         }
+
         if (isset($map['Resources'])) {
             $model->resources = ContainerResources::fromMap($map['Resources']);
         }
+
         if (isset($map['SLSCollectConfigs'])) {
             $model->SLSCollectConfigs = SLSCollectConfigs::fromMap($map['SLSCollectConfigs']);
         }
+
         if (isset($map['StartupProbe'])) {
             $model->startupProbe = StartupProbe::fromMap($map['StartupProbe']);
         }
+
         if (isset($map['WebNASConfig'])) {
             $model->webNASConfig = WebNASConfig::fromMap($map['WebNASConfig']);
         }
+
         if (isset($map['WebOSSConfig'])) {
             $model->webOSSConfig = WebOSSConfig::fromMap($map['WebOSSConfig']);
         }

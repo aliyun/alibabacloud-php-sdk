@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Version extends Model
 {
@@ -52,29 +52,38 @@ class Version extends Model
         'weight' => 'weight',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createdTime) {
             $res['createdTime'] = $this->createdTime;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->image) {
             $res['image'] = $this->image;
         }
+
         if (null !== $this->lastModifiedTime) {
             $res['lastModifiedTime'] = $this->lastModifiedTime;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->versionId) {
             $res['versionId'] = $this->versionId;
         }
+
         if (null !== $this->weight) {
             $res['weight'] = $this->weight;
         }
@@ -82,32 +91,38 @@ class Version extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Version
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createdTime'])) {
             $model->createdTime = $map['createdTime'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['image'])) {
             $model->image = $map['image'];
         }
+
         if (isset($map['lastModifiedTime'])) {
             $model->lastModifiedTime = $map['lastModifiedTime'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['versionId'])) {
             $model->versionId = $map['versionId'];
         }
+
         if (isset($map['weight'])) {
             $model->weight = $map['weight'];
         }

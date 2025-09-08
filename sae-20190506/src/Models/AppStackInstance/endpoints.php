@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\AppStackInstance;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class endpoints extends Model
 {
     /**
-     * @example 127.0.0.1:8211
-     *
      * @var string
      */
     public $address;
 
     /**
-     * @example game
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example UDP
-     *
      * @var string
      */
     public $protocol;
@@ -34,17 +28,22 @@ class endpoints extends Model
         'protocol' => 'Protocol',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -52,20 +51,22 @@ class endpoints extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return endpoints
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

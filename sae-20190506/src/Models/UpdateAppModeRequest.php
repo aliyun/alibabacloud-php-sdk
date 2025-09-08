@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAppModeRequest extends Model
 {
     /**
-     * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
-     *
      * @var string
      */
     public $appId;
@@ -21,8 +19,6 @@ class UpdateAppModeRequest extends Model
     public $appIds;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enableIdle;
@@ -38,20 +34,26 @@ class UpdateAppModeRequest extends Model
         'namespaceId' => 'NamespaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appIds) {
             $res['AppIds'] = $this->appIds;
         }
+
         if (null !== $this->enableIdle) {
             $res['EnableIdle'] = $this->enableIdle;
         }
+
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
@@ -59,23 +61,26 @@ class UpdateAppModeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAppModeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppIds'])) {
             $model->appIds = $map['AppIds'];
         }
+
         if (isset($map['EnableIdle'])) {
             $model->enableIdle = $map['EnableIdle'];
         }
+
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }

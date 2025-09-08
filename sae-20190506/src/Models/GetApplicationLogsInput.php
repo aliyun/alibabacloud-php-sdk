@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetApplicationLogsInput extends Model
 {
@@ -14,8 +14,6 @@ class GetApplicationLogsInput extends Model
     public $backwardLine;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $endTime;
@@ -61,8 +59,6 @@ class GetApplicationLogsInput extends Model
     public $packMeta;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $startTime;
@@ -92,47 +88,62 @@ class GetApplicationLogsInput extends Model
         'versionID' => 'versionID',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backwardLine) {
             $res['backwardLine'] = $this->backwardLine;
         }
+
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->forwardLine) {
             $res['forwardLine'] = $this->forwardLine;
         }
+
         if (null !== $this->instanceID) {
             $res['instanceID'] = $this->instanceID;
         }
+
         if (null !== $this->isTail) {
             $res['isTail'] = $this->isTail;
         }
+
         if (null !== $this->match) {
             $res['match'] = $this->match;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->offset) {
             $res['offset'] = $this->offset;
         }
+
         if (null !== $this->packID) {
             $res['packID'] = $this->packID;
         }
+
         if (null !== $this->packMeta) {
             $res['packMeta'] = $this->packMeta;
         }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
+
         if (null !== $this->timestamp) {
             $res['timestamp'] = $this->timestamp;
         }
+
         if (null !== $this->versionID) {
             $res['versionID'] = $this->versionID;
         }
@@ -140,50 +151,62 @@ class GetApplicationLogsInput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetApplicationLogsInput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['backwardLine'])) {
             $model->backwardLine = $map['backwardLine'];
         }
+
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['forwardLine'])) {
             $model->forwardLine = $map['forwardLine'];
         }
+
         if (isset($map['instanceID'])) {
             $model->instanceID = $map['instanceID'];
         }
+
         if (isset($map['isTail'])) {
             $model->isTail = $map['isTail'];
         }
+
         if (isset($map['match'])) {
             $model->match = $map['match'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['offset'])) {
             $model->offset = $map['offset'];
         }
+
         if (isset($map['packID'])) {
             $model->packID = $map['packID'];
         }
+
         if (isset($map['packMeta'])) {
             $model->packMeta = $map['packMeta'];
         }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }
+
         if (isset($map['timestamp'])) {
             $model->timestamp = $map['timestamp'];
         }
+
         if (isset($map['versionID'])) {
             $model->versionID = $map['versionID'];
         }

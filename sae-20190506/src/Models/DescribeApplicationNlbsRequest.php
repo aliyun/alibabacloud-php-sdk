@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeApplicationNlbsRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
-     *
      * @var string
      */
     public $appId;
@@ -20,9 +16,12 @@ class DescribeApplicationNlbsRequest extends Model
         'appId' => 'AppId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
@@ -32,11 +31,11 @@ class DescribeApplicationNlbsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeApplicationNlbsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

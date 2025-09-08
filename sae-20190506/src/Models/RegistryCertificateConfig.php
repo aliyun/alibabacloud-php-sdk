@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RegistryCertificateConfig extends Model
 {
     /**
-     * @example LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCmZha2VDZXJ0aWZpY2F0ZQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t
-     *
      * @var string
      */
     public $certBase64;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $insecure;
@@ -26,14 +22,18 @@ class RegistryCertificateConfig extends Model
         'insecure' => 'Insecure',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certBase64) {
             $res['CertBase64'] = $this->certBase64;
         }
+
         if (null !== $this->insecure) {
             $res['Insecure'] = $this->insecure;
         }
@@ -41,17 +41,18 @@ class RegistryCertificateConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RegistryCertificateConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertBase64'])) {
             $model->certBase64 = $map['CertBase64'];
         }
+
         if (isset($map['Insecure'])) {
             $model->insecure = $map['Insecure'];
         }

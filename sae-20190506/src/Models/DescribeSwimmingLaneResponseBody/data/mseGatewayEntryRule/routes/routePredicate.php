@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSwimmingLaneResponseBody\data\mseGatewayEntryRule\routes;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSwimmingLaneResponseBody\data\mseGatewayEntryRule\routes\routePredicate\pathPredicate;
-use AlibabaCloud\Tea\Model;
 
 class routePredicate extends Model
 {
@@ -17,23 +17,29 @@ class routePredicate extends Model
         'pathPredicate' => 'PathPredicate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->pathPredicate) {
+            $this->pathPredicate->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pathPredicate) {
-            $res['PathPredicate'] = null !== $this->pathPredicate ? $this->pathPredicate->toMap() : null;
+            $res['PathPredicate'] = null !== $this->pathPredicate ? $this->pathPredicate->toArray($noStream) : $this->pathPredicate;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routePredicate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\Probe\probeHandler\httpGet;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class httpHeaders extends Model
 {
@@ -22,14 +22,18 @@ class httpHeaders extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -37,17 +41,18 @@ class httpHeaders extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return httpHeaders
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

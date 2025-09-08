@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ContainerResources extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 2000
-     *
      * @var int
      */
     public $cpu;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2048
-     *
      * @var int
      */
     public $memory;
@@ -30,14 +22,18 @@ class ContainerResources extends Model
         'memory' => 'Memory',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
@@ -45,17 +41,18 @@ class ContainerResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ContainerResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }

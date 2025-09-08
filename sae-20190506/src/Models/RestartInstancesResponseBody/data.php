@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\RestartInstancesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The ID of the change order.
-     *
-     * @example 5afa5b98-0c64-4637-983f-15eaa888****
-     *
      * @var string
      */
     public $changeOrderId;
@@ -20,9 +16,12 @@ class data extends Model
         'changeOrderId' => 'ChangeOrderId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeOrderId) {
@@ -32,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OpenSaeServiceResponseBody extends Model
 {
     /**
-     * @description PushEvent
-     *
-     * @example 20485646575****
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description enableWAF
-     *
-     * @example 559B4247-C41C-4D9E-B866-B55D378B****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class OpenSaeServiceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class OpenSaeServiceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OpenSaeServiceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

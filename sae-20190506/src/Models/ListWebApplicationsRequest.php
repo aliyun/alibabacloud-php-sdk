@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListWebApplicationsRequest extends Model
 {
     /**
-     * @description The number of applications returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @description The namespace ID.
-     *
-     * @example cn-beijing:test
-     *
      * @var string
      */
     public $namespaceId;
 
     /**
-     * @description The pagination token.
-     *
-     * @example MTIzNCNhYmM
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The prefix of the application name.
-     *
-     * @example my-application
-     *
      * @var string
      */
     public $prefix;
@@ -50,20 +34,26 @@ class ListWebApplicationsRequest extends Model
         'prefix' => 'Prefix',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
+
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->prefix) {
             $res['Prefix'] = $this->prefix;
         }
@@ -71,23 +61,26 @@ class ListWebApplicationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWebApplicationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
+
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Prefix'])) {
             $model->prefix = $map['Prefix'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRulesResponseBody\data\applicationScalingRules\metric;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class prometheusMetrics extends Model
 {
@@ -22,14 +22,18 @@ class prometheusMetrics extends Model
         'targetMetricValue' => 'TargetMetricValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->prometheusQuery) {
             $res['PrometheusQuery'] = $this->prometheusQuery;
         }
+
         if (null !== $this->targetMetricValue) {
             $res['TargetMetricValue'] = $this->targetMetricValue;
         }
@@ -37,17 +41,18 @@ class prometheusMetrics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return prometheusMetrics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrometheusQuery'])) {
             $model->prometheusQuery = $map['PrometheusQuery'];
         }
+
         if (isset($map['TargetMetricValue'])) {
             $model->targetMetricValue = $map['TargetMetricValue'];
         }

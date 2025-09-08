@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstanceLogsOutput extends Model
 {
@@ -16,17 +16,24 @@ class DescribeInstanceLogsOutput extends Model
         'webLogEntrys' => 'WebLogEntrys',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->webLogEntrys)) {
+            Model::validateArray($this->webLogEntrys);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->webLogEntrys) {
-            $res['WebLogEntrys'] = [];
-            if (null !== $this->webLogEntrys && \is_array($this->webLogEntrys)) {
-                $n = 0;
-                foreach ($this->webLogEntrys as $item) {
-                    $res['WebLogEntrys'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->webLogEntrys)) {
+                $res['WebLogEntrys'] = [];
+                $n1 = 0;
+                foreach ($this->webLogEntrys as $item1) {
+                    $res['WebLogEntrys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +41,21 @@ class DescribeInstanceLogsOutput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceLogsOutput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WebLogEntrys'])) {
             if (!empty($map['WebLogEntrys'])) {
                 $model->webLogEntrys = [];
-                $n = 0;
-                foreach ($map['WebLogEntrys'] as $item) {
-                    $model->webLogEntrys[$n++] = null !== $item ? WebLogEntry::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WebLogEntrys'] as $item1) {
+                    $model->webLogEntrys[$n1] = WebLogEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

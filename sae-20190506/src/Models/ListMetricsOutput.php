@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListMetricsOutput extends Model
 {
@@ -22,34 +22,66 @@ class ListMetricsOutput extends Model
         'metrics' => 'metrics',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->metrics)) {
+            Model::validateArray($this->metrics);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->metrics) {
-            $res['metrics'] = $this->metrics;
+            if (\is_array($this->metrics)) {
+                $res['metrics'] = [];
+                foreach ($this->metrics as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['metrics'][$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $res['metrics'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
+                        }
+                    }
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMetricsOutput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['metrics'])) {
-            $model->metrics = $map['metrics'];
+            if (!empty($map['metrics'])) {
+                $model->metrics = [];
+                foreach ($map['metrics'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->metrics[$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $model->metrics[$key1][$n2] = MetricInfo::fromMap($item2);
+                            ++$n2;
+                        }
+                    }
+                }
+            }
         }
 
         return $model;

@@ -4,58 +4,38 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRuleResponseBody\data\metric;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRuleResponseBody\data\metric\metricsStatus\currentMetrics;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRuleResponseBody\data\metric\metricsStatus\nextScaleMetrics;
-use AlibabaCloud\Tea\Model;
 
 class metricsStatus extends Model
 {
     /**
-     * @description The metrics that is used to trigger the current auto scaling policy.
-     *
      * @var currentMetrics[]
      */
     public $currentMetrics;
 
     /**
-     * @description The current number of instances.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $currentReplicas;
 
     /**
-     * @description The expected number of instances.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $desiredReplicas;
 
     /**
-     * @description The time when the auto scaling policy was last triggered.
-     *
-     * @example 2022-01-11T08:14:32Z
-     *
      * @var string
      */
     public $lastScaleTime;
 
     /**
-     * @description The metrics that are used to trigger the auto scaling policy next time.
-     *
      * @var nextScaleMetrics[]
      */
     public $nextScaleMetrics;
 
     /**
-     * @description The duration for which the metric-based auto scaling policy takes effect next time.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $nextScaleTimePeriod;
@@ -68,38 +48,54 @@ class metricsStatus extends Model
         'nextScaleTimePeriod' => 'NextScaleTimePeriod',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->currentMetrics)) {
+            Model::validateArray($this->currentMetrics);
+        }
+        if (\is_array($this->nextScaleMetrics)) {
+            Model::validateArray($this->nextScaleMetrics);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentMetrics) {
-            $res['CurrentMetrics'] = [];
-            if (null !== $this->currentMetrics && \is_array($this->currentMetrics)) {
-                $n = 0;
-                foreach ($this->currentMetrics as $item) {
-                    $res['CurrentMetrics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->currentMetrics)) {
+                $res['CurrentMetrics'] = [];
+                $n1 = 0;
+                foreach ($this->currentMetrics as $item1) {
+                    $res['CurrentMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->currentReplicas) {
             $res['CurrentReplicas'] = $this->currentReplicas;
         }
+
         if (null !== $this->desiredReplicas) {
             $res['DesiredReplicas'] = $this->desiredReplicas;
         }
+
         if (null !== $this->lastScaleTime) {
             $res['LastScaleTime'] = $this->lastScaleTime;
         }
+
         if (null !== $this->nextScaleMetrics) {
-            $res['NextScaleMetrics'] = [];
-            if (null !== $this->nextScaleMetrics && \is_array($this->nextScaleMetrics)) {
-                $n = 0;
-                foreach ($this->nextScaleMetrics as $item) {
-                    $res['NextScaleMetrics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nextScaleMetrics)) {
+                $res['NextScaleMetrics'] = [];
+                $n1 = 0;
+                foreach ($this->nextScaleMetrics as $item1) {
+                    $res['NextScaleMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nextScaleTimePeriod) {
             $res['NextScaleTimePeriod'] = $this->nextScaleTimePeriod;
         }
@@ -107,41 +103,48 @@ class metricsStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metricsStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentMetrics'])) {
             if (!empty($map['CurrentMetrics'])) {
                 $model->currentMetrics = [];
-                $n = 0;
-                foreach ($map['CurrentMetrics'] as $item) {
-                    $model->currentMetrics[$n++] = null !== $item ? currentMetrics::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CurrentMetrics'] as $item1) {
+                    $model->currentMetrics[$n1] = currentMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['CurrentReplicas'])) {
             $model->currentReplicas = $map['CurrentReplicas'];
         }
+
         if (isset($map['DesiredReplicas'])) {
             $model->desiredReplicas = $map['DesiredReplicas'];
         }
+
         if (isset($map['LastScaleTime'])) {
             $model->lastScaleTime = $map['LastScaleTime'];
         }
+
         if (isset($map['NextScaleMetrics'])) {
             if (!empty($map['NextScaleMetrics'])) {
                 $model->nextScaleMetrics = [];
-                $n = 0;
-                foreach ($map['NextScaleMetrics'] as $item) {
-                    $model->nextScaleMetrics[$n++] = null !== $item ? nextScaleMetrics::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NextScaleMetrics'] as $item1) {
+                    $model->nextScaleMetrics[$n1] = nextScaleMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['NextScaleTimePeriod'])) {
             $model->nextScaleTimePeriod = $map['NextScaleTimePeriod'];
         }

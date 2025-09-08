@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class WebCertConfig extends Model
 {
@@ -28,17 +28,22 @@ class WebCertConfig extends Model
         'privateKey' => 'PrivateKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
         }
+
         if (null !== $this->certificate) {
             $res['Certificate'] = $this->certificate;
         }
+
         if (null !== $this->privateKey) {
             $res['PrivateKey'] = $this->privateKey;
         }
@@ -46,20 +51,22 @@ class WebCertConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return WebCertConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
         }
+
         if (isset($map['Certificate'])) {
             $model->certificate = $map['Certificate'];
         }
+
         if (isset($map['PrivateKey'])) {
             $model->privateKey = $map['PrivateKey'];
         }

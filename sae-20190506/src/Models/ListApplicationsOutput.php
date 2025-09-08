@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListApplicationsOutput extends Model
 {
@@ -28,23 +28,32 @@ class ListApplicationsOutput extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->applications)) {
+            Model::validateArray($this->applications);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applications) {
-            $res['applications'] = [];
-            if (null !== $this->applications && \is_array($this->applications)) {
-                $n = 0;
-                foreach ($this->applications as $item) {
-                    $res['applications'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->applications)) {
+                $res['applications'] = [];
+                $n1 = 0;
+                foreach ($this->applications as $item1) {
+                    $res['applications'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -52,26 +61,29 @@ class ListApplicationsOutput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListApplicationsOutput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['applications'])) {
             if (!empty($map['applications'])) {
                 $model->applications = [];
-                $n = 0;
-                foreach ($map['applications'] as $item) {
-                    $model->applications[$n++] = null !== $item ? Application::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['applications'] as $item1) {
+                    $model->applications[$n1] = Application::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

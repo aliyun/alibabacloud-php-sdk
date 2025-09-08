@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InputCodeLocation extends Model
 {
@@ -28,17 +28,22 @@ class InputCodeLocation extends Model
         'zipFile' => 'zipFile',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ossBucketName) {
             $res['ossBucketName'] = $this->ossBucketName;
         }
+
         if (null !== $this->ossObjectName) {
             $res['ossObjectName'] = $this->ossObjectName;
         }
+
         if (null !== $this->zipFile) {
             $res['zipFile'] = $this->zipFile;
         }
@@ -46,20 +51,22 @@ class InputCodeLocation extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InputCodeLocation
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ossBucketName'])) {
             $model->ossBucketName = $map['ossBucketName'];
         }
+
         if (isset($map['ossObjectName'])) {
             $model->ossObjectName = $map['ossObjectName'];
         }
+
         if (isset($map['zipFile'])) {
             $model->zipFile = $map['zipFile'];
         }

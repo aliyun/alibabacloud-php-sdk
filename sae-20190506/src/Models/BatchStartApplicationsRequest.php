@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchStartApplicationsRequest extends Model
 {
     /**
-     * @description The IDs of the applications that you want to start. Separate multiple IDs with commas (,).
-     *
-     * @example ebf491f0-c1a5-45e2-b2c4-710dbe2a****
-     *
      * @var string
      */
     public $appIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * This parameter is required.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $namespaceId;
 
     /**
-     * @description The application version.
-     *
-     * @example 1.0
-     *
      * @var string
      */
     public $version;
@@ -42,17 +28,22 @@ class BatchStartApplicationsRequest extends Model
         'version' => 'Version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appIds) {
             $res['AppIds'] = $this->appIds;
         }
+
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -60,20 +51,22 @@ class BatchStartApplicationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchStartApplicationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppIds'])) {
             $model->appIds = $map['AppIds'];
         }
+
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

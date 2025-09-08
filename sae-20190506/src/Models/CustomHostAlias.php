@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CustomHostAlias extends Model
 {
@@ -16,17 +16,24 @@ class CustomHostAlias extends Model
         'hostAliases' => 'hostAliases',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->hostAliases)) {
+            Model::validateArray($this->hostAliases);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostAliases) {
-            $res['hostAliases'] = [];
-            if (null !== $this->hostAliases && \is_array($this->hostAliases)) {
-                $n = 0;
-                foreach ($this->hostAliases as $item) {
-                    $res['hostAliases'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hostAliases)) {
+                $res['hostAliases'] = [];
+                $n1 = 0;
+                foreach ($this->hostAliases as $item1) {
+                    $res['hostAliases'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +41,21 @@ class CustomHostAlias extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CustomHostAlias
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['hostAliases'])) {
             if (!empty($map['hostAliases'])) {
                 $model->hostAliases = [];
-                $n = 0;
-                foreach ($map['hostAliases'] as $item) {
-                    $model->hostAliases[$n++] = null !== $item ? HostAlias::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['hostAliases'] as $item1) {
+                    $model->hostAliases[$n1] = HostAlias::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

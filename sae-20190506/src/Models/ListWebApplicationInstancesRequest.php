@@ -4,69 +4,41 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListWebApplicationInstancesRequest extends Model
 {
     /**
-     * @description The time when the operation ended.
-     *
-     * @example 1715567192
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The instance ID.
-     *
-     * @example c-667d143a-17b4e0fa-46d3a2******
-     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description The number of application instances returned.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $limit;
 
     /**
-     * @description The namespace ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $namespaceId;
 
     /**
-     * @description The time when the task was created.
-     *
-     * @example 1562831689704
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description The status of the application instance.
-     *
      * @var string[]
      */
     public $statuses;
 
     /**
-     * @description The ID of the application version.
-     *
-     * @example 001
-     *
      * @var string[]
      */
     public $versionIds;
@@ -80,69 +52,129 @@ class ListWebApplicationInstancesRequest extends Model
         'versionIds' => 'VersionIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        if (\is_array($this->statuses)) {
+            Model::validateArray($this->statuses);
+        }
+        if (\is_array($this->versionIds)) {
+            Model::validateArray($this->versionIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
+
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->statuses) {
-            $res['Statuses'] = $this->statuses;
+            if (\is_array($this->statuses)) {
+                $res['Statuses'] = [];
+                $n1 = 0;
+                foreach ($this->statuses as $item1) {
+                    $res['Statuses'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->versionIds) {
-            $res['VersionIds'] = $this->versionIds;
+            if (\is_array($this->versionIds)) {
+                $res['VersionIds'] = [];
+                $n1 = 0;
+                foreach ($this->versionIds as $item1) {
+                    $res['VersionIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWebApplicationInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
+
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Statuses'])) {
             if (!empty($map['Statuses'])) {
-                $model->statuses = $map['Statuses'];
+                $model->statuses = [];
+                $n1 = 0;
+                foreach ($map['Statuses'] as $item1) {
+                    $model->statuses[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['VersionIds'])) {
             if (!empty($map['VersionIds'])) {
-                $model->versionIds = $map['VersionIds'];
+                $model->versionIds = [];
+                $n1 = 0;
+                foreach ($map['VersionIds'] as $item1) {
+                    $model->versionIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

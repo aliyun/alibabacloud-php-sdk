@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSecretShrinkRequest extends Model
 {
     /**
-     * @description The ID of the namespace where the Secret resides. If the namespace is the default namespace, you need to only enter the region ID, such as `cn-beijing`.
-     *
-     * This parameter is required.
-     *
-     * @example cn-beijing:test
-     *
      * @var string
      */
     public $namespaceId;
 
     /**
-     * @description The Secret data.
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $secretDataShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 16
-     *
      * @var int
      */
     public $secretId;
@@ -42,17 +28,22 @@ class UpdateSecretShrinkRequest extends Model
         'secretId' => 'SecretId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+
         if (null !== $this->secretDataShrink) {
             $res['SecretData'] = $this->secretDataShrink;
         }
+
         if (null !== $this->secretId) {
             $res['SecretId'] = $this->secretId;
         }
@@ -60,20 +51,22 @@ class UpdateSecretShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSecretShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
+
         if (isset($map['SecretData'])) {
             $model->secretDataShrink = $map['SecretData'];
         }
+
         if (isset($map['SecretId'])) {
             $model->secretId = $map['SecretId'];
         }
