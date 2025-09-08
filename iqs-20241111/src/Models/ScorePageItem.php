@@ -19,6 +19,11 @@ class ScorePageItem extends Model
     public $displayLink;
 
     /**
+     * @var float
+     */
+    public $hostAuthorityScore;
+
+    /**
      * @var string
      */
     public $hostLogo;
@@ -100,6 +105,7 @@ class ScorePageItem extends Model
     protected $_name = [
         'cardType' => 'cardType',
         'displayLink' => 'displayLink',
+        'hostAuthorityScore' => 'hostAuthorityScore',
         'hostLogo' => 'hostLogo',
         'hostname' => 'hostname',
         'htmlSnippet' => 'htmlSnippet',
@@ -138,6 +144,10 @@ class ScorePageItem extends Model
 
         if (null !== $this->displayLink) {
             $res['displayLink'] = $this->displayLink;
+        }
+
+        if (null !== $this->hostAuthorityScore) {
+            $res['hostAuthorityScore'] = $this->hostAuthorityScore;
         }
 
         if (null !== $this->hostLogo) {
@@ -233,6 +243,10 @@ class ScorePageItem extends Model
 
         if (isset($map['displayLink'])) {
             $model->displayLink = $map['displayLink'];
+        }
+
+        if (isset($map['hostAuthorityScore'])) {
+            $model->hostAuthorityScore = $map['hostAuthorityScore'];
         }
 
         if (isset($map['hostLogo'])) {
