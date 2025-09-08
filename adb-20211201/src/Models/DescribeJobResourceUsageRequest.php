@@ -19,12 +19,24 @@ class DescribeJobResourceUsageRequest extends Model
     public $endTime;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $startTime;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'endTime' => 'EndTime',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'startTime' => 'StartTime',
     ];
 
@@ -42,6 +54,14 @@ class DescribeJobResourceUsageRequest extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->startTime) {
@@ -65,6 +85,14 @@ class DescribeJobResourceUsageRequest extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['StartTime'])) {

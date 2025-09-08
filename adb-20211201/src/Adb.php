@@ -8520,6 +8520,14 @@ class Adb extends OpenApiClient
             @$query['EndTime'] = $request->endTime;
         }
 
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
         }

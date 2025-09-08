@@ -11,6 +11,16 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersResponseBody\items\D
 class DBCluster extends Model
 {
     /**
+     * @var int
+     */
+    public $AINodeNumber;
+
+    /**
+     * @var string
+     */
+    public $AINodeSpec;
+
+    /**
      * @var string
      */
     public $category;
@@ -225,6 +235,8 @@ class DBCluster extends Model
      */
     public $zoneId;
     protected $_name = [
+        'AINodeNumber' => 'AINodeNumber',
+        'AINodeSpec' => 'AINodeSpec',
         'category' => 'Category',
         'commodityCode' => 'CommodityCode',
         'computeResource' => 'ComputeResource',
@@ -284,6 +296,14 @@ class DBCluster extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->AINodeNumber) {
+            $res['AINodeNumber'] = $this->AINodeNumber;
+        }
+
+        if (null !== $this->AINodeSpec) {
+            $res['AINodeSpec'] = $this->AINodeSpec;
+        }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -467,6 +487,14 @@ class DBCluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AINodeNumber'])) {
+            $model->AINodeNumber = $map['AINodeNumber'];
+        }
+
+        if (isset($map['AINodeSpec'])) {
+            $model->AINodeSpec = $map['AINodeSpec'];
+        }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }

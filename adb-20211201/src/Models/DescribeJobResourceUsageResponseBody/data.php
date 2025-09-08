@@ -25,14 +25,32 @@ class data extends Model
     public $jobAcuUsage;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'endTime' => 'EndTime',
         'jobAcuUsage' => 'JobAcuUsage',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'startTime' => 'StartTime',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -65,8 +83,20 @@ class data extends Model
             }
         }
 
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -99,8 +129,20 @@ class data extends Model
             }
         }
 
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;
