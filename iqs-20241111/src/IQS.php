@@ -71,6 +71,76 @@ class IQS extends OpenApiClient
      *
      * @return AiSearchResponse
      */
+    public function aiSearchWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->industry) {
+            @$query['industry'] = $request->industry;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->timeRange) {
+            @$query['timeRange'] = $request->timeRange;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AiSearch',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-entry/v3/linkedRetrieval/commands/aiSearch',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield AiSearchResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * AI搜索流式接口.
+     *
+     * @param request - AiSearchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AiSearchResponse
+     *
+     * @param AiSearchRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return AiSearchResponse
+     */
     public function aiSearchWithOptions($request, $headers, $runtime)
     {
         $request->validate();
