@@ -121,6 +121,11 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $needMultiFaceCheck;
+
+    /**
+     * @var string
+     */
     public $ossBucketName;
 
     /**
@@ -215,6 +220,7 @@ class InitFaceVerifyRequest extends Model
         'mobile' => 'Mobile',
         'mode' => 'Mode',
         'model' => 'Model',
+        'needMultiFaceCheck' => 'NeedMultiFaceCheck',
         'ossBucketName' => 'OssBucketName',
         'ossObjectName' => 'OssObjectName',
         'outerOrderNo' => 'OuterOrderNo',
@@ -326,6 +332,10 @@ class InitFaceVerifyRequest extends Model
 
         if (null !== $this->model) {
             $res['Model'] = $this->model;
+        }
+
+        if (null !== $this->needMultiFaceCheck) {
+            $res['NeedMultiFaceCheck'] = $this->needMultiFaceCheck;
         }
 
         if (null !== $this->ossBucketName) {
@@ -485,6 +495,10 @@ class InitFaceVerifyRequest extends Model
 
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
+        }
+
+        if (isset($map['NeedMultiFaceCheck'])) {
+            $model->needMultiFaceCheck = $map['NeedMultiFaceCheck'];
         }
 
         if (isset($map['OssBucketName'])) {

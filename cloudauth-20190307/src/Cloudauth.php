@@ -2958,6 +2958,10 @@ class Cloudauth extends OpenApiClient
             @$query['Mode'] = $request->mode;
         }
 
+        if (null !== $request->needMultiFaceCheck) {
+            @$query['NeedMultiFaceCheck'] = $request->needMultiFaceCheck;
+        }
+
         if (null !== $request->ossBucketName) {
             @$query['OssBucketName'] = $request->ossBucketName;
         }
