@@ -106,6 +106,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSuggestionsReques
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSuggestionsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecUserOperationsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecUserOperationsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBaseSystemRulesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBaseSystemRulesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertsRequest;
@@ -118,6 +120,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCnameCountRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCnameCountResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCustomBaseRuleCompileResultRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCustomBaseRuleCompileResultResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDDoSStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDDoSStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefaultHttpsRequest;
@@ -142,6 +146,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseRuleRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseRuleResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseRulesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseRulesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseRuleStatisticsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseRuleStatisticsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseSceneConfigRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseSceneConfigResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplateRequest;
@@ -4486,6 +4492,111 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 查询基础防护系统规则集.
+     *
+     * @param request - DescribeBaseSystemRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBaseSystemRulesResponse
+     *
+     * @param DescribeBaseSystemRulesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeBaseSystemRulesResponse
+     */
+    public function describeBaseSystemRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->detectType) {
+            @$query['DetectType'] = $request->detectType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
+        }
+
+        if (null !== $request->ruleAction) {
+            @$query['RuleAction'] = $request->ruleAction;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->ruleStatus) {
+            @$query['RuleStatus'] = $request->ruleStatus;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBaseSystemRules',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBaseSystemRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询基础防护系统规则集.
+     *
+     * @param request - DescribeBaseSystemRulesRequest
+     *
+     * @returns DescribeBaseSystemRulesResponse
+     *
+     * @param DescribeBaseSystemRulesRequest $request
+     *
+     * @return DescribeBaseSystemRulesResponse
+     */
+    public function describeBaseSystemRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBaseSystemRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
      *
      * @param request - DescribeCertDetailRequest
@@ -4965,6 +5076,71 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCnameCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询自定义正则规则编译结果.
+     *
+     * @param request - DescribeCustomBaseRuleCompileResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustomBaseRuleCompileResultResponse
+     *
+     * @param DescribeCustomBaseRuleCompileResultRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeCustomBaseRuleCompileResultResponse
+     */
+    public function describeCustomBaseRuleCompileResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCustomBaseRuleCompileResult',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCustomBaseRuleCompileResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自定义正则规则编译结果.
+     *
+     * @param request - DescribeCustomBaseRuleCompileResultRequest
+     *
+     * @returns DescribeCustomBaseRuleCompileResultResponse
+     *
+     * @param DescribeCustomBaseRuleCompileResultRequest $request
+     *
+     * @return DescribeCustomBaseRuleCompileResultResponse
+     */
+    public function describeCustomBaseRuleCompileResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomBaseRuleCompileResultWithOptions($request, $runtime);
     }
 
     /**
@@ -5788,6 +5964,91 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDefenseRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询防护规则的统计信息.
+     *
+     * @param request - DescribeDefenseRuleStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDefenseRuleStatisticsResponse
+     *
+     * @param DescribeDefenseRuleStatisticsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDefenseRuleStatisticsResponse
+     */
+    public function describeDefenseRuleStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fourthKey) {
+            @$query['FourthKey'] = $request->fourthKey;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->primaryKey) {
+            @$query['PrimaryKey'] = $request->primaryKey;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->secondaryKey) {
+            @$query['SecondaryKey'] = $request->secondaryKey;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->thirdKey) {
+            @$query['ThirdKey'] = $request->thirdKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDefenseRuleStatistics',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDefenseRuleStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询防护规则的统计信息.
+     *
+     * @param request - DescribeDefenseRuleStatisticsRequest
+     *
+     * @returns DescribeDefenseRuleStatisticsResponse
+     *
+     * @param DescribeDefenseRuleStatisticsRequest $request
+     *
+     * @return DescribeDefenseRuleStatisticsResponse
+     */
+    public function describeDefenseRuleStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseRuleStatisticsWithOptions($request, $runtime);
     }
 
     /**
