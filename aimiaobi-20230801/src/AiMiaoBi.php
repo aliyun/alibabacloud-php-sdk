@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAsyncTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAuditTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAuditTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelDeepWriteTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelDeepWriteTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ClearIntervenesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ClearIntervenesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ConfirmAndPostProcessAuditNoteRequest;
@@ -136,6 +138,10 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDeepWriteTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDeepWriteTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDeepWriteTaskResultRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDeepWriteTaskResultResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocClusterTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocClusterTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocInfoRequest;
@@ -280,6 +286,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicAnalysisRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicAnalysisResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicViewPointAnalysisRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicViewPointAnalysisResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDeepWritingRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDeepWritingResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocBrainmapRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocBrainmapResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocIntroductionRequest;
@@ -329,6 +337,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTitleGenerationShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTranslateGenerationRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTranslateGenerationResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTranslateGenerationShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunVideoScriptGenerateRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunVideoScriptGenerateResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWriteToneGenerationRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWriteToneGenerationResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWriteToneGenerationShrinkRequest;
@@ -369,6 +379,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomSourceTopicAnalysisSh
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomTopicSelectionPerspectiveAnalysisTaskShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitDeepWriteTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitDeepWriteTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitDeepWriteTaskShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitDocClusterTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitDocClusterTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitDocClusterTaskShrinkRequest;
@@ -1065,6 +1078,67 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelAuditTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消深度写作任务
+     *
+     * @param request - CancelDeepWriteTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelDeepWriteTaskResponse
+     *
+     * @param CancelDeepWriteTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CancelDeepWriteTaskResponse
+     */
+    public function cancelDeepWriteTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CancelDeepWriteTask',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelDeepWriteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消深度写作任务
+     *
+     * @param request - CancelDeepWriteTaskRequest
+     *
+     * @returns CancelDeepWriteTaskResponse
+     *
+     * @param CancelDeepWriteTaskRequest $request
+     *
+     * @return CancelDeepWriteTaskResponse
+     */
+    public function cancelDeepWriteTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelDeepWriteTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -4342,6 +4416,128 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDatasetDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询深度写作任务
+     *
+     * @param request - GetDeepWriteTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeepWriteTaskResponse
+     *
+     * @param GetDeepWriteTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetDeepWriteTaskResponse
+     */
+    public function getDeepWriteTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDeepWriteTask',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDeepWriteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询深度写作任务
+     *
+     * @param request - GetDeepWriteTaskRequest
+     *
+     * @returns GetDeepWriteTaskResponse
+     *
+     * @param GetDeepWriteTaskRequest $request
+     *
+     * @return GetDeepWriteTaskResponse
+     */
+    public function getDeepWriteTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDeepWriteTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询深度写作任务的结果.
+     *
+     * @param request - GetDeepWriteTaskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeepWriteTaskResultResponse
+     *
+     * @param GetDeepWriteTaskResultRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDeepWriteTaskResultResponse
+     */
+    public function getDeepWriteTaskResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDeepWriteTaskResult',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDeepWriteTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询深度写作任务的结果.
+     *
+     * @param request - GetDeepWriteTaskResultRequest
+     *
+     * @returns GetDeepWriteTaskResultResponse
+     *
+     * @param GetDeepWriteTaskResultRequest $request
+     *
+     * @return GetDeepWriteTaskResultResponse
+     */
+    public function getDeepWriteTaskResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDeepWriteTaskResultWithOptions($request, $runtime);
     }
 
     /**
@@ -9800,6 +9996,130 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 流式输出深度写作事件.
+     *
+     * @param request - RunDeepWritingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunDeepWritingResponse
+     *
+     * @param RunDeepWritingRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RunDeepWritingResponse
+     */
+    public function runDeepWritingWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->cursor) {
+            @$body['Cursor'] = $request->cursor;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunDeepWriting',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield RunDeepWritingResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 流式输出深度写作事件.
+     *
+     * @param request - RunDeepWritingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunDeepWritingResponse
+     *
+     * @param RunDeepWritingRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RunDeepWritingResponse
+     */
+    public function runDeepWritingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->cursor) {
+            @$body['Cursor'] = $request->cursor;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunDeepWriting',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunDeepWritingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 流式输出深度写作事件.
+     *
+     * @param request - RunDeepWritingRequest
+     *
+     * @returns RunDeepWritingResponse
+     *
+     * @param RunDeepWritingRequest $request
+     *
+     * @return RunDeepWritingResponse
+     */
+    public function runDeepWriting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runDeepWritingWithOptions($request, $runtime);
+    }
+
+    /**
      * 妙读脑图生成接口.
      *
      * @param request - RunDocBrainmapRequest
@@ -12884,6 +13204,154 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * AI生成视频剪辑脚本.
+     *
+     * @param request - RunVideoScriptGenerateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunVideoScriptGenerateResponse
+     *
+     * @param RunVideoScriptGenerateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RunVideoScriptGenerateResponse
+     */
+    public function runVideoScriptGenerateWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->language) {
+            @$body['Language'] = $request->language;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->scriptLength) {
+            @$body['ScriptLength'] = $request->scriptLength;
+        }
+
+        if (null !== $request->scriptNumber) {
+            @$body['ScriptNumber'] = $request->scriptNumber;
+        }
+
+        if (null !== $request->useSearch) {
+            @$body['UseSearch'] = $request->useSearch;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunVideoScriptGenerate',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield RunVideoScriptGenerateResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * AI生成视频剪辑脚本.
+     *
+     * @param request - RunVideoScriptGenerateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunVideoScriptGenerateResponse
+     *
+     * @param RunVideoScriptGenerateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RunVideoScriptGenerateResponse
+     */
+    public function runVideoScriptGenerateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->language) {
+            @$body['Language'] = $request->language;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->scriptLength) {
+            @$body['ScriptLength'] = $request->scriptLength;
+        }
+
+        if (null !== $request->scriptNumber) {
+            @$body['ScriptNumber'] = $request->scriptNumber;
+        }
+
+        if (null !== $request->useSearch) {
+            @$body['UseSearch'] = $request->useSearch;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunVideoScriptGenerate',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunVideoScriptGenerateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * AI生成视频剪辑脚本.
+     *
+     * @param request - RunVideoScriptGenerateRequest
+     *
+     * @returns RunVideoScriptGenerateResponse
+     *
+     * @param RunVideoScriptGenerateRequest $request
+     *
+     * @return RunVideoScriptGenerateResponse
+     */
+    public function runVideoScriptGenerate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runVideoScriptGenerateWithOptions($request, $runtime);
+    }
+
+    /**
      * AI妙笔-创作-文风改写.
      *
      * @param tmpReq - RunWriteToneGenerationRequest
@@ -14499,6 +14967,91 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitCustomTopicSelectionPerspectiveAnalysisTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交深度写作任务
+     *
+     * @param tmpReq - SubmitDeepWriteTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitDeepWriteTaskResponse
+     *
+     * @param SubmitDeepWriteTaskRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubmitDeepWriteTaskResponse
+     */
+    public function submitDeepWriteTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitDeepWriteTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentOrchestration) {
+            $request->agentOrchestrationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentOrchestration, 'AgentOrchestration', 'json');
+        }
+
+        if (null !== $tmpReq->files) {
+            $request->filesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentOrchestrationShrink) {
+            @$query['AgentOrchestration'] = $request->agentOrchestrationShrink;
+        }
+
+        $body = [];
+        if (null !== $request->filesShrink) {
+            @$body['Files'] = $request->filesShrink;
+        }
+
+        if (null !== $request->input) {
+            @$body['Input'] = $request->input;
+        }
+
+        if (null !== $request->instructions) {
+            @$body['Instructions'] = $request->instructions;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitDeepWriteTask',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitDeepWriteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交深度写作任务
+     *
+     * @param request - SubmitDeepWriteTaskRequest
+     *
+     * @returns SubmitDeepWriteTaskResponse
+     *
+     * @param SubmitDeepWriteTaskRequest $request
+     *
+     * @return SubmitDeepWriteTaskResponse
+     */
+    public function submitDeepWriteTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitDeepWriteTaskWithOptions($request, $runtime);
     }
 
     /**

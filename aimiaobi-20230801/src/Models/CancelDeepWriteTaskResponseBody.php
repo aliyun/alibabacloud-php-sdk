@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddAuditTermsResponseBody\dataV1;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelDeepWriteTaskResponseBody\data;
 
-class AddAuditTermsResponseBody extends Model
+class CancelDeepWriteTaskResponseBody extends Model
 {
     /**
      * @var string
@@ -15,14 +15,9 @@ class AddAuditTermsResponseBody extends Model
     public $code;
 
     /**
-     * @var bool
+     * @var data
      */
     public $data;
-
-    /**
-     * @var dataV1
-     */
-    public $dataV1;
 
     /**
      * @var int
@@ -46,7 +41,6 @@ class AddAuditTermsResponseBody extends Model
     protected $_name = [
         'code' => 'Code',
         'data' => 'Data',
-        'dataV1' => 'DataV1',
         'httpStatusCode' => 'HttpStatusCode',
         'message' => 'Message',
         'requestId' => 'RequestId',
@@ -55,8 +49,8 @@ class AddAuditTermsResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->dataV1) {
-            $this->dataV1->validate();
+        if (null !== $this->data) {
+            $this->data->validate();
         }
         parent::validate();
     }
@@ -69,11 +63,7 @@ class AddAuditTermsResponseBody extends Model
         }
 
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
-
-        if (null !== $this->dataV1) {
-            $res['DataV1'] = null !== $this->dataV1 ? $this->dataV1->toArray($noStream) : $this->dataV1;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         if (null !== $this->httpStatusCode) {
@@ -108,11 +98,7 @@ class AddAuditTermsResponseBody extends Model
         }
 
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
-
-        if (isset($map['DataV1'])) {
-            $model->dataV1 = dataV1::fromMap($map['DataV1']);
+            $model->data = data::fromMap($map['Data']);
         }
 
         if (isset($map['HttpStatusCode'])) {

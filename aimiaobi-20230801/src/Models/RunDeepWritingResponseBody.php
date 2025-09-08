@@ -5,9 +5,10 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddAuditTermsResponseBody\dataV1;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDeepWritingResponseBody\header;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDeepWritingResponseBody\payload;
 
-class AddAuditTermsResponseBody extends Model
+class RunDeepWritingResponseBody extends Model
 {
     /**
      * @var string
@@ -15,17 +16,12 @@ class AddAuditTermsResponseBody extends Model
     public $code;
 
     /**
-     * @var bool
+     * @var header
      */
-    public $data;
+    public $header;
 
     /**
-     * @var dataV1
-     */
-    public $dataV1;
-
-    /**
-     * @var int
+     * @var string
      */
     public $httpStatusCode;
 
@@ -33,6 +29,11 @@ class AddAuditTermsResponseBody extends Model
      * @var string
      */
     public $message;
+
+    /**
+     * @var payload
+     */
+    public $payload;
 
     /**
      * @var string
@@ -45,18 +46,21 @@ class AddAuditTermsResponseBody extends Model
     public $success;
     protected $_name = [
         'code' => 'Code',
-        'data' => 'Data',
-        'dataV1' => 'DataV1',
+        'header' => 'Header',
         'httpStatusCode' => 'HttpStatusCode',
         'message' => 'Message',
+        'payload' => 'Payload',
         'requestId' => 'RequestId',
         'success' => 'Success',
     ];
 
     public function validate()
     {
-        if (null !== $this->dataV1) {
-            $this->dataV1->validate();
+        if (null !== $this->header) {
+            $this->header->validate();
+        }
+        if (null !== $this->payload) {
+            $this->payload->validate();
         }
         parent::validate();
     }
@@ -68,12 +72,8 @@ class AddAuditTermsResponseBody extends Model
             $res['Code'] = $this->code;
         }
 
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
-
-        if (null !== $this->dataV1) {
-            $res['DataV1'] = null !== $this->dataV1 ? $this->dataV1->toArray($noStream) : $this->dataV1;
+        if (null !== $this->header) {
+            $res['Header'] = null !== $this->header ? $this->header->toArray($noStream) : $this->header;
         }
 
         if (null !== $this->httpStatusCode) {
@@ -82,6 +82,10 @@ class AddAuditTermsResponseBody extends Model
 
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->payload) {
+            $res['Payload'] = null !== $this->payload ? $this->payload->toArray($noStream) : $this->payload;
         }
 
         if (null !== $this->requestId) {
@@ -107,12 +111,8 @@ class AddAuditTermsResponseBody extends Model
             $model->code = $map['Code'];
         }
 
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
-
-        if (isset($map['DataV1'])) {
-            $model->dataV1 = dataV1::fromMap($map['DataV1']);
+        if (isset($map['Header'])) {
+            $model->header = header::fromMap($map['Header']);
         }
 
         if (isset($map['HttpStatusCode'])) {
@@ -121,6 +121,10 @@ class AddAuditTermsResponseBody extends Model
 
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+
+        if (isset($map['Payload'])) {
+            $model->payload = payload::fromMap($map['Payload']);
         }
 
         if (isset($map['RequestId'])) {
