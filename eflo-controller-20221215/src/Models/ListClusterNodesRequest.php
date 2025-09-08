@@ -30,6 +30,11 @@ class ListClusterNodesRequest extends Model
     public $nodeGroupId;
 
     /**
+     * @var string[]
+     */
+    public $operatingStates;
+
+    /**
      * @var string
      */
     public $resourceGroupId;
@@ -43,12 +48,16 @@ class ListClusterNodesRequest extends Model
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'nodeGroupId' => 'NodeGroupId',
+        'operatingStates' => 'OperatingStates',
         'resourceGroupId' => 'ResourceGroupId',
         'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (\is_array($this->operatingStates)) {
+            Model::validateArray($this->operatingStates);
+        }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
         }
@@ -72,6 +81,17 @@ class ListClusterNodesRequest extends Model
 
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
+        }
+
+        if (null !== $this->operatingStates) {
+            if (\is_array($this->operatingStates)) {
+                $res['OperatingStates'] = [];
+                $n1 = 0;
+                foreach ($this->operatingStates as $item1) {
+                    $res['OperatingStates'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->resourceGroupId) {
@@ -114,6 +134,17 @@ class ListClusterNodesRequest extends Model
 
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
+        }
+
+        if (isset($map['OperatingStates'])) {
+            if (!empty($map['OperatingStates'])) {
+                $model->operatingStates = [];
+                $n1 = 0;
+                foreach ($map['OperatingStates'] as $item1) {
+                    $model->operatingStates[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ResourceGroupId'])) {

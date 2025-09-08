@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteNodeGroupRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteNodeGroupResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteNodeRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteNodeResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteVscRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteVscResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeClusterRequest;
@@ -925,6 +927,63 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除一个未使用节点.
+     *
+     * @param request - DeleteNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNodeResponse
+     *
+     * @param DeleteNodeRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteNodeResponse
+     */
+    public function deleteNodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteNode',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除一个未使用节点.
+     *
+     * @param request - DeleteNodeRequest
+     *
+     * @returns DeleteNodeResponse
+     *
+     * @param DeleteNodeRequest $request
+     *
+     * @return DeleteNodeResponse
+     */
+    public function deleteNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNodeWithOptions($request, $runtime);
     }
 
     /**
@@ -1827,6 +1886,10 @@ class Eflocontroller extends OpenApiClient
 
         if (null !== $request->nodeGroupId) {
             @$body['NodeGroupId'] = $request->nodeGroupId;
+        }
+
+        if (null !== $request->operatingStates) {
+            @$body['OperatingStates'] = $request->operatingStates;
         }
 
         if (null !== $request->resourceGroupId) {
