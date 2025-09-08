@@ -329,6 +329,10 @@ class Mnsopen extends OpenApiClient
             @$query['QueueName'] = $request->queueName;
         }
 
+        if (null !== $request->queueType) {
+            @$query['QueueType'] = $request->queueType;
+        }
+
         if (null !== $request->tag) {
             @$query['Tag'] = $request->tag;
         }
@@ -396,6 +400,10 @@ class Mnsopen extends OpenApiClient
         $query = [];
         if (null !== $request->tag) {
             @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->topicType) {
+            @$query['TopicType'] = $request->topicType;
         }
 
         $body = [];
@@ -1162,6 +1170,10 @@ class Mnsopen extends OpenApiClient
             @$query['QueueName'] = $request->queueName;
         }
 
+        if (null !== $request->queueType) {
+            @$query['QueueType'] = $request->queueType;
+        }
+
         if (null !== $request->tag) {
             @$query['Tag'] = $request->tag;
         }
@@ -1310,6 +1322,10 @@ class Mnsopen extends OpenApiClient
 
         if (null !== $request->topicName) {
             @$query['TopicName'] = $request->topicName;
+        }
+
+        if (null !== $request->topicType) {
+            @$query['TopicType'] = $request->topicType;
         }
 
         $req = new OpenApiRequest([

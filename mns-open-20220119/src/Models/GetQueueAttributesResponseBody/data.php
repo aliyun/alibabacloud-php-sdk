@@ -72,6 +72,11 @@ class data extends Model
     public $queueName;
 
     /**
+     * @var string
+     */
+    public $queueType;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -98,6 +103,7 @@ class data extends Model
         'messageRetentionPeriod' => 'MessageRetentionPeriod',
         'pollingWaitSeconds' => 'PollingWaitSeconds',
         'queueName' => 'QueueName',
+        'queueType' => 'QueueType',
         'tags' => 'Tags',
         'tenantRateLimitPolicy' => 'TenantRateLimitPolicy',
         'visibilityTimeout' => 'VisibilityTimeout',
@@ -166,6 +172,10 @@ class data extends Model
 
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
+        }
+
+        if (null !== $this->queueType) {
+            $res['QueueType'] = $this->queueType;
         }
 
         if (null !== $this->tags) {
@@ -244,6 +254,10 @@ class data extends Model
 
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
+        }
+
+        if (isset($map['QueueType'])) {
+            $model->queueType = $map['QueueType'];
         }
 
         if (isset($map['Tags'])) {

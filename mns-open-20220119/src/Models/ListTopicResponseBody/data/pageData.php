@@ -57,6 +57,11 @@ class pageData extends Model
     /**
      * @var string
      */
+    public $topicType;
+
+    /**
+     * @var string
+     */
     public $topicUrl;
     protected $_name = [
         'createTime' => 'CreateTime',
@@ -68,6 +73,7 @@ class pageData extends Model
         'tags' => 'Tags',
         'topicInnerUrl' => 'TopicInnerUrl',
         'topicName' => 'TopicName',
+        'topicType' => 'TopicType',
         'topicUrl' => 'TopicUrl',
     ];
 
@@ -123,6 +129,10 @@ class pageData extends Model
 
         if (null !== $this->topicName) {
             $res['TopicName'] = $this->topicName;
+        }
+
+        if (null !== $this->topicType) {
+            $res['TopicType'] = $this->topicType;
         }
 
         if (null !== $this->topicUrl) {
@@ -181,6 +191,10 @@ class pageData extends Model
 
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];
+        }
+
+        if (isset($map['TopicType'])) {
+            $model->topicType = $map['TopicType'];
         }
 
         if (isset($map['TopicUrl'])) {

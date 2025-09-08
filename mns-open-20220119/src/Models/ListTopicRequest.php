@@ -28,11 +28,17 @@ class ListTopicRequest extends Model
      * @var string
      */
     public $topicName;
+
+    /**
+     * @var string
+     */
+    public $topicType;
     protected $_name = [
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'tag' => 'Tag',
         'topicName' => 'TopicName',
+        'topicType' => 'TopicType',
     ];
 
     public function validate()
@@ -69,6 +75,10 @@ class ListTopicRequest extends Model
             $res['TopicName'] = $this->topicName;
         }
 
+        if (null !== $this->topicType) {
+            $res['TopicType'] = $this->topicType;
+        }
+
         return $res;
     }
 
@@ -101,6 +111,10 @@ class ListTopicRequest extends Model
 
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];
+        }
+
+        if (isset($map['TopicType'])) {
+            $model->topicType = $map['TopicType'];
         }
 
         return $model;

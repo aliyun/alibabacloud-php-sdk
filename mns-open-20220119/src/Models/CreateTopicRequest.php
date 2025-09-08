@@ -28,11 +28,17 @@ class CreateTopicRequest extends Model
      * @var string
      */
     public $topicName;
+
+    /**
+     * @var string
+     */
+    public $topicType;
     protected $_name = [
         'enableLogging' => 'EnableLogging',
         'maxMessageSize' => 'MaxMessageSize',
         'tag' => 'Tag',
         'topicName' => 'TopicName',
+        'topicType' => 'TopicType',
     ];
 
     public function validate()
@@ -69,6 +75,10 @@ class CreateTopicRequest extends Model
             $res['TopicName'] = $this->topicName;
         }
 
+        if (null !== $this->topicType) {
+            $res['TopicType'] = $this->topicType;
+        }
+
         return $res;
     }
 
@@ -101,6 +111,10 @@ class CreateTopicRequest extends Model
 
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];
+        }
+
+        if (isset($map['TopicType'])) {
+            $model->topicType = $map['TopicType'];
         }
 
         return $model;

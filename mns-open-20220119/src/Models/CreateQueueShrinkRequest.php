@@ -45,6 +45,11 @@ class CreateQueueShrinkRequest extends Model
     public $queueName;
 
     /**
+     * @var string
+     */
+    public $queueType;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -66,6 +71,7 @@ class CreateQueueShrinkRequest extends Model
         'messageRetentionPeriod' => 'MessageRetentionPeriod',
         'pollingWaitSeconds' => 'PollingWaitSeconds',
         'queueName' => 'QueueName',
+        'queueType' => 'QueueType',
         'tag' => 'Tag',
         'tenantRateLimitPolicyShrink' => 'TenantRateLimitPolicy',
         'visibilityTimeout' => 'VisibilityTimeout',
@@ -108,6 +114,10 @@ class CreateQueueShrinkRequest extends Model
 
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
+        }
+
+        if (null !== $this->queueType) {
+            $res['QueueType'] = $this->queueType;
         }
 
         if (null !== $this->tag) {
@@ -166,6 +176,10 @@ class CreateQueueShrinkRequest extends Model
 
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
+        }
+
+        if (isset($map['QueueType'])) {
+            $model->queueType = $map['QueueType'];
         }
 
         if (isset($map['Tag'])) {

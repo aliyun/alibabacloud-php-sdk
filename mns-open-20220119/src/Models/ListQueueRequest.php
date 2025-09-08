@@ -25,6 +25,11 @@ class ListQueueRequest extends Model
     public $queueName;
 
     /**
+     * @var string
+     */
+    public $queueType;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -32,6 +37,7 @@ class ListQueueRequest extends Model
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'queueName' => 'QueueName',
+        'queueType' => 'QueueType',
         'tag' => 'Tag',
     ];
 
@@ -56,6 +62,10 @@ class ListQueueRequest extends Model
 
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
+        }
+
+        if (null !== $this->queueType) {
+            $res['QueueType'] = $this->queueType;
         }
 
         if (null !== $this->tag) {
@@ -90,6 +100,10 @@ class ListQueueRequest extends Model
 
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
+        }
+
+        if (isset($map['QueueType'])) {
+            $model->queueType = $map['QueueType'];
         }
 
         if (isset($map['Tag'])) {
