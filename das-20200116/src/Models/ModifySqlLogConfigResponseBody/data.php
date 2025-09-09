@@ -76,6 +76,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $sqlLogSource;
+
+    /**
+     * @var string
+     */
     public $sqlLogState;
 
     /**
@@ -106,6 +111,7 @@ class data extends Model
         'requestStopTime' => 'RequestStopTime',
         'retention' => 'Retention',
         'sqlLogEnable' => 'SqlLogEnable',
+        'sqlLogSource' => 'SqlLogSource',
         'sqlLogState' => 'SqlLogState',
         'sqlLogVisibleTime' => 'SqlLogVisibleTime',
         'supportVersion' => 'SupportVersion',
@@ -170,6 +176,10 @@ class data extends Model
 
         if (null !== $this->sqlLogEnable) {
             $res['SqlLogEnable'] = $this->sqlLogEnable;
+        }
+
+        if (null !== $this->sqlLogSource) {
+            $res['SqlLogSource'] = $this->sqlLogSource;
         }
 
         if (null !== $this->sqlLogState) {
@@ -249,6 +259,10 @@ class data extends Model
 
         if (isset($map['SqlLogEnable'])) {
             $model->sqlLogEnable = $map['SqlLogEnable'];
+        }
+
+        if (isset($map['SqlLogSource'])) {
+            $model->sqlLogSource = $map['SqlLogSource'];
         }
 
         if (isset($map['SqlLogState'])) {

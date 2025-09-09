@@ -139,6 +139,11 @@ class SQLLogRecord extends Model
     public $state;
 
     /**
+     * @var string
+     */
+    public $tableName;
+
+    /**
      * @var int
      */
     public $threadId;
@@ -199,6 +204,7 @@ class SQLLogRecord extends Model
         'sqlText' => 'SqlText',
         'sqlType' => 'SqlType',
         'state' => 'State',
+        'tableName' => 'TableName',
         'threadId' => 'ThreadId',
         'traceId' => 'TraceId',
         'trxId' => 'TrxId',
@@ -318,6 +324,10 @@ class SQLLogRecord extends Model
 
         if (null !== $this->state) {
             $res['State'] = $this->state;
+        }
+
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         if (null !== $this->threadId) {
@@ -461,6 +471,10 @@ class SQLLogRecord extends Model
 
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         if (isset($map['ThreadId'])) {
