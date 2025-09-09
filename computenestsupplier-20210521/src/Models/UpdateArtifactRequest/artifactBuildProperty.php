@@ -36,6 +36,11 @@ class artifactBuildProperty extends Model
     public $dockerfilePath;
 
     /**
+     * @var bool
+     */
+    public $enableGpu;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -49,15 +54,22 @@ class artifactBuildProperty extends Model
      * @var string
      */
     public $sourceImageId;
+
+    /**
+     * @var int
+     */
+    public $systemDiskSize;
     protected $_name = [
         'buildArgs' => 'BuildArgs',
         'codeRepo' => 'CodeRepo',
         'commandContent' => 'CommandContent',
         'commandType' => 'CommandType',
         'dockerfilePath' => 'DockerfilePath',
+        'enableGpu' => 'EnableGpu',
         'regionId' => 'RegionId',
         'sourceContainerImage' => 'SourceContainerImage',
         'sourceImageId' => 'SourceImageId',
+        'systemDiskSize' => 'SystemDiskSize',
     ];
 
     public function validate()
@@ -101,6 +113,10 @@ class artifactBuildProperty extends Model
             $res['DockerfilePath'] = $this->dockerfilePath;
         }
 
+        if (null !== $this->enableGpu) {
+            $res['EnableGpu'] = $this->enableGpu;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -111,6 +127,10 @@ class artifactBuildProperty extends Model
 
         if (null !== $this->sourceImageId) {
             $res['SourceImageId'] = $this->sourceImageId;
+        }
+
+        if (null !== $this->systemDiskSize) {
+            $res['SystemDiskSize'] = $this->systemDiskSize;
         }
 
         return $res;
@@ -151,6 +171,10 @@ class artifactBuildProperty extends Model
             $model->dockerfilePath = $map['DockerfilePath'];
         }
 
+        if (isset($map['EnableGpu'])) {
+            $model->enableGpu = $map['EnableGpu'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -161,6 +185,10 @@ class artifactBuildProperty extends Model
 
         if (isset($map['SourceImageId'])) {
             $model->sourceImageId = $map['SourceImageId'];
+        }
+
+        if (isset($map['SystemDiskSize'])) {
+            $model->systemDiskSize = $map['SystemDiskSize'];
         }
 
         return $model;

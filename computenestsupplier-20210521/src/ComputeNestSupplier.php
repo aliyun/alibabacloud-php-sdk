@@ -30,6 +30,10 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceUsageRequ
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceUsageResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateSupplierRegistrationRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateSupplierRegistrationResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteAcrImageRepositoriesRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteAcrImageRepositoriesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteAcrImageTagsRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteAcrImageTagsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteArtifactRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteArtifactResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteServiceInstancesRequest;
@@ -48,6 +52,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRepositoryC
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRepositoryCredentialsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetNetworkAvailableZonesRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetNetworkAvailableZonesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceEstimateCostRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceEstimateCostResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceEstimateCostShrinkRequest;
@@ -60,6 +66,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceRegistration
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceRegistrationResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceTemplateCriterionIssuesRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceTemplateCriterionIssuesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceTemplateParameterConstraintsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceTemplateParameterConstraintsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceTestTaskRequest;
@@ -74,6 +82,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageRepositori
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageRepositoriesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageTagsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageTagsResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactBuildLogsRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactBuildLogsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactRisksRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactRisksResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsRequest;
@@ -83,6 +93,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsRe
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsShrinkRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListResellersRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListResellersResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceBuildLogsRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceBuildLogsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceBillRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceBillResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceDeployDetailsRequest;
@@ -279,7 +291,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 商家通过服务使用请求
+     * Merchant uses service request.
      *
      * @param request - ApproveServiceUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -338,7 +350,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 商家通过服务使用请求
+     * Merchant uses service request.
      *
      * @param request - ApproveServiceUsageRequest
      *
@@ -970,7 +982,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 创建服务测试任务
+     * Create service test task.
      *
      * @param request - CreateServiceTestTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1021,7 +1033,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 创建服务测试任务
+     * Create service test task.
      *
      * @param request - CreateServiceTestTaskRequest
      *
@@ -1229,6 +1241,148 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * 删除Acr镜像仓库.
+     *
+     * @param request - DeleteAcrImageRepositoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAcrImageRepositoriesResponse
+     *
+     * @param DeleteAcrImageRepositoriesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteAcrImageRepositoriesResponse
+     */
+    public function deleteAcrImageRepositoriesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->artifactType) {
+            @$query['ArtifactType'] = $request->artifactType;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAcrImageRepositories',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAcrImageRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Acr镜像仓库.
+     *
+     * @param request - DeleteAcrImageRepositoriesRequest
+     *
+     * @returns DeleteAcrImageRepositoriesResponse
+     *
+     * @param DeleteAcrImageRepositoriesRequest $request
+     *
+     * @return DeleteAcrImageRepositoriesResponse
+     */
+    public function deleteAcrImageRepositories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAcrImageRepositoriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除Acr容器镜像版本.
+     *
+     * @param request - DeleteAcrImageTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAcrImageTagsResponse
+     *
+     * @param DeleteAcrImageTagsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteAcrImageTagsResponse
+     */
+    public function deleteAcrImageTagsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->artifactType) {
+            @$query['ArtifactType'] = $request->artifactType;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAcrImageTags',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAcrImageTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Acr容器镜像版本.
+     *
+     * @param request - DeleteAcrImageTagsRequest
+     *
+     * @returns DeleteAcrImageTagsResponse
+     *
+     * @param DeleteAcrImageTagsRequest $request
+     *
+     * @return DeleteAcrImageTagsResponse
+     */
+    public function deleteAcrImageTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAcrImageTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an artifact.
      *
      * @param request - DeleteArtifactRequest
@@ -1428,7 +1582,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 删除服务测试配置.
+     * Delete service test configuration.
      *
      * @param request - DeleteServiceTestCaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1471,7 +1625,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 删除服务测试配置.
+     * Delete service test configuration.
      *
      * @param request - DeleteServiceTestCaseRequest
      *
@@ -1822,6 +1976,91 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * 根据地域参数获取地域可用区列表.
+     *
+     * @param request - GetNetworkAvailableZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNetworkAvailableZonesResponse
+     *
+     * @param GetNetworkAvailableZonesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetNetworkAvailableZonesResponse
+     */
+    public function getNetworkAvailableZonesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->isPoc) {
+            @$body['IsPoc'] = $request->isPoc;
+        }
+
+        if (null !== $request->networkRegionId) {
+            @$body['NetworkRegionId'] = $request->networkRegionId;
+        }
+
+        if (null !== $request->privateVpcConnectionMode) {
+            @$body['PrivateVpcConnectionMode'] = $request->privateVpcConnectionMode;
+        }
+
+        if (null !== $request->serviceId) {
+            @$body['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->serviceInstanceEndpointServiceType) {
+            @$body['ServiceInstanceEndpointServiceType'] = $request->serviceInstanceEndpointServiceType;
+        }
+
+        if (null !== $request->serviceRegionId) {
+            @$body['ServiceRegionId'] = $request->serviceRegionId;
+        }
+
+        if (null !== $request->serviceVersion) {
+            @$body['ServiceVersion'] = $request->serviceVersion;
+        }
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetNetworkAvailableZones',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNetworkAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据地域参数获取地域可用区列表.
+     *
+     * @param request - GetNetworkAvailableZonesRequest
+     *
+     * @returns GetNetworkAvailableZonesResponse
+     *
+     * @param GetNetworkAvailableZonesRequest $request
+     *
+     * @return GetNetworkAvailableZonesResponse
+     */
+    public function getNetworkAvailableZones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNetworkAvailableZonesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about a service.
      *
      * @param request - GetServiceRequest
@@ -2067,7 +2306,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 计算巢查询服务是否开通.
+     * Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
      *
      * @param tmpReq - GetServiceProvisionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2128,7 +2367,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 计算巢查询服务是否开通.
+     * Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
      *
      * @param request - GetServiceProvisionsRequest
      *
@@ -2204,6 +2443,71 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getServiceRegistrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询服务模板存在的规范问题.
+     *
+     * @param request - GetServiceTemplateCriterionIssuesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceTemplateCriterionIssuesResponse
+     *
+     * @param GetServiceTemplateCriterionIssuesRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetServiceTemplateCriterionIssuesResponse
+     */
+    public function getServiceTemplateCriterionIssuesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->serviceVersion) {
+            @$query['ServiceVersion'] = $request->serviceVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetServiceTemplateCriterionIssues',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetServiceTemplateCriterionIssuesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询服务模板存在的规范问题.
+     *
+     * @param request - GetServiceTemplateCriterionIssuesRequest
+     *
+     * @returns GetServiceTemplateCriterionIssuesResponse
+     *
+     * @param GetServiceTemplateCriterionIssuesRequest $request
+     *
+     * @return GetServiceTemplateCriterionIssuesResponse
+     */
+    public function getServiceTemplateCriterionIssues($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceTemplateCriterionIssuesWithOptions($request, $runtime);
     }
 
     /**
@@ -2296,7 +2600,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 获取服务测试任务中Cases执行情况.
+     * Get the execution status of Cases in the service test task.
      *
      * @param request - GetServiceTestTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2339,7 +2643,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 获取服务测试任务中Cases执行情况.
+     * Get the execution status of Cases in the service test task.
      *
      * @param request - GetServiceTestTaskRequest
      *
@@ -2357,7 +2661,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 获取服务商信息.
+     * Get service provider information.
      *
      * @param request - GetSupplierInformationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2396,7 +2700,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 获取服务商信息.
+     * Get service provider information.
      *
      * @param request - GetSupplierInformationRequest
      *
@@ -2475,7 +2779,10 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 上线服务
+     * Launch service.
+     *
+     * @remarks
+     * 需要上线的服务必须为已通过审核的服务。
      *
      * @param request - LaunchServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2534,7 +2841,10 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 上线服务
+     * Launch service.
+     *
+     * @remarks
+     * 需要上线的服务必须为已通过审核的服务。
      *
      * @param request - LaunchServiceRequest
      *
@@ -2687,6 +2997,87 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAcrImageTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询部署实例、升级以及应用的日志.
+     *
+     * @param request - ListArtifactBuildLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListArtifactBuildLogsResponse
+     *
+     * @param ListArtifactBuildLogsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListArtifactBuildLogsResponse
+     */
+    public function listArtifactBuildLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->artifactId) {
+            @$query['ArtifactId'] = $request->artifactId;
+        }
+
+        if (null !== $request->artifactVersion) {
+            @$query['ArtifactVersion'] = $request->artifactVersion;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListArtifactBuildLogs',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListArtifactBuildLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询部署实例、升级以及应用的日志.
+     *
+     * @param request - ListArtifactBuildLogsRequest
+     *
+     * @returns ListArtifactBuildLogsResponse
+     *
+     * @param ListArtifactBuildLogsRequest $request
+     *
+     * @return ListArtifactBuildLogsResponse
+     */
+    public function listArtifactBuildLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listArtifactBuildLogsWithOptions($request, $runtime);
     }
 
     /**
@@ -2968,7 +3359,84 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 展示服务实例账单.
+     * 查询部署实例、升级以及应用的日志.
+     *
+     * @param request - ListServiceBuildLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServiceBuildLogsResponse
+     *
+     * @param ListServiceBuildLogsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListServiceBuildLogsResponse
+     */
+    public function listServiceBuildLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListServiceBuildLogs',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListServiceBuildLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询部署实例、升级以及应用的日志.
+     *
+     * @param request - ListServiceBuildLogsRequest
+     *
+     * @returns ListServiceBuildLogsResponse
+     *
+     * @param ListServiceBuildLogsRequest $request
+     *
+     * @return ListServiceBuildLogsResponse
+     */
+    public function listServiceBuildLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceBuildLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Display service instance bill.
      *
      * @param request - ListServiceInstanceBillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3035,7 +3503,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 展示服务实例账单.
+     * Display service instance bill.
      *
      * @param request - ListServiceInstanceBillRequest
      *
@@ -3053,7 +3521,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询服务实例部署详情.
+     * Query service instance deployment details.
      *
      * @param request - ListServiceInstanceDeployDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3124,7 +3592,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询服务实例部署详情.
+     * Query service instance deployment details.
      *
      * @param request - ListServiceInstanceDeployDetailsRequest
      *
@@ -3604,7 +4072,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 服务测试用例列表.
+     * Service test case list.
      *
      * @param request - ListServiceTestCasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3663,7 +4131,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 服务测试用例列表.
+     * Service test case list.
      *
      * @param request - ListServiceTestCasesRequest
      *
@@ -3681,7 +4149,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 获取服务测试实时日志.
+     * Get service test real-time logs.
      *
      * @param request - ListServiceTestTaskLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3732,7 +4200,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 获取服务测试实时日志.
+     * Get service test real-time logs.
      *
      * @param request - ListServiceTestTaskLogsRequest
      *
@@ -3961,7 +4429,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询服务商入职审核列表.
+     * Query the list of service provider onboarding reviews.
      *
      * @param request - ListSupplierRegistrationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4012,7 +4480,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询服务商入职审核列表.
+     * Query the list of service provider onboarding reviews.
      *
      * @param request - ListSupplierRegistrationsRequest
      *
@@ -4030,7 +4498,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询标签键列表.
+     * Query tag key list.
      *
      * @param request - ListTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4077,7 +4545,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询标签键列表.
+     * Query tag key list.
      *
      * @param request - ListTagKeysRequest
      *
@@ -4095,7 +4563,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询资源标签.
+     * Query resource tags.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4150,7 +4618,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询资源标签.
+     * Query resource tags.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -4168,7 +4636,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询标签值列表.
+     * Query tag value list.
      *
      * @param request - ListTagValuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4219,7 +4687,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询标签值列表.
+     * Query tag value list.
      *
      * @param request - ListTagValuesRequest
      *
@@ -4302,7 +4770,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 预发布服务
+     * Pre-release service.
      *
      * @param request - PreLaunchServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4349,7 +4817,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 预发布服务
+     * Pre-release service.
      *
      * @param request - PreLaunchServiceRequest
      *
@@ -4960,7 +5428,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 给资源打标签.
+     * Tag a resource.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5011,7 +5479,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 给资源打标签.
+     * Tag a resource.
      *
      * @param request - TagResourcesRequest
      *
@@ -5029,7 +5497,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 资源解绑标签.
+     * Unbind resource from tag.
      *
      * @param request - UnTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5084,7 +5552,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 资源解绑标签.
+     * Unbind resource from tag.
      *
      * @param request - UnTagResourcesRequest
      *
@@ -5534,7 +6002,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 修改服务测试用例.
+     * Modify Service Test Case.
      *
      * @param request - UpdateServiceTestCaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5585,7 +6053,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 修改服务测试用例.
+     * Modify Service Test Case.
      *
      * @param request - UpdateServiceTestCaseRequest
      *
@@ -5680,7 +6148,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 更新供应商全局信息.
+     * Update the information of supplier.
      *
      * @param request - UpdateSupplierInformationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5747,7 +6215,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 更新供应商全局信息.
+     * Update the information of supplier.
      *
      * @param request - UpdateSupplierInformationRequest
      *

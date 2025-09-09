@@ -36,6 +36,11 @@ class artifactBuildProperty extends Model
     public $dockerfilePath;
 
     /**
+     * @var bool
+     */
+    public $enableGpu;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -60,6 +65,7 @@ class artifactBuildProperty extends Model
         'commandContent' => 'CommandContent',
         'commandType' => 'CommandType',
         'dockerfilePath' => 'DockerfilePath',
+        'enableGpu' => 'EnableGpu',
         'regionId' => 'RegionId',
         'sourceContainerImage' => 'SourceContainerImage',
         'sourceImageId' => 'SourceImageId',
@@ -105,6 +111,10 @@ class artifactBuildProperty extends Model
 
         if (null !== $this->dockerfilePath) {
             $res['DockerfilePath'] = $this->dockerfilePath;
+        }
+
+        if (null !== $this->enableGpu) {
+            $res['EnableGpu'] = $this->enableGpu;
         }
 
         if (null !== $this->regionId) {
@@ -159,6 +169,10 @@ class artifactBuildProperty extends Model
 
         if (isset($map['DockerfilePath'])) {
             $model->dockerfilePath = $map['DockerfilePath'];
+        }
+
+        if (isset($map['EnableGpu'])) {
+            $model->enableGpu = $map['EnableGpu'];
         }
 
         if (isset($map['RegionId'])) {

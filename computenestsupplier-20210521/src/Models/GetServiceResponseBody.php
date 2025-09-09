@@ -148,6 +148,11 @@ class GetServiceResponseBody extends Model
     /**
      * @var string
      */
+    public $secretKey;
+
+    /**
+     * @var string
+     */
     public $serviceAuditDocumentUrl;
 
     /**
@@ -316,6 +321,7 @@ class GetServiceResponseBody extends Model
         'requestId' => 'RequestId',
         'resellable' => 'Resellable',
         'resourceGroupId' => 'ResourceGroupId',
+        'secretKey' => 'SecretKey',
         'serviceAuditDocumentUrl' => 'ServiceAuditDocumentUrl',
         'serviceDiscoverable' => 'ServiceDiscoverable',
         'serviceDocumentInfos' => 'ServiceDocumentInfos',
@@ -486,6 +492,10 @@ class GetServiceResponseBody extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->secretKey) {
+            $res['SecretKey'] = $this->secretKey;
         }
 
         if (null !== $this->serviceAuditDocumentUrl) {
@@ -750,6 +760,10 @@ class GetServiceResponseBody extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['SecretKey'])) {
+            $model->secretKey = $map['SecretKey'];
         }
 
         if (isset($map['ServiceAuditDocumentUrl'])) {
