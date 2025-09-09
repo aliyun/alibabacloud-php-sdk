@@ -17,6 +17,16 @@ class connectors extends Model
     public $applications;
 
     /**
+     * @var string
+     */
+    public $clusterIP;
+
+    /**
+     * @var string
+     */
+    public $clusterPort;
+
+    /**
      * @var connectorClients[]
      */
     public $connectorClients;
@@ -57,6 +67,8 @@ class connectors extends Model
     public $upgradeTime;
     protected $_name = [
         'applications' => 'Applications',
+        'clusterIP' => 'ClusterIP',
+        'clusterPort' => 'ClusterPort',
         'connectorClients' => 'ConnectorClients',
         'connectorId' => 'ConnectorId',
         'createTime' => 'CreateTime',
@@ -93,6 +105,14 @@ class connectors extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->clusterIP) {
+            $res['ClusterIP'] = $this->clusterIP;
+        }
+
+        if (null !== $this->clusterPort) {
+            $res['ClusterPort'] = $this->clusterPort;
         }
 
         if (null !== $this->connectorClients) {
@@ -154,6 +174,14 @@ class connectors extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ClusterIP'])) {
+            $model->clusterIP = $map['ClusterIP'];
+        }
+
+        if (isset($map['ClusterPort'])) {
+            $model->clusterPort = $map['ClusterPort'];
         }
 
         if (isset($map['ConnectorClients'])) {
