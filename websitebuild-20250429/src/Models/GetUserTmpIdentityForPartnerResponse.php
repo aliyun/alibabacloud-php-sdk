@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateLogoTaskResponse extends Model
+class GetUserTmpIdentityForPartnerResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateLogoTaskResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreateLogoTaskResponseBody
+     * @var GetUserTmpIdentityForPartnerResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class CreateLogoTaskResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = CreateLogoTaskResponseBody::fromMap($map['body']);
+            $model->body = GetUserTmpIdentityForPartnerResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCreateLogoTaskRequest extends Model
 {
     /**
-     * @example 20051349
-     *
      * @var string
      */
     public $taskId;
@@ -18,9 +16,12 @@ class GetCreateLogoTaskRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -30,11 +31,11 @@ class GetCreateLogoTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCreateLogoTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

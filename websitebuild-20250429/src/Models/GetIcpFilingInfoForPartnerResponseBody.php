@@ -5,57 +5,41 @@
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetIcpFilingInfoForPartnerResponseBody\data;
 
-class OperateAppInstanceForPartnerResponseBody extends Model
+class GetIcpFilingInfoForPartnerResponseBody extends Model
 {
     /**
-     * @var string
+     * @var data
      */
-    public $errorCode;
-
-    /**
-     * @var string
-     */
-    public $errorMsg;
+    public $data;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $success;
     protected $_name = [
-        'errorCode' => 'ErrorCode',
-        'errorMsg' => 'ErrorMsg',
+        'data' => 'Data',
         'requestId' => 'RequestId',
-        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-
-        if (null !== $this->errorMsg) {
-            $res['ErrorMsg'] = $this->errorMsg;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -69,20 +53,12 @@ class OperateAppInstanceForPartnerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-
-        if (isset($map['ErrorMsg'])) {
-            $model->errorMsg = $map['ErrorMsg'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

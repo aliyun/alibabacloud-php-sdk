@@ -4,37 +4,27 @@
 
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskResponseBody\task;
-use AlibabaCloud\Tea\Model;
 
 class GetCreateLogoTaskResponseBody extends Model
 {
     /**
-     * @example 0
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example aliuid:1998006665794443 assumeRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description Id of the request
-     *
-     * @example 6C6B99AC-39EC-5350-874C-204128C905E6
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -51,50 +41,64 @@ class GetCreateLogoTaskResponseBody extends Model
         'task' => 'Task',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->task) {
+            $this->task->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->task) {
-            $res['Task'] = null !== $this->task ? $this->task->toMap() : null;
+            $res['Task'] = null !== $this->task ? $this->task->toArray($noStream) : $this->task;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCreateLogoTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['Task'])) {
             $model->task = task::fromMap($map['Task']);
         }

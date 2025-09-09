@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerResponseBody\data\appInstance;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,23 +17,29 @@ class data extends Model
         'appInstance' => 'AppInstance',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->appInstance) {
+            $this->appInstance->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInstance) {
-            $res['AppInstance'] = null !== $this->appInstance ? $this->appInstance->toMap() : null;
+            $res['AppInstance'] = null !== $this->appInstance ? $this->appInstance->toArray($noStream) : $this->appInstance;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

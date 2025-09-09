@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateLogoTaskRequest extends Model
 {
@@ -19,8 +19,6 @@ class CreateLogoTaskRequest extends Model
     public $negativePrompt;
 
     /**
-     * @example {\\"ehpcutilParam\\":\\"sched job_submit --commandline \\\\\\"/ehpcdata/data/usersTest/huangqiaoyi-1725933699384/huangqiaoyi-1725933699384.slurm\\\\\\" --runasuser TestGfjnSimworks\\"}
-     *
      * @var string
      */
     public $parameters;
@@ -36,20 +34,26 @@ class CreateLogoTaskRequest extends Model
         'prompt' => 'Prompt',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logoVersion) {
             $res['LogoVersion'] = $this->logoVersion;
         }
+
         if (null !== $this->negativePrompt) {
             $res['NegativePrompt'] = $this->negativePrompt;
         }
+
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
+
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
@@ -57,23 +61,26 @@ class CreateLogoTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateLogoTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogoVersion'])) {
             $model->logoVersion = $map['LogoVersion'];
         }
+
         if (isset($map['NegativePrompt'])) {
             $model->negativePrompt = $map['NegativePrompt'];
         }
+
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }
+
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }

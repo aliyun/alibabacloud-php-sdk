@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class SyncAppInstanceForPartnerResponseBody extends Model
 {
@@ -15,10 +15,6 @@ class SyncAppInstanceForPartnerResponseBody extends Model
     public $data;
 
     /**
-     * @description Id of the request
-     *
-     * @example 6C6B99AC-39EC-5350-874C-204128C905E6
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +23,21 @@ class SyncAppInstanceForPartnerResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class SyncAppInstanceForPartnerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SyncAppInstanceForPartnerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class OperateAppServiceForPartnerRequest extends Model
+class GetUserTmpIdentityForPartnerRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $authPurpose;
+
     /**
      * @var string
      */
@@ -21,17 +26,18 @@ class OperateAppServiceForPartnerRequest extends Model
     /**
      * @var string
      */
-    public $operateEvent;
+    public $serviceLinkedRole;
 
     /**
      * @var string
      */
-    public $serviceType;
+    public $userId;
     protected $_name = [
+        'authPurpose' => 'AuthPurpose',
         'bizId' => 'BizId',
         'extend' => 'Extend',
-        'operateEvent' => 'OperateEvent',
-        'serviceType' => 'ServiceType',
+        'serviceLinkedRole' => 'ServiceLinkedRole',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -42,6 +48,10 @@ class OperateAppServiceForPartnerRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authPurpose) {
+            $res['AuthPurpose'] = $this->authPurpose;
+        }
+
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
@@ -50,12 +60,12 @@ class OperateAppServiceForPartnerRequest extends Model
             $res['Extend'] = $this->extend;
         }
 
-        if (null !== $this->operateEvent) {
-            $res['OperateEvent'] = $this->operateEvent;
+        if (null !== $this->serviceLinkedRole) {
+            $res['ServiceLinkedRole'] = $this->serviceLinkedRole;
         }
 
-        if (null !== $this->serviceType) {
-            $res['ServiceType'] = $this->serviceType;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class OperateAppServiceForPartnerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthPurpose'])) {
+            $model->authPurpose = $map['AuthPurpose'];
+        }
+
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
@@ -77,12 +91,12 @@ class OperateAppServiceForPartnerRequest extends Model
             $model->extend = $map['Extend'];
         }
 
-        if (isset($map['OperateEvent'])) {
-            $model->operateEvent = $map['OperateEvent'];
+        if (isset($map['ServiceLinkedRole'])) {
+            $model->serviceLinkedRole = $map['ServiceLinkedRole'];
         }
 
-        if (isset($map['ServiceType'])) {
-            $model->serviceType = $map['ServiceType'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

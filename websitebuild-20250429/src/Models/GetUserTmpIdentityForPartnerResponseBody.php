@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerResponseBody\data;
 
-class OperateAppInstanceForPartnerResponseBody extends Model
+class GetUserTmpIdentityForPartnerResponseBody extends Model
 {
+    /**
+     * @var data
+     */
+    public $data;
+
     /**
      * @var string
      */
@@ -24,10 +30,11 @@ class OperateAppInstanceForPartnerResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var bool
      */
     public $success;
     protected $_name = [
+        'data' => 'Data',
         'errorCode' => 'ErrorCode',
         'errorMsg' => 'ErrorMsg',
         'requestId' => 'RequestId',
@@ -36,12 +43,19 @@ class OperateAppInstanceForPartnerResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+        }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
@@ -69,6 +83,10 @@ class OperateAppInstanceForPartnerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }

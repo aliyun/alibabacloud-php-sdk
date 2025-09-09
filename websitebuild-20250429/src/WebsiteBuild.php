@@ -4,12 +4,15 @@
 
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetIcpFilingInfoForPartnerRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetIcpFilingInfoForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppInstanceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerRequest;
@@ -20,11 +23,10 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class WebsiteBuild extends OpenApiClient
 {
@@ -49,42 +51,52 @@ class WebsiteBuild extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 提交创建Logo任务
-     *  *
-     * @param CreateLogoTaskRequest $request CreateLogoTaskRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 提交创建Logo任务
      *
-     * @return CreateLogoTaskResponse CreateLogoTaskResponse
+     * @param request - CreateLogoTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLogoTaskResponse
+     *
+     * @param CreateLogoTaskRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateLogoTaskResponse
      */
     public function createLogoTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->logoVersion)) {
-            $query['LogoVersion'] = $request->logoVersion;
+        if (null !== $request->logoVersion) {
+            @$query['LogoVersion'] = $request->logoVersion;
         }
-        if (!Utils::isUnset($request->negativePrompt)) {
-            $query['NegativePrompt'] = $request->negativePrompt;
+
+        if (null !== $request->negativePrompt) {
+            @$query['NegativePrompt'] = $request->negativePrompt;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $query['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$query['Prompt'] = $request->prompt;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateLogoTask',
@@ -102,11 +114,15 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * @summary 提交创建Logo任务
-     *  *
-     * @param CreateLogoTaskRequest $request CreateLogoTaskRequest
+     * 提交创建Logo任务
      *
-     * @return CreateLogoTaskResponse CreateLogoTaskResponse
+     * @param request - CreateLogoTaskRequest
+     *
+     * @returns CreateLogoTaskResponse
+     *
+     * @param CreateLogoTaskRequest $request
+     *
+     * @return CreateLogoTaskResponse
      */
     public function createLogoTask($request)
     {
@@ -116,22 +132,28 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * @summary 查询Logo创建任务
-     *  *
-     * @param GetCreateLogoTaskRequest $request GetCreateLogoTaskRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询Logo创建任务
      *
-     * @return GetCreateLogoTaskResponse GetCreateLogoTaskResponse
+     * @param request - GetCreateLogoTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCreateLogoTaskResponse
+     *
+     * @param GetCreateLogoTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetCreateLogoTaskResponse
      */
     public function getCreateLogoTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetCreateLogoTask',
@@ -149,11 +171,15 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * @summary 查询Logo创建任务
-     *  *
-     * @param GetCreateLogoTaskRequest $request GetCreateLogoTaskRequest
+     * 查询Logo创建任务
      *
-     * @return GetCreateLogoTaskResponse GetCreateLogoTaskResponse
+     * @param request - GetCreateLogoTaskRequest
+     *
+     * @returns GetCreateLogoTaskResponse
+     *
+     * @param GetCreateLogoTaskRequest $request
+     *
+     * @return GetCreateLogoTaskResponse
      */
     public function getCreateLogoTask($request)
     {
@@ -163,25 +189,166 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * @summary 合作伙伴操作应用
-     *  *
-     * @param OperateAppInstanceForPartnerRequest $request OperateAppInstanceForPartnerRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 查询域名备案信息.
      *
-     * @return OperateAppInstanceForPartnerResponse OperateAppInstanceForPartnerResponse
+     * @param request - GetIcpFilingInfoForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIcpFilingInfoForPartnerResponse
+     *
+     * @param GetIcpFilingInfoForPartnerRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetIcpFilingInfoForPartnerResponse
+     */
+    public function getIcpFilingInfoForPartnerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetIcpFilingInfoForPartner',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetIcpFilingInfoForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询域名备案信息.
+     *
+     * @param request - GetIcpFilingInfoForPartnerRequest
+     *
+     * @returns GetIcpFilingInfoForPartnerResponse
+     *
+     * @param GetIcpFilingInfoForPartnerRequest $request
+     *
+     * @return GetIcpFilingInfoForPartnerResponse
+     */
+    public function getIcpFilingInfoForPartner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIcpFilingInfoForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 合作伙伴获取用户SLR角色授权临时凭证
+     *
+     * @param request - GetUserTmpIdentityForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserTmpIdentityForPartnerResponse
+     *
+     * @param GetUserTmpIdentityForPartnerRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetUserTmpIdentityForPartnerResponse
+     */
+    public function getUserTmpIdentityForPartnerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authPurpose) {
+            @$query['AuthPurpose'] = $request->authPurpose;
+        }
+
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
+        }
+
+        if (null !== $request->serviceLinkedRole) {
+            @$query['ServiceLinkedRole'] = $request->serviceLinkedRole;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserTmpIdentityForPartner',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserTmpIdentityForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 合作伙伴获取用户SLR角色授权临时凭证
+     *
+     * @param request - GetUserTmpIdentityForPartnerRequest
+     *
+     * @returns GetUserTmpIdentityForPartnerResponse
+     *
+     * @param GetUserTmpIdentityForPartnerRequest $request
+     *
+     * @return GetUserTmpIdentityForPartnerResponse
+     */
+    public function getUserTmpIdentityForPartner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserTmpIdentityForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 合作伙伴操作应用.
+     *
+     * @param request - OperateAppInstanceForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateAppInstanceForPartnerResponse
+     *
+     * @param OperateAppInstanceForPartnerRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return OperateAppInstanceForPartnerResponse
      */
     public function operateAppInstanceForPartnerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->extend)) {
-            $query['Extend'] = $request->extend;
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
         }
-        if (!Utils::isUnset($request->operateEvent)) {
-            $query['OperateEvent'] = $request->operateEvent;
+
+        if (null !== $request->operateEvent) {
+            @$query['OperateEvent'] = $request->operateEvent;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'OperateAppInstanceForPartner',
@@ -199,11 +366,15 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * @summary 合作伙伴操作应用
-     *  *
-     * @param OperateAppInstanceForPartnerRequest $request OperateAppInstanceForPartnerRequest
+     * 合作伙伴操作应用.
      *
-     * @return OperateAppInstanceForPartnerResponse OperateAppInstanceForPartnerResponse
+     * @param request - OperateAppInstanceForPartnerRequest
+     *
+     * @returns OperateAppInstanceForPartnerResponse
+     *
+     * @param OperateAppInstanceForPartnerRequest $request
+     *
+     * @return OperateAppInstanceForPartnerResponse
      */
     public function operateAppInstanceForPartner($request)
     {
@@ -213,31 +384,40 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * @summary 合作伙伴操作应用服务
-     *  *
-     * @param OperateAppServiceForPartnerRequest $request OperateAppServiceForPartnerRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 合作伙伴操作应用服务
      *
-     * @return OperateAppServiceForPartnerResponse OperateAppServiceForPartnerResponse
+     * @param request - OperateAppServiceForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateAppServiceForPartnerResponse
+     *
+     * @param OperateAppServiceForPartnerRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return OperateAppServiceForPartnerResponse
      */
     public function operateAppServiceForPartnerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->extend)) {
-            $query['Extend'] = $request->extend;
+
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
         }
-        if (!Utils::isUnset($request->operateEvent)) {
-            $query['OperateEvent'] = $request->operateEvent;
+
+        if (null !== $request->operateEvent) {
+            @$query['OperateEvent'] = $request->operateEvent;
         }
-        if (!Utils::isUnset($request->serviceType)) {
-            $query['ServiceType'] = $request->serviceType;
+
+        if (null !== $request->serviceType) {
+            @$query['ServiceType'] = $request->serviceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'OperateAppServiceForPartner',
@@ -255,11 +435,15 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * @summary 合作伙伴操作应用服务
-     *  *
-     * @param OperateAppServiceForPartnerRequest $request OperateAppServiceForPartnerRequest
+     * 合作伙伴操作应用服务
      *
-     * @return OperateAppServiceForPartnerResponse OperateAppServiceForPartnerResponse
+     * @param request - OperateAppServiceForPartnerRequest
+     *
+     * @returns OperateAppServiceForPartnerResponse
+     *
+     * @param OperateAppServiceForPartnerRequest $request
+     *
+     * @return OperateAppServiceForPartnerResponse
      */
     public function operateAppServiceForPartner($request)
     {
@@ -269,69 +453,90 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * @summary 图片检索
-     *  *
-     * @param SearchImageRequest $tmpReq  SearchImageRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 图片检索.
      *
-     * @return SearchImageResponse SearchImageResponse
+     * @param tmpReq - SearchImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchImageResponse
+     *
+     * @param SearchImageRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SearchImageResponse
      */
     public function searchImageWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SearchImageShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->colorHex)) {
-            $query['ColorHex'] = $request->colorHex;
+        if (null !== $request->colorHex) {
+            @$query['ColorHex'] = $request->colorHex;
         }
-        if (!Utils::isUnset($request->hasPerson)) {
-            $query['HasPerson'] = $request->hasPerson;
+
+        if (null !== $request->hasPerson) {
+            @$query['HasPerson'] = $request->hasPerson;
         }
-        if (!Utils::isUnset($request->imageCategory)) {
-            $query['ImageCategory'] = $request->imageCategory;
+
+        if (null !== $request->imageCategory) {
+            @$query['ImageCategory'] = $request->imageCategory;
         }
-        if (!Utils::isUnset($request->imageRatio)) {
-            $query['ImageRatio'] = $request->imageRatio;
+
+        if (null !== $request->imageRatio) {
+            @$query['ImageRatio'] = $request->imageRatio;
         }
-        if (!Utils::isUnset($request->maxHeight)) {
-            $query['MaxHeight'] = $request->maxHeight;
+
+        if (null !== $request->maxHeight) {
+            @$query['MaxHeight'] = $request->maxHeight;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->maxWidth)) {
-            $query['MaxWidth'] = $request->maxWidth;
+
+        if (null !== $request->maxWidth) {
+            @$query['MaxWidth'] = $request->maxWidth;
         }
-        if (!Utils::isUnset($request->minHeight)) {
-            $query['MinHeight'] = $request->minHeight;
+
+        if (null !== $request->minHeight) {
+            @$query['MinHeight'] = $request->minHeight;
         }
-        if (!Utils::isUnset($request->minWidth)) {
-            $query['MinWidth'] = $request->minWidth;
+
+        if (null !== $request->minWidth) {
+            @$query['MinWidth'] = $request->minWidth;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ossKey)) {
-            $query['OssKey'] = $request->ossKey;
+
+        if (null !== $request->ossKey) {
+            @$query['OssKey'] = $request->ossKey;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->start)) {
-            $query['Start'] = $request->start;
+
+        if (null !== $request->start) {
+            @$query['Start'] = $request->start;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->text)) {
-            $query['Text'] = $request->text;
+
+        if (null !== $request->text) {
+            @$query['Text'] = $request->text;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SearchImage',
@@ -349,11 +554,15 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * @summary 图片检索
-     *  *
-     * @param SearchImageRequest $request SearchImageRequest
+     * 图片检索.
      *
-     * @return SearchImageResponse SearchImageResponse
+     * @param request - SearchImageRequest
+     *
+     * @returns SearchImageResponse
+     *
+     * @param SearchImageRequest $request
+     *
+     * @return SearchImageResponse
      */
     public function searchImage($request)
     {
@@ -363,39 +572,50 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * @summary 合作伙伴同步应用实例
-     *  *
-     * @param SyncAppInstanceForPartnerRequest $tmpReq  SyncAppInstanceForPartnerRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 合作伙伴同步应用实例.
      *
-     * @return SyncAppInstanceForPartnerResponse SyncAppInstanceForPartnerResponse
+     * @param tmpReq - SyncAppInstanceForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncAppInstanceForPartnerResponse
+     *
+     * @param SyncAppInstanceForPartnerRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SyncAppInstanceForPartnerResponse
      */
     public function syncAppInstanceForPartnerWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SyncAppInstanceForPartnerShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->appInstance)) {
-            $request->appInstanceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->appInstance, 'AppInstance', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->appInstance) {
+            $request->appInstanceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->appInstance, 'AppInstance', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->appInstanceShrink)) {
-            $query['AppInstance'] = $request->appInstanceShrink;
+        if (null !== $request->appInstanceShrink) {
+            @$query['AppInstance'] = $request->appInstanceShrink;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->operator)) {
-            $query['Operator'] = $request->operator;
+
+        if (null !== $request->operator) {
+            @$query['Operator'] = $request->operator;
         }
-        if (!Utils::isUnset($request->sourceBizId)) {
-            $query['SourceBizId'] = $request->sourceBizId;
+
+        if (null !== $request->sourceBizId) {
+            @$query['SourceBizId'] = $request->sourceBizId;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SyncAppInstanceForPartner',
@@ -413,11 +633,15 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * @summary 合作伙伴同步应用实例
-     *  *
-     * @param SyncAppInstanceForPartnerRequest $request SyncAppInstanceForPartnerRequest
+     * 合作伙伴同步应用实例.
      *
-     * @return SyncAppInstanceForPartnerResponse SyncAppInstanceForPartnerResponse
+     * @param request - SyncAppInstanceForPartnerRequest
+     *
+     * @returns SyncAppInstanceForPartnerResponse
+     *
+     * @param SyncAppInstanceForPartnerRequest $request
+     *
+     * @return SyncAppInstanceForPartnerResponse
      */
     public function syncAppInstanceForPartner($request)
     {

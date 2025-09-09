@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageResponseBody\imageResponse\imageList;
-use AlibabaCloud\Tea\Model;
 
 class imageResponse extends Model
 {
@@ -15,15 +15,11 @@ class imageResponse extends Model
     public $imageList;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example 2c6b65b6f9d625d4e2514a628bde8eb2e0b5e8707e68181f
-     *
      * @var string
      */
     public $nextToken;
@@ -33,23 +29,32 @@ class imageResponse extends Model
         'nextToken' => 'NextToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->imageList)) {
+            Model::validateArray($this->imageList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageList) {
-            $res['ImageList'] = [];
-            if (null !== $this->imageList && \is_array($this->imageList)) {
-                $n = 0;
-                foreach ($this->imageList as $item) {
-                    $res['ImageList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->imageList)) {
+                $res['ImageList'] = [];
+                $n1 = 0;
+                foreach ($this->imageList as $item1) {
+                    $res['ImageList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -57,26 +62,29 @@ class imageResponse extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageList'])) {
             if (!empty($map['ImageList'])) {
                 $model->imageList = [];
-                $n = 0;
-                foreach ($map['ImageList'] as $item) {
-                    $model->imageList[$n++] = null !== $item ? imageList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ImageList'] as $item1) {
+                    $model->imageList[$n1] = imageList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

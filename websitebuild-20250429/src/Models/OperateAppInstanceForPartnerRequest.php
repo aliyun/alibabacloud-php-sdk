@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OperateAppInstanceForPartnerRequest extends Model
 {
@@ -14,8 +14,6 @@ class OperateAppInstanceForPartnerRequest extends Model
     public $extend;
 
     /**
-     * @example SERVICE_DELIVERY_PROCESS
-     *
      * @var string
      */
     public $operateEvent;
@@ -24,14 +22,18 @@ class OperateAppInstanceForPartnerRequest extends Model
         'operateEvent' => 'OperateEvent',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extend) {
             $res['Extend'] = $this->extend;
         }
+
         if (null !== $this->operateEvent) {
             $res['OperateEvent'] = $this->operateEvent;
         }
@@ -39,17 +41,18 @@ class OperateAppInstanceForPartnerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OperateAppInstanceForPartnerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extend'])) {
             $model->extend = $map['Extend'];
         }
+
         if (isset($map['OperateEvent'])) {
             $model->operateEvent = $map['OperateEvent'];
         }

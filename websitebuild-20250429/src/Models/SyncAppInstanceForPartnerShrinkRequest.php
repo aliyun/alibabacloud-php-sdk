@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SyncAppInstanceForPartnerShrinkRequest extends Model
 {
@@ -14,29 +14,21 @@ class SyncAppInstanceForPartnerShrinkRequest extends Model
     public $appInstanceShrink;
 
     /**
-     * @example CREATE
-     *
      * @var string
      */
     public $eventType;
 
     /**
-     * @example system
-     *
      * @var string
      */
     public $operator;
 
     /**
-     * @example 31104757
-     *
      * @var string
      */
     public $sourceBizId;
 
     /**
-     * @example MARKET_CLOUD_DREAM
-     *
      * @var string
      */
     public $sourceType;
@@ -48,23 +40,30 @@ class SyncAppInstanceForPartnerShrinkRequest extends Model
         'sourceType' => 'SourceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInstanceShrink) {
             $res['AppInstance'] = $this->appInstanceShrink;
         }
+
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
+
         if (null !== $this->sourceBizId) {
             $res['SourceBizId'] = $this->sourceBizId;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
@@ -72,26 +71,30 @@ class SyncAppInstanceForPartnerShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SyncAppInstanceForPartnerShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInstance'])) {
             $model->appInstanceShrink = $map['AppInstance'];
         }
+
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
+
         if (isset($map['SourceBizId'])) {
             $model->sourceBizId = $map['SourceBizId'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }

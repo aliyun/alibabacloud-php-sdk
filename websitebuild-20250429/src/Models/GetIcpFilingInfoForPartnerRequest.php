@@ -2,18 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerResponseBody\data;
+namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class appInstance extends Model
+class GetIcpFilingInfoForPartnerRequest extends Model
 {
     /**
      * @var string
      */
     public $bizId;
+
+    /**
+     * @var string
+     */
+    public $domain;
     protected $_name = [
         'bizId' => 'BizId',
+        'domain' => 'Domain',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class appInstance extends Model
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class appInstance extends Model
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
 
         return $model;
