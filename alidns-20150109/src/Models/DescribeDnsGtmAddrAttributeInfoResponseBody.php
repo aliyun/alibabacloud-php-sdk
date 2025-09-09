@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAddrAttributeInfoResponseBody\addr;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDnsGtmAddrAttributeInfoResponseBody extends Model
 {
     /**
-     * @description The address in the address pool.
-     *
      * @var addr
      */
     public $addr;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeDnsGtmAddrAttributeInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->addr) {
+            $this->addr->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addr) {
-            $res['Addr'] = null !== $this->addr ? $this->addr->toMap() : null;
+            $res['Addr'] = null !== $this->addr ? $this->addr->toArray($noStream) : $this->addr;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeDnsGtmAddrAttributeInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDnsGtmAddrAttributeInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Addr'])) {
             $model->addr = addr::fromMap($map['Addr']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

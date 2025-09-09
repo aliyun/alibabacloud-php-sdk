@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainLogsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainLogsResponseBody\domainLogs\domainLog;
-use AlibabaCloud\Tea\Model;
 
 class domainLogs extends Model
 {
@@ -17,17 +17,24 @@ class domainLogs extends Model
         'domainLog' => 'DomainLog',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->domainLog)) {
+            Model::validateArray($this->domainLog);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainLog) {
-            $res['DomainLog'] = [];
-            if (null !== $this->domainLog && \is_array($this->domainLog)) {
-                $n = 0;
-                foreach ($this->domainLog as $item) {
-                    $res['DomainLog'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainLog)) {
+                $res['DomainLog'] = [];
+                $n1 = 0;
+                foreach ($this->domainLog as $item1) {
+                    $res['DomainLog'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class domainLogs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainLogs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainLog'])) {
             if (!empty($map['DomainLog'])) {
                 $model->domainLog = [];
-                $n = 0;
-                foreach ($map['DomainLog'] as $item) {
-                    $model->domainLog[$n++] = null !== $item ? domainLog::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DomainLog'] as $item1) {
+                    $model->domainLog[$n1] = domainLog::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnbindInstanceDomainsResponseBody extends Model
 {
     /**
-     * @description The number of domain names that failed to be unbound from the instance.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $failedCount;
 
     /**
-     * @description The request ID.
-     *
-     * @example 123
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The number of domain names that are unbound from the instance.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $successCount;
@@ -40,17 +28,22 @@ class UnbindInstanceDomainsResponseBody extends Model
         'successCount' => 'SuccessCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedCount) {
             $res['FailedCount'] = $this->failedCount;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->successCount) {
             $res['SuccessCount'] = $this->successCount;
         }
@@ -58,20 +51,22 @@ class UnbindInstanceDomainsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnbindInstanceDomainsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedCount'])) {
             $model->failedCount = $map['FailedCount'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SuccessCount'])) {
             $model->successCount = $map['SuccessCount'];
         }

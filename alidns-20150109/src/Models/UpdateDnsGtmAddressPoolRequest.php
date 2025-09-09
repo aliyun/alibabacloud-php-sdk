@@ -4,59 +4,32 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateDnsGtmAddressPoolRequest\addr;
-use AlibabaCloud\Tea\Model;
 
 class UpdateDnsGtmAddressPoolRequest extends Model
 {
     /**
-     * @description The address pools.
-     *
-     * This parameter is required.
-     *
      * @var addr[]
      */
     public $addr;
 
     /**
-     * @description The ID of the address pool.
-     *
-     * This parameter is required.
-     *
-     * @example testpool1
-     *
      * @var string
      */
     public $addrPoolId;
 
     /**
-     * @description The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The load balancing policy of the address pool. Valid values:
-     *
-     *   ALL_RR: returns all addresses.
-     *   RATIO: returns addresses by weight.
-     *
-     * This parameter is required.
-     *
-     * @example all_rr
-     *
      * @var string
      */
     public $lbaStrategy;
 
     /**
-     * @description The name of the address pool.
-     *
-     * @example testpoolname
-     *
      * @var string
      */
     public $name;
@@ -68,29 +41,40 @@ class UpdateDnsGtmAddressPoolRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->addr)) {
+            Model::validateArray($this->addr);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addr) {
-            $res['Addr'] = [];
-            if (null !== $this->addr && \is_array($this->addr)) {
-                $n = 0;
-                foreach ($this->addr as $item) {
-                    $res['Addr'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->addr)) {
+                $res['Addr'] = [];
+                $n1 = 0;
+                foreach ($this->addr as $item1) {
+                    $res['Addr'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->addrPoolId) {
             $res['AddrPoolId'] = $this->addrPoolId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->lbaStrategy) {
             $res['LbaStrategy'] = $this->lbaStrategy;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -98,32 +82,37 @@ class UpdateDnsGtmAddressPoolRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDnsGtmAddressPoolRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Addr'])) {
             if (!empty($map['Addr'])) {
                 $model->addr = [];
-                $n = 0;
-                foreach ($map['Addr'] as $item) {
-                    $model->addr[$n++] = null !== $item ? addr::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Addr'] as $item1) {
+                    $model->addr[$n1] = addr::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['AddrPoolId'])) {
             $model->addrPoolId = $map['AddrPoolId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['LbaStrategy'])) {
             $model->lbaStrategy = $map['LbaStrategy'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategyAvailableConfigResponseBody\domainAddrPools;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategyAvailableConfigResponseBody\ipv4AddrPools;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategyAvailableConfigResponseBody\ipv6AddrPools;
@@ -11,43 +12,30 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategyAvailab
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategyAvailableConfigResponseBody\selectedDomainLines;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategyAvailableConfigResponseBody\selectedIpv4Lines;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategyAvailableConfigResponseBody\selectedIpv6Lines;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends Model
 {
     /**
-     * @description The available address pools of the domain name type.
-     *
      * @var domainAddrPools
      */
     public $domainAddrPools;
 
     /**
-     * @description The available address pools of the IPv4 type.
-     *
      * @var ipv4AddrPools
      */
     public $ipv4AddrPools;
 
     /**
-     * @description The available address pools of the IPv6 type.
-     *
      * @var ipv6AddrPools
      */
     public $ipv6AddrPools;
 
     /**
-     * @description The source regions.
-     *
      * @var lines
      */
     public $lines;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example C2851BA9-CE56-49AF-8D12-4FC6A49EE688
-     *
      * @var string
      */
     public $requestId;
@@ -68,10 +56,6 @@ class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends Model
     public $selectedIpv6Lines;
 
     /**
-     * @description Indicates whether we recommend that you set the source region to global.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $suggestSetDefaultLine;
@@ -87,35 +71,67 @@ class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends Model
         'suggestSetDefaultLine' => 'SuggestSetDefaultLine',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->domainAddrPools) {
+            $this->domainAddrPools->validate();
+        }
+        if (null !== $this->ipv4AddrPools) {
+            $this->ipv4AddrPools->validate();
+        }
+        if (null !== $this->ipv6AddrPools) {
+            $this->ipv6AddrPools->validate();
+        }
+        if (null !== $this->lines) {
+            $this->lines->validate();
+        }
+        if (null !== $this->selectedDomainLines) {
+            $this->selectedDomainLines->validate();
+        }
+        if (null !== $this->selectedIpv4Lines) {
+            $this->selectedIpv4Lines->validate();
+        }
+        if (null !== $this->selectedIpv6Lines) {
+            $this->selectedIpv6Lines->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainAddrPools) {
-            $res['DomainAddrPools'] = null !== $this->domainAddrPools ? $this->domainAddrPools->toMap() : null;
+            $res['DomainAddrPools'] = null !== $this->domainAddrPools ? $this->domainAddrPools->toArray($noStream) : $this->domainAddrPools;
         }
+
         if (null !== $this->ipv4AddrPools) {
-            $res['Ipv4AddrPools'] = null !== $this->ipv4AddrPools ? $this->ipv4AddrPools->toMap() : null;
+            $res['Ipv4AddrPools'] = null !== $this->ipv4AddrPools ? $this->ipv4AddrPools->toArray($noStream) : $this->ipv4AddrPools;
         }
+
         if (null !== $this->ipv6AddrPools) {
-            $res['Ipv6AddrPools'] = null !== $this->ipv6AddrPools ? $this->ipv6AddrPools->toMap() : null;
+            $res['Ipv6AddrPools'] = null !== $this->ipv6AddrPools ? $this->ipv6AddrPools->toArray($noStream) : $this->ipv6AddrPools;
         }
+
         if (null !== $this->lines) {
-            $res['Lines'] = null !== $this->lines ? $this->lines->toMap() : null;
+            $res['Lines'] = null !== $this->lines ? $this->lines->toArray($noStream) : $this->lines;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->selectedDomainLines) {
-            $res['SelectedDomainLines'] = null !== $this->selectedDomainLines ? $this->selectedDomainLines->toMap() : null;
+            $res['SelectedDomainLines'] = null !== $this->selectedDomainLines ? $this->selectedDomainLines->toArray($noStream) : $this->selectedDomainLines;
         }
+
         if (null !== $this->selectedIpv4Lines) {
-            $res['SelectedIpv4Lines'] = null !== $this->selectedIpv4Lines ? $this->selectedIpv4Lines->toMap() : null;
+            $res['SelectedIpv4Lines'] = null !== $this->selectedIpv4Lines ? $this->selectedIpv4Lines->toArray($noStream) : $this->selectedIpv4Lines;
         }
+
         if (null !== $this->selectedIpv6Lines) {
-            $res['SelectedIpv6Lines'] = null !== $this->selectedIpv6Lines ? $this->selectedIpv6Lines->toMap() : null;
+            $res['SelectedIpv6Lines'] = null !== $this->selectedIpv6Lines ? $this->selectedIpv6Lines->toArray($noStream) : $this->selectedIpv6Lines;
         }
+
         if (null !== $this->suggestSetDefaultLine) {
             $res['SuggestSetDefaultLine'] = $this->suggestSetDefaultLine;
         }
@@ -123,38 +139,46 @@ class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDnsGtmAccessStrategyAvailableConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainAddrPools'])) {
             $model->domainAddrPools = domainAddrPools::fromMap($map['DomainAddrPools']);
         }
+
         if (isset($map['Ipv4AddrPools'])) {
             $model->ipv4AddrPools = ipv4AddrPools::fromMap($map['Ipv4AddrPools']);
         }
+
         if (isset($map['Ipv6AddrPools'])) {
             $model->ipv6AddrPools = ipv6AddrPools::fromMap($map['Ipv6AddrPools']);
         }
+
         if (isset($map['Lines'])) {
             $model->lines = lines::fromMap($map['Lines']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SelectedDomainLines'])) {
             $model->selectedDomainLines = selectedDomainLines::fromMap($map['SelectedDomainLines']);
         }
+
         if (isset($map['SelectedIpv4Lines'])) {
             $model->selectedIpv4Lines = selectedIpv4Lines::fromMap($map['SelectedIpv4Lines']);
         }
+
         if (isset($map['SelectedIpv6Lines'])) {
             $model->selectedIpv6Lines = selectedIpv6Lines::fromMap($map['SelectedIpv6Lines']);
         }
+
         if (isset($map['SuggestSetDefaultLine'])) {
             $model->suggestSetDefaultLine = $map['SuggestSetDefaultLine'];
         }

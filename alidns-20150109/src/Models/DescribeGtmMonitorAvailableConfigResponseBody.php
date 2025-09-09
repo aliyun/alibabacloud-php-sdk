@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmMonitorAvailableConfigResponseBody\ispCityNodes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeGtmMonitorAvailableConfigResponseBody extends Model
 {
     /**
-     * @description The monitored nodes.
-     *
      * @var ispCityNodes
      */
     public $ispCityNodes;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeGtmMonitorAvailableConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->ispCityNodes) {
+            $this->ispCityNodes->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ispCityNodes) {
-            $res['IspCityNodes'] = null !== $this->ispCityNodes ? $this->ispCityNodes->toMap() : null;
+            $res['IspCityNodes'] = null !== $this->ispCityNodes ? $this->ispCityNodes->toArray($noStream) : $this->ispCityNodes;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeGtmMonitorAvailableConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGtmMonitorAvailableConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IspCityNodes'])) {
             $model->ispCityNodes = ispCityNodes::fromMap($map['IspCityNodes']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

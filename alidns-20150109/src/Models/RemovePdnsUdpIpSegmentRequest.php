@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemovePdnsUdpIpSegmentRequest extends Model
 {
@@ -22,14 +22,18 @@ class RemovePdnsUdpIpSegmentRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -37,17 +41,18 @@ class RemovePdnsUdpIpSegmentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemovePdnsUdpIpSegmentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

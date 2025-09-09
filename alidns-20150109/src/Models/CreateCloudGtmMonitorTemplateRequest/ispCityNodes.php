@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\CreateCloudGtmMonitorTemplateRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ispCityNodes extends Model
 {
     /**
-     * @description The city code of the health check node.
-     *
-     * @example 503
-     *
      * @var string
      */
     public $cityCode;
 
     /**
-     * @description The Internet service provider (ISP) code of the health check node.
-     *
-     * @example 465
-     *
      * @var string
      */
     public $ispCode;
@@ -30,14 +22,18 @@ class ispCityNodes extends Model
         'ispCode' => 'IspCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cityCode) {
             $res['CityCode'] = $this->cityCode;
         }
+
         if (null !== $this->ispCode) {
             $res['IspCode'] = $this->ispCode;
         }
@@ -45,17 +41,18 @@ class ispCityNodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ispCityNodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CityCode'])) {
             $model->cityCode = $map['CityCode'];
         }
+
         if (isset($map['IspCode'])) {
             $model->ispCode = $map['IspCode'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePdnsUdpIpSegmentRequest extends Model
 {
@@ -34,20 +34,26 @@ class CreatePdnsUdpIpSegmentRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->ipToken) {
             $res['IpToken'] = $this->ipToken;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -55,23 +61,26 @@ class CreatePdnsUdpIpSegmentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePdnsUdpIpSegmentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['IpToken'])) {
             $model->ipToken = $map['IpToken'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

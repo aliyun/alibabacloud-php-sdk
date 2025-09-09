@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmGlobalAlertResponseBody\alertConfig;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmGlobalAlertResponseBody\alertGroup;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCloudGtmGlobalAlertResponseBody extends Model
 {
     /**
-     * @description The alert configurations.
-     *
      * @var alertConfig
      */
     public $alertConfig;
 
     /**
-     * @description The alert contact groups.
-     *
      * @var alertGroup
      */
     public $alertGroup;
 
     /**
-     * @description The request ID.
-     *
-     * @example B57C121B-A45F-44D8-A9B2-13E5A5044195
-     *
      * @var string
      */
     public $requestId;
@@ -38,17 +30,28 @@ class DescribeCloudGtmGlobalAlertResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->alertConfig) {
+            $this->alertConfig->validate();
+        }
+        if (null !== $this->alertGroup) {
+            $this->alertGroup->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertConfig) {
-            $res['AlertConfig'] = null !== $this->alertConfig ? $this->alertConfig->toMap() : null;
+            $res['AlertConfig'] = null !== $this->alertConfig ? $this->alertConfig->toArray($noStream) : $this->alertConfig;
         }
+
         if (null !== $this->alertGroup) {
-            $res['AlertGroup'] = null !== $this->alertGroup ? $this->alertGroup->toMap() : null;
+            $res['AlertGroup'] = null !== $this->alertGroup ? $this->alertGroup->toArray($noStream) : $this->alertGroup;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,20 +59,22 @@ class DescribeCloudGtmGlobalAlertResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudGtmGlobalAlertResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertConfig'])) {
             $model->alertConfig = alertConfig::fromMap($map['AlertConfig']);
         }
+
         if (isset($map['AlertGroup'])) {
             $model->alertGroup = alertGroup::fromMap($map['AlertGroup']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

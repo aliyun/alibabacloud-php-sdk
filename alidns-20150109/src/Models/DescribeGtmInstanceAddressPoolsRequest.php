@@ -4,44 +4,26 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeGtmInstanceAddressPoolsRequest extends Model
 {
     /**
-     * @description The ID of the GTM instance that you want to query.
-     *
-     * This parameter is required.
-     *
-     * @example gtmtest
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The language used by the user.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return per page. Maximum value: **100**. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
@@ -52,20 +34,26 @@ class DescribeGtmInstanceAddressPoolsRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -73,23 +61,26 @@ class DescribeGtmInstanceAddressPoolsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGtmInstanceAddressPoolsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

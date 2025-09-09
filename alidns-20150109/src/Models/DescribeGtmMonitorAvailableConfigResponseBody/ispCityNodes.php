@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmMonitorAvailableConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmMonitorAvailableConfigResponseBody\ispCityNodes\ispCityNode;
-use AlibabaCloud\Tea\Model;
 
 class ispCityNodes extends Model
 {
@@ -17,17 +17,24 @@ class ispCityNodes extends Model
         'ispCityNode' => 'IspCityNode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ispCityNode)) {
+            Model::validateArray($this->ispCityNode);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ispCityNode) {
-            $res['IspCityNode'] = [];
-            if (null !== $this->ispCityNode && \is_array($this->ispCityNode)) {
-                $n = 0;
-                foreach ($this->ispCityNode as $item) {
-                    $res['IspCityNode'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ispCityNode)) {
+                $res['IspCityNode'] = [];
+                $n1 = 0;
+                foreach ($this->ispCityNode as $item1) {
+                    $res['IspCityNode'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class ispCityNodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ispCityNodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IspCityNode'])) {
             if (!empty($map['IspCityNode'])) {
                 $model->ispCityNode = [];
-                $n = 0;
-                foreach ($map['IspCityNode'] as $item) {
-                    $model->ispCityNode[$n++] = null !== $item ? ispCityNode::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IspCityNode'] as $item1) {
+                    $model->ispCityNode[$n1] = ispCityNode::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

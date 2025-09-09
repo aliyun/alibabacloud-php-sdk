@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsProductInstancesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsProductInstancesResponseBody\dnsProducts\dnsProduct;
-use AlibabaCloud\Tea\Model;
 
 class dnsProducts extends Model
 {
@@ -17,17 +17,24 @@ class dnsProducts extends Model
         'dnsProduct' => 'DnsProduct',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dnsProduct)) {
+            Model::validateArray($this->dnsProduct);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dnsProduct) {
-            $res['DnsProduct'] = [];
-            if (null !== $this->dnsProduct && \is_array($this->dnsProduct)) {
-                $n = 0;
-                foreach ($this->dnsProduct as $item) {
-                    $res['DnsProduct'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dnsProduct)) {
+                $res['DnsProduct'] = [];
+                $n1 = 0;
+                foreach ($this->dnsProduct as $item1) {
+                    $res['DnsProduct'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class dnsProducts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dnsProducts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DnsProduct'])) {
             if (!empty($map['DnsProduct'])) {
                 $model->dnsProduct = [];
-                $n = 0;
-                foreach ($map['DnsProduct'] as $item) {
-                    $model->dnsProduct[$n++] = null !== $item ? dnsProduct::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DnsProduct'] as $item1) {
+                    $model->dnsProduct[$n1] = dnsProduct::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

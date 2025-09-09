@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDnsGtmAccessStrategyResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the access policy.
-     *
-     * @example testStrategyId1
-     *
      * @var string
      */
     public $strategyId;
@@ -30,14 +22,18 @@ class UpdateDnsGtmAccessStrategyResponseBody extends Model
         'strategyId' => 'StrategyId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
         }
@@ -45,17 +41,18 @@ class UpdateDnsGtmAccessStrategyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDnsGtmAccessStrategyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
         }

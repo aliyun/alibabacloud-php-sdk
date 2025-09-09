@@ -4,42 +4,21 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDomainGroupRequest extends Model
 {
     /**
-     * @description The ID of the domain name group whose name you want to modify. You can call the [DescribeDomainGroups ](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomaingroups?spm=a2c63.p38356.help-menu-search-29697.d_0)operation to obtain the ID.
-     *
-     * This parameter is required.
-     *
-     * @example 2223
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The new name of the domain name group.
-     *
-     * This parameter is required.
-     *
-     * @example NewName
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * Default value: en.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
@@ -49,17 +28,22 @@ class UpdateDomainGroupRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -67,20 +51,22 @@ class UpdateDomainGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDomainGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

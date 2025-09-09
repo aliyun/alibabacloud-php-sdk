@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsAppKeysResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class appKeys extends Model
 {
@@ -40,23 +40,30 @@ class appKeys extends Model
         'state' => 'State',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKeyId) {
             $res['AppKeyId'] = $this->appKeyId;
         }
+
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
+
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
@@ -64,26 +71,30 @@ class appKeys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return appKeys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKeyId'])) {
             $model->appKeyId = $map['AppKeyId'];
         }
+
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
+
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }

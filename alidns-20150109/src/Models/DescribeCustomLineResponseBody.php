@@ -4,57 +4,37 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLineResponseBody\ipSegmentList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCustomLineResponseBody extends Model
 {
     /**
-     * @description The code of the custom line.
-     *
-     * @example hra0yc-597
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The domain name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The ID/Name of the custom line.
-     *
-     * @example 597
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The CIDR blocks. Separate IP addresses with a hyphen (-). Enter a CIDR block in each row. You can enter 1 to 50 CIDR blocks at a time. If a CIDR block contains only one IP address, enter the IP address in the format of IP1-IP1. Different CIDR blocks cannot be overlapped.
-     *
      * @var ipSegmentList[]
      */
     public $ipSegmentList;
 
     /**
-     * @description The name of the custom line.
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The request ID.
-     *
-     * @example B57C121B-A45F-44D8-A9B2-13E5A5044195
-     *
      * @var string
      */
     public $requestId;
@@ -67,32 +47,44 @@ class DescribeCustomLineResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ipSegmentList)) {
+            Model::validateArray($this->ipSegmentList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->ipSegmentList) {
-            $res['IpSegmentList'] = [];
-            if (null !== $this->ipSegmentList && \is_array($this->ipSegmentList)) {
-                $n = 0;
-                foreach ($this->ipSegmentList as $item) {
-                    $res['IpSegmentList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipSegmentList)) {
+                $res['IpSegmentList'] = [];
+                $n1 = 0;
+                foreach ($this->ipSegmentList as $item1) {
+                    $res['IpSegmentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -100,35 +92,41 @@ class DescribeCustomLineResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCustomLineResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['IpSegmentList'])) {
             if (!empty($map['IpSegmentList'])) {
                 $model->ipSegmentList = [];
-                $n = 0;
-                foreach ($map['IpSegmentList'] as $item) {
-                    $model->ipSegmentList[$n++] = null !== $item ? ipSegmentList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IpSegmentList'] as $item1) {
+                    $model->ipSegmentList[$n1] = ipSegmentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

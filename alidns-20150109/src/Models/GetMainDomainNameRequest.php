@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMainDomainNameRequest extends Model
 {
     /**
-     * @description The string. The string can be up to 128 characters in length.
-     *
-     * This parameter is required.
-     *
-     * @example www.example.com
-     *
      * @var string
      */
     public $inputString;
 
     /**
-     * @description The language.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
@@ -32,14 +22,18 @@ class GetMainDomainNameRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputString) {
             $res['InputString'] = $this->inputString;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -47,17 +41,18 @@ class GetMainDomainNameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMainDomainNameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InputString'])) {
             $model->inputString = $map['InputString'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmAddressPoolsResponseBody\addressPools\addressPool\addresses\address\healthTasks;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class healthTask extends Model
 {
     /**
-     * @description The target service port for health checks. When the Ping protocol is selected for health checks, configuration of the service port is not supported.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @description The ID of the health check template associated with the address.
-     *
-     * @example mtp-89518052425100**80
-     *
      * @var string
      */
     public $templateId;
 
     /**
-     * @description Health check template name.
-     *
-     * @example IPv4-Ping
-     *
      * @var string
      */
     public $templateName;
@@ -40,17 +28,22 @@ class healthTask extends Model
         'templateName' => 'TemplateName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -58,20 +51,22 @@ class healthTask extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return healthTask
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }

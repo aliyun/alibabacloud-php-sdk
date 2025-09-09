@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAddressPoolAvailableConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAddressPoolAvailableConfigResponseBody\attributeInfos\attributeInfo;
-use AlibabaCloud\Tea\Model;
 
 class attributeInfos extends Model
 {
@@ -17,17 +17,24 @@ class attributeInfos extends Model
         'attributeInfo' => 'AttributeInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->attributeInfo)) {
+            Model::validateArray($this->attributeInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributeInfo) {
-            $res['AttributeInfo'] = [];
-            if (null !== $this->attributeInfo && \is_array($this->attributeInfo)) {
-                $n = 0;
-                foreach ($this->attributeInfo as $item) {
-                    $res['AttributeInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->attributeInfo)) {
+                $res['AttributeInfo'] = [];
+                $n1 = 0;
+                foreach ($this->attributeInfo as $item1) {
+                    $res['AttributeInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class attributeInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return attributeInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttributeInfo'])) {
             if (!empty($map['AttributeInfo'])) {
                 $model->attributeInfo = [];
-                $n = 0;
-                foreach ($map['AttributeInfo'] as $item) {
-                    $model->attributeInfo[$n++] = null !== $item ? attributeInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AttributeInfo'] as $item1) {
+                    $model->attributeInfo[$n1] = attributeInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

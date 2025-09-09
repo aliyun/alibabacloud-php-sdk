@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsAppKeyResponseBody\appKey;
-use AlibabaCloud\Tea\Model;
 
 class DescribePdnsAppKeyResponseBody extends Model
 {
@@ -23,14 +23,21 @@ class DescribePdnsAppKeyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->appKey) {
+            $this->appKey->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKey) {
-            $res['AppKey'] = null !== $this->appKey ? $this->appKey->toMap() : null;
+            $res['AppKey'] = null !== $this->appKey ? $this->appKey->toArray($noStream) : $this->appKey;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -38,17 +45,18 @@ class DescribePdnsAppKeyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePdnsAppKeyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = appKey::fromMap($map['AppKey']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

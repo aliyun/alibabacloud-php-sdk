@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsUserInfoResponseBody\userInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribePdnsUserInfoResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example FD552816-FCC8-4832-B4A2-2DA0C2BA1688
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the user.
-     *
      * @var userInfo
      */
     public $userInfo;
@@ -29,32 +23,40 @@ class DescribePdnsUserInfoResponseBody extends Model
         'userInfo' => 'UserInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePdnsUserInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }

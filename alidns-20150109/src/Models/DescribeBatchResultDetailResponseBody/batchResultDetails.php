@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeBatchResultDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeBatchResultDetailResponseBody\batchResultDetails\batchResultDetail;
-use AlibabaCloud\Tea\Model;
 
 class batchResultDetails extends Model
 {
@@ -17,17 +17,24 @@ class batchResultDetails extends Model
         'batchResultDetail' => 'BatchResultDetail',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->batchResultDetail)) {
+            Model::validateArray($this->batchResultDetail);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->batchResultDetail) {
-            $res['BatchResultDetail'] = [];
-            if (null !== $this->batchResultDetail && \is_array($this->batchResultDetail)) {
-                $n = 0;
-                foreach ($this->batchResultDetail as $item) {
-                    $res['BatchResultDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->batchResultDetail)) {
+                $res['BatchResultDetail'] = [];
+                $n1 = 0;
+                foreach ($this->batchResultDetail as $item1) {
+                    $res['BatchResultDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class batchResultDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return batchResultDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BatchResultDetail'])) {
             if (!empty($map['BatchResultDetail'])) {
                 $model->batchResultDetail = [];
-                $n = 0;
-                foreach ($map['BatchResultDetail'] as $item) {
-                    $model->batchResultDetail[$n++] = null !== $item ? batchResultDetail::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BatchResultDetail'] as $item1) {
+                    $model->batchResultDetail[$n1] = batchResultDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

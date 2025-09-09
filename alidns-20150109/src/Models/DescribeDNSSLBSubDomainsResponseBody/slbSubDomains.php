@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDNSSLBSubDomainsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDNSSLBSubDomainsResponseBody\slbSubDomains\slbSubDomain;
-use AlibabaCloud\Tea\Model;
 
 class slbSubDomains extends Model
 {
@@ -17,17 +17,24 @@ class slbSubDomains extends Model
         'slbSubDomain' => 'SlbSubDomain',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->slbSubDomain)) {
+            Model::validateArray($this->slbSubDomain);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->slbSubDomain) {
-            $res['SlbSubDomain'] = [];
-            if (null !== $this->slbSubDomain && \is_array($this->slbSubDomain)) {
-                $n = 0;
-                foreach ($this->slbSubDomain as $item) {
-                    $res['SlbSubDomain'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->slbSubDomain)) {
+                $res['SlbSubDomain'] = [];
+                $n1 = 0;
+                foreach ($this->slbSubDomain as $item1) {
+                    $res['SlbSubDomain'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class slbSubDomains extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return slbSubDomains
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SlbSubDomain'])) {
             if (!empty($map['SlbSubDomain'])) {
                 $model->slbSubDomain = [];
-                $n = 0;
-                foreach ($map['SlbSubDomain'] as $item) {
-                    $model->slbSubDomain[$n++] = null !== $item ? slbSubDomain::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SlbSubDomain'] as $item1) {
+                    $model->slbSubDomain[$n1] = slbSubDomain::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

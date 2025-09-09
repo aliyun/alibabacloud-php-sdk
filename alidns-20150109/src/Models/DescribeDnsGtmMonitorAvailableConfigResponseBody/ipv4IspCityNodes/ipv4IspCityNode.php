@@ -4,81 +4,47 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmMonitorAvailableConfigResponseBody\ipv4IspCityNodes;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmMonitorAvailableConfigResponseBody\ipv4IspCityNodes\ipv4IspCityNode\ips;
-use AlibabaCloud\Tea\Model;
 
 class ipv4IspCityNode extends Model
 {
     /**
-     * @description The city code.
-     *
-     * @example 503
-     *
      * @var string
      */
     public $cityCode;
 
     /**
-     * @description The display name of the city.
-     *
-     * @example Zhangjiakou
-     *
      * @var string
      */
     public $cityName;
 
     /**
-     * @description Indicates whether the health check node is selected by default.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $defaultSelected;
 
     /**
-     * @description The name of the node group.
-     *
-     * @example BGP Nodes
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The type of the node group. Valid values:
-     *
-     *   BGP: Border Gateway Protocol (BGP) node
-     *   OVERSEAS: node outside the Chinese mainland
-     *   ISP: ISP node
-     *
-     * @example BGP
-     *
      * @var string
      */
     public $groupType;
 
     /**
-     * @description The IP addresses of the health check nodes.
-     *
      * @var ips
      */
     public $ips;
 
     /**
-     * @description The Internet service provider (ISP) code.
-     *
-     * @example 465
-     *
      * @var string
      */
     public $ispCode;
 
     /**
-     * @description The display name of the ISP.
-     *
-     * @example Alibaba
-     *
      * @var string
      */
     public $ispName;
@@ -93,32 +59,45 @@ class ipv4IspCityNode extends Model
         'ispName' => 'IspName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->ips) {
+            $this->ips->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cityCode) {
             $res['CityCode'] = $this->cityCode;
         }
+
         if (null !== $this->cityName) {
             $res['CityName'] = $this->cityName;
         }
+
         if (null !== $this->defaultSelected) {
             $res['DefaultSelected'] = $this->defaultSelected;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->groupType) {
             $res['GroupType'] = $this->groupType;
         }
+
         if (null !== $this->ips) {
-            $res['Ips'] = null !== $this->ips ? $this->ips->toMap() : null;
+            $res['Ips'] = null !== $this->ips ? $this->ips->toArray($noStream) : $this->ips;
         }
+
         if (null !== $this->ispCode) {
             $res['IspCode'] = $this->ispCode;
         }
+
         if (null !== $this->ispName) {
             $res['IspName'] = $this->ispName;
         }
@@ -126,35 +105,42 @@ class ipv4IspCityNode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipv4IspCityNode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CityCode'])) {
             $model->cityCode = $map['CityCode'];
         }
+
         if (isset($map['CityName'])) {
             $model->cityName = $map['CityName'];
         }
+
         if (isset($map['DefaultSelected'])) {
             $model->defaultSelected = $map['DefaultSelected'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['GroupType'])) {
             $model->groupType = $map['GroupType'];
         }
+
         if (isset($map['Ips'])) {
             $model->ips = ips::fromMap($map['Ips']);
         }
+
         if (isset($map['IspCode'])) {
             $model->ispCode = $map['IspCode'];
         }
+
         if (isset($map['IspName'])) {
             $model->ispName = $map['IspName'];
         }

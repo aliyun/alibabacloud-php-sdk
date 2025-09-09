@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInternetDnsLogsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInternetDnsLogsResponseBody\logs\log;
-use AlibabaCloud\Tea\Model;
 
 class logs extends Model
 {
@@ -17,17 +17,24 @@ class logs extends Model
         'log' => 'Log',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->log)) {
+            Model::validateArray($this->log);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->log) {
-            $res['Log'] = [];
-            if (null !== $this->log && \is_array($this->log)) {
-                $n = 0;
-                foreach ($this->log as $item) {
-                    $res['Log'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->log)) {
+                $res['Log'] = [];
+                $n1 = 0;
+                foreach ($this->log as $item1) {
+                    $res['Log'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class logs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Log'])) {
             if (!empty($map['Log'])) {
                 $model->log = [];
-                $n = 0;
-                foreach ($map['Log'] as $item) {
-                    $model->log[$n++] = null !== $item ? log::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Log'] as $item1) {
+                    $model->log[$n1] = log::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

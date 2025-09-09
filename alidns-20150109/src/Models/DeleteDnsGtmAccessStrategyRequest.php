@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDnsGtmAccessStrategyRequest extends Model
 {
     /**
-     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The ID of the access policy.
-     *
-     * This parameter is required.
-     *
-     * @example testStrategyId1
-     *
      * @var string
      */
     public $strategyId;
@@ -32,14 +22,18 @@ class DeleteDnsGtmAccessStrategyRequest extends Model
         'strategyId' => 'StrategyId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
         }
@@ -47,17 +41,18 @@ class DeleteDnsGtmAccessStrategyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDnsGtmAccessStrategyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
         }

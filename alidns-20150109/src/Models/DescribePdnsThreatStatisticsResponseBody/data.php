@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsThreatStatisticsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -76,41 +76,54 @@ class data extends Model
         'udpTotalCount' => 'UdpTotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dohTotalCount) {
             $res['DohTotalCount'] = $this->dohTotalCount;
         }
+
         if (null !== $this->domainCount) {
             $res['DomainCount'] = $this->domainCount;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->latestThreatTime) {
             $res['LatestThreatTime'] = $this->latestThreatTime;
         }
+
         if (null !== $this->maxThreatLevel) {
             $res['MaxThreatLevel'] = $this->maxThreatLevel;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
+
         if (null !== $this->subDomain) {
             $res['SubDomain'] = $this->subDomain;
         }
+
         if (null !== $this->threatLevel) {
             $res['ThreatLevel'] = $this->threatLevel;
         }
+
         if (null !== $this->threatType) {
             $res['ThreatType'] = $this->threatType;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->udpTotalCount) {
             $res['UdpTotalCount'] = $this->udpTotalCount;
         }
@@ -118,44 +131,54 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DohTotalCount'])) {
             $model->dohTotalCount = $map['DohTotalCount'];
         }
+
         if (isset($map['DomainCount'])) {
             $model->domainCount = $map['DomainCount'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['LatestThreatTime'])) {
             $model->latestThreatTime = $map['LatestThreatTime'];
         }
+
         if (isset($map['MaxThreatLevel'])) {
             $model->maxThreatLevel = $map['MaxThreatLevel'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
+
         if (isset($map['SubDomain'])) {
             $model->subDomain = $map['SubDomain'];
         }
+
         if (isset($map['ThreatLevel'])) {
             $model->threatLevel = $map['ThreatLevel'];
         }
+
         if (isset($map['ThreatType'])) {
             $model->threatType = $map['ThreatType'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['UdpTotalCount'])) {
             $model->udpTotalCount = $map['UdpTotalCount'];
         }

@@ -4,25 +4,17 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLinesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLinesResponseBody\customLines\ipSegmentList;
-use AlibabaCloud\Tea\Model;
 
 class customLines extends Model
 {
     /**
-     * @description The code of the custom line.
-     *
-     * @example hra0yc-597
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The unique ID of the custom line.
-     *
-     * @example 597
-     *
      * @var int
      */
     public $id;
@@ -33,10 +25,6 @@ class customLines extends Model
     public $ipSegmentList;
 
     /**
-     * @description The name of the custom line.
-     *
-     * @example hra0yd-597
-     *
      * @var string
      */
     public $name;
@@ -47,26 +35,36 @@ class customLines extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ipSegmentList)) {
+            Model::validateArray($this->ipSegmentList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->ipSegmentList) {
-            $res['IpSegmentList'] = [];
-            if (null !== $this->ipSegmentList && \is_array($this->ipSegmentList)) {
-                $n = 0;
-                foreach ($this->ipSegmentList as $item) {
-                    $res['IpSegmentList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipSegmentList)) {
+                $res['IpSegmentList'] = [];
+                $n1 = 0;
+                foreach ($this->ipSegmentList as $item1) {
+                    $res['IpSegmentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -74,29 +72,33 @@ class customLines extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customLines
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['IpSegmentList'])) {
             if (!empty($map['IpSegmentList'])) {
                 $model->ipSegmentList = [];
-                $n = 0;
-                foreach ($map['IpSegmentList'] as $item) {
-                    $model->ipSegmentList[$n++] = null !== $item ? ipSegmentList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IpSegmentList'] as $item1) {
+                    $model->ipSegmentList[$n1] = ipSegmentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

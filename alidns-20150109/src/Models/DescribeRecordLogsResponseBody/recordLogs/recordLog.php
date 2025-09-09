@@ -4,47 +4,31 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeRecordLogsResponseBody\recordLogs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class recordLog extends Model
 {
     /**
-     * @description The operation that you performed.
-     *
      * @var string
      */
     public $action;
 
     /**
-     * @description The time when you performed the operation.
-     *
-     * @example 2015-12-12T09:23Z
-     *
      * @var string
      */
     public $actionTime;
 
     /**
-     * @description The time when you performed the operation. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * @example 134514540000
-     *
      * @var int
      */
     public $actionTimestamp;
 
     /**
-     * @description The IP address of the operator.
-     *
-     * @example 182.92.253.XX
-     *
      * @var string
      */
     public $clientIp;
 
     /**
-     * @description The operation message.
-     *
      * @var string
      */
     public $message;
@@ -56,23 +40,30 @@ class recordLog extends Model
         'message' => 'Message',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+
         if (null !== $this->actionTime) {
             $res['ActionTime'] = $this->actionTime;
         }
+
         if (null !== $this->actionTimestamp) {
             $res['ActionTimestamp'] = $this->actionTimestamp;
         }
+
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -80,26 +71,30 @@ class recordLog extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recordLog
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+
         if (isset($map['ActionTime'])) {
             $model->actionTime = $map['ActionTime'];
         }
+
         if (isset($map['ActionTimestamp'])) {
             $model->actionTimestamp = $map['ActionTimestamp'];
         }
+
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

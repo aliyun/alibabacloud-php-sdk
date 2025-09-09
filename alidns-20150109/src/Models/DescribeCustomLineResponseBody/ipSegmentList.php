@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLineResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipSegmentList extends Model
 {
     /**
-     * @description The end IP address of the CIDR block.
-     *
-     * @example 11.1.1.3
-     *
      * @var string
      */
     public $endIp;
 
     /**
-     * @description The start IP address of the CIDR block.
-     *
-     * @example 11.1.1.2
-     *
      * @var string
      */
     public $startIp;
@@ -30,14 +22,18 @@ class ipSegmentList extends Model
         'startIp' => 'StartIp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endIp) {
             $res['EndIp'] = $this->endIp;
         }
+
         if (null !== $this->startIp) {
             $res['StartIp'] = $this->startIp;
         }
@@ -45,17 +41,18 @@ class ipSegmentList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipSegmentList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndIp'])) {
             $model->endIp = $map['EndIp'];
         }
+
         if (isset($map['StartIp'])) {
             $model->startIp = $map['StartIp'];
         }

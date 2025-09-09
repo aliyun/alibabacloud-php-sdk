@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsThreatLogsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class logs extends Model
 {
@@ -40,23 +40,30 @@ class logs extends Model
         'threatType' => 'ThreatType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
+
         if (null !== $this->subDomain) {
             $res['SubDomain'] = $this->subDomain;
         }
+
         if (null !== $this->threatLevel) {
             $res['ThreatLevel'] = $this->threatLevel;
         }
+
         if (null !== $this->threatTime) {
             $res['ThreatTime'] = $this->threatTime;
         }
+
         if (null !== $this->threatType) {
             $res['ThreatType'] = $this->threatType;
         }
@@ -64,26 +71,30 @@ class logs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
+
         if (isset($map['SubDomain'])) {
             $model->subDomain = $map['SubDomain'];
         }
+
         if (isset($map['ThreatLevel'])) {
             $model->threatLevel = $map['ThreatLevel'];
         }
+
         if (isset($map['ThreatTime'])) {
             $model->threatTime = $map['ThreatTime'];
         }
+
         if (isset($map['ThreatType'])) {
             $model->threatType = $map['ThreatType'];
         }

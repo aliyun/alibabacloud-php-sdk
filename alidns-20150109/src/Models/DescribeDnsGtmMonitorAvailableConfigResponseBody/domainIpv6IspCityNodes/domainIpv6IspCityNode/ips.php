@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmMonitorAvailableConfigResponseBody\domainIpv6IspCityNodes\domainIpv6IspCityNode;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ips extends Model
 {
@@ -16,29 +16,47 @@ class ips extends Model
         'ip' => 'ip',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ip)) {
+            Model::validateArray($this->ip);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ip) {
-            $res['ip'] = $this->ip;
+            if (\is_array($this->ip)) {
+                $res['ip'] = [];
+                $n1 = 0;
+                foreach ($this->ip as $item1) {
+                    $res['ip'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ips
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ip'])) {
             if (!empty($map['ip'])) {
-                $model->ip = $map['ip'];
+                $model->ip = [];
+                $n1 = 0;
+                foreach ($map['ip'] as $item1) {
+                    $model->ip[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

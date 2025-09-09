@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\PreviewGtmRecoveryPlanResponseBody\previews;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\PreviewGtmRecoveryPlanResponseBody\previews\preview\switchInfos;
-use AlibabaCloud\Tea\Model;
 
 class preview extends Model
 {
     /**
-     * @description The ID of the GTM instance to which the previewed disaster recovery plan belongs.
-     *
-     * @example instance-example
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the GTM instance to which the previewed disaster recovery plan belongs.
-     *
-     * @example name-example
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The returned information of the switching policies for address pools.
-     *
      * @var switchInfos
      */
     public $switchInfos;
 
     /**
-     * @description The user\\"s domain name or domain name list.
-     *
-     * @example 30.yyy.com
-     *
      * @var string
      */
     public $userDomainName;
@@ -49,20 +35,29 @@ class preview extends Model
         'userDomainName' => 'UserDomainName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->switchInfos) {
+            $this->switchInfos->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->switchInfos) {
-            $res['SwitchInfos'] = null !== $this->switchInfos ? $this->switchInfos->toMap() : null;
+            $res['SwitchInfos'] = null !== $this->switchInfos ? $this->switchInfos->toArray($noStream) : $this->switchInfos;
         }
+
         if (null !== $this->userDomainName) {
             $res['UserDomainName'] = $this->userDomainName;
         }
@@ -70,23 +65,26 @@ class preview extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return preview
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SwitchInfos'])) {
             $model->switchInfos = switchInfos::fromMap($map['SwitchInfos']);
         }
+
         if (isset($map['UserDomainName'])) {
             $model->userDomainName = $map['UserDomainName'];
         }

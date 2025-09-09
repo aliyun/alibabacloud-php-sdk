@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteGtmAddressPoolRequest extends Model
 {
     /**
-     * @description The ID of the address pool that you want to delete.
-     *
-     * This parameter is required.
-     *
-     * @example 1234
-     *
      * @var string
      */
     public $addrPoolId;
 
     /**
-     * @description The language used by the user.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
@@ -32,14 +22,18 @@ class DeleteGtmAddressPoolRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addrPoolId) {
             $res['AddrPoolId'] = $this->addrPoolId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -47,17 +41,18 @@ class DeleteGtmAddressPoolRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteGtmAddressPoolRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddrPoolId'])) {
             $model->addrPoolId = $map['AddrPoolId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeGtmAvailableAlertGroupRequest extends Model
 {
     /**
-     * @description The language used by the user.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
@@ -20,9 +16,12 @@ class DescribeGtmAvailableAlertGroupRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
@@ -32,11 +31,11 @@ class DescribeGtmAvailableAlertGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGtmAvailableAlertGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

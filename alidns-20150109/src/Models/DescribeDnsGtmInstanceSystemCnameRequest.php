@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDnsGtmInstanceSystemCnameRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     *
-     * @example instance1
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
@@ -32,14 +22,18 @@ class DescribeDnsGtmInstanceSystemCnameRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -47,17 +41,18 @@ class DescribeDnsGtmInstanceSystemCnameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDnsGtmInstanceSystemCnameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

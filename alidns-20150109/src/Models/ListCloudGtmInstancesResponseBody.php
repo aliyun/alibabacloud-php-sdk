@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmInstancesResponseBody\instances;
-use AlibabaCloud\Tea\Model;
 
 class ListCloudGtmInstancesResponseBody extends Model
 {
     /**
-     * @description The instances.
-     *
      * @var instances
      */
     public $instances;
 
     /**
-     * @description Current page number, starting with **1**, default is **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Unique request identification code.
-     *
-     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Total number of instance entries.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $totalItems;
 
     /**
-     * @description Total number of pages.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalPages;
@@ -69,26 +47,37 @@ class ListCloudGtmInstancesResponseBody extends Model
         'totalPages' => 'TotalPages',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->instances) {
+            $this->instances->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instances) {
-            $res['Instances'] = null !== $this->instances ? $this->instances->toMap() : null;
+            $res['Instances'] = null !== $this->instances ? $this->instances->toArray($noStream) : $this->instances;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalItems) {
             $res['TotalItems'] = $this->totalItems;
         }
+
         if (null !== $this->totalPages) {
             $res['TotalPages'] = $this->totalPages;
         }
@@ -96,29 +85,34 @@ class ListCloudGtmInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCloudGtmInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Instances'])) {
             $model->instances = instances::fromMap($map['Instances']);
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalItems'])) {
             $model->totalItems = $map['TotalItems'];
         }
+
         if (isset($map['TotalPages'])) {
             $model->totalPages = $map['TotalPages'];
         }

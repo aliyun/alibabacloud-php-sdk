@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainGroupsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainGroupsResponseBody\domainGroups\domainGroup;
-use AlibabaCloud\Tea\Model;
 
 class domainGroups extends Model
 {
@@ -17,17 +17,24 @@ class domainGroups extends Model
         'domainGroup' => 'DomainGroup',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->domainGroup)) {
+            Model::validateArray($this->domainGroup);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainGroup) {
-            $res['DomainGroup'] = [];
-            if (null !== $this->domainGroup && \is_array($this->domainGroup)) {
-                $n = 0;
-                foreach ($this->domainGroup as $item) {
-                    $res['DomainGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainGroup)) {
+                $res['DomainGroup'] = [];
+                $n1 = 0;
+                foreach ($this->domainGroup as $item1) {
+                    $res['DomainGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class domainGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainGroup'])) {
             if (!empty($map['DomainGroup'])) {
                 $model->domainGroup = [];
-                $n = 0;
-                foreach ($map['DomainGroup'] as $item) {
-                    $model->domainGroup[$n++] = null !== $item ? domainGroup::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DomainGroup'] as $item1) {
+                    $model->domainGroup[$n1] = domainGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

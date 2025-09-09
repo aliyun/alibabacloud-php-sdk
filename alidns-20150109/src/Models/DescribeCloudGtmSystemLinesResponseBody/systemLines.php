@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmSystemLinesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmSystemLinesResponseBody\systemLines\systemLine;
-use AlibabaCloud\Tea\Model;
 
 class systemLines extends Model
 {
@@ -17,17 +17,24 @@ class systemLines extends Model
         'systemLine' => 'SystemLine',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->systemLine)) {
+            Model::validateArray($this->systemLine);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->systemLine) {
-            $res['SystemLine'] = [];
-            if (null !== $this->systemLine && \is_array($this->systemLine)) {
-                $n = 0;
-                foreach ($this->systemLine as $item) {
-                    $res['SystemLine'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->systemLine)) {
+                $res['SystemLine'] = [];
+                $n1 = 0;
+                foreach ($this->systemLine as $item1) {
+                    $res['SystemLine'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class systemLines extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return systemLines
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SystemLine'])) {
             if (!empty($map['SystemLine'])) {
                 $model->systemLine = [];
-                $n = 0;
-                foreach ($map['SystemLine'] as $item) {
-                    $model->systemLine[$n++] = null !== $item ? systemLine::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SystemLine'] as $item1) {
+                    $model->systemLine[$n1] = systemLine::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

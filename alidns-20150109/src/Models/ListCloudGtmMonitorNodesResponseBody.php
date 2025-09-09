@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmMonitorNodesResponseBody\ipv4IspCityNodes;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmMonitorNodesResponseBody\ipv6IspCityNodes;
-use AlibabaCloud\Tea\Model;
 
 class ListCloudGtmMonitorNodesResponseBody extends Model
 {
     /**
-     * @description Public IPv4 monitoring node list.
-     *
      * @var ipv4IspCityNodes
      */
     public $ipv4IspCityNodes;
 
     /**
-     * @description List of public IPv6 monitoring nodes.
-     *
      * @var ipv6IspCityNodes
      */
     public $ipv6IspCityNodes;
 
     /**
-     * @description Unique request identification code.
-     *
-     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
-     *
      * @var string
      */
     public $requestId;
@@ -38,17 +30,28 @@ class ListCloudGtmMonitorNodesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->ipv4IspCityNodes) {
+            $this->ipv4IspCityNodes->validate();
+        }
+        if (null !== $this->ipv6IspCityNodes) {
+            $this->ipv6IspCityNodes->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipv4IspCityNodes) {
-            $res['Ipv4IspCityNodes'] = null !== $this->ipv4IspCityNodes ? $this->ipv4IspCityNodes->toMap() : null;
+            $res['Ipv4IspCityNodes'] = null !== $this->ipv4IspCityNodes ? $this->ipv4IspCityNodes->toArray($noStream) : $this->ipv4IspCityNodes;
         }
+
         if (null !== $this->ipv6IspCityNodes) {
-            $res['Ipv6IspCityNodes'] = null !== $this->ipv6IspCityNodes ? $this->ipv6IspCityNodes->toMap() : null;
+            $res['Ipv6IspCityNodes'] = null !== $this->ipv6IspCityNodes ? $this->ipv6IspCityNodes->toArray($noStream) : $this->ipv6IspCityNodes;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,20 +59,22 @@ class ListCloudGtmMonitorNodesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCloudGtmMonitorNodesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv4IspCityNodes'])) {
             $model->ipv4IspCityNodes = ipv4IspCityNodes::fromMap($map['Ipv4IspCityNodes']);
         }
+
         if (isset($map['Ipv6IspCityNodes'])) {
             $model->ipv6IspCityNodes = ipv6IspCityNodes::fromMap($map['Ipv6IspCityNodes']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
