@@ -38,6 +38,7 @@ use AlibabaCloud\SDK\Push\V20160801\Models\PushNoticeToiOSRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushNoticeToiOSResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushResponse;
+use AlibabaCloud\SDK\Push\V20160801\Models\PushShrinkRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryAliasesRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryAliasesResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryDeviceInfoRequest;
@@ -908,19 +909,29 @@ class Push extends OpenApiClient
     /**
      * 高级推送接口.
      *
-     * @param request - PushRequest
+     * @param tmpReq - PushRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PushResponse
      *
-     * @param PushRequest    $request
+     * @param PushRequest    $tmpReq
      * @param RuntimeOptions $runtime
      *
      * @return PushResponse
      */
-    public function pushWithOptions($request, $runtime)
+    public function pushWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new PushShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->androidOppoPrivateContentParameters) {
+            $request->androidOppoPrivateContentParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->androidOppoPrivateContentParameters, 'androidOppoPrivateContentParameters', 'json');
+        }
+
+        if (null !== $tmpReq->androidOppoPrivateTitleParameters) {
+            $request->androidOppoPrivateTitleParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->androidOppoPrivateTitleParameters, 'androidOppoPrivateTitleParameters', 'json');
+        }
+
         $query = [];
         if (null !== $request->androidActivity) {
             @$query['AndroidActivity'] = $request->androidActivity;
@@ -1260,6 +1271,18 @@ class Push extends OpenApiClient
 
         if (null !== $request->trim) {
             @$query['Trim'] = $request->trim;
+        }
+
+        if (null !== $request->androidOppoPrivateContentParametersShrink) {
+            @$query['androidOppoPrivateContentParameters'] = $request->androidOppoPrivateContentParametersShrink;
+        }
+
+        if (null !== $request->androidOppoPrivateMsgTemplateId) {
+            @$query['androidOppoPrivateMsgTemplateId'] = $request->androidOppoPrivateMsgTemplateId;
+        }
+
+        if (null !== $request->androidOppoPrivateTitleParametersShrink) {
+            @$query['androidOppoPrivateTitleParameters'] = $request->androidOppoPrivateTitleParametersShrink;
         }
 
         if (null !== $request->iOSApnsEnv) {
