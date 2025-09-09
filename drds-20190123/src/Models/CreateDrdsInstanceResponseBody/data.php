@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\CreateDrdsInstanceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CreateDrdsInstanceResponseBody\data\drdsInstanceIdList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description Indicates the ID of the instance.
-     *
      * @var drdsInstanceIdList
      */
     public $drdsInstanceIdList;
 
     /**
-     * @description Indicates the ID of the order.
-     *
-     * @example 111111111111111
-     *
      * @var int
      */
     public $orderId;
     protected $_name = [
         'drdsInstanceIdList' => 'DrdsInstanceIdList',
-        'orderId'            => 'OrderId',
+        'orderId' => 'OrderId',
     ];
 
     public function validate()
     {
+        if (null !== $this->drdsInstanceIdList) {
+            $this->drdsInstanceIdList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->drdsInstanceIdList) {
-            $res['DrdsInstanceIdList'] = null !== $this->drdsInstanceIdList ? $this->drdsInstanceIdList->toMap() : null;
+            $res['DrdsInstanceIdList'] = null !== $this->drdsInstanceIdList ? $this->drdsInstanceIdList->toArray($noStream) : $this->drdsInstanceIdList;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
@@ -46,17 +45,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DrdsInstanceIdList'])) {
             $model->drdsInstanceIdList = drdsInstanceIdList::fromMap($map['DrdsInstanceIdList']);
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }

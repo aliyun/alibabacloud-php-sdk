@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\SubmitHotExpandTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceDbMapping extends Model
 {
     /**
-     * @description The name of the hot-spot database.
-     *
-     * This parameter is required.
-     * @example hot_test_****_****
-     *
      * @var string
      */
     public $dbList;
 
     /**
-     * @description The name of the ApsaraDB RDS instance to which the hot-spot database belongs.
-     *
-     * @example rm-bp1t1mk5a5bdj****
-     *
      * @var string
      */
     public $instanceName;
     protected $_name = [
-        'dbList'       => 'DbList',
+        'dbList' => 'DbList',
         'instanceName' => 'InstanceName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbList) {
             $res['DbList'] = $this->dbList;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
@@ -48,17 +41,18 @@ class instanceDbMapping extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceDbMapping
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbList'])) {
             $model->dbList = $map['DbList'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }

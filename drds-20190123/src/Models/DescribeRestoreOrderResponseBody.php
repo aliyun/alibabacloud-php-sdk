@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRestoreOrderResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 0AD2DE5D-B86B-40B5-9678-487D37******
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The returned data object.
-     *
      * @var restoreOrderDO
      */
     public $restoreOrderDO;
 
     /**
-     * @description Indicates whether the request was successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'restoreOrderDO' => 'RestoreOrderDO',
-        'success'        => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->restoreOrderDO) {
+            $this->restoreOrderDO->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->restoreOrderDO) {
-            $res['RestoreOrderDO'] = null !== $this->restoreOrderDO ? $this->restoreOrderDO->toMap() : null;
+            $res['RestoreOrderDO'] = null !== $this->restoreOrderDO ? $this->restoreOrderDO->toArray($noStream) : $this->restoreOrderDO;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -59,20 +55,22 @@ class DescribeRestoreOrderResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRestoreOrderResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RestoreOrderDO'])) {
             $model->restoreOrderDO = restoreOrderDO::fromMap($map['RestoreOrderDO']);
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

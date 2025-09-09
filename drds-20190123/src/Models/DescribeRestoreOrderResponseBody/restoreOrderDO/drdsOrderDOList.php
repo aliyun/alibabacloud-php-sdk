@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO\drdsOrderDOList\drdsOrderDOList;
 
 class drdsOrderDOList extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO\drdsOrderDOList\drdsOrderDOList[]
+     * @var drdsOrderDOList[]
      */
     public $drdsOrderDOList;
     protected $_name = [
@@ -18,17 +19,22 @@ class drdsOrderDOList extends Model
 
     public function validate()
     {
+        if (\is_array($this->drdsOrderDOList)) {
+            Model::validateArray($this->drdsOrderDOList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->drdsOrderDOList) {
-            $res['DrdsOrderDOList'] = [];
-            if (null !== $this->drdsOrderDOList && \is_array($this->drdsOrderDOList)) {
-                $n = 0;
-                foreach ($this->drdsOrderDOList as $item) {
-                    $res['DrdsOrderDOList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->drdsOrderDOList)) {
+                $res['DrdsOrderDOList'] = [];
+                $n1 = 0;
+                foreach ($this->drdsOrderDOList as $item1) {
+                    $res['DrdsOrderDOList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +42,21 @@ class drdsOrderDOList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return drdsOrderDOList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DrdsOrderDOList'])) {
             if (!empty($map['DrdsOrderDOList'])) {
                 $model->drdsOrderDOList = [];
-                $n                      = 0;
-                foreach ($map['DrdsOrderDOList'] as $item) {
-                    $model->drdsOrderDOList[$n++] = null !== $item ? \AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO\drdsOrderDOList\drdsOrderDOList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DrdsOrderDOList'] as $item1) {
+                    $model->drdsOrderDOList[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

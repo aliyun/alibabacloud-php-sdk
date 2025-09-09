@@ -4,99 +4,76 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDrdsInstanceDbMonitorRequest extends Model
 {
     /**
-     * @description The name of the database.
-     *
-     * This parameter is required.
-     * @example drds_test
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @description The ID of the Distributed Relational Database Service (DRDS) instance.
-     *
-     * This parameter is required.
-     * @example drds*************
-     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
-     * @description The end time. Specify the time in the UNIX timestamp format. The time must be in UTC. Unit: ms.
-     *
-     * This parameter is required.
-     * @example 1603166400000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The performance monitoring metrics. You can specify one or more metrics for a query at a time. Separate multiple metric parameters with commas (,).
-     *
-     * This parameter is required.
-     * @example qps
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The start time. Specify the time in the UNIX timestamp format. The time must be in UTC. Unit: ms.
-     *
-     * This parameter is required.
-     * @example 1603162800000
-     *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'dbName'         => 'DbName',
+        'dbName' => 'DbName',
         'drdsInstanceId' => 'DrdsInstanceId',
-        'endTime'        => 'EndTime',
-        'key'            => 'Key',
-        'regionId'       => 'RegionId',
-        'startTime'      => 'StartTime',
+        'endTime' => 'EndTime',
+        'key' => 'Key',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -104,29 +81,34 @@ class DescribeDrdsInstanceDbMonitorRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDrdsInstanceDbMonitorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ChangeAccountPasswordRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ChangeAccountPasswordResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ChangeInstanceAzoneRequest;
@@ -218,11 +217,10 @@ use AlibabaCloud\SDK\Drds\V20190123\Models\UpgradeInstanceVersionRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\UpgradeInstanceVersionResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ValidateShardTaskRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ValidateShardTaskResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Drds extends OpenApiClient
 {
@@ -230,48 +228,48 @@ class Drds extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-1'              => 'drds.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'drds.ap-southeast-1.aliyuncs.com',
-            'ap-south-1'                  => 'drds.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'              => 'drds.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3'              => 'drds.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5'              => 'drds.ap-southeast-1.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'drds.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'drds.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'drds.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'drds.aliyuncs.com',
-            'cn-chengdu'                  => 'drds.aliyuncs.com',
-            'cn-edge-1'                   => 'drds.aliyuncs.com',
-            'cn-fujian'                   => 'drds.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'drds.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'drds.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'drds.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-1' => 'drds.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-2-pop' => 'drds.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'drds.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'drds.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'drds.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'drds.ap-southeast-1.aliyuncs.com',
+            'cn-beijing-finance-1' => 'drds.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'drds.aliyuncs.com',
+            'cn-beijing-gov-1' => 'drds.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'drds.aliyuncs.com',
+            'cn-chengdu' => 'drds.aliyuncs.com',
+            'cn-edge-1' => 'drds.aliyuncs.com',
+            'cn-fujian' => 'drds.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'drds.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'drds.aliyuncs.com',
+            'cn-hangzhou-finance' => 'drds.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'drds.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'drds.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'drds.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'drds.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'drds.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'drds.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'drds.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'drds.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'drds.aliyuncs.com',
-            'cn-shanghai-inner'           => 'drds.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'drds.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'drds.aliyuncs.com',
+            'cn-qingdao-nebula' => 'drds.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'drds.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'drds.aliyuncs.com',
+            'cn-shanghai-inner' => 'drds.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'drds.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'drds.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'drds.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'drds.aliyuncs.com',
-            'cn-wuhan'                    => 'drds.aliyuncs.com',
-            'cn-yushanfang'               => 'drds.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'drds.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'drds.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'drds.aliyuncs.com',
-            'eu-central-1'                => 'drds.ap-southeast-1.aliyuncs.com',
-            'eu-west-1'                   => 'drds.ap-southeast-1.aliyuncs.com',
-            'eu-west-1-oxs'               => 'drds.ap-southeast-1.aliyuncs.com',
-            'me-east-1'                   => 'drds.ap-southeast-1.aliyuncs.com',
-            'rus-west-1-pop'              => 'drds.ap-southeast-1.aliyuncs.com',
-            'us-west-1'                   => 'drds.ap-southeast-1.aliyuncs.com',
+            'cn-shenzhen-inner' => 'drds.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'drds.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'drds.aliyuncs.com',
+            'cn-wuhan' => 'drds.aliyuncs.com',
+            'cn-yushanfang' => 'drds.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'drds.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'drds.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'drds.aliyuncs.com',
+            'eu-central-1' => 'drds.ap-southeast-1.aliyuncs.com',
+            'eu-west-1' => 'drds.ap-southeast-1.aliyuncs.com',
+            'eu-west-1-oxs' => 'drds.ap-southeast-1.aliyuncs.com',
+            'me-east-1' => 'drds.ap-southeast-1.aliyuncs.com',
+            'rus-west-1-pop' => 'drds.ap-southeast-1.aliyuncs.com',
+            'us-west-1' => 'drds.ap-southeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('drds', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -290,60 +288,70 @@ class Drds extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param ChangeAccountPasswordRequest $request ChangeAccountPasswordRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - ChangeAccountPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ChangeAccountPasswordResponse ChangeAccountPasswordResponse
+     * @returns ChangeAccountPasswordResponse
+     *
+     * @param ChangeAccountPasswordRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ChangeAccountPasswordResponse
      */
     public function changeAccountPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ChangeAccountPassword',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ChangeAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
 
-        return ChangeAccountPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeAccountPassword',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ChangeAccountPasswordRequest $request ChangeAccountPasswordRequest
+     * @param request - ChangeAccountPasswordRequest
      *
-     * @return ChangeAccountPasswordResponse ChangeAccountPasswordResponse
+     * @returns ChangeAccountPasswordResponse
+     *
+     * @param ChangeAccountPasswordRequest $request
+     *
+     * @return ChangeAccountPasswordResponse
      */
     public function changeAccountPassword($request)
     {
@@ -353,58 +361,70 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ChangeInstanceAzoneRequest $request ChangeInstanceAzoneRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - ChangeInstanceAzoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ChangeInstanceAzoneResponse ChangeInstanceAzoneResponse
+     * @returns ChangeInstanceAzoneResponse
+     *
+     * @param ChangeInstanceAzoneRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeInstanceAzoneResponse
      */
     public function changeInstanceAzoneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->changeVSwitch)) {
-            $query['ChangeVSwitch'] = $request->changeVSwitch;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->drdsRegionId)) {
-            $query['DrdsRegionId'] = $request->drdsRegionId;
-        }
-        if (!Utils::isUnset($request->newVSwitch)) {
-            $query['NewVSwitch'] = $request->newVSwitch;
-        }
-        if (!Utils::isUnset($request->originAzoneId)) {
-            $query['OriginAzoneId'] = $request->originAzoneId;
-        }
-        if (!Utils::isUnset($request->targetAzoneId)) {
-            $query['TargetAzoneId'] = $request->targetAzoneId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ChangeInstanceAzone',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ChangeInstanceAzoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->changeVSwitch) {
+            @$query['ChangeVSwitch'] = $request->changeVSwitch;
         }
 
-        return ChangeInstanceAzoneResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->drdsRegionId) {
+            @$query['DrdsRegionId'] = $request->drdsRegionId;
+        }
+
+        if (null !== $request->newVSwitch) {
+            @$query['NewVSwitch'] = $request->newVSwitch;
+        }
+
+        if (null !== $request->originAzoneId) {
+            @$query['OriginAzoneId'] = $request->originAzoneId;
+        }
+
+        if (null !== $request->targetAzoneId) {
+            @$query['TargetAzoneId'] = $request->targetAzoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeInstanceAzone',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeInstanceAzoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ChangeInstanceAzoneRequest $request ChangeInstanceAzoneRequest
+     * @param request - ChangeInstanceAzoneRequest
      *
-     * @return ChangeInstanceAzoneResponse ChangeInstanceAzoneResponse
+     * @returns ChangeInstanceAzoneResponse
+     *
+     * @param ChangeInstanceAzoneRequest $request
+     *
+     * @return ChangeInstanceAzoneResponse
      */
     public function changeInstanceAzone($request)
     {
@@ -414,46 +434,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CheckDrdsDbNameRequest $request CheckDrdsDbNameRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - CheckDrdsDbNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CheckDrdsDbNameResponse CheckDrdsDbNameResponse
+     * @returns CheckDrdsDbNameResponse
+     *
+     * @param CheckDrdsDbNameRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CheckDrdsDbNameResponse
      */
     public function checkDrdsDbNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckDrdsDbName',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CheckDrdsDbNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return CheckDrdsDbNameResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckDrdsDbName',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckDrdsDbNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckDrdsDbNameRequest $request CheckDrdsDbNameRequest
+     * @param request - CheckDrdsDbNameRequest
      *
-     * @return CheckDrdsDbNameResponse CheckDrdsDbNameResponse
+     * @returns CheckDrdsDbNameResponse
+     *
+     * @param CheckDrdsDbNameRequest $request
+     *
+     * @return CheckDrdsDbNameResponse
      */
     public function checkDrdsDbName($request)
     {
@@ -463,50 +491,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Verifies whether scale-out operations such as smooth scale-out can be performed on a PolarDB-X database.
-     *  *
-     * @param CheckExpandStatusRequest $request CheckExpandStatusRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Verifies whether scale-out operations such as smooth scale-out can be performed on a PolarDB-X database.
      *
-     * @return CheckExpandStatusResponse CheckExpandStatusResponse
+     * @param request - CheckExpandStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckExpandStatusResponse
+     *
+     * @param CheckExpandStatusRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CheckExpandStatusResponse
      */
     public function checkExpandStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckExpandStatus',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CheckExpandStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return CheckExpandStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckExpandStatus',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckExpandStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Verifies whether scale-out operations such as smooth scale-out can be performed on a PolarDB-X database.
-     *  *
-     * @param CheckExpandStatusRequest $request CheckExpandStatusRequest
+     * Verifies whether scale-out operations such as smooth scale-out can be performed on a PolarDB-X database.
      *
-     * @return CheckExpandStatusResponse CheckExpandStatusResponse
+     * @param request - CheckExpandStatusRequest
+     *
+     * @returns CheckExpandStatusResponse
+     *
+     * @param CheckExpandStatusRequest $request
+     *
+     * @return CheckExpandStatusResponse
      */
     public function checkExpandStatus($request)
     {
@@ -516,50 +552,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether the SQL audit feature is enabled for the logical database of a PolarDB-X 1.0 instance.
-     *  *
-     * @param CheckSqlAuditEnableStatusRequest $request CheckSqlAuditEnableStatusRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Checks whether the SQL audit feature is enabled for the logical database of a PolarDB-X 1.0 instance.
      *
-     * @return CheckSqlAuditEnableStatusResponse CheckSqlAuditEnableStatusResponse
+     * @param request - CheckSqlAuditEnableStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckSqlAuditEnableStatusResponse
+     *
+     * @param CheckSqlAuditEnableStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CheckSqlAuditEnableStatusResponse
      */
     public function checkSqlAuditEnableStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckSqlAuditEnableStatus',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CheckSqlAuditEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return CheckSqlAuditEnableStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckSqlAuditEnableStatus',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckSqlAuditEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether the SQL audit feature is enabled for the logical database of a PolarDB-X 1.0 instance.
-     *  *
-     * @param CheckSqlAuditEnableStatusRequest $request CheckSqlAuditEnableStatusRequest
+     * Checks whether the SQL audit feature is enabled for the logical database of a PolarDB-X 1.0 instance.
      *
-     * @return CheckSqlAuditEnableStatusResponse CheckSqlAuditEnableStatusResponse
+     * @param request - CheckSqlAuditEnableStatusRequest
+     *
+     * @returns CheckSqlAuditEnableStatusResponse
+     *
+     * @param CheckSqlAuditEnableStatusRequest $request
+     *
+     * @return CheckSqlAuditEnableStatusResponse
      */
     public function checkSqlAuditEnableStatus($request)
     {
@@ -569,73 +613,90 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateDrdsDBRequest $request CreateDrdsDBRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateDrdsDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateDrdsDBResponse CreateDrdsDBResponse
+     * @returns CreateDrdsDBResponse
+     *
+     * @param CreateDrdsDBRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateDrdsDBResponse
      */
     public function createDrdsDBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
-        }
-        if (!Utils::isUnset($request->dbInstType)) {
-            $query['DbInstType'] = $request->dbInstType;
-        }
-        if (!Utils::isUnset($request->dbInstanceIsCreating)) {
-            $query['DbInstanceIsCreating'] = $request->dbInstanceIsCreating;
-        }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->encode)) {
-            $query['Encode'] = $request->encode;
-        }
-        if (!Utils::isUnset($request->instDbName)) {
-            $query['InstDbName'] = $request->instDbName;
-        }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
-        }
-        if (!Utils::isUnset($request->rdsInstance)) {
-            $query['RdsInstance'] = $request->rdsInstance;
-        }
-        if (!Utils::isUnset($request->rdsSuperAccount)) {
-            $query['RdsSuperAccount'] = $request->rdsSuperAccount;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDrdsDB',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDrdsDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
 
-        return CreateDrdsDBResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbInstType) {
+            @$query['DbInstType'] = $request->dbInstType;
+        }
+
+        if (null !== $request->dbInstanceIsCreating) {
+            @$query['DbInstanceIsCreating'] = $request->dbInstanceIsCreating;
+        }
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->encode) {
+            @$query['Encode'] = $request->encode;
+        }
+
+        if (null !== $request->instDbName) {
+            @$query['InstDbName'] = $request->instDbName;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->rdsInstance) {
+            @$query['RdsInstance'] = $request->rdsInstance;
+        }
+
+        if (null !== $request->rdsSuperAccount) {
+            @$query['RdsSuperAccount'] = $request->rdsSuperAccount;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDrdsDB',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDrdsDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateDrdsDBRequest $request CreateDrdsDBRequest
+     * @param request - CreateDrdsDBRequest
      *
-     * @return CreateDrdsDBResponse CreateDrdsDBResponse
+     * @returns CreateDrdsDBResponse
+     *
+     * @param CreateDrdsDBRequest $request
+     *
+     * @return CreateDrdsDBResponse
      */
     public function createDrdsDB($request)
     {
@@ -645,94 +706,118 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateDrdsInstanceRequest $request CreateDrdsInstanceRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateDrdsInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateDrdsInstanceResponse CreateDrdsInstanceResponse
+     * @returns CreateDrdsInstanceResponse
+     *
+     * @param CreateDrdsInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDrdsInstanceResponse
      */
     public function createDrdsInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
-        }
-        if (!Utils::isUnset($request->instanceSeries)) {
-            $query['InstanceSeries'] = $request->instanceSeries;
-        }
-        if (!Utils::isUnset($request->isAutoRenew)) {
-            $query['IsAutoRenew'] = $request->isAutoRenew;
-        }
-        if (!Utils::isUnset($request->masterInstId)) {
-            $query['MasterInstId'] = $request->masterInstId;
-        }
-        if (!Utils::isUnset($request->mySQLVersion)) {
-            $query['MySQLVersion'] = $request->mySQLVersion;
-        }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
-        }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $query['PricingCycle'] = $request->pricingCycle;
-        }
-        if (!Utils::isUnset($request->quantity)) {
-            $query['Quantity'] = $request->quantity;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->specification)) {
-            $query['Specification'] = $request->specification;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
-        }
-        if (!Utils::isUnset($request->vswitchId)) {
-            $query['VswitchId'] = $request->vswitchId;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
-        }
-        if (!Utils::isUnset($request->isHa)) {
-            $query['isHa'] = $request->isHa;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDrdsInstance',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDrdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
-        return CreateDrdsInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->instanceSeries) {
+            @$query['InstanceSeries'] = $request->instanceSeries;
+        }
+
+        if (null !== $request->isAutoRenew) {
+            @$query['IsAutoRenew'] = $request->isAutoRenew;
+        }
+
+        if (null !== $request->masterInstId) {
+            @$query['MasterInstId'] = $request->masterInstId;
+        }
+
+        if (null !== $request->mySQLVersion) {
+            @$query['MySQLVersion'] = $request->mySQLVersion;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->pricingCycle) {
+            @$query['PricingCycle'] = $request->pricingCycle;
+        }
+
+        if (null !== $request->quantity) {
+            @$query['Quantity'] = $request->quantity;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->specification) {
+            @$query['Specification'] = $request->specification;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->vswitchId) {
+            @$query['VswitchId'] = $request->vswitchId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        if (null !== $request->isHa) {
+            @$query['isHa'] = $request->isHa;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDrdsInstance',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDrdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateDrdsInstanceRequest $request CreateDrdsInstanceRequest
+     * @param request - CreateDrdsInstanceRequest
      *
-     * @return CreateDrdsInstanceResponse CreateDrdsInstanceResponse
+     * @returns CreateDrdsInstanceResponse
+     *
+     * @param CreateDrdsInstanceRequest $request
+     *
+     * @return CreateDrdsInstanceResponse
      */
     public function createDrdsInstance($request)
     {
@@ -742,52 +827,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceAccountRequest $request CreateInstanceAccountRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateInstanceAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceAccountResponse CreateInstanceAccountResponse
+     * @returns CreateInstanceAccountResponse
+     *
+     * @param CreateInstanceAccountRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateInstanceAccountResponse
      */
     public function createInstanceAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
-        }
-        if (!Utils::isUnset($request->dbPrivilege)) {
-            $query['DbPrivilege'] = $request->dbPrivilege;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateInstanceAccount',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
 
-        return CreateInstanceAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbPrivilege) {
+            @$query['DbPrivilege'] = $request->dbPrivilege;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInstanceAccount',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateInstanceAccountRequest $request CreateInstanceAccountRequest
+     * @param request - CreateInstanceAccountRequest
      *
-     * @return CreateInstanceAccountResponse CreateInstanceAccountResponse
+     * @returns CreateInstanceAccountResponse
+     *
+     * @param CreateInstanceAccountRequest $request
+     *
+     * @return CreateInstanceAccountResponse
      */
     public function createInstanceAccount($request)
     {
@@ -797,46 +892,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceInternetAddressRequest $request CreateInstanceInternetAddressRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateInstanceInternetAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceInternetAddressResponse CreateInstanceInternetAddressResponse
+     * @returns CreateInstanceInternetAddressResponse
+     *
+     * @param CreateInstanceInternetAddressRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateInstanceInternetAddressResponse
      */
     public function createInstanceInternetAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateInstanceInternetAddress',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateInstanceInternetAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return CreateInstanceInternetAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInstanceInternetAddress',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInstanceInternetAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateInstanceInternetAddressRequest $request CreateInstanceInternetAddressRequest
+     * @param request - CreateInstanceInternetAddressRequest
      *
-     * @return CreateInstanceInternetAddressResponse CreateInstanceInternetAddressResponse
+     * @returns CreateInstanceInternetAddressResponse
+     *
+     * @param CreateInstanceInternetAddressRequest $request
+     *
+     * @return CreateInstanceInternetAddressResponse
      */
     public function createInstanceInternetAddress($request)
     {
@@ -846,54 +949,64 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Creates an order to purchase an ApsaraDB RDS for MySQL instance.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and pricing of PolarDB-X 1.0. For more information, visit the [pricing page](https://www.aliyun.com/price/product#/rds/detail).
-     *  *
-     * @param CreateOrderForRdsRequest $request CreateOrderForRdsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates an order to purchase an ApsaraDB RDS for MySQL instance.
      *
-     * @return CreateOrderForRdsResponse CreateOrderForRdsResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and pricing of PolarDB-X 1.0. For more information, visit the [pricing page](https://www.aliyun.com/price/product#/rds/detail).
+     *
+     * @param request - CreateOrderForRdsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOrderForRdsResponse
+     *
+     * @param CreateOrderForRdsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateOrderForRdsResponse
      */
     public function createOrderForRdsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->params)) {
-            $query['Params'] = $request->params;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateOrderForRds',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateOrderForRdsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->params) {
+            @$query['Params'] = $request->params;
         }
 
-        return CreateOrderForRdsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOrderForRds',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOrderForRdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an order to purchase an ApsaraDB RDS for MySQL instance.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and pricing of PolarDB-X 1.0. For more information, visit the [pricing page](https://www.aliyun.com/price/product#/rds/detail).
-     *  *
-     * @param CreateOrderForRdsRequest $request CreateOrderForRdsRequest
+     * Creates an order to purchase an ApsaraDB RDS for MySQL instance.
      *
-     * @return CreateOrderForRdsResponse CreateOrderForRdsResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and pricing of PolarDB-X 1.0. For more information, visit the [pricing page](https://www.aliyun.com/price/product#/rds/detail).
+     *
+     * @param request - CreateOrderForRdsRequest
+     *
+     * @returns CreateOrderForRdsResponse
+     *
+     * @param CreateOrderForRdsRequest $request
+     *
+     * @return CreateOrderForRdsResponse
      */
     public function createOrderForRds($request)
     {
@@ -903,58 +1016,70 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateShardTaskRequest $request CreateShardTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateShardTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateShardTaskResponse CreateShardTaskResponse
+     * @returns CreateShardTaskResponse
+     *
+     * @param CreateShardTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateShardTaskResponse
      */
     public function createShardTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->sourceTableName)) {
-            $query['SourceTableName'] = $request->sourceTableName;
-        }
-        if (!Utils::isUnset($request->targetTableName)) {
-            $query['TargetTableName'] = $request->targetTableName;
-        }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateShardTask',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateShardTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return CreateShardTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sourceTableName) {
+            @$query['SourceTableName'] = $request->sourceTableName;
+        }
+
+        if (null !== $request->targetTableName) {
+            @$query['TargetTableName'] = $request->targetTableName;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateShardTask',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateShardTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateShardTaskRequest $request CreateShardTaskRequest
+     * @param request - CreateShardTaskRequest
      *
-     * @return CreateShardTaskResponse CreateShardTaskResponse
+     * @returns CreateShardTaskResponse
+     *
+     * @param CreateShardTaskRequest $request
+     *
+     * @return CreateShardTaskResponse
      */
     public function createShardTask($request)
     {
@@ -964,43 +1089,50 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackMenuRequest $request DescribeBackMenuRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBackMenuRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackMenuResponse DescribeBackMenuResponse
+     * @returns DescribeBackMenuResponse
+     *
+     * @param DescribeBackMenuRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeBackMenuResponse
      */
     public function describeBackMenuWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeBackMenu',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeBackMenuResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeBackMenuResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBackMenu',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBackMenuResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBackMenuRequest $request DescribeBackMenuRequest
+     * @param request - DescribeBackMenuRequest
      *
-     * @return DescribeBackMenuResponse DescribeBackMenuResponse
+     * @returns DescribeBackMenuResponse
+     *
+     * @param DescribeBackMenuRequest $request
+     *
+     * @return DescribeBackMenuResponse
      */
     public function describeBackMenu($request)
     {
@@ -1010,49 +1142,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupDbsRequest $request DescribeBackupDbsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBackupDbsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupDbsResponse DescribeBackupDbsResponse
+     * @returns DescribeBackupDbsResponse
+     *
+     * @param DescribeBackupDbsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeBackupDbsResponse
      */
     public function describeBackupDbsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->preferredRestoreTime)) {
-            $query['PreferredRestoreTime'] = $request->preferredRestoreTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeBackupDbs',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeBackupDbsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
         }
 
-        return DescribeBackupDbsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->preferredRestoreTime) {
+            @$query['PreferredRestoreTime'] = $request->preferredRestoreTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBackupDbs',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBackupDbsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBackupDbsRequest $request DescribeBackupDbsRequest
+     * @param request - DescribeBackupDbsRequest
      *
-     * @return DescribeBackupDbsResponse DescribeBackupDbsResponse
+     * @returns DescribeBackupDbsResponse
+     *
+     * @param DescribeBackupDbsRequest $request
+     *
+     * @return DescribeBackupDbsResponse
      */
     public function describeBackupDbs($request)
     {
@@ -1062,47 +1203,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the backup settings of local logs.
-     *  *
-     * @param DescribeBackupLocalRequest $request DescribeBackupLocalRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the backup settings of local logs.
      *
-     * @return DescribeBackupLocalResponse DescribeBackupLocalResponse
+     * @param request - DescribeBackupLocalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBackupLocalResponse
+     *
+     * @param DescribeBackupLocalRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeBackupLocalResponse
      */
     public function describeBackupLocalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeBackupLocal',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeBackupLocalResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeBackupLocalResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBackupLocal',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBackupLocalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the backup settings of local logs.
-     *  *
-     * @param DescribeBackupLocalRequest $request DescribeBackupLocalRequest
+     * Queries the backup settings of local logs.
      *
-     * @return DescribeBackupLocalResponse DescribeBackupLocalResponse
+     * @param request - DescribeBackupLocalRequest
+     *
+     * @returns DescribeBackupLocalResponse
+     *
+     * @param DescribeBackupLocalRequest $request
+     *
+     * @return DescribeBackupLocalResponse
      */
     public function describeBackupLocal($request)
     {
@@ -1112,47 +1260,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a backup policy.
-     *  *
-     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a backup policy.
      *
-     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
+     * @param request - DescribeBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBackupPolicyResponse
+     *
+     * @param DescribeBackupPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeBackupPolicy',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBackupPolicy',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a backup policy.
-     *  *
-     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * Queries the information about a backup policy.
      *
-     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
+     * @param request - DescribeBackupPolicyRequest
+     *
+     * @returns DescribeBackupPolicyResponse
+     *
+     * @param DescribeBackupPolicyRequest $request
+     *
+     * @return DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -1162,49 +1317,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupSetsRequest $request DescribeBackupSetsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBackupSetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupSetsResponse DescribeBackupSetsResponse
+     * @returns DescribeBackupSetsResponse
+     *
+     * @param DescribeBackupSetsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeBackupSetsResponse
      */
     public function describeBackupSetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeBackupSets',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeBackupSetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeBackupSetsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBackupSets',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBackupSetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBackupSetsRequest $request DescribeBackupSetsRequest
+     * @param request - DescribeBackupSetsRequest
      *
-     * @return DescribeBackupSetsResponse DescribeBackupSetsResponse
+     * @returns DescribeBackupSetsResponse
+     *
+     * @param DescribeBackupSetsRequest $request
+     *
+     * @return DescribeBackupSetsResponse
      */
     public function describeBackupSets($request)
     {
@@ -1214,43 +1378,50 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupTimesRequest $request DescribeBackupTimesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBackupTimesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupTimesResponse DescribeBackupTimesResponse
+     * @returns DescribeBackupTimesResponse
+     *
+     * @param DescribeBackupTimesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeBackupTimesResponse
      */
     public function describeBackupTimesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeBackupTimes',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeBackupTimesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeBackupTimesResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBackupTimes',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBackupTimesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBackupTimesRequest $request DescribeBackupTimesRequest
+     * @param request - DescribeBackupTimesRequest
      *
-     * @return DescribeBackupTimesResponse DescribeBackupTimesResponse
+     * @returns DescribeBackupTimesResponse
+     *
+     * @param DescribeBackupTimesRequest $request
+     *
+     * @return DescribeBackupTimesResponse
      */
     public function describeBackupTimes($request)
     {
@@ -1260,58 +1431,70 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeBroadcastTablesRequest $request DescribeBroadcastTablesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBroadcastTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeBroadcastTablesResponse DescribeBroadcastTablesResponse
+     * @returns DescribeBroadcastTablesResponse
+     *
+     * @param DescribeBroadcastTablesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeBroadcastTablesResponse
      */
     public function describeBroadcastTablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->query)) {
-            $query['Query'] = $request->query;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeBroadcastTables',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeBroadcastTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
 
-        return DescribeBroadcastTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBroadcastTables',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBroadcastTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBroadcastTablesRequest $request DescribeBroadcastTablesRequest
+     * @param request - DescribeBroadcastTablesRequest
      *
-     * @return DescribeBroadcastTablesResponse DescribeBroadcastTablesResponse
+     * @returns DescribeBroadcastTablesResponse
+     *
+     * @param DescribeBroadcastTablesRequest $request
+     *
+     * @return DescribeBroadcastTablesResponse
      */
     public function describeBroadcastTables($request)
     {
@@ -1321,55 +1504,66 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDbInstanceDbsRequest $request DescribeDbInstanceDbsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDbInstanceDbsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDbInstanceDbsResponse DescribeDbInstanceDbsResponse
+     * @returns DescribeDbInstanceDbsResponse
+     *
+     * @param DescribeDbInstanceDbsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDbInstanceDbsResponse
      */
     public function describeDbInstanceDbsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
-        }
-        if (!Utils::isUnset($request->dbInstType)) {
-            $query['DbInstType'] = $request->dbInstType;
-        }
-        if (!Utils::isUnset($request->dbInstanceId)) {
-            $query['DbInstanceId'] = $request->dbInstanceId;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDbInstanceDbs',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDbInstanceDbsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
 
-        return DescribeDbInstanceDbsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbInstType) {
+            @$query['DbInstType'] = $request->dbInstType;
+        }
+
+        if (null !== $request->dbInstanceId) {
+            @$query['DbInstanceId'] = $request->dbInstanceId;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDbInstanceDbs',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDbInstanceDbsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDbInstanceDbsRequest $request DescribeDbInstanceDbsRequest
+     * @param request - DescribeDbInstanceDbsRequest
      *
-     * @return DescribeDbInstanceDbsResponse DescribeDbInstanceDbsResponse
+     * @returns DescribeDbInstanceDbsResponse
+     *
+     * @param DescribeDbInstanceDbsRequest $request
+     *
+     * @return DescribeDbInstanceDbsResponse
      */
     public function describeDbInstanceDbs($request)
     {
@@ -1379,62 +1573,74 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries DescribeDbInstances of the storage layer, such as RDS or PolarDB.
-     *  *
-     * @param DescribeDbInstancesRequest $request DescribeDbInstancesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries DescribeDbInstances of the storage layer, such as RDS or PolarDB.
      *
-     * @return DescribeDbInstancesResponse DescribeDbInstancesResponse
+     * @param request - DescribeDbInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDbInstancesResponse
+     *
+     * @param DescribeDbInstancesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDbInstancesResponse
      */
     public function describeDbInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbInstType)) {
-            $query['DbInstType'] = $request->dbInstType;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->search)) {
-            $query['Search'] = $request->search;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDbInstances',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDbInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbInstType) {
+            @$query['DbInstType'] = $request->dbInstType;
         }
 
-        return DescribeDbInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->search) {
+            @$query['Search'] = $request->search;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDbInstances',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDbInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries DescribeDbInstances of the storage layer, such as RDS or PolarDB.
-     *  *
-     * @param DescribeDbInstancesRequest $request DescribeDbInstancesRequest
+     * Queries DescribeDbInstances of the storage layer, such as RDS or PolarDB.
      *
-     * @return DescribeDbInstancesResponse DescribeDbInstancesResponse
+     * @param request - DescribeDbInstancesRequest
+     *
+     * @returns DescribeDbInstancesResponse
+     *
+     * @param DescribeDbInstancesRequest $request
+     *
+     * @return DescribeDbInstancesResponse
      */
     public function describeDbInstances($request)
     {
@@ -1444,46 +1650,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsDBRequest $request DescribeDrdsDBRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDrdsDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsDBResponse DescribeDrdsDBResponse
+     * @returns DescribeDrdsDBResponse
+     *
+     * @param DescribeDrdsDBRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeDrdsDBResponse
      */
     public function describeDrdsDBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsDB',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeDrdsDBResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsDB',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDrdsDBRequest $request DescribeDrdsDBRequest
+     * @param request - DescribeDrdsDBRequest
      *
-     * @return DescribeDrdsDBResponse DescribeDrdsDBResponse
+     * @returns DescribeDrdsDBResponse
+     *
+     * @param DescribeDrdsDBRequest $request
+     *
+     * @return DescribeDrdsDBResponse
      */
     public function describeDrdsDB($request)
     {
@@ -1493,53 +1707,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to query the information of the PolarDB cluster in the DRDS logical database.
-     *  *
-     * @param DescribeDrdsDBClusterRequest $request DescribeDrdsDBClusterRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * You can call this operation to query the information of the PolarDB cluster in the DRDS logical database.
      *
-     * @return DescribeDrdsDBClusterResponse DescribeDrdsDBClusterResponse
+     * @param request - DescribeDrdsDBClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDrdsDBClusterResponse
+     *
+     * @param DescribeDrdsDBClusterRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDrdsDBClusterResponse
      */
     public function describeDrdsDBClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbInstanceId)) {
-            $query['DbInstanceId'] = $request->dbInstanceId;
-        }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsDBCluster',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbInstanceId) {
+            @$query['DbInstanceId'] = $request->dbInstanceId;
         }
 
-        return DescribeDrdsDBClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsDBCluster',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call this operation to query the information of the PolarDB cluster in the DRDS logical database.
-     *  *
-     * @param DescribeDrdsDBClusterRequest $request DescribeDrdsDBClusterRequest
+     * You can call this operation to query the information of the PolarDB cluster in the DRDS logical database.
      *
-     * @return DescribeDrdsDBClusterResponse DescribeDrdsDBClusterResponse
+     * @param request - DescribeDrdsDBClusterRequest
+     *
+     * @returns DescribeDrdsDBClusterResponse
+     *
+     * @param DescribeDrdsDBClusterRequest $request
+     *
+     * @return DescribeDrdsDBClusterResponse
      */
     public function describeDrdsDBCluster($request)
     {
@@ -1549,52 +1772,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsDBIpWhiteListRequest $request DescribeDrdsDBIpWhiteListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDrdsDBIpWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsDBIpWhiteListResponse DescribeDrdsDBIpWhiteListResponse
+     * @returns DescribeDrdsDBIpWhiteListResponse
+     *
+     * @param DescribeDrdsDBIpWhiteListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDrdsDBIpWhiteListResponse
      */
     public function describeDrdsDBIpWhiteListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsDBIpWhiteList',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsDBIpWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeDrdsDBIpWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsDBIpWhiteList',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsDBIpWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDrdsDBIpWhiteListRequest $request DescribeDrdsDBIpWhiteListRequest
+     * @param request - DescribeDrdsDBIpWhiteListRequest
      *
-     * @return DescribeDrdsDBIpWhiteListResponse DescribeDrdsDBIpWhiteListResponse
+     * @returns DescribeDrdsDBIpWhiteListResponse
+     *
+     * @param DescribeDrdsDBIpWhiteListRequest $request
+     *
+     * @return DescribeDrdsDBIpWhiteListResponse
      */
     public function describeDrdsDBIpWhiteList($request)
     {
@@ -1604,52 +1837,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsDBsRequest $request DescribeDrdsDBsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDrdsDBsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsDBsResponse DescribeDrdsDBsResponse
+     * @returns DescribeDrdsDBsResponse
+     *
+     * @param DescribeDrdsDBsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeDrdsDBsResponse
      */
     public function describeDrdsDBsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsDBs',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsDBsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeDrdsDBsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsDBs',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsDBsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDrdsDBsRequest $request DescribeDrdsDBsRequest
+     * @param request - DescribeDrdsDBsRequest
      *
-     * @return DescribeDrdsDBsResponse DescribeDrdsDBsResponse
+     * @returns DescribeDrdsDBsResponse
+     *
+     * @param DescribeDrdsDBsRequest $request
+     *
+     * @return DescribeDrdsDBsResponse
      */
     public function describeDrdsDBs($request)
     {
@@ -1659,49 +1902,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsDbInstanceRequest $request DescribeDrdsDbInstanceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDrdsDbInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsDbInstanceResponse DescribeDrdsDbInstanceResponse
+     * @returns DescribeDrdsDbInstanceResponse
+     *
+     * @param DescribeDrdsDbInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDrdsDbInstanceResponse
      */
     public function describeDrdsDbInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbInstanceId)) {
-            $query['DbInstanceId'] = $request->dbInstanceId;
-        }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsDbInstance',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsDbInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbInstanceId) {
+            @$query['DbInstanceId'] = $request->dbInstanceId;
         }
 
-        return DescribeDrdsDbInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsDbInstance',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsDbInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDrdsDbInstanceRequest $request DescribeDrdsDbInstanceRequest
+     * @param request - DescribeDrdsDbInstanceRequest
      *
-     * @return DescribeDrdsDbInstanceResponse DescribeDrdsDbInstanceResponse
+     * @returns DescribeDrdsDbInstanceResponse
+     *
+     * @param DescribeDrdsDbInstanceRequest $request
+     *
+     * @return DescribeDrdsDbInstanceResponse
      */
     public function describeDrdsDbInstance($request)
     {
@@ -1711,56 +1963,66 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries ApsaraDB RDS for MySQL instances that are used to store the data of a database.
-     *  *
-     * @param DescribeDrdsDbInstancesRequest $request DescribeDrdsDbInstancesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries ApsaraDB RDS for MySQL instances that are used to store the data of a database.
      *
-     * @return DescribeDrdsDbInstancesResponse DescribeDrdsDbInstancesResponse
+     * @param request - DescribeDrdsDbInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDrdsDbInstancesResponse
+     *
+     * @param DescribeDrdsDbInstancesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDrdsDbInstancesResponse
      */
     public function describeDrdsDbInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsDbInstances',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsDbInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeDrdsDbInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsDbInstances',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsDbInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries ApsaraDB RDS for MySQL instances that are used to store the data of a database.
-     *  *
-     * @param DescribeDrdsDbInstancesRequest $request DescribeDrdsDbInstancesRequest
+     * Queries ApsaraDB RDS for MySQL instances that are used to store the data of a database.
      *
-     * @return DescribeDrdsDbInstancesResponse DescribeDrdsDbInstancesResponse
+     * @param request - DescribeDrdsDbInstancesRequest
+     *
+     * @returns DescribeDrdsDbInstancesResponse
+     *
+     * @param DescribeDrdsDbInstancesRequest $request
+     *
+     * @return DescribeDrdsDbInstancesResponse
      */
     public function describeDrdsDbInstances($request)
     {
@@ -1770,46 +2032,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsDbRdsNameListRequest $request DescribeDrdsDbRdsNameListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 查询存储实例列表.
      *
-     * @return DescribeDrdsDbRdsNameListResponse DescribeDrdsDbRdsNameListResponse
+     * @param request - DescribeDrdsDbRdsNameListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDrdsDbRdsNameListResponse
+     *
+     * @param DescribeDrdsDbRdsNameListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDrdsDbRdsNameListResponse
      */
     public function describeDrdsDbRdsNameListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsDbRdsNameList',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsDbRdsNameListResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeDrdsDbRdsNameListResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsDbRdsNameList',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsDbRdsNameListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDrdsDbRdsNameListRequest $request DescribeDrdsDbRdsNameListRequest
+     * 查询存储实例列表.
      *
-     * @return DescribeDrdsDbRdsNameListResponse DescribeDrdsDbRdsNameListResponse
+     * @param request - DescribeDrdsDbRdsNameListRequest
+     *
+     * @returns DescribeDrdsDbRdsNameListResponse
+     *
+     * @param DescribeDrdsDbRdsNameListRequest $request
+     *
+     * @return DescribeDrdsDbRdsNameListResponse
      */
     public function describeDrdsDbRdsNameList($request)
     {
@@ -1819,50 +2097,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a PolarDB-X 1.0 instance.
-     *  *
-     * @param DescribeDrdsInstanceRequest $request DescribeDrdsInstanceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a PolarDB-X 1.0 instance.
      *
-     * @return DescribeDrdsInstanceResponse DescribeDrdsInstanceResponse
+     * @param request - DescribeDrdsInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDrdsInstanceResponse
+     *
+     * @param DescribeDrdsInstanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDrdsInstanceResponse
      */
     public function describeDrdsInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsInstance',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeDrdsInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsInstance',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a PolarDB-X 1.0 instance.
-     *  *
-     * @param DescribeDrdsInstanceRequest $request DescribeDrdsInstanceRequest
+     * Queries the details of a PolarDB-X 1.0 instance.
      *
-     * @return DescribeDrdsInstanceResponse DescribeDrdsInstanceResponse
+     * @param request - DescribeDrdsInstanceRequest
+     *
+     * @returns DescribeDrdsInstanceResponse
+     *
+     * @param DescribeDrdsInstanceRequest $request
+     *
+     * @return DescribeDrdsInstanceResponse
      */
     public function describeDrdsInstance($request)
     {
@@ -1872,58 +2158,70 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstanceDbMonitorRequest $request DescribeDrdsInstanceDbMonitorRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDrdsInstanceDbMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsInstanceDbMonitorResponse DescribeDrdsInstanceDbMonitorResponse
+     * @returns DescribeDrdsInstanceDbMonitorResponse
+     *
+     * @param DescribeDrdsInstanceDbMonitorRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDrdsInstanceDbMonitorResponse
      */
     public function describeDrdsInstanceDbMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsInstanceDbMonitor',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsInstanceDbMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeDrdsInstanceDbMonitorResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsInstanceDbMonitor',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsInstanceDbMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDrdsInstanceDbMonitorRequest $request DescribeDrdsInstanceDbMonitorRequest
+     * @param request - DescribeDrdsInstanceDbMonitorRequest
      *
-     * @return DescribeDrdsInstanceDbMonitorResponse DescribeDrdsInstanceDbMonitorResponse
+     * @returns DescribeDrdsInstanceDbMonitorResponse
+     *
+     * @param DescribeDrdsInstanceDbMonitorRequest $request
+     *
+     * @return DescribeDrdsInstanceDbMonitorResponse
      */
     public function describeDrdsInstanceDbMonitor($request)
     {
@@ -1933,43 +2231,50 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstanceLevelTasksRequest $request DescribeDrdsInstanceLevelTasksRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDrdsInstanceLevelTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsInstanceLevelTasksResponse DescribeDrdsInstanceLevelTasksResponse
+     * @returns DescribeDrdsInstanceLevelTasksResponse
+     *
+     * @param DescribeDrdsInstanceLevelTasksRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDrdsInstanceLevelTasksResponse
      */
     public function describeDrdsInstanceLevelTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsInstanceLevelTasks',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsInstanceLevelTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeDrdsInstanceLevelTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsInstanceLevelTasks',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsInstanceLevelTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDrdsInstanceLevelTasksRequest $request DescribeDrdsInstanceLevelTasksRequest
+     * @param request - DescribeDrdsInstanceLevelTasksRequest
      *
-     * @return DescribeDrdsInstanceLevelTasksResponse DescribeDrdsInstanceLevelTasksResponse
+     * @returns DescribeDrdsInstanceLevelTasksResponse
+     *
+     * @param DescribeDrdsInstanceLevelTasksRequest $request
+     *
+     * @return DescribeDrdsInstanceLevelTasksResponse
      */
     public function describeDrdsInstanceLevelTasks($request)
     {
@@ -1979,58 +2284,74 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstanceMonitorRequest $request DescribeDrdsInstanceMonitorRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 查询监控数据.
      *
-     * @return DescribeDrdsInstanceMonitorResponse DescribeDrdsInstanceMonitorResponse
+     * @param request - DescribeDrdsInstanceMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDrdsInstanceMonitorResponse
+     *
+     * @param DescribeDrdsInstanceMonitorRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDrdsInstanceMonitorResponse
      */
     public function describeDrdsInstanceMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
-        }
-        if (!Utils::isUnset($request->periodMultiple)) {
-            $query['PeriodMultiple'] = $request->periodMultiple;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsInstanceMonitor',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsInstanceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeDrdsInstanceMonitorResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
+        }
+
+        if (null !== $request->periodMultiple) {
+            @$query['PeriodMultiple'] = $request->periodMultiple;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsInstanceMonitor',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsInstanceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDrdsInstanceMonitorRequest $request DescribeDrdsInstanceMonitorRequest
+     * 查询监控数据.
      *
-     * @return DescribeDrdsInstanceMonitorResponse DescribeDrdsInstanceMonitorResponse
+     * @param request - DescribeDrdsInstanceMonitorRequest
+     *
+     * @returns DescribeDrdsInstanceMonitorResponse
+     *
+     * @param DescribeDrdsInstanceMonitorRequest $request
+     *
+     * @return DescribeDrdsInstanceMonitorResponse
      */
     public function describeDrdsInstanceMonitor($request)
     {
@@ -2040,46 +2361,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstanceVersionRequest $request DescribeDrdsInstanceVersionRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDrdsInstanceVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsInstanceVersionResponse DescribeDrdsInstanceVersionResponse
+     * @returns DescribeDrdsInstanceVersionResponse
+     *
+     * @param DescribeDrdsInstanceVersionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDrdsInstanceVersionResponse
      */
     public function describeDrdsInstanceVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsInstanceVersion',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsInstanceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeDrdsInstanceVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsInstanceVersion',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsInstanceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDrdsInstanceVersionRequest $request DescribeDrdsInstanceVersionRequest
+     * @param request - DescribeDrdsInstanceVersionRequest
      *
-     * @return DescribeDrdsInstanceVersionResponse DescribeDrdsInstanceVersionResponse
+     * @returns DescribeDrdsInstanceVersionResponse
+     *
+     * @param DescribeDrdsInstanceVersionRequest $request
+     *
+     * @return DescribeDrdsInstanceVersionResponse
      */
     public function describeDrdsInstanceVersion($request)
     {
@@ -2089,74 +2418,90 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries instances that meet the specified conditions.
-     *  *
-     * @param DescribeDrdsInstancesRequest $request DescribeDrdsInstancesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries instances that meet the specified conditions.
      *
-     * @return DescribeDrdsInstancesResponse DescribeDrdsInstancesResponse
+     * @param request - DescribeDrdsInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDrdsInstancesResponse
+     *
+     * @param DescribeDrdsInstancesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDrdsInstancesResponse
      */
     public function describeDrdsInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->expired)) {
-            $query['Expired'] = $request->expired;
-        }
-        if (!Utils::isUnset($request->mix)) {
-            $query['Mix'] = $request->mix;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productVersion)) {
-            $query['ProductVersion'] = $request->productVersion;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsInstances',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
 
-        return DescribeDrdsInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->expired) {
+            @$query['Expired'] = $request->expired;
+        }
+
+        if (null !== $request->mix) {
+            @$query['Mix'] = $request->mix;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productVersion) {
+            @$query['ProductVersion'] = $request->productVersion;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsInstances',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries instances that meet the specified conditions.
-     *  *
-     * @param DescribeDrdsInstancesRequest $request DescribeDrdsInstancesRequest
+     * Queries instances that meet the specified conditions.
      *
-     * @return DescribeDrdsInstancesResponse DescribeDrdsInstancesResponse
+     * @param request - DescribeDrdsInstancesRequest
+     *
+     * @returns DescribeDrdsInstancesResponse
+     *
+     * @param DescribeDrdsInstancesRequest $request
+     *
+     * @return DescribeDrdsInstancesResponse
      */
     public function describeDrdsInstances($request)
     {
@@ -2166,52 +2511,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsParamsRequest $request DescribeDrdsParamsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDrdsParamsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsParamsResponse DescribeDrdsParamsResponse
+     * @returns DescribeDrdsParamsResponse
+     *
+     * @param DescribeDrdsParamsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDrdsParamsResponse
      */
     public function describeDrdsParamsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->paramLevel)) {
-            $query['ParamLevel'] = $request->paramLevel;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsParams',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeDrdsParamsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->paramLevel) {
+            @$query['ParamLevel'] = $request->paramLevel;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsParams',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsParamsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDrdsParamsRequest $request DescribeDrdsParamsRequest
+     * @param request - DescribeDrdsParamsRequest
      *
-     * @return DescribeDrdsParamsResponse DescribeDrdsParamsResponse
+     * @returns DescribeDrdsParamsResponse
+     *
+     * @param DescribeDrdsParamsRequest $request
+     *
+     * @return DescribeDrdsParamsResponse
      */
     public function describeDrdsParams($request)
     {
@@ -2221,47 +2576,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about all custom ApsaraDB RDS for MySQL instances in a PolarDB-X instance.
-     *  *
-     * @param DescribeDrdsRdsInstancesRequest $request DescribeDrdsRdsInstancesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about all custom ApsaraDB RDS for MySQL instances in a PolarDB-X instance.
      *
-     * @return DescribeDrdsRdsInstancesResponse DescribeDrdsRdsInstancesResponse
+     * @param request - DescribeDrdsRdsInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDrdsRdsInstancesResponse
+     *
+     * @param DescribeDrdsRdsInstancesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDrdsRdsInstancesResponse
      */
     public function describeDrdsRdsInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsRdsInstances',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsRdsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeDrdsRdsInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsRdsInstances',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsRdsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about all custom ApsaraDB RDS for MySQL instances in a PolarDB-X instance.
-     *  *
-     * @param DescribeDrdsRdsInstancesRequest $request DescribeDrdsRdsInstancesRequest
+     * Queries the information about all custom ApsaraDB RDS for MySQL instances in a PolarDB-X instance.
      *
-     * @return DescribeDrdsRdsInstancesResponse DescribeDrdsRdsInstancesResponse
+     * @param request - DescribeDrdsRdsInstancesRequest
+     *
+     * @returns DescribeDrdsRdsInstancesResponse
+     *
+     * @param DescribeDrdsRdsInstancesRequest $request
+     *
+     * @return DescribeDrdsRdsInstancesResponse
      */
     public function describeDrdsRdsInstances($request)
     {
@@ -2271,59 +2633,70 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the database shards of an PolarDB-X 1.0 instance.
-     *  *
-     * @param DescribeDrdsShardingDbsRequest $request DescribeDrdsShardingDbsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the database shards of an PolarDB-X 1.0 instance.
      *
-     * @return DescribeDrdsShardingDbsResponse DescribeDrdsShardingDbsResponse
+     * @param request - DescribeDrdsShardingDbsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDrdsShardingDbsResponse
+     *
+     * @param DescribeDrdsShardingDbsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDrdsShardingDbsResponse
      */
     public function describeDrdsShardingDbsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->dbNamePattern)) {
-            $query['DbNamePattern'] = $request->dbNamePattern;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsShardingDbs',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsShardingDbsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeDrdsShardingDbsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbNamePattern) {
+            @$query['DbNamePattern'] = $request->dbNamePattern;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsShardingDbs',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsShardingDbsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the database shards of an PolarDB-X 1.0 instance.
-     *  *
-     * @param DescribeDrdsShardingDbsRequest $request DescribeDrdsShardingDbsRequest
+     * Queries the database shards of an PolarDB-X 1.0 instance.
      *
-     * @return DescribeDrdsShardingDbsResponse DescribeDrdsShardingDbsResponse
+     * @param request - DescribeDrdsShardingDbsRequest
+     *
+     * @returns DescribeDrdsShardingDbsResponse
+     *
+     * @param DescribeDrdsShardingDbsRequest $request
+     *
+     * @return DescribeDrdsShardingDbsResponse
      */
     public function describeDrdsShardingDbs($request)
     {
@@ -2333,68 +2706,82 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries a slow SQL query.
-     *  *
-     * @param DescribeDrdsSlowSqlsRequest $request DescribeDrdsSlowSqlsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries a slow SQL query.
      *
-     * @return DescribeDrdsSlowSqlsResponse DescribeDrdsSlowSqlsResponse
+     * @param request - DescribeDrdsSlowSqlsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDrdsSlowSqlsResponse
+     *
+     * @param DescribeDrdsSlowSqlsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDrdsSlowSqlsResponse
      */
     public function describeDrdsSlowSqlsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->exeTime)) {
-            $query['ExeTime'] = $request->exeTime;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsSlowSqls',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsSlowSqlsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeDrdsSlowSqlsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->exeTime) {
+            @$query['ExeTime'] = $request->exeTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsSlowSqls',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsSlowSqlsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a slow SQL query.
-     *  *
-     * @param DescribeDrdsSlowSqlsRequest $request DescribeDrdsSlowSqlsRequest
+     * Queries a slow SQL query.
      *
-     * @return DescribeDrdsSlowSqlsResponse DescribeDrdsSlowSqlsResponse
+     * @param request - DescribeDrdsSlowSqlsRequest
+     *
+     * @returns DescribeDrdsSlowSqlsResponse
+     *
+     * @param DescribeDrdsSlowSqlsRequest $request
+     *
+     * @return DescribeDrdsSlowSqlsResponse
      */
     public function describeDrdsSlowSqls($request)
     {
@@ -2404,47 +2791,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the SQL audit details of a PolarDB-X 1.0 instance.
-     *  *
-     * @param DescribeDrdsSqlAuditStatusRequest $request DescribeDrdsSqlAuditStatusRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the SQL audit details of a PolarDB-X 1.0 instance.
      *
-     * @return DescribeDrdsSqlAuditStatusResponse DescribeDrdsSqlAuditStatusResponse
+     * @param request - DescribeDrdsSqlAuditStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDrdsSqlAuditStatusResponse
+     *
+     * @param DescribeDrdsSqlAuditStatusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDrdsSqlAuditStatusResponse
      */
     public function describeDrdsSqlAuditStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsSqlAuditStatus',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsSqlAuditStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeDrdsSqlAuditStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsSqlAuditStatus',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsSqlAuditStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the SQL audit details of a PolarDB-X 1.0 instance.
-     *  *
-     * @param DescribeDrdsSqlAuditStatusRequest $request DescribeDrdsSqlAuditStatusRequest
+     * Queries the SQL audit details of a PolarDB-X 1.0 instance.
      *
-     * @return DescribeDrdsSqlAuditStatusResponse DescribeDrdsSqlAuditStatusResponse
+     * @param request - DescribeDrdsSqlAuditStatusRequest
+     *
+     * @returns DescribeDrdsSqlAuditStatusResponse
+     *
+     * @param DescribeDrdsSqlAuditStatusRequest $request
+     *
+     * @return DescribeDrdsSqlAuditStatusResponse
      */
     public function describeDrdsSqlAuditStatus($request)
     {
@@ -2454,49 +2848,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsTasksRequest $request DescribeDrdsTasksRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDrdsTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsTasksResponse DescribeDrdsTasksResponse
+     * @returns DescribeDrdsTasksResponse
+     *
+     * @param DescribeDrdsTasksRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeDrdsTasksResponse
      */
     public function describeDrdsTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsTasks',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDrdsTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeDrdsTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDrdsTasks',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDrdsTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDrdsTasksRequest $request DescribeDrdsTasksRequest
+     * @param request - DescribeDrdsTasksRequest
      *
-     * @return DescribeDrdsTasksResponse DescribeDrdsTasksResponse
+     * @returns DescribeDrdsTasksResponse
+     *
+     * @param DescribeDrdsTasksRequest $request
+     *
+     * @return DescribeDrdsTasksResponse
      */
     public function describeDrdsTasks($request)
     {
@@ -2506,46 +2909,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpandLogicTableInfoListRequest $request DescribeExpandLogicTableInfoListRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeExpandLogicTableInfoListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeExpandLogicTableInfoListResponse DescribeExpandLogicTableInfoListResponse
+     * @returns DescribeExpandLogicTableInfoListResponse
+     *
+     * @param DescribeExpandLogicTableInfoListRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeExpandLogicTableInfoListResponse
      */
     public function describeExpandLogicTableInfoListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeExpandLogicTableInfoList',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeExpandLogicTableInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeExpandLogicTableInfoListResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeExpandLogicTableInfoList',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeExpandLogicTableInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeExpandLogicTableInfoListRequest $request DescribeExpandLogicTableInfoListRequest
+     * @param request - DescribeExpandLogicTableInfoListRequest
      *
-     * @return DescribeExpandLogicTableInfoListResponse DescribeExpandLogicTableInfoListResponse
+     * @returns DescribeExpandLogicTableInfoListResponse
+     *
+     * @param DescribeExpandLogicTableInfoListRequest $request
+     *
+     * @return DescribeExpandLogicTableInfoListResponse
      */
     public function describeExpandLogicTableInfoList($request)
     {
@@ -2555,50 +2966,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about databases on which hots-pot scale-out is performed.
-     *  *
-     * @param DescribeHotDbListRequest $request DescribeHotDbListRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the information about databases on which hots-pot scale-out is performed.
      *
-     * @return DescribeHotDbListResponse DescribeHotDbListResponse
+     * @param request - DescribeHotDbListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHotDbListResponse
+     *
+     * @param DescribeHotDbListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeHotDbListResponse
      */
     public function describeHotDbListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeHotDbList',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeHotDbListResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeHotDbListResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHotDbList',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHotDbListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about databases on which hots-pot scale-out is performed.
-     *  *
-     * @param DescribeHotDbListRequest $request DescribeHotDbListRequest
+     * Queries the information about databases on which hots-pot scale-out is performed.
      *
-     * @return DescribeHotDbListResponse DescribeHotDbListResponse
+     * @param request - DescribeHotDbListRequest
+     *
+     * @returns DescribeHotDbListResponse
+     *
+     * @param DescribeHotDbListRequest $request
+     *
+     * @return DescribeHotDbListResponse
      */
     public function describeHotDbList($request)
     {
@@ -2608,46 +3027,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstDbLogInfoRequest $request DescribeInstDbLogInfoRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeInstDbLogInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstDbLogInfoResponse DescribeInstDbLogInfoResponse
+     * @returns DescribeInstDbLogInfoResponse
+     *
+     * @param DescribeInstDbLogInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeInstDbLogInfoResponse
      */
     public function describeInstDbLogInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeInstDbLogInfo',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeInstDbLogInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeInstDbLogInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstDbLogInfo',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstDbLogInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeInstDbLogInfoRequest $request DescribeInstDbLogInfoRequest
+     * @param request - DescribeInstDbLogInfoRequest
      *
-     * @return DescribeInstDbLogInfoResponse DescribeInstDbLogInfoResponse
+     * @returns DescribeInstDbLogInfoResponse
+     *
+     * @param DescribeInstDbLogInfoRequest $request
+     *
+     * @return DescribeInstDbLogInfoResponse
      */
     public function describeInstDbLogInfo($request)
     {
@@ -2657,50 +3084,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the names of the Log Service project and the Logstore used by the SQL audit feature.
-     *  *
-     * @param DescribeInstDbSlsInfoRequest $request DescribeInstDbSlsInfoRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the names of the Log Service project and the Logstore used by the SQL audit feature.
      *
-     * @return DescribeInstDbSlsInfoResponse DescribeInstDbSlsInfoResponse
+     * @param request - DescribeInstDbSlsInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstDbSlsInfoResponse
+     *
+     * @param DescribeInstDbSlsInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeInstDbSlsInfoResponse
      */
     public function describeInstDbSlsInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeInstDbSlsInfo',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeInstDbSlsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeInstDbSlsInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstDbSlsInfo',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstDbSlsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the names of the Log Service project and the Logstore used by the SQL audit feature.
-     *  *
-     * @param DescribeInstDbSlsInfoRequest $request DescribeInstDbSlsInfoRequest
+     * Queries the names of the Log Service project and the Logstore used by the SQL audit feature.
      *
-     * @return DescribeInstDbSlsInfoResponse DescribeInstDbSlsInfoResponse
+     * @param request - DescribeInstDbSlsInfoRequest
+     *
+     * @returns DescribeInstDbSlsInfoResponse
+     *
+     * @param DescribeInstDbSlsInfoRequest $request
+     *
+     * @return DescribeInstDbSlsInfoResponse
      */
     public function describeInstDbSlsInfo($request)
     {
@@ -2710,47 +3145,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about an instance account.
-     *  *
-     * @param DescribeInstanceAccountsRequest $request DescribeInstanceAccountsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries information about an instance account.
      *
-     * @return DescribeInstanceAccountsResponse DescribeInstanceAccountsResponse
+     * @param request - DescribeInstanceAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceAccountsResponse
+     *
+     * @param DescribeInstanceAccountsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeInstanceAccountsResponse
      */
     public function describeInstanceAccountsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeInstanceAccounts',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeInstanceAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeInstanceAccountsResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstanceAccounts',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstanceAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about an instance account.
-     *  *
-     * @param DescribeInstanceAccountsRequest $request DescribeInstanceAccountsRequest
+     * Queries information about an instance account.
      *
-     * @return DescribeInstanceAccountsResponse DescribeInstanceAccountsResponse
+     * @param request - DescribeInstanceAccountsRequest
+     *
+     * @returns DescribeInstanceAccountsResponse
+     *
+     * @param DescribeInstanceAccountsRequest $request
+     *
+     * @return DescribeInstanceAccountsResponse
      */
     public function describeInstanceAccounts($request)
     {
@@ -2760,47 +3202,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Check whether zone switching is enabled
-     *  *
-     * @param DescribeInstanceSwitchAzoneRequest $request DescribeInstanceSwitchAzoneRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Check whether zone switching is enabled.
      *
-     * @return DescribeInstanceSwitchAzoneResponse DescribeInstanceSwitchAzoneResponse
+     * @param request - DescribeInstanceSwitchAzoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceSwitchAzoneResponse
+     *
+     * @param DescribeInstanceSwitchAzoneRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeInstanceSwitchAzoneResponse
      */
     public function describeInstanceSwitchAzoneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeInstanceSwitchAzone',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeInstanceSwitchAzoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeInstanceSwitchAzoneResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstanceSwitchAzone',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstanceSwitchAzoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Check whether zone switching is enabled
-     *  *
-     * @param DescribeInstanceSwitchAzoneRequest $request DescribeInstanceSwitchAzoneRequest
+     * Check whether zone switching is enabled.
      *
-     * @return DescribeInstanceSwitchAzoneResponse DescribeInstanceSwitchAzoneResponse
+     * @param request - DescribeInstanceSwitchAzoneRequest
+     *
+     * @returns DescribeInstanceSwitchAzoneResponse
+     *
+     * @param DescribeInstanceSwitchAzoneRequest $request
+     *
+     * @return DescribeInstanceSwitchAzoneResponse
      */
     public function describeInstanceSwitchAzone($request)
     {
@@ -2810,51 +3259,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether you can change the network type of a PolarDB-X 1.0 instance.
-     *  *
-     * @description ****
-     *  *
-     * @param DescribeInstanceSwitchNetworkRequest $request DescribeInstanceSwitchNetworkRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries whether you can change the network type of a PolarDB-X 1.0 instance.
      *
-     * @return DescribeInstanceSwitchNetworkResponse DescribeInstanceSwitchNetworkResponse
+     * @remarks
+     *
+     * @param request - DescribeInstanceSwitchNetworkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceSwitchNetworkResponse
+     *
+     * @param DescribeInstanceSwitchNetworkRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeInstanceSwitchNetworkResponse
      */
     public function describeInstanceSwitchNetworkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeInstanceSwitchNetwork',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeInstanceSwitchNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeInstanceSwitchNetworkResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstanceSwitchNetwork',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstanceSwitchNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether you can change the network type of a PolarDB-X 1.0 instance.
-     *  *
-     * @description ****
-     *  *
-     * @param DescribeInstanceSwitchNetworkRequest $request DescribeInstanceSwitchNetworkRequest
+     * Queries whether you can change the network type of a PolarDB-X 1.0 instance.
      *
-     * @return DescribeInstanceSwitchNetworkResponse DescribeInstanceSwitchNetworkResponse
+     * @remarks
+     *
+     * @param request - DescribeInstanceSwitchNetworkRequest
+     *
+     * @returns DescribeInstanceSwitchNetworkResponse
+     *
+     * @param DescribeInstanceSwitchNetworkRequest $request
+     *
+     * @return DescribeInstanceSwitchNetworkResponse
      */
     public function describeInstanceSwitchNetwork($request)
     {
@@ -2864,49 +3320,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribePreCheckResultRequest $request DescribePreCheckResultRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribePreCheckResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribePreCheckResultResponse DescribePreCheckResultResponse
+     * @returns DescribePreCheckResultResponse
+     *
+     * @param DescribePreCheckResultRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribePreCheckResultResponse
      */
     public function describePreCheckResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePreCheckResult',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePreCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribePreCheckResultResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePreCheckResult',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePreCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribePreCheckResultRequest $request DescribePreCheckResultRequest
+     * @param request - DescribePreCheckResultRequest
      *
-     * @return DescribePreCheckResultResponse DescribePreCheckResultResponse
+     * @returns DescribePreCheckResultResponse
+     *
+     * @param DescribePreCheckResultRequest $request
+     *
+     * @return DescribePreCheckResultResponse
      */
     public function describePreCheckResult($request)
     {
@@ -2916,58 +3381,70 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeRDSPerformanceRequest $request DescribeRDSPerformanceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRDSPerformanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeRDSPerformanceResponse DescribeRDSPerformanceResponse
+     * @returns DescribeRDSPerformanceResponse
+     *
+     * @param DescribeRDSPerformanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeRDSPerformanceResponse
      */
     public function describeRDSPerformanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbInstType)) {
-            $query['DbInstType'] = $request->dbInstType;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->keys)) {
-            $query['Keys'] = $request->keys;
-        }
-        if (!Utils::isUnset($request->rdsInstanceId)) {
-            $query['RdsInstanceId'] = $request->rdsInstanceId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRDSPerformance',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeRDSPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbInstType) {
+            @$query['DbInstType'] = $request->dbInstType;
         }
 
-        return DescribeRDSPerformanceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->keys) {
+            @$query['Keys'] = $request->keys;
+        }
+
+        if (null !== $request->rdsInstanceId) {
+            @$query['RdsInstanceId'] = $request->rdsInstanceId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRDSPerformance',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRDSPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRDSPerformanceRequest $request DescribeRDSPerformanceRequest
+     * @param request - DescribeRDSPerformanceRequest
      *
-     * @return DescribeRDSPerformanceResponse DescribeRDSPerformanceResponse
+     * @returns DescribeRDSPerformanceResponse
+     *
+     * @param DescribeRDSPerformanceRequest $request
+     *
+     * @return DescribeRDSPerformanceResponse
      */
     public function describeRDSPerformance($request)
     {
@@ -2977,49 +3454,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeRdsCommodityRequest $request DescribeRdsCommodityRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRdsCommodityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeRdsCommodityResponse DescribeRdsCommodityResponse
+     * @returns DescribeRdsCommodityResponse
+     *
+     * @param DescribeRdsCommodityRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRdsCommodityResponse
      */
     public function describeRdsCommodityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->commodityCode)) {
-            $query['CommodityCode'] = $request->commodityCode;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRdsCommodity',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeRdsCommodityResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->commodityCode) {
+            @$query['CommodityCode'] = $request->commodityCode;
         }
 
-        return DescribeRdsCommodityResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRdsCommodity',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRdsCommodityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRdsCommodityRequest $request DescribeRdsCommodityRequest
+     * @param request - DescribeRdsCommodityRequest
      *
-     * @return DescribeRdsCommodityResponse DescribeRdsCommodityResponse
+     * @returns DescribeRdsCommodityResponse
+     *
+     * @param DescribeRdsCommodityRequest $request
+     *
+     * @return DescribeRdsCommodityResponse
      */
     public function describeRdsCommodity($request)
     {
@@ -3029,49 +3515,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeRdsPerformanceSummaryRequest $request DescribeRdsPerformanceSummaryRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRdsPerformanceSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeRdsPerformanceSummaryResponse DescribeRdsPerformanceSummaryResponse
+     * @returns DescribeRdsPerformanceSummaryResponse
+     *
+     * @param DescribeRdsPerformanceSummaryRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeRdsPerformanceSummaryResponse
      */
     public function describeRdsPerformanceSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->rdsInstanceId)) {
-            $query['RdsInstanceId'] = $request->rdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRdsPerformanceSummary',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeRdsPerformanceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeRdsPerformanceSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->rdsInstanceId) {
+            @$query['RdsInstanceId'] = $request->rdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRdsPerformanceSummary',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRdsPerformanceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRdsPerformanceSummaryRequest $request DescribeRdsPerformanceSummaryRequest
+     * @param request - DescribeRdsPerformanceSummaryRequest
      *
-     * @return DescribeRdsPerformanceSummaryResponse DescribeRdsPerformanceSummaryResponse
+     * @returns DescribeRdsPerformanceSummaryResponse
+     *
+     * @param DescribeRdsPerformanceSummaryRequest $request
+     *
+     * @return DescribeRdsPerformanceSummaryResponse
      */
     public function describeRdsPerformanceSummary($request)
     {
@@ -3081,49 +3576,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeRdsSuperAccountInstancesRequest $request DescribeRdsSuperAccountInstancesRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRdsSuperAccountInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeRdsSuperAccountInstancesResponse DescribeRdsSuperAccountInstancesResponse
+     * @returns DescribeRdsSuperAccountInstancesResponse
+     *
+     * @param DescribeRdsSuperAccountInstancesRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeRdsSuperAccountInstancesResponse
      */
     public function describeRdsSuperAccountInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbInstType)) {
-            $query['DbInstType'] = $request->dbInstType;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->rdsInstance)) {
-            $query['RdsInstance'] = $request->rdsInstance;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRdsSuperAccountInstances',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeRdsSuperAccountInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbInstType) {
+            @$query['DbInstType'] = $request->dbInstType;
         }
 
-        return DescribeRdsSuperAccountInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->rdsInstance) {
+            @$query['RdsInstance'] = $request->rdsInstance;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRdsSuperAccountInstances',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRdsSuperAccountInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRdsSuperAccountInstancesRequest $request DescribeRdsSuperAccountInstancesRequest
+     * @param request - DescribeRdsSuperAccountInstancesRequest
      *
-     * @return DescribeRdsSuperAccountInstancesResponse DescribeRdsSuperAccountInstancesResponse
+     * @returns DescribeRdsSuperAccountInstancesResponse
+     *
+     * @param DescribeRdsSuperAccountInstancesRequest $request
+     *
+     * @return DescribeRdsSuperAccountInstancesResponse
      */
     public function describeRdsSuperAccountInstances($request)
     {
@@ -3133,53 +3637,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of the table recycle bin.
-     *  *
-     * @param DescribeRecycleBinStatusRequest $request DescribeRecycleBinStatusRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the status of the table recycle bin.
      *
-     * @return DescribeRecycleBinStatusResponse DescribeRecycleBinStatusResponse
+     * @param request - DescribeRecycleBinStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRecycleBinStatusResponse
+     *
+     * @param DescribeRecycleBinStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeRecycleBinStatusResponse
      */
     public function describeRecycleBinStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRecycleBinStatus',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeRecycleBinStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeRecycleBinStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRecycleBinStatus',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRecycleBinStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of the table recycle bin.
-     *  *
-     * @param DescribeRecycleBinStatusRequest $request DescribeRecycleBinStatusRequest
+     * Queries the status of the table recycle bin.
      *
-     * @return DescribeRecycleBinStatusResponse DescribeRecycleBinStatusResponse
+     * @param request - DescribeRecycleBinStatusRequest
+     *
+     * @returns DescribeRecycleBinStatusResponse
+     *
+     * @param DescribeRecycleBinStatusRequest $request
+     *
+     * @return DescribeRecycleBinStatusResponse
      */
     public function describeRecycleBinStatus($request)
     {
@@ -3189,53 +3702,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tables that can be restored in the recycle bin.
-     *  *
-     * @param DescribeRecycleBinTablesRequest $request DescribeRecycleBinTablesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the tables that can be restored in the recycle bin.
      *
-     * @return DescribeRecycleBinTablesResponse DescribeRecycleBinTablesResponse
+     * @param request - DescribeRecycleBinTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRecycleBinTablesResponse
+     *
+     * @param DescribeRecycleBinTablesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeRecycleBinTablesResponse
      */
     public function describeRecycleBinTablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRecycleBinTables',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeRecycleBinTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeRecycleBinTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRecycleBinTables',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRecycleBinTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tables that can be restored in the recycle bin.
-     *  *
-     * @param DescribeRecycleBinTablesRequest $request DescribeRecycleBinTablesRequest
+     * Queries the tables that can be restored in the recycle bin.
      *
-     * @return DescribeRecycleBinTablesResponse DescribeRecycleBinTablesResponse
+     * @param request - DescribeRecycleBinTablesRequest
+     *
+     * @returns DescribeRecycleBinTablesResponse
+     *
+     * @param DescribeRecycleBinTablesRequest $request
+     *
+     * @return DescribeRecycleBinTablesResponse
      */
     public function describeRecycleBinTables($request)
     {
@@ -3245,62 +3767,74 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary You can call the DescribeRestoreOrder operation to view the details of the order.
-     *  *
-     * @param DescribeRestoreOrderRequest $request DescribeRestoreOrderRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * You can call the DescribeRestoreOrder operation to view the details of the order.
      *
-     * @return DescribeRestoreOrderResponse DescribeRestoreOrderResponse
+     * @param request - DescribeRestoreOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRestoreOrderResponse
+     *
+     * @param DescribeRestoreOrderRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRestoreOrderResponse
      */
     public function describeRestoreOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupDbNames)) {
-            $query['BackupDbNames'] = $request->backupDbNames;
-        }
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
-        }
-        if (!Utils::isUnset($request->backupLevel)) {
-            $query['BackupLevel'] = $request->backupLevel;
-        }
-        if (!Utils::isUnset($request->backupMode)) {
-            $query['BackupMode'] = $request->backupMode;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->preferredBackupTime)) {
-            $query['PreferredBackupTime'] = $request->preferredBackupTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRestoreOrder',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeRestoreOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->backupDbNames) {
+            @$query['BackupDbNames'] = $request->backupDbNames;
         }
 
-        return DescribeRestoreOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
+        }
+
+        if (null !== $request->backupLevel) {
+            @$query['BackupLevel'] = $request->backupLevel;
+        }
+
+        if (null !== $request->backupMode) {
+            @$query['BackupMode'] = $request->backupMode;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->preferredBackupTime) {
+            @$query['PreferredBackupTime'] = $request->preferredBackupTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRestoreOrder',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRestoreOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call the DescribeRestoreOrder operation to view the details of the order.
-     *  *
-     * @param DescribeRestoreOrderRequest $request DescribeRestoreOrderRequest
+     * You can call the DescribeRestoreOrder operation to view the details of the order.
      *
-     * @return DescribeRestoreOrderResponse DescribeRestoreOrderResponse
+     * @param request - DescribeRestoreOrderRequest
+     *
+     * @returns DescribeRestoreOrderResponse
+     *
+     * @param DescribeRestoreOrderRequest $request
+     *
+     * @return DescribeRestoreOrderResponse
      */
     public function describeRestoreOrder($request)
     {
@@ -3310,55 +3844,66 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeShardTaskInfoRequest $request DescribeShardTaskInfoRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeShardTaskInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeShardTaskInfoResponse DescribeShardTaskInfoResponse
+     * @returns DescribeShardTaskInfoResponse
+     *
+     * @param DescribeShardTaskInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeShardTaskInfoResponse
      */
     public function describeShardTaskInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->sourceTableName)) {
-            $query['SourceTableName'] = $request->sourceTableName;
-        }
-        if (!Utils::isUnset($request->targetTableName)) {
-            $query['TargetTableName'] = $request->targetTableName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeShardTaskInfo',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeShardTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeShardTaskInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sourceTableName) {
+            @$query['SourceTableName'] = $request->sourceTableName;
+        }
+
+        if (null !== $request->targetTableName) {
+            @$query['TargetTableName'] = $request->targetTableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeShardTaskInfo',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeShardTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeShardTaskInfoRequest $request DescribeShardTaskInfoRequest
+     * @param request - DescribeShardTaskInfoRequest
      *
-     * @return DescribeShardTaskInfoResponse DescribeShardTaskInfoResponse
+     * @returns DescribeShardTaskInfoResponse
+     *
+     * @param DescribeShardTaskInfoRequest $request
+     *
+     * @return DescribeShardTaskInfoResponse
      */
     public function describeShardTaskInfo($request)
     {
@@ -3368,47 +3913,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the flashback tasks that are performed on a PolarDB-X 1.0 instance.
-     *  *
-     * @param DescribeSqlFlashbakTaskRequest $request DescribeSqlFlashbakTaskRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the flashback tasks that are performed on a PolarDB-X 1.0 instance.
      *
-     * @return DescribeSqlFlashbakTaskResponse DescribeSqlFlashbakTaskResponse
+     * @param request - DescribeSqlFlashbakTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSqlFlashbakTaskResponse
+     *
+     * @param DescribeSqlFlashbakTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSqlFlashbakTaskResponse
      */
     public function describeSqlFlashbakTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSqlFlashbakTask',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeSqlFlashbakTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return DescribeSqlFlashbakTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSqlFlashbakTask',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSqlFlashbakTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the flashback tasks that are performed on a PolarDB-X 1.0 instance.
-     *  *
-     * @param DescribeSqlFlashbakTaskRequest $request DescribeSqlFlashbakTaskRequest
+     * Queries the flashback tasks that are performed on a PolarDB-X 1.0 instance.
      *
-     * @return DescribeSqlFlashbakTaskResponse DescribeSqlFlashbakTaskResponse
+     * @param request - DescribeSqlFlashbakTaskRequest
+     *
+     * @returns DescribeSqlFlashbakTaskResponse
+     *
+     * @param DescribeSqlFlashbakTaskRequest $request
+     *
+     * @return DescribeSqlFlashbakTaskResponse
      */
     public function describeSqlFlashbakTask($request)
     {
@@ -3418,56 +3970,66 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about the schema of a table.
-     *  *
-     * @param DescribeTableRequest $request DescribeTableRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries information about the schema of a table.
      *
-     * @return DescribeTableResponse DescribeTableResponse
+     * @param request - DescribeTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTableResponse
+     *
+     * @param DescribeTableRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeTableResponse
      */
     public function describeTableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeTable',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DescribeTableResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTable',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about the schema of a table.
-     *  *
-     * @param DescribeTableRequest $request DescribeTableRequest
+     * Queries information about the schema of a table.
      *
-     * @return DescribeTableResponse DescribeTableResponse
+     * @param request - DescribeTableRequest
+     *
+     * @returns DescribeTableResponse
+     *
+     * @param DescribeTableRequest $request
+     *
+     * @return DescribeTableResponse
      */
     public function describeTable($request)
     {
@@ -3477,61 +4039,74 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeTableListByTypeRequest $request DescribeTableListByTypeRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeTableListByTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeTableListByTypeResponse DescribeTableListByTypeResponse
+     * @returns DescribeTableListByTypeResponse
+     *
+     * @param DescribeTableListByTypeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeTableListByTypeResponse
      */
     public function describeTableListByTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->query)) {
-            $query['Query'] = $request->query;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->tableType)) {
-            $query['TableType'] = $request->tableType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeTableListByType',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeTableListByTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
 
-        return DescribeTableListByTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tableType) {
+            @$query['TableType'] = $request->tableType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTableListByType',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTableListByTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeTableListByTypeRequest $request DescribeTableListByTypeRequest
+     * @param request - DescribeTableListByTypeRequest
      *
-     * @return DescribeTableListByTypeResponse DescribeTableListByTypeResponse
+     * @returns DescribeTableListByTypeResponse
+     *
+     * @param DescribeTableListByTypeRequest $request
+     *
+     * @return DescribeTableListByTypeResponse
      */
     public function describeTableListByType($request)
     {
@@ -3541,62 +4116,74 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary DescribeTables文档变更
-     *  *
-     * @param DescribeTablesRequest $request DescribeTablesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * DescribeTables文档变更.
      *
-     * @return DescribeTablesResponse DescribeTablesResponse
+     * @param request - DescribeTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTablesResponse
+     *
+     * @param DescribeTablesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeTablesResponse
      */
     public function describeTablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->query)) {
-            $query['Query'] = $request->query;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeTables',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
 
-        return DescribeTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTables',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary DescribeTables文档变更
-     *  *
-     * @param DescribeTablesRequest $request DescribeTablesRequest
+     * DescribeTables文档变更.
      *
-     * @return DescribeTablesResponse DescribeTablesResponse
+     * @param request - DescribeTablesRequest
+     *
+     * @returns DescribeTablesResponse
+     *
+     * @param DescribeTablesRequest $request
+     *
+     * @return DescribeTablesResponse
      */
     public function describeTables($request)
     {
@@ -3606,50 +4193,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Disables the SQL audit feature for a database.
-     *  *
-     * @param DisableSqlAuditRequest $request DisableSqlAuditRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Disables the SQL audit feature for a database.
      *
-     * @return DisableSqlAuditResponse DisableSqlAuditResponse
+     * @param request - DisableSqlAuditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableSqlAuditResponse
+     *
+     * @param DisableSqlAuditRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DisableSqlAuditResponse
      */
     public function disableSqlAuditWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DisableSqlAudit',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableSqlAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return DisableSqlAuditResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableSqlAudit',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableSqlAuditResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables the SQL audit feature for a database.
-     *  *
-     * @param DisableSqlAuditRequest $request DisableSqlAuditRequest
+     * Disables the SQL audit feature for a database.
      *
-     * @return DisableSqlAuditResponse DisableSqlAuditResponse
+     * @param request - DisableSqlAuditRequest
+     *
+     * @returns DisableSqlAuditResponse
+     *
+     * @param DisableSqlAuditRequest $request
+     *
+     * @return DisableSqlAuditResponse
      */
     public function disableSqlAudit($request)
     {
@@ -3659,50 +4254,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Creates an IPv6 address.
-     *  *
-     * @param EnableInstanceIpv6AddressRequest $request EnableInstanceIpv6AddressRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Creates an IPv6 address.
      *
-     * @return EnableInstanceIpv6AddressResponse EnableInstanceIpv6AddressResponse
+     * @param request - EnableInstanceIpv6AddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableInstanceIpv6AddressResponse
+     *
+     * @param EnableInstanceIpv6AddressRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return EnableInstanceIpv6AddressResponse
      */
     public function enableInstanceIpv6AddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EnableInstanceIpv6Address',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableInstanceIpv6AddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return EnableInstanceIpv6AddressResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableInstanceIpv6Address',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableInstanceIpv6AddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an IPv6 address.
-     *  *
-     * @param EnableInstanceIpv6AddressRequest $request EnableInstanceIpv6AddressRequest
+     * Creates an IPv6 address.
      *
-     * @return EnableInstanceIpv6AddressResponse EnableInstanceIpv6AddressResponse
+     * @param request - EnableInstanceIpv6AddressRequest
+     *
+     * @returns EnableInstanceIpv6AddressResponse
+     *
+     * @param EnableInstanceIpv6AddressRequest $request
+     *
+     * @return EnableInstanceIpv6AddressResponse
      */
     public function enableInstanceIpv6Address($request)
     {
@@ -3712,59 +4315,70 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Enables the SQL audit feature for a database.
-     *  *
-     * @param EnableSqlAuditRequest $request EnableSqlAuditRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Enables the SQL audit feature for a database.
      *
-     * @return EnableSqlAuditResponse EnableSqlAuditResponse
+     * @param request - EnableSqlAuditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableSqlAuditResponse
+     *
+     * @param EnableSqlAuditRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return EnableSqlAuditResponse
      */
     public function enableSqlAuditWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->isRecall)) {
-            $query['IsRecall'] = $request->isRecall;
-        }
-        if (!Utils::isUnset($request->recallEndTimestamp)) {
-            $query['RecallEndTimestamp'] = $request->recallEndTimestamp;
-        }
-        if (!Utils::isUnset($request->recallStartTimestamp)) {
-            $query['RecallStartTimestamp'] = $request->recallStartTimestamp;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EnableSqlAudit',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableSqlAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return EnableSqlAuditResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->isRecall) {
+            @$query['IsRecall'] = $request->isRecall;
+        }
+
+        if (null !== $request->recallEndTimestamp) {
+            @$query['RecallEndTimestamp'] = $request->recallEndTimestamp;
+        }
+
+        if (null !== $request->recallStartTimestamp) {
+            @$query['RecallStartTimestamp'] = $request->recallStartTimestamp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableSqlAudit',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableSqlAuditResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the SQL audit feature for a database.
-     *  *
-     * @param EnableSqlAuditRequest $request EnableSqlAuditRequest
+     * Enables the SQL audit feature for a database.
      *
-     * @return EnableSqlAuditResponse EnableSqlAuditResponse
+     * @param request - EnableSqlAuditRequest
+     *
+     * @returns EnableSqlAuditResponse
+     *
+     * @param EnableSqlAuditRequest $request
+     *
+     * @return EnableSqlAuditResponse
      */
     public function enableSqlAudit($request)
     {
@@ -3774,46 +4388,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param EnableSqlFlashbackMatchSwitchRequest $request EnableSqlFlashbackMatchSwitchRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param request - EnableSqlFlashbackMatchSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return EnableSqlFlashbackMatchSwitchResponse EnableSqlFlashbackMatchSwitchResponse
+     * @returns EnableSqlFlashbackMatchSwitchResponse
+     *
+     * @param EnableSqlFlashbackMatchSwitchRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return EnableSqlFlashbackMatchSwitchResponse
      */
     public function enableSqlFlashbackMatchSwitchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EnableSqlFlashbackMatchSwitch',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableSqlFlashbackMatchSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return EnableSqlFlashbackMatchSwitchResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableSqlFlashbackMatchSwitch',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableSqlFlashbackMatchSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param EnableSqlFlashbackMatchSwitchRequest $request EnableSqlFlashbackMatchSwitchRequest
+     * @param request - EnableSqlFlashbackMatchSwitchRequest
      *
-     * @return EnableSqlFlashbackMatchSwitchResponse EnableSqlFlashbackMatchSwitchResponse
+     * @returns EnableSqlFlashbackMatchSwitchResponse
+     *
+     * @param EnableSqlFlashbackMatchSwitchRequest $request
+     *
+     * @return EnableSqlFlashbackMatchSwitchResponse
      */
     public function enableSqlFlashbackMatchSwitch($request)
     {
@@ -3823,56 +4445,66 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Restores a logical table that is deleted.
-     *  *
-     * @param FlashbackRecycleBinTableRequest $request FlashbackRecycleBinTableRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Restores a logical table that is deleted.
      *
-     * @return FlashbackRecycleBinTableResponse FlashbackRecycleBinTableResponse
+     * @param request - FlashbackRecycleBinTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlashbackRecycleBinTableResponse
+     *
+     * @param FlashbackRecycleBinTableRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return FlashbackRecycleBinTableResponse
      */
     public function flashbackRecycleBinTableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'FlashbackRecycleBinTable',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return FlashbackRecycleBinTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return FlashbackRecycleBinTableResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'FlashbackRecycleBinTable',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FlashbackRecycleBinTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Restores a logical table that is deleted.
-     *  *
-     * @param FlashbackRecycleBinTableRequest $request FlashbackRecycleBinTableRequest
+     * Restores a logical table that is deleted.
      *
-     * @return FlashbackRecycleBinTableResponse FlashbackRecycleBinTableResponse
+     * @param request - FlashbackRecycleBinTableRequest
+     *
+     * @returns FlashbackRecycleBinTableResponse
+     *
+     * @param FlashbackRecycleBinTableRequest $request
+     *
+     * @return FlashbackRecycleBinTableResponse
      */
     public function flashbackRecycleBinTable($request)
     {
@@ -3882,46 +4514,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param GetDrdsDbRdsRelationInfoRequest $request GetDrdsDbRdsRelationInfoRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - GetDrdsDbRdsRelationInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetDrdsDbRdsRelationInfoResponse GetDrdsDbRdsRelationInfoResponse
+     * @returns GetDrdsDbRdsRelationInfoResponse
+     *
+     * @param GetDrdsDbRdsRelationInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDrdsDbRdsRelationInfoResponse
      */
     public function getDrdsDbRdsRelationInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDrdsDbRdsRelationInfo',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDrdsDbRdsRelationInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return GetDrdsDbRdsRelationInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDrdsDbRdsRelationInfo',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDrdsDbRdsRelationInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetDrdsDbRdsRelationInfoRequest $request GetDrdsDbRdsRelationInfoRequest
+     * @param request - GetDrdsDbRdsRelationInfoRequest
      *
-     * @return GetDrdsDbRdsRelationInfoResponse GetDrdsDbRdsRelationInfoResponse
+     * @returns GetDrdsDbRdsRelationInfoResponse
+     *
+     * @param GetDrdsDbRdsRelationInfoRequest $request
+     *
+     * @return GetDrdsDbRdsRelationInfoResponse
      */
     public function getDrdsDbRdsRelationInfo($request)
     {
@@ -3931,55 +4571,70 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查看Tag标签.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagResources',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * 查看Tag标签.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -3989,59 +4644,70 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Manages a custom ApsaraDB RDS instance at the storage layer.
-     *  *
-     * @param ManagePrivateRdsRequest $request ManagePrivateRdsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Manages a custom ApsaraDB RDS instance at the storage layer.
      *
-     * @return ManagePrivateRdsResponse ManagePrivateRdsResponse
+     * @param request - ManagePrivateRdsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ManagePrivateRdsResponse
+     *
+     * @param ManagePrivateRdsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ManagePrivateRdsResponse
      */
     public function managePrivateRdsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->params)) {
-            $query['Params'] = $request->params;
-        }
-        if (!Utils::isUnset($request->rdsAction)) {
-            $query['RdsAction'] = $request->rdsAction;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ManagePrivateRds',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ManagePrivateRdsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
 
-        return ManagePrivateRdsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->params) {
+            @$query['Params'] = $request->params;
+        }
+
+        if (null !== $request->rdsAction) {
+            @$query['RdsAction'] = $request->rdsAction;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ManagePrivateRds',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ManagePrivateRdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Manages a custom ApsaraDB RDS instance at the storage layer.
-     *  *
-     * @param ManagePrivateRdsRequest $request ManagePrivateRdsRequest
+     * Manages a custom ApsaraDB RDS instance at the storage layer.
      *
-     * @return ManagePrivateRdsResponse ManagePrivateRdsResponse
+     * @param request - ManagePrivateRdsRequest
+     *
+     * @returns ManagePrivateRdsResponse
+     *
+     * @param ManagePrivateRdsRequest $request
+     *
+     * @return ManagePrivateRdsResponse
      */
     public function managePrivateRds($request)
     {
@@ -4051,49 +4717,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyAccountDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
+     * @returns ModifyAccountDescriptionResponse
+     *
+     * @param ModifyAccountDescriptionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyAccountDescription',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
 
-        return ModifyAccountDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAccountDescription',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * @param request - ModifyAccountDescriptionRequest
      *
-     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
+     * @returns ModifyAccountDescriptionResponse
+     *
+     * @param ModifyAccountDescriptionRequest $request
+     *
+     * @return ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -4103,52 +4778,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountPrivilegeRequest $request ModifyAccountPrivilegeRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyAccountPrivilegeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountPrivilegeResponse ModifyAccountPrivilegeResponse
+     * @returns ModifyAccountPrivilegeResponse
+     *
+     * @param ModifyAccountPrivilegeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyAccountPrivilegeResponse
      */
     public function modifyAccountPrivilegeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
-        }
-        if (!Utils::isUnset($request->dbPrivilege)) {
-            $query['DbPrivilege'] = $request->dbPrivilege;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyAccountPrivilege',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
 
-        return ModifyAccountPrivilegeResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbPrivilege) {
+            @$query['DbPrivilege'] = $request->dbPrivilege;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAccountPrivilege',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyAccountPrivilegeRequest $request ModifyAccountPrivilegeRequest
+     * @param request - ModifyAccountPrivilegeRequest
      *
-     * @return ModifyAccountPrivilegeResponse ModifyAccountPrivilegeResponse
+     * @returns ModifyAccountPrivilegeResponse
+     *
+     * @param ModifyAccountPrivilegeRequest $request
+     *
+     * @return ModifyAccountPrivilegeResponse
      */
     public function modifyAccountPrivilege($request)
     {
@@ -4158,46 +4843,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDrdsInstanceDescriptionRequest $request ModifyDrdsInstanceDescriptionRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyDrdsInstanceDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyDrdsInstanceDescriptionResponse ModifyDrdsInstanceDescriptionResponse
+     * @returns ModifyDrdsInstanceDescriptionResponse
+     *
+     * @param ModifyDrdsInstanceDescriptionRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifyDrdsInstanceDescriptionResponse
      */
     public function modifyDrdsInstanceDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDrdsInstanceDescription',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyDrdsInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
 
-        return ModifyDrdsInstanceDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDrdsInstanceDescription',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDrdsInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyDrdsInstanceDescriptionRequest $request ModifyDrdsInstanceDescriptionRequest
+     * @param request - ModifyDrdsInstanceDescriptionRequest
      *
-     * @return ModifyDrdsInstanceDescriptionResponse ModifyDrdsInstanceDescriptionResponse
+     * @returns ModifyDrdsInstanceDescriptionResponse
+     *
+     * @param ModifyDrdsInstanceDescriptionRequest $request
+     *
+     * @return ModifyDrdsInstanceDescriptionResponse
      */
     public function modifyDrdsInstanceDescription($request)
     {
@@ -4207,58 +4900,70 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDrdsIpWhiteListRequest $request ModifyDrdsIpWhiteListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyDrdsIpWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyDrdsIpWhiteListResponse ModifyDrdsIpWhiteListResponse
+     * @returns ModifyDrdsIpWhiteListResponse
+     *
+     * @param ModifyDrdsIpWhiteListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyDrdsIpWhiteListResponse
      */
     public function modifyDrdsIpWhiteListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->groupAttribute)) {
-            $query['GroupAttribute'] = $request->groupAttribute;
-        }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
-        }
-        if (!Utils::isUnset($request->ipWhiteList)) {
-            $query['IpWhiteList'] = $request->ipWhiteList;
-        }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDrdsIpWhiteList',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyDrdsIpWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return ModifyDrdsIpWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->groupAttribute) {
+            @$query['GroupAttribute'] = $request->groupAttribute;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->ipWhiteList) {
+            @$query['IpWhiteList'] = $request->ipWhiteList;
+        }
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDrdsIpWhiteList',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDrdsIpWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyDrdsIpWhiteListRequest $request ModifyDrdsIpWhiteListRequest
+     * @param request - ModifyDrdsIpWhiteListRequest
      *
-     * @return ModifyDrdsIpWhiteListResponse ModifyDrdsIpWhiteListResponse
+     * @returns ModifyDrdsIpWhiteListResponse
+     *
+     * @param ModifyDrdsIpWhiteListRequest $request
+     *
+     * @return ModifyDrdsIpWhiteListResponse
      */
     public function modifyDrdsIpWhiteList($request)
     {
@@ -4268,55 +4973,66 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyPolarDbReadWeightRequest $request ModifyPolarDbReadWeightRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyPolarDbReadWeightRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyPolarDbReadWeightResponse ModifyPolarDbReadWeightResponse
+     * @returns ModifyPolarDbReadWeightResponse
+     *
+     * @param ModifyPolarDbReadWeightRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyPolarDbReadWeightResponse
      */
     public function modifyPolarDbReadWeightWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbInstanceId)) {
-            $query['DbInstanceId'] = $request->dbInstanceId;
-        }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->dbNodeIds)) {
-            $query['DbNodeIds'] = $request->dbNodeIds;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->weights)) {
-            $query['Weights'] = $request->weights;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyPolarDbReadWeight',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyPolarDbReadWeightResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbInstanceId) {
+            @$query['DbInstanceId'] = $request->dbInstanceId;
         }
 
-        return ModifyPolarDbReadWeightResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->dbNodeIds) {
+            @$query['DbNodeIds'] = $request->dbNodeIds;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->weights) {
+            @$query['Weights'] = $request->weights;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyPolarDbReadWeight',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyPolarDbReadWeightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyPolarDbReadWeightRequest $request ModifyPolarDbReadWeightRequest
+     * @param request - ModifyPolarDbReadWeightRequest
      *
-     * @return ModifyPolarDbReadWeightResponse ModifyPolarDbReadWeightResponse
+     * @returns ModifyPolarDbReadWeightResponse
+     *
+     * @param ModifyPolarDbReadWeightRequest $request
+     *
+     * @return ModifyPolarDbReadWeightResponse
      */
     public function modifyPolarDbReadWeight($request)
     {
@@ -4326,52 +5042,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyRdsReadWeightRequest $request ModifyRdsReadWeightRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyRdsReadWeightRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyRdsReadWeightResponse ModifyRdsReadWeightResponse
+     * @returns ModifyRdsReadWeightResponse
+     *
+     * @param ModifyRdsReadWeightRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyRdsReadWeightResponse
      */
     public function modifyRdsReadWeightWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->instanceNames)) {
-            $query['InstanceNames'] = $request->instanceNames;
-        }
-        if (!Utils::isUnset($request->weights)) {
-            $query['Weights'] = $request->weights;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyRdsReadWeight',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyRdsReadWeightResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return ModifyRdsReadWeightResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->instanceNames) {
+            @$query['InstanceNames'] = $request->instanceNames;
+        }
+
+        if (null !== $request->weights) {
+            @$query['Weights'] = $request->weights;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyRdsReadWeight',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyRdsReadWeightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyRdsReadWeightRequest $request ModifyRdsReadWeightRequest
+     * @param request - ModifyRdsReadWeightRequest
      *
-     * @return ModifyRdsReadWeightResponse ModifyRdsReadWeightResponse
+     * @returns ModifyRdsReadWeightResponse
+     *
+     * @param ModifyRdsReadWeightRequest $request
+     *
+     * @return ModifyRdsReadWeightResponse
      */
     public function modifyRdsReadWeight($request)
     {
@@ -4381,52 +5107,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param PutStartBackupRequest $request PutStartBackupRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - PutStartBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return PutStartBackupResponse PutStartBackupResponse
+     * @returns PutStartBackupResponse
+     *
+     * @param PutStartBackupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PutStartBackupResponse
      */
     public function putStartBackupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupDbNames)) {
-            $query['BackupDbNames'] = $request->backupDbNames;
-        }
-        if (!Utils::isUnset($request->backupLevel)) {
-            $query['BackupLevel'] = $request->backupLevel;
-        }
-        if (!Utils::isUnset($request->backupMode)) {
-            $query['BackupMode'] = $request->backupMode;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'PutStartBackup',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PutStartBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->backupDbNames) {
+            @$query['BackupDbNames'] = $request->backupDbNames;
         }
 
-        return PutStartBackupResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->backupLevel) {
+            @$query['BackupLevel'] = $request->backupLevel;
+        }
+
+        if (null !== $request->backupMode) {
+            @$query['BackupMode'] = $request->backupMode;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PutStartBackup',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PutStartBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param PutStartBackupRequest $request PutStartBackupRequest
+     * @param request - PutStartBackupRequest
      *
-     * @return PutStartBackupResponse PutStartBackupResponse
+     * @returns PutStartBackupResponse
+     *
+     * @param PutStartBackupRequest $request
+     *
+     * @return PutStartBackupResponse
      */
     public function putStartBackup($request)
     {
@@ -4436,46 +5172,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param RefreshDrdsAtomUrlRequest $request RefreshDrdsAtomUrlRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - RefreshDrdsAtomUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RefreshDrdsAtomUrlResponse RefreshDrdsAtomUrlResponse
+     * @returns RefreshDrdsAtomUrlResponse
+     *
+     * @param RefreshDrdsAtomUrlRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RefreshDrdsAtomUrlResponse
      */
     public function refreshDrdsAtomUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RefreshDrdsAtomUrl',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RefreshDrdsAtomUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return RefreshDrdsAtomUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RefreshDrdsAtomUrl',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RefreshDrdsAtomUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RefreshDrdsAtomUrlRequest $request RefreshDrdsAtomUrlRequest
+     * @param request - RefreshDrdsAtomUrlRequest
      *
-     * @return RefreshDrdsAtomUrlResponse RefreshDrdsAtomUrlResponse
+     * @returns RefreshDrdsAtomUrlResponse
+     *
+     * @param RefreshDrdsAtomUrlRequest $request
+     *
+     * @return RefreshDrdsAtomUrlResponse
      */
     public function refreshDrdsAtomUrl($request)
     {
@@ -4485,46 +5229,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstanceInternetAddressRequest $request ReleaseInstanceInternetAddressRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * @param request - ReleaseInstanceInternetAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ReleaseInstanceInternetAddressResponse ReleaseInstanceInternetAddressResponse
+     * @returns ReleaseInstanceInternetAddressResponse
+     *
+     * @param ReleaseInstanceInternetAddressRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ReleaseInstanceInternetAddressResponse
      */
     public function releaseInstanceInternetAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ReleaseInstanceInternetAddress',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ReleaseInstanceInternetAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return ReleaseInstanceInternetAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReleaseInstanceInternetAddress',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReleaseInstanceInternetAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ReleaseInstanceInternetAddressRequest $request ReleaseInstanceInternetAddressRequest
+     * @param request - ReleaseInstanceInternetAddressRequest
      *
-     * @return ReleaseInstanceInternetAddressResponse ReleaseInstanceInternetAddressResponse
+     * @returns ReleaseInstanceInternetAddressResponse
+     *
+     * @param ReleaseInstanceInternetAddressRequest $request
+     *
+     * @return ReleaseInstanceInternetAddressResponse
      */
     public function releaseInstanceInternetAddress($request)
     {
@@ -4534,46 +5286,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param RemoveBackupsSetRequest $request RemoveBackupsSetRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - RemoveBackupsSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RemoveBackupsSetResponse RemoveBackupsSetResponse
+     * @returns RemoveBackupsSetResponse
+     *
+     * @param RemoveBackupsSetRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RemoveBackupsSetResponse
      */
     public function removeBackupsSetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RemoveBackupsSet',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveBackupsSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
         }
 
-        return RemoveBackupsSetResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveBackupsSet',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveBackupsSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RemoveBackupsSetRequest $request RemoveBackupsSetRequest
+     * @param request - RemoveBackupsSetRequest
      *
-     * @return RemoveBackupsSetResponse RemoveBackupsSetResponse
+     * @returns RemoveBackupsSetResponse
+     *
+     * @param RemoveBackupsSetRequest $request
+     *
+     * @return RemoveBackupsSetResponse
      */
     public function removeBackupsSet($request)
     {
@@ -4583,46 +5343,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param RemoveDrdsDbRequest $request RemoveDrdsDbRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - RemoveDrdsDbRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RemoveDrdsDbResponse RemoveDrdsDbResponse
+     * @returns RemoveDrdsDbResponse
+     *
+     * @param RemoveDrdsDbRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RemoveDrdsDbResponse
      */
     public function removeDrdsDbWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RemoveDrdsDb',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveDrdsDbResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return RemoveDrdsDbResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveDrdsDb',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveDrdsDbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RemoveDrdsDbRequest $request RemoveDrdsDbRequest
+     * @param request - RemoveDrdsDbRequest
      *
-     * @return RemoveDrdsDbResponse RemoveDrdsDbResponse
+     * @returns RemoveDrdsDbResponse
+     *
+     * @param RemoveDrdsDbRequest $request
+     *
+     * @return RemoveDrdsDbResponse
      */
     public function removeDrdsDb($request)
     {
@@ -4632,46 +5400,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param RemoveDrdsDbFailedRecordRequest $request RemoveDrdsDbFailedRecordRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - RemoveDrdsDbFailedRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RemoveDrdsDbFailedRecordResponse RemoveDrdsDbFailedRecordResponse
+     * @returns RemoveDrdsDbFailedRecordResponse
+     *
+     * @param RemoveDrdsDbFailedRecordRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RemoveDrdsDbFailedRecordResponse
      */
     public function removeDrdsDbFailedRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RemoveDrdsDbFailedRecord',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveDrdsDbFailedRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return RemoveDrdsDbFailedRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveDrdsDbFailedRecord',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveDrdsDbFailedRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RemoveDrdsDbFailedRecordRequest $request RemoveDrdsDbFailedRecordRequest
+     * @param request - RemoveDrdsDbFailedRecordRequest
      *
-     * @return RemoveDrdsDbFailedRecordResponse RemoveDrdsDbFailedRecordResponse
+     * @returns RemoveDrdsDbFailedRecordResponse
+     *
+     * @param RemoveDrdsDbFailedRecordRequest $request
+     *
+     * @return RemoveDrdsDbFailedRecordResponse
      */
     public function removeDrdsDbFailedRecord($request)
     {
@@ -4681,53 +5457,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Releases an instance.
-     *  *
-     * @description > *   You can call this operation to release an instance that is charged based on only the pay-as-you-go billing method.
-     * >*   If the specifications of the instance are being changed, or one or more databases exist in the instance, you cannot call this operation to release the instance.
-     *  *
-     * @param RemoveDrdsInstanceRequest $request RemoveDrdsInstanceRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Releases an instance.
      *
-     * @return RemoveDrdsInstanceResponse RemoveDrdsInstanceResponse
+     * @remarks
+     * > *   You can call this operation to release an instance that is charged based on only the pay-as-you-go billing method.
+     * >*   If the specifications of the instance are being changed, or one or more databases exist in the instance, you cannot call this operation to release the instance.
+     *
+     * @param request - RemoveDrdsInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveDrdsInstanceResponse
+     *
+     * @param RemoveDrdsInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RemoveDrdsInstanceResponse
      */
     public function removeDrdsInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RemoveDrdsInstance',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveDrdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return RemoveDrdsInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveDrdsInstance',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveDrdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Releases an instance.
-     *  *
-     * @description > *   You can call this operation to release an instance that is charged based on only the pay-as-you-go billing method.
-     * >*   If the specifications of the instance are being changed, or one or more databases exist in the instance, you cannot call this operation to release the instance.
-     *  *
-     * @param RemoveDrdsInstanceRequest $request RemoveDrdsInstanceRequest
+     * Releases an instance.
      *
-     * @return RemoveDrdsInstanceResponse RemoveDrdsInstanceResponse
+     * @remarks
+     * > *   You can call this operation to release an instance that is charged based on only the pay-as-you-go billing method.
+     * >*   If the specifications of the instance are being changed, or one or more databases exist in the instance, you cannot call this operation to release the instance.
+     *
+     * @param request - RemoveDrdsInstanceRequest
+     *
+     * @returns RemoveDrdsInstanceResponse
+     *
+     * @param RemoveDrdsInstanceRequest $request
+     *
+     * @return RemoveDrdsInstanceResponse
      */
     public function removeDrdsInstance($request)
     {
@@ -4737,46 +5522,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param RemoveInstanceAccountRequest $request RemoveInstanceAccountRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - RemoveInstanceAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RemoveInstanceAccountResponse RemoveInstanceAccountResponse
+     * @returns RemoveInstanceAccountResponse
+     *
+     * @param RemoveInstanceAccountRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RemoveInstanceAccountResponse
      */
     public function removeInstanceAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RemoveInstanceAccount',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
 
-        return RemoveInstanceAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveInstanceAccount',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RemoveInstanceAccountRequest $request RemoveInstanceAccountRequest
+     * @param request - RemoveInstanceAccountRequest
      *
-     * @return RemoveInstanceAccountResponse RemoveInstanceAccountResponse
+     * @returns RemoveInstanceAccountResponse
+     *
+     * @param RemoveInstanceAccountRequest $request
+     *
+     * @return RemoveInstanceAccountResponse
      */
     public function removeInstanceAccount($request)
     {
@@ -4786,56 +5579,66 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a table in the recycle bin.
-     *  *
-     * @param RemoveRecycleBinTableRequest $request RemoveRecycleBinTableRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes a table in the recycle bin.
      *
-     * @return RemoveRecycleBinTableResponse RemoveRecycleBinTableResponse
+     * @param request - RemoveRecycleBinTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveRecycleBinTableResponse
+     *
+     * @param RemoveRecycleBinTableRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RemoveRecycleBinTableResponse
      */
     public function removeRecycleBinTableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RemoveRecycleBinTable',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveRecycleBinTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return RemoveRecycleBinTableResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveRecycleBinTable',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveRecycleBinTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a table in the recycle bin.
-     *  *
-     * @param RemoveRecycleBinTableRequest $request RemoveRecycleBinTableRequest
+     * Deletes a table in the recycle bin.
      *
-     * @return RemoveRecycleBinTableResponse RemoveRecycleBinTableResponse
+     * @param request - RemoveRecycleBinTableRequest
+     *
+     * @returns RemoveRecycleBinTableResponse
+     *
+     * @param RemoveRecycleBinTableRequest $request
+     *
+     * @return RemoveRecycleBinTableResponse
      */
     public function removeRecycleBinTable($request)
     {
@@ -4845,43 +5648,50 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param RestartDrdsInstanceRequest $request RestartDrdsInstanceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - RestartDrdsInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RestartDrdsInstanceResponse RestartDrdsInstanceResponse
+     * @returns RestartDrdsInstanceResponse
+     *
+     * @param RestartDrdsInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RestartDrdsInstanceResponse
      */
     public function restartDrdsInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RestartDrdsInstance',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RestartDrdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return RestartDrdsInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestartDrdsInstance',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartDrdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RestartDrdsInstanceRequest $request RestartDrdsInstanceRequest
+     * @param request - RestartDrdsInstanceRequest
      *
-     * @return RestartDrdsInstanceResponse RestartDrdsInstanceResponse
+     * @returns RestartDrdsInstanceResponse
+     *
+     * @param RestartDrdsInstanceRequest $request
+     *
+     * @return RestartDrdsInstanceResponse
      */
     public function restartDrdsInstance($request)
     {
@@ -4891,46 +5701,54 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param RollbackInstanceVersionRequest $request RollbackInstanceVersionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - RollbackInstanceVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RollbackInstanceVersionResponse RollbackInstanceVersionResponse
+     * @returns RollbackInstanceVersionResponse
+     *
+     * @param RollbackInstanceVersionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RollbackInstanceVersionResponse
      */
     public function rollbackInstanceVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RollbackInstanceVersion',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RollbackInstanceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return RollbackInstanceVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RollbackInstanceVersion',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RollbackInstanceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RollbackInstanceVersionRequest $request RollbackInstanceVersionRequest
+     * @param request - RollbackInstanceVersionRequest
      *
-     * @return RollbackInstanceVersionResponse RollbackInstanceVersionResponse
+     * @returns RollbackInstanceVersionResponse
+     *
+     * @param RollbackInstanceVersionRequest $request
+     *
+     * @return RollbackInstanceVersionResponse
      */
     public function rollbackInstanceVersion($request)
     {
@@ -4940,56 +5758,66 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a backup policy.
-     *  *
-     * @param SetBackupLocalRequest $request SetBackupLocalRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Modifies a backup policy.
      *
-     * @return SetBackupLocalResponse SetBackupLocalResponse
+     * @param request - SetBackupLocalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetBackupLocalResponse
+     *
+     * @param SetBackupLocalRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SetBackupLocalResponse
      */
     public function setBackupLocalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->highSpaceUsageProtection)) {
-            $query['HighSpaceUsageProtection'] = $request->highSpaceUsageProtection;
-        }
-        if (!Utils::isUnset($request->localLogRetentionHours)) {
-            $query['LocalLogRetentionHours'] = $request->localLogRetentionHours;
-        }
-        if (!Utils::isUnset($request->localLogRetentionSpace)) {
-            $query['LocalLogRetentionSpace'] = $request->localLogRetentionSpace;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetBackupLocal',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetBackupLocalResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return SetBackupLocalResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->highSpaceUsageProtection) {
+            @$query['HighSpaceUsageProtection'] = $request->highSpaceUsageProtection;
+        }
+
+        if (null !== $request->localLogRetentionHours) {
+            @$query['LocalLogRetentionHours'] = $request->localLogRetentionHours;
+        }
+
+        if (null !== $request->localLogRetentionSpace) {
+            @$query['LocalLogRetentionSpace'] = $request->localLogRetentionSpace;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetBackupLocal',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetBackupLocalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a backup policy.
-     *  *
-     * @param SetBackupLocalRequest $request SetBackupLocalRequest
+     * Modifies a backup policy.
      *
-     * @return SetBackupLocalResponse SetBackupLocalResponse
+     * @param request - SetBackupLocalRequest
+     *
+     * @returns SetBackupLocalResponse
+     *
+     * @param SetBackupLocalRequest $request
+     *
+     * @return SetBackupLocalResponse
      */
     public function setBackupLocal($request)
     {
@@ -4999,70 +5827,86 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param SetBackupPolicyRequest $request SetBackupPolicyRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - SetBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SetBackupPolicyResponse SetBackupPolicyResponse
+     * @returns SetBackupPolicyResponse
+     *
+     * @param SetBackupPolicyRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SetBackupPolicyResponse
      */
     public function setBackupPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupDbNames)) {
-            $query['BackupDbNames'] = $request->backupDbNames;
-        }
-        if (!Utils::isUnset($request->backupLevel)) {
-            $query['BackupLevel'] = $request->backupLevel;
-        }
-        if (!Utils::isUnset($request->backupLog)) {
-            $query['BackupLog'] = $request->backupLog;
-        }
-        if (!Utils::isUnset($request->backupMode)) {
-            $query['BackupMode'] = $request->backupMode;
-        }
-        if (!Utils::isUnset($request->dataBackupRetentionPeriod)) {
-            $query['DataBackupRetentionPeriod'] = $request->dataBackupRetentionPeriod;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->logBackupRetentionPeriod)) {
-            $query['LogBackupRetentionPeriod'] = $request->logBackupRetentionPeriod;
-        }
-        if (!Utils::isUnset($request->preferredBackupEndTime)) {
-            $query['PreferredBackupEndTime'] = $request->preferredBackupEndTime;
-        }
-        if (!Utils::isUnset($request->preferredBackupPeriod)) {
-            $query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
-        }
-        if (!Utils::isUnset($request->preferredBackupStartTime)) {
-            $query['PreferredBackupStartTime'] = $request->preferredBackupStartTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetBackupPolicy',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->backupDbNames) {
+            @$query['BackupDbNames'] = $request->backupDbNames;
         }
 
-        return SetBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->backupLevel) {
+            @$query['BackupLevel'] = $request->backupLevel;
+        }
+
+        if (null !== $request->backupLog) {
+            @$query['BackupLog'] = $request->backupLog;
+        }
+
+        if (null !== $request->backupMode) {
+            @$query['BackupMode'] = $request->backupMode;
+        }
+
+        if (null !== $request->dataBackupRetentionPeriod) {
+            @$query['DataBackupRetentionPeriod'] = $request->dataBackupRetentionPeriod;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->logBackupRetentionPeriod) {
+            @$query['LogBackupRetentionPeriod'] = $request->logBackupRetentionPeriod;
+        }
+
+        if (null !== $request->preferredBackupEndTime) {
+            @$query['PreferredBackupEndTime'] = $request->preferredBackupEndTime;
+        }
+
+        if (null !== $request->preferredBackupPeriod) {
+            @$query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+        }
+
+        if (null !== $request->preferredBackupStartTime) {
+            @$query['PreferredBackupStartTime'] = $request->preferredBackupStartTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetBackupPolicy',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SetBackupPolicyRequest $request SetBackupPolicyRequest
+     * @param request - SetBackupPolicyRequest
      *
-     * @return SetBackupPolicyResponse SetBackupPolicyResponse
+     * @returns SetBackupPolicyResponse
+     *
+     * @param SetBackupPolicyRequest $request
+     *
+     * @return SetBackupPolicyResponse
      */
     public function setBackupPolicy($request)
     {
@@ -5072,59 +5916,70 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Configures a broadcast table for a database.
-     *  *
-     * @param SetupBroadcastTablesRequest $request SetupBroadcastTablesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Configures a broadcast table for a database.
      *
-     * @return SetupBroadcastTablesResponse SetupBroadcastTablesResponse
+     * @param request - SetupBroadcastTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetupBroadcastTablesResponse
+     *
+     * @param SetupBroadcastTablesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SetupBroadcastTablesResponse
      */
     public function setupBroadcastTablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->active)) {
-            $query['Active'] = $request->active;
-        }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetupBroadcastTables',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetupBroadcastTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->active) {
+            @$query['Active'] = $request->active;
         }
 
-        return SetupBroadcastTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetupBroadcastTables',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetupBroadcastTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures a broadcast table for a database.
-     *  *
-     * @param SetupBroadcastTablesRequest $request SetupBroadcastTablesRequest
+     * Configures a broadcast table for a database.
      *
-     * @return SetupBroadcastTablesResponse SetupBroadcastTablesResponse
+     * @param request - SetupBroadcastTablesRequest
+     *
+     * @returns SetupBroadcastTablesResponse
+     *
+     * @param SetupBroadcastTablesRequest $request
+     *
+     * @return SetupBroadcastTablesResponse
      */
     public function setupBroadcastTables($request)
     {
@@ -5134,52 +5989,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param SetupDrdsParamsRequest $request SetupDrdsParamsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - SetupDrdsParamsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SetupDrdsParamsResponse SetupDrdsParamsResponse
+     * @returns SetupDrdsParamsResponse
+     *
+     * @param SetupDrdsParamsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SetupDrdsParamsResponse
      */
     public function setupDrdsParamsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->data)) {
-            $query['Data'] = $request->data;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->paramLevel)) {
-            $query['ParamLevel'] = $request->paramLevel;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetupDrdsParams',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetupDrdsParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->data) {
+            @$query['Data'] = $request->data;
         }
 
-        return SetupDrdsParamsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->paramLevel) {
+            @$query['ParamLevel'] = $request->paramLevel;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetupDrdsParams',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetupDrdsParamsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SetupDrdsParamsRequest $request SetupDrdsParamsRequest
+     * @param request - SetupDrdsParamsRequest
      *
-     * @return SetupDrdsParamsResponse SetupDrdsParamsResponse
+     * @returns SetupDrdsParamsResponse
+     *
+     * @param SetupDrdsParamsRequest $request
+     *
+     * @return SetupDrdsParamsResponse
      */
     public function setupDrdsParams($request)
     {
@@ -5189,56 +6054,66 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Enables the table recycle bin for a database.
-     *  *
-     * @param SetupRecycleBinStatusRequest $request SetupRecycleBinStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Enables the table recycle bin for a database.
      *
-     * @return SetupRecycleBinStatusResponse SetupRecycleBinStatusResponse
+     * @param request - SetupRecycleBinStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetupRecycleBinStatusResponse
+     *
+     * @param SetupRecycleBinStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SetupRecycleBinStatusResponse
      */
     public function setupRecycleBinStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->statusAction)) {
-            $query['StatusAction'] = $request->statusAction;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetupRecycleBinStatus',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetupRecycleBinStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return SetupRecycleBinStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->statusAction) {
+            @$query['StatusAction'] = $request->statusAction;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetupRecycleBinStatus',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetupRecycleBinStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the table recycle bin for a database.
-     *  *
-     * @param SetupRecycleBinStatusRequest $request SetupRecycleBinStatusRequest
+     * Enables the table recycle bin for a database.
      *
-     * @return SetupRecycleBinStatusResponse SetupRecycleBinStatusResponse
+     * @param request - SetupRecycleBinStatusRequest
+     *
+     * @returns SetupRecycleBinStatusResponse
+     *
+     * @param SetupRecycleBinStatusRequest $request
+     *
+     * @return SetupRecycleBinStatusResponse
      */
     public function setupRecycleBinStatus($request)
     {
@@ -5248,55 +6123,66 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param SetupTableRequest $request SetupTableRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - SetupTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SetupTableResponse SetupTableResponse
+     * @returns SetupTableResponse
+     *
+     * @param SetupTableRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SetupTableResponse
      */
     public function setupTableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allowFullTableScan)) {
-            $query['AllowFullTableScan'] = $request->allowFullTableScan;
-        }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetupTable',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetupTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->allowFullTableScan) {
+            @$query['AllowFullTableScan'] = $request->allowFullTableScan;
         }
 
-        return SetupTableResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetupTable',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetupTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SetupTableRequest $request SetupTableRequest
+     * @param request - SetupTableRequest
      *
-     * @return SetupTableResponse SetupTableResponse
+     * @returns SetupTableResponse
+     *
+     * @param SetupTableRequest $request
+     *
+     * @return SetupTableResponse
      */
     public function setupTable($request)
     {
@@ -5306,58 +6192,70 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param StartRestoreRequest $request StartRestoreRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - StartRestoreRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return StartRestoreResponse StartRestoreResponse
+     * @returns StartRestoreResponse
+     *
+     * @param StartRestoreRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StartRestoreResponse
      */
     public function startRestoreWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupDbNames)) {
-            $query['BackupDbNames'] = $request->backupDbNames;
-        }
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
-        }
-        if (!Utils::isUnset($request->backupLevel)) {
-            $query['BackupLevel'] = $request->backupLevel;
-        }
-        if (!Utils::isUnset($request->backupMode)) {
-            $query['BackupMode'] = $request->backupMode;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->preferredBackupTime)) {
-            $query['PreferredBackupTime'] = $request->preferredBackupTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'StartRestore',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StartRestoreResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->backupDbNames) {
+            @$query['BackupDbNames'] = $request->backupDbNames;
         }
 
-        return StartRestoreResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
+        }
+
+        if (null !== $request->backupLevel) {
+            @$query['BackupLevel'] = $request->backupLevel;
+        }
+
+        if (null !== $request->backupMode) {
+            @$query['BackupMode'] = $request->backupMode;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->preferredBackupTime) {
+            @$query['PreferredBackupTime'] = $request->preferredBackupTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartRestore',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartRestoreResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param StartRestoreRequest $request StartRestoreRequest
+     * @param request - StartRestoreRequest
      *
-     * @return StartRestoreResponse StartRestoreResponse
+     * @returns StartRestoreResponse
+     *
+     * @param StartRestoreRequest $request
+     *
+     * @return StartRestoreResponse
      */
     public function startRestore($request)
     {
@@ -5367,59 +6265,70 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Submits a cleanup task for the scale-out of a PolarDB-X database.
-     *  *
-     * @param SubmitCleanTaskRequest $request SubmitCleanTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Submits a cleanup task for the scale-out of a PolarDB-X database.
      *
-     * @return SubmitCleanTaskResponse SubmitCleanTaskResponse
+     * @param request - SubmitCleanTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitCleanTaskResponse
+     *
+     * @param SubmitCleanTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SubmitCleanTaskResponse
      */
     public function submitCleanTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->expandType)) {
-            $query['ExpandType'] = $request->expandType;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->parentJobId)) {
-            $query['ParentJobId'] = $request->parentJobId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitCleanTask',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitCleanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return SubmitCleanTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->expandType) {
+            @$query['ExpandType'] = $request->expandType;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->parentJobId) {
+            @$query['ParentJobId'] = $request->parentJobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitCleanTask',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitCleanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a cleanup task for the scale-out of a PolarDB-X database.
-     *  *
-     * @param SubmitCleanTaskRequest $request SubmitCleanTaskRequest
+     * Submits a cleanup task for the scale-out of a PolarDB-X database.
      *
-     * @return SubmitCleanTaskResponse SubmitCleanTaskResponse
+     * @param request - SubmitCleanTaskRequest
+     *
+     * @returns SubmitCleanTaskResponse
+     *
+     * @param SubmitCleanTaskRequest $request
+     *
+     * @return SubmitCleanTaskResponse
      */
     public function submitCleanTask($request)
     {
@@ -5429,56 +6338,66 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Submits a precheck task for the hot-spot scale-out of a PolarDB-X database. The task is used to check the table that does not contain the primary key.
-     *  *
-     * @param SubmitHotExpandPreCheckTaskRequest $request SubmitHotExpandPreCheckTaskRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Submits a precheck task for the hot-spot scale-out of a PolarDB-X database. The task is used to check the table that does not contain the primary key.
      *
-     * @return SubmitHotExpandPreCheckTaskResponse SubmitHotExpandPreCheckTaskResponse
+     * @param request - SubmitHotExpandPreCheckTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitHotExpandPreCheckTaskResponse
+     *
+     * @param SubmitHotExpandPreCheckTaskRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SubmitHotExpandPreCheckTaskResponse
      */
     public function submitHotExpandPreCheckTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbInstType)) {
-            $query['DbInstType'] = $request->dbInstType;
-        }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->tableList)) {
-            $query['TableList'] = $request->tableList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitHotExpandPreCheckTask',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitHotExpandPreCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbInstType) {
+            @$query['DbInstType'] = $request->dbInstType;
         }
 
-        return SubmitHotExpandPreCheckTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->tableList) {
+            @$query['TableList'] = $request->tableList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitHotExpandPreCheckTask',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitHotExpandPreCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a precheck task for the hot-spot scale-out of a PolarDB-X database. The task is used to check the table that does not contain the primary key.
-     *  *
-     * @param SubmitHotExpandPreCheckTaskRequest $request SubmitHotExpandPreCheckTaskRequest
+     * Submits a precheck task for the hot-spot scale-out of a PolarDB-X database. The task is used to check the table that does not contain the primary key.
      *
-     * @return SubmitHotExpandPreCheckTaskResponse SubmitHotExpandPreCheckTaskResponse
+     * @param request - SubmitHotExpandPreCheckTaskRequest
+     *
+     * @returns SubmitHotExpandPreCheckTaskResponse
+     *
+     * @param SubmitHotExpandPreCheckTaskRequest $request
+     *
+     * @return SubmitHotExpandPreCheckTaskResponse
      */
     public function submitHotExpandPreCheckTask($request)
     {
@@ -5488,68 +6407,82 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Submits a hot-spot scale-out task for a database.
-     *  *
-     * @param SubmitHotExpandTaskRequest $request SubmitHotExpandTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Submits a hot-spot scale-out task for a database.
      *
-     * @return SubmitHotExpandTaskResponse SubmitHotExpandTaskResponse
+     * @param request - SubmitHotExpandTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitHotExpandTaskResponse
+     *
+     * @param SubmitHotExpandTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubmitHotExpandTaskResponse
      */
     public function submitHotExpandTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->extendedMapping)) {
-            $query['ExtendedMapping'] = $request->extendedMapping;
-        }
-        if (!Utils::isUnset($request->instanceDbMapping)) {
-            $query['InstanceDbMapping'] = $request->instanceDbMapping;
-        }
-        if (!Utils::isUnset($request->mapping)) {
-            $query['Mapping'] = $request->mapping;
-        }
-        if (!Utils::isUnset($request->supperAccountMapping)) {
-            $query['SupperAccountMapping'] = $request->supperAccountMapping;
-        }
-        if (!Utils::isUnset($request->taskDesc)) {
-            $query['TaskDesc'] = $request->taskDesc;
-        }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitHotExpandTask',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitHotExpandTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return SubmitHotExpandTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->extendedMapping) {
+            @$query['ExtendedMapping'] = $request->extendedMapping;
+        }
+
+        if (null !== $request->instanceDbMapping) {
+            @$query['InstanceDbMapping'] = $request->instanceDbMapping;
+        }
+
+        if (null !== $request->mapping) {
+            @$query['Mapping'] = $request->mapping;
+        }
+
+        if (null !== $request->supperAccountMapping) {
+            @$query['SupperAccountMapping'] = $request->supperAccountMapping;
+        }
+
+        if (null !== $request->taskDesc) {
+            @$query['TaskDesc'] = $request->taskDesc;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitHotExpandTask',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitHotExpandTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a hot-spot scale-out task for a database.
-     *  *
-     * @param SubmitHotExpandTaskRequest $request SubmitHotExpandTaskRequest
+     * Submits a hot-spot scale-out task for a database.
      *
-     * @return SubmitHotExpandTaskResponse SubmitHotExpandTaskResponse
+     * @param request - SubmitHotExpandTaskRequest
+     *
+     * @returns SubmitHotExpandTaskResponse
+     *
+     * @param SubmitHotExpandTaskRequest $request
+     *
+     * @return SubmitHotExpandTaskResponse
      */
     public function submitHotExpandTask($request)
     {
@@ -5559,53 +6492,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Submits a precheck task for the smooth scale-out of a PolarDB-X database.
-     *  *
-     * @param SubmitSmoothExpandPreCheckRequest $request SubmitSmoothExpandPreCheckRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Submits a precheck task for the smooth scale-out of a PolarDB-X database.
      *
-     * @return SubmitSmoothExpandPreCheckResponse SubmitSmoothExpandPreCheckResponse
+     * @param request - SubmitSmoothExpandPreCheckRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitSmoothExpandPreCheckResponse
+     *
+     * @param SubmitSmoothExpandPreCheckRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SubmitSmoothExpandPreCheckResponse
      */
     public function submitSmoothExpandPreCheckWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbInstType)) {
-            $query['DbInstType'] = $request->dbInstType;
-        }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitSmoothExpandPreCheck',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitSmoothExpandPreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbInstType) {
+            @$query['DbInstType'] = $request->dbInstType;
         }
 
-        return SubmitSmoothExpandPreCheckResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitSmoothExpandPreCheck',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitSmoothExpandPreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a precheck task for the smooth scale-out of a PolarDB-X database.
-     *  *
-     * @param SubmitSmoothExpandPreCheckRequest $request SubmitSmoothExpandPreCheckRequest
+     * Submits a precheck task for the smooth scale-out of a PolarDB-X database.
      *
-     * @return SubmitSmoothExpandPreCheckResponse SubmitSmoothExpandPreCheckResponse
+     * @param request - SubmitSmoothExpandPreCheckRequest
+     *
+     * @returns SubmitSmoothExpandPreCheckResponse
+     *
+     * @param SubmitSmoothExpandPreCheckRequest $request
+     *
+     * @return SubmitSmoothExpandPreCheckResponse
      */
     public function submitSmoothExpandPreCheck($request)
     {
@@ -5615,50 +6557,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Submits a precheck task for the smooth scale-out of a PolarDB-X 1.0 database.
-     *  *
-     * @param SubmitSmoothExpandPreCheckTaskRequest $request SubmitSmoothExpandPreCheckTaskRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Submits a precheck task for the smooth scale-out of a PolarDB-X 1.0 database.
      *
-     * @return SubmitSmoothExpandPreCheckTaskResponse SubmitSmoothExpandPreCheckTaskResponse
+     * @param request - SubmitSmoothExpandPreCheckTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitSmoothExpandPreCheckTaskResponse
+     *
+     * @param SubmitSmoothExpandPreCheckTaskRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return SubmitSmoothExpandPreCheckTaskResponse
      */
     public function submitSmoothExpandPreCheckTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitSmoothExpandPreCheckTask',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitSmoothExpandPreCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return SubmitSmoothExpandPreCheckTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitSmoothExpandPreCheckTask',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitSmoothExpandPreCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a precheck task for the smooth scale-out of a PolarDB-X 1.0 database.
-     *  *
-     * @param SubmitSmoothExpandPreCheckTaskRequest $request SubmitSmoothExpandPreCheckTaskRequest
+     * Submits a precheck task for the smooth scale-out of a PolarDB-X 1.0 database.
      *
-     * @return SubmitSmoothExpandPreCheckTaskResponse SubmitSmoothExpandPreCheckTaskResponse
+     * @param request - SubmitSmoothExpandPreCheckTaskRequest
+     *
+     * @returns SubmitSmoothExpandPreCheckTaskResponse
+     *
+     * @param SubmitSmoothExpandPreCheckTaskRequest $request
+     *
+     * @return SubmitSmoothExpandPreCheckTaskResponse
      */
     public function submitSmoothExpandPreCheckTask($request)
     {
@@ -5668,70 +6618,86 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param SubmitSqlFlashbackTaskRequest $request SubmitSqlFlashbackTaskRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - SubmitSqlFlashbackTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SubmitSqlFlashbackTaskResponse SubmitSqlFlashbackTaskResponse
+     * @returns SubmitSqlFlashbackTaskResponse
+     *
+     * @param SubmitSqlFlashbackTaskRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SubmitSqlFlashbackTaskResponse
      */
     public function submitSqlFlashbackTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->recallRestoreType)) {
-            $query['RecallRestoreType'] = $request->recallRestoreType;
-        }
-        if (!Utils::isUnset($request->recallType)) {
-            $query['RecallType'] = $request->recallType;
-        }
-        if (!Utils::isUnset($request->sqlPk)) {
-            $query['SqlPk'] = $request->sqlPk;
-        }
-        if (!Utils::isUnset($request->sqlType)) {
-            $query['SqlType'] = $request->sqlType;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
-        }
-        if (!Utils::isUnset($request->traceId)) {
-            $query['TraceId'] = $request->traceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitSqlFlashbackTask',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitSqlFlashbackTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return SubmitSqlFlashbackTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->recallRestoreType) {
+            @$query['RecallRestoreType'] = $request->recallRestoreType;
+        }
+
+        if (null !== $request->recallType) {
+            @$query['RecallType'] = $request->recallType;
+        }
+
+        if (null !== $request->sqlPk) {
+            @$query['SqlPk'] = $request->sqlPk;
+        }
+
+        if (null !== $request->sqlType) {
+            @$query['SqlType'] = $request->sqlType;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        if (null !== $request->traceId) {
+            @$query['TraceId'] = $request->traceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitSqlFlashbackTask',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitSqlFlashbackTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SubmitSqlFlashbackTaskRequest $request SubmitSqlFlashbackTaskRequest
+     * @param request - SubmitSqlFlashbackTaskRequest
      *
-     * @return SubmitSqlFlashbackTaskResponse SubmitSqlFlashbackTaskResponse
+     * @returns SubmitSqlFlashbackTaskResponse
+     *
+     * @param SubmitSqlFlashbackTaskRequest $request
+     *
+     * @return SubmitSqlFlashbackTaskResponse
      */
     public function submitSqlFlashbackTask($request)
     {
@@ -5741,53 +6707,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Switches the mode of broadcast tables from the multi-write mode to the asynchronous link mode.
-     *  *
-     * @param SwitchGlobalBroadcastTypeRequest $request SwitchGlobalBroadcastTypeRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Switches the mode of broadcast tables from the multi-write mode to the asynchronous link mode.
      *
-     * @return SwitchGlobalBroadcastTypeResponse SwitchGlobalBroadcastTypeResponse
+     * @param request - SwitchGlobalBroadcastTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SwitchGlobalBroadcastTypeResponse
+     *
+     * @param SwitchGlobalBroadcastTypeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SwitchGlobalBroadcastTypeResponse
      */
     public function switchGlobalBroadcastTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SwitchGlobalBroadcastType',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SwitchGlobalBroadcastTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return SwitchGlobalBroadcastTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SwitchGlobalBroadcastType',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SwitchGlobalBroadcastTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Switches the mode of broadcast tables from the multi-write mode to the asynchronous link mode.
-     *  *
-     * @param SwitchGlobalBroadcastTypeRequest $request SwitchGlobalBroadcastTypeRequest
+     * Switches the mode of broadcast tables from the multi-write mode to the asynchronous link mode.
      *
-     * @return SwitchGlobalBroadcastTypeResponse SwitchGlobalBroadcastTypeResponse
+     * @param request - SwitchGlobalBroadcastTypeRequest
+     *
+     * @returns SwitchGlobalBroadcastTypeResponse
+     *
+     * @param SwitchGlobalBroadcastTypeRequest $request
+     *
+     * @return SwitchGlobalBroadcastTypeResponse
      */
     public function switchGlobalBroadcastType($request)
     {
@@ -5797,52 +6772,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param request - TagResourcesRequest
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -5852,55 +6837,66 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param request - UntagResourcesRequest
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -5910,56 +6906,66 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Changes the network type of a PolarDB-X 1.0 instance.
-     *  *
-     * @param UpdateInstanceNetworkRequest $request UpdateInstanceNetworkRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Changes the network type of a PolarDB-X 1.0 instance.
      *
-     * @return UpdateInstanceNetworkResponse UpdateInstanceNetworkResponse
+     * @param request - UpdateInstanceNetworkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceNetworkResponse
+     *
+     * @param UpdateInstanceNetworkRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateInstanceNetworkResponse
      */
     public function updateInstanceNetworkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->classicExpiredDays)) {
-            $query['ClassicExpiredDays'] = $request->classicExpiredDays;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->retainClassic)) {
-            $query['RetainClassic'] = $request->retainClassic;
-        }
-        if (!Utils::isUnset($request->srcInstanceNetworkType)) {
-            $query['SrcInstanceNetworkType'] = $request->srcInstanceNetworkType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateInstanceNetwork',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateInstanceNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->classicExpiredDays) {
+            @$query['ClassicExpiredDays'] = $request->classicExpiredDays;
         }
 
-        return UpdateInstanceNetworkResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->retainClassic) {
+            @$query['RetainClassic'] = $request->retainClassic;
+        }
+
+        if (null !== $request->srcInstanceNetworkType) {
+            @$query['SrcInstanceNetworkType'] = $request->srcInstanceNetworkType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateInstanceNetwork',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateInstanceNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the network type of a PolarDB-X 1.0 instance.
-     *  *
-     * @param UpdateInstanceNetworkRequest $request UpdateInstanceNetworkRequest
+     * Changes the network type of a PolarDB-X 1.0 instance.
      *
-     * @return UpdateInstanceNetworkResponse UpdateInstanceNetworkResponse
+     * @param request - UpdateInstanceNetworkRequest
+     *
+     * @returns UpdateInstanceNetworkResponse
+     *
+     * @param UpdateInstanceNetworkRequest $request
+     *
+     * @return UpdateInstanceNetworkResponse
      */
     public function updateInstanceNetwork($request)
     {
@@ -5969,62 +6975,74 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Updates the specifications of a custom ApsaraDB RDS instance at the storage layer.
-     *  *
-     * @param UpdatePrivateRdsClassRequest $request UpdatePrivateRdsClassRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Updates the specifications of a custom ApsaraDB RDS instance at the storage layer.
      *
-     * @return UpdatePrivateRdsClassResponse UpdatePrivateRdsClassResponse
+     * @param request - UpdatePrivateRdsClassRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePrivateRdsClassResponse
+     *
+     * @param UpdatePrivateRdsClassRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdatePrivateRdsClassResponse
      */
     public function updatePrivateRdsClassWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoUseCoupon)) {
-            $query['AutoUseCoupon'] = $request->autoUseCoupon;
-        }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->prePayDuration)) {
-            $query['PrePayDuration'] = $request->prePayDuration;
-        }
-        if (!Utils::isUnset($request->rdsClass)) {
-            $query['RdsClass'] = $request->rdsClass;
-        }
-        if (!Utils::isUnset($request->storage)) {
-            $query['Storage'] = $request->storage;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdatePrivateRdsClass',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdatePrivateRdsClassResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
         }
 
-        return UpdatePrivateRdsClassResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->prePayDuration) {
+            @$query['PrePayDuration'] = $request->prePayDuration;
+        }
+
+        if (null !== $request->rdsClass) {
+            @$query['RdsClass'] = $request->rdsClass;
+        }
+
+        if (null !== $request->storage) {
+            @$query['Storage'] = $request->storage;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePrivateRdsClass',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePrivateRdsClassResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the specifications of a custom ApsaraDB RDS instance at the storage layer.
-     *  *
-     * @param UpdatePrivateRdsClassRequest $request UpdatePrivateRdsClassRequest
+     * Updates the specifications of a custom ApsaraDB RDS instance at the storage layer.
      *
-     * @return UpdatePrivateRdsClassResponse UpdatePrivateRdsClassResponse
+     * @param request - UpdatePrivateRdsClassRequest
+     *
+     * @returns UpdatePrivateRdsClassResponse
+     *
+     * @param UpdatePrivateRdsClassRequest $request
+     *
+     * @return UpdatePrivateRdsClassResponse
      */
     public function updatePrivateRdsClass($request)
     {
@@ -6034,49 +7052,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param UpdateResourceGroupAttributeRequest $request UpdateResourceGroupAttributeRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateResourceGroupAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpdateResourceGroupAttributeResponse UpdateResourceGroupAttributeResponse
+     * @returns UpdateResourceGroupAttributeResponse
+     *
+     * @param UpdateResourceGroupAttributeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateResourceGroupAttributeResponse
      */
     public function updateResourceGroupAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateResourceGroupAttribute',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateResourceGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return UpdateResourceGroupAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateResourceGroupAttribute',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateResourceGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateResourceGroupAttributeRequest $request UpdateResourceGroupAttributeRequest
+     * @param request - UpdateResourceGroupAttributeRequest
      *
-     * @return UpdateResourceGroupAttributeResponse UpdateResourceGroupAttributeResponse
+     * @returns UpdateResourceGroupAttributeResponse
+     *
+     * @param UpdateResourceGroupAttributeRequest $request
+     *
+     * @return UpdateResourceGroupAttributeResponse
      */
     public function updateResourceGroupAttribute($request)
     {
@@ -6086,53 +7113,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @summary Upgrades the version of a column-oriented storage instance of a PolarDB-X 1.0 instance.
-     *  *
-     * @param UpgradeHiStoreInstanceRequest $request UpgradeHiStoreInstanceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Upgrades the version of a column-oriented storage instance of a PolarDB-X 1.0 instance.
      *
-     * @return UpgradeHiStoreInstanceResponse UpgradeHiStoreInstanceResponse
+     * @param request - UpgradeHiStoreInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeHiStoreInstanceResponse
+     *
+     * @param UpgradeHiStoreInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpgradeHiStoreInstanceResponse
      */
     public function upgradeHiStoreInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->historeInstanceId)) {
-            $query['HistoreInstanceId'] = $request->historeInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpgradeHiStoreInstance',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpgradeHiStoreInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return UpgradeHiStoreInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->historeInstanceId) {
+            @$query['HistoreInstanceId'] = $request->historeInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeHiStoreInstance',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeHiStoreInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Upgrades the version of a column-oriented storage instance of a PolarDB-X 1.0 instance.
-     *  *
-     * @param UpgradeHiStoreInstanceRequest $request UpgradeHiStoreInstanceRequest
+     * Upgrades the version of a column-oriented storage instance of a PolarDB-X 1.0 instance.
      *
-     * @return UpgradeHiStoreInstanceResponse UpgradeHiStoreInstanceResponse
+     * @param request - UpgradeHiStoreInstanceRequest
+     *
+     * @returns UpgradeHiStoreInstanceResponse
+     *
+     * @param UpgradeHiStoreInstanceRequest $request
+     *
+     * @return UpgradeHiStoreInstanceResponse
      */
     public function upgradeHiStoreInstance($request)
     {
@@ -6142,49 +7178,58 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param UpgradeInstanceVersionRequest $request UpgradeInstanceVersionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - UpgradeInstanceVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpgradeInstanceVersionResponse UpgradeInstanceVersionResponse
+     * @returns UpgradeInstanceVersionResponse
+     *
+     * @param UpgradeInstanceVersionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpgradeInstanceVersionResponse
      */
     public function upgradeInstanceVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->rpm)) {
-            $query['Rpm'] = $request->rpm;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpgradeInstanceVersion',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpgradeInstanceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
 
-        return UpgradeInstanceVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->rpm) {
+            @$query['Rpm'] = $request->rpm;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeInstanceVersion',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeInstanceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpgradeInstanceVersionRequest $request UpgradeInstanceVersionRequest
+     * @param request - UpgradeInstanceVersionRequest
      *
-     * @return UpgradeInstanceVersionResponse UpgradeInstanceVersionResponse
+     * @returns UpgradeInstanceVersionResponse
+     *
+     * @param UpgradeInstanceVersionRequest $request
+     *
+     * @return UpgradeInstanceVersionResponse
      */
     public function upgradeInstanceVersion($request)
     {
@@ -6194,58 +7239,70 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ValidateShardTaskRequest $request ValidateShardTaskRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ValidateShardTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ValidateShardTaskResponse ValidateShardTaskResponse
+     * @returns ValidateShardTaskResponse
+     *
+     * @param ValidateShardTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ValidateShardTaskResponse
      */
     public function validateShardTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->sourceTableName)) {
-            $query['SourceTableName'] = $request->sourceTableName;
-        }
-        if (!Utils::isUnset($request->targetTableName)) {
-            $query['TargetTableName'] = $request->targetTableName;
-        }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ValidateShardTask',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ValidateShardTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
-        return ValidateShardTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->drdsInstanceId) {
+            @$query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sourceTableName) {
+            @$query['SourceTableName'] = $request->sourceTableName;
+        }
+
+        if (null !== $request->targetTableName) {
+            @$query['TargetTableName'] = $request->targetTableName;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ValidateShardTask',
+            'version' => '2019-01-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ValidateShardTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ValidateShardTaskRequest $request ValidateShardTaskRequest
+     * @param request - ValidateShardTaskRequest
      *
-     * @return ValidateShardTaskResponse ValidateShardTaskResponse
+     * @returns ValidateShardTaskResponse
+     *
+     * @param ValidateShardTaskRequest $request
+     *
+     * @return ValidateShardTaskResponse
      */
     public function validateShardTask($request)
     {

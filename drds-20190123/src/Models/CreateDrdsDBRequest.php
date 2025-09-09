@@ -4,64 +4,38 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CreateDrdsDBRequest\instDbName;
 use AlibabaCloud\SDK\Drds\V20190123\Models\CreateDrdsDBRequest\rdsSuperAccount;
-use AlibabaCloud\Tea\Model;
 
 class CreateDrdsDBRequest extends Model
 {
     /**
-     * @description The name of the account that has permissions to access all databases on the ApsaraDB RDS for MySQL instance.
-     *
-     * This parameter is required only when the Type parameter is set to VERTICAL.
-     * @example drds_sample_account
-     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @description The type of the storage instances that are used by the PolarDB-X 1.0 database. Set the value to RDS.
-     *
-     * @example RDS
-     *
      * @var string
      */
     public $dbInstType;
 
     /**
-     * @description Specifies whether the required ApsaraDB RDS for MySQL instance is being created.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $dbInstanceIsCreating;
 
     /**
-     * @description The name of the PolarDB-X 1.0 database you want to create.
-     *
-     * @example testdb
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @description The ID of the PolarDB-X 1.0 instance on which you want to create the database.
-     *
-     * This parameter is required.
-     * @example drdshbgal154****
-     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
-     * @description The encoding method that is used by the database.
-     *
-     * @example utf8
-     *
      * @var string
      */
     public $encode;
@@ -72,17 +46,11 @@ class CreateDrdsDBRequest extends Model
     public $instDbName;
 
     /**
-     * @description The password that is used to log on to the database.
-     *
-     * @example drds_sample_password
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @example ["drds_sample_rds_id1", "drds_sample_rds_id2"]
-     *
      * @var string[]
      */
     public $rdsInstance;
@@ -93,79 +61,101 @@ class CreateDrdsDBRequest extends Model
     public $rdsSuperAccount;
 
     /**
-     * @description The partitioning mode of the database. Valid values:
-     *
-     *   **HORIZONTAL**: The database is horizontally partitioned (sharded).
-     *   **VERTICAL**: The database is vertically partitioned.
-     *
-     * @example HORIZONTAL
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'dbInstType'           => 'DbInstType',
+        'accountName' => 'AccountName',
+        'dbInstType' => 'DbInstType',
         'dbInstanceIsCreating' => 'DbInstanceIsCreating',
-        'dbName'               => 'DbName',
-        'drdsInstanceId'       => 'DrdsInstanceId',
-        'encode'               => 'Encode',
-        'instDbName'           => 'InstDbName',
-        'password'             => 'Password',
-        'rdsInstance'          => 'RdsInstance',
-        'rdsSuperAccount'      => 'RdsSuperAccount',
-        'type'                 => 'Type',
+        'dbName' => 'DbName',
+        'drdsInstanceId' => 'DrdsInstanceId',
+        'encode' => 'Encode',
+        'instDbName' => 'InstDbName',
+        'password' => 'Password',
+        'rdsInstance' => 'RdsInstance',
+        'rdsSuperAccount' => 'RdsSuperAccount',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->instDbName)) {
+            Model::validateArray($this->instDbName);
+        }
+        if (\is_array($this->rdsInstance)) {
+            Model::validateArray($this->rdsInstance);
+        }
+        if (\is_array($this->rdsSuperAccount)) {
+            Model::validateArray($this->rdsSuperAccount);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->dbInstType) {
             $res['DbInstType'] = $this->dbInstType;
         }
+
         if (null !== $this->dbInstanceIsCreating) {
             $res['DbInstanceIsCreating'] = $this->dbInstanceIsCreating;
         }
+
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
+
         if (null !== $this->encode) {
             $res['Encode'] = $this->encode;
         }
+
         if (null !== $this->instDbName) {
-            $res['InstDbName'] = [];
-            if (null !== $this->instDbName && \is_array($this->instDbName)) {
-                $n = 0;
-                foreach ($this->instDbName as $item) {
-                    $res['InstDbName'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instDbName)) {
+                $res['InstDbName'] = [];
+                $n1 = 0;
+                foreach ($this->instDbName as $item1) {
+                    $res['InstDbName'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->rdsInstance) {
-            $res['RdsInstance'] = $this->rdsInstance;
-        }
-        if (null !== $this->rdsSuperAccount) {
-            $res['RdsSuperAccount'] = [];
-            if (null !== $this->rdsSuperAccount && \is_array($this->rdsSuperAccount)) {
-                $n = 0;
-                foreach ($this->rdsSuperAccount as $item) {
-                    $res['RdsSuperAccount'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rdsInstance)) {
+                $res['RdsInstance'] = [];
+                $n1 = 0;
+                foreach ($this->rdsInstance as $item1) {
+                    $res['RdsInstance'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->rdsSuperAccount) {
+            if (\is_array($this->rdsSuperAccount)) {
+                $res['RdsSuperAccount'] = [];
+                $n1 = 0;
+                foreach ($this->rdsSuperAccount as $item1) {
+                    $res['RdsSuperAccount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -173,58 +163,75 @@ class CreateDrdsDBRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDrdsDBRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['DbInstType'])) {
             $model->dbInstType = $map['DbInstType'];
         }
+
         if (isset($map['DbInstanceIsCreating'])) {
             $model->dbInstanceIsCreating = $map['DbInstanceIsCreating'];
         }
+
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
+
         if (isset($map['Encode'])) {
             $model->encode = $map['Encode'];
         }
+
         if (isset($map['InstDbName'])) {
             if (!empty($map['InstDbName'])) {
                 $model->instDbName = [];
-                $n                 = 0;
-                foreach ($map['InstDbName'] as $item) {
-                    $model->instDbName[$n++] = null !== $item ? instDbName::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstDbName'] as $item1) {
+                    $model->instDbName[$n1] = instDbName::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['RdsInstance'])) {
             if (!empty($map['RdsInstance'])) {
-                $model->rdsInstance = $map['RdsInstance'];
-            }
-        }
-        if (isset($map['RdsSuperAccount'])) {
-            if (!empty($map['RdsSuperAccount'])) {
-                $model->rdsSuperAccount = [];
-                $n                      = 0;
-                foreach ($map['RdsSuperAccount'] as $item) {
-                    $model->rdsSuperAccount[$n++] = null !== $item ? rdsSuperAccount::fromMap($item) : $item;
+                $model->rdsInstance = [];
+                $n1 = 0;
+                foreach ($map['RdsInstance'] as $item1) {
+                    $model->rdsInstance[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['RdsSuperAccount'])) {
+            if (!empty($map['RdsSuperAccount'])) {
+                $model->rdsSuperAccount = [];
+                $n1 = 0;
+                foreach ($map['RdsSuperAccount'] as $item1) {
+                    $model->rdsSuperAccount[$n1] = rdsSuperAccount::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

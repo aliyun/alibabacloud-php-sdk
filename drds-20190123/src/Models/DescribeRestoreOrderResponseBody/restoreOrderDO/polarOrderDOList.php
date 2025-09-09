@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO\polarOrderDOList\polarOrderDOList;
 
 class polarOrderDOList extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO\polarOrderDOList\polarOrderDOList[]
+     * @var polarOrderDOList[]
      */
     public $polarOrderDOList;
     protected $_name = [
@@ -18,17 +19,22 @@ class polarOrderDOList extends Model
 
     public function validate()
     {
+        if (\is_array($this->polarOrderDOList)) {
+            Model::validateArray($this->polarOrderDOList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->polarOrderDOList) {
-            $res['PolarOrderDOList'] = [];
-            if (null !== $this->polarOrderDOList && \is_array($this->polarOrderDOList)) {
-                $n = 0;
-                foreach ($this->polarOrderDOList as $item) {
-                    $res['PolarOrderDOList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->polarOrderDOList)) {
+                $res['PolarOrderDOList'] = [];
+                $n1 = 0;
+                foreach ($this->polarOrderDOList as $item1) {
+                    $res['PolarOrderDOList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +42,21 @@ class polarOrderDOList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return polarOrderDOList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolarOrderDOList'])) {
             if (!empty($map['PolarOrderDOList'])) {
                 $model->polarOrderDOList = [];
-                $n                       = 0;
-                foreach ($map['PolarOrderDOList'] as $item) {
-                    $model->polarOrderDOList[$n++] = null !== $item ? \AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO\polarOrderDOList\polarOrderDOList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PolarOrderDOList'] as $item1) {
+                    $model->polarOrderDOList[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

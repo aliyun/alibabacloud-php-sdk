@@ -4,17 +4,12 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ModifyAccountPrivilegeRequest\dbPrivilege;
-use AlibabaCloud\Tea\Model;
 
 class ModifyAccountPrivilegeRequest extends Model
 {
     /**
-     * @description The username of the account that you want to modify.
-     *
-     * This parameter is required.
-     * @example account_sec
-     *
      * @var string
      */
     public $accountName;
@@ -25,52 +20,51 @@ class ModifyAccountPrivilegeRequest extends Model
     public $dbPrivilege;
 
     /**
-     * @description The ID of the PolarDB-X 1.0 instance.
-     *
-     * This parameter is required.
-     * @example drdshbgaen89****
-     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
-     * @description The ID of the region in which the PolarDB-X 1.0 instance is located.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'accountName'    => 'AccountName',
-        'dbPrivilege'    => 'DbPrivilege',
+        'accountName' => 'AccountName',
+        'dbPrivilege' => 'DbPrivilege',
         'drdsInstanceId' => 'DrdsInstanceId',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dbPrivilege)) {
+            Model::validateArray($this->dbPrivilege);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->dbPrivilege) {
-            $res['DbPrivilege'] = [];
-            if (null !== $this->dbPrivilege && \is_array($this->dbPrivilege)) {
-                $n = 0;
-                foreach ($this->dbPrivilege as $item) {
-                    $res['DbPrivilege'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dbPrivilege)) {
+                $res['DbPrivilege'] = [];
+                $n1 = 0;
+                foreach ($this->dbPrivilege as $item1) {
+                    $res['DbPrivilege'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -78,29 +72,33 @@ class ModifyAccountPrivilegeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAccountPrivilegeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['DbPrivilege'])) {
             if (!empty($map['DbPrivilege'])) {
                 $model->dbPrivilege = [];
-                $n                  = 0;
-                foreach ($map['DbPrivilege'] as $item) {
-                    $model->dbPrivilege[$n++] = null !== $item ? dbPrivilege::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DbPrivilege'] as $item1) {
+                    $model->dbPrivilege[$n1] = dbPrivilege::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

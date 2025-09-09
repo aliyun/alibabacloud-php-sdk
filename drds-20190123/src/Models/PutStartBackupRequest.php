@@ -4,75 +4,56 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PutStartBackupRequest extends Model
 {
     /**
-     * @description If you need to back up data at the database level, you must specify the list of databases to be backed up, and separate multiple databases with commas (,).
-     *
-     * @example db_1, db_2
-     *
      * @var string
      */
     public $backupDbNames;
 
     /**
-     * @description The backup level. Valid values:
-     *
-     *   instance: instance
-     *   db: The database type.
-     *
-     * @example db
-     *
      * @var string
      */
     public $backupLevel;
 
     /**
-     * @description The backup mode. For more information, see [backup mode](https://help.aliyun.com/document_detail/108631.html) and the valid values are as follows:
-     *
-     *   phy: fast backup
-     *   logic: Consistent backup
-     *
-     * @example phy
-     *
      * @var string
      */
     public $backupMode;
 
     /**
-     * @description The ID of the DRDS instance.
-     *
-     * This parameter is required.
-     * @example drds****c6vxxyzd
-     *
      * @var string
      */
     public $drdsInstanceId;
     protected $_name = [
-        'backupDbNames'  => 'BackupDbNames',
-        'backupLevel'    => 'BackupLevel',
-        'backupMode'     => 'BackupMode',
+        'backupDbNames' => 'BackupDbNames',
+        'backupLevel' => 'BackupLevel',
+        'backupMode' => 'BackupMode',
         'drdsInstanceId' => 'DrdsInstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupDbNames) {
             $res['BackupDbNames'] = $this->backupDbNames;
         }
+
         if (null !== $this->backupLevel) {
             $res['BackupLevel'] = $this->backupLevel;
         }
+
         if (null !== $this->backupMode) {
             $res['BackupMode'] = $this->backupMode;
         }
+
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
@@ -80,23 +61,26 @@ class PutStartBackupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutStartBackupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupDbNames'])) {
             $model->backupDbNames = $map['BackupDbNames'];
         }
+
         if (isset($map['BackupLevel'])) {
             $model->backupLevel = $map['BackupLevel'];
         }
+
         if (isset($map['BackupMode'])) {
             $model->backupMode = $map['BackupMode'];
         }
+
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }

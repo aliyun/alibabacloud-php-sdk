@@ -4,61 +4,73 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\CreateDrdsDBRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instDbName extends Model
 {
     /**
-     * @description The ID of the ApsaraDB RDS for MySQL instance on which the databases need to be vertically partitioned. This parameter is required only when the Type parameter is set to VERTICAL.
-     *
-     * @example drds_sample_rds_id
-     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
-     * @example ["drds_sample_db1", "drds_sample_db2"]
-     *
      * @var string[]
      */
     public $shardDbName;
     protected $_name = [
         'dbInstanceId' => 'DbInstanceId',
-        'shardDbName'  => 'ShardDbName',
+        'shardDbName' => 'ShardDbName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->shardDbName)) {
+            Model::validateArray($this->shardDbName);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbInstanceId) {
             $res['DbInstanceId'] = $this->dbInstanceId;
         }
+
         if (null !== $this->shardDbName) {
-            $res['ShardDbName'] = $this->shardDbName;
+            if (\is_array($this->shardDbName)) {
+                $res['ShardDbName'] = [];
+                $n1 = 0;
+                foreach ($this->shardDbName as $item1) {
+                    $res['ShardDbName'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instDbName
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbInstanceId'])) {
             $model->dbInstanceId = $map['DbInstanceId'];
         }
+
         if (isset($map['ShardDbName'])) {
             if (!empty($map['ShardDbName'])) {
-                $model->shardDbName = $map['ShardDbName'];
+                $model->shardDbName = [];
+                $n1 = 0;
+                foreach ($map['ShardDbName'] as $item1) {
+                    $model->shardDbName[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

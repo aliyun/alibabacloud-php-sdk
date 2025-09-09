@@ -4,56 +4,46 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDrdsTasksRequest extends Model
 {
     /**
-     * @description The name of the database.
-     *
-     * @example test
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example drdsxxxxxxxxxxxx
-     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
-     * @description The type of tasks.
-     *
-     * @example test
-     *
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'dbName'         => 'DbName',
+        'dbName' => 'DbName',
         'drdsInstanceId' => 'DrdsInstanceId',
-        'taskType'       => 'TaskType',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -61,20 +51,22 @@ class DescribeDrdsTasksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDrdsTasksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

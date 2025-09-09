@@ -4,56 +4,56 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRdsPerformanceSummaryRequest extends Model
 {
     /**
-     * @description The ID of a DRDS instance.
-     *
-     * This parameter is required.
-     * @example drds************
-     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example rm-*****************
-     *
      * @var string[]
      */
     public $rdsInstanceId;
 
     /**
-     * @description The ID of the region where the streaming domain resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'drdsInstanceId' => 'DrdsInstanceId',
-        'rdsInstanceId'  => 'RdsInstanceId',
-        'regionId'       => 'RegionId',
+        'rdsInstanceId' => 'RdsInstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->rdsInstanceId)) {
+            Model::validateArray($this->rdsInstanceId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
+
         if (null !== $this->rdsInstanceId) {
-            $res['RdsInstanceId'] = $this->rdsInstanceId;
+            if (\is_array($this->rdsInstanceId)) {
+                $res['RdsInstanceId'] = [];
+                $n1 = 0;
+                foreach ($this->rdsInstanceId as $item1) {
+                    $res['RdsInstanceId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -61,22 +61,29 @@ class DescribeRdsPerformanceSummaryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRdsPerformanceSummaryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
+
         if (isset($map['RdsInstanceId'])) {
             if (!empty($map['RdsInstanceId'])) {
-                $model->rdsInstanceId = $map['RdsInstanceId'];
+                $model->rdsInstanceId = [];
+                $n1 = 0;
+                foreach ($map['RdsInstanceId'] as $item1) {
+                    $model->rdsInstanceId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

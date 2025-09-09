@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateResourceGroupAttributeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 91C7CAB5-3B2E-4FB6-893C-0162C0******
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateResourceGroupAttributeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateResourceGroupAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateResourceGroupAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

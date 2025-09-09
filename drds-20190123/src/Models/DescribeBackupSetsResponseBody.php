@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackupSetsResponseBody\backupSets;
-use AlibabaCloud\Tea\Model;
 
 class DescribeBackupSetsResponseBody extends Model
 {
     /**
-     * @description The list of backup sets.
-     *
      * @var backupSets
      */
     public $backupSets;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 7103AEE3-9025-442F-B82B-BABD0A******
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
         'backupSets' => 'BackupSets',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->backupSets) {
+            $this->backupSets->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupSets) {
-            $res['BackupSets'] = null !== $this->backupSets ? $this->backupSets->toMap() : null;
+            $res['BackupSets'] = null !== $this->backupSets ? $this->backupSets->toArray($noStream) : $this->backupSets;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -59,20 +55,22 @@ class DescribeBackupSetsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackupSetsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupSets'])) {
             $model->backupSets = backupSets::fromMap($map['BackupSets']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

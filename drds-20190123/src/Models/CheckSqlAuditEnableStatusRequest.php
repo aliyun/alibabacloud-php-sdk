@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckSqlAuditEnableStatusRequest extends Model
 {
     /**
-     * @description The name of the database.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @description The ID of the PolarDB-X 1.0 instance.
-     *
-     * This parameter is required.
-     * @example drds************
-     *
      * @var string
      */
     public $drdsInstanceId;
     protected $_name = [
-        'dbName'         => 'DbName',
+        'dbName' => 'DbName',
         'drdsInstanceId' => 'DrdsInstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
@@ -49,17 +41,18 @@ class CheckSqlAuditEnableStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckSqlAuditEnableStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }

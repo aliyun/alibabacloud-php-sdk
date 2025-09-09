@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackMenuResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class list_ extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackMenuResponseBody\list_\list_[]
+     * @var list_\list_[]
      */
     public $list;
     protected $_name = [
@@ -18,17 +18,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->list)) {
+            Model::validateArray($this->list);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->list) {
-            $res['list'] = [];
-            if (null !== $this->list && \is_array($this->list)) {
-                $n = 0;
-                foreach ($this->list as $item) {
-                    $res['list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->list)) {
+                $res['list'] = [];
+                $n1 = 0;
+                foreach ($this->list as $item1) {
+                    $res['list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +41,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['list'])) {
             if (!empty($map['list'])) {
                 $model->list = [];
-                $n           = 0;
-                foreach ($map['list'] as $item) {
-                    $model->list[$n++] = null !== $item ? \AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackMenuResponseBody\list_\list_::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['list'] as $item1) {
+                    $model->list[$n1] = list_\list_::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

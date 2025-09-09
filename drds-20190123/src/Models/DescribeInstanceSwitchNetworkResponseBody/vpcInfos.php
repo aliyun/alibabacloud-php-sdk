@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeInstanceSwitchNetworkResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeInstanceSwitchNetworkResponseBody\vpcInfos\vpcInfo;
-use AlibabaCloud\Tea\Model;
 
 class vpcInfos extends Model
 {
@@ -19,17 +19,22 @@ class vpcInfos extends Model
 
     public function validate()
     {
+        if (\is_array($this->vpcInfo)) {
+            Model::validateArray($this->vpcInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vpcInfo) {
-            $res['VpcInfo'] = [];
-            if (null !== $this->vpcInfo && \is_array($this->vpcInfo)) {
-                $n = 0;
-                foreach ($this->vpcInfo as $item) {
-                    $res['VpcInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vpcInfo)) {
+                $res['VpcInfo'] = [];
+                $n1 = 0;
+                foreach ($this->vpcInfo as $item1) {
+                    $res['VpcInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class vpcInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vpcInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VpcInfo'])) {
             if (!empty($map['VpcInfo'])) {
                 $model->vpcInfo = [];
-                $n              = 0;
-                foreach ($map['VpcInfo'] as $item) {
-                    $model->vpcInfo[$n++] = null !== $item ? vpcInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VpcInfo'] as $item1) {
+                    $model->vpcInfo[$n1] = vpcInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

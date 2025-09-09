@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeHotDbListResponseBody\data\list_;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeHotDbListResponseBody\data\list_\instanceDb\hotDbList;
-use AlibabaCloud\Tea\Model;
 
 class instanceDb extends Model
 {
@@ -15,28 +15,29 @@ class instanceDb extends Model
     public $hotDbList;
 
     /**
-     * @description The name of the instance.
-     *
-     * @example instanceName
-     *
      * @var string
      */
     public $instanceName;
     protected $_name = [
-        'hotDbList'    => 'HotDbList',
+        'hotDbList' => 'HotDbList',
         'instanceName' => 'InstanceName',
     ];
 
     public function validate()
     {
+        if (null !== $this->hotDbList) {
+            $this->hotDbList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotDbList) {
-            $res['HotDbList'] = null !== $this->hotDbList ? $this->hotDbList->toMap() : null;
+            $res['HotDbList'] = null !== $this->hotDbList ? $this->hotDbList->toArray($noStream) : $this->hotDbList;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
@@ -44,17 +45,18 @@ class instanceDb extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceDb
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotDbList'])) {
             $model->hotDbList = hotDbList::fromMap($map['HotDbList']);
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }

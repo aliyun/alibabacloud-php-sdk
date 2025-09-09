@@ -4,85 +4,66 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeShardTaskInfoRequest extends Model
 {
     /**
-     * @description The name of the database.
-     *
-     * This parameter is required.
-     * @example jjjjjj_ppppp
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @description The ID of the PolarDB-X 1.0 instance.
-     *
-     * This parameter is required.
-     * @example drds*********
-     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The name of the table that you want to convert or shard.
-     *
-     * This parameter is required.
-     * @example a1
-     *
      * @var string
      */
     public $sourceTableName;
 
     /**
-     * @description The name of the table that is generated after you convert or shard the table.
-     *
-     * This parameter is required.
-     * @example a2
-     *
      * @var string
      */
     public $targetTableName;
     protected $_name = [
-        'dbName'          => 'DbName',
-        'drdsInstanceId'  => 'DrdsInstanceId',
-        'regionId'        => 'RegionId',
+        'dbName' => 'DbName',
+        'drdsInstanceId' => 'DrdsInstanceId',
+        'regionId' => 'RegionId',
         'sourceTableName' => 'SourceTableName',
         'targetTableName' => 'TargetTableName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->sourceTableName) {
             $res['SourceTableName'] = $this->sourceTableName;
         }
+
         if (null !== $this->targetTableName) {
             $res['TargetTableName'] = $this->targetTableName;
         }
@@ -90,26 +71,30 @@ class DescribeShardTaskInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeShardTaskInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SourceTableName'])) {
             $model->sourceTableName = $map['SourceTableName'];
         }
+
         if (isset($map['TargetTableName'])) {
             $model->targetTableName = $map['TargetTableName'];
         }

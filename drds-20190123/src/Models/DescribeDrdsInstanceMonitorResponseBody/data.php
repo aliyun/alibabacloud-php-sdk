@@ -4,73 +4,67 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsInstanceMonitorResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsInstanceMonitorResponseBody\data\values;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The name of the metric.
-     *
-     * @example cpu
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The number of nodes.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $nodeNum;
 
     /**
-     * @description The unit of the metric value.
-     *
-     * @example %
-     *
      * @var string
      */
     public $unit;
 
     /**
-     * @description The details of the monitoring data of the metric.
-     *
      * @var values[]
      */
     public $values;
     protected $_name = [
-        'key'     => 'Key',
+        'key' => 'Key',
         'nodeNum' => 'NodeNum',
-        'unit'    => 'Unit',
-        'values'  => 'Values',
+        'unit' => 'Unit',
+        'values' => 'Values',
     ];
 
     public function validate()
     {
+        if (\is_array($this->values)) {
+            Model::validateArray($this->values);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->nodeNum) {
             $res['NodeNum'] = $this->nodeNum;
         }
+
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
+
         if (null !== $this->values) {
-            $res['Values'] = [];
-            if (null !== $this->values && \is_array($this->values)) {
-                $n = 0;
-                foreach ($this->values as $item) {
-                    $res['Values'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->values)) {
+                $res['Values'] = [];
+                $n1 = 0;
+                foreach ($this->values as $item1) {
+                    $res['Values'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,29 +72,33 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['NodeNum'])) {
             $model->nodeNum = $map['NodeNum'];
         }
+
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }
+
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n             = 0;
-                foreach ($map['Values'] as $item) {
-                    $model->values[$n++] = null !== $item ? values::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Values'] as $item1) {
+                    $model->values[$n1] = values::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

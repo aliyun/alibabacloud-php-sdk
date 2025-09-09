@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRDSPerformanceResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class values extends Model
 {
     /**
-     * @description The time point when the value of the monitoring metric was obtained. The value is in the UNIX timestamp format. The time is displayed in UTC. Unit: ms.
-     *
-     * @example 1603209660000
-     *
      * @var int
      */
     public $date;
 
     /**
-     * @description The value of the monitoring metric.
-     *
-     * @example 0.58
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'date'  => 'Date',
+        'date' => 'Date',
         'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -47,17 +41,18 @@ class values extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return values
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

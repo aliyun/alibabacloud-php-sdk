@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeInstanceSwitchAzoneResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class targetAzones extends Model
 {
@@ -18,29 +18,45 @@ class targetAzones extends Model
 
     public function validate()
     {
+        if (\is_array($this->targetAzone)) {
+            Model::validateArray($this->targetAzone);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->targetAzone) {
-            $res['TargetAzone'] = $this->targetAzone;
+            if (\is_array($this->targetAzone)) {
+                $res['TargetAzone'] = [];
+                $n1 = 0;
+                foreach ($this->targetAzone as $item1) {
+                    $res['TargetAzone'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return targetAzones
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TargetAzone'])) {
             if (!empty($map['TargetAzone'])) {
-                $model->targetAzone = $map['TargetAzone'];
+                $model->targetAzone = [];
+                $n1 = 0;
+                foreach ($map['TargetAzone'] as $item1) {
+                    $model->targetAzone[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

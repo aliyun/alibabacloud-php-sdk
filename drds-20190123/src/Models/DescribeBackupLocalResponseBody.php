@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackupLocalResponseBody\backupPolicyDO;
-use AlibabaCloud\Tea\Model;
 
 class DescribeBackupLocalResponseBody extends Model
 {
     /**
-     * @description The information about the backup policy.
-     *
      * @var backupPolicyDO
      */
     public $backupPolicyDO;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example FDC9CFD5-306D-4A23-9D8C-057274C6****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The result of the request.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
         'backupPolicyDO' => 'BackupPolicyDO',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->backupPolicyDO) {
+            $this->backupPolicyDO->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupPolicyDO) {
-            $res['BackupPolicyDO'] = null !== $this->backupPolicyDO ? $this->backupPolicyDO->toMap() : null;
+            $res['BackupPolicyDO'] = null !== $this->backupPolicyDO ? $this->backupPolicyDO->toArray($noStream) : $this->backupPolicyDO;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -59,20 +55,22 @@ class DescribeBackupLocalResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackupLocalResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupPolicyDO'])) {
             $model->backupPolicyDO = backupPolicyDO::fromMap($map['BackupPolicyDO']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

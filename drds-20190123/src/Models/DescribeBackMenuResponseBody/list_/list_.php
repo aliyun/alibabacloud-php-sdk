@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackMenuResponseBody\list_;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class list_ extends Model
 {
     /**
-     * @description The backup method. Valid values:
-     *
-     *   **Logic **: logical backup
-     *   **phy**: physical backup
-     *
-     * @example phy
-     *
      * @var string
      */
     public $menuName;
 
     /**
-     * @description Indicates whether backup recovery is supported.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $support;
     protected $_name = [
         'menuName' => 'MenuName',
-        'support'  => 'Support',
+        'support' => 'Support',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->menuName) {
             $res['MenuName'] = $this->menuName;
         }
+
         if (null !== $this->support) {
             $res['Support'] = $this->support;
         }
@@ -50,17 +41,18 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MenuName'])) {
             $model->menuName = $map['MenuName'];
         }
+
         if (isset($map['Support'])) {
             $model->support = $map['Support'];
         }

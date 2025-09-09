@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeHotDbListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeHotDbListResponseBody\data\list_;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The information about the databases on which hot-spot scale-out is performed.
-     *
      * @var list_
      */
     public $list;
 
     /**
-     * @description The random number.
-     *
-     * @example jzhz
-     *
      * @var string
      */
     public $randomCode;
     protected $_name = [
-        'list'       => 'List',
+        'list' => 'List',
         'randomCode' => 'RandomCode',
     ];
 
     public function validate()
     {
+        if (null !== $this->list) {
+            $this->list->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->list) {
-            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
+            $res['List'] = null !== $this->list ? $this->list->toArray($noStream) : $this->list;
         }
+
         if (null !== $this->randomCode) {
             $res['RandomCode'] = $this->randomCode;
         }
@@ -46,17 +45,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['List'])) {
             $model->list = list_::fromMap($map['List']);
         }
+
         if (isset($map['RandomCode'])) {
             $model->randomCode = $map['RandomCode'];
         }

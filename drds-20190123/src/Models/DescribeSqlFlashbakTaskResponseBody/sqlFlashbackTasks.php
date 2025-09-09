@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeSqlFlashbakTaskResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeSqlFlashbakTaskResponseBody\sqlFlashbackTasks\sqlFlashbackTask;
-use AlibabaCloud\Tea\Model;
 
 class sqlFlashbackTasks extends Model
 {
@@ -19,17 +19,22 @@ class sqlFlashbackTasks extends Model
 
     public function validate()
     {
+        if (\is_array($this->sqlFlashbackTask)) {
+            Model::validateArray($this->sqlFlashbackTask);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sqlFlashbackTask) {
-            $res['SqlFlashbackTask'] = [];
-            if (null !== $this->sqlFlashbackTask && \is_array($this->sqlFlashbackTask)) {
-                $n = 0;
-                foreach ($this->sqlFlashbackTask as $item) {
-                    $res['SqlFlashbackTask'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sqlFlashbackTask)) {
+                $res['SqlFlashbackTask'] = [];
+                $n1 = 0;
+                foreach ($this->sqlFlashbackTask as $item1) {
+                    $res['SqlFlashbackTask'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class sqlFlashbackTasks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sqlFlashbackTasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SqlFlashbackTask'])) {
             if (!empty($map['SqlFlashbackTask'])) {
                 $model->sqlFlashbackTask = [];
-                $n                       = 0;
-                foreach ($map['SqlFlashbackTask'] as $item) {
-                    $model->sqlFlashbackTask[$n++] = null !== $item ? sqlFlashbackTask::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SqlFlashbackTask'] as $item1) {
+                    $model->sqlFlashbackTask[$n1] = sqlFlashbackTask::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

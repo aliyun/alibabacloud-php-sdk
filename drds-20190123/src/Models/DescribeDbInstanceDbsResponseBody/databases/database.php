@@ -4,59 +4,46 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDbInstanceDbsResponseBody\databases;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class database extends Model
 {
     /**
-     * @description Indicates the name of a storage-layer database.
-     *
-     * @example db_test
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @description Indicates the description of the storage-layer database.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description Indicates the state of the storage-layer database. Valid values:
-     *
-     *   **0**: The database is being created.
-     *   **1**: The database is available.
-     *   **3**: The database is being deleted.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
     protected $_name = [
-        'dbName'      => 'DbName',
+        'dbName' => 'DbName',
         'description' => 'Description',
-        'status'      => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -64,20 +51,22 @@ class database extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return database
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

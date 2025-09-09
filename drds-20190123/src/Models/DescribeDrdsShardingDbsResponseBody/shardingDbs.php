@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsShardingDbsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsShardingDbsResponseBody\shardingDbs\shardingDb;
-use AlibabaCloud\Tea\Model;
 
 class shardingDbs extends Model
 {
@@ -19,17 +19,22 @@ class shardingDbs extends Model
 
     public function validate()
     {
+        if (\is_array($this->shardingDb)) {
+            Model::validateArray($this->shardingDb);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->shardingDb) {
-            $res['ShardingDb'] = [];
-            if (null !== $this->shardingDb && \is_array($this->shardingDb)) {
-                $n = 0;
-                foreach ($this->shardingDb as $item) {
-                    $res['ShardingDb'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->shardingDb)) {
+                $res['ShardingDb'] = [];
+                $n1 = 0;
+                foreach ($this->shardingDb as $item1) {
+                    $res['ShardingDb'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class shardingDbs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return shardingDbs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ShardingDb'])) {
             if (!empty($map['ShardingDb'])) {
                 $model->shardingDb = [];
-                $n                 = 0;
-                foreach ($map['ShardingDb'] as $item) {
-                    $model->shardingDb[$n++] = null !== $item ? shardingDb::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ShardingDb'] as $item1) {
+                    $model->shardingDb[$n1] = shardingDb::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,145 +4,140 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitHotExpandTaskRequest\extendedMapping;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitHotExpandTaskRequest\instanceDbMapping;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitHotExpandTaskRequest\mapping;
 use AlibabaCloud\SDK\Drds\V20190123\Models\SubmitHotExpandTaskRequest\supperAccountMapping;
-use AlibabaCloud\Tea\Model;
 
 class SubmitHotExpandTaskRequest extends Model
 {
     /**
-     * @description The name of the database.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example drdshbga1138****
-     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
-     * @description The information about the database on which you want to perform hot-spot scale-out.
-     *
-     * This parameter is required.
      * @var extendedMapping[]
      */
     public $extendedMapping;
 
     /**
-     * @description The information about the instance to which the hot-spot database belongs.
-     *
-     * This parameter is required.
      * @var instanceDbMapping[]
      */
     public $instanceDbMapping;
 
     /**
-     * @description The information about the hot-spot database.
-     *
-     * This parameter is required.
      * @var mapping[]
      */
     public $mapping;
 
     /**
-     * @description The information about the privileged account.
-     *
      * @var supperAccountMapping[]
      */
     public $supperAccountMapping;
 
     /**
-     * @description The description of the task.
-     *
-     * @example test
-     *
      * @var string
      */
     public $taskDesc;
 
     /**
-     * @description The name of the task.
-     *
-     * @example test
-     *
      * @var string
      */
     public $taskName;
     protected $_name = [
-        'dbName'               => 'DbName',
-        'drdsInstanceId'       => 'DrdsInstanceId',
-        'extendedMapping'      => 'ExtendedMapping',
-        'instanceDbMapping'    => 'InstanceDbMapping',
-        'mapping'              => 'Mapping',
+        'dbName' => 'DbName',
+        'drdsInstanceId' => 'DrdsInstanceId',
+        'extendedMapping' => 'ExtendedMapping',
+        'instanceDbMapping' => 'InstanceDbMapping',
+        'mapping' => 'Mapping',
         'supperAccountMapping' => 'SupperAccountMapping',
-        'taskDesc'             => 'TaskDesc',
-        'taskName'             => 'TaskName',
+        'taskDesc' => 'TaskDesc',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->extendedMapping)) {
+            Model::validateArray($this->extendedMapping);
+        }
+        if (\is_array($this->instanceDbMapping)) {
+            Model::validateArray($this->instanceDbMapping);
+        }
+        if (\is_array($this->mapping)) {
+            Model::validateArray($this->mapping);
+        }
+        if (\is_array($this->supperAccountMapping)) {
+            Model::validateArray($this->supperAccountMapping);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
+
         if (null !== $this->extendedMapping) {
-            $res['ExtendedMapping'] = [];
-            if (null !== $this->extendedMapping && \is_array($this->extendedMapping)) {
-                $n = 0;
-                foreach ($this->extendedMapping as $item) {
-                    $res['ExtendedMapping'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->extendedMapping)) {
+                $res['ExtendedMapping'] = [];
+                $n1 = 0;
+                foreach ($this->extendedMapping as $item1) {
+                    $res['ExtendedMapping'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->instanceDbMapping) {
-            $res['InstanceDbMapping'] = [];
-            if (null !== $this->instanceDbMapping && \is_array($this->instanceDbMapping)) {
-                $n = 0;
-                foreach ($this->instanceDbMapping as $item) {
-                    $res['InstanceDbMapping'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceDbMapping)) {
+                $res['InstanceDbMapping'] = [];
+                $n1 = 0;
+                foreach ($this->instanceDbMapping as $item1) {
+                    $res['InstanceDbMapping'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->mapping) {
-            $res['Mapping'] = [];
-            if (null !== $this->mapping && \is_array($this->mapping)) {
-                $n = 0;
-                foreach ($this->mapping as $item) {
-                    $res['Mapping'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mapping)) {
+                $res['Mapping'] = [];
+                $n1 = 0;
+                foreach ($this->mapping as $item1) {
+                    $res['Mapping'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->supperAccountMapping) {
-            $res['SupperAccountMapping'] = [];
-            if (null !== $this->supperAccountMapping && \is_array($this->supperAccountMapping)) {
-                $n = 0;
-                foreach ($this->supperAccountMapping as $item) {
-                    $res['SupperAccountMapping'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supperAccountMapping)) {
+                $res['SupperAccountMapping'] = [];
+                $n1 = 0;
+                foreach ($this->supperAccountMapping as $item1) {
+                    $res['SupperAccountMapping'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->taskDesc) {
             $res['TaskDesc'] = $this->taskDesc;
         }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -150,59 +145,70 @@ class SubmitHotExpandTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitHotExpandTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
+
         if (isset($map['ExtendedMapping'])) {
             if (!empty($map['ExtendedMapping'])) {
                 $model->extendedMapping = [];
-                $n                      = 0;
-                foreach ($map['ExtendedMapping'] as $item) {
-                    $model->extendedMapping[$n++] = null !== $item ? extendedMapping::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ExtendedMapping'] as $item1) {
+                    $model->extendedMapping[$n1] = extendedMapping::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['InstanceDbMapping'])) {
             if (!empty($map['InstanceDbMapping'])) {
                 $model->instanceDbMapping = [];
-                $n                        = 0;
-                foreach ($map['InstanceDbMapping'] as $item) {
-                    $model->instanceDbMapping[$n++] = null !== $item ? instanceDbMapping::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceDbMapping'] as $item1) {
+                    $model->instanceDbMapping[$n1] = instanceDbMapping::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Mapping'])) {
             if (!empty($map['Mapping'])) {
                 $model->mapping = [];
-                $n              = 0;
-                foreach ($map['Mapping'] as $item) {
-                    $model->mapping[$n++] = null !== $item ? mapping::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Mapping'] as $item1) {
+                    $model->mapping[$n1] = mapping::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SupperAccountMapping'])) {
             if (!empty($map['SupperAccountMapping'])) {
                 $model->supperAccountMapping = [];
-                $n                           = 0;
-                foreach ($map['SupperAccountMapping'] as $item) {
-                    $model->supperAccountMapping[$n++] = null !== $item ? supperAccountMapping::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SupperAccountMapping'] as $item1) {
+                    $model->supperAccountMapping[$n1] = supperAccountMapping::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TaskDesc'])) {
             $model->taskDesc = $map['TaskDesc'];
         }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }

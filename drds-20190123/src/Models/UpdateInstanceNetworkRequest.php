@@ -4,73 +4,56 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateInstanceNetworkRequest extends Model
 {
     /**
-     * @description Specifies the retention period of the classic network endpoint. Unit: days.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $classicExpiredDays;
 
     /**
-     * @description The ID of the PolarDB-X 1.0 instance.
-     *
-     * This parameter is required.
-     * @example drds******
-     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
-     * @description Specifies whether to retain the classic network endpoint.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $retainClassic;
 
     /**
-     * @description The network type of the PolarDB-X 1.0 instance. Valid values:
-     *
-     *   vpc: Virtual Private Cloud (VPC)
-     *   classic: classic network
-     *
-     * This parameter is required.
-     * @example classic
-     *
      * @var string
      */
     public $srcInstanceNetworkType;
     protected $_name = [
-        'classicExpiredDays'     => 'ClassicExpiredDays',
-        'drdsInstanceId'         => 'DrdsInstanceId',
-        'retainClassic'          => 'RetainClassic',
+        'classicExpiredDays' => 'ClassicExpiredDays',
+        'drdsInstanceId' => 'DrdsInstanceId',
+        'retainClassic' => 'RetainClassic',
         'srcInstanceNetworkType' => 'SrcInstanceNetworkType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->classicExpiredDays) {
             $res['ClassicExpiredDays'] = $this->classicExpiredDays;
         }
+
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
+
         if (null !== $this->retainClassic) {
             $res['RetainClassic'] = $this->retainClassic;
         }
+
         if (null !== $this->srcInstanceNetworkType) {
             $res['SrcInstanceNetworkType'] = $this->srcInstanceNetworkType;
         }
@@ -78,23 +61,26 @@ class UpdateInstanceNetworkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInstanceNetworkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClassicExpiredDays'])) {
             $model->classicExpiredDays = $map['ClassicExpiredDays'];
         }
+
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
+
         if (isset($map['RetainClassic'])) {
             $model->retainClassic = $map['RetainClassic'];
         }
+
         if (isset($map['SrcInstanceNetworkType'])) {
             $model->srcInstanceNetworkType = $map['SrcInstanceNetworkType'];
         }

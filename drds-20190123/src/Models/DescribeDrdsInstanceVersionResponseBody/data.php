@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsInstanceVersionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The current version of the instance.
-     *
-     * @example 5.3.12-15682777
-     *
      * @var string
      */
     public $instanceVersion;
 
     /**
-     * @description The latest version of the instance.
-     *
-     * @example 5.4.12-16315258
-     *
      * @var string
      */
     public $newestVersion;
     protected $_name = [
         'instanceVersion' => 'InstanceVersion',
-        'newestVersion'   => 'NewestVersion',
+        'newestVersion' => 'NewestVersion',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceVersion) {
             $res['InstanceVersion'] = $this->instanceVersion;
         }
+
         if (null !== $this->newestVersion) {
             $res['NewestVersion'] = $this->newestVersion;
         }
@@ -47,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceVersion'])) {
             $model->instanceVersion = $map['InstanceVersion'];
         }
+
         if (isset($map['NewestVersion'])) {
             $model->newestVersion = $map['NewestVersion'];
         }

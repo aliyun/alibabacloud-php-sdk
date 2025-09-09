@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackupSetsResponseBody\backupSets\backupSet;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backupDbs extends Model
 {
@@ -18,29 +18,45 @@ class backupDbs extends Model
 
     public function validate()
     {
+        if (\is_array($this->backupDb)) {
+            Model::validateArray($this->backupDb);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupDb) {
-            $res['backupDb'] = $this->backupDb;
+            if (\is_array($this->backupDb)) {
+                $res['backupDb'] = [];
+                $n1 = 0;
+                foreach ($this->backupDb as $item1) {
+                    $res['backupDb'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backupDbs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['backupDb'])) {
             if (!empty($map['backupDb'])) {
-                $model->backupDb = $map['backupDb'];
+                $model->backupDb = [];
+                $n1 = 0;
+                foreach ($map['backupDb'] as $item1) {
+                    $model->backupDb[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

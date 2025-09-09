@@ -4,72 +4,56 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyRdsReadWeightRequest extends Model
 {
     /**
-     * @description The name of the database.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @description The ID of the PolarDB-X 1.0 instance.
-     *
-     * This parameter is required.
-     * @example drds************
-     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
-     * @description The names of the ApsaraDB RDS for MySQL instances. Separate the names with commas (,).
-     *
-     * This parameter is required.
-     * @example rm-****************,rm-****************
-     *
      * @var string
      */
     public $instanceNames;
 
     /**
-     * @description The weights of the ApsaraDB RDS for MySQL instances. Separate the weights with commas (,).
-     *
-     * This parameter is required.
-     * @example 14,86
-     *
      * @var string
      */
     public $weights;
     protected $_name = [
-        'dbName'         => 'DbName',
+        'dbName' => 'DbName',
         'drdsInstanceId' => 'DrdsInstanceId',
-        'instanceNames'  => 'InstanceNames',
-        'weights'        => 'Weights',
+        'instanceNames' => 'InstanceNames',
+        'weights' => 'Weights',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
+
         if (null !== $this->instanceNames) {
             $res['InstanceNames'] = $this->instanceNames;
         }
+
         if (null !== $this->weights) {
             $res['Weights'] = $this->weights;
         }
@@ -77,23 +61,26 @@ class ModifyRdsReadWeightRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyRdsReadWeightRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
+
         if (isset($map['InstanceNames'])) {
             $model->instanceNames = $map['InstanceNames'];
         }
+
         if (isset($map['Weights'])) {
             $model->weights = $map['Weights'];
         }

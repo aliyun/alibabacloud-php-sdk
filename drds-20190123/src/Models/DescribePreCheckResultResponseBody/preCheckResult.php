@@ -4,58 +4,57 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribePreCheckResultResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribePreCheckResultResponseBody\preCheckResult\subCheckItems;
-use AlibabaCloud\Tea\Model;
 
 class preCheckResult extends Model
 {
     /**
-     * @description Indicates the name of the precheck task.
-     *
      * @var string
      */
     public $preCheckName;
 
     /**
-     * @description Indicates the state of the precheck task.
-     *
-     * @example FAIL
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description Indicates the details about the subtasks of the precheck task.
-     *
      * @var subCheckItems[]
      */
     public $subCheckItems;
     protected $_name = [
-        'preCheckName'  => 'PreCheckName',
-        'state'         => 'State',
+        'preCheckName' => 'PreCheckName',
+        'state' => 'State',
         'subCheckItems' => 'SubCheckItems',
     ];
 
     public function validate()
     {
+        if (\is_array($this->subCheckItems)) {
+            Model::validateArray($this->subCheckItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->preCheckName) {
             $res['PreCheckName'] = $this->preCheckName;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+
         if (null !== $this->subCheckItems) {
-            $res['SubCheckItems'] = [];
-            if (null !== $this->subCheckItems && \is_array($this->subCheckItems)) {
-                $n = 0;
-                foreach ($this->subCheckItems as $item) {
-                    $res['SubCheckItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subCheckItems)) {
+                $res['SubCheckItems'] = [];
+                $n1 = 0;
+                foreach ($this->subCheckItems as $item1) {
+                    $res['SubCheckItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,26 +62,29 @@ class preCheckResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return preCheckResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PreCheckName'])) {
             $model->preCheckName = $map['PreCheckName'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
+
         if (isset($map['SubCheckItems'])) {
             if (!empty($map['SubCheckItems'])) {
                 $model->subCheckItems = [];
-                $n                    = 0;
-                foreach ($map['SubCheckItems'] as $item) {
-                    $model->subCheckItems[$n++] = null !== $item ? subCheckItems::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubCheckItems'] as $item1) {
+                    $model->subCheckItems[$n1] = subCheckItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

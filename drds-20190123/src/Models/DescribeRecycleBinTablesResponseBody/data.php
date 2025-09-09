@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRecycleBinTablesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The time when the table was created.
-     *
-     * @example 2019-09-16 14:42:06
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The original name of the table.
-     *
-     * @example BIN_T4AG3CY5WWXPKHITCHJY
-     *
      * @var string
      */
     public $originalTableName;
 
     /**
-     * @description The name of the table.
-     *
-     * @example test
-     *
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'createTime'        => 'CreateTime',
+        'createTime' => 'CreateTime',
         'originalTableName' => 'OriginalTableName',
-        'tableName'         => 'TableName',
+        'tableName' => 'TableName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->originalTableName) {
             $res['OriginalTableName'] = $this->originalTableName;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -60,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['OriginalTableName'])) {
             $model->originalTableName = $map['OriginalTableName'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

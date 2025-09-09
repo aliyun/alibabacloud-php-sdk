@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeBackupSetsRequest extends Model
 {
     /**
-     * @description The ID of the DRDS instance.
-     *
-     * This parameter is required.
-     * @example drds***********
-     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
-     * @description The end of the query time which is in timestamp format (measured in millisecond) .
-     *
-     * This parameter is required.
-     * @example 1591326000000
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The beginning of the query time which is in timestamp format (measured in millisecond).
-     *
-     * This parameter is required.
-     * @example 1591327800000
-     *
      * @var string
      */
     public $startTime;
     protected $_name = [
         'drdsInstanceId' => 'DrdsInstanceId',
-        'endTime'        => 'EndTime',
-        'startTime'      => 'StartTime',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -63,20 +51,22 @@ class DescribeBackupSetsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackupSetsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDrdsDBIpWhiteListRequest extends Model
 {
     /**
-     * @description The database name.
-     *
-     * This parameter is required.
-     * @example test_db
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     * @example drds********
-     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
-     * @description The name of the whitelist group.
-     *
-     * @example group1
-     *
      * @var string
      */
     public $groupName;
@@ -42,28 +28,32 @@ class DescribeDrdsDBIpWhiteListRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'dbName'         => 'DbName',
+        'dbName' => 'DbName',
         'drdsInstanceId' => 'DrdsInstanceId',
-        'groupName'      => 'GroupName',
-        'regionId'       => 'RegionId',
+        'groupName' => 'GroupName',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -71,23 +61,26 @@ class DescribeDrdsDBIpWhiteListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDrdsDBIpWhiteListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveBackupsSetRequest extends Model
 {
     /**
-     * @description The ID of the backup set. You can call the [DescribeBackupSets](https://help.aliyun.com/document_detail/139331.html) interface to query the ID of a backup set.
-     *
-     * This parameter is required.
-     * @example ba30d5c4-a6dc-11ea-bd40-************
-     *
      * @var string
      */
     public $backupId;
 
     /**
-     * @description The ID of the DRDS instance.
-     *
-     * This parameter is required.
-     * @example drds************
-     *
      * @var string
      */
     public $drdsInstanceId;
     protected $_name = [
-        'backupId'       => 'BackupId',
+        'backupId' => 'BackupId',
         'drdsInstanceId' => 'DrdsInstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
         }
+
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
@@ -49,17 +41,18 @@ class RemoveBackupsSetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveBackupsSetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
         }
+
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }

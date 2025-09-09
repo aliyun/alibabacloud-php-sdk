@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChangeAccountPasswordRequest extends Model
 {
     /**
-     * @description The name of the member account.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @description The ID of the DRDS instance.
-     *
-     * This parameter is required.
-     * @example drds********
-     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
-     * @description The new password.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $password;
     protected $_name = [
-        'accountName'    => 'AccountName',
+        'accountName' => 'AccountName',
         'drdsInstanceId' => 'DrdsInstanceId',
-        'password'       => 'Password',
+        'password' => 'Password',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
@@ -63,20 +51,22 @@ class ChangeAccountPasswordRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeAccountPasswordRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }

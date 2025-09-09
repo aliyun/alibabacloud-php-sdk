@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDrdsDbInstanceRequest extends Model
 {
     /**
-     * @description The ID of the custom ApsaraDB RDS for MySQL instance that you want to query.
-     *
-     * This parameter is required.
-     * @example rm-bp1t1mk5a5bdj****
-     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
-     * @description The name of the database.
-     *
-     * This parameter is required.
-     * @example drds_test
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @description The name of the PolarDB-X 1.0 instance.
-     *
-     * This parameter is required.
-     * @example drdshbga1138****
-     *
      * @var string
      */
     public $drdsInstanceId;
     protected $_name = [
-        'dbInstanceId'   => 'DbInstanceId',
-        'dbName'         => 'DbName',
+        'dbInstanceId' => 'DbInstanceId',
+        'dbName' => 'DbName',
         'drdsInstanceId' => 'DrdsInstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbInstanceId) {
             $res['DbInstanceId'] = $this->dbInstanceId;
         }
+
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
         }
@@ -63,20 +51,22 @@ class DescribeDrdsDbInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDrdsDbInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbInstanceId'])) {
             $model->dbInstanceId = $map['DbInstanceId'];
         }
+
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
         }

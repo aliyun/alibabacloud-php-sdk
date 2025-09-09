@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDrdsInstanceLevelTasksRequest extends Model
 {
     /**
-     * @description The ID of the PolarDB-X 1.0 instance of which the unfinished tasks you want to query.
-     *
-     * This parameter is required.
-     * @example drdssen12****
-     *
      * @var string
      */
     public $drdsInstanceId;
@@ -23,9 +18,10 @@ class DescribeDrdsInstanceLevelTasksRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->drdsInstanceId) {
@@ -35,11 +31,11 @@ class DescribeDrdsInstanceLevelTasksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDrdsInstanceLevelTasksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
