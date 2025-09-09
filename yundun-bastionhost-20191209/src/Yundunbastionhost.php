@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddDatabasesToGroupReque
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddDatabasesToGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddHostsToGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddHostsToGroupResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddInstanceRdMemberRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddInstanceRdMemberResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddUsersToGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddUsersToGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachDatabaseAccountsToUserGroupRequest;
@@ -191,6 +193,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostShareKeysRequest
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostShareKeysResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListInstanceRdMembersRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListInstanceRdMembersResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListNetworkDomainsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListNetworkDomainsResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationDatabaseAccountsRequest;
@@ -269,6 +273,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveDatabasesFromGroup
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveDatabasesFromGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveHostsFromGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveHostsFromGroupResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveInstanceRdMemberRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveInstanceRdMemberResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveUsersFromGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveUsersFromGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RenewAssetOperationTokenRequest;
@@ -653,6 +659,71 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addHostsToGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 添加RD成员账号.
+     *
+     * @param request - AddInstanceRdMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddInstanceRdMemberResponse
+     *
+     * @param AddInstanceRdMemberRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddInstanceRdMemberResponse
+     */
+    public function addInstanceRdMemberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddInstanceRdMember',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddInstanceRdMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加RD成员账号.
+     *
+     * @param request - AddInstanceRdMemberRequest
+     *
+     * @returns AddInstanceRdMemberResponse
+     *
+     * @param AddInstanceRdMemberRequest $request
+     *
+     * @return AddInstanceRdMemberResponse
+     */
+    public function addInstanceRdMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addInstanceRdMemberWithOptions($request, $runtime);
     }
 
     /**
@@ -7237,6 +7308,75 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * 获取RD成员账号列表.
+     *
+     * @param request - ListInstanceRdMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceRdMembersResponse
+     *
+     * @param ListInstanceRdMembersRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListInstanceRdMembersResponse
+     */
+    public function listInstanceRdMembersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstanceRdMembers',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstanceRdMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取RD成员账号列表.
+     *
+     * @param request - ListInstanceRdMembersRequest
+     *
+     * @returns ListInstanceRdMembersResponse
+     *
+     * @param ListInstanceRdMembersRequest $request
+     *
+     * @return ListInstanceRdMembersResponse
+     */
+    public function listInstanceRdMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceRdMembersWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the network domains created in a bastion host.
      *
      * @param request - ListNetworkDomainsRequest
@@ -10413,6 +10553,71 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeHostsFromGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 移除RD成员账号.
+     *
+     * @param request - RemoveInstanceRdMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveInstanceRdMemberResponse
+     *
+     * @param RemoveInstanceRdMemberRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RemoveInstanceRdMemberResponse
+     */
+    public function removeInstanceRdMemberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveInstanceRdMember',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveInstanceRdMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 移除RD成员账号.
+     *
+     * @param request - RemoveInstanceRdMemberRequest
+     *
+     * @returns RemoveInstanceRdMemberResponse
+     *
+     * @param RemoveInstanceRdMemberRequest $request
+     *
+     * @return RemoveInstanceRdMemberResponse
+     */
+    public function removeInstanceRdMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeInstanceRdMemberWithOptions($request, $runtime);
     }
 
     /**
