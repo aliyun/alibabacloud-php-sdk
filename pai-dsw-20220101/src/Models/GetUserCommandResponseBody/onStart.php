@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\GetUserCommandResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class onStart extends Model
 {
     /**
-     * @example apt update
-     *
      * @var string
      */
     public $content;
@@ -18,9 +16,12 @@ class onStart extends Model
         'content' => 'Content',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
@@ -30,11 +31,11 @@ class onStart extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return onStart
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

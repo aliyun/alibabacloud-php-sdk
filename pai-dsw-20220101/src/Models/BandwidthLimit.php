@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BandwidthLimit extends Model
 {
@@ -34,49 +34,88 @@ class BandwidthLimit extends Model
         'ingressWhitelists' => 'IngressWhitelists',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->egressWhitelists)) {
+            Model::validateArray($this->egressWhitelists);
+        }
+        if (\is_array($this->ingressWhitelists)) {
+            Model::validateArray($this->ingressWhitelists);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->egressRate) {
             $res['EgressRate'] = $this->egressRate;
         }
+
         if (null !== $this->egressWhitelists) {
-            $res['EgressWhitelists'] = $this->egressWhitelists;
+            if (\is_array($this->egressWhitelists)) {
+                $res['EgressWhitelists'] = [];
+                $n1 = 0;
+                foreach ($this->egressWhitelists as $item1) {
+                    $res['EgressWhitelists'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->ingressRate) {
             $res['IngressRate'] = $this->ingressRate;
         }
+
         if (null !== $this->ingressWhitelists) {
-            $res['IngressWhitelists'] = $this->ingressWhitelists;
+            if (\is_array($this->ingressWhitelists)) {
+                $res['IngressWhitelists'] = [];
+                $n1 = 0;
+                foreach ($this->ingressWhitelists as $item1) {
+                    $res['IngressWhitelists'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BandwidthLimit
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EgressRate'])) {
             $model->egressRate = $map['EgressRate'];
         }
+
         if (isset($map['EgressWhitelists'])) {
             if (!empty($map['EgressWhitelists'])) {
-                $model->egressWhitelists = $map['EgressWhitelists'];
+                $model->egressWhitelists = [];
+                $n1 = 0;
+                foreach ($map['EgressWhitelists'] as $item1) {
+                    $model->egressWhitelists[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['IngressRate'])) {
             $model->ingressRate = $map['IngressRate'];
         }
+
         if (isset($map['IngressWhitelists'])) {
             if (!empty($map['IngressWhitelists'])) {
-                $model->ingressWhitelists = $map['IngressWhitelists'];
+                $model->ingressWhitelists = [];
+                $n1 = 0;
+                foreach ($map['IngressWhitelists'] as $item1) {
+                    $model->ingressWhitelists[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,77 +4,41 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInstanceEventsResponseBody extends Model
 {
     /**
-     * @description The status code. Valid values:
-     *
-     *   InternalError: an internal error. All errors, except for parameter validation errors, are classified as internal errors.
-     *   ValidationError: a parameter validation error.
-     *
-     * @example None
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The events.
-     *
      * @var string[]
      */
     public $events;
 
     /**
-     * @description The HTTP status code. Valid values:
-     *
-     *   400: One or more parameters are invalid.
-     *   404: The instance does not exist.
-     *   200: The request is normal.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description The instance ID.
-     *
-     * @example dsw-730xxxxxxxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The response message.
-     *
-     * @example XXX
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example E7D55162-4489-1619-AAF5-3F97D5FCA948
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -88,29 +52,48 @@ class GetInstanceEventsResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->events)) {
+            Model::validateArray($this->events);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->events) {
-            $res['Events'] = $this->events;
+            if (\is_array($this->events)) {
+                $res['Events'] = [];
+                $n1 = 0;
+                foreach ($this->events as $item1) {
+                    $res['Events'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -118,34 +101,45 @@ class GetInstanceEventsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceEventsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Events'])) {
             if (!empty($map['Events'])) {
-                $model->events = $map['Events'];
+                $model->events = [];
+                $n1 = 0;
+                foreach ($map['Events'] as $item1) {
+                    $model->events[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

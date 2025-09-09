@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class requestedResource extends Model
 {
     /**
-     * @description The number of CPU cores.
-     *
-     * @example 32
-     *
      * @var string
      */
     public $CPU;
 
     /**
-     * @description The number of GPUs.
-     *
-     * @example 4
-     *
      * @var string
      */
     public $GPU;
 
     /**
-     * @description The GPU memory type.
-     *
-     * @example v100
-     *
      * @var string
      */
     public $GPUType;
 
     /**
-     * @description The memory size.
-     *
-     * @example 32
-     *
      * @var string
      */
     public $memory;
 
     /**
-     * @description The size of the shared memory.
-     *
-     * @example 32
-     *
      * @var string
      */
     public $sharedMemory;
@@ -60,23 +40,30 @@ class requestedResource extends Model
         'sharedMemory' => 'SharedMemory',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->CPU) {
             $res['CPU'] = $this->CPU;
         }
+
         if (null !== $this->GPU) {
             $res['GPU'] = $this->GPU;
         }
+
         if (null !== $this->GPUType) {
             $res['GPUType'] = $this->GPUType;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+
         if (null !== $this->sharedMemory) {
             $res['SharedMemory'] = $this->sharedMemory;
         }
@@ -84,26 +71,30 @@ class requestedResource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return requestedResource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CPU'])) {
             $model->CPU = $map['CPU'];
         }
+
         if (isset($map['GPU'])) {
             $model->GPU = $map['GPU'];
         }
+
         if (isset($map['GPUType'])) {
             $model->GPUType = $map['GPUType'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+
         if (isset($map['SharedMemory'])) {
             $model->sharedMemory = $map['SharedMemory'];
         }

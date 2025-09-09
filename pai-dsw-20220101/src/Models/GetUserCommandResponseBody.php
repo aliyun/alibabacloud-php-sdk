@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetUserCommandResponseBody\onStart;
-use AlibabaCloud\Tea\Model;
 
 class GetUserCommandResponseBody extends Model
 {
     /**
-     * @example ValidationError
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example null
-     *
      * @var string
      */
     public $message;
@@ -29,37 +25,21 @@ class GetUserCommandResponseBody extends Model
     public $onStart;
 
     /**
-     * @example BEBDF2EE-642E-5992-8907-D2011A7ACEFE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @example 1900
-     *
      * @var string
      */
     public $userCommandId;
 
     /**
-     * @example "AccessDeniedDetail": {
-     * "PolicyType": "AccountLevelIdentityBasedPolicy",
-     * "AuthPrincipalOwnerId": "xxx",
-     * "EncodedDiagnosticMessage": "AQIBIAAAA....bwhg==",
-     * "AuthPrincipalType": "SubUser",
-     * "AuthPrincipalDisplayName": "xxx",
-     * "NoPermissionType": "ImplicitDeny",
-     * "AuthAction": "ram:GetUserCommand"
-     * }
-     *
      * @var mixed[]
      */
     public $accessDeniedDetail;
@@ -73,64 +53,95 @@ class GetUserCommandResponseBody extends Model
         'accessDeniedDetail' => 'accessDeniedDetail',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->onStart) {
+            $this->onStart->validate();
+        }
+        if (\is_array($this->accessDeniedDetail)) {
+            Model::validateArray($this->accessDeniedDetail);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->onStart) {
-            $res['OnStart'] = null !== $this->onStart ? $this->onStart->toMap() : null;
+            $res['OnStart'] = null !== $this->onStart ? $this->onStart->toArray($noStream) : $this->onStart;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->userCommandId) {
             $res['UserCommandId'] = $this->userCommandId;
         }
+
         if (null !== $this->accessDeniedDetail) {
-            $res['accessDeniedDetail'] = $this->accessDeniedDetail;
+            if (\is_array($this->accessDeniedDetail)) {
+                $res['accessDeniedDetail'] = [];
+                foreach ($this->accessDeniedDetail as $key1 => $value1) {
+                    $res['accessDeniedDetail'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserCommandResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['OnStart'])) {
             $model->onStart = onStart::fromMap($map['OnStart']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['UserCommandId'])) {
             $model->userCommandId = $map['UserCommandId'];
         }
+
         if (isset($map['accessDeniedDetail'])) {
-            $model->accessDeniedDetail = $map['accessDeniedDetail'];
+            if (!empty($map['accessDeniedDetail'])) {
+                $model->accessDeniedDetail = [];
+                foreach ($map['accessDeniedDetail'] as $key1 => $value1) {
+                    $model->accessDeniedDetail[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

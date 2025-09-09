@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\userCommand\onStart;
-use AlibabaCloud\Tea\Model;
 
 class userCommand extends Model
 {
@@ -17,23 +17,29 @@ class userCommand extends Model
         'onStart' => 'OnStart',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->onStart) {
+            $this->onStart->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->onStart) {
-            $res['OnStart'] = null !== $this->onStart ? $this->onStart->toMap() : null;
+            $res['OnStart'] = null !== $this->onStart ? $this->onStart->toArray($noStream) : $this->onStart;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

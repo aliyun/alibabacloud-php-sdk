@@ -4,67 +4,75 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListSystemLogsResponseBody\systemLogs;
-use AlibabaCloud\Tea\Model;
 
 class ListSystemLogsResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $offset;
+
+    /**
      * @var systemLogs[]
      */
     public $systemLogs;
-
-    /**
-     * @example 10
-     *
-     * @var int
-     */
-    public $totalCount;
     protected $_name = [
+        'offset' => 'Offset',
         'systemLogs' => 'SystemLogs',
-        'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->systemLogs)) {
+            Model::validateArray($this->systemLogs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->offset) {
+            $res['Offset'] = $this->offset;
+        }
+
         if (null !== $this->systemLogs) {
-            $res['SystemLogs'] = [];
-            if (null !== $this->systemLogs && \is_array($this->systemLogs)) {
-                $n = 0;
-                foreach ($this->systemLogs as $item) {
-                    $res['SystemLogs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->systemLogs)) {
+                $res['SystemLogs'] = [];
+                $n1 = 0;
+                foreach ($this->systemLogs as $item1) {
+                    $res['SystemLogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSystemLogsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Offset'])) {
+            $model->offset = $map['Offset'];
+        }
+
         if (isset($map['SystemLogs'])) {
             if (!empty($map['SystemLogs'])) {
                 $model->systemLogs = [];
-                $n = 0;
-                foreach ($map['SystemLogs'] as $item) {
-                    $model->systemLogs[$n++] = null !== $item ? systemLogs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SystemLogs'] as $item1) {
+                    $model->systemLogs[$n1] = systemLogs::fromMap($item1);
+                    ++$n1;
                 }
             }
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

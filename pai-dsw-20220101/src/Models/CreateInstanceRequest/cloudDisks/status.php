@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\cloudDisks;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class status extends Model
 {
     /**
-     * @description The available capacity. Unit: bytes.
-     *
-     * @example 31841058816
-     *
      * @var int
      */
     public $available;
 
     /**
-     * @description The capacity. Unit: bytes.
-     *
-     * @example 32212254720
-     *
      * @var int
      */
     public $capacity;
 
     /**
-     * @description The used capacity. Unit: bytes.
-     *
-     * @example 371195904
-     *
      * @var int
      */
     public $usage;
@@ -40,17 +28,22 @@ class status extends Model
         'usage' => 'Usage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->available) {
             $res['Available'] = $this->available;
         }
+
         if (null !== $this->capacity) {
             $res['Capacity'] = $this->capacity;
         }
+
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
@@ -58,20 +51,22 @@ class status extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return status
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Available'])) {
             $model->available = $map['Available'];
         }
+
         if (isset($map['Capacity'])) {
             $model->capacity = $map['Capacity'];
         }
+
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
         }

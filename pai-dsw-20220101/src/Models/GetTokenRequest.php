@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTokenRequest extends Model
 {
     /**
-     * @description The validity period. Unit: seconds.
-     *
-     * @example 60
-     *
      * @var int
      */
     public $expireTime;
 
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example dsw-730xxxxxxxxxx
-     *
      * @var string
      */
     public $instanceId;
@@ -32,14 +22,18 @@ class GetTokenRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -47,17 +41,18 @@ class GetTokenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTokenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

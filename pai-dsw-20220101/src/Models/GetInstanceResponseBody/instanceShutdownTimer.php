@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceShutdownTimer extends Model
 {
     /**
-     * @description The scheduled stop time.
-     *
-     * @example 2021-01-12T14:36:01Z
-     *
      * @var string
      */
     public $dueTime;
 
     /**
-     * @description The creation time.
-     *
-     * @example 2021-01-12T14:36:01Z
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description The modified time.
-     *
-     * @example 2021-01-12T14:36:01Z
-     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
-     * @description The instance ID.
-     *
-     * @example dsw-730xxxxxxxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The remaining time before the instance is stopped. Unit: milliseconds.
-     *
-     * @example 3600000
-     *
      * @var int
      */
     public $remainingTimeInMs;
@@ -60,23 +40,30 @@ class instanceShutdownTimer extends Model
         'remainingTimeInMs' => 'RemainingTimeInMs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dueTime) {
             $res['DueTime'] = $this->dueTime;
         }
+
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
+
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->remainingTimeInMs) {
             $res['RemainingTimeInMs'] = $this->remainingTimeInMs;
         }
@@ -84,26 +71,30 @@ class instanceShutdownTimer extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceShutdownTimer
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DueTime'])) {
             $model->dueTime = $map['DueTime'];
         }
+
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
+
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RemainingTimeInMs'])) {
             $model->remainingTimeInMs = $map['RemainingTimeInMs'];
         }

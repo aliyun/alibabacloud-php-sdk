@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopInstanceRequest extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $saveImage;
@@ -18,9 +16,12 @@ class StopInstanceRequest extends Model
         'saveImage' => 'SaveImage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->saveImage) {
@@ -30,11 +31,11 @@ class StopInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

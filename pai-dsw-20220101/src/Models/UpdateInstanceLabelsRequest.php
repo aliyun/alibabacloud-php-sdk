@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceLabelsRequest\labels;
-use AlibabaCloud\Tea\Model;
 
 class UpdateInstanceLabelsRequest extends Model
 {
     /**
-     * @description The tags that you want to update.
-     *
-     * This parameter is required.
-     *
      * @var labels[]
      */
     public $labels;
@@ -21,17 +17,24 @@ class UpdateInstanceLabelsRequest extends Model
         'labels' => 'Labels',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labels) {
-            $res['Labels'] = [];
-            if (null !== $this->labels && \is_array($this->labels)) {
-                $n = 0;
-                foreach ($this->labels as $item) {
-                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -39,20 +42,21 @@ class UpdateInstanceLabelsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInstanceLabelsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n = 0;
-                foreach ($map['Labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1] = labels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

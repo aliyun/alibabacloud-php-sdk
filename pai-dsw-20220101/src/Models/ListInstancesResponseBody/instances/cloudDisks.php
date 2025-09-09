@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cloudDisks extends Model
 {
     /**
-     * @description The cloud disk capacity.
-     *
-     * @example 30Gi
-     *
      * @var string
      */
     public $capacity;
 
     /**
-     * @description The mount path of the cloud disk in the container.
-     *
-     * @example /mmt/workspace
-     *
      * @var string
      */
     public $mountPath;
 
     /**
-     * @description The directory on the cloud disk that is mounted to the container.
-     *
-     * @example /workspace
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description The cloud disk type. The value rootfs indicates that the cloud disk is used as the root file system (rootfs).
-     *
-     * @example rootfs
-     *
      * @var string
      */
     public $subType;
@@ -50,20 +34,26 @@ class cloudDisks extends Model
         'subType' => 'SubType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->capacity) {
             $res['Capacity'] = $this->capacity;
         }
+
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
         }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
+
         if (null !== $this->subType) {
             $res['SubType'] = $this->subType;
         }
@@ -71,23 +61,26 @@ class cloudDisks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cloudDisks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Capacity'])) {
             $model->capacity = $map['Capacity'];
         }
+
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
         }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
+
         if (isset($map['SubType'])) {
             $model->subType = $map['SubType'];
         }

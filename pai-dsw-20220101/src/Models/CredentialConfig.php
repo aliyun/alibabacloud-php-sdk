@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CredentialConfig\configs;
-use AlibabaCloud\Tea\Model;
 
 class CredentialConfig extends Model
 {
     /**
-     * @example 0
-     *
      * @var string
      */
     public $aliyunEnvRoleKey;
@@ -22,8 +20,6 @@ class CredentialConfig extends Model
     public $configs;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enable;
@@ -33,23 +29,32 @@ class CredentialConfig extends Model
         'enable' => 'Enable',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->configs)) {
+            Model::validateArray($this->configs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunEnvRoleKey) {
             $res['AliyunEnvRoleKey'] = $this->aliyunEnvRoleKey;
         }
+
         if (null !== $this->configs) {
-            $res['Configs'] = [];
-            if (null !== $this->configs && \is_array($this->configs)) {
-                $n = 0;
-                foreach ($this->configs as $item) {
-                    $res['Configs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configs)) {
+                $res['Configs'] = [];
+                $n1 = 0;
+                foreach ($this->configs as $item1) {
+                    $res['Configs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
@@ -57,26 +62,29 @@ class CredentialConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CredentialConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliyunEnvRoleKey'])) {
             $model->aliyunEnvRoleKey = $map['AliyunEnvRoleKey'];
         }
+
         if (isset($map['Configs'])) {
             if (!empty($map['Configs'])) {
                 $model->configs = [];
-                $n = 0;
-                foreach ($map['Configs'] as $item) {
-                    $model->configs[$n++] = null !== $item ? configs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Configs'] as $item1) {
+                    $model->configs[$n1] = configs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }

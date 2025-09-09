@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\affinity\CPU;
-use AlibabaCloud\Tea\Model;
 
 class affinity extends Model
 {
     /**
-     * @description The CPU affinity configuration. Only subscription instances that use general-purpose computing resources support CPU affinity configuration.
-     *
      * @var CPU
      */
     public $CPU;
@@ -19,23 +17,29 @@ class affinity extends Model
         'CPU' => 'CPU',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->CPU) {
+            $this->CPU->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->CPU) {
-            $res['CPU'] = null !== $this->CPU ? $this->CPU->toMap() : null;
+            $res['CPU'] = null !== $this->CPU ? $this->CPU->toArray($noStream) : $this->CPU;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return affinity
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
