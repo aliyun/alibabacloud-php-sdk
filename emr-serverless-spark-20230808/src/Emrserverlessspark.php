@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\AddMembersRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\AddMembersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateKyuubiTokenRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateKyuubiTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateLivyComputeRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateLivyComputeResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateLivyComputeTokenRequest;
@@ -23,6 +25,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementReque
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateWorkspaceResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteKyuubiTokenRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteKyuubiTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeTokenRequest;
@@ -35,6 +39,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetDoctorApplicationReq
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetDoctorApplicationResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetKyuubiTokenRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetKyuubiTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeTokenRequest;
@@ -91,6 +97,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopSessionClusterReque
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopSessionClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\TerminateSqlStatementRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\TerminateSqlStatementResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateKyuubiTokenRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateKyuubiTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateLivyComputeRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateLivyComputeResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateProcessDefinitionWithScheduleRequest;
@@ -269,6 +277,89 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->cancelJobRunWithOptions($workspaceId, $jobRunId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建kyuubi的token.
+     *
+     * @param request - CreateKyuubiTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKyuubiTokenResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $kyuubiServiceId
+     * @param CreateKyuubiTokenRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateKyuubiTokenResponse
+     */
+    public function createKyuubiTokenWithOptions($workspaceId, $kyuubiServiceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->autoExpireConfiguration) {
+            @$body['autoExpireConfiguration'] = $request->autoExpireConfiguration;
+        }
+
+        if (null !== $request->memberArns) {
+            @$body['memberArns'] = $request->memberArns;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->token) {
+            @$body['token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKyuubiToken',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/kyuubiService/' . Url::percentEncode($kyuubiServiceId) . '/token',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKyuubiTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建kyuubi的token.
+     *
+     * @param request - CreateKyuubiTokenRequest
+     *
+     * @returns CreateKyuubiTokenResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $kyuubiServiceId
+     * @param CreateKyuubiTokenRequest $request
+     *
+     * @return CreateKyuubiTokenResponse
+     */
+    public function createKyuubiToken($workspaceId, $kyuubiServiceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createKyuubiTokenWithOptions($workspaceId, $kyuubiServiceId, $request, $headers, $runtime);
     }
 
     /**
@@ -782,6 +873,10 @@ class Emrserverlessspark extends OpenApiClient
             @$body['sqlComputeId'] = $request->sqlComputeId;
         }
 
+        if (null !== $request->taskBizId) {
+            @$body['taskBizId'] = $request->taskBizId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -947,6 +1042,73 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->createWorkspaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除compute的token.
+     *
+     * @param request - DeleteKyuubiTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKyuubiTokenResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $kyuubiServiceId
+     * @param string                   $tokenId
+     * @param DeleteKyuubiTokenRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteKyuubiTokenResponse
+     */
+    public function deleteKyuubiTokenWithOptions($workspaceId, $kyuubiServiceId, $tokenId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKyuubiToken',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/kyuubiService/' . Url::percentEncode($kyuubiServiceId) . '/token/' . Url::percentEncode($tokenId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKyuubiTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除compute的token.
+     *
+     * @param request - DeleteKyuubiTokenRequest
+     *
+     * @returns DeleteKyuubiTokenResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $kyuubiServiceId
+     * @param string                   $tokenId
+     * @param DeleteKyuubiTokenRequest $request
+     *
+     * @return DeleteKyuubiTokenResponse
+     */
+    public function deleteKyuubiToken($workspaceId, $kyuubiServiceId, $tokenId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteKyuubiTokenWithOptions($workspaceId, $kyuubiServiceId, $tokenId, $request, $headers, $runtime);
     }
 
     /**
@@ -1365,6 +1527,73 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->getJobRunWithOptions($workspaceId, $jobRunId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取compute的token.
+     *
+     * @param request - GetKyuubiTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKyuubiTokenResponse
+     *
+     * @param string                $workspaceId
+     * @param string                $kyuubiServiceId
+     * @param string                $tokenId
+     * @param GetKyuubiTokenRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetKyuubiTokenResponse
+     */
+    public function getKyuubiTokenWithOptions($workspaceId, $kyuubiServiceId, $tokenId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetKyuubiToken',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/kyuubiService/' . Url::percentEncode($kyuubiServiceId) . '/token/' . Url::percentEncode($tokenId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKyuubiTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取compute的token.
+     *
+     * @param request - GetKyuubiTokenRequest
+     *
+     * @returns GetKyuubiTokenResponse
+     *
+     * @param string                $workspaceId
+     * @param string                $kyuubiServiceId
+     * @param string                $tokenId
+     * @param GetKyuubiTokenRequest $request
+     *
+     * @return GetKyuubiTokenResponse
+     */
+    public function getKyuubiToken($workspaceId, $kyuubiServiceId, $tokenId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getKyuubiTokenWithOptions($workspaceId, $kyuubiServiceId, $tokenId, $request, $headers, $runtime);
     }
 
     /**
@@ -3438,6 +3667,91 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->terminateSqlStatementWithOptions($workspaceId, $statementId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新kyuubi的token.
+     *
+     * @param request - UpdateKyuubiTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKyuubiTokenResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $kyuubiServiceId
+     * @param string                   $tokenId
+     * @param UpdateKyuubiTokenRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateKyuubiTokenResponse
+     */
+    public function updateKyuubiTokenWithOptions($workspaceId, $kyuubiServiceId, $tokenId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->autoExpireConfiguration) {
+            @$body['autoExpireConfiguration'] = $request->autoExpireConfiguration;
+        }
+
+        if (null !== $request->memberArns) {
+            @$body['memberArns'] = $request->memberArns;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->token) {
+            @$body['token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKyuubiToken',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/kyuubiService/' . Url::percentEncode($kyuubiServiceId) . '/token/' . Url::percentEncode($tokenId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKyuubiTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新kyuubi的token.
+     *
+     * @param request - UpdateKyuubiTokenRequest
+     *
+     * @returns UpdateKyuubiTokenResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $kyuubiServiceId
+     * @param string                   $tokenId
+     * @param UpdateKyuubiTokenRequest $request
+     *
+     * @return UpdateKyuubiTokenResponse
+     */
+    public function updateKyuubiToken($workspaceId, $kyuubiServiceId, $tokenId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateKyuubiTokenWithOptions($workspaceId, $kyuubiServiceId, $tokenId, $request, $headers, $runtime);
     }
 
     /**

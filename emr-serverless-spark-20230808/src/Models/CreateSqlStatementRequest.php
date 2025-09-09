@@ -36,6 +36,11 @@ class CreateSqlStatementRequest extends Model
     /**
      * @var string
      */
+    public $taskBizId;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'codeContent' => 'codeContent',
@@ -43,6 +48,7 @@ class CreateSqlStatementRequest extends Model
         'defaultDatabase' => 'defaultDatabase',
         'limit' => 'limit',
         'sqlComputeId' => 'sqlComputeId',
+        'taskBizId' => 'taskBizId',
         'regionId' => 'regionId',
     ];
 
@@ -72,6 +78,10 @@ class CreateSqlStatementRequest extends Model
 
         if (null !== $this->sqlComputeId) {
             $res['sqlComputeId'] = $this->sqlComputeId;
+        }
+
+        if (null !== $this->taskBizId) {
+            $res['taskBizId'] = $this->taskBizId;
         }
 
         if (null !== $this->regionId) {
@@ -107,6 +117,10 @@ class CreateSqlStatementRequest extends Model
 
         if (isset($map['sqlComputeId'])) {
             $model->sqlComputeId = $map['sqlComputeId'];
+        }
+
+        if (isset($map['taskBizId'])) {
+            $model->taskBizId = $map['taskBizId'];
         }
 
         if (isset($map['regionId'])) {
