@@ -278,6 +278,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBEndpointAddressRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBEndpointAddressResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeClassRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeClassResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeDescriptionRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeDescriptionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeHotReplicaModeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeHotReplicaModeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodesClassRequest;
@@ -5853,6 +5855,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->subGroupName) {
+            @$query['SubGroupName'] = $request->subGroupName;
         }
 
         if (null !== $request->type) {
@@ -12649,6 +12655,87 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBNodeClassWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改物理节点描述.
+     *
+     * @param request - ModifyDBNodeDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBNodeDescriptionResponse
+     *
+     * @param ModifyDBNodeDescriptionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyDBNodeDescriptionResponse
+     */
+    public function modifyDBNodeDescriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBNodeDescription) {
+            @$query['DBNodeDescription'] = $request->DBNodeDescription;
+        }
+
+        if (null !== $request->DBNodeId) {
+            @$query['DBNodeId'] = $request->DBNodeId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBNodeDescription',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBNodeDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改物理节点描述.
+     *
+     * @param request - ModifyDBNodeDescriptionRequest
+     *
+     * @returns ModifyDBNodeDescriptionResponse
+     *
+     * @param ModifyDBNodeDescriptionRequest $request
+     *
+     * @return ModifyDBNodeDescriptionResponse
+     */
+    public function modifyDBNodeDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBNodeDescriptionWithOptions($request, $runtime);
     }
 
     /**

@@ -36,6 +36,11 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @var string
      */
+    public $subGroupName;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
@@ -43,6 +48,7 @@ class DescribeDBClusterPerformanceRequest extends Model
         'interval' => 'Interval',
         'key' => 'Key',
         'startTime' => 'StartTime',
+        'subGroupName' => 'SubGroupName',
         'type' => 'Type',
     ];
 
@@ -72,6 +78,10 @@ class DescribeDBClusterPerformanceRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->subGroupName) {
+            $res['SubGroupName'] = $this->subGroupName;
         }
 
         if (null !== $this->type) {
@@ -107,6 +117,10 @@ class DescribeDBClusterPerformanceRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['SubGroupName'])) {
+            $model->subGroupName = $map['SubGroupName'];
         }
 
         if (isset($map['Type'])) {
