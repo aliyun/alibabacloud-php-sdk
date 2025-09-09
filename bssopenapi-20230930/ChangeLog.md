@@ -1,3 +1,8 @@
+2025-09-09 Version: 1.7.0
+- Support API CheckAccountExist.
+- Support API PayOrder.
+
+
 2025-08-22 Version: 1.6.1
 - Update API CreateReportDefinition: add request parameters IncludeMembers.
 - Update API CreateReportDefinition: add request parameters NotSendOnNoData.

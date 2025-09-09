@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AllocateCostCenterResourceRespo
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AllocateCostCenterResourceShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CancelFundAccountLowAvailableAmountAlarmRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CancelFundAccountLowAvailableAmountAlarmResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CheckAccountExistRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CheckAccountExistResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterRuleRequest;
@@ -95,6 +97,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterRuleRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterRuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterRuleShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\PayOrderRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\PayOrderResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterResourceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterResourceResponse;
@@ -428,6 +432,77 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelFundAccountLowAvailableAmountAlarmWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提货券账户检查是否存在.
+     *
+     * @param request - CheckAccountExistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckAccountExistResponse
+     *
+     * @param CheckAccountExistRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CheckAccountExistResponse
+     */
+    public function checkAccountExistWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ecIdAccountIds) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIds;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $body = [];
+        if (null !== $request->toUserType) {
+            @$body['ToUserType'] = $request->toUserType;
+        }
+
+        if (null !== $request->transferAccount) {
+            @$body['TransferAccount'] = $request->transferAccount;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CheckAccountExist',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckAccountExistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提货券账户检查是否存在.
+     *
+     * @param request - CheckAccountExistRequest
+     *
+     * @returns CheckAccountExistResponse
+     *
+     * @param CheckAccountExistRequest $request
+     *
+     * @return CheckAccountExistResponse
+     */
+    public function checkAccountExist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkAccountExistWithOptions($request, $runtime);
     }
 
     /**
@@ -2826,6 +2901,87 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyCostCenterRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 对客订单支付接口.
+     *
+     * @param request - PayOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PayOrderResponse
+     *
+     * @param PayOrderRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return PayOrderResponse
+     */
+    public function payOrderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->buyerId) {
+            @$query['BuyerId'] = $request->buyerId;
+        }
+
+        if (null !== $request->ecIdAccountIds) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIds;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->paySubmitUid) {
+            @$query['PaySubmitUid'] = $request->paySubmitUid;
+        }
+
+        if (null !== $request->payerId) {
+            @$query['PayerId'] = $request->payerId;
+        }
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PayOrder',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 对客订单支付接口.
+     *
+     * @param request - PayOrderRequest
+     *
+     * @returns PayOrderResponse
+     *
+     * @param PayOrderRequest $request
+     *
+     * @return PayOrderResponse
+     */
+    public function payOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->payOrderWithOptions($request, $runtime);
     }
 
     /**
