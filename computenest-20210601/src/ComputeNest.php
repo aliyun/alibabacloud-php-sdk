@@ -35,6 +35,8 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GenerateServicePolicyRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GenerateServicePolicyResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetBackupRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetBackupResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetNetworkAvailableZonesRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetNetworkAvailableZonesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceEstimateCostRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceEstimateCostResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceEstimateCostShrinkRequest;
@@ -105,6 +107,8 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateUserInformationResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpgradeServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpgradeServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpgradeServiceInstanceShrinkRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ValidateServiceInstanceNameRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ValidateServiceInstanceNameResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -313,6 +317,10 @@ class ComputeNest extends OpenApiClient
 
         if (null !== $request->serviceVersion) {
             @$query['ServiceVersion'] = $request->serviceVersion;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
 
         if (null !== $request->trialType) {
@@ -1178,6 +1186,91 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getBackupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据指定地域获取可用区列表.
+     *
+     * @param request - GetNetworkAvailableZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNetworkAvailableZonesResponse
+     *
+     * @param GetNetworkAvailableZonesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetNetworkAvailableZonesResponse
+     */
+    public function getNetworkAvailableZonesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->isPoc) {
+            @$body['IsPoc'] = $request->isPoc;
+        }
+
+        if (null !== $request->networkRegionId) {
+            @$body['NetworkRegionId'] = $request->networkRegionId;
+        }
+
+        if (null !== $request->privateVpcConnectionMode) {
+            @$body['PrivateVpcConnectionMode'] = $request->privateVpcConnectionMode;
+        }
+
+        if (null !== $request->serviceId) {
+            @$body['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->serviceInstanceEndpointServiceType) {
+            @$body['ServiceInstanceEndpointServiceType'] = $request->serviceInstanceEndpointServiceType;
+        }
+
+        if (null !== $request->serviceRegionId) {
+            @$body['ServiceRegionId'] = $request->serviceRegionId;
+        }
+
+        if (null !== $request->serviceVersion) {
+            @$body['ServiceVersion'] = $request->serviceVersion;
+        }
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetNetworkAvailableZones',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNetworkAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据指定地域获取可用区列表.
+     *
+     * @param request - GetNetworkAvailableZonesRequest
+     *
+     * @returns GetNetworkAvailableZonesResponse
+     *
+     * @param GetNetworkAvailableZonesRequest $request
+     *
+     * @return GetNetworkAvailableZonesResponse
+     */
+    public function getNetworkAvailableZones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNetworkAvailableZonesWithOptions($request, $runtime);
     }
 
     /**
@@ -3608,5 +3701,82 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 校验服务实例名称.
+     *
+     * @param request - ValidateServiceInstanceNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ValidateServiceInstanceNameResponse
+     *
+     * @param ValidateServiceInstanceNameRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ValidateServiceInstanceNameResponse
+     */
+    public function validateServiceInstanceNameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->isTrial) {
+            @$query['IsTrial'] = $request->isTrial;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->serviceInstanceName) {
+            @$query['ServiceInstanceName'] = $request->serviceInstanceName;
+        }
+
+        if (null !== $request->serviceVersion) {
+            @$query['ServiceVersion'] = $request->serviceVersion;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ValidateServiceInstanceName',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ValidateServiceInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 校验服务实例名称.
+     *
+     * @param request - ValidateServiceInstanceNameRequest
+     *
+     * @returns ValidateServiceInstanceNameResponse
+     *
+     * @param ValidateServiceInstanceNameRequest $request
+     *
+     * @return ValidateServiceInstanceNameResponse
+     */
+    public function validateServiceInstanceName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->validateServiceInstanceNameWithOptions($request, $runtime);
     }
 }
