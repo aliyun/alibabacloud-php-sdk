@@ -13,43 +13,50 @@ class ListVpcPeerConnectionsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string[]
      */
     public $vpcId;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'maxResults'      => 'MaxResults',
-        'name'            => 'Name',
-        'nextToken'       => 'NextToken',
-        'regionId'        => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'maxResults' => 'MaxResults',
+        'name' => 'Name',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'tags'            => 'Tags',
-        'vpcId'           => 'VpcId',
+        'tags' => 'Tags',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -93,9 +100,10 @@ class ListVpcPeerConnectionsRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,9 +111,10 @@ class ListVpcPeerConnectionsRequest extends Model
         if (null !== $this->vpcId) {
             if (\is_array($this->vpcId)) {
                 $res['VpcId'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->vpcId as $item1) {
-                    $res['VpcId'][$n1++] = $item1;
+                    $res['VpcId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,9 +157,10 @@ class ListVpcPeerConnectionsRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -158,9 +168,10 @@ class ListVpcPeerConnectionsRequest extends Model
         if (isset($map['VpcId'])) {
             if (!empty($map['VpcId'])) {
                 $model->vpcId = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['VpcId'] as $item1) {
-                    $model->vpcId[$n1++] = $item1;
+                    $model->vpcId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

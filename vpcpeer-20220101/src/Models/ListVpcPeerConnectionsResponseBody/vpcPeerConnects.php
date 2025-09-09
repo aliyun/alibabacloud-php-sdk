@@ -15,70 +15,92 @@ class vpcPeerConnects extends Model
      * @var int
      */
     public $acceptingOwnerUid;
+
     /**
      * @var string
      */
     public $acceptingRegionId;
+
     /**
      * @var acceptingVpc
      */
     public $acceptingVpc;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $bizStatus;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $gmtExpired;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $linkType;
+
+    /**
+     * @var string
+     */
+    public $managedService;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var vpc
      */
@@ -86,22 +108,23 @@ class vpcPeerConnects extends Model
     protected $_name = [
         'acceptingOwnerUid' => 'AcceptingOwnerUid',
         'acceptingRegionId' => 'AcceptingRegionId',
-        'acceptingVpc'      => 'AcceptingVpc',
-        'bandwidth'         => 'Bandwidth',
-        'bizStatus'         => 'BizStatus',
-        'description'       => 'Description',
-        'gmtCreate'         => 'GmtCreate',
-        'gmtExpired'        => 'GmtExpired',
-        'gmtModified'       => 'GmtModified',
-        'instanceId'        => 'InstanceId',
-        'linkType'          => 'LinkType',
-        'name'              => 'Name',
-        'ownerId'           => 'OwnerId',
-        'regionId'          => 'RegionId',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'status'            => 'Status',
-        'tags'              => 'Tags',
-        'vpc'               => 'Vpc',
+        'acceptingVpc' => 'AcceptingVpc',
+        'bandwidth' => 'Bandwidth',
+        'bizStatus' => 'BizStatus',
+        'description' => 'Description',
+        'gmtCreate' => 'GmtCreate',
+        'gmtExpired' => 'GmtExpired',
+        'gmtModified' => 'GmtModified',
+        'instanceId' => 'InstanceId',
+        'linkType' => 'LinkType',
+        'managedService' => 'ManagedService',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'vpc' => 'Vpc',
     ];
 
     public function validate()
@@ -165,6 +188,10 @@ class vpcPeerConnects extends Model
             $res['LinkType'] = $this->linkType;
         }
 
+        if (null !== $this->managedService) {
+            $res['ManagedService'] = $this->managedService;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -188,9 +215,10 @@ class vpcPeerConnects extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -254,6 +282,10 @@ class vpcPeerConnects extends Model
             $model->linkType = $map['LinkType'];
         }
 
+        if (isset($map['ManagedService'])) {
+            $model->managedService = $map['ManagedService'];
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -277,9 +309,10 @@ class vpcPeerConnects extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

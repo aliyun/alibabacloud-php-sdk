@@ -12,38 +12,44 @@ class ModifyVpcPeerConnectionRequest extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $linkType;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'bandwidth'   => 'Bandwidth',
+        'bandwidth' => 'Bandwidth',
         'clientToken' => 'ClientToken',
         'description' => 'Description',
-        'dryRun'      => 'DryRun',
-        'instanceId'  => 'InstanceId',
-        'linkType'    => 'LinkType',
-        'name'        => 'Name',
+        'dryRun' => 'DryRun',
+        'instanceId' => 'InstanceId',
+        'linkType' => 'LinkType',
+        'name' => 'Name',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class CreateVpcPeerConnectionResponseBody extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class DeleteVpcPeerConnectionRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var bool
      */
     public $force;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'dryRun'      => 'DryRun',
-        'force'       => 'Force',
-        'instanceId'  => 'InstanceId',
+        'dryRun' => 'DryRun',
+        'force' => 'Force',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

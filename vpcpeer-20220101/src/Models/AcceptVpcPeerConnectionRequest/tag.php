@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\VpcPeer\V20220101\Models;
+namespace AlibabaCloud\SDK\VpcPeer\V20220101\Models\AcceptVpcPeerConnectionRequest;
 
 use AlibabaCloud\Dara\Model;
 
-class UnTagResourcesResponseBody extends Model
+class tag extends Model
 {
     /**
      * @var string
      */
-    public $requestId;
+    public $key;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $value;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'success' => 'Success',
+        'key' => 'Key',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class UnTagResourcesResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
 
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class UnTagResourcesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
 
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

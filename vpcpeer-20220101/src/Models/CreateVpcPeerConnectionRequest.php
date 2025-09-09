@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\VpcPeer\V20220101\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\VpcPeer\V20220101\Models\CreateVpcPeerConnectionRequest\tag;
 
 class CreateVpcPeerConnectionRequest extends Model
 {
@@ -12,67 +13,87 @@ class CreateVpcPeerConnectionRequest extends Model
      * @var int
      */
     public $acceptingAliUid;
+
     /**
      * @var string
      */
     public $acceptingRegionId;
+
     /**
      * @var string
      */
     public $acceptingVpcId;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $linkType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'acceptingAliUid'   => 'AcceptingAliUid',
+        'acceptingAliUid' => 'AcceptingAliUid',
         'acceptingRegionId' => 'AcceptingRegionId',
-        'acceptingVpcId'    => 'AcceptingVpcId',
-        'bandwidth'         => 'Bandwidth',
-        'clientToken'       => 'ClientToken',
-        'description'       => 'Description',
-        'dryRun'            => 'DryRun',
-        'linkType'          => 'LinkType',
-        'name'              => 'Name',
-        'regionId'          => 'RegionId',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'vpcId'             => 'VpcId',
+        'acceptingVpcId' => 'AcceptingVpcId',
+        'bandwidth' => 'Bandwidth',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'dryRun' => 'DryRun',
+        'linkType' => 'LinkType',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag' => 'Tag',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -121,6 +142,17 @@ class CreateVpcPeerConnectionRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->vpcId) {
@@ -180,6 +212,17 @@ class CreateVpcPeerConnectionRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VpcId'])) {

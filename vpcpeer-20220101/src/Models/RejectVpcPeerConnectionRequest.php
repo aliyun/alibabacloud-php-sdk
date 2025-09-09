@@ -12,22 +12,25 @@ class RejectVpcPeerConnectionRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
-        'instanceId'           => 'InstanceId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'instanceId' => 'InstanceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
     ];
 

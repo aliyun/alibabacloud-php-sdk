@@ -68,7 +68,7 @@ class VpcPeer extends OpenApiClient
     }
 
     /**
-     * 接收VPC对等连接.
+     * Accepts a virtual private cloud (VPC) peering connection request.
      *
      * @remarks
      *   For a cross-account VPC peering connection, the connection is activated only after the accepter VPC accepts the connection request.
@@ -79,6 +79,7 @@ class VpcPeer extends OpenApiClient
      *
      * @param request - AcceptVpcPeerConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AcceptVpcPeerConnectionResponse
      *
      * @param AcceptVpcPeerConnectionRequest $request
@@ -89,6 +90,11 @@ class VpcPeer extends OpenApiClient
     public function acceptVpcPeerConnectionWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -111,28 +117,26 @@ class VpcPeer extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AcceptVpcPeerConnection',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AcceptVpcPeerConnection',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AcceptVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AcceptVpcPeerConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return AcceptVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 接收VPC对等连接.
+     * Accepts a virtual private cloud (VPC) peering connection request.
      *
      * @remarks
      *   For a cross-account VPC peering connection, the connection is activated only after the accepter VPC accepts the connection request.
@@ -142,6 +146,7 @@ class VpcPeer extends OpenApiClient
      * *   You cannot repeatedly call the **AcceptVpcPeerConnection** operation within a specific period of time.
      *
      * @param request - AcceptVpcPeerConnectionRequest
+     *
      * @returns AcceptVpcPeerConnectionResponse
      *
      * @param AcceptVpcPeerConnectionRequest $request
@@ -169,6 +174,7 @@ class VpcPeer extends OpenApiClient
      *
      * @param request - CreateVpcPeerConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVpcPeerConnectionResponse
      *
      * @param CreateVpcPeerConnectionRequest $request
@@ -182,6 +188,10 @@ class VpcPeer extends OpenApiClient
         $query = [];
         if (null !== $request->linkType) {
             @$query['LinkType'] = $request->linkType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
 
         $body = [];
@@ -231,24 +241,21 @@ class VpcPeer extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateVpcPeerConnection',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVpcPeerConnection',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpcPeerConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -264,6 +271,7 @@ class VpcPeer extends OpenApiClient
      * When you create a VPC peering connection, the system automatically activates Cloud Data Transfer (CDT) for you.
      *
      * @param request - CreateVpcPeerConnectionRequest
+     *
      * @returns CreateVpcPeerConnectionResponse
      *
      * @param CreateVpcPeerConnectionRequest $request
@@ -291,6 +299,7 @@ class VpcPeer extends OpenApiClient
      *
      * @param request - DeleteVpcPeerConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVpcPeerConnectionResponse
      *
      * @param DeleteVpcPeerConnectionRequest $request
@@ -322,21 +331,18 @@ class VpcPeer extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVpcPeerConnection',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVpcPeerConnection',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVpcPeerConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -352,6 +358,7 @@ class VpcPeer extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteVpcPeerConnection** operation for the same VPC peering connection within the specified period of time.
      *
      * @param request - DeleteVpcPeerConnectionRequest
+     *
      * @returns DeleteVpcPeerConnectionResponse
      *
      * @param DeleteVpcPeerConnectionRequest $request
@@ -370,6 +377,7 @@ class VpcPeer extends OpenApiClient
      *
      * @param request - GetVpcPeerConnectionAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVpcPeerConnectionAttributeResponse
      *
      * @param GetVpcPeerConnectionAttributeRequest $request
@@ -393,27 +401,25 @@ class VpcPeer extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetVpcPeerConnectionAttribute',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVpcPeerConnectionAttribute',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVpcPeerConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVpcPeerConnectionAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVpcPeerConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the details of a virtual private cloud (VPC) peering connection.
      *
      * @param request - GetVpcPeerConnectionAttributeRequest
+     *
      * @returns GetVpcPeerConnectionAttributeResponse
      *
      * @param GetVpcPeerConnectionAttributeRequest $request
@@ -438,6 +444,7 @@ class VpcPeer extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -449,6 +456,10 @@ class VpcPeer extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }
@@ -477,21 +488,18 @@ class VpcPeer extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -504,6 +512,7 @@ class VpcPeer extends OpenApiClient
      * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -522,6 +531,7 @@ class VpcPeer extends OpenApiClient
      *
      * @param tmpReq - ListVpcPeerConnectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpcPeerConnectionsResponse
      *
      * @param ListVpcPeerConnectionsRequest $tmpReq
@@ -574,30 +584,28 @@ class VpcPeer extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListVpcPeerConnections',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpcPeerConnections',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpcPeerConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpcPeerConnectionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpcPeerConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries virtual private cloud (VPC) peering connections.
      *
      * @param request - ListVpcPeerConnectionsRequest
+     *
      * @returns ListVpcPeerConnectionsResponse
      *
      * @param ListVpcPeerConnectionsRequest $request
@@ -622,6 +630,7 @@ class VpcPeer extends OpenApiClient
      *
      * @param request - ModifyVpcPeerConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVpcPeerConnectionResponse
      *
      * @param ModifyVpcPeerConnectionRequest $request
@@ -664,24 +673,21 @@ class VpcPeer extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVpcPeerConnection',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVpcPeerConnection',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyVpcPeerConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -694,6 +700,7 @@ class VpcPeer extends OpenApiClient
      * *   You cannot repeatedly call the **ModifyVpcPeerConnection** operation for the same VPC peering connection within the specified period of time.
      *
      * @param request - ModifyVpcPeerConnectionRequest
+     *
      * @returns ModifyVpcPeerConnectionResponse
      *
      * @param ModifyVpcPeerConnectionRequest $request
@@ -712,6 +719,7 @@ class VpcPeer extends OpenApiClient
      *
      * @param request - MoveResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MoveResourceGroupResponse
      *
      * @param MoveResourceGroupRequest $request
@@ -743,27 +751,25 @@ class VpcPeer extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveResourceGroup',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveResourceGroup',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Moves a Virtual Private Cloud (VPC) peering connection from one resource group to another.
      *
      * @param request - MoveResourceGroupRequest
+     *
      * @returns MoveResourceGroupResponse
      *
      * @param MoveResourceGroupRequest $request
@@ -786,6 +792,7 @@ class VpcPeer extends OpenApiClient
      *
      * @param request - RejectVpcPeerConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RejectVpcPeerConnectionResponse
      *
      * @param RejectVpcPeerConnectionRequest $request
@@ -817,21 +824,18 @@ class VpcPeer extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RejectVpcPeerConnection',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RejectVpcPeerConnection',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RejectVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RejectVpcPeerConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RejectVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -842,6 +846,7 @@ class VpcPeer extends OpenApiClient
      * *   You cannot repeatedly call the **RejectVpcPeerConnection** operation for the same VPC peering connection within the specified period of time.
      *
      * @param request - RejectVpcPeerConnectionRequest
+     *
      * @returns RejectVpcPeerConnectionResponse
      *
      * @param RejectVpcPeerConnectionRequest $request
@@ -870,6 +875,7 @@ class VpcPeer extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -905,21 +911,18 @@ class VpcPeer extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -936,6 +939,7 @@ class VpcPeer extends OpenApiClient
      * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -954,6 +958,7 @@ class VpcPeer extends OpenApiClient
      *
      * @param request - UnTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnTagResourcesResponse
      *
      * @param UnTagResourcesRequest $request
@@ -993,27 +998,25 @@ class VpcPeer extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnTagResources',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnTagResources',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Removes tags from specified Virtual Private Cloud (VPC) peering connections.
      *
      * @param request - UnTagResourcesRequest
+     *
      * @returns UnTagResourcesResponse
      *
      * @param UnTagResourcesRequest $request

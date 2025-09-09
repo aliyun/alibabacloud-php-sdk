@@ -12,10 +12,12 @@ class vpc extends Model
      * @var string[]
      */
     public $ipv4Cidrs;
+
     /**
      * @var string[]
      */
     public $ipv6Cidrs;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class vpc extends Model
     protected $_name = [
         'ipv4Cidrs' => 'Ipv4Cidrs',
         'ipv6Cidrs' => 'Ipv6Cidrs',
-        'vpcId'     => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -43,9 +45,10 @@ class vpc extends Model
         if (null !== $this->ipv4Cidrs) {
             if (\is_array($this->ipv4Cidrs)) {
                 $res['Ipv4Cidrs'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->ipv4Cidrs as $item1) {
-                    $res['Ipv4Cidrs'][$n1++] = $item1;
+                    $res['Ipv4Cidrs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,9 +56,10 @@ class vpc extends Model
         if (null !== $this->ipv6Cidrs) {
             if (\is_array($this->ipv6Cidrs)) {
                 $res['Ipv6Cidrs'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->ipv6Cidrs as $item1) {
-                    $res['Ipv6Cidrs'][$n1++] = $item1;
+                    $res['Ipv6Cidrs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,9 +82,10 @@ class vpc extends Model
         if (isset($map['Ipv4Cidrs'])) {
             if (!empty($map['Ipv4Cidrs'])) {
                 $model->ipv4Cidrs = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Ipv4Cidrs'] as $item1) {
-                    $model->ipv4Cidrs[$n1++] = $item1;
+                    $model->ipv4Cidrs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,9 +93,10 @@ class vpc extends Model
         if (isset($map['Ipv6Cidrs'])) {
             if (!empty($map['Ipv6Cidrs'])) {
                 $model->ipv6Cidrs = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Ipv6Cidrs'] as $item1) {
-                    $model->ipv6Cidrs[$n1++] = $item1;
+                    $model->ipv6Cidrs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

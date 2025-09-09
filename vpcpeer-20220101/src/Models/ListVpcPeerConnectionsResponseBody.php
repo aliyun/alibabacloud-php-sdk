@@ -13,27 +13,31 @@ class ListVpcPeerConnectionsResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var vpcPeerConnects[]
      */
     public $vpcPeerConnects;
     protected $_name = [
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'vpcPeerConnects' => 'VpcPeerConnects',
     ];
 
@@ -67,9 +71,10 @@ class ListVpcPeerConnectionsResponseBody extends Model
         if (null !== $this->vpcPeerConnects) {
             if (\is_array($this->vpcPeerConnects)) {
                 $res['VpcPeerConnects'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->vpcPeerConnects as $item1) {
-                    $res['VpcPeerConnects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VpcPeerConnects'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,9 +109,10 @@ class ListVpcPeerConnectionsResponseBody extends Model
         if (isset($map['VpcPeerConnects'])) {
             if (!empty($map['VpcPeerConnects'])) {
                 $model->vpcPeerConnects = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['VpcPeerConnects'] as $item1) {
-                    $model->vpcPeerConnects[$n1++] = vpcPeerConnects::fromMap($item1);
+                    $model->vpcPeerConnects[$n1] = vpcPeerConnects::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
