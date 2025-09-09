@@ -79,6 +79,11 @@ class DescribePriceRequest extends Model
     public $rootDiskCategory;
 
     /**
+     * @var string
+     */
+    public $rootDiskPerformanceLevel;
+
+    /**
      * @var int
      */
     public $rootDiskSizeGib;
@@ -87,6 +92,11 @@ class DescribePriceRequest extends Model
      * @var string
      */
     public $userDiskCategory;
+
+    /**
+     * @var string
+     */
+    public $userDiskPerformanceLevel;
 
     /**
      * @var int
@@ -107,8 +117,10 @@ class DescribePriceRequest extends Model
         'resellerOwnerUid' => 'ResellerOwnerUid',
         'resourceType' => 'ResourceType',
         'rootDiskCategory' => 'RootDiskCategory',
+        'rootDiskPerformanceLevel' => 'RootDiskPerformanceLevel',
         'rootDiskSizeGib' => 'RootDiskSizeGib',
         'userDiskCategory' => 'UserDiskCategory',
+        'userDiskPerformanceLevel' => 'UserDiskPerformanceLevel',
         'userDiskSizeGib' => 'UserDiskSizeGib',
     ];
 
@@ -176,12 +188,20 @@ class DescribePriceRequest extends Model
             $res['RootDiskCategory'] = $this->rootDiskCategory;
         }
 
+        if (null !== $this->rootDiskPerformanceLevel) {
+            $res['RootDiskPerformanceLevel'] = $this->rootDiskPerformanceLevel;
+        }
+
         if (null !== $this->rootDiskSizeGib) {
             $res['RootDiskSizeGib'] = $this->rootDiskSizeGib;
         }
 
         if (null !== $this->userDiskCategory) {
             $res['UserDiskCategory'] = $this->userDiskCategory;
+        }
+
+        if (null !== $this->userDiskPerformanceLevel) {
+            $res['UserDiskPerformanceLevel'] = $this->userDiskPerformanceLevel;
         }
 
         if (null !== $this->userDiskSizeGib) {
@@ -255,12 +275,20 @@ class DescribePriceRequest extends Model
             $model->rootDiskCategory = $map['RootDiskCategory'];
         }
 
+        if (isset($map['RootDiskPerformanceLevel'])) {
+            $model->rootDiskPerformanceLevel = $map['RootDiskPerformanceLevel'];
+        }
+
         if (isset($map['RootDiskSizeGib'])) {
             $model->rootDiskSizeGib = $map['RootDiskSizeGib'];
         }
 
         if (isset($map['UserDiskCategory'])) {
             $model->userDiskCategory = $map['UserDiskCategory'];
+        }
+
+        if (isset($map['UserDiskPerformanceLevel'])) {
+            $model->userDiskPerformanceLevel = $map['UserDiskPerformanceLevel'];
         }
 
         if (isset($map['UserDiskSizeGib'])) {

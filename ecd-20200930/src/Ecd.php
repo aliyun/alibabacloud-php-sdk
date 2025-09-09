@@ -11751,8 +11751,16 @@ class Ecd extends OpenApiClient
             @$query['ResourceType'] = $request->resourceType;
         }
 
+        if (null !== $request->rootDiskPerformanceLevel) {
+            @$query['RootDiskPerformanceLevel'] = $request->rootDiskPerformanceLevel;
+        }
+
         if (null !== $request->rootDiskSizeGib) {
             @$query['RootDiskSizeGib'] = $request->rootDiskSizeGib;
+        }
+
+        if (null !== $request->userDiskPerformanceLevel) {
+            @$query['UserDiskPerformanceLevel'] = $request->userDiskPerformanceLevel;
         }
 
         if (null !== $request->userDiskSizeGib) {
@@ -12273,12 +12281,20 @@ class Ecd extends OpenApiClient
             @$query['RootDiskCategory'] = $request->rootDiskCategory;
         }
 
+        if (null !== $request->rootDiskPerformanceLevel) {
+            @$query['RootDiskPerformanceLevel'] = $request->rootDiskPerformanceLevel;
+        }
+
         if (null !== $request->rootDiskSizeGib) {
             @$query['RootDiskSizeGib'] = $request->rootDiskSizeGib;
         }
 
         if (null !== $request->userDiskCategory) {
             @$query['UserDiskCategory'] = $request->userDiskCategory;
+        }
+
+        if (null !== $request->userDiskPerformanceLevel) {
+            @$query['UserDiskPerformanceLevel'] = $request->userDiskPerformanceLevel;
         }
 
         if (null !== $request->userDiskSizeGib) {
@@ -21358,6 +21374,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->snapshotId) {
             @$query['SnapshotId'] = $request->snapshotId;
+        }
+
+        if (null !== $request->stopDesktop) {
+            @$query['StopDesktop'] = $request->stopDesktop;
         }
 
         $req = new OpenApiRequest([

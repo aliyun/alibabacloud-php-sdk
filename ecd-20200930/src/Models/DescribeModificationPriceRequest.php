@@ -50,9 +50,19 @@ class DescribeModificationPriceRequest extends Model
     public $resourceType;
 
     /**
+     * @var string
+     */
+    public $rootDiskPerformanceLevel;
+
+    /**
      * @var int
      */
     public $rootDiskSizeGib;
+
+    /**
+     * @var string
+     */
+    public $userDiskPerformanceLevel;
 
     /**
      * @var int
@@ -67,7 +77,9 @@ class DescribeModificationPriceRequest extends Model
         'resellerOwnerUid' => 'ResellerOwnerUid',
         'resourceSpecs' => 'ResourceSpecs',
         'resourceType' => 'ResourceType',
+        'rootDiskPerformanceLevel' => 'RootDiskPerformanceLevel',
         'rootDiskSizeGib' => 'RootDiskSizeGib',
+        'userDiskPerformanceLevel' => 'UserDiskPerformanceLevel',
         'userDiskSizeGib' => 'UserDiskSizeGib',
     ];
 
@@ -121,8 +133,16 @@ class DescribeModificationPriceRequest extends Model
             $res['ResourceType'] = $this->resourceType;
         }
 
+        if (null !== $this->rootDiskPerformanceLevel) {
+            $res['RootDiskPerformanceLevel'] = $this->rootDiskPerformanceLevel;
+        }
+
         if (null !== $this->rootDiskSizeGib) {
             $res['RootDiskSizeGib'] = $this->rootDiskSizeGib;
+        }
+
+        if (null !== $this->userDiskPerformanceLevel) {
+            $res['UserDiskPerformanceLevel'] = $this->userDiskPerformanceLevel;
         }
 
         if (null !== $this->userDiskSizeGib) {
@@ -179,8 +199,16 @@ class DescribeModificationPriceRequest extends Model
             $model->resourceType = $map['ResourceType'];
         }
 
+        if (isset($map['RootDiskPerformanceLevel'])) {
+            $model->rootDiskPerformanceLevel = $map['RootDiskPerformanceLevel'];
+        }
+
         if (isset($map['RootDiskSizeGib'])) {
             $model->rootDiskSizeGib = $map['RootDiskSizeGib'];
+        }
+
+        if (isset($map['UserDiskPerformanceLevel'])) {
+            $model->userDiskPerformanceLevel = $map['UserDiskPerformanceLevel'];
         }
 
         if (isset($map['UserDiskSizeGib'])) {
