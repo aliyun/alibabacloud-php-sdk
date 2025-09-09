@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteDataLimitRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteDataLimitResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteRuleRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteRuleResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeAuditLogsRequest;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeAuditLogsResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeCategoryTemplateListRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeCategoryTemplateListResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeCategoryTemplateRuleListRequest;
@@ -240,8 +242,6 @@ class Sddp extends OpenApiClient
      *
      * @remarks
      * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
-     * ## [](#qps-)Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateDataLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -356,8 +356,6 @@ class Sddp extends OpenApiClient
      *
      * @remarks
      * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
-     * ## [](#qps-)Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateDataLimitRequest
      *
@@ -839,6 +837,159 @@ class Sddp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询审计告警日志列表.
+     *
+     * @param request - DescribeAuditLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAuditLogsResponse
+     *
+     * @param DescribeAuditLogsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeAuditLogsResponse
+     */
+    public function describeAuditLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->asyncRequestId) {
+            @$query['AsyncRequestId'] = $request->asyncRequestId;
+        }
+
+        if (null !== $request->clientIp) {
+            @$query['ClientIp'] = $request->clientIp;
+        }
+
+        if (null !== $request->clientUa) {
+            @$query['ClientUa'] = $request->clientUa;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->databaseName) {
+            @$query['DatabaseName'] = $request->databaseName;
+        }
+
+        if (null !== $request->effectRowRange) {
+            @$query['EffectRowRange'] = $request->effectRowRange;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->executeTimeRange) {
+            @$query['ExecuteTimeRange'] = $request->executeTimeRange;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->ipType) {
+            @$query['IpType'] = $request->ipType;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->loadWhiteList) {
+            @$query['LoadWhiteList'] = $request->loadWhiteList;
+        }
+
+        if (null !== $request->memberAccount) {
+            @$query['MemberAccount'] = $request->memberAccount;
+        }
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
+        }
+
+        if (null !== $request->operateType) {
+            @$query['OperateType'] = $request->operateType;
+        }
+
+        if (null !== $request->ossObjectKey) {
+            @$query['OssObjectKey'] = $request->ossObjectKey;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
+        }
+
+        if (null !== $request->ruleCategory) {
+            @$query['RuleCategory'] = $request->ruleCategory;
+        }
+
+        if (null !== $request->ruleID) {
+            @$query['RuleID'] = $request->ruleID;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sqlText) {
+            @$query['SqlText'] = $request->sqlText;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAuditLogs',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAuditLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询审计告警日志列表.
+     *
+     * @param request - DescribeAuditLogsRequest
+     *
+     * @returns DescribeAuditLogsResponse
+     *
+     * @param DescribeAuditLogsRequest $request
+     *
+     * @return DescribeAuditLogsResponse
+     */
+    public function describeAuditLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAuditLogsWithOptions($request, $runtime);
     }
 
     /**
@@ -2526,8 +2677,6 @@ class Sddp extends OpenApiClient
      * @remarks
      * You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
      * This operation is no longer used for the KMS console of the new version.
-     * # [](#qps-)QPS limits
-     * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeInstanceSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2619,8 +2768,6 @@ class Sddp extends OpenApiClient
      * @remarks
      * You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
      * This operation is no longer used for the KMS console of the new version.
-     * # [](#qps-)QPS limits
-     * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeInstanceSourcesRequest
      *
