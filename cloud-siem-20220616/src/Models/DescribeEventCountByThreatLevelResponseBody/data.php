@@ -21,6 +21,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $infoLevelEventNum;
+
+    /**
+     * @var int
+     */
     public $lowLevelEventNum;
 
     /**
@@ -31,12 +36,19 @@ class data extends Model
     /**
      * @var int
      */
+    public $seriousLevelEventNum;
+
+    /**
+     * @var int
+     */
     public $undealEventNum;
     protected $_name = [
         'eventNum' => 'EventNum',
         'highLevelEventNum' => 'HighLevelEventNum',
+        'infoLevelEventNum' => 'InfoLevelEventNum',
         'lowLevelEventNum' => 'LowLevelEventNum',
         'mediumLevelEventNum' => 'MediumLevelEventNum',
+        'seriousLevelEventNum' => 'SeriousLevelEventNum',
         'undealEventNum' => 'UndealEventNum',
     ];
 
@@ -56,12 +68,20 @@ class data extends Model
             $res['HighLevelEventNum'] = $this->highLevelEventNum;
         }
 
+        if (null !== $this->infoLevelEventNum) {
+            $res['InfoLevelEventNum'] = $this->infoLevelEventNum;
+        }
+
         if (null !== $this->lowLevelEventNum) {
             $res['LowLevelEventNum'] = $this->lowLevelEventNum;
         }
 
         if (null !== $this->mediumLevelEventNum) {
             $res['MediumLevelEventNum'] = $this->mediumLevelEventNum;
+        }
+
+        if (null !== $this->seriousLevelEventNum) {
+            $res['SeriousLevelEventNum'] = $this->seriousLevelEventNum;
         }
 
         if (null !== $this->undealEventNum) {
@@ -87,12 +107,20 @@ class data extends Model
             $model->highLevelEventNum = $map['HighLevelEventNum'];
         }
 
+        if (isset($map['InfoLevelEventNum'])) {
+            $model->infoLevelEventNum = $map['InfoLevelEventNum'];
+        }
+
         if (isset($map['LowLevelEventNum'])) {
             $model->lowLevelEventNum = $map['LowLevelEventNum'];
         }
 
         if (isset($map['MediumLevelEventNum'])) {
             $model->mediumLevelEventNum = $map['MediumLevelEventNum'];
+        }
+
+        if (isset($map['SeriousLevelEventNum'])) {
+            $model->seriousLevelEventNum = $map['SeriousLevelEventNum'];
         }
 
         if (isset($map['UndealEventNum'])) {

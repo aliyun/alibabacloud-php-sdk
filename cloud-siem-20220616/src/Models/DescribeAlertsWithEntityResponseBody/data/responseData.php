@@ -112,6 +112,11 @@ class responseData extends Model
     /**
      * @var string
      */
+    public $detectionRuleId;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -167,6 +172,11 @@ class responseData extends Model
     /**
      * @var string
      */
+    public $productId;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -178,6 +188,11 @@ class responseData extends Model
      * @var string
      */
     public $subUserName;
+
+    /**
+     * @var string
+     */
+    public $vendorId;
     protected $_name = [
         'alertDesc' => 'AlertDesc',
         'alertDescCode' => 'AlertDescCode',
@@ -199,6 +214,7 @@ class responseData extends Model
         'assetList' => 'AssetList',
         'attCk' => 'AttCk',
         'cloudCode' => 'CloudCode',
+        'detectionRuleId' => 'DetectionRuleId',
         'endTime' => 'EndTime',
         'entityList' => 'EntityList',
         'gmtCreate' => 'GmtCreate',
@@ -210,9 +226,11 @@ class responseData extends Model
         'logUuid' => 'LogUuid',
         'mainUserId' => 'MainUserId',
         'occurTime' => 'OccurTime',
+        'productId' => 'ProductId',
         'startTime' => 'StartTime',
         'subUserId' => 'SubUserId',
         'subUserName' => 'SubUserName',
+        'vendorId' => 'VendorId',
     ];
 
     public function validate()
@@ -313,6 +331,10 @@ class responseData extends Model
             $res['CloudCode'] = $this->cloudCode;
         }
 
+        if (null !== $this->detectionRuleId) {
+            $res['DetectionRuleId'] = $this->detectionRuleId;
+        }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -357,6 +379,10 @@ class responseData extends Model
             $res['OccurTime'] = $this->occurTime;
         }
 
+        if (null !== $this->productId) {
+            $res['ProductId'] = $this->productId;
+        }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -367,6 +393,10 @@ class responseData extends Model
 
         if (null !== $this->subUserName) {
             $res['SubUserName'] = $this->subUserName;
+        }
+
+        if (null !== $this->vendorId) {
+            $res['VendorId'] = $this->vendorId;
         }
 
         return $res;
@@ -467,6 +497,10 @@ class responseData extends Model
             $model->cloudCode = $map['CloudCode'];
         }
 
+        if (isset($map['DetectionRuleId'])) {
+            $model->detectionRuleId = $map['DetectionRuleId'];
+        }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
@@ -511,6 +545,10 @@ class responseData extends Model
             $model->occurTime = $map['OccurTime'];
         }
 
+        if (isset($map['ProductId'])) {
+            $model->productId = $map['ProductId'];
+        }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
@@ -521,6 +559,10 @@ class responseData extends Model
 
         if (isset($map['SubUserName'])) {
             $model->subUserName = $map['SubUserName'];
+        }
+
+        if (isset($map['VendorId'])) {
+            $model->vendorId = $map['VendorId'];
         }
 
         return $model;
