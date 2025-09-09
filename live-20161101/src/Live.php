@@ -646,6 +646,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\ListPlaylistItemsRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListPlaylistItemsResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListPlaylistRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListPlaylistResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\ListRTCLiveRoomsRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\ListRTCLiveRoomsResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListRtcMPUEventSubRecordRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListRtcMPUEventSubRecordResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListRtcMPUTaskDetailRequest;
@@ -27827,6 +27829,71 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPlaylistItemsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取在线频道列表.
+     *
+     * @param request - ListRTCLiveRoomsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRTCLiveRoomsResponse
+     *
+     * @param ListRTCLiveRoomsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListRTCLiveRoomsResponse
+     */
+    public function listRTCLiveRoomsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRTCLiveRooms',
+            'version' => '2016-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRTCLiveRoomsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取在线频道列表.
+     *
+     * @param request - ListRTCLiveRoomsRequest
+     *
+     * @returns ListRTCLiveRoomsResponse
+     *
+     * @param ListRTCLiveRoomsRequest $request
+     *
+     * @return ListRTCLiveRoomsResponse
+     */
+    public function listRTCLiveRooms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRTCLiveRoomsWithOptions($request, $runtime);
     }
 
     /**
