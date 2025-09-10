@@ -4,39 +4,37 @@
 
 namespace AlibabaCloud\SDK\Imagerecog\V20190930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class RecognizeImageColorAdvanceRequest extends Model
 {
     /**
-     * @example 5
-     *
      * @var int
      */
     public $colorCount;
 
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imagerecog/RecognizeImageColor/RecognizeImageColor1.jpg
-     *
      * @var Stream
      */
     public $urlObject;
     protected $_name = [
         'colorCount' => 'ColorCount',
-        'urlObject'  => 'Url',
+        'urlObject' => 'Url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->colorCount) {
             $res['ColorCount'] = $this->colorCount;
         }
+
         if (null !== $this->urlObject) {
             $res['Url'] = $this->urlObject;
         }
@@ -44,17 +42,18 @@ class RecognizeImageColorAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecognizeImageColorAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColorCount'])) {
             $model->colorCount = $map['ColorCount'];
         }
+
         if (isset($map['Url'])) {
             $model->urlObject = $map['Url'];
         }

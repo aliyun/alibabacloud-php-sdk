@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imagerecog\V20190930\Models\ClassifyingRubbishResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class elements extends Model
 {
@@ -14,8 +14,6 @@ class elements extends Model
     public $category;
 
     /**
-     * @example 0.9406
-     *
      * @var float
      */
     public $categoryScore;
@@ -26,34 +24,36 @@ class elements extends Model
     public $rubbish;
 
     /**
-     * @example 0.9406
-     *
      * @var float
      */
     public $rubbishScore;
     protected $_name = [
-        'category'      => 'Category',
+        'category' => 'Category',
         'categoryScore' => 'CategoryScore',
-        'rubbish'       => 'Rubbish',
-        'rubbishScore'  => 'RubbishScore',
+        'rubbish' => 'Rubbish',
+        'rubbishScore' => 'RubbishScore',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->categoryScore) {
             $res['CategoryScore'] = $this->categoryScore;
         }
+
         if (null !== $this->rubbish) {
             $res['Rubbish'] = $this->rubbish;
         }
+
         if (null !== $this->rubbishScore) {
             $res['RubbishScore'] = $this->rubbishScore;
         }
@@ -61,23 +61,26 @@ class elements extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return elements
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['CategoryScore'])) {
             $model->categoryScore = $map['CategoryScore'];
         }
+
         if (isset($map['Rubbish'])) {
             $model->rubbish = $map['Rubbish'];
         }
+
         if (isset($map['RubbishScore'])) {
             $model->rubbishScore = $map['RubbishScore'];
         }

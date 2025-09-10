@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imagerecog\V20190930\Models\TaggingAdImageResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -18,28 +18,42 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->tagInfo)) {
+            Model::validateArray($this->tagInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagInfo) {
-            $res['TagInfo'] = $this->tagInfo;
+            if (\is_array($this->tagInfo)) {
+                $res['TagInfo'] = [];
+                foreach ($this->tagInfo as $key1 => $value1) {
+                    $res['TagInfo'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagInfo'])) {
-            $model->tagInfo = $map['TagInfo'];
+            if (!empty($map['TagInfo'])) {
+                $model->tagInfo = [];
+                foreach ($map['TagInfo'] as $key1 => $value1) {
+                    $model->tagInfo[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

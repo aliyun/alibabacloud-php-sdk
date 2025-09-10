@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imagerecog\V20190930\Models\RecognizeFoodResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class topFives extends Model
 {
     /**
-     * @example 208
-     *
      * @var string
      */
     public $calorie;
@@ -21,30 +19,31 @@ class topFives extends Model
     public $category;
 
     /**
-     * @example 0.2083740234375
-     *
      * @var float
      */
     public $score;
     protected $_name = [
-        'calorie'  => 'Calorie',
+        'calorie' => 'Calorie',
         'category' => 'Category',
-        'score'    => 'Score',
+        'score' => 'Score',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->calorie) {
             $res['Calorie'] = $this->calorie;
         }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
@@ -52,20 +51,22 @@ class topFives extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return topFives
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Calorie'])) {
             $model->calorie = $map['Calorie'];
         }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }

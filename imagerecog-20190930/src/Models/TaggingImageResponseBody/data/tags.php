@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imagerecog\V20190930\Models\TaggingImageResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @example 65
-     *
      * @var float
      */
     public $confidence;
@@ -21,19 +19,21 @@ class tags extends Model
     public $value;
     protected $_name = [
         'confidence' => 'Confidence',
-        'value'      => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,17 +41,18 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

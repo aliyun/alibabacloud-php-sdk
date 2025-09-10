@@ -1,3 +1,6 @@
+2025-09-10 Version: 2.0.12
+- Generated php 2019-09-30 for imagerecog.
+
 2023-01-13 Version: 2.0.11
 - Update sdk.
 

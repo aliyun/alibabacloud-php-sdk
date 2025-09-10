@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imagerecog\V20190930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RecognizeImageStyleRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imagerecog/RecognizeImageStyle/RecognizeImageStyle1.jpg
-     *
      * @var string
      */
     public $url;
@@ -20,9 +18,10 @@ class RecognizeImageStyleRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->url) {
@@ -32,11 +31,11 @@ class RecognizeImageStyleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecognizeImageStyleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

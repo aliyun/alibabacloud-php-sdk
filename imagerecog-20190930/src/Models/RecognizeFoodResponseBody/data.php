@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Imagerecog\V20190930\Models\RecognizeFoodResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imagerecog\V20190930\Models\RecognizeFoodResponseBody\data\topFives;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->topFives)) {
+            Model::validateArray($this->topFives);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->topFives) {
-            $res['TopFives'] = [];
-            if (null !== $this->topFives && \is_array($this->topFives)) {
-                $n = 0;
-                foreach ($this->topFives as $item) {
-                    $res['TopFives'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->topFives)) {
+                $res['TopFives'] = [];
+                $n1 = 0;
+                foreach ($this->topFives as $item1) {
+                    $res['TopFives'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TopFives'])) {
             if (!empty($map['TopFives'])) {
                 $model->topFives = [];
-                $n               = 0;
-                foreach ($map['TopFives'] as $item) {
-                    $model->topFives[$n++] = null !== $item ? topFives::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TopFives'] as $item1) {
+                    $model->topFives[$n1] = topFives::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

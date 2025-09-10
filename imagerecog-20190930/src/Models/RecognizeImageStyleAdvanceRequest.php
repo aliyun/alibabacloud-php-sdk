@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Imagerecog\V20190930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class RecognizeImageStyleAdvanceRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imagerecog/RecognizeImageStyle/RecognizeImageStyle1.jpg
-     *
      * @var Stream
      */
     public $urlObject;
@@ -21,9 +19,10 @@ class RecognizeImageStyleAdvanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->urlObject) {
@@ -33,11 +32,11 @@ class RecognizeImageStyleAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecognizeImageStyleAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

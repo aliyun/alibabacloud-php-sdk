@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Imagerecog\V20190930\Models\RecognizeImageColorResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imagerecog\V20190930\Models\RecognizeImageColorResponseBody\data\colorTemplateList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->colorTemplateList)) {
+            Model::validateArray($this->colorTemplateList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->colorTemplateList) {
-            $res['ColorTemplateList'] = [];
-            if (null !== $this->colorTemplateList && \is_array($this->colorTemplateList)) {
-                $n = 0;
-                foreach ($this->colorTemplateList as $item) {
-                    $res['ColorTemplateList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->colorTemplateList)) {
+                $res['ColorTemplateList'] = [];
+                $n1 = 0;
+                foreach ($this->colorTemplateList as $item1) {
+                    $res['ColorTemplateList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColorTemplateList'])) {
             if (!empty($map['ColorTemplateList'])) {
                 $model->colorTemplateList = [];
-                $n                        = 0;
-                foreach ($map['ColorTemplateList'] as $item) {
-                    $model->colorTemplateList[$n++] = null !== $item ? colorTemplateList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ColorTemplateList'] as $item1) {
+                    $model->colorTemplateList[$n1] = colorTemplateList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
