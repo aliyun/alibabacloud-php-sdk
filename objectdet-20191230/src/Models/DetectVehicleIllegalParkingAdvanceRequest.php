@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleIllegalParkingAdvanceRequest\roadRegions;
-use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class DetectVehicleIllegalParkingAdvanceRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/objectdet/DetectVehicleIllegalParking/DetectVehicleIllegalParking2.jpg
-     *
      * @var Stream
      */
     public $imageURLObject;
@@ -23,25 +21,31 @@ class DetectVehicleIllegalParkingAdvanceRequest extends Model
     public $roadRegions;
     protected $_name = [
         'imageURLObject' => 'ImageURL',
-        'roadRegions'    => 'RoadRegions',
+        'roadRegions' => 'RoadRegions',
     ];
 
     public function validate()
     {
+        if (\is_array($this->roadRegions)) {
+            Model::validateArray($this->roadRegions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURLObject) {
             $res['ImageURL'] = $this->imageURLObject;
         }
+
         if (null !== $this->roadRegions) {
-            $res['RoadRegions'] = [];
-            if (null !== $this->roadRegions && \is_array($this->roadRegions)) {
-                $n = 0;
-                foreach ($this->roadRegions as $item) {
-                    $res['RoadRegions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->roadRegions)) {
+                $res['RoadRegions'] = [];
+                $n1 = 0;
+                foreach ($this->roadRegions as $item1) {
+                    $res['RoadRegions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -49,23 +53,25 @@ class DetectVehicleIllegalParkingAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectVehicleIllegalParkingAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURLObject = $map['ImageURL'];
         }
+
         if (isset($map['RoadRegions'])) {
             if (!empty($map['RoadRegions'])) {
                 $model->roadRegions = [];
-                $n                  = 0;
-                foreach ($map['RoadRegions'] as $item) {
-                    $model->roadRegions[$n++] = null !== $item ? roadRegions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RoadRegions'] as $item1) {
+                    $model->roadRegions[$n1] = roadRegions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

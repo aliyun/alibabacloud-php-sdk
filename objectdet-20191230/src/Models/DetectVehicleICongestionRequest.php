@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleICongestionRequest\preRegionIntersectFeatures;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleICongestionRequest\roadRegions;
-use AlibabaCloud\Tea\Model;
 
 class DetectVehicleICongestionRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/objectdet/DetectVehicleICongestion/DetectVehicleICongestion1.jpg
-     *
      * @var string
      */
     public $imageURL;
@@ -27,36 +25,47 @@ class DetectVehicleICongestionRequest extends Model
      */
     public $roadRegions;
     protected $_name = [
-        'imageURL'                   => 'ImageURL',
+        'imageURL' => 'ImageURL',
         'preRegionIntersectFeatures' => 'PreRegionIntersectFeatures',
-        'roadRegions'                => 'RoadRegions',
+        'roadRegions' => 'RoadRegions',
     ];
 
     public function validate()
     {
+        if (\is_array($this->preRegionIntersectFeatures)) {
+            Model::validateArray($this->preRegionIntersectFeatures);
+        }
+        if (\is_array($this->roadRegions)) {
+            Model::validateArray($this->roadRegions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
+
         if (null !== $this->preRegionIntersectFeatures) {
-            $res['PreRegionIntersectFeatures'] = [];
-            if (null !== $this->preRegionIntersectFeatures && \is_array($this->preRegionIntersectFeatures)) {
-                $n = 0;
-                foreach ($this->preRegionIntersectFeatures as $item) {
-                    $res['PreRegionIntersectFeatures'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->preRegionIntersectFeatures)) {
+                $res['PreRegionIntersectFeatures'] = [];
+                $n1 = 0;
+                foreach ($this->preRegionIntersectFeatures as $item1) {
+                    $res['PreRegionIntersectFeatures'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->roadRegions) {
-            $res['RoadRegions'] = [];
-            if (null !== $this->roadRegions && \is_array($this->roadRegions)) {
-                $n = 0;
-                foreach ($this->roadRegions as $item) {
-                    $res['RoadRegions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->roadRegions)) {
+                $res['RoadRegions'] = [];
+                $n1 = 0;
+                foreach ($this->roadRegions as $item1) {
+                    $res['RoadRegions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,32 +73,36 @@ class DetectVehicleICongestionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectVehicleICongestionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
+
         if (isset($map['PreRegionIntersectFeatures'])) {
             if (!empty($map['PreRegionIntersectFeatures'])) {
                 $model->preRegionIntersectFeatures = [];
-                $n                                 = 0;
-                foreach ($map['PreRegionIntersectFeatures'] as $item) {
-                    $model->preRegionIntersectFeatures[$n++] = null !== $item ? preRegionIntersectFeatures::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PreRegionIntersectFeatures'] as $item1) {
+                    $model->preRegionIntersectFeatures[$n1] = preRegionIntersectFeatures::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RoadRegions'])) {
             if (!empty($map['RoadRegions'])) {
                 $model->roadRegions = [];
-                $n                  = 0;
-                foreach ($map['RoadRegions'] as $item) {
-                    $model->roadRegions[$n++] = null !== $item ? roadRegions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RoadRegions'] as $item1) {
+                    $model->roadRegions[$n1] = roadRegions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

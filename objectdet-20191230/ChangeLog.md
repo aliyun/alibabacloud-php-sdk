@@ -1,3 +1,6 @@
+2025-09-10 Version: 1.0.11
+- Generated php 2019-12-30 for objectdet.
+
 2023-01-11 Version: 1.0.10
 - Update sdk.
 

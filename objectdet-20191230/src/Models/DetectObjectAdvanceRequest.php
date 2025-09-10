@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class DetectObjectAdvanceRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/objectdet/DetectObject/DetectObject1.jpg
-     *
      * @var Stream
      */
     public $imageURLObject;
@@ -21,9 +19,10 @@ class DetectObjectAdvanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURLObject) {
@@ -33,11 +32,11 @@ class DetectObjectAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectObjectAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

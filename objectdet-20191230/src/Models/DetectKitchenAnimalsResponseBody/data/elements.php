@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectKitchenAnimalsResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectKitchenAnimalsResponseBody\data\elements\rectangles;
-use AlibabaCloud\Tea\Model;
 
 class elements extends Model
 {
@@ -15,37 +15,39 @@ class elements extends Model
     public $rectangles;
 
     /**
-     * @example 0.75105053
-     *
      * @var float
      */
     public $score;
 
     /**
-     * @example mouse
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'rectangles' => 'Rectangles',
-        'score'      => 'Score',
-        'type'       => 'Type',
+        'score' => 'Score',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (null !== $this->rectangles) {
+            $this->rectangles->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rectangles) {
-            $res['Rectangles'] = null !== $this->rectangles ? $this->rectangles->toMap() : null;
+            $res['Rectangles'] = null !== $this->rectangles ? $this->rectangles->toArray($noStream) : $this->rectangles;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -53,20 +55,22 @@ class elements extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return elements
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Rectangles'])) {
             $model->rectangles = rectangles::fromMap($map['Rectangles']);
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

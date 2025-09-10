@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleIllegalParkingResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleIllegalParkingResponseBody\data\elements\boxes;
-use AlibabaCloud\Tea\Model;
 
 class elements extends Model
 {
@@ -15,54 +15,56 @@ class elements extends Model
     public $boxes;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example 0.9599609375
-     *
      * @var float
      */
     public $score;
 
     /**
-     * @example vehicle
-     *
      * @var string
      */
     public $typeName;
     protected $_name = [
-        'boxes'    => 'Boxes',
-        'id'       => 'Id',
-        'score'    => 'Score',
+        'boxes' => 'Boxes',
+        'id' => 'Id',
+        'score' => 'Score',
         'typeName' => 'TypeName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->boxes)) {
+            Model::validateArray($this->boxes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->boxes) {
-            $res['Boxes'] = [];
-            if (null !== $this->boxes && \is_array($this->boxes)) {
-                $n = 0;
-                foreach ($this->boxes as $item) {
-                    $res['Boxes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->boxes)) {
+                $res['Boxes'] = [];
+                $n1 = 0;
+                foreach ($this->boxes as $item1) {
+                    $res['Boxes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->typeName) {
             $res['TypeName'] = $this->typeName;
         }
@@ -70,29 +72,33 @@ class elements extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return elements
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Boxes'])) {
             if (!empty($map['Boxes'])) {
                 $model->boxes = [];
-                $n            = 0;
-                foreach ($map['Boxes'] as $item) {
-                    $model->boxes[$n++] = null !== $item ? boxes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Boxes'] as $item1) {
+                    $model->boxes[$n1] = boxes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['TypeName'])) {
             $model->typeName = $map['TypeName'];
         }

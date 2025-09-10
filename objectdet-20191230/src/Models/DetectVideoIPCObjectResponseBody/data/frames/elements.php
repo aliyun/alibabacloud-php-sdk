@@ -4,82 +4,76 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVideoIPCObjectResponseBody\data\frames;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class elements extends Model
 {
     /**
-     * @example 156
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @example 0.7812
-     *
      * @var float
      */
     public $score;
 
     /**
-     * @example PERSON
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $width;
 
     /**
-     * @example 289
-     *
      * @var int
      */
     public $x;
 
     /**
-     * @example 271
-     *
      * @var int
      */
     public $y;
     protected $_name = [
         'height' => 'Height',
-        'score'  => 'Score',
-        'type'   => 'Type',
-        'width'  => 'Width',
-        'x'      => 'X',
-        'y'      => 'Y',
+        'score' => 'Score',
+        'type' => 'Type',
+        'width' => 'Width',
+        'x' => 'X',
+        'y' => 'Y',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
+
         if (null !== $this->x) {
             $res['X'] = $this->x;
         }
+
         if (null !== $this->y) {
             $res['Y'] = $this->y;
         }
@@ -87,29 +81,34 @@ class elements extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return elements
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }
+
         if (isset($map['X'])) {
             $model->x = $map['X'];
         }
+
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
         }

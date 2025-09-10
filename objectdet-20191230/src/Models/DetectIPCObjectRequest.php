@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectIPCObjectRequest extends Model
 {
     /**
-     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/objectdet/detect-ipc-xxxx.jpg
-     *
      * @var string
      */
     public $imageURL;
@@ -20,9 +18,10 @@ class DetectIPCObjectRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURL) {
@@ -32,11 +31,11 @@ class DetectIPCObjectRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectIPCObjectRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

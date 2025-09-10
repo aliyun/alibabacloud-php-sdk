@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectWorkwearRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class clothes extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $maxNum;
 
     /**
-     * @example 0.4
-     *
      * @var float
      */
     public $threshold;
     protected $_name = [
-        'maxNum'    => 'MaxNum',
+        'maxNum' => 'MaxNum',
         'threshold' => 'Threshold',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxNum) {
             $res['MaxNum'] = $this->maxNum;
         }
+
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
@@ -43,17 +41,18 @@ class clothes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clothes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxNum'])) {
             $model->maxNum = $map['MaxNum'];
         }
+
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }

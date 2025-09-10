@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectIPCObjectResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class elements extends Model
 {
@@ -14,48 +14,56 @@ class elements extends Model
     public $box;
 
     /**
-     * @example 0.7138671875
-     *
      * @var float
      */
     public $score;
 
     /**
-     * @example 0.8566723958333333
-     *
      * @var float
      */
     public $targetRate;
 
     /**
-     * @example DOG
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'box'        => 'Box',
-        'score'      => 'Score',
+        'box' => 'Box',
+        'score' => 'Score',
         'targetRate' => 'TargetRate',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->box)) {
+            Model::validateArray($this->box);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->box) {
-            $res['Box'] = $this->box;
+            if (\is_array($this->box)) {
+                $res['Box'] = [];
+                $n1 = 0;
+                foreach ($this->box as $item1) {
+                    $res['Box'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->targetRate) {
             $res['TargetRate'] = $this->targetRate;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -63,25 +71,33 @@ class elements extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return elements
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Box'])) {
             if (!empty($map['Box'])) {
-                $model->box = $map['Box'];
+                $model->box = [];
+                $n1 = 0;
+                foreach ($map['Box'] as $item1) {
+                    $model->box[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['TargetRate'])) {
             $model->targetRate = $map['TargetRate'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

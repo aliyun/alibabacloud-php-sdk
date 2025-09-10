@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectWhiteBaseImageResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class elements extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $whiteBase;
@@ -20,9 +18,10 @@ class elements extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->whiteBase) {
@@ -32,11 +31,11 @@ class elements extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return elements
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

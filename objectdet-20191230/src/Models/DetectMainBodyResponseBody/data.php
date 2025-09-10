@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectMainBodyResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectMainBodyResponseBody\data\location;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,23 +19,27 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->location) {
+            $this->location->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->location) {
-            $res['Location'] = null !== $this->location ? $this->location->toMap() : null;
+            $res['Location'] = null !== $this->location ? $this->location->toArray($noStream) : $this->location;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

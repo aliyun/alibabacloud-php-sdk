@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectObjectResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class elements extends Model
 {
@@ -14,37 +14,46 @@ class elements extends Model
     public $boxes;
 
     /**
-     * @example 0.266
-     *
      * @var float
      */
     public $score;
 
     /**
-     * @example chair
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'boxes' => 'Boxes',
         'score' => 'Score',
-        'type'  => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->boxes)) {
+            Model::validateArray($this->boxes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->boxes) {
-            $res['Boxes'] = $this->boxes;
+            if (\is_array($this->boxes)) {
+                $res['Boxes'] = [];
+                $n1 = 0;
+                foreach ($this->boxes as $item1) {
+                    $res['Boxes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -52,22 +61,29 @@ class elements extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return elements
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Boxes'])) {
             if (!empty($map['Boxes'])) {
-                $model->boxes = $map['Boxes'];
+                $model->boxes = [];
+                $n1 = 0;
+                foreach ($map['Boxes'] as $item1) {
+                    $model->boxes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

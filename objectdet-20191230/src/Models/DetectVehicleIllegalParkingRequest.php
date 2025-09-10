@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleIllegalParkingRequest\roadRegions;
-use AlibabaCloud\Tea\Model;
 
 class DetectVehicleIllegalParkingRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/objectdet/DetectVehicleIllegalParking/DetectVehicleIllegalParking2.jpg
-     *
      * @var string
      */
     public $imageURL;
@@ -21,26 +19,32 @@ class DetectVehicleIllegalParkingRequest extends Model
      */
     public $roadRegions;
     protected $_name = [
-        'imageURL'    => 'ImageURL',
+        'imageURL' => 'ImageURL',
         'roadRegions' => 'RoadRegions',
     ];
 
     public function validate()
     {
+        if (\is_array($this->roadRegions)) {
+            Model::validateArray($this->roadRegions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
+
         if (null !== $this->roadRegions) {
-            $res['RoadRegions'] = [];
-            if (null !== $this->roadRegions && \is_array($this->roadRegions)) {
-                $n = 0;
-                foreach ($this->roadRegions as $item) {
-                    $res['RoadRegions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->roadRegions)) {
+                $res['RoadRegions'] = [];
+                $n1 = 0;
+                foreach ($this->roadRegions as $item1) {
+                    $res['RoadRegions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,23 +52,25 @@ class DetectVehicleIllegalParkingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectVehicleIllegalParkingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
+
         if (isset($map['RoadRegions'])) {
             if (!empty($map['RoadRegions'])) {
                 $model->roadRegions = [];
-                $n                  = 0;
-                foreach ($map['RoadRegions'] as $item) {
-                    $model->roadRegions[$n++] = null !== $item ? roadRegions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RoadRegions'] as $item1) {
+                    $model->roadRegions[$n1] = roadRegions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

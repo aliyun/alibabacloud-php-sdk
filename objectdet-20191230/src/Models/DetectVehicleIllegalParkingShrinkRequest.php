@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectVehicleIllegalParkingShrinkRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/objectdet/DetectVehicleIllegalParking/DetectVehicleIllegalParking2.jpg
-     *
      * @var string
      */
     public $imageURL;
@@ -20,20 +18,22 @@ class DetectVehicleIllegalParkingShrinkRequest extends Model
      */
     public $roadRegionsShrink;
     protected $_name = [
-        'imageURL'          => 'ImageURL',
+        'imageURL' => 'ImageURL',
         'roadRegionsShrink' => 'RoadRegions',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
+
         if (null !== $this->roadRegionsShrink) {
             $res['RoadRegions'] = $this->roadRegionsShrink;
         }
@@ -41,17 +41,18 @@ class DetectVehicleIllegalParkingShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectVehicleIllegalParkingShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
+
         if (isset($map['RoadRegions'])) {
             $model->roadRegionsShrink = $map['RoadRegions'];
         }

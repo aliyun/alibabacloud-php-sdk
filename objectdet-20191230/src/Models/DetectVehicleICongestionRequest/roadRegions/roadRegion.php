@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleICongestionRequest\roadRegions;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleICongestionRequest\roadRegions\roadRegion\point;
-use AlibabaCloud\Tea\Model;
 
 class roadRegion extends Model
 {
@@ -19,23 +19,27 @@ class roadRegion extends Model
 
     public function validate()
     {
+        if (null !== $this->point) {
+            $this->point->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->point) {
-            $res['Point'] = null !== $this->point ? $this->point->toMap() : null;
+            $res['Point'] = null !== $this->point ? $this->point->toArray($noStream) : $this->point;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return roadRegion
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

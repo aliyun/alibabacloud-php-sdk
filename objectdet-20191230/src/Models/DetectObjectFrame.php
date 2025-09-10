@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectObjectFrame extends Model
 {
@@ -19,25 +19,31 @@ class DetectObjectFrame extends Model
     public $time;
     protected $_name = [
         'elements' => 'Elements',
-        'time'     => 'Time',
+        'time' => 'Time',
     ];
 
     public function validate()
     {
+        if (\is_array($this->elements)) {
+            Model::validateArray($this->elements);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elements) {
-            $res['Elements'] = [];
-            if (null !== $this->elements && \is_array($this->elements)) {
-                $n = 0;
-                foreach ($this->elements as $item) {
-                    $res['Elements'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->elements)) {
+                $res['Elements'] = [];
+                $n1 = 0;
+                foreach ($this->elements as $item1) {
+                    $res['Elements'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
@@ -45,23 +51,25 @@ class DetectObjectFrame extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectObjectFrame
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Elements'])) {
             if (!empty($map['Elements'])) {
                 $model->elements = [];
-                $n               = 0;
-                foreach ($map['Elements'] as $item) {
-                    $model->elements[$n++] = null !== $item ? DetectObjectElement::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Elements'] as $item1) {
+                    $model->elements[$n1] = DetectObjectElement::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }

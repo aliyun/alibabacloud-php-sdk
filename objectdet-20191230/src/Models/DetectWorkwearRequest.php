@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectWorkwearRequest\clothes;
-use AlibabaCloud\Tea\Model;
 
 class DetectWorkwearRequest extends Model
 {
@@ -15,61 +15,80 @@ class DetectWorkwearRequest extends Model
     public $clothes;
 
     /**
-     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/zhangchaorun/tiyan/xxxx.jpg
-     *
      * @var string
      */
     public $imageUrl;
 
     /**
-     * @description 1
-     *
      * @var string[]
      */
     public $labels;
     protected $_name = [
-        'clothes'  => 'Clothes',
+        'clothes' => 'Clothes',
         'imageUrl' => 'ImageUrl',
-        'labels'   => 'Labels',
+        'labels' => 'Labels',
     ];
 
     public function validate()
     {
+        if (null !== $this->clothes) {
+            $this->clothes->validate();
+        }
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clothes) {
-            $res['Clothes'] = null !== $this->clothes ? $this->clothes->toMap() : null;
+            $res['Clothes'] = null !== $this->clothes ? $this->clothes->toArray($noStream) : $this->clothes;
         }
+
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
+
         if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectWorkwearRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Clothes'])) {
             $model->clothes = clothes::fromMap($map['Clothes']);
         }
+
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }
+
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
-                $model->labels = $map['Labels'];
+                $model->labels = [];
+                $n1 = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 
