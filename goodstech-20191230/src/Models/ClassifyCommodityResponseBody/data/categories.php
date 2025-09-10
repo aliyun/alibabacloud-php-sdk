@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Goodstech\V20191230\Models\ClassifyCommodityResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class categories extends Model
 {
@@ -23,24 +23,27 @@ class categories extends Model
      */
     public $score;
     protected $_name = [
-        'categoryId'   => 'CategoryId',
+        'categoryId' => 'CategoryId',
         'categoryName' => 'CategoryName',
-        'score'        => 'Score',
+        'score' => 'Score',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
+
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
@@ -48,20 +51,22 @@ class categories extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return categories
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
+
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
