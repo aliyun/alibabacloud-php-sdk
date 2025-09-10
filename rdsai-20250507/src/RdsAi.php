@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\RdsAi\V20250507;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeRequest;
@@ -63,19 +64,25 @@ class RdsAi extends OpenApiClient
     /**
      * 创建应用服务实例.
      *
-     * @param request - CreateAppInstanceRequest
+     * @param tmpReq - CreateAppInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateAppInstanceResponse
      *
-     * @param CreateAppInstanceRequest $request
+     * @param CreateAppInstanceRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
      * @return CreateAppInstanceResponse
      */
-    public function createAppInstanceWithOptions($request, $runtime)
+    public function createAppInstanceWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateAppInstanceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->DBInstanceConfig) {
+            $request->DBInstanceConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->DBInstanceConfig, 'DBInstanceConfig', 'json');
+        }
+
         $query = [];
         if (null !== $request->appName) {
             @$query['AppName'] = $request->appName;
@@ -87,6 +94,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBInstanceConfigShrink) {
+            @$query['DBInstanceConfig'] = $request->DBInstanceConfigShrink;
         }
 
         if (null !== $request->DBInstanceName) {
@@ -111,6 +122,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->publicNetworkAccessEnabled) {
             @$query['PublicNetworkAccessEnabled'] = $request->publicNetworkAccessEnabled;
+        }
+
+        if (null !== $request->RAGEnabled) {
+            @$query['RAGEnabled'] = $request->RAGEnabled;
         }
 
         if (null !== $request->regionId) {

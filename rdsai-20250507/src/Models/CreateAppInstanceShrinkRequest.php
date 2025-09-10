@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\RdsAi\V20250507\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceRequest\DBInstanceConfig;
 
-class CreateAppInstanceRequest extends Model
+class CreateAppInstanceShrinkRequest extends Model
 {
     /**
      * @var string
@@ -25,9 +24,9 @@ class CreateAppInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @var DBInstanceConfig
+     * @var string
      */
-    public $DBInstanceConfig;
+    public $DBInstanceConfigShrink;
 
     /**
      * @var string
@@ -77,7 +76,7 @@ class CreateAppInstanceRequest extends Model
         'appName' => 'AppName',
         'appType' => 'AppType',
         'clientToken' => 'ClientToken',
-        'DBInstanceConfig' => 'DBInstanceConfig',
+        'DBInstanceConfigShrink' => 'DBInstanceConfig',
         'DBInstanceName' => 'DBInstanceName',
         'dashboardPassword' => 'DashboardPassword',
         'dashboardUsername' => 'DashboardUsername',
@@ -91,9 +90,6 @@ class CreateAppInstanceRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->DBInstanceConfig) {
-            $this->DBInstanceConfig->validate();
-        }
         parent::validate();
     }
 
@@ -112,8 +108,8 @@ class CreateAppInstanceRequest extends Model
             $res['ClientToken'] = $this->clientToken;
         }
 
-        if (null !== $this->DBInstanceConfig) {
-            $res['DBInstanceConfig'] = null !== $this->DBInstanceConfig ? $this->DBInstanceConfig->toArray($noStream) : $this->DBInstanceConfig;
+        if (null !== $this->DBInstanceConfigShrink) {
+            $res['DBInstanceConfig'] = $this->DBInstanceConfigShrink;
         }
 
         if (null !== $this->DBInstanceName) {
@@ -176,7 +172,7 @@ class CreateAppInstanceRequest extends Model
         }
 
         if (isset($map['DBInstanceConfig'])) {
-            $model->DBInstanceConfig = DBInstanceConfig::fromMap($map['DBInstanceConfig']);
+            $model->DBInstanceConfigShrink = $map['DBInstanceConfig'];
         }
 
         if (isset($map['DBInstanceName'])) {
