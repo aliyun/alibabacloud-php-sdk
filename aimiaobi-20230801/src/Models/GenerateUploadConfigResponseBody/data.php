@@ -14,7 +14,7 @@ class data extends Model
     public $fileKey;
 
     /**
-     * @var mixed[]
+     * @var string[]
      */
     public $formDatas;
 
