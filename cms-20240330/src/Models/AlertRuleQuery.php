@@ -70,6 +70,11 @@ class AlertRuleQuery extends Model
     public $secondJoin;
 
     /**
+     * @var string[]
+     */
+    public $serviceIds;
+
+    /**
      * @var string
      */
     public $type;
@@ -86,6 +91,7 @@ class AlertRuleQuery extends Model
         'queries' => 'queries',
         'relationType' => 'relationType',
         'secondJoin' => 'secondJoin',
+        'serviceIds' => 'serviceIds',
         'type' => 'type',
     ];
 
@@ -105,6 +111,9 @@ class AlertRuleQuery extends Model
         }
         if (null !== $this->secondJoin) {
             $this->secondJoin->validate();
+        }
+        if (\is_array($this->serviceIds)) {
+            Model::validateArray($this->serviceIds);
         }
         parent::validate();
     }
@@ -184,6 +193,17 @@ class AlertRuleQuery extends Model
 
         if (null !== $this->secondJoin) {
             $res['secondJoin'] = null !== $this->secondJoin ? $this->secondJoin->toArray($noStream) : $this->secondJoin;
+        }
+
+        if (null !== $this->serviceIds) {
+            if (\is_array($this->serviceIds)) {
+                $res['serviceIds'] = [];
+                $n1 = 0;
+                foreach ($this->serviceIds as $item1) {
+                    $res['serviceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->type) {
@@ -273,6 +293,17 @@ class AlertRuleQuery extends Model
 
         if (isset($map['secondJoin'])) {
             $model->secondJoin = AlertRuleSlsQueryJoin::fromMap($map['secondJoin']);
+        }
+
+        if (isset($map['serviceIds'])) {
+            if (!empty($map['serviceIds'])) {
+                $model->serviceIds = [];
+                $n1 = 0;
+                foreach ($map['serviceIds'] as $item1) {
+                    $model->serviceIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['type'])) {

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataResponseBody\responseStatus;
 
 class GetEntityStoreDataResponseBody extends Model
 {
@@ -22,10 +23,16 @@ class GetEntityStoreDataResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var responseStatus
+     */
+    public $responseStatus;
     protected $_name = [
         'data' => 'data',
         'header' => 'header',
         'requestId' => 'requestId',
+        'responseStatus' => 'responseStatus',
     ];
 
     public function validate()
@@ -35,6 +42,9 @@ class GetEntityStoreDataResponseBody extends Model
         }
         if (\is_array($this->header)) {
             Model::validateArray($this->header);
+        }
+        if (null !== $this->responseStatus) {
+            $this->responseStatus->validate();
         }
         parent::validate();
     }
@@ -73,6 +83,10 @@ class GetEntityStoreDataResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->responseStatus) {
+            $res['responseStatus'] = null !== $this->responseStatus ? $this->responseStatus->toArray($noStream) : $this->responseStatus;
         }
 
         return $res;
@@ -117,6 +131,10 @@ class GetEntityStoreDataResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['responseStatus'])) {
+            $model->responseStatus = responseStatus::fromMap($map['responseStatus']);
         }
 
         return $model;

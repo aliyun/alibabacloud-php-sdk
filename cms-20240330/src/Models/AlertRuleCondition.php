@@ -61,6 +61,11 @@ class AlertRuleCondition extends Model
     /**
      * @var string
      */
+    public $oper;
+
+    /**
+     * @var string
+     */
     public $relation;
 
     /**
@@ -72,6 +77,11 @@ class AlertRuleCondition extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var float
+     */
+    public $value;
     protected $_name = [
         'alertCount' => 'alertCount',
         'caseList' => 'caseList',
@@ -82,9 +92,11 @@ class AlertRuleCondition extends Model
         'noDataAlertLevel' => 'noDataAlertLevel',
         'noDataAppendValue' => 'noDataAppendValue',
         'noDataPolicy' => 'noDataPolicy',
+        'oper' => 'oper',
         'relation' => 'relation',
         'simpleEscalation' => 'simpleEscalation',
         'type' => 'type',
+        'value' => 'value',
     ];
 
     public function validate()
@@ -160,6 +172,10 @@ class AlertRuleCondition extends Model
             $res['noDataPolicy'] = $this->noDataPolicy;
         }
 
+        if (null !== $this->oper) {
+            $res['oper'] = $this->oper;
+        }
+
         if (null !== $this->relation) {
             $res['relation'] = $this->relation;
         }
@@ -170,6 +186,10 @@ class AlertRuleCondition extends Model
 
         if (null !== $this->type) {
             $res['type'] = $this->type;
+        }
+
+        if (null !== $this->value) {
+            $res['value'] = $this->value;
         }
 
         return $res;
@@ -233,6 +253,10 @@ class AlertRuleCondition extends Model
             $model->noDataPolicy = $map['noDataPolicy'];
         }
 
+        if (isset($map['oper'])) {
+            $model->oper = $map['oper'];
+        }
+
         if (isset($map['relation'])) {
             $model->relation = $map['relation'];
         }
@@ -243,6 +267,10 @@ class AlertRuleCondition extends Model
 
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+
+        if (isset($map['value'])) {
+            $model->value = $map['value'];
         }
 
         return $model;
