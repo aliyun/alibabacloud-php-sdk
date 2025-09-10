@@ -157,6 +157,11 @@ class backupPlan extends Model
     /**
      * @var string
      */
+    public $latestFinishJobId;
+
+    /**
+     * @var string
+     */
     public $options;
 
     /**
@@ -257,6 +262,7 @@ class backupPlan extends Model
         'instanceName' => 'InstanceName',
         'keepLatestSnapshots' => 'KeepLatestSnapshots',
         'latestExecuteJobId' => 'LatestExecuteJobId',
+        'latestFinishJobId' => 'LatestFinishJobId',
         'options' => 'Options',
         'otsDetail' => 'OtsDetail',
         'paths' => 'Paths',
@@ -410,6 +416,10 @@ class backupPlan extends Model
 
         if (null !== $this->latestExecuteJobId) {
             $res['LatestExecuteJobId'] = $this->latestExecuteJobId;
+        }
+
+        if (null !== $this->latestFinishJobId) {
+            $res['LatestFinishJobId'] = $this->latestFinishJobId;
         }
 
         if (null !== $this->options) {
@@ -593,6 +603,10 @@ class backupPlan extends Model
 
         if (isset($map['LatestExecuteJobId'])) {
             $model->latestExecuteJobId = $map['LatestExecuteJobId'];
+        }
+
+        if (isset($map['LatestFinishJobId'])) {
+            $model->latestFinishJobId = $map['LatestFinishJobId'];
         }
 
         if (isset($map['Options'])) {

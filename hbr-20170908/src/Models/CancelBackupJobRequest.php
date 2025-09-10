@@ -11,6 +11,11 @@ class CancelBackupJobRequest extends Model
     /**
      * @var string
      */
+    public $edition;
+
+    /**
+     * @var string
+     */
     public $jobId;
 
     /**
@@ -18,6 +23,7 @@ class CancelBackupJobRequest extends Model
      */
     public $vaultId;
     protected $_name = [
+        'edition' => 'Edition',
         'jobId' => 'JobId',
         'vaultId' => 'VaultId',
     ];
@@ -30,6 +36,10 @@ class CancelBackupJobRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
+        }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -49,6 +59,10 @@ class CancelBackupJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
+        }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }

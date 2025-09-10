@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class SearchHistoricalSnapshotsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $edition;
+
+    /**
      * @var int
      */
     public $limit;
@@ -38,6 +43,7 @@ class SearchHistoricalSnapshotsRequest extends Model
      */
     public $sourceType;
     protected $_name = [
+        'edition' => 'Edition',
         'limit' => 'Limit',
         'nextToken' => 'NextToken',
         'order' => 'Order',
@@ -57,6 +63,10 @@ class SearchHistoricalSnapshotsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
+        }
+
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
@@ -99,6 +109,10 @@ class SearchHistoricalSnapshotsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
+        }
+
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }

@@ -193,7 +193,6 @@ class Hbr extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'ap-northeast-2-pop' => 'hbr.aliyuncs.com',
@@ -346,6 +345,10 @@ class Hbr extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
+        }
+
         if (null !== $request->jobId) {
             @$query['JobId'] = $request->jobId;
         }
@@ -407,6 +410,10 @@ class Hbr extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
+        }
+
         if (null !== $request->restoreId) {
             @$query['RestoreId'] = $request->restoreId;
         }
@@ -1675,6 +1682,10 @@ class Hbr extends OpenApiClient
             @$query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
 
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
+        }
+
         if (null !== $request->failbackDetailShrink) {
             @$query['FailbackDetail'] = $request->failbackDetailShrink;
         }
@@ -2205,6 +2216,10 @@ class Hbr extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
+        }
+
         if (null !== $request->planId) {
             @$query['PlanId'] = $request->planId;
         }
@@ -2996,6 +3011,10 @@ class Hbr extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
+        }
+
         if (null !== $request->filters) {
             @$query['Filters'] = $request->filters;
         }
@@ -3069,6 +3088,10 @@ class Hbr extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
+        }
+
         if (null !== $request->filters) {
             @$query['Filters'] = $request->filters;
         }
@@ -4313,6 +4336,10 @@ class Hbr extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
+        }
+
         if (null !== $request->filters) {
             @$query['Filters'] = $request->filters;
         }
@@ -4776,6 +4803,10 @@ class Hbr extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
+        }
+
         if (null !== $request->planId) {
             @$query['PlanId'] = $request->planId;
         }
@@ -4922,6 +4953,10 @@ class Hbr extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
+        }
+
         if (null !== $request->planId) {
             @$query['PlanId'] = $request->planId;
         }
@@ -5065,6 +5100,10 @@ class Hbr extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
+        }
+
         if (null !== $request->planId) {
             @$query['PlanId'] = $request->planId;
         }
@@ -5466,6 +5505,10 @@ class Hbr extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
+        }
+
         if (null !== $request->limit) {
             @$query['Limit'] = $request->limit;
         }
@@ -5865,6 +5908,10 @@ class Hbr extends OpenApiClient
 
         if (null !== $request->detailShrink) {
             @$query['Detail'] = $request->detailShrink;
+        }
+
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
         }
 
         if (null !== $request->keepLatestSnapshots) {

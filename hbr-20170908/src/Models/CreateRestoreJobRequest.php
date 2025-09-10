@@ -26,6 +26,11 @@ class CreateRestoreJobRequest extends Model
     /**
      * @var string
      */
+    public $edition;
+
+    /**
+     * @var string
+     */
     public $exclude;
 
     /**
@@ -146,6 +151,7 @@ class CreateRestoreJobRequest extends Model
         'crossAccountRoleName' => 'CrossAccountRoleName',
         'crossAccountType' => 'CrossAccountType',
         'crossAccountUserId' => 'CrossAccountUserId',
+        'edition' => 'Edition',
         'exclude' => 'Exclude',
         'failbackDetail' => 'FailbackDetail',
         'include' => 'Include',
@@ -199,6 +205,10 @@ class CreateRestoreJobRequest extends Model
 
         if (null !== $this->crossAccountUserId) {
             $res['CrossAccountUserId'] = $this->crossAccountUserId;
+        }
+
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
         }
 
         if (null !== $this->exclude) {
@@ -328,6 +338,10 @@ class CreateRestoreJobRequest extends Model
 
         if (isset($map['CrossAccountUserId'])) {
             $model->crossAccountUserId = $map['CrossAccountUserId'];
+        }
+
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
         }
 
         if (isset($map['Exclude'])) {

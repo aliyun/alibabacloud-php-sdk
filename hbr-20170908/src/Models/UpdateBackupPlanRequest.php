@@ -22,6 +22,11 @@ class UpdateBackupPlanRequest extends Model
     /**
      * @var string
      */
+    public $edition;
+
+    /**
+     * @var string
+     */
     public $exclude;
 
     /**
@@ -101,6 +106,7 @@ class UpdateBackupPlanRequest extends Model
     protected $_name = [
         'changeListPath' => 'ChangeListPath',
         'detail' => 'Detail',
+        'edition' => 'Edition',
         'exclude' => 'Exclude',
         'include' => 'Include',
         'keepLatestSnapshots' => 'KeepLatestSnapshots',
@@ -150,6 +156,10 @@ class UpdateBackupPlanRequest extends Model
                     $res['Detail'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
         }
 
         if (null !== $this->exclude) {
@@ -252,6 +262,10 @@ class UpdateBackupPlanRequest extends Model
                     $model->detail[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
         }
 
         if (isset($map['Exclude'])) {

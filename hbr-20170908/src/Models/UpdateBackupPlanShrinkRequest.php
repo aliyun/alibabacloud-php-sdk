@@ -22,6 +22,11 @@ class UpdateBackupPlanShrinkRequest extends Model
     /**
      * @var string
      */
+    public $edition;
+
+    /**
+     * @var string
+     */
     public $exclude;
 
     /**
@@ -101,6 +106,7 @@ class UpdateBackupPlanShrinkRequest extends Model
     protected $_name = [
         'changeListPath' => 'ChangeListPath',
         'detailShrink' => 'Detail',
+        'edition' => 'Edition',
         'exclude' => 'Exclude',
         'include' => 'Include',
         'keepLatestSnapshots' => 'KeepLatestSnapshots',
@@ -139,6 +145,10 @@ class UpdateBackupPlanShrinkRequest extends Model
 
         if (null !== $this->detailShrink) {
             $res['Detail'] = $this->detailShrink;
+        }
+
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
         }
 
         if (null !== $this->exclude) {
@@ -236,6 +246,10 @@ class UpdateBackupPlanShrinkRequest extends Model
 
         if (isset($map['Detail'])) {
             $model->detailShrink = $map['Detail'];
+        }
+
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
         }
 
         if (isset($map['Exclude'])) {

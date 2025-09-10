@@ -11,6 +11,11 @@ class DeleteBackupPlanRequest extends Model
     /**
      * @var string
      */
+    public $edition;
+
+    /**
+     * @var string
+     */
     public $planId;
 
     /**
@@ -28,6 +33,7 @@ class DeleteBackupPlanRequest extends Model
      */
     public $vaultId;
     protected $_name = [
+        'edition' => 'Edition',
         'planId' => 'PlanId',
         'requireNoRunningJobs' => 'RequireNoRunningJobs',
         'sourceType' => 'SourceType',
@@ -42,6 +48,10 @@ class DeleteBackupPlanRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
+        }
+
         if (null !== $this->planId) {
             $res['PlanId'] = $this->planId;
         }
@@ -69,6 +79,10 @@ class DeleteBackupPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
+        }
+
         if (isset($map['PlanId'])) {
             $model->planId = $map['PlanId'];
         }

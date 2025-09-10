@@ -26,6 +26,11 @@ class CreateRestoreJobShrinkRequest extends Model
     /**
      * @var string
      */
+    public $edition;
+
+    /**
+     * @var string
+     */
     public $exclude;
 
     /**
@@ -146,6 +151,7 @@ class CreateRestoreJobShrinkRequest extends Model
         'crossAccountRoleName' => 'CrossAccountRoleName',
         'crossAccountType' => 'CrossAccountType',
         'crossAccountUserId' => 'CrossAccountUserId',
+        'edition' => 'Edition',
         'exclude' => 'Exclude',
         'failbackDetailShrink' => 'FailbackDetail',
         'include' => 'Include',
@@ -190,6 +196,10 @@ class CreateRestoreJobShrinkRequest extends Model
 
         if (null !== $this->crossAccountUserId) {
             $res['CrossAccountUserId'] = $this->crossAccountUserId;
+        }
+
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
         }
 
         if (null !== $this->exclude) {
@@ -309,6 +319,10 @@ class CreateRestoreJobShrinkRequest extends Model
 
         if (isset($map['CrossAccountUserId'])) {
             $model->crossAccountUserId = $map['CrossAccountUserId'];
+        }
+
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
         }
 
         if (isset($map['Exclude'])) {

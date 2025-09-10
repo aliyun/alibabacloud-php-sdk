@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeRestoreJobs2Request\filters;
 class DescribeRestoreJobs2Request extends Model
 {
     /**
+     * @var string
+     */
+    public $edition;
+
+    /**
      * @var filters[]
      */
     public $filters;
@@ -29,6 +34,7 @@ class DescribeRestoreJobs2Request extends Model
      */
     public $restoreType;
     protected $_name = [
+        'edition' => 'Edition',
         'filters' => 'Filters',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -46,6 +52,10 @@ class DescribeRestoreJobs2Request extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
+        }
+
         if (null !== $this->filters) {
             if (\is_array($this->filters)) {
                 $res['Filters'] = [];
@@ -80,6 +90,10 @@ class DescribeRestoreJobs2Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
+        }
+
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];

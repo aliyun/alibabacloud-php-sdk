@@ -137,6 +137,11 @@ class snapshot extends Model
     /**
      * @var int
      */
+    public $protectedDataSize;
+
+    /**
+     * @var int
+     */
     public $rangeEnd;
 
     /**
@@ -234,6 +239,7 @@ class snapshot extends Model
         'path' => 'Path',
         'paths' => 'Paths',
         'prefix' => 'Prefix',
+        'protectedDataSize' => 'ProtectedDataSize',
         'rangeEnd' => 'RangeEnd',
         'rangeStart' => 'RangeStart',
         'retention' => 'Retention',
@@ -360,6 +366,10 @@ class snapshot extends Model
 
         if (null !== $this->prefix) {
             $res['Prefix'] = $this->prefix;
+        }
+
+        if (null !== $this->protectedDataSize) {
+            $res['ProtectedDataSize'] = $this->protectedDataSize;
         }
 
         if (null !== $this->rangeEnd) {
@@ -531,6 +541,10 @@ class snapshot extends Model
 
         if (isset($map['Prefix'])) {
             $model->prefix = $map['Prefix'];
+        }
+
+        if (isset($map['ProtectedDataSize'])) {
+            $model->protectedDataSize = $map['ProtectedDataSize'];
         }
 
         if (isset($map['RangeEnd'])) {
