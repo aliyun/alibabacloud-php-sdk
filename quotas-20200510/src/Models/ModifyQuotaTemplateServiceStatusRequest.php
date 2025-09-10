@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyQuotaTemplateServiceStatusRequest extends Model
 {
     /**
-     * @description The status of the quota template. Valid values:
-     *
-     *   \\-1: The quota template is disabled.
-     *   1: The quota template is enabled.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $serviceStatus;
@@ -26,9 +18,10 @@ class ModifyQuotaTemplateServiceStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceStatus) {
@@ -38,11 +31,11 @@ class ModifyQuotaTemplateServiceStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyQuotaTemplateServiceStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTemplateQuotaItemResponseBody extends Model
 {
     /**
-     * @description The ID of the quota template.
-     *
-     * @example 1****
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example D47B3A10-CDAC-5412-B2EE-EC9A3DBE9053
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'id'        => 'Id',
+        'id' => 'Id',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class CreateTemplateQuotaItemResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTemplateQuotaItemResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

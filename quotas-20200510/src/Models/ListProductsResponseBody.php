@@ -4,86 +4,77 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\ListProductsResponseBody\productInfo;
-use AlibabaCloud\Tea\Model;
 
 class ListProductsResponseBody extends Model
 {
     /**
-     * @description The maximum number of records that are returned for the query.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that marks the position at which the query ends. An empty value indicates that all data is returned.
-     *
-     * @example 4
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The information of the Alibaba Cloud service.
-     *
      * @var productInfo[]
      */
     public $productInfo;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1DA9C136-11BC-4C39-ADC6-B86276128072
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of records that are returned for the query.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'productInfo' => 'ProductInfo',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->productInfo)) {
+            Model::validateArray($this->productInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->productInfo) {
-            $res['ProductInfo'] = [];
-            if (null !== $this->productInfo && \is_array($this->productInfo)) {
-                $n = 0;
-                foreach ($this->productInfo as $item) {
-                    $res['ProductInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->productInfo)) {
+                $res['ProductInfo'] = [];
+                $n1 = 0;
+                foreach ($this->productInfo as $item1) {
+                    $res['ProductInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -91,32 +82,37 @@ class ListProductsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProductsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['ProductInfo'])) {
             if (!empty($map['ProductInfo'])) {
                 $model->productInfo = [];
-                $n                  = 0;
-                foreach ($map['ProductInfo'] as $item) {
-                    $model->productInfo[$n++] = null !== $item ? productInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ProductInfo'] as $item1) {
+                    $model->productInfo[$n1] = productInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemindQuotaApplicationApprovalRequest extends Model
 {
     /**
-     * @description The quota application ID.
-     *
-     * For more information about how to obtain the ID of a quota application, see [ListQuotaApplications](https://help.aliyun.com/document_detail/440568.html).
-     * @example 219f1ff6-6205-495f-bda7-90d2fe945e****
-     *
      * @var string
      */
     public $applicationId;
@@ -23,9 +18,10 @@ class RemindQuotaApplicationApprovalRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationId) {
@@ -35,11 +31,11 @@ class RemindQuotaApplicationApprovalRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemindQuotaApplicationApprovalRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

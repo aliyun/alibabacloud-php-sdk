@@ -4,77 +4,104 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models\ListDependentQuotasResponseBody\quotas;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dimensions extends Model
 {
     /**
-     * @description The dimensions of the quotas on which the specified quota depends.
-     *
      * @var string[]
      */
     public $dependentDimension;
 
     /**
-     * @description The key of the quota dimension.
-     *
-     * @example regionId
-     *
      * @var string
      */
     public $dimensionKey;
 
     /**
-     * @description The dimension values.
-     *
      * @var string[]
      */
     public $dimensionValues;
     protected $_name = [
         'dependentDimension' => 'DependentDimension',
-        'dimensionKey'       => 'DimensionKey',
-        'dimensionValues'    => 'DimensionValues',
+        'dimensionKey' => 'DimensionKey',
+        'dimensionValues' => 'DimensionValues',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dependentDimension)) {
+            Model::validateArray($this->dependentDimension);
+        }
+        if (\is_array($this->dimensionValues)) {
+            Model::validateArray($this->dimensionValues);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dependentDimension) {
-            $res['DependentDimension'] = $this->dependentDimension;
+            if (\is_array($this->dependentDimension)) {
+                $res['DependentDimension'] = [];
+                $n1 = 0;
+                foreach ($this->dependentDimension as $item1) {
+                    $res['DependentDimension'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->dimensionKey) {
             $res['DimensionKey'] = $this->dimensionKey;
         }
+
         if (null !== $this->dimensionValues) {
-            $res['DimensionValues'] = $this->dimensionValues;
+            if (\is_array($this->dimensionValues)) {
+                $res['DimensionValues'] = [];
+                $n1 = 0;
+                foreach ($this->dimensionValues as $item1) {
+                    $res['DimensionValues'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dimensions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DependentDimension'])) {
             if (!empty($map['DependentDimension'])) {
-                $model->dependentDimension = $map['DependentDimension'];
+                $model->dependentDimension = [];
+                $n1 = 0;
+                foreach ($map['DependentDimension'] as $item1) {
+                    $model->dependentDimension[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['DimensionKey'])) {
             $model->dimensionKey = $map['DimensionKey'];
         }
+
         if (isset($map['DimensionValues'])) {
             if (!empty($map['DimensionValues'])) {
-                $model->dimensionValues = $map['DimensionValues'];
+                $model->dimensionValues = [];
+                $n1 = 0;
+                foreach ($map['DimensionValues'] as $item1) {
+                    $model->dimensionValues[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateQuotaAlarmResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example A95C65B3-7CF4-469E-B1D5-1CA0628A6411
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateQuotaAlarmResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateQuotaAlarmResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateQuotaAlarmResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

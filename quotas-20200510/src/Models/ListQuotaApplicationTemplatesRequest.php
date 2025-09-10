@@ -4,118 +4,97 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\ListQuotaApplicationTemplatesRequest\dimensions;
-use AlibabaCloud\Tea\Model;
 
 class ListQuotaApplicationTemplatesRequest extends Model
 {
     /**
-     * @description The quota dimensions.
-     *
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
-     * @description The ID of the quota item.
-     *
-     * @example 1****
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The maximum number of records that can be returned for the query. Valid values: 1 to 100. Default value: 30.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that marks the position from which you want to start the query.
-     *
-     * > If you leave this parameter empty, the query starts from the beginning.
-     * @example 1
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The abbreviation of the Alibaba Cloud service name.
-     *
-     * >  To query the abbreviation of an Alibaba Cloud service name, call the [ListProducts](https://help.aliyun.com/document_detail/440555.html) operation and check the value of `ProductCode` in the response.
-     * @example ecs
-     *
      * @var string
      */
     public $productCode;
 
     /**
-     * @description The ID of the quota.
-     *
-     * @example q_security-groups
-     *
      * @var string
      */
     public $quotaActionCode;
 
     /**
-     * @description The type of the quota. Valid values:
-     *
-     *   CommonQuota: general quota
-     *   WhiteListLabel: privilege
-     *   FlowControl: API rate limit
-     *
-     * @example CommonQuota
-     *
      * @var string
      */
     public $quotaCategory;
     protected $_name = [
-        'dimensions'      => 'Dimensions',
-        'id'              => 'Id',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'productCode'     => 'ProductCode',
+        'dimensions' => 'Dimensions',
+        'id' => 'Id',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'productCode' => 'ProductCode',
         'quotaActionCode' => 'QuotaActionCode',
-        'quotaCategory'   => 'QuotaCategory',
+        'quotaCategory' => 'QuotaCategory',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dimensions)) {
+            Model::validateArray($this->dimensions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dimensions) {
-            $res['Dimensions'] = [];
-            if (null !== $this->dimensions && \is_array($this->dimensions)) {
-                $n = 0;
-                foreach ($this->dimensions as $item) {
-                    $res['Dimensions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dimensions)) {
+                $res['Dimensions'] = [];
+                $n1 = 0;
+                foreach ($this->dimensions as $item1) {
+                    $res['Dimensions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->quotaActionCode) {
             $res['QuotaActionCode'] = $this->quotaActionCode;
         }
+
         if (null !== $this->quotaCategory) {
             $res['QuotaCategory'] = $this->quotaCategory;
         }
@@ -123,38 +102,45 @@ class ListQuotaApplicationTemplatesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListQuotaApplicationTemplatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dimensions'])) {
             if (!empty($map['Dimensions'])) {
                 $model->dimensions = [];
-                $n                 = 0;
-                foreach ($map['Dimensions'] as $item) {
-                    $model->dimensions[$n++] = null !== $item ? dimensions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Dimensions'] as $item1) {
+                    $model->dimensions[$n1] = dimensions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['QuotaActionCode'])) {
             $model->quotaActionCode = $map['QuotaActionCode'];
         }
+
         if (isset($map['QuotaCategory'])) {
             $model->quotaCategory = $map['QuotaCategory'];
         }

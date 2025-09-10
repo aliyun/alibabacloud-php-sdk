@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\CreateQuotaAlarmRequest;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\CreateQuotaAlarmResponse;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\CreateQuotaApplicationRequest;
@@ -60,11 +59,10 @@ use AlibabaCloud\SDK\Quotas\V20200510\Models\RemindQuotaApplicationApprovalReque
 use AlibabaCloud\SDK\Quotas\V20200510\Models\RemindQuotaApplicationApprovalResponse;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\UpdateQuotaAlarmRequest;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\UpdateQuotaAlarmResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Quotas extends OpenApiClient
 {
@@ -89,84 +87,104 @@ class Quotas extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary The value of the quota dimension.
-     * The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
-     * > This parameter is required if you set the ProductCode parameter to ecs, ecs-spec, actiontrail, or ess.
-     *  *
-     * @description The ID of the alert.
-     *  *
-     * @param CreateQuotaAlarmRequest $request CreateQuotaAlarmRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Creates a quota alert.
      *
-     * @return CreateQuotaAlarmResponse CreateQuotaAlarmResponse
+     * @remarks
+     * The quota alerting feature has been upgraded and this API operation will be deprecated. If you want to create a quota alert of the new version, call CloudMonitor API operations. For more information, see [Use API operations to manage new quota alert rules](https://help.aliyun.com/document_detail/2863234.html).
+     *
+     * @param request - CreateQuotaAlarmRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateQuotaAlarmResponse
+     *
+     * @param CreateQuotaAlarmRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateQuotaAlarmResponse
      */
     public function createQuotaAlarmWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alarmName)) {
-            $body['AlarmName'] = $request->alarmName;
+        if (null !== $request->alarmName) {
+            @$body['AlarmName'] = $request->alarmName;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->originalContext) {
+            @$body['OriginalContext'] = $request->originalContext;
         }
-        if (!Utils::isUnset($request->quotaActionCode)) {
-            $body['QuotaActionCode'] = $request->quotaActionCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->quotaDimensions)) {
-            $body['QuotaDimensions'] = $request->quotaDimensions;
+
+        if (null !== $request->quotaActionCode) {
+            @$body['QuotaActionCode'] = $request->quotaActionCode;
         }
-        if (!Utils::isUnset($request->threshold)) {
-            $body['Threshold'] = $request->threshold;
+
+        if (null !== $request->quotaDimensions) {
+            @$body['QuotaDimensions'] = $request->quotaDimensions;
         }
-        if (!Utils::isUnset($request->thresholdPercent)) {
-            $body['ThresholdPercent'] = $request->thresholdPercent;
+
+        if (null !== $request->threshold) {
+            @$body['Threshold'] = $request->threshold;
         }
-        if (!Utils::isUnset($request->thresholdType)) {
-            $body['ThresholdType'] = $request->thresholdType;
+
+        if (null !== $request->thresholdPercent) {
+            @$body['ThresholdPercent'] = $request->thresholdPercent;
         }
-        if (!Utils::isUnset($request->webHook)) {
-            $body['WebHook'] = $request->webHook;
+
+        if (null !== $request->thresholdType) {
+            @$body['ThresholdType'] = $request->thresholdType;
         }
+
+        if (null !== $request->webHook) {
+            @$body['WebHook'] = $request->webHook;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateQuotaAlarm',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateQuotaAlarm',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateQuotaAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary The value of the quota dimension.
-     * The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
-     * > This parameter is required if you set the ProductCode parameter to ecs, ecs-spec, actiontrail, or ess.
-     *  *
-     * @description The ID of the alert.
-     *  *
-     * @param CreateQuotaAlarmRequest $request CreateQuotaAlarmRequest
+     * Creates a quota alert.
      *
-     * @return CreateQuotaAlarmResponse CreateQuotaAlarmResponse
+     * @remarks
+     * The quota alerting feature has been upgraded and this API operation will be deprecated. If you want to create a quota alert of the new version, call CloudMonitor API operations. For more information, see [Use API operations to manage new quota alert rules](https://help.aliyun.com/document_detail/2863234.html).
+     *
+     * @param request - CreateQuotaAlarmRequest
+     *
+     * @returns CreateQuotaAlarmResponse
+     *
+     * @param CreateQuotaAlarmRequest $request
+     *
+     * @return CreateQuotaAlarmResponse
      */
     public function createQuotaAlarm($request)
     {
@@ -176,78 +194,100 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Submits an application to increase a quota.
-     *  *
-     * @description In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
-     *  *
-     * @param CreateQuotaApplicationRequest $request CreateQuotaApplicationRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Submits an application to increase a quota.
      *
-     * @return CreateQuotaApplicationResponse CreateQuotaApplicationResponse
+     * @remarks
+     * In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
+     *
+     * @param request - CreateQuotaApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateQuotaApplicationResponse
+     *
+     * @param CreateQuotaApplicationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateQuotaApplicationResponse
      */
     public function createQuotaApplicationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->auditMode)) {
-            $body['AuditMode'] = $request->auditMode;
+        if (null !== $request->auditMode) {
+            @$body['AuditMode'] = $request->auditMode;
         }
-        if (!Utils::isUnset($request->desireValue)) {
-            $body['DesireValue'] = $request->desireValue;
+
+        if (null !== $request->desireValue) {
+            @$body['DesireValue'] = $request->desireValue;
         }
-        if (!Utils::isUnset($request->dimensions)) {
-            $body['Dimensions'] = $request->dimensions;
+
+        if (null !== $request->dimensions) {
+            @$body['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->effectiveTime)) {
-            $body['EffectiveTime'] = $request->effectiveTime;
+
+        if (null !== $request->effectiveTime) {
+            @$body['EffectiveTime'] = $request->effectiveTime;
         }
-        if (!Utils::isUnset($request->envLanguage)) {
-            $body['EnvLanguage'] = $request->envLanguage;
+
+        if (null !== $request->envLanguage) {
+            @$body['EnvLanguage'] = $request->envLanguage;
         }
-        if (!Utils::isUnset($request->expireTime)) {
-            $body['ExpireTime'] = $request->expireTime;
+
+        if (null !== $request->expireTime) {
+            @$body['ExpireTime'] = $request->expireTime;
         }
-        if (!Utils::isUnset($request->noticeType)) {
-            $body['NoticeType'] = $request->noticeType;
+
+        if (null !== $request->noticeType) {
+            @$body['NoticeType'] = $request->noticeType;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->quotaActionCode)) {
-            $body['QuotaActionCode'] = $request->quotaActionCode;
+
+        if (null !== $request->quotaActionCode) {
+            @$body['QuotaActionCode'] = $request->quotaActionCode;
         }
-        if (!Utils::isUnset($request->quotaCategory)) {
-            $body['QuotaCategory'] = $request->quotaCategory;
+
+        if (null !== $request->quotaCategory) {
+            @$body['QuotaCategory'] = $request->quotaCategory;
         }
-        if (!Utils::isUnset($request->reason)) {
-            $body['Reason'] = $request->reason;
+
+        if (null !== $request->reason) {
+            @$body['Reason'] = $request->reason;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateQuotaApplication',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateQuotaApplication',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateQuotaApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits an application to increase a quota.
-     *  *
-     * @description In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
-     *  *
-     * @param CreateQuotaApplicationRequest $request CreateQuotaApplicationRequest
+     * Submits an application to increase a quota.
      *
-     * @return CreateQuotaApplicationResponse CreateQuotaApplicationResponse
+     * @remarks
+     * In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
+     *
+     * @param request - CreateQuotaApplicationRequest
+     *
+     * @returns CreateQuotaApplicationResponse
+     *
+     * @param CreateQuotaApplicationRequest $request
+     *
+     * @return CreateQuotaApplicationResponse
      */
     public function createQuotaApplication($request)
     {
@@ -257,80 +297,102 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Submits a quota increase application. After you add a quota item to a quota template, the system automatically submits quota applications only for new members in the resource directory. The quota values for existing members remain unchanged. If you want to increase the quota values of existing members, you can submit a quota application for the members by applying quota templates to the members.
-     *  *
-     * @description ### [](#)QPS limit
-     * You can add a maximum of 10 quota items to a quota template at a time.
-     *  *
-     * @param CreateQuotaApplicationsForTemplateRequest $request CreateQuotaApplicationsForTemplateRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Submits a quota increase application. After you add a quota item to a quota template, the system automatically submits quota applications only for new members of the resource directory. The quota values for existing members remain unchanged. If you want to increase the quota values of existing members, you can submit a quota application for the members by applying quota templates to the members. Only the management account of a resource directory can create multiple quota applications at a time.
      *
-     * @return CreateQuotaApplicationsForTemplateResponse CreateQuotaApplicationsForTemplateResponse
+     * @remarks
+     * ### [](#)QPS limit
+     * You can add a maximum of 10 quota items to a quota template at a time.
+     *
+     * @param request - CreateQuotaApplicationsForTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateQuotaApplicationsForTemplateResponse
+     *
+     * @param CreateQuotaApplicationsForTemplateRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateQuotaApplicationsForTemplateResponse
      */
     public function createQuotaApplicationsForTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aliyunUids)) {
-            $body['AliyunUids'] = $request->aliyunUids;
+        if (null !== $request->aliyunUids) {
+            @$body['AliyunUids'] = $request->aliyunUids;
         }
-        if (!Utils::isUnset($request->desireValue)) {
-            $body['DesireValue'] = $request->desireValue;
+
+        if (null !== $request->desireValue) {
+            @$body['DesireValue'] = $request->desireValue;
         }
-        if (!Utils::isUnset($request->dimensions)) {
-            $body['Dimensions'] = $request->dimensions;
+
+        if (null !== $request->dimensions) {
+            @$body['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->effectiveTime)) {
-            $body['EffectiveTime'] = $request->effectiveTime;
+
+        if (null !== $request->effectiveTime) {
+            @$body['EffectiveTime'] = $request->effectiveTime;
         }
-        if (!Utils::isUnset($request->envLanguage)) {
-            $body['EnvLanguage'] = $request->envLanguage;
+
+        if (null !== $request->envLanguage) {
+            @$body['EnvLanguage'] = $request->envLanguage;
         }
-        if (!Utils::isUnset($request->expireTime)) {
-            $body['ExpireTime'] = $request->expireTime;
+
+        if (null !== $request->expireTime) {
+            @$body['ExpireTime'] = $request->expireTime;
         }
-        if (!Utils::isUnset($request->noticeType)) {
-            $body['NoticeType'] = $request->noticeType;
+
+        if (null !== $request->noticeType) {
+            @$body['NoticeType'] = $request->noticeType;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->quotaActionCode)) {
-            $body['QuotaActionCode'] = $request->quotaActionCode;
+
+        if (null !== $request->quotaActionCode) {
+            @$body['QuotaActionCode'] = $request->quotaActionCode;
         }
-        if (!Utils::isUnset($request->quotaCategory)) {
-            $body['QuotaCategory'] = $request->quotaCategory;
+
+        if (null !== $request->quotaCategory) {
+            @$body['QuotaCategory'] = $request->quotaCategory;
         }
-        if (!Utils::isUnset($request->reason)) {
-            $body['Reason'] = $request->reason;
+
+        if (null !== $request->reason) {
+            @$body['Reason'] = $request->reason;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateQuotaApplicationsForTemplate',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateQuotaApplicationsForTemplate',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateQuotaApplicationsForTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a quota increase application. After you add a quota item to a quota template, the system automatically submits quota applications only for new members in the resource directory. The quota values for existing members remain unchanged. If you want to increase the quota values of existing members, you can submit a quota application for the members by applying quota templates to the members.
-     *  *
-     * @description ### [](#)QPS limit
-     * You can add a maximum of 10 quota items to a quota template at a time.
-     *  *
-     * @param CreateQuotaApplicationsForTemplateRequest $request CreateQuotaApplicationsForTemplateRequest
+     * Submits a quota increase application. After you add a quota item to a quota template, the system automatically submits quota applications only for new members of the resource directory. The quota values for existing members remain unchanged. If you want to increase the quota values of existing members, you can submit a quota application for the members by applying quota templates to the members. Only the management account of a resource directory can create multiple quota applications at a time.
      *
-     * @return CreateQuotaApplicationsForTemplateResponse CreateQuotaApplicationsForTemplateResponse
+     * @remarks
+     * ### [](#)QPS limit
+     * You can add a maximum of 10 quota items to a quota template at a time.
+     *
+     * @param request - CreateQuotaApplicationsForTemplateRequest
+     *
+     * @returns CreateQuotaApplicationsForTemplateResponse
+     *
+     * @param CreateQuotaApplicationsForTemplateRequest $request
+     *
+     * @return CreateQuotaApplicationsForTemplateResponse
      */
     public function createQuotaApplicationsForTemplate($request)
     {
@@ -340,76 +402,100 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a quota template by using the management account of a resource directory. After you create a quota template, if a member is added to the resource directory, the quota template automatically submits a quota increase request for the member. The quota values for existing members remain unchanged. You can use a quota template to apply for increases on multiple quotas at the same time. This automated approach improves the efficiency of quota management across your organization.
-     *  *
-     * @description ### [](#)Prerequisites
-     * You must set the `ServiceStatus` parameter to `1`. This ensures that the quota template is enabled.
-     * You can call the [GetQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450407.html) operation to query the status of a quota template. If the `ServiceStatus` parameter is set to `0` or `-1`, you must call the [ModifyQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450406.html) operation to set the ServiceStatus parameter to `1`.
-     *  *
-     * @param CreateTemplateQuotaItemRequest $request CreateTemplateQuotaItemRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Creates a quota template by using the management account of a resource directory. After you create a quota template, if a member is added to the resource directory, the quota template automatically submits a quota increase request for the member. The quota values for existing members remain unchanged. You can use a quota template to apply for increases on multiple quotas at the same time. This automated approach improves the efficiency of quota management across your organization. Only the management account of a resource directory can create quota templates.
      *
-     * @return CreateTemplateQuotaItemResponse CreateTemplateQuotaItemResponse
+     * @remarks
+     * ### [](#)Usage notes
+     * You must set the `ServiceStatus` parameter to `1`. This ensures that the quota template is enabled.
+     * You can call the [GetQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450407.html) operation to query the status of a quota template. If the value of the `ServiceStatus` parameter in the response is `0` or `-1`, you must call the [ModifyQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450406.html) operation to modify the value to `1`. A value of 0 indicates that the quota template is not configured. A value of -1 indicates that the quota template is disabled. A value of 1 indicates that the quota template is enabled.
+     * ### [](#)
+     * After you create a quota template, you can call the [ListQuotaApplicationsForTemplate](https://help.aliyun.com/document_detail/2584864.html) operation to view the approval result. If the value of the `Status` parameter in the response is `Agree`, the quota template is approved.
+     *
+     * @param request - CreateTemplateQuotaItemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTemplateQuotaItemResponse
+     *
+     * @param CreateTemplateQuotaItemRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateTemplateQuotaItemResponse
      */
     public function createTemplateQuotaItemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->desireValue)) {
-            $body['DesireValue'] = $request->desireValue;
+        if (null !== $request->desireValue) {
+            @$body['DesireValue'] = $request->desireValue;
         }
-        if (!Utils::isUnset($request->dimensions)) {
-            $body['Dimensions'] = $request->dimensions;
+
+        if (null !== $request->dimensions) {
+            @$body['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->effectiveTime)) {
-            $body['EffectiveTime'] = $request->effectiveTime;
+
+        if (null !== $request->effectiveTime) {
+            @$body['EffectiveTime'] = $request->effectiveTime;
         }
-        if (!Utils::isUnset($request->envLanguage)) {
-            $body['EnvLanguage'] = $request->envLanguage;
+
+        if (null !== $request->envLanguage) {
+            @$body['EnvLanguage'] = $request->envLanguage;
         }
-        if (!Utils::isUnset($request->expireTime)) {
-            $body['ExpireTime'] = $request->expireTime;
+
+        if (null !== $request->expireTime) {
+            @$body['ExpireTime'] = $request->expireTime;
         }
-        if (!Utils::isUnset($request->noticeType)) {
-            $body['NoticeType'] = $request->noticeType;
+
+        if (null !== $request->noticeType) {
+            @$body['NoticeType'] = $request->noticeType;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->quotaActionCode)) {
-            $body['QuotaActionCode'] = $request->quotaActionCode;
+
+        if (null !== $request->quotaActionCode) {
+            @$body['QuotaActionCode'] = $request->quotaActionCode;
         }
-        if (!Utils::isUnset($request->quotaCategory)) {
-            $body['QuotaCategory'] = $request->quotaCategory;
+
+        if (null !== $request->quotaCategory) {
+            @$body['QuotaCategory'] = $request->quotaCategory;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTemplateQuotaItem',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTemplateQuotaItem',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateTemplateQuotaItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a quota template by using the management account of a resource directory. After you create a quota template, if a member is added to the resource directory, the quota template automatically submits a quota increase request for the member. The quota values for existing members remain unchanged. You can use a quota template to apply for increases on multiple quotas at the same time. This automated approach improves the efficiency of quota management across your organization.
-     *  *
-     * @description ### [](#)Prerequisites
-     * You must set the `ServiceStatus` parameter to `1`. This ensures that the quota template is enabled.
-     * You can call the [GetQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450407.html) operation to query the status of a quota template. If the `ServiceStatus` parameter is set to `0` or `-1`, you must call the [ModifyQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450406.html) operation to set the ServiceStatus parameter to `1`.
-     *  *
-     * @param CreateTemplateQuotaItemRequest $request CreateTemplateQuotaItemRequest
+     * Creates a quota template by using the management account of a resource directory. After you create a quota template, if a member is added to the resource directory, the quota template automatically submits a quota increase request for the member. The quota values for existing members remain unchanged. You can use a quota template to apply for increases on multiple quotas at the same time. This automated approach improves the efficiency of quota management across your organization. Only the management account of a resource directory can create quota templates.
      *
-     * @return CreateTemplateQuotaItemResponse CreateTemplateQuotaItemResponse
+     * @remarks
+     * ### [](#)Usage notes
+     * You must set the `ServiceStatus` parameter to `1`. This ensures that the quota template is enabled.
+     * You can call the [GetQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450407.html) operation to query the status of a quota template. If the value of the `ServiceStatus` parameter in the response is `0` or `-1`, you must call the [ModifyQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450406.html) operation to modify the value to `1`. A value of 0 indicates that the quota template is not configured. A value of -1 indicates that the quota template is disabled. A value of 1 indicates that the quota template is enabled.
+     * ### [](#)
+     * After you create a quota template, you can call the [ListQuotaApplicationsForTemplate](https://help.aliyun.com/document_detail/2584864.html) operation to view the approval result. If the value of the `Status` parameter in the response is `Agree`, the quota template is approved.
+     *
+     * @param request - CreateTemplateQuotaItemRequest
+     *
+     * @returns CreateTemplateQuotaItemResponse
+     *
+     * @param CreateTemplateQuotaItemRequest $request
+     *
+     * @return CreateTemplateQuotaItemResponse
      */
     public function createTemplateQuotaItem($request)
     {
@@ -419,48 +505,62 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a quota alert.
-     *  *
-     * @description In this example, the operation is called to delete a quota alert whose ID is `6b512ab7-da3a-4142-b529-2b2a9294****`.
-     *  *
-     * @param DeleteQuotaAlarmRequest $request DeleteQuotaAlarmRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes a quota alert.
      *
-     * @return DeleteQuotaAlarmResponse DeleteQuotaAlarmResponse
+     * @remarks
+     *   The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to delete a quota alert rule of the old version. If you want to delete a quota alert rule of the new version, call the CloudMonitor API operation [DeleteMetricRules](https://help.aliyun.com/document_detail/2513295.html) or [DeleteMetricRuleTargets](https://help.aliyun.com/document_detail/2513294.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
+     * *   In this example, the API operation is called to delete a quota alert rule whose ID is `6b512ab7-da3a-4142-b529-2b2a9294****`.
+     *
+     * @param request - DeleteQuotaAlarmRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteQuotaAlarmResponse
+     *
+     * @param DeleteQuotaAlarmRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteQuotaAlarmResponse
      */
     public function deleteQuotaAlarmWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alarmId)) {
-            $body['AlarmId'] = $request->alarmId;
+        if (null !== $request->alarmId) {
+            @$body['AlarmId'] = $request->alarmId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteQuotaAlarm',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteQuotaAlarm',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteQuotaAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a quota alert.
-     *  *
-     * @description In this example, the operation is called to delete a quota alert whose ID is `6b512ab7-da3a-4142-b529-2b2a9294****`.
-     *  *
-     * @param DeleteQuotaAlarmRequest $request DeleteQuotaAlarmRequest
+     * Deletes a quota alert.
      *
-     * @return DeleteQuotaAlarmResponse DeleteQuotaAlarmResponse
+     * @remarks
+     *   The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to delete a quota alert rule of the old version. If you want to delete a quota alert rule of the new version, call the CloudMonitor API operation [DeleteMetricRules](https://help.aliyun.com/document_detail/2513295.html) or [DeleteMetricRuleTargets](https://help.aliyun.com/document_detail/2513294.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
+     * *   In this example, the API operation is called to delete a quota alert rule whose ID is `6b512ab7-da3a-4142-b529-2b2a9294****`.
+     *
+     * @param request - DeleteQuotaAlarmRequest
+     *
+     * @returns DeleteQuotaAlarmResponse
+     *
+     * @param DeleteQuotaAlarmRequest $request
+     *
+     * @return DeleteQuotaAlarmResponse
      */
     public function deleteQuotaAlarm($request)
     {
@@ -470,44 +570,54 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a quota template by using the management account of a resource directory. After you delete a quota template, if a member is added to the resource directory, the quota template no longer automatically submits a quota increase request for the member.
-     *  *
-     * @param DeleteTemplateQuotaItemRequest $request DeleteTemplateQuotaItemRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Deletes a quota template by using the management account of a resource directory. After you delete a quota template, if a member is added to the resource directory, the quota template no longer automatically submits a quota increase request for the member. Only the management account of a resource directory can delete quota templates.
      *
-     * @return DeleteTemplateQuotaItemResponse DeleteTemplateQuotaItemResponse
+     * @param request - DeleteTemplateQuotaItemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTemplateQuotaItemResponse
+     *
+     * @param DeleteTemplateQuotaItemRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteTemplateQuotaItemResponse
      */
     public function deleteTemplateQuotaItemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTemplateQuotaItem',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTemplateQuotaItem',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteTemplateQuotaItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a quota template by using the management account of a resource directory. After you delete a quota template, if a member is added to the resource directory, the quota template no longer automatically submits a quota increase request for the member.
-     *  *
-     * @param DeleteTemplateQuotaItemRequest $request DeleteTemplateQuotaItemRequest
+     * Deletes a quota template by using the management account of a resource directory. After you delete a quota template, if a member is added to the resource directory, the quota template no longer automatically submits a quota increase request for the member. Only the management account of a resource directory can delete quota templates.
      *
-     * @return DeleteTemplateQuotaItemResponse DeleteTemplateQuotaItemResponse
+     * @param request - DeleteTemplateQuotaItemRequest
+     *
+     * @returns DeleteTemplateQuotaItemResponse
+     *
+     * @param DeleteTemplateQuotaItemRequest $request
+     *
+     * @return DeleteTemplateQuotaItemResponse
      */
     public function deleteTemplateQuotaItem($request)
     {
@@ -517,54 +627,68 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the specified quota.
-     *  *
-     * @description In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
-     *  *
-     * @param GetProductQuotaRequest $request GetProductQuotaRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a quota of a cloud service.
      *
-     * @return GetProductQuotaResponse GetProductQuotaResponse
+     * @remarks
+     * In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
+     *
+     * @param request - GetProductQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProductQuotaResponse
+     *
+     * @param GetProductQuotaRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetProductQuotaResponse
      */
     public function getProductQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dimensions)) {
-            $body['Dimensions'] = $request->dimensions;
+        if (null !== $request->dimensions) {
+            @$body['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->quotaActionCode)) {
-            $body['QuotaActionCode'] = $request->quotaActionCode;
+
+        if (null !== $request->quotaActionCode) {
+            @$body['QuotaActionCode'] = $request->quotaActionCode;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetProductQuota',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetProductQuota',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetProductQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of the specified quota.
-     *  *
-     * @description In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
-     *  *
-     * @param GetProductQuotaRequest $request GetProductQuotaRequest
+     * Queries the details of a quota of a cloud service.
      *
-     * @return GetProductQuotaResponse GetProductQuotaResponse
+     * @remarks
+     * In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
+     *
+     * @param request - GetProductQuotaRequest
+     *
+     * @returns GetProductQuotaResponse
+     *
+     * @param GetProductQuotaRequest $request
+     *
+     * @return GetProductQuotaResponse
      */
     public function getProductQuota($request)
     {
@@ -574,58 +698,72 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a quota dimension that is supported by an Alibaba Cloud service.
-     *  *
-     * @description In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
+     * Queries the details of a quota dimension that is supported by an Alibaba Cloud service.
+     *
+     * @remarks
+     * In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
      * *   The values of the quota dimension include `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
      * *   The name of the quota dimension is `region`.
-     *  *
-     * @param GetProductQuotaDimensionRequest $request GetProductQuotaDimensionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetProductQuotaDimensionResponse GetProductQuotaDimensionResponse
+     * @param request - GetProductQuotaDimensionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProductQuotaDimensionResponse
+     *
+     * @param GetProductQuotaDimensionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetProductQuotaDimensionResponse
      */
     public function getProductQuotaDimensionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dependentDimensions)) {
-            $body['DependentDimensions'] = $request->dependentDimensions;
+        if (null !== $request->dependentDimensions) {
+            @$body['DependentDimensions'] = $request->dependentDimensions;
         }
-        if (!Utils::isUnset($request->dimensionKey)) {
-            $body['DimensionKey'] = $request->dimensionKey;
+
+        if (null !== $request->dimensionKey) {
+            @$body['DimensionKey'] = $request->dimensionKey;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetProductQuotaDimension',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetProductQuotaDimension',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetProductQuotaDimensionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a quota dimension that is supported by an Alibaba Cloud service.
-     *  *
-     * @description In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
+     * Queries the details of a quota dimension that is supported by an Alibaba Cloud service.
+     *
+     * @remarks
+     * In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
      * *   The values of the quota dimension include `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
      * *   The name of the quota dimension is `region`.
-     *  *
-     * @param GetProductQuotaDimensionRequest $request GetProductQuotaDimensionRequest
      *
-     * @return GetProductQuotaDimensionResponse GetProductQuotaDimensionResponse
+     * @param request - GetProductQuotaDimensionRequest
+     *
+     * @returns GetProductQuotaDimensionResponse
+     *
+     * @param GetProductQuotaDimensionRequest $request
+     *
+     * @return GetProductQuotaDimensionResponse
      */
     public function getProductQuotaDimension($request)
     {
@@ -635,48 +773,62 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary In this example, the operation is called to query the details of a quota alert. The details of the alert are returned. The query results include the alert ID, alert name, alert contact, and time when the quota alert was created.
-     *  *
-     * @description In this example, the operation is called to query the details of a quota alert whose ID is `78d7e436-4b25-4897-84b5-d7b656bb****`. The details of the alert are returned. The query result includes the alert ID, alert name, alert contact, and the time when the quota alert was created.
-     *  *
-     * @param GetQuotaAlarmRequest $request GetQuotaAlarmRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * In this example, the operation is called to query the details of a quota alert. The details of the alert are returned. The query results include the alert ID, alert name, alert contact, and time when the quota alert was created.
      *
-     * @return GetQuotaAlarmResponse GetQuotaAlarmResponse
+     * @remarks
+     *   The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to query the details about the quota alert rules of the old version. If you want to query the details about the quota alert rules of the new version, call CloudMonitor API operations. For more information, see [Use API operations to manage new quota alert rules](https://help.aliyun.com/document_detail/2863234.html).
+     * *   In this example, the operation is called to query the details of a quota alert rule whose ID is `78d7e436-4b25-4897-84b5-d7b656bb****`. The details of the alert rule are returned. The query result includes the alert ID, alert name, alert contact, and the time when the quota alert rule was created.
+     *
+     * @param request - GetQuotaAlarmRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQuotaAlarmResponse
+     *
+     * @param GetQuotaAlarmRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetQuotaAlarmResponse
      */
     public function getQuotaAlarmWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alarmId)) {
-            $body['AlarmId'] = $request->alarmId;
+        if (null !== $request->alarmId) {
+            @$body['AlarmId'] = $request->alarmId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetQuotaAlarm',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQuotaAlarm',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetQuotaAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary In this example, the operation is called to query the details of a quota alert. The details of the alert are returned. The query results include the alert ID, alert name, alert contact, and time when the quota alert was created.
-     *  *
-     * @description In this example, the operation is called to query the details of a quota alert whose ID is `78d7e436-4b25-4897-84b5-d7b656bb****`. The details of the alert are returned. The query result includes the alert ID, alert name, alert contact, and the time when the quota alert was created.
-     *  *
-     * @param GetQuotaAlarmRequest $request GetQuotaAlarmRequest
+     * In this example, the operation is called to query the details of a quota alert. The details of the alert are returned. The query results include the alert ID, alert name, alert contact, and time when the quota alert was created.
      *
-     * @return GetQuotaAlarmResponse GetQuotaAlarmResponse
+     * @remarks
+     *   The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to query the details about the quota alert rules of the old version. If you want to query the details about the quota alert rules of the new version, call CloudMonitor API operations. For more information, see [Use API operations to manage new quota alert rules](https://help.aliyun.com/document_detail/2863234.html).
+     * *   In this example, the operation is called to query the details of a quota alert rule whose ID is `78d7e436-4b25-4897-84b5-d7b656bb****`. The details of the alert rule are returned. The query result includes the alert ID, alert name, alert contact, and the time when the quota alert rule was created.
+     *
+     * @param request - GetQuotaAlarmRequest
+     *
+     * @returns GetQuotaAlarmResponse
+     *
+     * @param GetQuotaAlarmRequest $request
+     *
+     * @return GetQuotaAlarmResponse
      */
     public function getQuotaAlarm($request)
     {
@@ -686,48 +838,60 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about a specified application that is submitted to increase a quota.
-     *  *
-     * @description In this example, the operation is called to query the details about an application whose ID is `d314d6ae-867d-484c-9009-3d421a80****`. The query result shows the details about the application. The details include the application ID, application time, expected quota value, and application result.
-     *  *
-     * @param GetQuotaApplicationRequest $request GetQuotaApplicationRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the details about a specified application that is submitted to increase a quota.
      *
-     * @return GetQuotaApplicationResponse GetQuotaApplicationResponse
+     * @remarks
+     * In this example, the operation is called to query the details about an application whose ID is `d314d6ae-867d-484c-9009-3d421a80****`. The query result shows the details about the application. The details include the application ID, application time, expected quota value, and application result.
+     *
+     * @param request - GetQuotaApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQuotaApplicationResponse
+     *
+     * @param GetQuotaApplicationRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetQuotaApplicationResponse
      */
     public function getQuotaApplicationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $body['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$body['ApplicationId'] = $request->applicationId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetQuotaApplication',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQuotaApplication',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetQuotaApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about a specified application that is submitted to increase a quota.
-     *  *
-     * @description In this example, the operation is called to query the details about an application whose ID is `d314d6ae-867d-484c-9009-3d421a80****`. The query result shows the details about the application. The details include the application ID, application time, expected quota value, and application result.
-     *  *
-     * @param GetQuotaApplicationRequest $request GetQuotaApplicationRequest
+     * Queries the details about a specified application that is submitted to increase a quota.
      *
-     * @return GetQuotaApplicationResponse GetQuotaApplicationResponse
+     * @remarks
+     * In this example, the operation is called to query the details about an application whose ID is `d314d6ae-867d-484c-9009-3d421a80****`. The query result shows the details about the application. The details include the application ID, application time, expected quota value, and application result.
+     *
+     * @param request - GetQuotaApplicationRequest
+     *
+     * @returns GetQuotaApplicationResponse
+     *
+     * @param GetQuotaApplicationRequest $request
+     *
+     * @return GetQuotaApplicationResponse
      */
     public function getQuotaApplication($request)
     {
@@ -737,50 +901,62 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about quota application approval, such as the average amount of time required for approval, whether approval reminders are supported, and the interval between two consecutive approval reminders.
-     *  *
-     * @description ### [](#)Prerequisites
-     * Make sure that you have created an application for quota increase. For more information, see [CreateQuotaApplication](https://help.aliyun.com/document_detail/440566.html).
-     *  *
-     * @param GetQuotaApplicationApprovalRequest $request GetQuotaApplicationApprovalRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the information about quota application approval, such as the average amount of time required for approval, whether approval reminders are supported, and the interval between two consecutive approval reminders.
      *
-     * @return GetQuotaApplicationApprovalResponse GetQuotaApplicationApprovalResponse
+     * @remarks
+     * ### [](#)Prerequisites
+     * Make sure that you have created an application for quota increase. For more information, see [CreateQuotaApplication](https://help.aliyun.com/document_detail/440566.html).
+     *
+     * @param request - GetQuotaApplicationApprovalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQuotaApplicationApprovalResponse
+     *
+     * @param GetQuotaApplicationApprovalRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetQuotaApplicationApprovalResponse
      */
     public function getQuotaApplicationApprovalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $body['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$body['ApplicationId'] = $request->applicationId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetQuotaApplicationApproval',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQuotaApplicationApproval',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetQuotaApplicationApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about quota application approval, such as the average amount of time required for approval, whether approval reminders are supported, and the interval between two consecutive approval reminders.
-     *  *
-     * @description ### [](#)Prerequisites
-     * Make sure that you have created an application for quota increase. For more information, see [CreateQuotaApplication](https://help.aliyun.com/document_detail/440566.html).
-     *  *
-     * @param GetQuotaApplicationApprovalRequest $request GetQuotaApplicationApprovalRequest
+     * Queries the information about quota application approval, such as the average amount of time required for approval, whether approval reminders are supported, and the interval between two consecutive approval reminders.
      *
-     * @return GetQuotaApplicationApprovalResponse GetQuotaApplicationApprovalResponse
+     * @remarks
+     * ### [](#)Prerequisites
+     * Make sure that you have created an application for quota increase. For more information, see [CreateQuotaApplication](https://help.aliyun.com/document_detail/440566.html).
+     *
+     * @param request - GetQuotaApplicationApprovalRequest
+     *
+     * @returns GetQuotaApplicationApprovalResponse
+     *
+     * @param GetQuotaApplicationApprovalRequest $request
+     *
+     * @return GetQuotaApplicationApprovalResponse
      */
     public function getQuotaApplicationApproval($request)
     {
@@ -790,44 +966,60 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of a quota template.
-     *  *
-     * @param GetQuotaTemplateServiceStatusRequest $request GetQuotaTemplateServiceStatusRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the status of a quota template.
      *
-     * @return GetQuotaTemplateServiceStatusResponse GetQuotaTemplateServiceStatusResponse
+     * @remarks
+     * By default, the value of `ServiceStatus` is `0`, which indicates that no quota template is specified. If you want to use a quota template, make sure that the quota template is enabled. In this case, the value of `ServiceStatus` is `1`.
+     *
+     * @param request - GetQuotaTemplateServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQuotaTemplateServiceStatusResponse
+     *
+     * @param GetQuotaTemplateServiceStatusRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetQuotaTemplateServiceStatusResponse
      */
     public function getQuotaTemplateServiceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->resourceDirectoryId)) {
-            $body['ResourceDirectoryId'] = $request->resourceDirectoryId;
+        if (null !== $request->resourceDirectoryId) {
+            @$body['ResourceDirectoryId'] = $request->resourceDirectoryId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetQuotaTemplateServiceStatus',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQuotaTemplateServiceStatus',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetQuotaTemplateServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of a quota template.
-     *  *
-     * @param GetQuotaTemplateServiceStatusRequest $request GetQuotaTemplateServiceStatusRequest
+     * Queries the status of a quota template.
      *
-     * @return GetQuotaTemplateServiceStatusResponse GetQuotaTemplateServiceStatusResponse
+     * @remarks
+     * By default, the value of `ServiceStatus` is `0`, which indicates that no quota template is specified. If you want to use a quota template, make sure that the quota template is enabled. In this case, the value of `ServiceStatus` is `1`.
+     *
+     * @param request - GetQuotaTemplateServiceStatusRequest
+     *
+     * @returns GetQuotaTemplateServiceStatusResponse
+     *
+     * @param GetQuotaTemplateServiceStatusRequest $request
+     *
+     * @return GetQuotaTemplateServiceStatusResponse
      */
     public function getQuotaTemplateServiceStatus($request)
     {
@@ -837,62 +1029,84 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the alert records.
-     *  *
-     * @param ListAlarmHistoriesRequest $request ListAlarmHistoriesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the alert records.
      *
-     * @return ListAlarmHistoriesResponse ListAlarmHistoriesResponse
+     * @remarks
+     * The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to query the historical records of quota alert rules of the old version. If you want to query the historical records of quota alert rules of the new version, call the CloudMonitor API operation [DescribeAlertLogCount](https://help.aliyun.com/document_detail/2513275.html) or [DescribeAlertLogList](https://help.aliyun.com/document_detail/2513276.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
+     *
+     * @param request - ListAlarmHistoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlarmHistoriesResponse
+     *
+     * @param ListAlarmHistoriesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListAlarmHistoriesResponse
      */
     public function listAlarmHistoriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alarmId)) {
-            $body['AlarmId'] = $request->alarmId;
+        if (null !== $request->alarmId) {
+            @$body['AlarmId'] = $request->alarmId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $body['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListAlarmHistories',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAlarmHistories',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAlarmHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the alert records.
-     *  *
-     * @param ListAlarmHistoriesRequest $request ListAlarmHistoriesRequest
+     * Queries the alert records.
      *
-     * @return ListAlarmHistoriesResponse ListAlarmHistoriesResponse
+     * @remarks
+     * The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to query the historical records of quota alert rules of the old version. If you want to query the historical records of quota alert rules of the new version, call the CloudMonitor API operation [DescribeAlertLogCount](https://help.aliyun.com/document_detail/2513275.html) or [DescribeAlertLogList](https://help.aliyun.com/document_detail/2513276.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
+     *
+     * @param request - ListAlarmHistoriesRequest
+     *
+     * @returns ListAlarmHistoriesResponse
+     *
+     * @param ListAlarmHistoriesRequest $request
+     *
+     * @return ListAlarmHistoriesResponse
      */
     public function listAlarmHistories($request)
     {
@@ -902,57 +1116,70 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the quotas on which a specified quota depends.
-     *  *
-     * @description In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
+     * Queries the quotas on which a specified quota depends.
+     *
+     * @remarks
+     * In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
      * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by an Alibaba Cloud account. The quota is available in the following regions: `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
      * *   A Server Load Balancer (SLB) quota whose ID is `q_fh20b0`. This quota is the number of servers that can be attached to the backend of an SLB instance.
      * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by an Alibaba Cloud account.
-     *  *
-     * @param ListDependentQuotasRequest $request ListDependentQuotasRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDependentQuotasResponse ListDependentQuotasResponse
+     * @param request - ListDependentQuotasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDependentQuotasResponse
+     *
+     * @param ListDependentQuotasRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDependentQuotasResponse
      */
     public function listDependentQuotasWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->quotaActionCode)) {
-            $body['QuotaActionCode'] = $request->quotaActionCode;
+
+        if (null !== $request->quotaActionCode) {
+            @$body['QuotaActionCode'] = $request->quotaActionCode;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDependentQuotas',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDependentQuotas',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDependentQuotasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the quotas on which a specified quota depends.
-     *  *
-     * @description In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
+     * Queries the quotas on which a specified quota depends.
+     *
+     * @remarks
+     * In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
      * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by an Alibaba Cloud account. The quota is available in the following regions: `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
      * *   A Server Load Balancer (SLB) quota whose ID is `q_fh20b0`. This quota is the number of servers that can be attached to the backend of an SLB instance.
      * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by an Alibaba Cloud account.
-     *  *
-     * @param ListDependentQuotasRequest $request ListDependentQuotasRequest
      *
-     * @return ListDependentQuotasResponse ListDependentQuotasResponse
+     * @param request - ListDependentQuotasRequest
+     *
+     * @returns ListDependentQuotasResponse
+     *
+     * @param ListDependentQuotasRequest $request
+     *
+     * @return ListDependentQuotasResponse
      */
     public function listDependentQuotas($request)
     {
@@ -962,54 +1189,68 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the dimension groups of an Alibaba Cloud service.
-     *  *
-     * @description This topic provides an example on how to call the ListProductDimensionGroups operation to query the dimension groups of Object Storage Service (OSS). In this example, a dimension group is returned. The group name is `OSS_Group`, the group code is `oss_wf1ngqmd7q`, and the group key is `chargeType`.
-     *  *
-     * @param ListProductDimensionGroupsRequest $request ListProductDimensionGroupsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the dimension groups of an Alibaba Cloud service.
      *
-     * @return ListProductDimensionGroupsResponse ListProductDimensionGroupsResponse
+     * @remarks
+     * This topic provides an example on how to call the ListProductDimensionGroups operation to query the dimension groups of Object Storage Service (OSS). In this example, a dimension group is returned. The group name is `OSS_Group`, the group code is `oss_wf1ngqmd7q`, and the group key is `chargeType`.
+     *
+     * @param request - ListProductDimensionGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductDimensionGroupsResponse
+     *
+     * @param ListProductDimensionGroupsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListProductDimensionGroupsResponse
      */
     public function listProductDimensionGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProductDimensionGroups',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProductDimensionGroups',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProductDimensionGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the dimension groups of an Alibaba Cloud service.
-     *  *
-     * @description This topic provides an example on how to call the ListProductDimensionGroups operation to query the dimension groups of Object Storage Service (OSS). In this example, a dimension group is returned. The group name is `OSS_Group`, the group code is `oss_wf1ngqmd7q`, and the group key is `chargeType`.
-     *  *
-     * @param ListProductDimensionGroupsRequest $request ListProductDimensionGroupsRequest
+     * Queries the dimension groups of an Alibaba Cloud service.
      *
-     * @return ListProductDimensionGroupsResponse ListProductDimensionGroupsResponse
+     * @remarks
+     * This topic provides an example on how to call the ListProductDimensionGroups operation to query the dimension groups of Object Storage Service (OSS). In this example, a dimension group is returned. The group name is `OSS_Group`, the group code is `oss_wf1ngqmd7q`, and the group key is `chargeType`.
+     *
+     * @param request - ListProductDimensionGroupsRequest
+     *
+     * @returns ListProductDimensionGroupsResponse
+     *
+     * @param ListProductDimensionGroupsRequest $request
+     *
+     * @return ListProductDimensionGroupsResponse
      */
     public function listProductDimensionGroups($request)
     {
@@ -1019,57 +1260,72 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the quota dimensions that are supported by the specified Alibaba Cloud service.
-     *  *
-     * @description In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
-     *  *
-     * @param ListProductQuotaDimensionsRequest $request ListProductQuotaDimensionsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the quota dimensions that are supported by the specified Alibaba Cloud service.
      *
-     * @return ListProductQuotaDimensionsResponse ListProductQuotaDimensionsResponse
+     * @remarks
+     * In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
+     *
+     * @param request - ListProductQuotaDimensionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductQuotaDimensionsResponse
+     *
+     * @param ListProductQuotaDimensionsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListProductQuotaDimensionsResponse
      */
     public function listProductQuotaDimensionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->quotaCategory)) {
-            $body['QuotaCategory'] = $request->quotaCategory;
+
+        if (null !== $request->quotaCategory) {
+            @$body['QuotaCategory'] = $request->quotaCategory;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListProductQuotaDimensions',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProductQuotaDimensions',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProductQuotaDimensionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the quota dimensions that are supported by the specified Alibaba Cloud service.
-     *  *
-     * @description In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
-     *  *
-     * @param ListProductQuotaDimensionsRequest $request ListProductQuotaDimensionsRequest
+     * Queries the quota dimensions that are supported by the specified Alibaba Cloud service.
      *
-     * @return ListProductQuotaDimensionsResponse ListProductQuotaDimensionsResponse
+     * @remarks
+     * In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
+     *
+     * @param request - ListProductQuotaDimensionsRequest
+     *
+     * @returns ListProductQuotaDimensionsResponse
+     *
+     * @param ListProductQuotaDimensionsRequest $request
+     *
+     * @return ListProductQuotaDimensionsResponse
      */
     public function listProductQuotaDimensions($request)
     {
@@ -1079,75 +1335,96 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the quotas of a specific Alibaba Cloud service.
-     *  *
-     * @description In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
-     *  *
-     * @param ListProductQuotasRequest $request ListProductQuotasRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the quotas of a specific Alibaba Cloud service.
      *
-     * @return ListProductQuotasResponse ListProductQuotasResponse
+     * @remarks
+     * In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
+     *
+     * @param request - ListProductQuotasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductQuotasResponse
+     *
+     * @param ListProductQuotasRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListProductQuotasResponse
      */
     public function listProductQuotasWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dimensions)) {
-            $body['Dimensions'] = $request->dimensions;
+        if (null !== $request->dimensions) {
+            @$body['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->groupCode)) {
-            $body['GroupCode'] = $request->groupCode;
+
+        if (null !== $request->groupCode) {
+            @$body['GroupCode'] = $request->groupCode;
         }
-        if (!Utils::isUnset($request->keyWord)) {
-            $body['KeyWord'] = $request->keyWord;
+
+        if (null !== $request->keyWord) {
+            @$body['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->quotaActionCode)) {
-            $body['QuotaActionCode'] = $request->quotaActionCode;
+
+        if (null !== $request->quotaActionCode) {
+            @$body['QuotaActionCode'] = $request->quotaActionCode;
         }
-        if (!Utils::isUnset($request->quotaCategory)) {
-            $body['QuotaCategory'] = $request->quotaCategory;
+
+        if (null !== $request->quotaCategory) {
+            @$body['QuotaCategory'] = $request->quotaCategory;
         }
-        if (!Utils::isUnset($request->sortField)) {
-            $body['SortField'] = $request->sortField;
+
+        if (null !== $request->sortField) {
+            @$body['SortField'] = $request->sortField;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $body['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->sortOrder) {
+            @$body['SortOrder'] = $request->sortOrder;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListProductQuotas',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProductQuotas',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProductQuotasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the quotas of a specific Alibaba Cloud service.
-     *  *
-     * @description In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
-     *  *
-     * @param ListProductQuotasRequest $request ListProductQuotasRequest
+     * Queries the quotas of a specific Alibaba Cloud service.
      *
-     * @return ListProductQuotasResponse ListProductQuotasResponse
+     * @remarks
+     * In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
+     *
+     * @param request - ListProductQuotasRequest
+     *
+     * @returns ListProductQuotasResponse
+     *
+     * @param ListProductQuotasRequest $request
+     *
+     * @return ListProductQuotasResponse
      */
     public function listProductQuotas($request)
     {
@@ -1157,51 +1434,64 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Alibaba Cloud services that support Quota Center.
-     *  *
-     * @description The services in the query result are the same as the services listed in [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
-     *  *
-     * @param ListProductsRequest $request ListProductsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the Alibaba Cloud services that support Quota Center.
      *
-     * @return ListProductsResponse ListProductsResponse
+     * @remarks
+     * The services in the query result are the same as the services listed in [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
+     *
+     * @param request - ListProductsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductsResponse
+     *
+     * @param ListProductsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProductsResponse
      */
     public function listProductsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListProducts',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProducts',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProductsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Alibaba Cloud services that support Quota Center.
-     *  *
-     * @description The services in the query result are the same as the services listed in [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
-     *  *
-     * @param ListProductsRequest $request ListProductsRequest
+     * Queries the Alibaba Cloud services that support Quota Center.
      *
-     * @return ListProductsResponse ListProductsResponse
+     * @remarks
+     * The services in the query result are the same as the services listed in [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
+     *
+     * @param request - ListProductsRequest
+     *
+     * @returns ListProductsResponse
+     *
+     * @param ListProductsRequest $request
+     *
+     * @return ListProductsResponse
      */
     public function listProducts($request)
     {
@@ -1211,59 +1501,80 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries quota alerts.
-     *  *
-     * @param ListQuotaAlarmsRequest $request ListQuotaAlarmsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries quota alerts.
      *
-     * @return ListQuotaAlarmsResponse ListQuotaAlarmsResponse
+     * @remarks
+     * The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to query quota alert rules of the old version. If you want to query quota alert rules of the new version, call the CloudMonitor API operation [DescribeMetricRuleList](https://help.aliyun.com/document_detail/2513291.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
+     *
+     * @param request - ListQuotaAlarmsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQuotaAlarmsResponse
+     *
+     * @param ListQuotaAlarmsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListQuotaAlarmsResponse
      */
     public function listQuotaAlarmsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alarmName)) {
-            $body['AlarmName'] = $request->alarmName;
+        if (null !== $request->alarmName) {
+            @$body['AlarmName'] = $request->alarmName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->quotaActionCode)) {
-            $body['QuotaActionCode'] = $request->quotaActionCode;
+
+        if (null !== $request->quotaActionCode) {
+            @$body['QuotaActionCode'] = $request->quotaActionCode;
         }
-        if (!Utils::isUnset($request->quotaDimensions)) {
-            $body['QuotaDimensions'] = $request->quotaDimensions;
+
+        if (null !== $request->quotaDimensions) {
+            @$body['QuotaDimensions'] = $request->quotaDimensions;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListQuotaAlarms',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListQuotaAlarms',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListQuotaAlarmsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries quota alerts.
-     *  *
-     * @param ListQuotaAlarmsRequest $request ListQuotaAlarmsRequest
+     * Queries quota alerts.
      *
-     * @return ListQuotaAlarmsResponse ListQuotaAlarmsResponse
+     * @remarks
+     * The quota alerting feature has been upgraded and this API operation will be deprecated. You can call this operation only to query quota alert rules of the old version. If you want to query quota alert rules of the new version, call the CloudMonitor API operation [DescribeMetricRuleList](https://help.aliyun.com/document_detail/2513291.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
+     *
+     * @param request - ListQuotaAlarmsRequest
+     *
+     * @returns ListQuotaAlarmsResponse
+     *
+     * @param ListQuotaAlarmsRequest $request
+     *
+     * @return ListQuotaAlarmsResponse
      */
     public function listQuotaAlarms($request)
     {
@@ -1273,64 +1584,80 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries quota templates by using the management account of a resource directory.
-     *  *
-     * @param ListQuotaApplicationTemplatesRequest $request ListQuotaApplicationTemplatesRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries quota templates by using the management account of a resource directory.
      *
-     * @return ListQuotaApplicationTemplatesResponse ListQuotaApplicationTemplatesResponse
+     * @param request - ListQuotaApplicationTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQuotaApplicationTemplatesResponse
+     *
+     * @param ListQuotaApplicationTemplatesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListQuotaApplicationTemplatesResponse
      */
     public function listQuotaApplicationTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->dimensions)) {
-            $body['Dimensions'] = $request->dimensions;
+        if (null !== $request->dimensions) {
+            @$body['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->quotaActionCode)) {
-            $body['QuotaActionCode'] = $request->quotaActionCode;
+
+        if (null !== $request->quotaActionCode) {
+            @$body['QuotaActionCode'] = $request->quotaActionCode;
         }
-        if (!Utils::isUnset($request->quotaCategory)) {
-            $body['QuotaCategory'] = $request->quotaCategory;
+
+        if (null !== $request->quotaCategory) {
+            @$body['QuotaCategory'] = $request->quotaCategory;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListQuotaApplicationTemplates',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListQuotaApplicationTemplates',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListQuotaApplicationTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries quota templates by using the management account of a resource directory.
-     *  *
-     * @param ListQuotaApplicationTemplatesRequest $request ListQuotaApplicationTemplatesRequest
+     * Queries quota templates by using the management account of a resource directory.
      *
-     * @return ListQuotaApplicationTemplatesResponse ListQuotaApplicationTemplatesResponse
+     * @param request - ListQuotaApplicationTemplatesRequest
+     *
+     * @returns ListQuotaApplicationTemplatesResponse
+     *
+     * @param ListQuotaApplicationTemplatesRequest $request
+     *
+     * @return ListQuotaApplicationTemplatesResponse
      */
     public function listQuotaApplicationTemplates($request)
     {
@@ -1340,69 +1667,88 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an application that is submitted to increase a quota.
-     *  *
-     * @description In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
-     *  *
-     * @param ListQuotaApplicationsRequest $request ListQuotaApplicationsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an application that is submitted to increase a quota.
      *
-     * @return ListQuotaApplicationsResponse ListQuotaApplicationsResponse
+     * @remarks
+     * In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
+     *
+     * @param request - ListQuotaApplicationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQuotaApplicationsResponse
+     *
+     * @param ListQuotaApplicationsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListQuotaApplicationsResponse
      */
     public function listQuotaApplicationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dimensions)) {
-            $body['Dimensions'] = $request->dimensions;
+        if (null !== $request->dimensions) {
+            @$body['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->keyWord)) {
-            $body['KeyWord'] = $request->keyWord;
+
+        if (null !== $request->keyWord) {
+            @$body['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->quotaActionCode)) {
-            $body['QuotaActionCode'] = $request->quotaActionCode;
+
+        if (null !== $request->quotaActionCode) {
+            @$body['QuotaActionCode'] = $request->quotaActionCode;
         }
-        if (!Utils::isUnset($request->quotaCategory)) {
-            $body['QuotaCategory'] = $request->quotaCategory;
+
+        if (null !== $request->quotaCategory) {
+            @$body['QuotaCategory'] = $request->quotaCategory;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListQuotaApplications',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListQuotaApplications',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListQuotaApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an application that is submitted to increase a quota.
-     *  *
-     * @description In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
-     *  *
-     * @param ListQuotaApplicationsRequest $request ListQuotaApplicationsRequest
+     * Queries the details of an application that is submitted to increase a quota.
      *
-     * @return ListQuotaApplicationsResponse ListQuotaApplicationsResponse
+     * @remarks
+     * In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
+     *
+     * @param request - ListQuotaApplicationsRequest
+     *
+     * @returns ListQuotaApplicationsResponse
+     *
+     * @param ListQuotaApplicationsRequest $request
+     *
+     * @return ListQuotaApplicationsResponse
      */
     public function listQuotaApplications($request)
     {
@@ -1412,65 +1758,82 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a quota increase application for member accounts in a resource directory.
-     *  *
-     * @param ListQuotaApplicationsDetailForTemplateRequest $request ListQuotaApplicationsDetailForTemplateRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a quota increase application for member accounts in a resource directory.
      *
-     * @return ListQuotaApplicationsDetailForTemplateResponse ListQuotaApplicationsDetailForTemplateResponse
+     * @param request - ListQuotaApplicationsDetailForTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQuotaApplicationsDetailForTemplateResponse
+     *
+     * @param ListQuotaApplicationsDetailForTemplateRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListQuotaApplicationsDetailForTemplateResponse
      */
     public function listQuotaApplicationsDetailForTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aliyunUid)) {
-            $body['AliyunUid'] = $request->aliyunUid;
+        if (null !== $request->aliyunUid) {
+            @$body['AliyunUid'] = $request->aliyunUid;
         }
-        if (!Utils::isUnset($request->batchQuotaApplicationId)) {
-            $body['BatchQuotaApplicationId'] = $request->batchQuotaApplicationId;
+
+        if (null !== $request->batchQuotaApplicationId) {
+            @$body['BatchQuotaApplicationId'] = $request->batchQuotaApplicationId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->quotaActionCode)) {
-            $body['QuotaActionCode'] = $request->quotaActionCode;
+
+        if (null !== $request->quotaActionCode) {
+            @$body['QuotaActionCode'] = $request->quotaActionCode;
         }
-        if (!Utils::isUnset($request->quotaCategory)) {
-            $body['QuotaCategory'] = $request->quotaCategory;
+
+        if (null !== $request->quotaCategory) {
+            @$body['QuotaCategory'] = $request->quotaCategory;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListQuotaApplicationsDetailForTemplate',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListQuotaApplicationsDetailForTemplate',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListQuotaApplicationsDetailForTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a quota increase application for member accounts in a resource directory.
-     *  *
-     * @param ListQuotaApplicationsDetailForTemplateRequest $request ListQuotaApplicationsDetailForTemplateRequest
+     * Queries the details of a quota increase application for member accounts in a resource directory.
      *
-     * @return ListQuotaApplicationsDetailForTemplateResponse ListQuotaApplicationsDetailForTemplateResponse
+     * @param request - ListQuotaApplicationsDetailForTemplateRequest
+     *
+     * @returns ListQuotaApplicationsDetailForTemplateResponse
+     *
+     * @param ListQuotaApplicationsDetailForTemplateRequest $request
+     *
+     * @return ListQuotaApplicationsDetailForTemplateResponse
      */
     public function listQuotaApplicationsDetailForTemplate($request)
     {
@@ -1480,65 +1843,82 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the application records of a quota template that is used to apply for quotas for member accounts.
-     *  *
-     * @param ListQuotaApplicationsForTemplateRequest $request ListQuotaApplicationsForTemplateRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries the application records of a quota template that is used to apply for quotas for member accounts.
      *
-     * @return ListQuotaApplicationsForTemplateResponse ListQuotaApplicationsForTemplateResponse
+     * @param request - ListQuotaApplicationsForTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQuotaApplicationsForTemplateResponse
+     *
+     * @param ListQuotaApplicationsForTemplateRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListQuotaApplicationsForTemplateResponse
      */
     public function listQuotaApplicationsForTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->applyEndTime)) {
-            $body['ApplyEndTime'] = $request->applyEndTime;
+        if (null !== $request->applyEndTime) {
+            @$body['ApplyEndTime'] = $request->applyEndTime;
         }
-        if (!Utils::isUnset($request->applyStartTime)) {
-            $body['ApplyStartTime'] = $request->applyStartTime;
+
+        if (null !== $request->applyStartTime) {
+            @$body['ApplyStartTime'] = $request->applyStartTime;
         }
-        if (!Utils::isUnset($request->batchQuotaApplicationId)) {
-            $body['BatchQuotaApplicationId'] = $request->batchQuotaApplicationId;
+
+        if (null !== $request->batchQuotaApplicationId) {
+            @$body['BatchQuotaApplicationId'] = $request->batchQuotaApplicationId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->quotaActionCode)) {
-            $body['QuotaActionCode'] = $request->quotaActionCode;
+
+        if (null !== $request->quotaActionCode) {
+            @$body['QuotaActionCode'] = $request->quotaActionCode;
         }
-        if (!Utils::isUnset($request->quotaCategory)) {
-            $body['QuotaCategory'] = $request->quotaCategory;
+
+        if (null !== $request->quotaCategory) {
+            @$body['QuotaCategory'] = $request->quotaCategory;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListQuotaApplicationsForTemplate',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListQuotaApplicationsForTemplate',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListQuotaApplicationsForTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the application records of a quota template that is used to apply for quotas for member accounts.
-     *  *
-     * @param ListQuotaApplicationsForTemplateRequest $request ListQuotaApplicationsForTemplateRequest
+     * Queries the application records of a quota template that is used to apply for quotas for member accounts.
      *
-     * @return ListQuotaApplicationsForTemplateResponse ListQuotaApplicationsForTemplateResponse
+     * @param request - ListQuotaApplicationsForTemplateRequest
+     *
+     * @returns ListQuotaApplicationsForTemplateResponse
+     *
+     * @param ListQuotaApplicationsForTemplateRequest $request
+     *
+     * @return ListQuotaApplicationsForTemplateResponse
      */
     public function listQuotaApplicationsForTemplate($request)
     {
@@ -1548,54 +1928,66 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Changes the status of a quota template. By default, the quota template is not configured. If the management account of a resource directory uses a quota template for the first time, you must enable the quota template.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Changes the status of a quota template. By default, the quota template is not configured. If the management account of a resource directory uses a quota template for the first time, you must enable the quota template. Only the management account of a resource directory can change the status of quota templates.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * A resource directory is enabled. For more information, see [EnableResourceDirectory](https://help.aliyun.com/document_detail/604185.html).
      * ### [](#)Usage notes
      * If the `ServiceStatus` parameter is set to `0` or `-1`, you can call this operation to set the parameter to `1`. Then, you can call the [CreateTemplateQuotaItem](https://help.aliyun.com/document_detail/450615.html) operation to create a quota template.
-     *  *
-     * @param ModifyQuotaTemplateServiceStatusRequest $request ModifyQuotaTemplateServiceStatusRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyQuotaTemplateServiceStatusResponse ModifyQuotaTemplateServiceStatusResponse
+     * @param request - ModifyQuotaTemplateServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyQuotaTemplateServiceStatusResponse
+     *
+     * @param ModifyQuotaTemplateServiceStatusRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyQuotaTemplateServiceStatusResponse
      */
     public function modifyQuotaTemplateServiceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->serviceStatus)) {
-            $body['ServiceStatus'] = $request->serviceStatus;
+        if (null !== $request->serviceStatus) {
+            @$body['ServiceStatus'] = $request->serviceStatus;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyQuotaTemplateServiceStatus',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyQuotaTemplateServiceStatus',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyQuotaTemplateServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the status of a quota template. By default, the quota template is not configured. If the management account of a resource directory uses a quota template for the first time, you must enable the quota template.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Changes the status of a quota template. By default, the quota template is not configured. If the management account of a resource directory uses a quota template for the first time, you must enable the quota template. Only the management account of a resource directory can change the status of quota templates.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * A resource directory is enabled. For more information, see [EnableResourceDirectory](https://help.aliyun.com/document_detail/604185.html).
      * ### [](#)Usage notes
      * If the `ServiceStatus` parameter is set to `0` or `-1`, you can call this operation to set the parameter to `1`. Then, you can call the [CreateTemplateQuotaItem](https://help.aliyun.com/document_detail/450615.html) operation to create a quota template.
-     *  *
-     * @param ModifyQuotaTemplateServiceStatusRequest $request ModifyQuotaTemplateServiceStatusRequest
      *
-     * @return ModifyQuotaTemplateServiceStatusResponse ModifyQuotaTemplateServiceStatusResponse
+     * @param request - ModifyQuotaTemplateServiceStatusRequest
+     *
+     * @returns ModifyQuotaTemplateServiceStatusResponse
+     *
+     * @param ModifyQuotaTemplateServiceStatusRequest $request
+     *
+     * @return ModifyQuotaTemplateServiceStatusResponse
      */
     public function modifyQuotaTemplateServiceStatus($request)
     {
@@ -1605,73 +1997,92 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary The ID of the quota template.
-     *  *
-     * @param ModifyTemplateQuotaItemRequest $request ModifyTemplateQuotaItemRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * The ID of the quota template.
      *
-     * @return ModifyTemplateQuotaItemResponse ModifyTemplateQuotaItemResponse
+     * @param request - ModifyTemplateQuotaItemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyTemplateQuotaItemResponse
+     *
+     * @param ModifyTemplateQuotaItemRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyTemplateQuotaItemResponse
      */
     public function modifyTemplateQuotaItemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->quotaCategory)) {
-            $query['QuotaCategory'] = $request->quotaCategory;
+        if (null !== $request->quotaCategory) {
+            @$query['QuotaCategory'] = $request->quotaCategory;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->desireValue)) {
-            $body['DesireValue'] = $request->desireValue;
+        if (null !== $request->desireValue) {
+            @$body['DesireValue'] = $request->desireValue;
         }
-        if (!Utils::isUnset($request->dimensions)) {
-            $body['Dimensions'] = $request->dimensions;
+
+        if (null !== $request->dimensions) {
+            @$body['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->effectiveTime)) {
-            $body['EffectiveTime'] = $request->effectiveTime;
+
+        if (null !== $request->effectiveTime) {
+            @$body['EffectiveTime'] = $request->effectiveTime;
         }
-        if (!Utils::isUnset($request->envLanguage)) {
-            $body['EnvLanguage'] = $request->envLanguage;
+
+        if (null !== $request->envLanguage) {
+            @$body['EnvLanguage'] = $request->envLanguage;
         }
-        if (!Utils::isUnset($request->expireTime)) {
-            $body['ExpireTime'] = $request->expireTime;
+
+        if (null !== $request->expireTime) {
+            @$body['ExpireTime'] = $request->expireTime;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->noticeType)) {
-            $body['NoticeType'] = $request->noticeType;
+
+        if (null !== $request->noticeType) {
+            @$body['NoticeType'] = $request->noticeType;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->quotaActionCode)) {
-            $body['QuotaActionCode'] = $request->quotaActionCode;
+
+        if (null !== $request->quotaActionCode) {
+            @$body['QuotaActionCode'] = $request->quotaActionCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyTemplateQuotaItem',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyTemplateQuotaItem',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyTemplateQuotaItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary The ID of the quota template.
-     *  *
-     * @param ModifyTemplateQuotaItemRequest $request ModifyTemplateQuotaItemRequest
+     * The ID of the quota template.
      *
-     * @return ModifyTemplateQuotaItemResponse ModifyTemplateQuotaItemResponse
+     * @param request - ModifyTemplateQuotaItemRequest
+     *
+     * @returns ModifyTemplateQuotaItemResponse
+     *
+     * @param ModifyTemplateQuotaItemRequest $request
+     *
+     * @return ModifyTemplateQuotaItemResponse
      */
     public function modifyTemplateQuotaItem($request)
     {
@@ -1681,48 +2092,60 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Reminds the approver of a quota application to review the application. This operation is applicable to quota applications that support the approval reminding feature.
-     *  *
-     * @description >  You can call this operation to enable the approval reminder feature for quota applications that support this feature. To check whether this feature is supported, you can view the value of `SupportReminder` in the GetQuotaApplicationApproval operation. If the value of SupportReminder is `true`, this feature is supported.
-     *  *
-     * @param RemindQuotaApplicationApprovalRequest $request RemindQuotaApplicationApprovalRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Reminds the approver of a quota application to review the application. This operation is applicable to quota applications that support the approval reminding feature.
      *
-     * @return RemindQuotaApplicationApprovalResponse RemindQuotaApplicationApprovalResponse
+     * @remarks
+     * >  You can call this operation to enable the approval reminder feature for quota applications that support this feature. To check whether this feature is supported, you can view the value of `SupportReminder` in the GetQuotaApplicationApproval operation. If the value of SupportReminder is `true`, this feature is supported.
+     *
+     * @param request - RemindQuotaApplicationApprovalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemindQuotaApplicationApprovalResponse
+     *
+     * @param RemindQuotaApplicationApprovalRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RemindQuotaApplicationApprovalResponse
      */
     public function remindQuotaApplicationApprovalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $body['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$body['ApplicationId'] = $request->applicationId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemindQuotaApplicationApproval',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemindQuotaApplicationApproval',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemindQuotaApplicationApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Reminds the approver of a quota application to review the application. This operation is applicable to quota applications that support the approval reminding feature.
-     *  *
-     * @description >  You can call this operation to enable the approval reminder feature for quota applications that support this feature. To check whether this feature is supported, you can view the value of `SupportReminder` in the GetQuotaApplicationApproval operation. If the value of SupportReminder is `true`, this feature is supported.
-     *  *
-     * @param RemindQuotaApplicationApprovalRequest $request RemindQuotaApplicationApprovalRequest
+     * Reminds the approver of a quota application to review the application. This operation is applicable to quota applications that support the approval reminding feature.
      *
-     * @return RemindQuotaApplicationApprovalResponse RemindQuotaApplicationApprovalResponse
+     * @remarks
+     * >  You can call this operation to enable the approval reminder feature for quota applications that support this feature. To check whether this feature is supported, you can view the value of `SupportReminder` in the GetQuotaApplicationApproval operation. If the value of SupportReminder is `true`, this feature is supported.
+     *
+     * @param request - RemindQuotaApplicationApprovalRequest
+     *
+     * @returns RemindQuotaApplicationApprovalResponse
+     *
+     * @param RemindQuotaApplicationApprovalRequest $request
+     *
+     * @return RemindQuotaApplicationApprovalResponse
      */
     public function remindQuotaApplicationApproval($request)
     {
@@ -1732,63 +2155,82 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a quota alert rule.
-     *  *
-     * @description In this example, the operation is called to modify the information about a quota alert whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
-     *  *
-     * @param UpdateQuotaAlarmRequest $request UpdateQuotaAlarmRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies a quota alert rule.
      *
-     * @return UpdateQuotaAlarmResponse UpdateQuotaAlarmResponse
+     * @remarks
+     *   The quota alerting feature has been upgraded and this API operation will be deprecated. If you want to modify the information about a specific quota alert rule of the new version, call the CloudMonitor API operation [PutResourceMetricRules](https://help.aliyun.com/document_detail/2513316.html) or [PutMetricRuleTargets](https://help.aliyun.com/document_detail/2513302.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
+     * *   In this example, the API operation is called to modify the information about a quota alert rule whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
+     *
+     * @param request - UpdateQuotaAlarmRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateQuotaAlarmResponse
+     *
+     * @param UpdateQuotaAlarmRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateQuotaAlarmResponse
      */
     public function updateQuotaAlarmWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alarmId)) {
-            $body['AlarmId'] = $request->alarmId;
+        if (null !== $request->alarmId) {
+            @$body['AlarmId'] = $request->alarmId;
         }
-        if (!Utils::isUnset($request->alarmName)) {
-            $body['AlarmName'] = $request->alarmName;
+
+        if (null !== $request->alarmName) {
+            @$body['AlarmName'] = $request->alarmName;
         }
-        if (!Utils::isUnset($request->threshold)) {
-            $body['Threshold'] = $request->threshold;
+
+        if (null !== $request->threshold) {
+            @$body['Threshold'] = $request->threshold;
         }
-        if (!Utils::isUnset($request->thresholdPercent)) {
-            $body['ThresholdPercent'] = $request->thresholdPercent;
+
+        if (null !== $request->thresholdPercent) {
+            @$body['ThresholdPercent'] = $request->thresholdPercent;
         }
-        if (!Utils::isUnset($request->thresholdType)) {
-            $body['ThresholdType'] = $request->thresholdType;
+
+        if (null !== $request->thresholdType) {
+            @$body['ThresholdType'] = $request->thresholdType;
         }
-        if (!Utils::isUnset($request->webHook)) {
-            $body['WebHook'] = $request->webHook;
+
+        if (null !== $request->webHook) {
+            @$body['WebHook'] = $request->webHook;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateQuotaAlarm',
-            'version'     => '2020-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateQuotaAlarm',
+            'version' => '2020-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateQuotaAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a quota alert rule.
-     *  *
-     * @description In this example, the operation is called to modify the information about a quota alert whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
-     *  *
-     * @param UpdateQuotaAlarmRequest $request UpdateQuotaAlarmRequest
+     * Modifies a quota alert rule.
      *
-     * @return UpdateQuotaAlarmResponse UpdateQuotaAlarmResponse
+     * @remarks
+     *   The quota alerting feature has been upgraded and this API operation will be deprecated. If you want to modify the information about a specific quota alert rule of the new version, call the CloudMonitor API operation [PutResourceMetricRules](https://help.aliyun.com/document_detail/2513316.html) or [PutMetricRuleTargets](https://help.aliyun.com/document_detail/2513302.html). For more information about how to call API operations to manage quota alert rules of the new version, see [Manage quota alerts of the new version by calling API operations](https://help.aliyun.com/document_detail/2863234.html).
+     * *   In this example, the API operation is called to modify the information about a quota alert rule whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
+     *
+     * @param request - UpdateQuotaAlarmRequest
+     *
+     * @returns UpdateQuotaAlarmResponse
+     *
+     * @param UpdateQuotaAlarmRequest $request
+     *
+     * @return UpdateQuotaAlarmResponse
      */
     public function updateQuotaAlarm($request)
     {

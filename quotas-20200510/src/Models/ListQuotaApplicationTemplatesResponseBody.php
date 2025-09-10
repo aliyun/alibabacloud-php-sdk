@@ -4,87 +4,77 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\ListQuotaApplicationTemplatesResponseBody\quotaApplicationTemplates;
-use AlibabaCloud\Tea\Model;
 
 class ListQuotaApplicationTemplatesResponseBody extends Model
 {
     /**
-     * @description The maximum number of records returned for the query.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that marks the position at which the query ends.
-     *
-     * > An empty value indicates that all data is returned.
-     * @example 1
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The queried quota templates.
-     *
      * @var quotaApplicationTemplates[]
      */
     public $quotaApplicationTemplates;
 
     /**
-     * @description The request ID.
-     *
-     * @example D47B3A10-CDAC-5412-B2EE-EC9A3DBE9053
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of records returned for the query.
-     *
-     * @example 40
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'                => 'MaxResults',
-        'nextToken'                 => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'quotaApplicationTemplates' => 'QuotaApplicationTemplates',
-        'requestId'                 => 'RequestId',
-        'totalCount'                => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->quotaApplicationTemplates)) {
+            Model::validateArray($this->quotaApplicationTemplates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->quotaApplicationTemplates) {
-            $res['QuotaApplicationTemplates'] = [];
-            if (null !== $this->quotaApplicationTemplates && \is_array($this->quotaApplicationTemplates)) {
-                $n = 0;
-                foreach ($this->quotaApplicationTemplates as $item) {
-                    $res['QuotaApplicationTemplates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->quotaApplicationTemplates)) {
+                $res['QuotaApplicationTemplates'] = [];
+                $n1 = 0;
+                foreach ($this->quotaApplicationTemplates as $item1) {
+                    $res['QuotaApplicationTemplates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -92,32 +82,37 @@ class ListQuotaApplicationTemplatesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListQuotaApplicationTemplatesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['QuotaApplicationTemplates'])) {
             if (!empty($map['QuotaApplicationTemplates'])) {
                 $model->quotaApplicationTemplates = [];
-                $n                                = 0;
-                foreach ($map['QuotaApplicationTemplates'] as $item) {
-                    $model->quotaApplicationTemplates[$n++] = null !== $item ? quotaApplicationTemplates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['QuotaApplicationTemplates'] as $item1) {
+                    $model->quotaApplicationTemplates[$n1] = quotaApplicationTemplates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

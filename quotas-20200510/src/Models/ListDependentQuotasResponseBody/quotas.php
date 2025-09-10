@@ -4,73 +4,67 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models\ListDependentQuotasResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\ListDependentQuotasResponseBody\quotas\dimensions;
-use AlibabaCloud\Tea\Model;
 
 class quotas extends Model
 {
     /**
-     * @description The dimensions of the quotas on which the specified quota depends.
-     *
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
-     * @description The abbreviation of the Alibaba Cloud service name.
-     *
-     * @example ecs
-     *
      * @var string
      */
     public $productCode;
 
     /**
-     * @description The quota ID.
-     *
-     * @example q_elastic-network-interfaces
-     *
      * @var string
      */
     public $quotaActionCode;
 
     /**
-     * @description The relationship percentage between the specified quota and the quotas on which the specified quota depends.
-     *
-     * @example 50
-     *
      * @var float
      */
     public $scale;
     protected $_name = [
-        'dimensions'      => 'Dimensions',
-        'productCode'     => 'ProductCode',
+        'dimensions' => 'Dimensions',
+        'productCode' => 'ProductCode',
         'quotaActionCode' => 'QuotaActionCode',
-        'scale'           => 'Scale',
+        'scale' => 'Scale',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dimensions)) {
+            Model::validateArray($this->dimensions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dimensions) {
-            $res['Dimensions'] = [];
-            if (null !== $this->dimensions && \is_array($this->dimensions)) {
-                $n = 0;
-                foreach ($this->dimensions as $item) {
-                    $res['Dimensions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dimensions)) {
+                $res['Dimensions'] = [];
+                $n1 = 0;
+                foreach ($this->dimensions as $item1) {
+                    $res['Dimensions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->quotaActionCode) {
             $res['QuotaActionCode'] = $this->quotaActionCode;
         }
+
         if (null !== $this->scale) {
             $res['Scale'] = $this->scale;
         }
@@ -78,29 +72,33 @@ class quotas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return quotas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dimensions'])) {
             if (!empty($map['Dimensions'])) {
                 $model->dimensions = [];
-                $n                 = 0;
-                foreach ($map['Dimensions'] as $item) {
-                    $model->dimensions[$n++] = null !== $item ? dimensions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Dimensions'] as $item1) {
+                    $model->dimensions[$n1] = dimensions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['QuotaActionCode'])) {
             $model->quotaActionCode = $map['QuotaActionCode'];
         }
+
         if (isset($map['Scale'])) {
             $model->scale = $map['Scale'];
         }

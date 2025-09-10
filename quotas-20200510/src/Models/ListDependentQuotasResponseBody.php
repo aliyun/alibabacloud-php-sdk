@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\ListDependentQuotasResponseBody\quotas;
-use AlibabaCloud\Tea\Model;
 
 class ListDependentQuotasResponseBody extends Model
 {
     /**
-     * @description The quotas on which the specified quota depends.
-     *
      * @var quotas[]
      */
     public $quotas;
 
     /**
-     * @description The request ID.
-     *
-     * @example 920D8A47-26BB-49FA-A09F-F98D7DAA55F3
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'quotas'    => 'Quotas',
+        'quotas' => 'Quotas',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->quotas)) {
+            Model::validateArray($this->quotas);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->quotas) {
-            $res['Quotas'] = [];
-            if (null !== $this->quotas && \is_array($this->quotas)) {
-                $n = 0;
-                foreach ($this->quotas as $item) {
-                    $res['Quotas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->quotas)) {
+                $res['Quotas'] = [];
+                $n1 = 0;
+                foreach ($this->quotas as $item1) {
+                    $res['Quotas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +52,25 @@ class ListDependentQuotasResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDependentQuotasResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Quotas'])) {
             if (!empty($map['Quotas'])) {
                 $model->quotas = [];
-                $n             = 0;
-                foreach ($map['Quotas'] as $item) {
-                    $model->quotas[$n++] = null !== $item ? quotas::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Quotas'] as $item1) {
+                    $model->quotas[$n1] = quotas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

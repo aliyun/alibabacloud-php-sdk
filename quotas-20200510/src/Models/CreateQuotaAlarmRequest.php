@@ -4,32 +4,27 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\CreateQuotaAlarmRequest\quotaDimensions;
-use AlibabaCloud\Tea\Model;
 
 class CreateQuotaAlarmRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $alarmName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example config
-     *
+     * @var string
+     */
+    public $originalContext;
+
+    /**
      * @var string
      */
     public $productCode;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example q_hvnoqv
-     *
      * @var string
      */
     public $quotaActionCode;
@@ -40,77 +35,86 @@ class CreateQuotaAlarmRequest extends Model
     public $quotaDimensions;
 
     /**
-     * @example 150
-     *
      * @var float
      */
     public $threshold;
 
     /**
-     * @example 50
-     *
      * @var float
      */
     public $thresholdPercent;
 
     /**
-     * @example used
-     *
      * @var string
      */
     public $thresholdType;
 
     /**
-     * @example https://alert.aliyun.com/callback
-     *
      * @var string
      */
     public $webHook;
     protected $_name = [
-        'alarmName'        => 'AlarmName',
-        'productCode'      => 'ProductCode',
-        'quotaActionCode'  => 'QuotaActionCode',
-        'quotaDimensions'  => 'QuotaDimensions',
-        'threshold'        => 'Threshold',
+        'alarmName' => 'AlarmName',
+        'originalContext' => 'OriginalContext',
+        'productCode' => 'ProductCode',
+        'quotaActionCode' => 'QuotaActionCode',
+        'quotaDimensions' => 'QuotaDimensions',
+        'threshold' => 'Threshold',
         'thresholdPercent' => 'ThresholdPercent',
-        'thresholdType'    => 'ThresholdType',
-        'webHook'          => 'WebHook',
+        'thresholdType' => 'ThresholdType',
+        'webHook' => 'WebHook',
     ];
 
     public function validate()
     {
+        if (\is_array($this->quotaDimensions)) {
+            Model::validateArray($this->quotaDimensions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarmName) {
             $res['AlarmName'] = $this->alarmName;
         }
+
+        if (null !== $this->originalContext) {
+            $res['OriginalContext'] = $this->originalContext;
+        }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->quotaActionCode) {
             $res['QuotaActionCode'] = $this->quotaActionCode;
         }
+
         if (null !== $this->quotaDimensions) {
-            $res['QuotaDimensions'] = [];
-            if (null !== $this->quotaDimensions && \is_array($this->quotaDimensions)) {
-                $n = 0;
-                foreach ($this->quotaDimensions as $item) {
-                    $res['QuotaDimensions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->quotaDimensions)) {
+                $res['QuotaDimensions'] = [];
+                $n1 = 0;
+                foreach ($this->quotaDimensions as $item1) {
+                    $res['QuotaDimensions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
+
         if (null !== $this->thresholdPercent) {
             $res['ThresholdPercent'] = $this->thresholdPercent;
         }
+
         if (null !== $this->thresholdType) {
             $res['ThresholdType'] = $this->thresholdType;
         }
+
         if (null !== $this->webHook) {
             $res['WebHook'] = $this->webHook;
         }
@@ -118,41 +122,53 @@ class CreateQuotaAlarmRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateQuotaAlarmRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlarmName'])) {
             $model->alarmName = $map['AlarmName'];
         }
+
+        if (isset($map['OriginalContext'])) {
+            $model->originalContext = $map['OriginalContext'];
+        }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['QuotaActionCode'])) {
             $model->quotaActionCode = $map['QuotaActionCode'];
         }
+
         if (isset($map['QuotaDimensions'])) {
             if (!empty($map['QuotaDimensions'])) {
                 $model->quotaDimensions = [];
-                $n                      = 0;
-                foreach ($map['QuotaDimensions'] as $item) {
-                    $model->quotaDimensions[$n++] = null !== $item ? quotaDimensions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['QuotaDimensions'] as $item1) {
+                    $model->quotaDimensions[$n1] = quotaDimensions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }
+
         if (isset($map['ThresholdPercent'])) {
             $model->thresholdPercent = $map['ThresholdPercent'];
         }
+
         if (isset($map['ThresholdType'])) {
             $model->thresholdType = $map['ThresholdType'];
         }
+
         if (isset($map['WebHook'])) {
             $model->webHook = $map['WebHook'];
         }

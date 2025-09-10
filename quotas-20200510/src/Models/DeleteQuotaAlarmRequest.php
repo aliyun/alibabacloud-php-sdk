@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteQuotaAlarmRequest extends Model
 {
     /**
-     * @description The ID of the quota alert.
-     *
-     * This parameter is required.
-     * @example 6b512ab7-da3a-4142-b529-2b2a9294****
-     *
      * @var string
      */
     public $alarmId;
@@ -23,9 +18,10 @@ class DeleteQuotaAlarmRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarmId) {
@@ -35,11 +31,11 @@ class DeleteQuotaAlarmRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteQuotaAlarmRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

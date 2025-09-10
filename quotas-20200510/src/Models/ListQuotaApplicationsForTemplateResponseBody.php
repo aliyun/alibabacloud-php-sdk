@@ -4,86 +4,77 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\ListQuotaApplicationsForTemplateResponseBody\quotaBatchApplications;
-use AlibabaCloud\Tea\Model;
 
 class ListQuotaApplicationsForTemplateResponseBody extends Model
 {
     /**
-     * @description The maximum number of records that can be returned for the query.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that marks the position from which you want to start the query.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The queried quota application records.
-     *
      * @var quotaBatchApplications[]
      */
     public $quotaBatchApplications;
 
     /**
-     * @description The request ID.
-     *
-     * @example D47B3A10-CDAC-5412-B2EE-EC9A3DBE9053
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of records that are returned for the query.
-     *
-     * @example 67
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'             => 'MaxResults',
-        'nextToken'              => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'quotaBatchApplications' => 'QuotaBatchApplications',
-        'requestId'              => 'RequestId',
-        'totalCount'             => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->quotaBatchApplications)) {
+            Model::validateArray($this->quotaBatchApplications);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->quotaBatchApplications) {
-            $res['QuotaBatchApplications'] = [];
-            if (null !== $this->quotaBatchApplications && \is_array($this->quotaBatchApplications)) {
-                $n = 0;
-                foreach ($this->quotaBatchApplications as $item) {
-                    $res['QuotaBatchApplications'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->quotaBatchApplications)) {
+                $res['QuotaBatchApplications'] = [];
+                $n1 = 0;
+                foreach ($this->quotaBatchApplications as $item1) {
+                    $res['QuotaBatchApplications'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -91,32 +82,37 @@ class ListQuotaApplicationsForTemplateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListQuotaApplicationsForTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['QuotaBatchApplications'])) {
             if (!empty($map['QuotaBatchApplications'])) {
                 $model->quotaBatchApplications = [];
-                $n                             = 0;
-                foreach ($map['QuotaBatchApplications'] as $item) {
-                    $model->quotaBatchApplications[$n++] = null !== $item ? quotaBatchApplications::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['QuotaBatchApplications'] as $item1) {
+                    $model->quotaBatchApplications[$n1] = quotaBatchApplications::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

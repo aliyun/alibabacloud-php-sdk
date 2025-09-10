@@ -4,64 +4,57 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\GetProductQuotaRequest\dimensions;
-use AlibabaCloud\Tea\Model;
 
 class GetProductQuotaRequest extends Model
 {
     /**
-     * @description The quota dimensions.
-     *
-     * @example {\\"regionId\\":\\"cn-beijing\\"}
-     *
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
-     * @description The abbreviation of the Alibaba Cloud service name.
-     *
-     * This parameter is required.
-     * @example ecs
-     *
      * @var string
      */
     public $productCode;
 
     /**
-     * @description The ID of the quota.
-     *
-     * This parameter is required.
-     * @example q_security-groups
-     *
      * @var string
      */
     public $quotaActionCode;
     protected $_name = [
-        'dimensions'      => 'Dimensions',
-        'productCode'     => 'ProductCode',
+        'dimensions' => 'Dimensions',
+        'productCode' => 'ProductCode',
         'quotaActionCode' => 'QuotaActionCode',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dimensions)) {
+            Model::validateArray($this->dimensions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dimensions) {
-            $res['Dimensions'] = [];
-            if (null !== $this->dimensions && \is_array($this->dimensions)) {
-                $n = 0;
-                foreach ($this->dimensions as $item) {
-                    $res['Dimensions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dimensions)) {
+                $res['Dimensions'] = [];
+                $n1 = 0;
+                foreach ($this->dimensions as $item1) {
+                    $res['Dimensions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->quotaActionCode) {
             $res['QuotaActionCode'] = $this->quotaActionCode;
         }
@@ -69,26 +62,29 @@ class GetProductQuotaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetProductQuotaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dimensions'])) {
             if (!empty($map['Dimensions'])) {
                 $model->dimensions = [];
-                $n                 = 0;
-                foreach ($map['Dimensions'] as $item) {
-                    $model->dimensions[$n++] = null !== $item ? dimensions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Dimensions'] as $item1) {
+                    $model->dimensions[$n1] = dimensions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['QuotaActionCode'])) {
             $model->quotaActionCode = $map['QuotaActionCode'];
         }

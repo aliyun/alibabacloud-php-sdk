@@ -4,61 +4,57 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\GetProductQuotaDimensionRequest\dependentDimensions;
-use AlibabaCloud\Tea\Model;
 
 class GetProductQuotaDimensionRequest extends Model
 {
     /**
-     * @description The information about quota dimensions.
-     *
      * @var dependentDimensions[]
      */
     public $dependentDimensions;
 
     /**
-     * @description The key of the quota dimension.
-     *
-     * @example regionId
-     *
      * @var string
      */
     public $dimensionKey;
 
     /**
-     * @description The abbreviation of the Alibaba Cloud service name.
-     *
-     * This parameter is required.
-     * @example ecs-spec
-     *
      * @var string
      */
     public $productCode;
     protected $_name = [
         'dependentDimensions' => 'DependentDimensions',
-        'dimensionKey'        => 'DimensionKey',
-        'productCode'         => 'ProductCode',
+        'dimensionKey' => 'DimensionKey',
+        'productCode' => 'ProductCode',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dependentDimensions)) {
+            Model::validateArray($this->dependentDimensions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dependentDimensions) {
-            $res['DependentDimensions'] = [];
-            if (null !== $this->dependentDimensions && \is_array($this->dependentDimensions)) {
-                $n = 0;
-                foreach ($this->dependentDimensions as $item) {
-                    $res['DependentDimensions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dependentDimensions)) {
+                $res['DependentDimensions'] = [];
+                $n1 = 0;
+                foreach ($this->dependentDimensions as $item1) {
+                    $res['DependentDimensions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->dimensionKey) {
             $res['DimensionKey'] = $this->dimensionKey;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
@@ -66,26 +62,29 @@ class GetProductQuotaDimensionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetProductQuotaDimensionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DependentDimensions'])) {
             if (!empty($map['DependentDimensions'])) {
                 $model->dependentDimensions = [];
-                $n                          = 0;
-                foreach ($map['DependentDimensions'] as $item) {
-                    $model->dependentDimensions[$n++] = null !== $item ? dependentDimensions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DependentDimensions'] as $item1) {
+                    $model->dependentDimensions[$n1] = dependentDimensions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['DimensionKey'])) {
             $model->dimensionKey = $map['DimensionKey'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }

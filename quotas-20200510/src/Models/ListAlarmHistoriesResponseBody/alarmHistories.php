@@ -4,131 +4,116 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models\ListAlarmHistoriesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class alarmHistories extends Model
 {
     /**
-     * @description The name of the quota alert.
-     *
-     * @example security_groups
-     *
      * @var string
      */
     public $alarmName;
 
     /**
-     * @description The time when the quota alert rule was created.
-     *
-     * @example 2021-01-24T09:20:09Z
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The notification methods of the quota alert.
-     *
      * @var string[]
      */
     public $notifyChannels;
 
     /**
-     * @description The quota alert contact.
-     *
-     * @example accountContact
-     *
      * @var string
      */
     public $notifyTarget;
 
     /**
-     * @description The abbreviation of the Alibaba Cloud service name.
-     *
-     * @example ecs
-     *
      * @var string
      */
     public $productCode;
 
     /**
-     * @description The quota ID.
-     *
-     * @example q_security-groups
-     *
      * @var string
      */
     public $quotaActionCode;
 
     /**
-     * @description The used quota.
-     *
-     * @example 31
-     *
      * @var float
      */
     public $quotaUsage;
 
     /**
-     * @description The threshold to trigger quota alerts.
-     *
-     * @example 29
-     *
      * @var float
      */
     public $threshold;
 
     /**
-     * @description The percentage of the quota alert threshold.
-     *
-     * @example 80
-     *
      * @var float
      */
     public $thresholdPercent;
     protected $_name = [
-        'alarmName'        => 'AlarmName',
-        'createTime'       => 'CreateTime',
-        'notifyChannels'   => 'NotifyChannels',
-        'notifyTarget'     => 'NotifyTarget',
-        'productCode'      => 'ProductCode',
-        'quotaActionCode'  => 'QuotaActionCode',
-        'quotaUsage'       => 'QuotaUsage',
-        'threshold'        => 'Threshold',
+        'alarmName' => 'AlarmName',
+        'createTime' => 'CreateTime',
+        'notifyChannels' => 'NotifyChannels',
+        'notifyTarget' => 'NotifyTarget',
+        'productCode' => 'ProductCode',
+        'quotaActionCode' => 'QuotaActionCode',
+        'quotaUsage' => 'QuotaUsage',
+        'threshold' => 'Threshold',
         'thresholdPercent' => 'ThresholdPercent',
     ];
 
     public function validate()
     {
+        if (\is_array($this->notifyChannels)) {
+            Model::validateArray($this->notifyChannels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarmName) {
             $res['AlarmName'] = $this->alarmName;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->notifyChannels) {
-            $res['NotifyChannels'] = $this->notifyChannels;
+            if (\is_array($this->notifyChannels)) {
+                $res['NotifyChannels'] = [];
+                $n1 = 0;
+                foreach ($this->notifyChannels as $item1) {
+                    $res['NotifyChannels'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->notifyTarget) {
             $res['NotifyTarget'] = $this->notifyTarget;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->quotaActionCode) {
             $res['QuotaActionCode'] = $this->quotaActionCode;
         }
+
         if (null !== $this->quotaUsage) {
             $res['QuotaUsage'] = $this->quotaUsage;
         }
+
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
+
         if (null !== $this->thresholdPercent) {
             $res['ThresholdPercent'] = $this->thresholdPercent;
         }
@@ -136,40 +121,53 @@ class alarmHistories extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return alarmHistories
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlarmName'])) {
             $model->alarmName = $map['AlarmName'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['NotifyChannels'])) {
             if (!empty($map['NotifyChannels'])) {
-                $model->notifyChannels = $map['NotifyChannels'];
+                $model->notifyChannels = [];
+                $n1 = 0;
+                foreach ($map['NotifyChannels'] as $item1) {
+                    $model->notifyChannels[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NotifyTarget'])) {
             $model->notifyTarget = $map['NotifyTarget'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['QuotaActionCode'])) {
             $model->quotaActionCode = $map['QuotaActionCode'];
         }
+
         if (isset($map['QuotaUsage'])) {
             $model->quotaUsage = $map['QuotaUsage'];
         }
+
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }
+
         if (isset($map['ThresholdPercent'])) {
             $model->thresholdPercent = $map['ThresholdPercent'];
         }

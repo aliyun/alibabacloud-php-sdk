@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models\ListQuotaApplicationsDetailForTemplateResponseBody\quotaApplications;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class period extends Model
 {
     /**
-     * @description The unit of the calculation cycle of the quota.
-     *
-     * @example second
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description The value of the calculation cycle of the quota.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $periodValue;
     protected $_name = [
-        'periodUnit'  => 'PeriodUnit',
+        'periodUnit' => 'PeriodUnit',
         'periodValue' => 'PeriodValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
+
         if (null !== $this->periodValue) {
             $res['PeriodValue'] = $this->periodValue;
         }
@@ -47,17 +41,18 @@ class period extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return period
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }
+
         if (isset($map['PeriodValue'])) {
             $model->periodValue = $map['PeriodValue'];
         }

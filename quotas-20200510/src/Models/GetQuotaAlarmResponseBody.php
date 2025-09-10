@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\GetQuotaAlarmResponseBody\quotaAlarm;
-use AlibabaCloud\Tea\Model;
 
 class GetQuotaAlarmResponseBody extends Model
 {
     /**
-     * @description The details of the quota alert.
-     *
      * @var quotaAlarm
      */
     public $quotaAlarm;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 81B9D511-F3DD-43B1-9A81-1795DDB52ADF
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'quotaAlarm' => 'QuotaAlarm',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->quotaAlarm) {
+            $this->quotaAlarm->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->quotaAlarm) {
-            $res['QuotaAlarm'] = null !== $this->quotaAlarm ? $this->quotaAlarm->toMap() : null;
+            $res['QuotaAlarm'] = null !== $this->quotaAlarm ? $this->quotaAlarm->toArray($noStream) : $this->quotaAlarm;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class GetQuotaAlarmResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetQuotaAlarmResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QuotaAlarm'])) {
             $model->quotaAlarm = quotaAlarm::fromMap($map['QuotaAlarm']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

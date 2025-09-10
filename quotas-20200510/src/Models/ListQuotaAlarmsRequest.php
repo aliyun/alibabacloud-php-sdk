@@ -4,108 +4,87 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\ListQuotaAlarmsRequest\quotaDimensions;
-use AlibabaCloud\Tea\Model;
 
 class ListQuotaAlarmsRequest extends Model
 {
     /**
-     * @description The name of the alert.
-     *
-     * @example rules
-     *
      * @var string
      */
     public $alarmName;
 
     /**
-     * @description The maximum number of records that you want to return for the query.
-     *
-     * Valid values: 1 to 200. Default value: 30.
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that marks the position from which you want to start the query.
-     *
-     * > An empty value indicates that the query starts from the beginning.
-     * @example 1
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The abbreviation of the Alibaba Cloud service name.
-     *
-     * >  To query the abbreviation of an Alibaba Cloud service name, call the [ListProducts](https://help.aliyun.com/document_detail/440554.html) operation and check the value of `ProductCode` in the response.
-     * @example ecs
-     *
      * @var string
      */
     public $productCode;
 
     /**
-     * @description The quota ID.
-     *
-     * >
-     *
-     *   To obtain the quota ID of a cloud service, call the [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html) operation and check the value of `QuotaActionCode` in the response.
-     *
-     *   If you specify this parameter, you must specify `ProductCode`.
-     *
-     * @example q_hvnoqv
-     *
      * @var string
      */
     public $quotaActionCode;
 
     /**
-     * @description The quota dimensions.
-     *
      * @var quotaDimensions[]
      */
     public $quotaDimensions;
     protected $_name = [
-        'alarmName'       => 'AlarmName',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'productCode'     => 'ProductCode',
+        'alarmName' => 'AlarmName',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'productCode' => 'ProductCode',
         'quotaActionCode' => 'QuotaActionCode',
         'quotaDimensions' => 'QuotaDimensions',
     ];
 
     public function validate()
     {
+        if (\is_array($this->quotaDimensions)) {
+            Model::validateArray($this->quotaDimensions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarmName) {
             $res['AlarmName'] = $this->alarmName;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->quotaActionCode) {
             $res['QuotaActionCode'] = $this->quotaActionCode;
         }
+
         if (null !== $this->quotaDimensions) {
-            $res['QuotaDimensions'] = [];
-            if (null !== $this->quotaDimensions && \is_array($this->quotaDimensions)) {
-                $n = 0;
-                foreach ($this->quotaDimensions as $item) {
-                    $res['QuotaDimensions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->quotaDimensions)) {
+                $res['QuotaDimensions'] = [];
+                $n1 = 0;
+                foreach ($this->quotaDimensions as $item1) {
+                    $res['QuotaDimensions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,35 +92,41 @@ class ListQuotaAlarmsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListQuotaAlarmsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlarmName'])) {
             $model->alarmName = $map['AlarmName'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['QuotaActionCode'])) {
             $model->quotaActionCode = $map['QuotaActionCode'];
         }
+
         if (isset($map['QuotaDimensions'])) {
             if (!empty($map['QuotaDimensions'])) {
                 $model->quotaDimensions = [];
-                $n                      = 0;
-                foreach ($map['QuotaDimensions'] as $item) {
-                    $model->quotaDimensions[$n++] = null !== $item ? quotaDimensions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['QuotaDimensions'] as $item1) {
+                    $model->quotaDimensions[$n1] = quotaDimensions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
