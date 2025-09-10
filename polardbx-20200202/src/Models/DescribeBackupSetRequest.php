@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeBackupSetRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 111
-     *
      * @var string
      */
     public $backupSetId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example pxc-htri0ori2r****
-     *
      * @var string
      */
     public $DBInstanceName;
@@ -32,8 +24,6 @@ class DescribeBackupSetRequest extends Model
     public $destCrossRegion;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -44,20 +34,26 @@ class DescribeBackupSetRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupSetId) {
             $res['BackupSetId'] = $this->backupSetId;
         }
+
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->destCrossRegion) {
             $res['DestCrossRegion'] = $this->destCrossRegion;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -65,23 +61,26 @@ class DescribeBackupSetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackupSetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupSetId'])) {
             $model->backupSetId = $map['BackupSetId'];
         }
+
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['DestCrossRegion'])) {
             $model->destCrossRegion = $map['DestCrossRegion'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

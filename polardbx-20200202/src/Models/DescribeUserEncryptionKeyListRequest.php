@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUserEncryptionKeyListRequest extends Model
 {
     /**
-     * @example pxc-hzjasd****
-     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -26,14 +22,18 @@ class DescribeUserEncryptionKeyListRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -41,17 +41,18 @@ class DescribeUserEncryptionKeyListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUserEncryptionKeyListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCharacterSetResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -14,8 +14,6 @@ class data extends Model
     public $characterSet;
 
     /**
-     * @example polarx
-     *
      * @var string
      */
     public $engine;
@@ -24,14 +22,28 @@ class data extends Model
         'engine' => 'Engine',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->characterSet)) {
+            Model::validateArray($this->characterSet);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->characterSet) {
-            $res['CharacterSet'] = $this->characterSet;
+            if (\is_array($this->characterSet)) {
+                $res['CharacterSet'] = [];
+                $n1 = 0;
+                foreach ($this->characterSet as $item1) {
+                    $res['CharacterSet'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
@@ -39,19 +51,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CharacterSet'])) {
             if (!empty($map['CharacterSet'])) {
-                $model->characterSet = $map['CharacterSet'];
+                $model->characterSet = [];
+                $n1 = 0;
+                foreach ($map['CharacterSet'] as $item1) {
+                    $model->characterSet[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }

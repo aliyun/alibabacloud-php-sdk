@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example htap
-     *
      * @var string
      */
     public $configName;
@@ -30,17 +28,22 @@ class data extends Model
         'dbInstanceName' => 'DbInstanceName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configName) {
             $res['ConfigName'] = $this->configName;
         }
+
         if (null !== $this->configValue) {
             $res['ConfigValue'] = $this->configValue;
         }
+
         if (null !== $this->dbInstanceName) {
             $res['DbInstanceName'] = $this->dbInstanceName;
         }
@@ -48,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigName'])) {
             $model->configName = $map['ConfigName'];
         }
+
         if (isset($map['ConfigValue'])) {
             $model->configValue = $map['ConfigValue'];
         }
+
         if (isset($map['DbInstanceName'])) {
             $model->dbInstanceName = $map['DbInstanceName'];
         }

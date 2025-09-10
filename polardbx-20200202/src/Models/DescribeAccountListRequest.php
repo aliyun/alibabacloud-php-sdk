@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAccountListRequest extends Model
 {
     /**
-     * @example testaccount
-     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @example 0
-     *
      * @var string
      */
     public $accountType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example pxc-********
-     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -46,20 +34,26 @@ class DescribeAccountListRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
+
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -67,23 +61,26 @@ class DescribeAccountListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAccountListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }
+
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

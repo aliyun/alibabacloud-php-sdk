@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParametersResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class configParameters extends Model
 {
@@ -14,15 +14,11 @@ class configParameters extends Model
     public $parameterDescription;
 
     /**
-     * @example CONN_POOL_XPROTO_STORAGE_DB_PORT
-     *
      * @var string
      */
     public $parameterName;
 
     /**
-     * @example -1
-     *
      * @var string
      */
     public $parameterValue;
@@ -32,17 +28,22 @@ class configParameters extends Model
         'parameterValue' => 'ParameterValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parameterDescription) {
             $res['ParameterDescription'] = $this->parameterDescription;
         }
+
         if (null !== $this->parameterName) {
             $res['ParameterName'] = $this->parameterName;
         }
+
         if (null !== $this->parameterValue) {
             $res['ParameterValue'] = $this->parameterValue;
         }
@@ -50,20 +51,22 @@ class configParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParameterDescription'])) {
             $model->parameterDescription = $map['ParameterDescription'];
         }
+
         if (isset($map['ParameterName'])) {
             $model->parameterName = $map['ParameterName'];
         }
+
         if (isset($map['ParameterValue'])) {
             $model->parameterValue = $map['ParameterValue'];
         }

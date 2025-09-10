@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDBInstanceSSLRequest extends Model
 {
     /**
-     * @example pxc-hzrqjarxdocd4t.polarx.rds.aliyuncs.com
-     *
      * @var string
      */
     public $certCommonName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example pxc-hzjasd****
-     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableSSL;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -46,20 +34,26 @@ class UpdateDBInstanceSSLRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certCommonName) {
             $res['CertCommonName'] = $this->certCommonName;
         }
+
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->enableSSL) {
             $res['EnableSSL'] = $this->enableSSL;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -67,23 +61,26 @@ class UpdateDBInstanceSSLRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDBInstanceSSLRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertCommonName'])) {
             $model->certCommonName = $map['CertCommonName'];
         }
+
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['EnableSSL'])) {
             $model->enableSSL = $map['EnableSSL'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

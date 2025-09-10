@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeArchiveTableListResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tables extends Model
 {
@@ -52,29 +52,38 @@ class tables extends Model
         'tableName' => 'TableName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->archiveStatus) {
             $res['ArchiveStatus'] = $this->archiveStatus;
         }
+
         if (null !== $this->createdDate) {
             $res['CreatedDate'] = $this->createdDate;
         }
+
         if (null !== $this->fileCount) {
             $res['FileCount'] = $this->fileCount;
         }
+
         if (null !== $this->lastSuccessArchiveTime) {
             $res['LastSuccessArchiveTime'] = $this->lastSuccessArchiveTime;
         }
+
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
+
         if (null !== $this->spaceSize) {
             $res['SpaceSize'] = $this->spaceSize;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -82,32 +91,38 @@ class tables extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tables
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArchiveStatus'])) {
             $model->archiveStatus = $map['ArchiveStatus'];
         }
+
         if (isset($map['CreatedDate'])) {
             $model->createdDate = $map['CreatedDate'];
         }
+
         if (isset($map['FileCount'])) {
             $model->fileCount = $map['FileCount'];
         }
+
         if (isset($map['LastSuccessArchiveTime'])) {
             $model->lastSuccessArchiveTime = $map['LastSuccessArchiveTime'];
         }
+
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
+
         if (isset($map['SpaceSize'])) {
             $model->spaceSize = $map['SpaceSize'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

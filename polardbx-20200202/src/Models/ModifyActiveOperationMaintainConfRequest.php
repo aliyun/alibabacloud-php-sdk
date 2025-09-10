@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyActiveOperationMaintainConfRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1,2,3,4,5,6,7
-     *
      * @var string
      */
     public $cycleTime;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example Week
-     *
      * @var string
      */
     public $cycleType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 02:00:00Z
-     *
      * @var string
      */
     public $maintainEndTime;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 02:00:00Z
-     *
      * @var string
      */
     public $maintainStartTime;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
@@ -70,26 +46,34 @@ class ModifyActiveOperationMaintainConfRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cycleTime) {
             $res['CycleTime'] = $this->cycleTime;
         }
+
         if (null !== $this->cycleType) {
             $res['CycleType'] = $this->cycleType;
         }
+
         if (null !== $this->maintainEndTime) {
             $res['MaintainEndTime'] = $this->maintainEndTime;
         }
+
         if (null !== $this->maintainStartTime) {
             $res['MaintainStartTime'] = $this->maintainStartTime;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -97,29 +81,34 @@ class ModifyActiveOperationMaintainConfRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyActiveOperationMaintainConfRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CycleTime'])) {
             $model->cycleTime = $map['CycleTime'];
         }
+
         if (isset($map['CycleType'])) {
             $model->cycleType = $map['CycleType'];
         }
+
         if (isset($map['MaintainEndTime'])) {
             $model->maintainEndTime = $map['MaintainEndTime'];
         }
+
         if (isset($map['MaintainStartTime'])) {
             $model->maintainStartTime = $map['MaintainStartTime'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

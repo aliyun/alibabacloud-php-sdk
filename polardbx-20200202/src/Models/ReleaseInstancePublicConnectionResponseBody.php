@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReleaseInstancePublicConnectionResponseBody extends Model
 {
     /**
-     * @example FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-     *
      * @var string
      */
     public $requestId;
@@ -18,9 +16,12 @@ class ReleaseInstancePublicConnectionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -30,11 +31,11 @@ class ReleaseInstancePublicConnectionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReleaseInstancePublicConnectionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

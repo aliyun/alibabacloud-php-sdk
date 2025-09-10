@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\CheckCloudResourceAuthorizedResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 0
-     *
      * @var string
      */
     public $authorizationState;
 
     /**
-     * @example acs:ram::123456789012****:role/AliyunRdsInstanceEncryptionDefaultRole
-     *
      * @var string
      */
     public $roleArn;
@@ -26,14 +22,18 @@ class data extends Model
         'roleArn' => 'RoleArn',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authorizationState) {
             $res['AuthorizationState'] = $this->authorizationState;
         }
+
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
         }
@@ -41,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthorizationState'])) {
             $model->authorizationState = $map['AuthorizationState'];
         }
+
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
         }

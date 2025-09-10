@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceViaEndpointResponseBody\DBInstance;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tagSet extends Model
 {
     /**
-     * @example key2
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @example value2
-     *
      * @var string
      */
     public $value;
@@ -26,14 +22,18 @@ class tagSet extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,17 +41,18 @@ class tagSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyActiveOperationTasksRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $ids;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $immediateStart;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example 2021-08-15T12:00:00Z
-     *
      * @var string
      */
     public $switchTime;
@@ -46,20 +34,26 @@ class ModifyActiveOperationTasksRequest extends Model
         'switchTime' => 'SwitchTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ids) {
             $res['Ids'] = $this->ids;
         }
+
         if (null !== $this->immediateStart) {
             $res['ImmediateStart'] = $this->immediateStart;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->switchTime) {
             $res['SwitchTime'] = $this->switchTime;
         }
@@ -67,23 +61,26 @@ class ModifyActiveOperationTasksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyActiveOperationTasksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ids'])) {
             $model->ids = $map['Ids'];
         }
+
         if (isset($map['ImmediateStart'])) {
             $model->immediateStart = $map['ImmediateStart'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SwitchTime'])) {
             $model->switchTime = $map['SwitchTime'];
         }

@@ -4,49 +4,37 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupSetResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupSetResponseBody\data\OSSList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $backupModel;
 
     /**
-     * @example 111
-     *
      * @var int
      */
     public $backupSetId;
 
     /**
-     * @example 88803195
-     *
      * @var int
      */
     public $backupSetSize;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $backupType;
 
     /**
-     * @example 1650250861754
-     *
      * @var int
      */
     public $beginTime;
 
     /**
-     * @example 1650251308000
-     *
      * @var int
      */
     public $endTime;
@@ -57,8 +45,6 @@ class data extends Model
     public $OSSList;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
@@ -73,38 +59,52 @@ class data extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->OSSList)) {
+            Model::validateArray($this->OSSList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupModel) {
             $res['BackupModel'] = $this->backupModel;
         }
+
         if (null !== $this->backupSetId) {
             $res['BackupSetId'] = $this->backupSetId;
         }
+
         if (null !== $this->backupSetSize) {
             $res['BackupSetSize'] = $this->backupSetSize;
         }
+
         if (null !== $this->backupType) {
             $res['BackupType'] = $this->backupType;
         }
+
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->OSSList) {
-            $res['OSSList'] = [];
-            if (null !== $this->OSSList && \is_array($this->OSSList)) {
-                $n = 0;
-                foreach ($this->OSSList as $item) {
-                    $res['OSSList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->OSSList)) {
+                $res['OSSList'] = [];
+                $n1 = 0;
+                foreach ($this->OSSList as $item1) {
+                    $res['OSSList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -112,41 +112,49 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupModel'])) {
             $model->backupModel = $map['BackupModel'];
         }
+
         if (isset($map['BackupSetId'])) {
             $model->backupSetId = $map['BackupSetId'];
         }
+
         if (isset($map['BackupSetSize'])) {
             $model->backupSetSize = $map['BackupSetSize'];
         }
+
         if (isset($map['BackupType'])) {
             $model->backupType = $map['BackupType'];
         }
+
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['OSSList'])) {
             if (!empty($map['OSSList'])) {
                 $model->OSSList = [];
-                $n = 0;
-                foreach ($map['OSSList'] as $item) {
-                    $model->OSSList[$n++] = null !== $item ? OSSList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OSSList'] as $item1) {
+                    $model->OSSList[$n1] = OSSList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

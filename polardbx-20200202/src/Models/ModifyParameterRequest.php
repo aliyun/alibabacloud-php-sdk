@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyParameterRequest extends Model
 {
     /**
-     * @example FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example pxc-hzjasdyuoo
-     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @example compute
-     *
      * @var string
      */
     public $paramLevel;
@@ -37,17 +29,11 @@ class ModifyParameterRequest extends Model
     public $parameterGroupId;
 
     /**
-     * @example {"CONN_POOL_BLOCK_TIMEOUT":6000}
-     *
      * @var string
      */
     public $parameters;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -60,26 +46,34 @@ class ModifyParameterRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->paramLevel) {
             $res['ParamLevel'] = $this->paramLevel;
         }
+
         if (null !== $this->parameterGroupId) {
             $res['ParameterGroupId'] = $this->parameterGroupId;
         }
+
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -87,29 +81,34 @@ class ModifyParameterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyParameterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['ParamLevel'])) {
             $model->paramLevel = $map['ParamLevel'];
         }
+
         if (isset($map['ParameterGroupId'])) {
             $model->parameterGroupId = $map['ParameterGroupId'];
         }
+
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

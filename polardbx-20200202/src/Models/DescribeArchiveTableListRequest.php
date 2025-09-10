@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeArchiveTableListRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $pageIndex;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regionId;
@@ -60,29 +52,38 @@ class DescribeArchiveTableListRequest extends Model
         'tableName' => 'TableName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->pageIndex) {
             $res['PageIndex'] = $this->pageIndex;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -90,32 +91,38 @@ class DescribeArchiveTableListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeArchiveTableListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['PageIndex'])) {
             $model->pageIndex = $map['PageIndex'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
