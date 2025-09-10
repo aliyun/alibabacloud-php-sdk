@@ -11,8 +11,14 @@ class GetInstanceRequest extends Model
     /**
      * @var string
      */
+    public $fields;
+
+    /**
+     * @var string
+     */
     public $token;
     protected $_name = [
+        'fields' => 'Fields',
         'token' => 'Token',
     ];
 
@@ -24,6 +30,10 @@ class GetInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->fields) {
+            $res['Fields'] = $this->fields;
+        }
+
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
@@ -39,6 +49,10 @@ class GetInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Fields'])) {
+            $model->fields = $map['Fields'];
+        }
+
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }

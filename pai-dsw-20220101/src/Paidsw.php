@@ -195,6 +195,10 @@ class Paidsw extends OpenApiClient
             @$body['Affinity'] = $request->affinity;
         }
 
+        if (null !== $request->assignNodeSpec) {
+            @$body['AssignNodeSpec'] = $request->assignNodeSpec;
+        }
+
         if (null !== $request->cloudDisks) {
             @$body['CloudDisks'] = $request->cloudDisks;
         }
@@ -257,6 +261,10 @@ class Paidsw extends OpenApiClient
 
         if (null !== $request->resourceId) {
             @$body['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->spotSpec) {
+            @$body['SpotSpec'] = $request->spotSpec;
         }
 
         if (null !== $request->tag) {
@@ -811,6 +819,10 @@ class Paidsw extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->fields) {
+            @$query['Fields'] = $request->fields;
+        }
+
         if (null !== $request->token) {
             @$query['Token'] = $request->token;
         }
@@ -876,6 +888,10 @@ class Paidsw extends OpenApiClient
         $query = [];
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->eventLevel) {
+            @$query['EventLevel'] = $request->eventLevel;
         }
 
         if (null !== $request->maxEventsNum) {
@@ -2172,6 +2188,10 @@ class Paidsw extends OpenApiClient
             @$body['Affinity'] = $request->affinity;
         }
 
+        if (null !== $request->assignNodeSpec) {
+            @$body['AssignNodeSpec'] = $request->assignNodeSpec;
+        }
+
         if (null !== $request->cloudDisks) {
             @$body['CloudDisks'] = $request->cloudDisks;
         }
@@ -2182,6 +2202,10 @@ class Paidsw extends OpenApiClient
 
         if (null !== $request->datasets) {
             @$body['Datasets'] = $request->datasets;
+        }
+
+        if (null !== $request->disassociateAssignNode) {
+            @$body['DisassociateAssignNode'] = $request->disassociateAssignNode;
         }
 
         if (null !== $request->disassociateCredential) {
@@ -2202,6 +2226,10 @@ class Paidsw extends OpenApiClient
 
         if (null !== $request->disassociateForwardInfos) {
             @$body['DisassociateForwardInfos'] = $request->disassociateForwardInfos;
+        }
+
+        if (null !== $request->disassociateSpot) {
+            @$body['DisassociateSpot'] = $request->disassociateSpot;
         }
 
         if (null !== $request->disassociateUserCommand) {
@@ -2254,6 +2282,10 @@ class Paidsw extends OpenApiClient
 
         if (null !== $request->requestedResource) {
             @$body['RequestedResource'] = $request->requestedResource;
+        }
+
+        if (null !== $request->spotSpec) {
+            @$body['SpotSpec'] = $request->spotSpec;
         }
 
         if (null !== $request->userCommand) {

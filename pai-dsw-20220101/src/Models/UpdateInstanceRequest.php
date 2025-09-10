@@ -6,9 +6,11 @@ namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\affinity;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\assignNodeSpec;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\cloudDisks;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\datasets;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\requestedResource;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\spotSpec;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\userCommand;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\userVpc;
 
@@ -25,6 +27,11 @@ class UpdateInstanceRequest extends Model
     public $affinity;
 
     /**
+     * @var assignNodeSpec
+     */
+    public $assignNodeSpec;
+
+    /**
      * @var cloudDisks[]
      */
     public $cloudDisks;
@@ -38,6 +45,11 @@ class UpdateInstanceRequest extends Model
      * @var datasets[]
      */
     public $datasets;
+
+    /**
+     * @var bool
+     */
+    public $disassociateAssignNode;
 
     /**
      * @var bool
@@ -63,6 +75,11 @@ class UpdateInstanceRequest extends Model
      * @var bool
      */
     public $disassociateForwardInfos;
+
+    /**
+     * @var bool
+     */
+    public $disassociateSpot;
 
     /**
      * @var bool
@@ -130,6 +147,11 @@ class UpdateInstanceRequest extends Model
     public $requestedResource;
 
     /**
+     * @var spotSpec
+     */
+    public $spotSpec;
+
+    /**
      * @var userCommand
      */
     public $userCommand;
@@ -151,14 +173,17 @@ class UpdateInstanceRequest extends Model
     protected $_name = [
         'accessibility' => 'Accessibility',
         'affinity' => 'Affinity',
+        'assignNodeSpec' => 'AssignNodeSpec',
         'cloudDisks' => 'CloudDisks',
         'credentialConfig' => 'CredentialConfig',
         'datasets' => 'Datasets',
+        'disassociateAssignNode' => 'DisassociateAssignNode',
         'disassociateCredential' => 'DisassociateCredential',
         'disassociateDatasets' => 'DisassociateDatasets',
         'disassociateDriver' => 'DisassociateDriver',
         'disassociateEnvironmentVariables' => 'DisassociateEnvironmentVariables',
         'disassociateForwardInfos' => 'DisassociateForwardInfos',
+        'disassociateSpot' => 'DisassociateSpot',
         'disassociateUserCommand' => 'DisassociateUserCommand',
         'disassociateVpc' => 'DisassociateVpc',
         'driver' => 'Driver',
@@ -172,6 +197,7 @@ class UpdateInstanceRequest extends Model
         'oversoldType' => 'OversoldType',
         'priority' => 'Priority',
         'requestedResource' => 'RequestedResource',
+        'spotSpec' => 'SpotSpec',
         'userCommand' => 'UserCommand',
         'userId' => 'UserId',
         'userVpc' => 'UserVpc',
@@ -182,6 +208,9 @@ class UpdateInstanceRequest extends Model
     {
         if (null !== $this->affinity) {
             $this->affinity->validate();
+        }
+        if (null !== $this->assignNodeSpec) {
+            $this->assignNodeSpec->validate();
         }
         if (\is_array($this->cloudDisks)) {
             Model::validateArray($this->cloudDisks);
@@ -201,6 +230,9 @@ class UpdateInstanceRequest extends Model
         if (null !== $this->requestedResource) {
             $this->requestedResource->validate();
         }
+        if (null !== $this->spotSpec) {
+            $this->spotSpec->validate();
+        }
         if (null !== $this->userCommand) {
             $this->userCommand->validate();
         }
@@ -219,6 +251,10 @@ class UpdateInstanceRequest extends Model
 
         if (null !== $this->affinity) {
             $res['Affinity'] = null !== $this->affinity ? $this->affinity->toArray($noStream) : $this->affinity;
+        }
+
+        if (null !== $this->assignNodeSpec) {
+            $res['AssignNodeSpec'] = null !== $this->assignNodeSpec ? $this->assignNodeSpec->toArray($noStream) : $this->assignNodeSpec;
         }
 
         if (null !== $this->cloudDisks) {
@@ -247,6 +283,10 @@ class UpdateInstanceRequest extends Model
             }
         }
 
+        if (null !== $this->disassociateAssignNode) {
+            $res['DisassociateAssignNode'] = $this->disassociateAssignNode;
+        }
+
         if (null !== $this->disassociateCredential) {
             $res['DisassociateCredential'] = $this->disassociateCredential;
         }
@@ -265,6 +305,10 @@ class UpdateInstanceRequest extends Model
 
         if (null !== $this->disassociateForwardInfos) {
             $res['DisassociateForwardInfos'] = $this->disassociateForwardInfos;
+        }
+
+        if (null !== $this->disassociateSpot) {
+            $res['DisassociateSpot'] = $this->disassociateSpot;
         }
 
         if (null !== $this->disassociateUserCommand) {
@@ -324,6 +368,10 @@ class UpdateInstanceRequest extends Model
             $res['RequestedResource'] = null !== $this->requestedResource ? $this->requestedResource->toArray($noStream) : $this->requestedResource;
         }
 
+        if (null !== $this->spotSpec) {
+            $res['SpotSpec'] = null !== $this->spotSpec ? $this->spotSpec->toArray($noStream) : $this->spotSpec;
+        }
+
         if (null !== $this->userCommand) {
             $res['UserCommand'] = null !== $this->userCommand ? $this->userCommand->toArray($noStream) : $this->userCommand;
         }
@@ -359,6 +407,10 @@ class UpdateInstanceRequest extends Model
             $model->affinity = affinity::fromMap($map['Affinity']);
         }
 
+        if (isset($map['AssignNodeSpec'])) {
+            $model->assignNodeSpec = assignNodeSpec::fromMap($map['AssignNodeSpec']);
+        }
+
         if (isset($map['CloudDisks'])) {
             if (!empty($map['CloudDisks'])) {
                 $model->cloudDisks = [];
@@ -385,6 +437,10 @@ class UpdateInstanceRequest extends Model
             }
         }
 
+        if (isset($map['DisassociateAssignNode'])) {
+            $model->disassociateAssignNode = $map['DisassociateAssignNode'];
+        }
+
         if (isset($map['DisassociateCredential'])) {
             $model->disassociateCredential = $map['DisassociateCredential'];
         }
@@ -403,6 +459,10 @@ class UpdateInstanceRequest extends Model
 
         if (isset($map['DisassociateForwardInfos'])) {
             $model->disassociateForwardInfos = $map['DisassociateForwardInfos'];
+        }
+
+        if (isset($map['DisassociateSpot'])) {
+            $model->disassociateSpot = $map['DisassociateSpot'];
         }
 
         if (isset($map['DisassociateUserCommand'])) {
@@ -460,6 +520,10 @@ class UpdateInstanceRequest extends Model
 
         if (isset($map['RequestedResource'])) {
             $model->requestedResource = requestedResource::fromMap($map['RequestedResource']);
+        }
+
+        if (isset($map['SpotSpec'])) {
+            $model->spotSpec = spotSpec::fromMap($map['SpotSpec']);
         }
 
         if (isset($map['UserCommand'])) {

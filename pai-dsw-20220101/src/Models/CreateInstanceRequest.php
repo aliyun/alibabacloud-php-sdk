@@ -6,10 +6,12 @@ namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\affinity;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\assignNodeSpec;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\cloudDisks;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\datasets;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\labels;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\requestedResource;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\spotSpec;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\tag;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\userCommand;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\userVpc;
@@ -25,6 +27,11 @@ class CreateInstanceRequest extends Model
      * @var affinity
      */
     public $affinity;
+
+    /**
+     * @var assignNodeSpec
+     */
+    public $assignNodeSpec;
 
     /**
      * @var cloudDisks[]
@@ -107,6 +114,11 @@ class CreateInstanceRequest extends Model
     public $resourceId;
 
     /**
+     * @var spotSpec
+     */
+    public $spotSpec;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -138,6 +150,7 @@ class CreateInstanceRequest extends Model
     protected $_name = [
         'accessibility' => 'Accessibility',
         'affinity' => 'Affinity',
+        'assignNodeSpec' => 'AssignNodeSpec',
         'cloudDisks' => 'CloudDisks',
         'credentialConfig' => 'CredentialConfig',
         'datasets' => 'Datasets',
@@ -154,6 +167,7 @@ class CreateInstanceRequest extends Model
         'priority' => 'Priority',
         'requestedResource' => 'RequestedResource',
         'resourceId' => 'ResourceId',
+        'spotSpec' => 'SpotSpec',
         'tag' => 'Tag',
         'userCommand' => 'UserCommand',
         'userId' => 'UserId',
@@ -166,6 +180,9 @@ class CreateInstanceRequest extends Model
     {
         if (null !== $this->affinity) {
             $this->affinity->validate();
+        }
+        if (null !== $this->assignNodeSpec) {
+            $this->assignNodeSpec->validate();
         }
         if (\is_array($this->cloudDisks)) {
             Model::validateArray($this->cloudDisks);
@@ -188,6 +205,9 @@ class CreateInstanceRequest extends Model
         if (null !== $this->requestedResource) {
             $this->requestedResource->validate();
         }
+        if (null !== $this->spotSpec) {
+            $this->spotSpec->validate();
+        }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
         }
@@ -209,6 +229,10 @@ class CreateInstanceRequest extends Model
 
         if (null !== $this->affinity) {
             $res['Affinity'] = null !== $this->affinity ? $this->affinity->toArray($noStream) : $this->affinity;
+        }
+
+        if (null !== $this->assignNodeSpec) {
+            $res['AssignNodeSpec'] = null !== $this->assignNodeSpec ? $this->assignNodeSpec->toArray($noStream) : $this->assignNodeSpec;
         }
 
         if (null !== $this->cloudDisks) {
@@ -301,6 +325,10 @@ class CreateInstanceRequest extends Model
             $res['ResourceId'] = $this->resourceId;
         }
 
+        if (null !== $this->spotSpec) {
+            $res['SpotSpec'] = null !== $this->spotSpec ? $this->spotSpec->toArray($noStream) : $this->spotSpec;
+        }
+
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
@@ -349,6 +377,10 @@ class CreateInstanceRequest extends Model
 
         if (isset($map['Affinity'])) {
             $model->affinity = affinity::fromMap($map['Affinity']);
+        }
+
+        if (isset($map['AssignNodeSpec'])) {
+            $model->assignNodeSpec = assignNodeSpec::fromMap($map['AssignNodeSpec']);
         }
 
         if (isset($map['CloudDisks'])) {
@@ -439,6 +471,10 @@ class CreateInstanceRequest extends Model
 
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+
+        if (isset($map['SpotSpec'])) {
+            $model->spotSpec = spotSpec::fromMap($map['SpotSpec']);
         }
 
         if (isset($map['Tag'])) {

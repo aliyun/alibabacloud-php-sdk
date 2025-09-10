@@ -14,6 +14,11 @@ class GetInstanceEventsRequest extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $eventLevel;
+
+    /**
      * @var int
      */
     public $maxEventsNum;
@@ -29,6 +34,7 @@ class GetInstanceEventsRequest extends Model
     public $token;
     protected $_name = [
         'endTime' => 'EndTime',
+        'eventLevel' => 'EventLevel',
         'maxEventsNum' => 'MaxEventsNum',
         'startTime' => 'StartTime',
         'token' => 'Token',
@@ -44,6 +50,10 @@ class GetInstanceEventsRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->eventLevel) {
+            $res['EventLevel'] = $this->eventLevel;
         }
 
         if (null !== $this->maxEventsNum) {
@@ -71,6 +81,10 @@ class GetInstanceEventsRequest extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['EventLevel'])) {
+            $model->eventLevel = $map['EventLevel'];
         }
 
         if (isset($map['MaxEventsNum'])) {
