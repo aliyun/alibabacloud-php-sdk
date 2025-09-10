@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest\sourceHttpEventParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest\sourceKafkaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest\sourceMNSParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest\sourceOSSEventParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest\sourceRabbitMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest\sourceRocketMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest\sourceScheduledEventParameters;
@@ -61,6 +62,11 @@ class CreateEventSourceRequest extends Model
     public $sourceMNSParameters;
 
     /**
+     * @var sourceOSSEventParameters
+     */
+    public $sourceOSSEventParameters;
+
+    /**
      * @var sourceRabbitMQParameters
      */
     public $sourceRabbitMQParameters;
@@ -89,6 +95,7 @@ class CreateEventSourceRequest extends Model
         'sourceHttpEventParameters' => 'SourceHttpEventParameters',
         'sourceKafkaParameters' => 'SourceKafkaParameters',
         'sourceMNSParameters' => 'SourceMNSParameters',
+        'sourceOSSEventParameters' => 'SourceOSSEventParameters',
         'sourceRabbitMQParameters' => 'SourceRabbitMQParameters',
         'sourceRocketMQParameters' => 'SourceRocketMQParameters',
         'sourceSLSParameters' => 'SourceSLSParameters',
@@ -108,6 +115,9 @@ class CreateEventSourceRequest extends Model
         }
         if (null !== $this->sourceMNSParameters) {
             $this->sourceMNSParameters->validate();
+        }
+        if (null !== $this->sourceOSSEventParameters) {
+            $this->sourceOSSEventParameters->validate();
         }
         if (null !== $this->sourceRabbitMQParameters) {
             $this->sourceRabbitMQParameters->validate();
@@ -166,6 +176,10 @@ class CreateEventSourceRequest extends Model
 
         if (null !== $this->sourceMNSParameters) {
             $res['SourceMNSParameters'] = null !== $this->sourceMNSParameters ? $this->sourceMNSParameters->toArray($noStream) : $this->sourceMNSParameters;
+        }
+
+        if (null !== $this->sourceOSSEventParameters) {
+            $res['SourceOSSEventParameters'] = null !== $this->sourceOSSEventParameters ? $this->sourceOSSEventParameters->toArray($noStream) : $this->sourceOSSEventParameters;
         }
 
         if (null !== $this->sourceRabbitMQParameters) {
@@ -234,6 +248,10 @@ class CreateEventSourceRequest extends Model
 
         if (isset($map['SourceMNSParameters'])) {
             $model->sourceMNSParameters = sourceMNSParameters::fromMap($map['SourceMNSParameters']);
+        }
+
+        if (isset($map['SourceOSSEventParameters'])) {
+            $model->sourceOSSEventParameters = sourceOSSEventParameters::fromMap($map['SourceOSSEventParameters']);
         }
 
         if (isset($map['SourceRabbitMQParameters'])) {

@@ -480,6 +480,10 @@ class Eventbridge extends OpenApiClient
             $request->sourceMNSParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceMNSParameters, 'SourceMNSParameters', 'json');
         }
 
+        if (null !== $tmpReq->sourceOSSEventParameters) {
+            $request->sourceOSSEventParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceOSSEventParameters, 'SourceOSSEventParameters', 'json');
+        }
+
         if (null !== $tmpReq->sourceRabbitMQParameters) {
             $request->sourceRabbitMQParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceRabbitMQParameters, 'SourceRabbitMQParameters', 'json');
         }
@@ -531,6 +535,10 @@ class Eventbridge extends OpenApiClient
 
         if (null !== $request->sourceMNSParametersShrink) {
             @$body['SourceMNSParameters'] = $request->sourceMNSParametersShrink;
+        }
+
+        if (null !== $request->sourceOSSEventParametersShrink) {
+            @$body['SourceOSSEventParameters'] = $request->sourceOSSEventParametersShrink;
         }
 
         if (null !== $request->sourceRabbitMQParametersShrink) {
@@ -3387,6 +3395,10 @@ class Eventbridge extends OpenApiClient
             $request->sourceMNSParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceMNSParameters, 'SourceMNSParameters', 'json');
         }
 
+        if (null !== $tmpReq->sourceOSSEventParameters) {
+            $request->sourceOSSEventParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceOSSEventParameters, 'SourceOSSEventParameters', 'json');
+        }
+
         if (null !== $tmpReq->sourceRabbitMQParameters) {
             $request->sourceRabbitMQParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceRabbitMQParameters, 'SourceRabbitMQParameters', 'json');
         }
@@ -3438,6 +3450,10 @@ class Eventbridge extends OpenApiClient
 
         if (null !== $request->sourceMNSParametersShrink) {
             @$body['SourceMNSParameters'] = $request->sourceMNSParametersShrink;
+        }
+
+        if (null !== $request->sourceOSSEventParametersShrink) {
+            @$body['SourceOSSEventParameters'] = $request->sourceOSSEventParametersShrink;
         }
 
         if (null !== $request->sourceRabbitMQParametersShrink) {

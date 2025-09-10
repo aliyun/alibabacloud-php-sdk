@@ -56,6 +56,11 @@ class UpdateEventSourceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $sourceOSSEventParametersShrink;
+
+    /**
+     * @var string
+     */
     public $sourceRabbitMQParametersShrink;
 
     /**
@@ -82,6 +87,7 @@ class UpdateEventSourceShrinkRequest extends Model
         'sourceHttpEventParametersShrink' => 'SourceHttpEventParameters',
         'sourceKafkaParametersShrink' => 'SourceKafkaParameters',
         'sourceMNSParametersShrink' => 'SourceMNSParameters',
+        'sourceOSSEventParametersShrink' => 'SourceOSSEventParameters',
         'sourceRabbitMQParametersShrink' => 'SourceRabbitMQParameters',
         'sourceRocketMQParametersShrink' => 'SourceRocketMQParameters',
         'sourceSLSParametersShrink' => 'SourceSLSParameters',
@@ -130,6 +136,10 @@ class UpdateEventSourceShrinkRequest extends Model
 
         if (null !== $this->sourceMNSParametersShrink) {
             $res['SourceMNSParameters'] = $this->sourceMNSParametersShrink;
+        }
+
+        if (null !== $this->sourceOSSEventParametersShrink) {
+            $res['SourceOSSEventParameters'] = $this->sourceOSSEventParametersShrink;
         }
 
         if (null !== $this->sourceRabbitMQParametersShrink) {
@@ -193,6 +203,10 @@ class UpdateEventSourceShrinkRequest extends Model
 
         if (isset($map['SourceMNSParameters'])) {
             $model->sourceMNSParametersShrink = $map['SourceMNSParameters'];
+        }
+
+        if (isset($map['SourceOSSEventParameters'])) {
+            $model->sourceOSSEventParametersShrink = $map['SourceOSSEventParameters'];
         }
 
         if (isset($map['SourceRabbitMQParameters'])) {

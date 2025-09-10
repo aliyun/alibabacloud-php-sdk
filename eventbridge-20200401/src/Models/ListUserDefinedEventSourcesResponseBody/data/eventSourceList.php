@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesResponseBody\data\eventSourceList\sourceHttpEventParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesResponseBody\data\eventSourceList\sourceKafkaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesResponseBody\data\eventSourceList\sourceMNSParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesResponseBody\data\eventSourceList\sourceOSSEventParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesResponseBody\data\eventSourceList\sourceRabbitMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesResponseBody\data\eventSourceList\sourceRocketMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesResponseBody\data\eventSourceList\sourceScheduledEventParameters;
@@ -56,6 +57,11 @@ class eventSourceList extends Model
     public $sourceMNSParameters;
 
     /**
+     * @var sourceOSSEventParameters
+     */
+    public $sourceOSSEventParameters;
+
+    /**
      * @var sourceRabbitMQParameters
      */
     public $sourceRabbitMQParameters;
@@ -93,6 +99,7 @@ class eventSourceList extends Model
         'sourceHttpEventParameters' => 'SourceHttpEventParameters',
         'sourceKafkaParameters' => 'SourceKafkaParameters',
         'sourceMNSParameters' => 'SourceMNSParameters',
+        'sourceOSSEventParameters' => 'SourceOSSEventParameters',
         'sourceRabbitMQParameters' => 'SourceRabbitMQParameters',
         'sourceRocketMQParameters' => 'SourceRocketMQParameters',
         'sourceSLSParameters' => 'SourceSLSParameters',
@@ -111,6 +118,9 @@ class eventSourceList extends Model
         }
         if (null !== $this->sourceMNSParameters) {
             $this->sourceMNSParameters->validate();
+        }
+        if (null !== $this->sourceOSSEventParameters) {
+            $this->sourceOSSEventParameters->validate();
         }
         if (null !== $this->sourceRabbitMQParameters) {
             $this->sourceRabbitMQParameters->validate();
@@ -160,6 +170,10 @@ class eventSourceList extends Model
 
         if (null !== $this->sourceMNSParameters) {
             $res['SourceMNSParameters'] = null !== $this->sourceMNSParameters ? $this->sourceMNSParameters->toArray($noStream) : $this->sourceMNSParameters;
+        }
+
+        if (null !== $this->sourceOSSEventParameters) {
+            $res['SourceOSSEventParameters'] = null !== $this->sourceOSSEventParameters ? $this->sourceOSSEventParameters->toArray($noStream) : $this->sourceOSSEventParameters;
         }
 
         if (null !== $this->sourceRabbitMQParameters) {
@@ -227,6 +241,10 @@ class eventSourceList extends Model
 
         if (isset($map['SourceMNSParameters'])) {
             $model->sourceMNSParameters = sourceMNSParameters::fromMap($map['SourceMNSParameters']);
+        }
+
+        if (isset($map['SourceOSSEventParameters'])) {
+            $model->sourceOSSEventParameters = sourceOSSEventParameters::fromMap($map['SourceOSSEventParameters']);
         }
 
         if (isset($map['SourceRabbitMQParameters'])) {
