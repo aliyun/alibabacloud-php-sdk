@@ -76,7 +76,8 @@ class UpdateMachineGroupRequest extends Model
                 $res['machineList'] = [];
                 $n1 = 0;
                 foreach ($this->machineList as $item1) {
-                    $res['machineList'][$n1++] = $item1;
+                    $res['machineList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +114,8 @@ class UpdateMachineGroupRequest extends Model
                 $model->machineList = [];
                 $n1 = 0;
                 foreach ($map['machineList'] as $item1) {
-                    $model->machineList[$n1++] = $item1;
+                    $model->machineList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

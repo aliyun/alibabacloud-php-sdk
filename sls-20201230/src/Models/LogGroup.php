@@ -53,7 +53,8 @@ class LogGroup extends Model
                 $res['LogItems'] = [];
                 $n1 = 0;
                 foreach ($this->logItems as $item1) {
-                    $res['LogItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class LogGroup extends Model
                 $res['LogTags'] = [];
                 $n1 = 0;
                 foreach ($this->logTags as $item1) {
-                    $res['LogTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +94,8 @@ class LogGroup extends Model
                 $model->logItems = [];
                 $n1 = 0;
                 foreach ($map['LogItems'] as $item1) {
-                    $model->logItems[$n1++] = LogItem::fromMap($item1);
+                    $model->logItems[$n1] = LogItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +105,8 @@ class LogGroup extends Model
                 $model->logTags = [];
                 $n1 = 0;
                 foreach ($map['LogTags'] as $item1) {
-                    $model->logTags[$n1++] = LogTag::fromMap($item1);
+                    $model->logTags[$n1] = LogTag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -48,7 +48,8 @@ class ListMetricStoresResponseBody extends Model
                 $res['metricstores'] = [];
                 $n1 = 0;
                 foreach ($this->metricstores as $item1) {
-                    $res['metricstores'][$n1++] = $item1;
+                    $res['metricstores'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class ListMetricStoresResponseBody extends Model
                 $model->metricstores = [];
                 $n1 = 0;
                 foreach ($map['metricstores'] as $item1) {
-                    $model->metricstores[$n1++] = $item1;
+                    $model->metricstores[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

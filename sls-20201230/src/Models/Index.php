@@ -89,7 +89,8 @@ class Index extends Model
                 $res['log_reduce_black_list'] = [];
                 $n1 = 0;
                 foreach ($this->logReduceBlackList as $item1) {
-                    $res['log_reduce_black_list'][$n1++] = $item1;
+                    $res['log_reduce_black_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +100,8 @@ class Index extends Model
                 $res['log_reduce_white_list'] = [];
                 $n1 = 0;
                 foreach ($this->logReduceWhiteList as $item1) {
-                    $res['log_reduce_white_list'][$n1++] = $item1;
+                    $res['log_reduce_white_list'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +143,8 @@ class Index extends Model
                 $model->logReduceBlackList = [];
                 $n1 = 0;
                 foreach ($map['log_reduce_black_list'] as $item1) {
-                    $model->logReduceBlackList[$n1++] = $item1;
+                    $model->logReduceBlackList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +154,8 @@ class Index extends Model
                 $model->logReduceWhiteList = [];
                 $n1 = 0;
                 foreach ($map['log_reduce_white_list'] as $item1) {
-                    $model->logReduceWhiteList[$n1++] = $item1;
+                    $model->logReduceWhiteList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

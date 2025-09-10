@@ -48,7 +48,8 @@ class ListMachinesResponseBody extends Model
                 $res['machines'] = [];
                 $n1 = 0;
                 foreach ($this->machines as $item1) {
-                    $res['machines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['machines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class ListMachinesResponseBody extends Model
                 $model->machines = [];
                 $n1 = 0;
                 foreach ($map['machines'] as $item1) {
-                    $model->machines[$n1++] = Machine::fromMap($item1);
+                    $model->machines[$n1] = Machine::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

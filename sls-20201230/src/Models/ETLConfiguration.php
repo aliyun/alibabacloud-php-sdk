@@ -126,7 +126,8 @@ class ETLConfiguration extends Model
                 $res['sinks'] = [];
                 $n1 = 0;
                 foreach ($this->sinks as $item1) {
-                    $res['sinks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sinks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +189,8 @@ class ETLConfiguration extends Model
                 $model->sinks = [];
                 $n1 = 0;
                 foreach ($map['sinks'] as $item1) {
-                    $model->sinks[$n1++] = ETLConfigurationSink::fromMap($item1);
+                    $model->sinks[$n1] = ETLConfigurationSink::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -117,7 +117,8 @@ class MaxComputeExportConfigurationSink extends Model
                 $res['fields'] = [];
                 $n1 = 0;
                 foreach ($this->fields as $item1) {
-                    $res['fields'][$n1++] = $item1;
+                    $res['fields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -159,7 +160,8 @@ class MaxComputeExportConfigurationSink extends Model
                 $res['partitionColumn'] = [];
                 $n1 = 0;
                 foreach ($this->partitionColumn as $item1) {
-                    $res['partitionColumn'][$n1++] = $item1;
+                    $res['partitionColumn'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +198,8 @@ class MaxComputeExportConfigurationSink extends Model
                 $model->fields = [];
                 $n1 = 0;
                 foreach ($map['fields'] as $item1) {
-                    $model->fields[$n1++] = $item1;
+                    $model->fields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -238,7 +241,8 @@ class MaxComputeExportConfigurationSink extends Model
                 $model->partitionColumn = [];
                 $n1 = 0;
                 foreach ($map['partitionColumn'] as $item1) {
-                    $model->partitionColumn[$n1++] = $item1;
+                    $model->partitionColumn[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

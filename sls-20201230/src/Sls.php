@@ -76,6 +76,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationLabelResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteCollectionPolicyRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteCollectionPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConfigResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConsumeProcessorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDomainResponse;
@@ -118,6 +119,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetCheckPointResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCollectionPolicyRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCollectionPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetConfigResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetConsumeProcessorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetContextLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetContextLogsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorRequest;
@@ -174,6 +176,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConfigResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListConsumeProcessorsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListConsumeProcessorsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDashboardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDashboardResponse;
@@ -223,6 +227,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\PullLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PullLogsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutAnnotationDataRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutAnnotationDataResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PutConsumeProcessorRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PutConsumeProcessorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutIngestProcessorRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutIngestProcessorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutLogsHeaders;
@@ -809,7 +815,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * CreateAlert.
+     * Creates an alert rule in a project.
      *
      * @param request - CreateAlertRequest
      * @param headers - map
@@ -871,7 +877,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * CreateAlert.
+     * Creates an alert rule in a project.
      *
      * @param request - CreateAlertRequest
      *
@@ -1832,6 +1838,10 @@ class Sls extends OpenApiClient
 
         if (null !== $request->processors) {
             @$body['processors'] = $request->processors;
+        }
+
+        if (null !== $request->task) {
+            @$body['task'] = $request->task;
         }
 
         $req = new OpenApiRequest([
@@ -3330,6 +3340,62 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->deleteConfigWithOptions($project, $configName, $headers, $runtime);
+    }
+
+    /**
+     * DeleteConsumeProcessor.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConsumeProcessorResponse
+     *
+     * @param string         $project
+     * @param string         $processorName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteConsumeProcessorResponse
+     */
+    public function deleteConsumeProcessorWithOptions($project, $processorName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteConsumeProcessor',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/consumeprocessors/' . $processorName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return DeleteConsumeProcessorResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteConsumeProcessor.
+     *
+     * @returns DeleteConsumeProcessorResponse
+     *
+     * @param string $project
+     * @param string $processorName
+     *
+     * @return DeleteConsumeProcessorResponse
+     */
+    public function deleteConsumeProcessor($project, $processorName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteConsumeProcessorWithOptions($project, $processorName, $headers, $runtime);
     }
 
     /**
@@ -5599,6 +5665,62 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Query the details of a consumer processor.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConsumeProcessorResponse
+     *
+     * @param string         $project
+     * @param string         $processorName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetConsumeProcessorResponse
+     */
+    public function getConsumeProcessorWithOptions($project, $processorName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetConsumeProcessor',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/consumeprocessors/' . $processorName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetConsumeProcessorResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Query the details of a consumer processor.
+     *
+     * @returns GetConsumeProcessorResponse
+     *
+     * @param string $project
+     * @param string $processorName
+     *
+     * @return GetConsumeProcessorResponse
+     */
+    public function getConsumeProcessor($project, $processorName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getConsumeProcessorWithOptions($project, $processorName, $headers, $runtime);
+    }
+
+    /**
      * Queries the contextual logs of a specified log.
      *
      * @remarks
@@ -6592,9 +6714,14 @@ class Sls extends OpenApiClient
      * Queries the raw log data in a Logstore of a project. The returned result contains the raw log data within a specific time range. The returned result is compressed before transmission.
      *
      * @remarks
-     *   You can call this operation by using Alibaba Cloud SDK for Go, Java, TypeScript, or Python.
-     * *   You can call this operation by using Simple Log Service SDK for Go or Java.
-     * *   For more information, see [GetLogs](https://help.aliyun.com/document_detail/29029.html).
+     * You can call this operation by using Simple Log Service SDK for Go, Java, or Python. You can call this operation by using Alibaba Cloud SDK for all programming languages.
+     * * When you call this operation, take note of the compression method that you use. The supported compression algorithms vary based on the programming language. For more information, see the description of the Accept-Encoding parameter in this topic.
+     * * For more information, see [GetLogs](https://help.aliyun.com/document_detail/2771313.html).
+     * ### Authentication resources
+     * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a Resource Access Management (RAM) policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+     * |Action|Resource|
+     * |:---|:---|
+     * |`log:GetLogStoreLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
      *
      * @param request - GetLogsV2Request
      * @param headers - GetLogsV2Headers
@@ -6693,9 +6820,14 @@ class Sls extends OpenApiClient
      * Queries the raw log data in a Logstore of a project. The returned result contains the raw log data within a specific time range. The returned result is compressed before transmission.
      *
      * @remarks
-     *   You can call this operation by using Alibaba Cloud SDK for Go, Java, TypeScript, or Python.
-     * *   You can call this operation by using Simple Log Service SDK for Go or Java.
-     * *   For more information, see [GetLogs](https://help.aliyun.com/document_detail/29029.html).
+     * You can call this operation by using Simple Log Service SDK for Go, Java, or Python. You can call this operation by using Alibaba Cloud SDK for all programming languages.
+     * * When you call this operation, take note of the compression method that you use. The supported compression algorithms vary based on the programming language. For more information, see the description of the Accept-Encoding parameter in this topic.
+     * * For more information, see [GetLogs](https://help.aliyun.com/document_detail/2771313.html).
+     * ### Authentication resources
+     * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a Resource Access Management (RAM) policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+     * |Action|Resource|
+     * |:---|:---|
+     * |`log:GetLogStoreLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
      *
      * @param request - GetLogsV2Request
      *
@@ -8467,6 +8599,84 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Queries a list of consumption processors that meet specific conditions.
+     *
+     * @param request - ListConsumeProcessorsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConsumeProcessorsResponse
+     *
+     * @param string                       $project
+     * @param ListConsumeProcessorsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListConsumeProcessorsResponse
+     */
+    public function listConsumeProcessorsWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->displayName) {
+            @$query['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
+        }
+
+        if (null !== $request->processorName) {
+            @$query['processorName'] = $request->processorName;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConsumeProcessors',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/consumeprocessors',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConsumeProcessorsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of consumption processors that meet specific conditions.
+     *
+     * @param request - ListConsumeProcessorsRequest
+     *
+     * @returns ListConsumeProcessorsResponse
+     *
+     * @param string                       $project
+     * @param ListConsumeProcessorsRequest $request
+     *
+     * @return ListConsumeProcessorsResponse
+     */
+    public function listConsumeProcessors($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConsumeProcessorsWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries all consumer groups of a Logstore.
      *
      * @remarks
@@ -9089,6 +9299,10 @@ class Sls extends OpenApiClient
         $query = [];
         if (null !== $request->configName) {
             @$query['configName'] = $request->configName;
+        }
+
+        if (null !== $request->configType) {
+            @$query['configType'] = $request->configType;
         }
 
         if (null !== $request->logstoreName) {
@@ -10460,6 +10674,82 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Creates or updates a consumption processor.
+     *
+     * @param request - PutConsumeProcessorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutConsumeProcessorResponse
+     *
+     * @param string                     $project
+     * @param string                     $processorName
+     * @param PutConsumeProcessorRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PutConsumeProcessorResponse
+     */
+    public function putConsumeProcessorWithOptions($project, $processorName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PutConsumeProcessor',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/consumeprocessors/' . $processorName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return PutConsumeProcessorResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Creates or updates a consumption processor.
+     *
+     * @param request - PutConsumeProcessorRequest
+     *
+     * @returns PutConsumeProcessorResponse
+     *
+     * @param string                     $project
+     * @param string                     $processorName
+     * @param PutConsumeProcessorRequest $request
+     *
+     * @return PutConsumeProcessorResponse
+     */
+    public function putConsumeProcessor($project, $processorName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->putConsumeProcessorWithOptions($project, $processorName, $request, $headers, $runtime);
+    }
+
+    /**
      * Creates or modifies an ingest processor.
      *
      * @param request - PutIngestProcessorRequest
@@ -10707,7 +10997,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 设置project传输加速状态
+     * Enables or disables transfer acceleration.
      *
      * @param request - PutProjectTransferAccelerationRequest
      * @param headers - map
@@ -10753,7 +11043,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 设置project传输加速状态
+     * Enables or disables transfer acceleration.
      *
      * @param request - PutProjectTransferAccelerationRequest
      *
@@ -13044,6 +13334,10 @@ class Sls extends OpenApiClient
             @$body['processors'] = $request->processors;
         }
 
+        if (null !== $request->task) {
+            @$body['task'] = $request->task;
+        }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -14242,7 +14536,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 调用UpsertCollectionPolicy接口创建或更新日志采集规则.
+     * Creates a log collection policy for a cloud service. This way, logs can be automatically collected from the service.
+     *
+     * @remarks
+     * You must use the Simple Log Service endpoint for the China (Shanghai) or Singapore region to call the operation.
      *
      * @param request - UpsertCollectionPolicyRequest
      * @param headers - map
@@ -14316,7 +14613,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 调用UpsertCollectionPolicy接口创建或更新日志采集规则.
+     * Creates a log collection policy for a cloud service. This way, logs can be automatically collected from the service.
+     *
+     * @remarks
+     * You must use the Simple Log Service endpoint for the China (Shanghai) or Singapore region to call the operation.
      *
      * @param request - UpsertCollectionPolicyRequest
      *

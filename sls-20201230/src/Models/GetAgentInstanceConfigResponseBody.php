@@ -86,7 +86,8 @@ class GetAgentInstanceConfigResponseBody extends Model
                 $res['grayConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->grayConfigs as $item1) {
-                    $res['grayConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['grayConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +133,8 @@ class GetAgentInstanceConfigResponseBody extends Model
                 $model->grayConfigs = [];
                 $n1 = 0;
                 foreach ($map['grayConfigs'] as $item1) {
-                    $model->grayConfigs[$n1++] = AgentInstanceConfigGrayConfigs::fromMap($item1);
+                    $model->grayConfigs[$n1] = AgentInstanceConfigGrayConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

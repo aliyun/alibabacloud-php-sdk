@@ -48,7 +48,8 @@ class ListLogStoresResponseBody extends Model
                 $res['logstores'] = [];
                 $n1 = 0;
                 foreach ($this->logstores as $item1) {
-                    $res['logstores'][$n1++] = $item1;
+                    $res['logstores'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class ListLogStoresResponseBody extends Model
                 $model->logstores = [];
                 $n1 = 0;
                 foreach ($map['logstores'] as $item1) {
-                    $model->logstores[$n1++] = $item1;
+                    $model->logstores[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

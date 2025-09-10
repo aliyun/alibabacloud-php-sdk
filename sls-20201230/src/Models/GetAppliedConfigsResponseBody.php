@@ -38,7 +38,8 @@ class GetAppliedConfigsResponseBody extends Model
                 $res['configs'] = [];
                 $n1 = 0;
                 foreach ($this->configs as $item1) {
-                    $res['configs'][$n1++] = $item1;
+                    $res['configs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class GetAppliedConfigsResponseBody extends Model
                 $model->configs = [];
                 $n1 = 0;
                 foreach ($map['configs'] as $item1) {
-                    $model->configs[$n1++] = $item1;
+                    $model->configs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

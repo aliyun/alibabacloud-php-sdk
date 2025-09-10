@@ -194,7 +194,8 @@ class AlertConfiguration extends Model
                 $res['annotations'] = [];
                 $n1 = 0;
                 foreach ($this->annotations as $item1) {
-                    $res['annotations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['annotations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -220,7 +221,8 @@ class AlertConfiguration extends Model
                 $res['joinConfigurations'] = [];
                 $n1 = 0;
                 foreach ($this->joinConfigurations as $item1) {
-                    $res['joinConfigurations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['joinConfigurations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -230,7 +232,8 @@ class AlertConfiguration extends Model
                 $res['labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -256,7 +259,8 @@ class AlertConfiguration extends Model
                 $res['queryList'] = [];
                 $n1 = 0;
                 foreach ($this->queryList as $item1) {
-                    $res['queryList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['queryList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -270,7 +274,8 @@ class AlertConfiguration extends Model
                 $res['severityConfigurations'] = [];
                 $n1 = 0;
                 foreach ($this->severityConfigurations as $item1) {
-                    $res['severityConfigurations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['severityConfigurations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -292,7 +297,8 @@ class AlertConfiguration extends Model
                 $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = $item1;
+                    $res['tags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -329,7 +335,8 @@ class AlertConfiguration extends Model
                 $model->annotations = [];
                 $n1 = 0;
                 foreach ($map['annotations'] as $item1) {
-                    $model->annotations[$n1++] = AlertTag::fromMap($item1);
+                    $model->annotations[$n1] = AlertTag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -355,7 +362,8 @@ class AlertConfiguration extends Model
                 $model->joinConfigurations = [];
                 $n1 = 0;
                 foreach ($map['joinConfigurations'] as $item1) {
-                    $model->joinConfigurations[$n1++] = JoinConfiguration::fromMap($item1);
+                    $model->joinConfigurations[$n1] = JoinConfiguration::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -365,7 +373,8 @@ class AlertConfiguration extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['labels'] as $item1) {
-                    $model->labels[$n1++] = AlertTag::fromMap($item1);
+                    $model->labels[$n1] = AlertTag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -391,7 +400,8 @@ class AlertConfiguration extends Model
                 $model->queryList = [];
                 $n1 = 0;
                 foreach ($map['queryList'] as $item1) {
-                    $model->queryList[$n1++] = AlertQuery::fromMap($item1);
+                    $model->queryList[$n1] = AlertQuery::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -405,7 +415,8 @@ class AlertConfiguration extends Model
                 $model->severityConfigurations = [];
                 $n1 = 0;
                 foreach ($map['severityConfigurations'] as $item1) {
-                    $model->severityConfigurations[$n1++] = SeverityConfiguration::fromMap($item1);
+                    $model->severityConfigurations[$n1] = SeverityConfiguration::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -427,7 +438,8 @@ class AlertConfiguration extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = $item1;
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

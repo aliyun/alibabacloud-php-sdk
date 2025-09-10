@@ -59,7 +59,8 @@ class ListCollectionPoliciesResponseBody extends Model
                 $res['data'] = [];
                 $n1 = 0;
                 foreach ($this->data as $item1) {
-                    $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,7 +70,8 @@ class ListCollectionPoliciesResponseBody extends Model
                 $res['statistics'] = [];
                 $n1 = 0;
                 foreach ($this->statistics as $item1) {
-                    $res['statistics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['statistics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +100,8 @@ class ListCollectionPoliciesResponseBody extends Model
                 $model->data = [];
                 $n1 = 0;
                 foreach ($map['data'] as $item1) {
-                    $model->data[$n1++] = data::fromMap($item1);
+                    $model->data[$n1] = data::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +111,8 @@ class ListCollectionPoliciesResponseBody extends Model
                 $model->statistics = [];
                 $n1 = 0;
                 foreach ($map['statistics'] as $item1) {
-                    $model->statistics[$n1++] = statistics::fromMap($item1);
+                    $model->statistics[$n1] = statistics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

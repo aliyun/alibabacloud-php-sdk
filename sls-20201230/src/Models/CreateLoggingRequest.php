@@ -39,7 +39,8 @@ class CreateLoggingRequest extends Model
                 $res['loggingDetails'] = [];
                 $n1 = 0;
                 foreach ($this->loggingDetails as $item1) {
-                    $res['loggingDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['loggingDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class CreateLoggingRequest extends Model
                 $model->loggingDetails = [];
                 $n1 = 0;
                 foreach ($map['loggingDetails'] as $item1) {
-                    $model->loggingDetails[$n1++] = loggingDetails::fromMap($item1);
+                    $model->loggingDetails[$n1] = loggingDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

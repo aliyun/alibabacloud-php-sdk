@@ -54,11 +54,12 @@ class PutWebtrackingRequest extends Model
                 $n1 = 0;
                 foreach ($this->logs as $item1) {
                     if (\is_array($item1)) {
-                        $res['__logs__'][$n1++] = [];
+                        $res['__logs__'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['__logs__'][$n1++][$key2] = $value2;
+                            $res['__logs__'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -97,11 +98,12 @@ class PutWebtrackingRequest extends Model
                 $n1 = 0;
                 foreach ($map['__logs__'] as $item1) {
                     if (!empty($item1)) {
-                        $model->logs[$n1++] = [];
+                        $model->logs[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->logs[$n1++][$key2] = $value2;
+                            $model->logs[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

@@ -42,11 +42,12 @@ class MLServiceAnalysisParam extends Model
                 $n1 = 0;
                 foreach ($this->input as $item1) {
                     if (\is_array($item1)) {
-                        $res['input'][$n1++] = [];
+                        $res['input'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['input'][$n1++][$key2] = $value2;
+                            $res['input'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -77,11 +78,12 @@ class MLServiceAnalysisParam extends Model
                 $n1 = 0;
                 foreach ($map['input'] as $item1) {
                     if (!empty($item1)) {
-                        $model->input[$n1++] = [];
+                        $model->input[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->input[$n1++][$key2] = $value2;
+                            $model->input[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

@@ -42,7 +42,8 @@ class ListDashboardResponseBody extends Model
                 $res['dashboardItems'] = [];
                 $n1 = 0;
                 foreach ($this->dashboardItems as $item1) {
-                    $res['dashboardItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dashboardItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,7 +53,8 @@ class ListDashboardResponseBody extends Model
                 $res['dashboards'] = [];
                 $n1 = 0;
                 foreach ($this->dashboards as $item1) {
-                    $res['dashboards'][$n1++] = $item1;
+                    $res['dashboards'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class ListDashboardResponseBody extends Model
                 $model->dashboardItems = [];
                 $n1 = 0;
                 foreach ($map['dashboardItems'] as $item1) {
-                    $model->dashboardItems[$n1++] = dashboardItems::fromMap($item1);
+                    $model->dashboardItems[$n1] = dashboardItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +86,8 @@ class ListDashboardResponseBody extends Model
                 $model->dashboards = [];
                 $n1 = 0;
                 foreach ($map['dashboards'] as $item1) {
-                    $model->dashboards[$n1++] = $item1;
+                    $model->dashboards[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -6,37 +6,31 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListLogtailPipelineConfigRequest extends Model
+class ListConsumeProcessorsRequest extends Model
 {
     /**
      * @var string
      */
-    public $configName;
+    public $displayName;
 
     /**
      * @var string
-     */
-    public $configType;
-
-    /**
-     * @var string
-     */
-    public $logstoreName;
-
-    /**
-     * @var int
      */
     public $offset;
 
     /**
-     * @var int
+     * @var string
+     */
+    public $processorName;
+
+    /**
+     * @var string
      */
     public $size;
     protected $_name = [
-        'configName' => 'configName',
-        'configType' => 'configType',
-        'logstoreName' => 'logstoreName',
+        'displayName' => 'displayName',
         'offset' => 'offset',
+        'processorName' => 'processorName',
         'size' => 'size',
     ];
 
@@ -48,20 +42,16 @@ class ListLogtailPipelineConfigRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->configName) {
-            $res['configName'] = $this->configName;
-        }
-
-        if (null !== $this->configType) {
-            $res['configType'] = $this->configType;
-        }
-
-        if (null !== $this->logstoreName) {
-            $res['logstoreName'] = $this->logstoreName;
+        if (null !== $this->displayName) {
+            $res['displayName'] = $this->displayName;
         }
 
         if (null !== $this->offset) {
             $res['offset'] = $this->offset;
+        }
+
+        if (null !== $this->processorName) {
+            $res['processorName'] = $this->processorName;
         }
 
         if (null !== $this->size) {
@@ -79,20 +69,16 @@ class ListLogtailPipelineConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['configName'])) {
-            $model->configName = $map['configName'];
-        }
-
-        if (isset($map['configType'])) {
-            $model->configType = $map['configType'];
-        }
-
-        if (isset($map['logstoreName'])) {
-            $model->logstoreName = $map['logstoreName'];
+        if (isset($map['displayName'])) {
+            $model->displayName = $map['displayName'];
         }
 
         if (isset($map['offset'])) {
             $model->offset = $map['offset'];
+        }
+
+        if (isset($map['processorName'])) {
+            $model->processorName = $map['processorName'];
         }
 
         if (isset($map['size'])) {

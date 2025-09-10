@@ -89,7 +89,8 @@ class MLLabelParam extends Model
                 $res['settings'] = [];
                 $n1 = 0;
                 foreach ($this->settings as $item1) {
-                    $res['settings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['settings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class MLLabelParam extends Model
                 $model->settings = [];
                 $n1 = 0;
                 foreach ($map['settings'] as $item1) {
-                    $model->settings[$n1++] = settings::fromMap($item1);
+                    $model->settings[$n1] = settings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

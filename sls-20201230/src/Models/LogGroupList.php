@@ -32,7 +32,8 @@ class LogGroupList extends Model
                 $res['logGroupList'] = [];
                 $n1 = 0;
                 foreach ($this->logGroupList as $item1) {
-                    $res['logGroupList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['logGroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class LogGroupList extends Model
                 $model->logGroupList = [];
                 $n1 = 0;
                 foreach ($map['logGroupList'] as $item1) {
-                    $model->logGroupList[$n1++] = LogGroup::fromMap($item1);
+                    $model->logGroupList[$n1] = LogGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

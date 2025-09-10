@@ -82,7 +82,8 @@ class ETLConfigurationSink extends Model
                 $res['datasets'] = [];
                 $n1 = 0;
                 foreach ($this->datasets as $item1) {
-                    $res['datasets'][$n1++] = $item1;
+                    $res['datasets'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class ETLConfigurationSink extends Model
                 $model->datasets = [];
                 $n1 = 0;
                 foreach ($map['datasets'] as $item1) {
-                    $model->datasets[$n1++] = $item1;
+                    $model->datasets[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

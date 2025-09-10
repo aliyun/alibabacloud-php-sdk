@@ -33,7 +33,8 @@ class GetStoreViewIndexResponseBody extends Model
                 $res['indexes'] = [];
                 $n1 = 0;
                 foreach ($this->indexes as $item1) {
-                    $res['indexes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['indexes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class GetStoreViewIndexResponseBody extends Model
                 $model->indexes = [];
                 $n1 = 0;
                 foreach ($map['indexes'] as $item1) {
-                    $model->indexes[$n1++] = indexes::fromMap($item1);
+                    $model->indexes[$n1] = indexes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

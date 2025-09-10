@@ -48,7 +48,8 @@ class ListStoreViewsResponseBody extends Model
                 $res['storeviews'] = [];
                 $n1 = 0;
                 foreach ($this->storeviews as $item1) {
-                    $res['storeviews'][$n1++] = $item1;
+                    $res['storeviews'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class ListStoreViewsResponseBody extends Model
                 $model->storeviews = [];
                 $n1 = 0;
                 foreach ($map['storeviews'] as $item1) {
-                    $model->storeviews[$n1++] = $item1;
+                    $model->storeviews[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

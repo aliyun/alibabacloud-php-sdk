@@ -43,11 +43,12 @@ class GetLogsV2ResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->data as $item1) {
                     if (\is_array($item1)) {
-                        $res['data'][$n1++] = [];
+                        $res['data'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['data'][$n1++][$key2] = $value2;
+                            $res['data'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -73,11 +74,12 @@ class GetLogsV2ResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['data'] as $item1) {
                     if (!empty($item1)) {
-                        $model->data[$n1++] = [];
+                        $model->data[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->data[$n1++][$key2] = $value2;
+                            $model->data[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

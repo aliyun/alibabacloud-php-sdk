@@ -48,7 +48,8 @@ class ListIngestProcessorsResponseBody extends Model
                 $res['processors'] = [];
                 $n1 = 0;
                 foreach ($this->processors as $item1) {
-                    $res['processors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['processors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class ListIngestProcessorsResponseBody extends Model
                 $model->processors = [];
                 $n1 = 0;
                 foreach ($map['processors'] as $item1) {
-                    $model->processors[$n1++] = IngestProcessor::fromMap($item1);
+                    $model->processors[$n1] = IngestProcessor::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

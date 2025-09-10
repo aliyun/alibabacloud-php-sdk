@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ConsumerGroupHeartBeatResponse extends Model
+class DeleteConsumeProcessorResponse extends Model
 {
     /**
      * @var string[]
@@ -17,24 +17,15 @@ class ConsumerGroupHeartBeatResponse extends Model
      * @var int
      */
     public $statusCode;
-
-    /**
-     * @var int[]
-     */
-    public $body;
     protected $_name = [
         'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'body' => 'body',
     ];
 
     public function validate()
     {
         if (\is_array($this->headers)) {
             Model::validateArray($this->headers);
-        }
-        if (\is_array($this->body)) {
-            Model::validateArray($this->body);
         }
         parent::validate();
     }
@@ -53,17 +44,6 @@ class ConsumerGroupHeartBeatResponse extends Model
 
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
-        }
-
-        if (null !== $this->body) {
-            if (\is_array($this->body)) {
-                $res['body'] = [];
-                $n1 = 0;
-                foreach ($this->body as $item1) {
-                    $res['body'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
         }
 
         return $res;
@@ -88,17 +68,6 @@ class ConsumerGroupHeartBeatResponse extends Model
 
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
-        }
-
-        if (isset($map['body'])) {
-            if (!empty($map['body'])) {
-                $model->body = [];
-                $n1 = 0;
-                foreach ($map['body'] as $item1) {
-                    $model->body[$n1] = $item1;
-                    ++$n1;
-                }
-            }
         }
 
         return $model;

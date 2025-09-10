@@ -56,7 +56,8 @@ class policyConfig extends Model
                 $res['instanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
-                    $res['instanceIds'][$n1++] = $item1;
+                    $res['instanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -66,7 +67,8 @@ class policyConfig extends Model
                 $res['regions'] = [];
                 $n1 = 0;
                 foreach ($this->regions as $item1) {
-                    $res['regions'][$n1++] = $item1;
+                    $res['regions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +102,8 @@ class policyConfig extends Model
                 $model->instanceIds = [];
                 $n1 = 0;
                 foreach ($map['instanceIds'] as $item1) {
-                    $model->instanceIds[$n1++] = $item1;
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +113,8 @@ class policyConfig extends Model
                 $model->regions = [];
                 $n1 = 0;
                 foreach ($map['regions'] as $item1) {
-                    $model->regions[$n1++] = $item1;
+                    $model->regions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

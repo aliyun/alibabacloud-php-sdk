@@ -91,7 +91,8 @@ class CopilotAction extends Model
                 $res['parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class CopilotAction extends Model
                 $res['queryTemplateParameters'] = [];
                 $n1 = 0;
                 foreach ($this->queryTemplateParameters as $item1) {
-                    $res['queryTemplateParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['queryTemplateParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +148,8 @@ class CopilotAction extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +167,8 @@ class CopilotAction extends Model
                 $model->queryTemplateParameters = [];
                 $n1 = 0;
                 foreach ($map['queryTemplateParameters'] as $item1) {
-                    $model->queryTemplateParameters[$n1++] = queryTemplateParameters::fromMap($item1);
+                    $model->queryTemplateParameters[$n1] = queryTemplateParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

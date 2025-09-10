@@ -45,7 +45,8 @@ class ListAgentInstanceConfigsResponseBody extends Model
                 $res['configs'] = [];
                 $n1 = 0;
                 foreach ($this->configs as $item1) {
-                    $res['configs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['configs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListAgentInstanceConfigsResponseBody extends Model
                 $model->configs = [];
                 $n1 = 0;
                 foreach ($map['configs'] as $item1) {
-                    $model->configs[$n1++] = configs::fromMap($item1);
+                    $model->configs[$n1] = configs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

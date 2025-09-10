@@ -48,7 +48,8 @@ class ListDomainsResponseBody extends Model
                 $res['domains'] = [];
                 $n1 = 0;
                 foreach ($this->domains as $item1) {
-                    $res['domains'][$n1++] = $item1;
+                    $res['domains'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class ListDomainsResponseBody extends Model
                 $model->domains = [];
                 $n1 = 0;
                 foreach ($map['domains'] as $item1) {
-                    $model->domains[$n1++] = $item1;
+                    $model->domains[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

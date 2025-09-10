@@ -52,6 +52,11 @@ class LogtailPipelineConfig extends Model
      * @var mixed[][]
      */
     public $processors;
+
+    /**
+     * @var mixed[]
+     */
+    public $task;
     protected $_name = [
         'aggregators' => 'aggregators',
         'configName' => 'configName',
@@ -62,6 +67,7 @@ class LogtailPipelineConfig extends Model
         'lastModifyTime' => 'lastModifyTime',
         'logSample' => 'logSample',
         'processors' => 'processors',
+        'task' => 'task',
     ];
 
     public function validate()
@@ -81,6 +87,9 @@ class LogtailPipelineConfig extends Model
         if (\is_array($this->processors)) {
             Model::validateArray($this->processors);
         }
+        if (\is_array($this->task)) {
+            Model::validateArray($this->task);
+        }
         parent::validate();
     }
 
@@ -93,11 +102,12 @@ class LogtailPipelineConfig extends Model
                 $n1 = 0;
                 foreach ($this->aggregators as $item1) {
                     if (\is_array($item1)) {
-                        $res['aggregators'][$n1++] = [];
+                        $res['aggregators'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['aggregators'][$n1++][$key2] = $value2;
+                            $res['aggregators'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -116,11 +126,12 @@ class LogtailPipelineConfig extends Model
                 $n1 = 0;
                 foreach ($this->flushers as $item1) {
                     if (\is_array($item1)) {
-                        $res['flushers'][$n1++] = [];
+                        $res['flushers'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['flushers'][$n1++][$key2] = $value2;
+                            $res['flushers'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -140,11 +151,12 @@ class LogtailPipelineConfig extends Model
                 $n1 = 0;
                 foreach ($this->inputs as $item1) {
                     if (\is_array($item1)) {
-                        $res['inputs'][$n1++] = [];
+                        $res['inputs'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['inputs'][$n1++][$key2] = $value2;
+                            $res['inputs'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -163,11 +175,21 @@ class LogtailPipelineConfig extends Model
                 $n1 = 0;
                 foreach ($this->processors as $item1) {
                     if (\is_array($item1)) {
-                        $res['processors'][$n1++] = [];
+                        $res['processors'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['processors'][$n1++][$key2] = $value2;
+                            $res['processors'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->task) {
+            if (\is_array($this->task)) {
+                $res['task'] = [];
+                foreach ($this->task as $key1 => $value1) {
+                    $res['task'][$key1] = $value1;
                 }
             }
         }
@@ -189,11 +211,12 @@ class LogtailPipelineConfig extends Model
                 $n1 = 0;
                 foreach ($map['aggregators'] as $item1) {
                     if (!empty($item1)) {
-                        $model->aggregators[$n1++] = [];
+                        $model->aggregators[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->aggregators[$n1++][$key2] = $value2;
+                            $model->aggregators[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -212,11 +235,12 @@ class LogtailPipelineConfig extends Model
                 $n1 = 0;
                 foreach ($map['flushers'] as $item1) {
                     if (!empty($item1)) {
-                        $model->flushers[$n1++] = [];
+                        $model->flushers[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->flushers[$n1++][$key2] = $value2;
+                            $model->flushers[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -236,11 +260,12 @@ class LogtailPipelineConfig extends Model
                 $n1 = 0;
                 foreach ($map['inputs'] as $item1) {
                     if (!empty($item1)) {
-                        $model->inputs[$n1++] = [];
+                        $model->inputs[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->inputs[$n1++][$key2] = $value2;
+                            $model->inputs[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -259,11 +284,21 @@ class LogtailPipelineConfig extends Model
                 $n1 = 0;
                 foreach ($map['processors'] as $item1) {
                     if (!empty($item1)) {
-                        $model->processors[$n1++] = [];
+                        $model->processors[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->processors[$n1++][$key2] = $value2;
+                            $model->processors[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['task'])) {
+            if (!empty($map['task'])) {
+                $model->task = [];
+                foreach ($map['task'] as $key1 => $value1) {
+                    $model->task[$key1] = $value1;
                 }
             }
         }

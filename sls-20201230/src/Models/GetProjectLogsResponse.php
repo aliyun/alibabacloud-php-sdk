@@ -61,11 +61,12 @@ class GetProjectLogsResponse extends Model
                 $n1 = 0;
                 foreach ($this->body as $item1) {
                     if (\is_array($item1)) {
-                        $res['body'][$n1++] = [];
+                        $res['body'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['body'][$n1++][$key2] = $value2;
+                            $res['body'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -100,11 +101,12 @@ class GetProjectLogsResponse extends Model
                 $n1 = 0;
                 foreach ($map['body'] as $item1) {
                     if (!empty($item1)) {
-                        $model->body[$n1++] = [];
+                        $model->body[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->body[$n1++][$key2] = $value2;
+                            $model->body[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

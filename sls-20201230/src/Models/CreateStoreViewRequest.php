@@ -52,7 +52,8 @@ class CreateStoreViewRequest extends Model
                 $res['stores'] = [];
                 $n1 = 0;
                 foreach ($this->stores as $item1) {
-                    $res['stores'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['stores'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class CreateStoreViewRequest extends Model
                 $model->stores = [];
                 $n1 = 0;
                 foreach ($map['stores'] as $item1) {
-                    $model->stores[$n1++] = StoreViewStore::fromMap($item1);
+                    $model->stores[$n1] = StoreViewStore::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

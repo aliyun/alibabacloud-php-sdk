@@ -48,7 +48,8 @@ class ListMachineGroupResponseBody extends Model
                 $res['machinegroups'] = [];
                 $n1 = 0;
                 foreach ($this->machinegroups as $item1) {
-                    $res['machinegroups'][$n1++] = $item1;
+                    $res['machinegroups'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class ListMachineGroupResponseBody extends Model
                 $model->machinegroups = [];
                 $n1 = 0;
                 foreach ($map['machinegroups'] as $item1) {
-                    $model->machinegroups[$n1++] = $item1;
+                    $model->machinegroups[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

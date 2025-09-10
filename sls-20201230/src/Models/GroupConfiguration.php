@@ -38,7 +38,8 @@ class GroupConfiguration extends Model
                 $res['fields'] = [];
                 $n1 = 0;
                 foreach ($this->fields as $item1) {
-                    $res['fields'][$n1++] = $item1;
+                    $res['fields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class GroupConfiguration extends Model
                 $model->fields = [];
                 $n1 = 0;
                 foreach ($map['fields'] as $item1) {
-                    $model->fields[$n1++] = $item1;
+                    $model->fields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

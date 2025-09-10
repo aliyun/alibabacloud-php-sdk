@@ -66,7 +66,8 @@ class fields extends Model
                 $res['option'] = [];
                 $n1 = 0;
                 foreach ($this->option as $item1) {
-                    $res['option'][$n1++] = $item1;
+                    $res['option'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class fields extends Model
                 $model->option = [];
                 $n1 = 0;
                 foreach ($map['option'] as $item1) {
-                    $model->option[$n1++] = $item1;
+                    $model->option[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

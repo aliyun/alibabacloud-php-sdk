@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListSavedSearchResponseBody extends Model
+class ListConsumeProcessorsResponseBody extends Model
 {
     /**
      * @var int
@@ -14,9 +14,9 @@ class ListSavedSearchResponseBody extends Model
     public $count;
 
     /**
-     * @var SavedSearch[]
+     * @var ConsumeProcessor[]
      */
-    public $savedsearchItems;
+    public $processors;
 
     /**
      * @var int
@@ -24,14 +24,14 @@ class ListSavedSearchResponseBody extends Model
     public $total;
     protected $_name = [
         'count' => 'count',
-        'savedsearchItems' => 'savedsearchItems',
+        'processors' => 'processors',
         'total' => 'total',
     ];
 
     public function validate()
     {
-        if (\is_array($this->savedsearchItems)) {
-            Model::validateArray($this->savedsearchItems);
+        if (\is_array($this->processors)) {
+            Model::validateArray($this->processors);
         }
         parent::validate();
     }
@@ -43,12 +43,12 @@ class ListSavedSearchResponseBody extends Model
             $res['count'] = $this->count;
         }
 
-        if (null !== $this->savedsearchItems) {
-            if (\is_array($this->savedsearchItems)) {
-                $res['savedsearchItems'] = [];
+        if (null !== $this->processors) {
+            if (\is_array($this->processors)) {
+                $res['processors'] = [];
                 $n1 = 0;
-                foreach ($this->savedsearchItems as $item1) {
-                    $res['savedsearchItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->processors as $item1) {
+                    $res['processors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -73,12 +73,12 @@ class ListSavedSearchResponseBody extends Model
             $model->count = $map['count'];
         }
 
-        if (isset($map['savedsearchItems'])) {
-            if (!empty($map['savedsearchItems'])) {
-                $model->savedsearchItems = [];
+        if (isset($map['processors'])) {
+            if (!empty($map['processors'])) {
+                $model->processors = [];
                 $n1 = 0;
-                foreach ($map['savedsearchItems'] as $item1) {
-                    $model->savedsearchItems[$n1] = SavedSearch::fromMap($item1);
+                foreach ($map['processors'] as $item1) {
+                    $model->processors[$n1] = ConsumeProcessor::fromMap($item1);
                     ++$n1;
                 }
             }

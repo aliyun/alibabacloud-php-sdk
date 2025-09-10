@@ -70,7 +70,8 @@ class line extends Model
                 $res['exclude_keys'] = [];
                 $n1 = 0;
                 foreach ($this->excludeKeys as $item1) {
-                    $res['exclude_keys'][$n1++] = $item1;
+                    $res['exclude_keys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -80,7 +81,8 @@ class line extends Model
                 $res['include_keys'] = [];
                 $n1 = 0;
                 foreach ($this->includeKeys as $item1) {
-                    $res['include_keys'][$n1++] = $item1;
+                    $res['include_keys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -90,7 +92,8 @@ class line extends Model
                 $res['token'] = [];
                 $n1 = 0;
                 foreach ($this->token as $item1) {
-                    $res['token'][$n1++] = $item1;
+                    $res['token'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +122,8 @@ class line extends Model
                 $model->excludeKeys = [];
                 $n1 = 0;
                 foreach ($map['exclude_keys'] as $item1) {
-                    $model->excludeKeys[$n1++] = $item1;
+                    $model->excludeKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +133,8 @@ class line extends Model
                 $model->includeKeys = [];
                 $n1 = 0;
                 foreach ($map['include_keys'] as $item1) {
-                    $model->includeKeys[$n1++] = $item1;
+                    $model->includeKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,7 +144,8 @@ class line extends Model
                 $model->token = [];
                 $n1 = 0;
                 foreach ($map['token'] as $item1) {
-                    $model->token[$n1++] = $item1;
+                    $model->token[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

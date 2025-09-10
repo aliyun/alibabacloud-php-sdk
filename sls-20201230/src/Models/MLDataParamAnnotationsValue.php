@@ -53,11 +53,12 @@ class MLDataParamAnnotationsValue extends Model
                 $n1 = 0;
                 foreach ($this->results as $item1) {
                     if (\is_array($item1)) {
-                        $res['results'][$n1++] = [];
+                        $res['results'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['results'][$n1++][$key2] = $value2;
+                            $res['results'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -87,11 +88,12 @@ class MLDataParamAnnotationsValue extends Model
                 $n1 = 0;
                 foreach ($map['results'] as $item1) {
                     if (!empty($item1)) {
-                        $model->results[$n1++] = [];
+                        $model->results[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->results[$n1++][$key2] = $value2;
+                            $model->results[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

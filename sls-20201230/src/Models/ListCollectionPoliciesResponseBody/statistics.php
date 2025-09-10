@@ -39,7 +39,8 @@ class statistics extends Model
                 $res['policySourceList'] = [];
                 $n1 = 0;
                 foreach ($this->policySourceList as $item1) {
-                    $res['policySourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['policySourceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class statistics extends Model
                 $model->policySourceList = [];
                 $n1 = 0;
                 foreach ($map['policySourceList'] as $item1) {
-                    $model->policySourceList[$n1++] = policySourceList::fromMap($item1);
+                    $model->policySourceList[$n1] = policySourceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

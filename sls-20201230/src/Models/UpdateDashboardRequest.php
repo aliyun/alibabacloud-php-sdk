@@ -68,7 +68,8 @@ class UpdateDashboardRequest extends Model
                 $res['charts'] = [];
                 $n1 = 0;
                 foreach ($this->charts as $item1) {
-                    $res['charts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['charts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class UpdateDashboardRequest extends Model
                 $model->charts = [];
                 $n1 = 0;
                 foreach ($map['charts'] as $item1) {
-                    $model->charts[$n1++] = Chart::fromMap($item1);
+                    $model->charts[$n1] = Chart::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

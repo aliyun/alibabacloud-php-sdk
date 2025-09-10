@@ -42,7 +42,8 @@ class resourceDirectory extends Model
                 $res['members'] = [];
                 $n1 = 0;
                 foreach ($this->members as $item1) {
-                    $res['members'][$n1++] = $item1;
+                    $res['members'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class resourceDirectory extends Model
                 $model->members = [];
                 $n1 = 0;
                 foreach ($map['members'] as $item1) {
-                    $model->members[$n1++] = $item1;
+                    $model->members[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

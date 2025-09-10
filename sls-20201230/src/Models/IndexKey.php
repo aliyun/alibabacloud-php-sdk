@@ -116,7 +116,8 @@ class IndexKey extends Model
                 $res['token'] = [];
                 $n1 = 0;
                 foreach ($this->token as $item1) {
-                    $res['token'][$n1++] = $item1;
+                    $res['token'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +175,8 @@ class IndexKey extends Model
                 $model->token = [];
                 $n1 = 0;
                 foreach ($map['token'] as $item1) {
-                    $model->token[$n1++] = $item1;
+                    $model->token[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

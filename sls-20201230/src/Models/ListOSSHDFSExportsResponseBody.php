@@ -48,7 +48,8 @@ class ListOSSHDFSExportsResponseBody extends Model
                 $res['results'] = [];
                 $n1 = 0;
                 foreach ($this->results as $item1) {
-                    $res['results'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['results'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class ListOSSHDFSExportsResponseBody extends Model
                 $model->results = [];
                 $n1 = 0;
                 foreach ($map['results'] as $item1) {
-                    $model->results[$n1++] = OSSExport::fromMap($item1);
+                    $model->results[$n1] = OSSExport::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

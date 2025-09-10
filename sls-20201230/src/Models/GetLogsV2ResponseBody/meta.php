@@ -164,7 +164,8 @@ class meta extends Model
                 $res['columnTypes'] = [];
                 $n1 = 0;
                 foreach ($this->columnTypes as $item1) {
-                    $res['columnTypes'][$n1++] = $item1;
+                    $res['columnTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,12 +196,14 @@ class meta extends Model
                 $n1 = 0;
                 foreach ($this->highlights as $item1) {
                     if (\is_array($item1)) {
-                        $res['highlights'][$n1++] = [];
+                        $res['highlights'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['highlights'][$n1++][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            $res['highlights'][$n1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -214,7 +217,8 @@ class meta extends Model
                 $res['keys'] = [];
                 $n1 = 0;
                 foreach ($this->keys as $item1) {
-                    $res['keys'][$n1++] = $item1;
+                    $res['keys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -257,11 +261,12 @@ class meta extends Model
                 $n1 = 0;
                 foreach ($this->terms as $item1) {
                     if (\is_array($item1)) {
-                        $res['terms'][$n1++] = [];
+                        $res['terms'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['terms'][$n1++][$key2] = $value2;
+                            $res['terms'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -290,7 +295,8 @@ class meta extends Model
                 $model->columnTypes = [];
                 $n1 = 0;
                 foreach ($map['columnTypes'] as $item1) {
-                    $model->columnTypes[$n1++] = $item1;
+                    $model->columnTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -321,12 +327,14 @@ class meta extends Model
                 $n1 = 0;
                 foreach ($map['highlights'] as $item1) {
                     if (!empty($item1)) {
-                        $model->highlights[$n1++] = [];
+                        $model->highlights[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->highlights[$n1++][$n2++] = LogContent::fromMap($item2);
+                            $model->highlights[$n1][$n2] = LogContent::fromMap($item2);
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -340,7 +348,8 @@ class meta extends Model
                 $model->keys = [];
                 $n1 = 0;
                 foreach ($map['keys'] as $item1) {
-                    $model->keys[$n1++] = $item1;
+                    $model->keys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -383,11 +392,12 @@ class meta extends Model
                 $n1 = 0;
                 foreach ($map['terms'] as $item1) {
                     if (!empty($item1)) {
-                        $model->terms[$n1++] = [];
+                        $model->terms[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->terms[$n1++][$key2] = $value2;
+                            $model->terms[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
